@@ -14,13 +14,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 import javax.annotation.Nullable;
-import javax.swing.Action;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
-import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 import org.triplea.game.chat.ChatModel;
@@ -125,6 +119,13 @@ public class MainPanel extends JPanel {
     add(buttonsPanel, BorderLayout.SOUTH);
     setPreferredSize(initialSize);
     updatePlayButtonState();
+
+
+      SwingUtilities.invokeLater(() -> {
+          gameSetupPanel.setPlayButton(playButton);
+      });
+
+
   }
 
   public void loadSaveFile(final Path file) {
