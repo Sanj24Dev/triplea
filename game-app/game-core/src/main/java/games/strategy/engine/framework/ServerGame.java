@@ -2,6 +2,7 @@ package games.strategy.engine.framework;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static games.strategy.triplea.Constants.EDIT_MODE;
+import static games.strategy.triplea.ai.tripleMind.helper.logAI;
 
 import games.strategy.engine.GameOverException;
 import games.strategy.engine.data.Change;
@@ -134,6 +135,7 @@ public class ServerGame extends AbstractGame {
             assertCorrectCaller();
             gameData.performChange(change);
             historyWriter.addChange(change);
+            logAI("CHANGE", change.toString());
           }
 
           private void assertCorrectCaller() {
@@ -311,10 +313,16 @@ public class ServerGame extends AbstractGame {
 
   /** Starts the game in a new thread. */
   public void startGame() {
+    int round = 0;
     try {
       setUpGameForRunningSteps();
       while (!isGameOver) {
-        runNextStep();
+          if (round != gameData.getSequence().getRound())
+          {
+              round = gameData.getSequence().getRound();
+              logAI("INFO", "Starting Round " + round);
+          }
+          runNextStep();
       }
     } catch (final GameOverException e) {
       if (!isGameOver) {
@@ -325,7 +333,6 @@ public class ServerGame extends AbstractGame {
 
   public void setUpGameForRunningSteps() {
     // we don't want to notify that the step has been saved when reloading a saved game, since
-    // in fact the step hasn't changed, we are just resuming where we left off
     final boolean gameHasBeenSaved =
         gameData.getProperties().get(GAME_HAS_BEEN_SAVED_PROPERTY, false);
     if (!gameHasBeenSaved) {

@@ -1,5 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="HeadedGameRunner" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
+    <option name="ALTERNATIVE_JRE_PATH" value="/usr/lib/jvm/java-1.17.0-openjdk-amd64" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <option name="MAIN_CLASS_NAME" value="org.triplea.game.client.HeadedGameRunner" />
     <module name="triplea.game-app.game-headed.main" />
     <option name="VM_PARAMETERS" value="-Xss1250K -Dsun.java2d.uiScale.enabled=false --add-opens java.desktop/com.apple.eawt.event=ALL-UNNAMED" />

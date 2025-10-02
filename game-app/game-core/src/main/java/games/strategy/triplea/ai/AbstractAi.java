@@ -49,6 +49,8 @@ import org.triplea.java.collections.CollectionUtils;
 import org.triplea.java.collections.IntegerMap;
 import org.triplea.util.Tuple;
 
+import static games.strategy.triplea.ai.tripleMind.helper.logAI;
+
 /**
  * Base class for AIs.
  *
@@ -502,12 +504,14 @@ public abstract class AbstractAi extends AbstractBasePlayer {
       final String propertyName = gamePlayer.getName() + " bid";
       final int bidAmount = getGameData().getProperties().get(propertyName, 0);
       purchase(true, bidAmount, purchaseDelegate, getGameData(), gamePlayer);
+//        logAI("After purchase", gamePlayer.getName() + ": " + gamePlayer.getUnitsHeld());
     } else if (GameStep.isPurchaseStepName(name)) {
       final IPurchaseDelegate purchaseDelegate =
           (IPurchaseDelegate) getPlayerBridge().getRemoteDelegate();
       final Resource pus = getGameData().getResourceList().getResourceOrThrow(Constants.PUS);
       final int leftToSpend = gamePlayer.getResources().getQuantity(pus);
       purchase(false, leftToSpend, purchaseDelegate, getGameData(), gamePlayer);
+//        logAI("After purchase", gamePlayer.getName() + ": " + gamePlayer.getUnitsHeld());
     } else if (GameStep.isTechStepName(name)) {
       final ITechDelegate techDelegate = (ITechDelegate) getPlayerBridge().getRemoteDelegate();
       tech(techDelegate, getGameData(), gamePlayer);
@@ -516,6 +520,7 @@ public abstract class AbstractAi extends AbstractBasePlayer {
       if (!GameStepPropertiesHelper.isAirborneMove(getGameData())) {
         move(GameStep.isNonCombatMoveStepName(name), moveDel, getGameData(), gamePlayer);
       }
+
     } else if (GameStep.isBattleStepName(name)) {
       battle((IBattleDelegate) getPlayerBridge().getRemoteDelegate());
     } else if (GameStep.isPoliticsStepName(name)) {

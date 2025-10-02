@@ -4,6 +4,7 @@ import games.strategy.engine.framework.I18nEngineFramework;
 import games.strategy.engine.player.Player;
 import games.strategy.triplea.ai.fast.FastAi;
 import games.strategy.triplea.ai.pro.ProAi;
+import games.strategy.triplea.ai.tripleMind.TripleMindAi;
 import games.strategy.triplea.ai.weak.WeakAi;
 import java.util.Collection;
 import java.util.List;
@@ -38,6 +39,17 @@ public class PlayerTypes {
           return new ProAi(name, getLabel());
         }
       };
+
+
+    public static final Type TRIPLE_MIND_AI =
+            new Type(I18nEngineFramework.get().getText("startup.PlayerTypes.PLAYER_TYPE_AI_TRIPLE_MIND_LABEL")) {
+                @Override
+                public Player newPlayerWithName(final String name) {
+                    return new TripleMindAi(name, getLabel());
+                }
+            };
+
+
   public static final String PLAYER_TYPE_DEFAULT_LABEL =
       I18nEngineFramework.get().getText("startup.PlayerTypes.PLAYER_TYPE_DEFAULT_LABEL");
   public static final String PLAYER_TYPE_HUMAN_LABEL =
@@ -50,7 +62,7 @@ public class PlayerTypes {
   }
 
   public static Collection<Type> getBuiltInPlayerTypes() {
-    return List.of(PlayerTypes.WEAK_AI, PlayerTypes.FAST_AI, PlayerTypes.PRO_AI);
+    return List.of(PlayerTypes.WEAK_AI, PlayerTypes.FAST_AI, PlayerTypes.PRO_AI, PlayerTypes.TRIPLE_MIND_AI);
   }
 
   /**

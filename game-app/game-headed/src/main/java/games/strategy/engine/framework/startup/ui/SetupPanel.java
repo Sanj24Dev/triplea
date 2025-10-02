@@ -13,15 +13,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 import javax.annotation.Nullable;
-import javax.swing.Action;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
+
+import games.strategy.triplea.ai.tripleMind.helper;
 import org.triplea.game.chat.ChatModel;
 import org.triplea.game.startup.SetupModel;
 import org.triplea.swing.SwingAction;
 import org.triplea.swing.SwingComponents;
+
+import static games.strategy.triplea.ai.tripleMind.helper.getAIRoleId;
+import static games.strategy.triplea.ai.tripleMind.helper.logAI;
 
 /**
  * Headed Implementation of SetupConfiguration. This is the base-class for any panel that configures
@@ -33,6 +34,12 @@ public abstract class SetupPanel extends JPanel implements SetupModel {
       I18nEngineFramework.get().getText("startup.SetupPanel.SET_ALL_DEFAULT_LABEL");
 
   @Nullable private transient Consumer<SetupPanel> listener;
+
+    protected JButton playButton;
+
+    public void setPlayButton(JButton button) {
+        this.playButton = button;
+    }
 
   public void setPanelChangedListener(final Consumer<SetupPanel> listener) {
     this.listener = listener;
@@ -259,6 +266,27 @@ public abstract class SetupPanel extends JPanel implements SetupModel {
             }
           }
         });
+
+
+
+
+      // updated
+      SwingUtilities.invokeLater(
+              () -> {
+                  setAllTypes.setSelectedItem(I18nEngineFramework.get().getText("startup.PlayerTypes.PLAYER_TYPE_AI_FAST_LABEL"));
+                  final PlayerSelectorRow row = playerRows.get(getAIRoleId(playerRows.size()));
+                  row.setPlayerType(I18nEngineFramework.get().getText("startup.PlayerTypes.PLAYER_TYPE_AI_TRIPLE_MIND_LABEL"));
+
+                  logAI("INFO", "Role: " + row.getPlayerName());
+//                  canClickStart = 1;
+                  playButton.doClick();
+              }
+      );
+
+
+
+
+
     SwingComponents.redraw(panel);
   }
 
