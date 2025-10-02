@@ -30,6 +30,7 @@ import games.strategy.engine.framework.system.HttpProxy;
 import games.strategy.engine.framework.system.SystemProperties;
 import games.strategy.engine.framework.ui.MainFrame;
 import games.strategy.engine.framework.ui.background.BackgroundTaskRunner;
+import games.strategy.triplea.ai.tripleMind.TripleASocket;
 import games.strategy.triplea.settings.ClientSetting;
 import games.strategy.triplea.ui.MacOsIntegration;
 import games.strategy.ui.Util;
@@ -130,7 +131,7 @@ public final class HeadedGameRunner {
   }
 
   /** Entry point for running a new headed game client. */
-  public static void main(final String[] args) {
+  public static void main(final String[] args) throws Exception {
     checkNotNull(args);
     checkState(
         !GraphicsEnvironment.isHeadless(),
@@ -165,6 +166,10 @@ public final class HeadedGameRunner {
         .generateYamlFiles();
 
     log.info("Launching game, version: {} ", ProductVersionReader.getCurrentVersion());
+
+    // setup socket
+//      TripleASocket.start(5000);
+
     start();
   }
 
@@ -188,6 +193,12 @@ public final class HeadedGameRunner {
                 showMainFrame();
                 gameSelectorModel.setReadyForSaveLoad();
               });
+
+
+            // updated to start a game
+            headedServerSetupModel.showLocal();
+
+
         });
 
     UpdateChecks.launch();

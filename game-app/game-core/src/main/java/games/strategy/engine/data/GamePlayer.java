@@ -79,7 +79,18 @@ public class GamePlayer extends NamedAttachable implements NamedUnitHolder {
     technologyFrontiers = new TechnologyFrontierList(data);
   }
 
-  @Nonnull
+    @Override
+    public String getName() {
+        return super.getName();
+    }
+
+
+
+    public String getUnitsHeld() {
+      return unitsHeld.toString();
+    }
+
+    @Nonnull
   @Override
   public GameData getData() {
     // To silence warnings from @Nullable on superclass.

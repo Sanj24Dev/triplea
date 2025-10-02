@@ -1,5 +1,6 @@
 package games.strategy.triplea.settings;
 
+import static games.strategy.triplea.ai.tripleMind.helper.extractValue;
 import static java.util.function.Predicate.not;
 
 import com.google.common.annotations.VisibleForTesting;
@@ -12,6 +13,9 @@ import games.strategy.engine.framework.system.SystemProperties;
 import games.strategy.triplea.UrlConstants;
 import games.strategy.triplea.ui.screen.UnitsDrawer;
 import java.awt.Frame;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URI;
 import java.nio.file.Path;
 import java.util.Collection;
@@ -228,7 +232,42 @@ public abstract class ClientSetting<T> implements GameSetting<T> {
    * result in an {@code IllegalStateException} being thrown by methods of this class.
    */
   public static void initialize() {
-    setPreferences(Preferences.userNodeForPackage(ClientSetting.class));
+      setPreferences(Preferences.userNodeForPackage(ClientSetting.class));
+
+
+
+      // do i need to check if it is headed???
+      // default values
+      String gameName = "Zombies-World_War_2";
+      String gameUri  = "file:///home/sanjana/triplea/downloadedMaps/zombies-world_war_2/games/AAZ.xml";
+      String player_name = "RL_BOT_UNKNOWN";
+//    String iteration = "";
+
+      try {
+          StringBuilder json = new StringBuilder();
+          try (BufferedReader reader = new BufferedReader(new FileReader("/home/sanjana/triplea/triplea/config.json"))) {
+              String line;
+              while ((line = reader.readLine()) != null) {
+                  json.append(line.trim());
+              }
+          }
+
+          String jsonStr = json.toString();
+
+          gameName = extractValue(jsonStr, "DEFAULT_GAME_NAME_PREF", gameName);
+          gameUri  = extractValue(jsonStr, "DEFAULT_GAME_URI_PREF", gameUri);
+          player_name  = extractValue(jsonStr, "PLAYER_NAME", player_name);
+//      iteration  = extractValue(jsonStr, "ITERATION", iteration);
+
+      } catch (IOException e) {
+          System.err.println("Could not read config.json, using defaults: " + e.getMessage());
+      }
+
+
+      getPreferences().put("DEFAULT_GAME_NAME_PREF", gameName);
+      getPreferences().put("DEFAULT_GAME_URI_PREF", gameUri);
+      getPreferences().put("PLAYER_NAME", player_name);
+
   }
 
   /** A method exposing internals for testing purposes. */
@@ -265,7 +304,7 @@ public abstract class ClientSetting<T> implements GameSetting<T> {
     }
   }
 
-  private static Preferences getPreferences() {
+  public static Preferences getPreferences() {
     return Optional.ofNullable(preferencesRef.get())
         .orElseThrow(
             () ->

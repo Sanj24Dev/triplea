@@ -1,0 +1,327 @@
+{
+  "territories": [
+    "RussianBase",
+    "ItalianBase",
+    "GermanBase",
+    "ChineseBase",
+    "Flag",
+    "TopBar",
+    "BottomBar",
+    "LeftBar",
+    "RightBar",
+    "RussianStart",
+    "RussianStartLeft",
+    "RussianStartRight",
+    "RussianStepOne",
+    "RussianStepTwo",
+    "ItalianStart",
+    "ItalianStartLeft",
+    "ItalianStartRight",
+    "ItalianStepOne",
+    "ItalianStepTwo",
+    "GermanStart",
+    "GermanStartLeft",
+    "GermanStartRight",
+    "GermanStepOne",
+    "GermanStepTwo",
+    "ChineseStart",
+    "ChineseStartLeft",
+    "ChineseStartRight",
+    "ChineseStepOne",
+    "ChineseStepTwo"
+  ],
+  "connections": [
+    {
+      "from": "RussianBase",
+      "to": "RussianStart"
+    },
+    {
+      "from": "RussianStart",
+      "to": "RussianStartLeft"
+    },
+    {
+      "from": "RussianStart",
+      "to": "RussianStartRight"
+    },
+    {
+      "from": "RussianStart",
+      "to": "RussianStepOne"
+    },
+    {
+      "from": "RussianStepOne",
+      "to": "RussianStepTwo"
+    },
+    {
+      "from": "ItalianBase",
+      "to": "ItalianStart"
+    },
+    {
+      "from": "ItalianStart",
+      "to": "ItalianStartLeft"
+    },
+    {
+      "from": "ItalianStart",
+      "to": "ItalianStartRight"
+    },
+    {
+      "from": "ItalianStart",
+      "to": "ItalianStepOne"
+    },
+    {
+      "from": "ItalianStepOne",
+      "to": "ItalianStepTwo"
+    },
+    {
+      "from": "GermanBase",
+      "to": "GermanStart"
+    },
+    {
+      "from": "GermanStart",
+      "to": "GermanStartLeft"
+    },
+    {
+      "from": "GermanStart",
+      "to": "GermanStartRight"
+    },
+    {
+      "from": "GermanStart",
+      "to": "GermanStepOne"
+    },
+    {
+      "from": "GermanStepOne",
+      "to": "GermanStepTwo"
+    },
+    {
+      "from": "ChineseBase",
+      "to": "ChineseStart"
+    },
+    {
+      "from": "ChineseStart",
+      "to": "ChineseStartLeft"
+    },
+    {
+      "from": "ChineseStart",
+      "to": "ChineseStartRight"
+    },
+    {
+      "from": "ChineseStart",
+      "to": "ChineseStepOne"
+    },
+    {
+      "from": "ChineseStepOne",
+      "to": "ChineseStepTwo"
+    },
+    {
+      "from": "Flag",
+      "to": "RussianStepTwo"
+    },
+    {
+      "from": "Flag",
+      "to": "ItalianStepTwo"
+    },
+    {
+      "from": "Flag",
+      "to": "GermanStepTwo"
+    },
+    {
+      "from": "Flag",
+      "to": "ChineseStepTwo"
+    },
+    {
+      "from": "TopBar",
+      "to": "RussianStartLeft"
+    },
+    {
+      "from": "TopBar",
+      "to": "ItalianStartRight"
+    },
+    {
+      "from": "LeftBar",
+      "to": "RussianStartRight"
+    },
+    {
+      "from": "LeftBar",
+      "to": "ChineseStartLeft"
+    },
+    {
+      "from": "BottomBar",
+      "to": "ChineseStartRight"
+    },
+    {
+      "from": "BottomBar",
+      "to": "GermanStartLeft"
+    },
+    {
+      "from": "RightBar",
+      "to": "ItalianStartLeft"
+    },
+    {
+      "from": "RightBar",
+      "to": "GermanStartRight"
+    },
+    {
+      "from": "Flag",
+      "to": "RussianStepTwo"
+    },
+    {
+      "from": "Flag",
+      "to": "ItalianStepTwo"
+    },
+    {
+      "from": "Flag",
+      "to": "GermanStepTwo"
+    },
+    {
+      "from": "Flag",
+      "to": "ChineseStepTwo"
+    }
+  ],
+  "players": [
+    "Russians",
+    "Italians",
+    "Germans",
+    "Chinese"
+  ],
+  "units": [
+    "infantry",
+    "armour",
+    "fighter",
+    "bomber",
+    "transport",
+    "battleship",
+    "carrier",
+    "submarine",
+    "factory",
+    "aaGun",
+    "artillery",
+    "destroyer"
+  ],
+  "production_rules": {
+    "buyInfantry": {
+      "unit": "infantry",
+      "cost": 3
+    },
+    "buyArtillery": {
+      "unit": "artillery",
+      "cost": 4
+    },
+    "buyArmour": {
+      "unit": "armour",
+      "cost": 5
+    },
+    "buyFighter": {
+      "unit": "fighter",
+      "cost": 12
+    },
+    "buyBomber": {
+      "unit": "bomber",
+      "cost": 15
+    },
+    "buyAAGun": {
+      "unit": "aaGun",
+      "cost": 5
+    }
+  },
+  "starting_ownership": {
+    "RussianBase": "Russians",
+    "RussianStart": "Russians",
+    "ItalianBase": "Italians",
+    "ItalianStart": "Italians",
+    "GermanBase": "Germans",
+    "GermanStart": "Germans",
+    "ChineseBase": "Chinese",
+    "ChineseStart": "Chinese"
+  },
+  "starting_units": [
+    {
+      "unit": "infantry",
+      "territory": "Flag",
+      "quantity": 3,
+      "owner": "Neutral"
+    },
+    {
+      "unit": "factory",
+      "territory": "RussianBase",
+      "quantity": 1,
+      "owner": "Russians"
+    },
+    {
+      "unit": "armour",
+      "territory": "RussianBase",
+      "quantity": 1,
+      "owner": "Russians"
+    },
+    {
+      "unit": "infantry",
+      "territory": "RussianStart",
+      "quantity": 2,
+      "owner": "Russians"
+    },
+    {
+      "unit": "factory",
+      "territory": "ItalianBase",
+      "quantity": 1,
+      "owner": "Italians"
+    },
+    {
+      "unit": "armour",
+      "territory": "ItalianBase",
+      "quantity": 1,
+      "owner": "Italians"
+    },
+    {
+      "unit": "infantry",
+      "territory": "ItalianStart",
+      "quantity": 2,
+      "owner": "Italians"
+    },
+    {
+      "unit": "factory",
+      "territory": "GermanBase",
+      "quantity": 1,
+      "owner": "Germans"
+    },
+    {
+      "unit": "armour",
+      "territory": "GermanBase",
+      "quantity": 1,
+      "owner": "Germans"
+    },
+    {
+      "unit": "infantry",
+      "territory": "GermanStart",
+      "quantity": 2,
+      "owner": "Germans"
+    },
+    {
+      "unit": "factory",
+      "territory": "ChineseBase",
+      "quantity": 1,
+      "owner": "Chinese"
+    },
+    {
+      "unit": "armour",
+      "territory": "ChineseBase",
+      "quantity": 1,
+      "owner": "Chinese"
+    },
+    {
+      "unit": "infantry",
+      "territory": "ChineseStart",
+      "quantity": 2,
+      "owner": "Chinese"
+    }
+  ],
+  "initial_resources": {
+    "Russians": 12,
+    "Italians": 15,
+    "Germans": 18,
+    "Chinese": 21
+  },
+  "victory_cities": [
+    "RussianBase",
+    "ItalianBase",
+    "GermanBase",
+    "ChineseBase"
+  ]
+}
