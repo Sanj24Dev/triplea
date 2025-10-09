@@ -5,8 +5,7 @@ import json
 import xml.etree.ElementTree as ET
 
 
-play_rounds = 2
-
+play_rounds = 1
 
 
 def count_rounds(filename):
@@ -34,6 +33,8 @@ def main():
     process = subprocess.Popen(["./gradlew", ":game-app:game-headed:run"])
     root_log_folder = "/home/sanjana/triplea/logs/" # update this
     log_file = root_log_folder+data["PLAYER_NAME"]+"/"+data["DEFAULT_GAME_NAME_PREF"]+".log"
+
+    prev_round = -1
     
     try:
         while True:
@@ -46,8 +47,10 @@ def main():
                 process.send_signal(signal.SIGINT)
                 process.terminate()
                 break
-            else:
+            if prev_round != rounds:
+                prev_round = rounds
                 print("Playing round ", rounds)
+
             # time.sleep(1)
     except KeyboardInterrupt:
         print("Keyboard interrupt\n")
