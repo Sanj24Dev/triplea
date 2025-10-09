@@ -1,3 +1,4 @@
+import itertools
 import socket
 import json
 # import numpy as np
@@ -62,7 +63,7 @@ def parse_triplea_map(xml_path, output_path):
         name = rule.attrib["name"]
         cost = int(rule.find("cost").attrib["quantity"])
         unit = rule.find("result").attrib["resourceOrUnit"]
-        production_rules[name] = {"unit": unit, "cost": cost}
+        production_rules[name] = {"unit": unit, "cost": cost}               # add attack | movement | defense
 
     # --- Extract Starting Territory Ownership ---
     starting_ownership = {
@@ -122,7 +123,13 @@ class CaptureTheFlagGraph:
 
         # Build initial graph
         self.G = nx.Graph()
+        self.production_rules = {}  # e.g., {"infantry": {"cost": 3, "attack": 1, "defense": 2, ...}}
+        self.victory_cities = set()
+        self.unit_info = {}  # general unit metadata (range, move type, etc.)
+        self.turn_number = 1
+
         self._build_graph()
+        self._load_metadata()
 
         #  only for display - can remove
         self.pos = nx.spring_layout(self.G, seed=42)
@@ -163,9 +170,23 @@ class CaptureTheFlagGraph:
         for owner, pu in self.data.get("initial_resources", {}).items():
             self.G.owners[owner] = {
                 "name": owner,
-                "PU": pu,
+                "PU": int(pu),
                 "unplaced": {}  # dict of units -> qty
             }
+
+    def _load_metadata(self):
+        for key, rule in self.data["production_rules"].items():
+            unit_name = rule["unit"]
+            self.production_rules[unit_name] = {
+                "cost": rule["cost"],
+                "attack": rule.get("attack", 0),
+                "defense": rule.get("defense", 0),
+                "move": rule.get("move", 1),
+                "type": rule.get("type", "land")
+            }
+
+        self.unit_info = self.data.get("units", {})
+        self.victory_cities = set(self.data.get("victory_cities", []))
 
 
     #  only for display - can remove
@@ -382,6 +403,7 @@ class CaptureTheFlagGraph:
 
     def update_pus(self, player, qty):
         self.G.owners[player]["PU"] += qty
+        print(f"Updated resources for {player}: {self.G.owners[player]["PU"]}")
 
     def add_battle_record(self, player, battle_id, territory):
         """
@@ -479,8 +501,6 @@ class CaptureTheFlagGraph:
             qty, player = m.groups()
             qty = int(qty)
             ctf.update_pus(player, qty)
-            # ctf.G.graph.setdefault("resources", {})[player] = qty
-            print(f"Updated resources for {player}: {ctf.G.owners[player]["name"]}")
             return
 
         # # --- Property change ---
@@ -495,11 +515,72 @@ class CaptureTheFlagGraph:
             # ctf.update_unit_property(unit.strip(), owner.strip(), prop.strip(), new_val.strip())
             return
 
+    def get_factories(self, player):
+        factories = []
+        for territory, data in self.G.nodes(data=True):
+            for unit in data["units"]:
+                if unit["owner"] == player and unit["unit"] == "factory":
+                    factories.append(territory)
+        return factories
+    
+    def get_player_resources(self, player):
+        return self.G.owners[player]["PU"]
+    
 
-        
+def generate_legal_purchase_moves(ctf, player):
+    rules = ctf.production_rules
+    resources = ctf.get_player_resources(player)
+    factories = ctf.get_factories(player)
 
-        
+    if not factories:
+        return []  # can't build if no factory
 
+    # Extract unit costs
+    units = [(name, data["cost"]) for name, data in rules.items()]
+
+    legal_moves = []
+
+    # brute force: try buying up to floor(resources/min_cost) units
+    min_cost = min(cost for _, cost in units)
+    max_units = resources // min_cost
+
+    # We generate combinations of units with repetition
+    for r in range(1, max_units + 1):
+        for combo in itertools.combinations_with_replacement(units, r):
+            total_cost = sum(cost for _, cost in combo)
+            if total_cost <= resources:
+                purchase_dict = {}
+                for unit, cost in combo:
+                    purchase_dict[unit] = purchase_dict.get(unit, 0) + 1
+                # Each purchase is assigned to a factory (simplest: evenly distribute) 
+                legal_moves.append({
+                    "purchase": purchase_dict,
+                    "cost": total_cost,
+                    "place_in": factories  # player chooses where later - not necessary to mention as it always is placed in a factory
+                })
+
+    return legal_moves
+
+def print_legal_moves(moves):
+    for move in moves:
+        print(f"Purchase: {move['purchase']}, Cost: {move['cost']}, Place in: {move['place_in']}")
+
+def convert_action_to_json(move, move_type):
+    actions = []
+    place_in = move.get("place_in", [])
+    if not place_in:
+        raise ValueError("Missing 'place_in' in move")
+
+    target_location = place_in[0]  # Assuming one placement location
+    for unit, qty in move.get("purchase", {}).items():
+        for _ in range(qty):
+            actions.append({
+                "delegate": move_type,
+                "unit": unit,
+                "from": "",
+                "to": target_location
+            })
+    return actions
 
 
 class OnlineGreedyAgent:
@@ -543,10 +624,31 @@ class OnlineGreedyAgent:
 
     #     return best_action
 
-    def get_move(line : str):
-        x = 1
+    def get_move(self, line):
+        line = line.strip()
+        print("\n")
         print(line)
-        # use regex to find what move am i playing, then predict the action
+        
+
+        m = re.search(r"\[MY_MOVE\] (\w+)", line)
+        if m:
+            move_type = m.group(1)
+            if move_type == "purchase":
+                legal_moves = generate_legal_purchase_moves(ctf, ctf.whoAmI)
+                # print_legal_moves(legal_moves)
+                if legal_moves:
+                    move = random.choice(legal_moves)
+                    response = convert_action_to_json(move, "purchase")
+                    
+                else:
+                    print("No legal purchase moves available.")
+                    response = "ACK"
+            else:
+                print("Unsupported move type:", move_type)
+                response = "ACK"
+
+        print("\n")
+        return response
 
 
 
@@ -563,7 +665,6 @@ def agent_loop(state_dim, host="127.0.0.1", port=5000):
 
     ctf.draw()
 
-
     try:
         while True:
             conn, addr = sock.accept()
@@ -577,13 +678,22 @@ def agent_loop(state_dim, host="127.0.0.1", port=5000):
                         break
                     buffer += data.decode()
 
-                if buffer.startswith("[MY_MOVE]"):
-                    print(buffer)
-                    # send back actions
-                    # agent.get_move(buffer)
-                else:
-                    ctf.apply_change_line(buffer, 0)
-                ctf.draw()
+                    while "\n" in buffer:
+                        msg, buffer = buffer.split("\n", 1)
+                        msg = msg.strip()
+                        if not msg:
+                            continue
+
+                        if msg.startswith("[MY_MOVE]"):
+                            response = agent.get_move(msg)
+                        else:
+                            ctf.apply_change_line(msg, 0)
+                            response = "ACK"
+
+                        print("Sending:", response)
+                        conn.send((json.dumps(response) + "\n").encode("utf-8"))
+                        ctf.draw()
+
 
     except KeyboardInterrupt:
         sock.close()
@@ -623,6 +733,9 @@ output_file = "gameInfo/" + data["DEFAULT_GAME_NAME_PREF"]+".json"  # Output JSO
 
 parse_triplea_map(xml_file, output_file)
 
+with open(output_file, "r") as f:
+    game_data = json.load(f)
+
 ctf = CaptureTheFlagGraph("gameInfo/Capture The Flag.json")
 
 agent_loop(10)
@@ -631,29 +744,13 @@ ts = time.strftime("%Y%m%d_%H%M%S")
 
 # Save graph structure as JSON
 json_file = f"final_graph_{ts}.json"
-with open(json_file, "w") as f:
-    json.dump(nx.node_link_data(ctf.G), f, indent=2)
+# with open(json_file, "w") as f:
+#     json.dump(nx.node_link_data(ctf.G), f, indent=2)
 print(f"Graph structure saved as {json_file}")
 
 # Save figure as PNG
 img_file = f"final_graph_{ts}.png"
-ctf.fig.savefig(img_file, dpi=300, bbox_inches="tight")
+# ctf.fig.savefig(img_file, dpi=300, bbox_inches="tight")
 print(f"Graph exported as {img_file}")
 print("\nShutting down...")
 
-# conn, addr = server_socket.accept()
-# print("Client connected from", addr)
-
-# with conn:
-#     buffer = ""
-#     while True:
-#         data = conn.recv(1024)
-#         if not data:
-#             break
-#         buffer += data.decode()
-#         # Expect newline-delimited CHANGE lines
-#         while "\n" in buffer:
-#             line, buffer = buffer.split("\n", 1)
-#             if line.startswith("CHANGE"):
-#                 gs.update_from_line(line)
-#                 print("Current state vector:", gs.vectorize())
