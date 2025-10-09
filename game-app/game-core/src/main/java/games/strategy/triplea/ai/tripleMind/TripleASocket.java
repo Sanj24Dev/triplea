@@ -38,13 +38,13 @@ public class TripleASocket {
 
             // send one JSON message
             out.println(stateJson);
-            System.out.println("State sent: " + stateJson);
+//            System.out.println("State sent: " + stateJson);
 
             // ✅ read exactly one line (one JSON message)
             response = in.readLine();
-            if (response != null) {
-                System.out.println("Received: " + response);
-            }
+//            if (response != null) {
+//                System.out.println("Received: " + response);
+//            }
 
         } catch (IOException e) {
             e.printStackTrace();
