@@ -71,8 +71,8 @@ public class helper {
             System.err.println(("Failed to write log: " + e.getMessage()));
         }
 
-        TripleASocket.sendState("[" + type + "] " + msg);
-//        String response = TripleASocket.sendAndRead("[" + type + "] " + msg);
+//        TripleASocket.sendState("[" + type + "] " + msg);
+        String response = TripleASocket.sendAndRead("[" + type + "] " + msg);
     }
 
     public static String requestMove(String move) {
@@ -98,7 +98,10 @@ public class helper {
         }
 //        TripleASocket.sendState("[MY_MOVE] " + move);
 //        return "";
-        return TripleASocket.sendAndRead("[MY_MOVE] " + move);
+        System.out.println("Request sent: [MY_MOVE] " + move);
+        String response = TripleASocket.sendAndRead("[MY_MOVE] " + move);
+        System.out.println("Received move: " + response);
+        return response;
     }
 
 }
