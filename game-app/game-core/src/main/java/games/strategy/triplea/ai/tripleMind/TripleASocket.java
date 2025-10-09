@@ -20,35 +20,39 @@ public class TripleASocket {
             out.println(stateJson);
 
             // Optionally keep alive
-            System.out.println("Messages sent to server");
+//            System.out.println("State sent: " + stateJson);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void sendAndRead(String stateJson) {
+    public static String sendAndRead(String stateJson) {
         String host = "127.0.0.1";
         int port = 5000;
+        String response = "";
 
         try (Socket socket = new Socket(host, port);
              PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
              BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 
-            // send
+            // send one JSON message
             out.println(stateJson);
-            System.out.println("Message sent: " + stateJson);
+            System.out.println("State sent: " + stateJson);
 
-            // read response
-            String response;
-            while ((response = in.readLine()) != null) {
+            // ✅ read exactly one line (one JSON message)
+            response = in.readLine();
+            if (response != null) {
                 System.out.println("Received: " + response);
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return response;
     }
+
 
 
 }

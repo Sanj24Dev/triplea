@@ -226,136 +226,138 @@ class ProPurchaseAi {
     return purchaseTerritories;
   }
 
-  Map<Territory, ProPurchaseTerritory> purchase(
-      final IPurchaseDelegate purchaseDelegate, final GameState startOfTurnData) {
-    // Current data fields
-    data = proData.getData();
-    this.startOfTurnData = startOfTurnData;
-    player = proData.getPlayer();
-    resourceTracker = new ProResourceTracker(player);
-    territoryManager = new ProTerritoryManager(calc, proData);
-    isBid = false;
-    final ProPurchaseOptionMap purchaseOptions = proData.getPurchaseOptions();
+    @SuppressWarnings("unchecked")
+    Map<Territory, ProPurchaseTerritory> purchase(
+            final IPurchaseDelegate purchaseDelegate, final GameState startOfTurnData) {
+        // Current data fields
+        data = proData.getData();
+        this.startOfTurnData = startOfTurnData;
+        player = proData.getPlayer();
+        resourceTracker = new ProResourceTracker(player);
+        territoryManager = new ProTerritoryManager(calc, proData);
+        isBid = false;
+        final ProPurchaseOptionMap purchaseOptions = proData.getPurchaseOptions();
 
-    ProLogger.info("Starting purchase phase with resources: " + resourceTracker);
-    if (!player.getUnits().isEmpty()) {
-      ProLogger.info("Starting purchase phase with unplaced units=" + player.getUnits());
+        ProLogger.info("Starting purchase phase with resources: " + resourceTracker);
+        if (!player.getUnits().isEmpty()) {
+            ProLogger.info("Starting purchase phase with unplaced units=" + player.getUnits());
+        }
+
+        // Find all purchase/place territories
+        final Map<Territory, ProPurchaseTerritory> purchaseTerritories =
+                ProPurchaseUtils.findPurchaseTerritories(proData, player);
+        final Set<Territory> placeTerritories =
+                new HashSet<>(
+                        CollectionUtils.getMatches(
+                                data.getMap().getTerritoriesOwnedBy(player), Matches.territoryIsLand()));
+        for (final ProPurchaseTerritory t : purchaseTerritories.values()) {
+            for (final ProPlaceTerritory ppt : t.getCanPlaceTerritories()) {
+                placeTerritories.add(ppt.getTerritory());
+            }
+        }
+
+        // Determine max enemy attack units and current allied defenders
+        territoryManager.populateEnemyAttackOptions(List.of(), placeTerritories);
+        findDefendersInPlaceTerritories(purchaseTerritories);
+
+        // Prioritize land territories that need defended and purchase additional defenders
+        final List<ProPlaceTerritory> needToDefendLandTerritories =
+                prioritizeTerritoriesToDefend(purchaseTerritories, true);
+        purchaseDefenders(
+                purchaseTerritories,
+                needToDefendLandTerritories,
+                purchaseOptions.getLandFodderOptions(),
+                purchaseOptions.getLandZeroMoveOptions(),
+                purchaseOptions.getAirOptions(),
+                true);
+
+        // Find strategic value for each territory
+        ProLogger.info("Find strategic value for place territories");
+        final Set<Territory> territoriesToCheck = new HashSet<>();
+        for (final Territory t : purchaseTerritories.keySet()) {
+            for (final ProPlaceTerritory ppt : purchaseTerritories.get(t).getCanPlaceTerritories()) {
+                territoriesToCheck.add(ppt.getTerritory());
+            }
+        }
+        final Map<Territory, Double> territoryValueMap =
+                ProTerritoryValueUtils.findTerritoryValues(
+                        proData, player, List.of(), List.of(), territoriesToCheck);
+        for (final Territory t : purchaseTerritories.keySet()) {
+            for (final ProPlaceTerritory ppt : purchaseTerritories.get(t).getCanPlaceTerritories()) {
+                ppt.setStrategicValue(territoryValueMap.get(ppt.getTerritory()));
+                ProLogger.debug(
+                        ppt.getTerritory() + ", strategicValue=" + territoryValueMap.get(ppt.getTerritory()));
+            }
+        }
+
+        // Prioritize land place options purchase AA then land units
+        final List<ProPlaceTerritory> prioritizedLandTerritories =
+                prioritizeLandTerritories(purchaseTerritories);
+        purchaseAaUnits(
+                purchaseTerritories, prioritizedLandTerritories, purchaseOptions.getAaOptions());
+        purchaseLandUnits(purchaseTerritories, prioritizedLandTerritories, purchaseOptions);
+
+        // Prioritize sea territories that need defended and purchase additional defenders
+        final List<ProPlaceTerritory> needToDefendSeaTerritories =
+                prioritizeTerritoriesToDefend(purchaseTerritories, false);
+        purchaseDefenders(
+                purchaseTerritories,
+                needToDefendSeaTerritories,
+                purchaseOptions.getSeaDefenseOptions(),
+                List.of(),
+                purchaseOptions.getAirOptions(),
+                false);
+
+        // Determine whether to purchase new land factory
+        final Map<Territory, ProPurchaseTerritory> factoryPurchaseTerritories = new HashMap<>();
+        purchaseFactory(
+                factoryPurchaseTerritories,
+                purchaseTerritories,
+                prioritizedLandTerritories,
+                purchaseOptions,
+                false);
+
+        // Prioritize sea place options and purchase units
+        final List<ProPlaceTerritory> prioritizedSeaTerritories =
+                prioritizeSeaTerritories(purchaseTerritories);
+        final boolean shouldSaveUpForAFleet =
+                purchaseSeaAndAmphibUnits(purchaseTerritories, prioritizedSeaTerritories, purchaseOptions);
+
+        // Try to use any remaining PUs on high value units, except if we need to save up for a fleet.
+        if (!shouldSaveUpForAFleet) {
+            purchaseUnitsWithRemainingProduction(
+                    purchaseTerritories, purchaseOptions.getLandOptions(), purchaseOptions.getAirOptions());
+
+            upgradeUnitsWithRemainingPUs(purchaseTerritories, purchaseOptions);
+
+            // Try to purchase land/sea factory with extra PUs
+            purchaseFactory(
+                    factoryPurchaseTerritories,
+                    purchaseTerritories,
+                    prioritizedLandTerritories,
+                    purchaseOptions,
+                    true);
+        }
+
+        // Add factory purchase territory to list
+        purchaseTerritories.putAll(factoryPurchaseTerritories);
+
+        // Determine final count of each production rule
+        final IntegerMap<ProductionRule> purchaseMap =
+                populateProductionRuleMap(purchaseTerritories, purchaseOptions);
+
+        // Purchase units
+        final String error = purchaseDelegate.purchase(purchaseMap);
+        if (error != null) {
+            ProLogger.warn("Purchase error: " + error);
+        }
+
+        territoryManager = null;
+        return purchaseTerritories;
     }
 
-    // Find all purchase/place territories
-    final Map<Territory, ProPurchaseTerritory> purchaseTerritories =
-        ProPurchaseUtils.findPurchaseTerritories(proData, player);
-    final Set<Territory> placeTerritories =
-        new HashSet<>(
-            CollectionUtils.getMatches(
-                data.getMap().getTerritoriesOwnedBy(player), Matches.territoryIsLand()));
-    for (final ProPurchaseTerritory t : purchaseTerritories.values()) {
-      for (final ProPlaceTerritory ppt : t.getCanPlaceTerritories()) {
-        placeTerritories.add(ppt.getTerritory());
-      }
-    }
 
-    // Determine max enemy attack units and current allied defenders
-    territoryManager.populateEnemyAttackOptions(List.of(), placeTerritories);
-    findDefendersInPlaceTerritories(purchaseTerritories);
-
-    // Prioritize land territories that need defended and purchase additional defenders
-    final List<ProPlaceTerritory> needToDefendLandTerritories =
-        prioritizeTerritoriesToDefend(purchaseTerritories, true);
-    purchaseDefenders(
-        purchaseTerritories,
-        needToDefendLandTerritories,
-        purchaseOptions.getLandFodderOptions(),
-        purchaseOptions.getLandZeroMoveOptions(),
-        purchaseOptions.getAirOptions(),
-        true);
-
-    // Find strategic value for each territory
-    ProLogger.info("Find strategic value for place territories");
-    final Set<Territory> territoriesToCheck = new HashSet<>();
-    for (final Territory t : purchaseTerritories.keySet()) {
-      for (final ProPlaceTerritory ppt : purchaseTerritories.get(t).getCanPlaceTerritories()) {
-        territoriesToCheck.add(ppt.getTerritory());
-      }
-    }
-    final Map<Territory, Double> territoryValueMap =
-        ProTerritoryValueUtils.findTerritoryValues(
-            proData, player, List.of(), List.of(), territoriesToCheck);
-    for (final Territory t : purchaseTerritories.keySet()) {
-      for (final ProPlaceTerritory ppt : purchaseTerritories.get(t).getCanPlaceTerritories()) {
-        ppt.setStrategicValue(territoryValueMap.get(ppt.getTerritory()));
-        ProLogger.debug(
-            ppt.getTerritory() + ", strategicValue=" + territoryValueMap.get(ppt.getTerritory()));
-      }
-    }
-
-    // Prioritize land place options purchase AA then land units
-    final List<ProPlaceTerritory> prioritizedLandTerritories =
-        prioritizeLandTerritories(purchaseTerritories);
-    purchaseAaUnits(
-        purchaseTerritories, prioritizedLandTerritories, purchaseOptions.getAaOptions());
-    purchaseLandUnits(purchaseTerritories, prioritizedLandTerritories, purchaseOptions);
-
-    // Prioritize sea territories that need defended and purchase additional defenders
-    final List<ProPlaceTerritory> needToDefendSeaTerritories =
-        prioritizeTerritoriesToDefend(purchaseTerritories, false);
-    purchaseDefenders(
-        purchaseTerritories,
-        needToDefendSeaTerritories,
-        purchaseOptions.getSeaDefenseOptions(),
-        List.of(),
-        purchaseOptions.getAirOptions(),
-        false);
-
-    // Determine whether to purchase new land factory
-    final Map<Territory, ProPurchaseTerritory> factoryPurchaseTerritories = new HashMap<>();
-    purchaseFactory(
-        factoryPurchaseTerritories,
-        purchaseTerritories,
-        prioritizedLandTerritories,
-        purchaseOptions,
-        false);
-
-    // Prioritize sea place options and purchase units
-    final List<ProPlaceTerritory> prioritizedSeaTerritories =
-        prioritizeSeaTerritories(purchaseTerritories);
-    final boolean shouldSaveUpForAFleet =
-        purchaseSeaAndAmphibUnits(purchaseTerritories, prioritizedSeaTerritories, purchaseOptions);
-
-    // Try to use any remaining PUs on high value units, except if we need to save up for a fleet.
-    if (!shouldSaveUpForAFleet) {
-      purchaseUnitsWithRemainingProduction(
-          purchaseTerritories, purchaseOptions.getLandOptions(), purchaseOptions.getAirOptions());
-
-      upgradeUnitsWithRemainingPUs(purchaseTerritories, purchaseOptions);
-
-      // Try to purchase land/sea factory with extra PUs
-      purchaseFactory(
-          factoryPurchaseTerritories,
-          purchaseTerritories,
-          prioritizedLandTerritories,
-          purchaseOptions,
-          true);
-    }
-
-    // Add factory purchase territory to list
-    purchaseTerritories.putAll(factoryPurchaseTerritories);
-
-    // Determine final count of each production rule
-    final IntegerMap<ProductionRule> purchaseMap =
-        populateProductionRuleMap(purchaseTerritories, purchaseOptions);
-
-    // Purchase units
-    final String error = purchaseDelegate.purchase(purchaseMap);
-    if (error != null) {
-      ProLogger.warn("Purchase error: " + error);
-    }
-
-    territoryManager = null;
-    return purchaseTerritories;
-  }
-
-  private boolean shouldSaveUpForAFleet(
+    private boolean shouldSaveUpForAFleet(
       final ProPurchaseOptionMap purchaseOptions,
       final Map<Territory, ProPurchaseTerritory> purchaseTerritories) {
     if (resourceTracker.isEmpty()

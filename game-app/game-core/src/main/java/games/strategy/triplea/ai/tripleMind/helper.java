@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
 
+
+
 import static games.strategy.triplea.settings.ClientSetting.getPreferences;
 
 
@@ -70,10 +72,10 @@ public class helper {
         }
 
         TripleASocket.sendState("[" + type + "] " + msg);
-//        TripleASocket.sendAndRead("[" + type + "] " + msg);
+//        String response = TripleASocket.sendAndRead("[" + type + "] " + msg);
     }
 
-    public static void requestMove(String move) {
+    public static String requestMove(String move) {
         String filename = getLogFileName();
         File logFile = new File(filename);
         try {
@@ -86,7 +88,7 @@ public class helper {
             }
             try {
                 PrintWriter writer = new PrintWriter(new FileWriter(logFile, true));
-                writer.println("[MY_MOVE] "  + java.time.LocalDateTime.now() + " - " + move);
+                writer.println("[MY_MOVE] " + java.time.LocalDateTime.now() + " - " + move);
                 writer.close();
             } catch (IOException e) {
                 System.err.println(("Failed to write log: " + e.getMessage()));
@@ -94,8 +96,9 @@ public class helper {
         } catch (Exception e) {
             System.err.println(("Failed to write log: " + e.getMessage()));
         }
-        TripleASocket.sendState("[MY_MOVE] " + move);
-//        TripleASocket.sendAndRead("[MY_MOVE] " + move);
+//        TripleASocket.sendState("[MY_MOVE] " + move);
+//        return "";
+        return TripleASocket.sendAndRead("[MY_MOVE] " + move);
     }
 
 }
