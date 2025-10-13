@@ -182,7 +182,7 @@ public final class ProPurchaseUtils {
     return purchaseTerritories;
   }
 
-  private static int getUnitProduction(final Territory territory, final GamePlayer player) {
+  public static int getUnitProduction(final Territory territory, final GamePlayer player) {
     final Predicate<Unit> factoryMatch =
         Matches.unitIsOwnedAndIsFactoryOrCanProduceUnits(player)
             .and(Matches.unitIsBeingTransported().negate())

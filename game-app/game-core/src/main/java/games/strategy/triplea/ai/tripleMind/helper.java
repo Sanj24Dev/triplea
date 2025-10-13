@@ -10,6 +10,12 @@ import java.util.Random;
 
 import static games.strategy.triplea.settings.ClientSetting.getPreferences;
 
+class Action {
+    String delegate;
+    String unit;
+    String from;
+    String to;
+}
 
 public class helper {
     static String log_folder = "/home/sanjana/triplea/logs/";       // update with your log file name
