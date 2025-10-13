@@ -196,6 +196,61 @@
     "artillery",
     "destroyer"
   ],
+  "unit_stats": {
+    "infantry": {
+      "movement": 1,
+      "attack": 1,
+      "defense": 2
+    },
+    "artillery": {
+      "movement": 1,
+      "attack": 2,
+      "defense": 2
+    },
+    "armour": {
+      "movement": 2,
+      "attack": 3,
+      "defense": 2
+    },
+    "fighter": {
+      "movement": 4,
+      "attack": 3,
+      "defense": 4
+    },
+    "bomber": {
+      "movement": 6,
+      "attack": 4,
+      "defense": 1
+    },
+    "transport": {
+      "movement": 2,
+      "attack": 0,
+      "defense": 1
+    },
+    "destroyer": {
+      "movement": 2,
+      "attack": 3,
+      "defense": 3
+    },
+    "battleship": {
+      "movement": 2,
+      "attack": 4,
+      "defense": 4
+    },
+    "carrier": {
+      "movement": 2,
+      "attack": 1,
+      "defense": 3
+    },
+    "submarine": {
+      "movement": 2,
+      "attack": 2,
+      "defense": 2
+    },
+    "aaGun": {
+      "movement": 1
+    }
+  },
   "production_rules": {
     "buyInfantry": {
       "unit": "infantry",

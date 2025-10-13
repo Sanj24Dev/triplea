@@ -1,23 +1,19 @@
 package games.strategy.triplea.ai.tripleMind;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import games.strategy.engine.data.*;
-import games.strategy.engine.delegate.IDelegateBridge;
 import games.strategy.engine.framework.GameDataManager;
 import games.strategy.engine.framework.GameDataUtils;
 import games.strategy.triplea.Properties;
 import games.strategy.triplea.ai.AbstractAi;
-import games.strategy.triplea.ai.tripleMind.data.ProBattleResult;
-import games.strategy.triplea.ai.tripleMind.data.ProPurchaseTerritory;
-import games.strategy.triplea.ai.tripleMind.data.ProTerritory;
+import games.strategy.triplea.ai.tripleMind.data.*;
 import games.strategy.triplea.ai.tripleMind.logging.ProLogUi;
 import games.strategy.triplea.ai.tripleMind.logging.ProLogger;
-import games.strategy.triplea.ai.tripleMind.simulate.ProDummyDelegateBridge;
-import games.strategy.triplea.ai.tripleMind.simulate.ProSimulateTurnUtils;
 import games.strategy.triplea.ai.tripleMind.util.*;
 import games.strategy.triplea.attachments.PoliticalActionAttachment;
 import games.strategy.triplea.delegate.DiceRoll;
 import games.strategy.triplea.delegate.Matches;
-import games.strategy.triplea.delegate.PoliticsDelegate;
 import games.strategy.triplea.delegate.battle.BattleDelegate;
 import games.strategy.triplea.delegate.battle.IBattle;
 import games.strategy.triplea.delegate.battle.IBattle.BattleType;
@@ -29,18 +25,17 @@ import games.strategy.triplea.delegate.remote.IPurchaseDelegate;
 import games.strategy.triplea.delegate.remote.ITechDelegate;
 import games.strategy.triplea.odds.calculator.IBattleCalculator;
 import lombok.Getter;
-import org.triplea.java.collections.CollectionUtils;
+import org.triplea.java.collections.IntegerMap;
 import org.triplea.util.Tuple;
 
+import java.lang.reflect.Type;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.*;
 
-import static games.strategy.triplea.ai.tripleMind.helper.logAI;
 import static games.strategy.triplea.ai.tripleMind.helper.requestMove;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import static games.strategy.triplea.ai.tripleMind.util.ProPurchaseUtils.getUnitProduction;
+
 /** Pro AI. */
 public abstract class AbstractTripleMindAi extends AbstractAi {
 
@@ -161,146 +156,192 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
       final GamePlayer player) {
 
 
-    String action = requestMove("purchase");
+    String actions = requestMove("purchase");
 
 
 
 
 
-//    final long start = System.currentTimeMillis();
-//    ProLogUi.notifyStartOfRound(data.getSequence().getRound(), player.getName());
-//    initializeData();
-//    if (pusToSpend <= 0) {
-//      return;
-//    }
-//    if (purchaseForBid) {
-//      prepareData(data);
-//      storedPurchaseTerritories = purchaseAi.bid(pusToSpend, purchaseDelegate, data);
-//    } else {
-//      // Repair factories
-//      purchaseAi.repair(pusToSpend, purchaseDelegate, data, player);
-//
-//      // Check if any place territories exist
-//      final Map<Territory, ProPurchaseTerritory> purchaseTerritories =
-//          ProPurchaseUtils.findPurchaseTerritories(proData, player);
-//      final List<Territory> possibleFactoryTerritories =
-//          CollectionUtils.getMatches(
-//              data.getMap().getTerritories(),
-//              ProMatches.territoryHasNoInfraFactoryAndIsNotConqueredOwnedLand(player));
-//      if (purchaseTerritories.isEmpty() && possibleFactoryTerritories.isEmpty()) {
-//        ProLogger.info("No possible place or factory territories owned so exiting purchase logic");
-//        return;
+    final long start = System.currentTimeMillis();
+    ProLogUi.notifyStartOfRound(data.getSequence().getRound(), player.getName());
+    initializeData();
+    if (pusToSpend <= 0) {
+      return;
+    }
+    if (purchaseForBid) {
+      prepareData(data);
+      storedPurchaseTerritories = purchaseAi.bid(pusToSpend, purchaseDelegate, data);
+    } else {
+      // Repair factories
+      purchaseAi.repair(pusToSpend, purchaseDelegate, data, player);
+
+        final ProPurchaseOptionMap purchaseOptions = proData.getPurchaseOptions();
+        Gson gson = new Gson();
+        Type actionListType = new TypeToken<List<Action>>(){}.getType();
+        List<Action> actionsList = gson.fromJson(actions, actionListType);
+        final Map<Territory, ProPurchaseTerritory> purchaseTerritories = new HashMap<>();
+        for (Action a : actionsList) {
+            Territory t = data.getMap().getTerritoryOrNull(a.to);
+            if (t == null) continue;
+            if (!purchaseTerritories.containsKey(t)) {
+                int unitProd = getUnitProduction(t, player);
+                ProPurchaseTerritory ppt = new ProPurchaseTerritory(t, data, player, unitProd);
+                purchaseTerritories.put(t, ppt);
+            }
+            ProPurchaseTerritory ppt = purchaseTerritories.get(t);
+            Optional<UnitType> unitType = data.getUnitTypeList().getUnitType(a.unit);
+            Unit unit = unitType.get().create(player);
+            if (ppt.getCanPlaceTerritories().isEmpty()) {
+//                ppt.getCanPlaceTerritories().add(new ProPlaceTerritory(t, data, player));
+                ppt.getCanPlaceTerritories().add(new ProPlaceTerritory(t));
+            }
+            ppt.getCanPlaceTerritories().get(0).getPlaceUnits().add(unit);
+        }
+
+        final IntegerMap<ProductionRule> purchaseMap =
+                productionRuleMap(purchaseTerritories, purchaseOptions, player);
+
+        // Purchase units
+        final String error = purchaseDelegate.purchase(purchaseMap);
+        if (error != null) {
+            ProLogger.warn("Purchase error: " + error);
+        }
+
+    }
+    ProLogger.info(player.getName() + " time for purchase=" + (System.currentTimeMillis() - start));
+
+
+
+//      final long start = System.currentTimeMillis();
+//      ProLogUi.notifyStartOfRound(data.getSequence().getRound(), player.getName());
+//      initializeData();
+//      if (pusToSpend <= 0) {
+//          return;
 //      }
-//      storedPurchaseTerritories = purchaseAi.purchase(purchaseDelegate, data, action);
+//      if (purchaseForBid) {
+//          prepareData(data);
+//          storedPurchaseTerritories = purchaseAi.bid(pusToSpend, purchaseDelegate, data);
+//      } else {
+//          // Repair factories
+//          purchaseAi.repair(pusToSpend, purchaseDelegate, data, player);
 //
-//    }
-//    ProLogger.info(player.getName() + " time for purchase=" + (System.currentTimeMillis() - start));
-
-
-
-      final long start = System.currentTimeMillis();
-      ProLogUi.notifyStartOfRound(data.getSequence().getRound(), player.getName());
-      initializeData();
-      if (pusToSpend <= 0) {
-          return;
-      }
-      if (purchaseForBid) {
-          prepareData(data);
-          storedPurchaseTerritories = purchaseAi.bid(pusToSpend, purchaseDelegate, data);
-      } else {
-          // Repair factories
-          purchaseAi.repair(pusToSpend, purchaseDelegate, data, player);
-
-          // Check if any place territories exist
-          final Map<Territory, ProPurchaseTerritory> purchaseTerritories =
-                  ProPurchaseUtils.findPurchaseTerritories(proData, player);
-          final List<Territory> possibleFactoryTerritories =
-                  CollectionUtils.getMatches(
-                          data.getMap().getTerritories(),
-                          ProMatches.territoryHasNoInfraFactoryAndIsNotConqueredOwnedLand(player));
-          if (purchaseTerritories.isEmpty() && possibleFactoryTerritories.isEmpty()) {
-              ProLogger.info("No possible place or factory territories owned so exiting purchase logic");
-              return;
-          }
-          ProLogger.info("Starting simulation for purchase phase");
-
-          // Setup data copy and delegates
-          final GameData dataCopy = copyData(data);
-          if (dataCopy == null) {
-              return;
-          }
-          final GamePlayer playerCopy = dataCopy.getPlayerList().getPlayerId(player.getName());
-          final IMoveDelegate moveDel = dataCopy.getMoveDelegate();
-          final IDelegateBridge bridge = new ProDummyDelegateBridge(this, playerCopy, dataCopy);
-          moveDel.setDelegateBridgeAndPlayer(bridge);
-
-          // Simulate the next phases until place/end of turn is reached then use simulated data for
-          // purchase
-          final GameSequence sequence = dataCopy.getSequence();
-          final int nextStepIndex = sequence.getStepIndex() + 1;
-          final List<GameStep> gameSteps = getGameStepsForPlayer(dataCopy, playerCopy, nextStepIndex);
-          for (final GameStep step : gameSteps) {
-              sequence.setRoundAndStep(sequence.getRound(), step.getDisplayName(), step.getPlayerId());
-              final String stepName = step.getName();
-              ProLogger.info("Simulating phase: " + stepName);
-              if (GameStep.isNonCombatMoveStepName(stepName)) {
-                  proData.initializeSimulation(this, dataCopy, playerCopy);
-                  final Map<Territory, ProTerritory> factoryMoveMap =
-                          nonCombatMoveAi.simulateNonCombatMove(moveDel);
-                  if (storedFactoryMoveMap == null) {
-                      storedFactoryMoveMap =
-                              ProSimulateTurnUtils.transferMoveMap(proData, factoryMoveMap, data, player);
-                  }
-              } else if (GameStep.isCombatMoveStepName(stepName)
-                      && !GameStep.isAirborneCombatMoveStepName(stepName)) {
-                  proData.initializeSimulation(this, dataCopy, playerCopy);
-                  final Map<Territory, ProTerritory> moveMap = combatMoveAi.doCombatMove(moveDel);
-                  if (storedCombatMoveMap == null) {
-                      storedCombatMoveMap =
-                              ProSimulateTurnUtils.transferMoveMap(proData, moveMap, data, player);
-                  }
-                  // Some maps only have a combat move. For these, do both types of moves during this phase.
-                  if (!hasNonCombatMove(gameSteps)) {
-                      // Copy the data so we can simulate battles on it, in order to choose our "non combat"
-                      // moves based on that (estimated) board state.
-                      final GameData dataCopy2 = copyData(data);
-                      if (dataCopy2 == null) {
-                          return;
-                      }
-                      final GamePlayer playerCopy2 = dataCopy2.getPlayerList().getPlayerId(player.getName());
-                      proData.initializeSimulation(this, dataCopy2, playerCopy2);
-                      ProSimulateTurnUtils.simulateBattles(proData, dataCopy2, playerCopy2, bridge, calc);
-                      proData.initializeSimulation(this, dataCopy2, playerCopy2);
-                      Map<Territory, ProTerritory> factoryMoveMap =
-                              nonCombatMoveAi.simulateNonCombatMove(moveDel);
-                      if (storedFactoryMoveMap == null) {
-                          storedFactoryMoveMap =
-                                  ProSimulateTurnUtils.transferMoveMap(proData, factoryMoveMap, data, player);
-                      }
-                  }
-              } else if (GameStep.isBattleStepName(stepName)) {
-                  proData.initializeSimulation(this, dataCopy, playerCopy);
-                  ProSimulateTurnUtils.simulateBattles(proData, dataCopy, playerCopy, bridge, calc);
-              } else if (GameStep.isPlaceStepName(stepName) || GameStep.isEndTurnStepName(stepName)) {
-                  proData.initializeSimulation(this, dataCopy, player);
-                  storedPurchaseTerritories = purchaseAi.purchase(purchaseDelegate, data);
-                  break;
-              } else if (GameStep.isPoliticsStepName(stepName)) {
-                  proData.initializeSimulation(this, dataCopy, player);
-                  // Can only do politics if this player still owns its capital.
-                  if (proData.getMyCapital() == null || proData.getMyCapital().isOwnedBy(player)) {
-                      final PoliticsDelegate politicsDelegate = dataCopy.getPoliticsDelegate();
-                      politicsDelegate.setDelegateBridgeAndPlayer(bridge);
-                      final List<PoliticalActionAttachment> actions = politicsAi.politicalActions();
-                      if (storedPoliticalActions == null) {
-                          storedPoliticalActions = actions;
-                      }
-                  }
-              }
-          }
-      }
-      ProLogger.info(player.getName() + " time for purchase=" + (System.currentTimeMillis() - start));
+//          // Check if any place territories exist
+//          final Map<Territory, ProPurchaseTerritory> purchaseTerritories =
+//                  ProPurchaseUtils.findPurchaseTerritories(proData, player);
+//          final List<Territory> possibleFactoryTerritories =
+//                  CollectionUtils.getMatches(
+//                          data.getMap().getTerritories(),
+//                          ProMatches.territoryHasNoInfraFactoryAndIsNotConqueredOwnedLand(player));
+//          if (purchaseTerritories.isEmpty() && possibleFactoryTerritories.isEmpty()) {
+//              ProLogger.info("No possible place or factory territories owned so exiting purchase logic");
+//              return;
+//          }
+//          ProLogger.info("Starting simulation for purchase phase");
+//
+//          // Setup data copy and delegates
+//          final GameData dataCopy = copyData(data);
+//          if (dataCopy == null) {
+//              return;
+//          }
+//          final GamePlayer playerCopy = dataCopy.getPlayerList().getPlayerId(player.getName());
+//          final IMoveDelegate moveDel = dataCopy.getMoveDelegate();
+//          final IDelegateBridge bridge = new ProDummyDelegateBridge(this, playerCopy, dataCopy);
+//          moveDel.setDelegateBridgeAndPlayer(bridge);
+//
+//          // Simulate the next phases until place/end of turn is reached then use simulated data for
+//          // purchase
+//          final GameSequence sequence = dataCopy.getSequence();
+//          final int nextStepIndex = sequence.getStepIndex() + 1;
+//          final List<GameStep> gameSteps = getGameStepsForPlayer(dataCopy, playerCopy, nextStepIndex);
+//          for (final GameStep step : gameSteps) {
+//              sequence.setRoundAndStep(sequence.getRound(), step.getDisplayName(), step.getPlayerId());
+//              final String stepName = step.getName();
+//              ProLogger.info("Simulating phase: " + stepName);
+//              if (GameStep.isNonCombatMoveStepName(stepName)) {
+//                  proData.initializeSimulation(this, dataCopy, playerCopy);
+//                  final Map<Territory, ProTerritory> factoryMoveMap =
+//                          nonCombatMoveAi.simulateNonCombatMove(moveDel);
+//                  if (storedFactoryMoveMap == null) {
+//                      storedFactoryMoveMap =
+//                              ProSimulateTurnUtils.transferMoveMap(proData, factoryMoveMap, data, player);
+//                  }
+//              } else if (GameStep.isCombatMoveStepName(stepName)
+//                      && !GameStep.isAirborneCombatMoveStepName(stepName)) {
+//                  proData.initializeSimulation(this, dataCopy, playerCopy);
+//                  final Map<Territory, ProTerritory> moveMap = combatMoveAi.doCombatMove(moveDel);
+//                  if (storedCombatMoveMap == null) {
+//                      storedCombatMoveMap =
+//                              ProSimulateTurnUtils.transferMoveMap(proData, moveMap, data, player);
+//                  }
+//                  // Some maps only have a combat move. For these, do both types of moves during this phase.
+//                  if (!hasNonCombatMove(gameSteps)) {
+//                      // Copy the data so we can simulate battles on it, in order to choose our "non combat"
+//                      // moves based on that (estimated) board state.
+//                      final GameData dataCopy2 = copyData(data);
+//                      if (dataCopy2 == null) {
+//                          return;
+//                      }
+//                      final GamePlayer playerCopy2 = dataCopy2.getPlayerList().getPlayerId(player.getName());
+//                      proData.initializeSimulation(this, dataCopy2, playerCopy2);
+//                      ProSimulateTurnUtils.simulateBattles(proData, dataCopy2, playerCopy2, bridge, calc);
+//                      proData.initializeSimulation(this, dataCopy2, playerCopy2);
+//                      Map<Territory, ProTerritory> factoryMoveMap =
+//                              nonCombatMoveAi.simulateNonCombatMove(moveDel);
+//                      if (storedFactoryMoveMap == null) {
+//                          storedFactoryMoveMap =
+//                                  ProSimulateTurnUtils.transferMoveMap(proData, factoryMoveMap, data, player);
+//                      }
+//                  }
+//              } else if (GameStep.isBattleStepName(stepName)) {
+//                  proData.initializeSimulation(this, dataCopy, playerCopy);
+//                  ProSimulateTurnUtils.simulateBattles(proData, dataCopy, playerCopy, bridge, calc);
+//              } else if (GameStep.isPlaceStepName(stepName) || GameStep.isEndTurnStepName(stepName)) {
+//                  proData.initializeSimulation(this, dataCopy, player);
+//                  storedPurchaseTerritories = purchaseAi.purchase(purchaseDelegate, data);
+//                  break;
+//              } else if (GameStep.isPoliticsStepName(stepName)) {
+//                  proData.initializeSimulation(this, dataCopy, player);
+//                  // Can only do politics if this player still owns its capital.
+//                  if (proData.getMyCapital() == null || proData.getMyCapital().isOwnedBy(player)) {
+//                      final PoliticsDelegate politicsDelegate = dataCopy.getPoliticsDelegate();
+//                      politicsDelegate.setDelegateBridgeAndPlayer(bridge);
+//                      final List<PoliticalActionAttachment> actions = politicsAi.politicalActions();
+//                      if (storedPoliticalActions == null) {
+//                          storedPoliticalActions = actions;
+//                      }
+//                  }
+//              }
+//          }
+//      }
+//      ProLogger.info(player.getName() + " time for purchase=" + (System.currentTimeMillis() - start));
   }
+
+    public IntegerMap<ProductionRule> productionRuleMap(
+            final Map<Territory, ProPurchaseTerritory> purchaseTerritories,
+            final ProPurchaseOptionMap purchaseOptions, GamePlayer player) {
+
+        ProLogger.info("Populate production rule map");
+        final List<Unit> unplacedUnits = player.getMatches(Matches.unitIsNotSea());
+        final IntegerMap<ProductionRule> purchaseMap = new IntegerMap<>();
+        for (final ProPurchaseOption ppo : purchaseOptions.getAllOptions()) {
+            final int numUnits =
+                    (int)
+                            purchaseTerritories.values().stream()
+                                    .map(ProPurchaseTerritory::getCanPlaceTerritories)
+                                    .flatMap(Collection::stream)
+                                    .map(ProPlaceTerritory::getPlaceUnits)
+                                    .flatMap(Collection::stream)
+                                    .filter(u -> u.getType().equals(ppo.getUnitType()))
+                                    .filter(u -> !unplacedUnits.contains(u))
+                                    .count();
+            if (numUnits > 0) {
+                final int numProductionRule = numUnits / ppo.getQuantity();
+                purchaseMap.put(ppo.getProductionRule(), numProductionRule);
+                ProLogger.info(numProductionRule + " " + ppo.getProductionRule());
+            }
+        }
+        return purchaseMap;
+    }
 
   private GameData copyData(GameData data) {
     GameDataManager.Options options = GameDataManager.Options.builder().withDelegates(true).build();
@@ -579,4 +620,6 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
       storedPoliticalActions = null;
     }
   }
+
+
 }

@@ -22,7 +22,7 @@ public class ProPlaceTerritory {
   private double strategicValue = 0;
   private boolean canHold = true;
 
-  ProPlaceTerritory(final Territory territory) {
+  public ProPlaceTerritory(final Territory territory) {
     this.territory = territory;
   }
 
