@@ -9,6 +9,7 @@ import xml.etree.ElementTree as ET
 import re
 import sys
 import time
+from collections import deque
 
 def parse_change_line(line: str):
     parts = line.strip().split()
@@ -57,13 +58,26 @@ def parse_triplea_map(xml_path, output_path):
     # --- Extract Units ---
     units = [u.attrib["name"] for u in root.findall(".//unitList/unit")]
 
+    # --- Extract Units with Stats (attack, defense, movement) ---
+    unit_stats = {}
+    for attach in root.findall(".//attachmentList/attachment[@type='unitType']"):
+        unit_name = attach.attrib["attachTo"]
+        stats = {}
+        for opt in attach.findall("option"):
+            name = opt.attrib.get("name")
+            value = opt.attrib.get("value")
+            if name in ("attack", "defense", "movement"):
+                stats[name] = int(value)
+        if stats:
+            unit_stats[unit_name] = stats
+
     # --- Extract Production Rules ---
     production_rules = {}
     for rule in root.findall(".//production/productionRule"):
         name = rule.attrib["name"]
         cost = int(rule.find("cost").attrib["quantity"])
         unit = rule.find("result").attrib["resourceOrUnit"]
-        production_rules[name] = {"unit": unit, "cost": cost}               # add attack | movement | defense
+        production_rules[name] = {"unit": unit, "cost": cost}
 
     # --- Extract Starting Territory Ownership ---
     starting_ownership = {
@@ -101,6 +115,7 @@ def parse_triplea_map(xml_path, output_path):
         "connections": connections,
         "players": players,
         "units": units,
+        "unit_stats": unit_stats,
         "production_rules": production_rules,
         "starting_ownership": starting_ownership,
         "starting_units": starting_units,
@@ -113,7 +128,6 @@ def parse_triplea_map(xml_path, output_path):
         json.dump(parsed_data, f, indent=2)
 
     print(f"Data successfully extracted and saved to {output_path}")
-
 
 
 class CaptureTheFlagGraph:
@@ -175,16 +189,22 @@ class CaptureTheFlagGraph:
             }
 
     def _load_metadata(self):
+        # --- Load Production Rules with Unit Stats ---
+        unit_stats = self.data.get("unit_stats", {})   
+
         for key, rule in self.data["production_rules"].items():
             unit_name = rule["unit"]
+            stats = unit_stats.get(unit_name, {})      
+
             self.production_rules[unit_name] = {
                 "cost": rule["cost"],
-                "attack": rule.get("attack", 0),
-                "defense": rule.get("defense", 0),
-                "move": rule.get("move", 1),
+                "attack": stats.get("attack", 0),      
+                "defense": stats.get("defense", 0),
+                "move": stats.get("movement", 1),
                 "type": rule.get("type", "land")
             }
 
+        # --- Store Unit and Victory City Info ---
         self.unit_info = self.data.get("units", {})
         self.victory_cities = set(self.data.get("victory_cities", []))
 
@@ -565,21 +585,156 @@ def print_legal_moves(moves):
     for move in moves:
         print(f"Purchase: {move['purchase']}, Cost: {move['cost']}, Place in: {move['place_in']}")
 
+
+def generate_legal_combat_moves(ctf, player):
+    """
+    Generate all legal combat moves for a player, allowing multi-step moves
+    (e.g., infantry move=2 â†’ can reach up to 2 edges away).
+    Traverses only through neutral or enemy territories.
+    """
+    legal_moves = []
+
+    for terr, data in ctf.G.nodes(data=True):
+        if data.get("owner") != player:
+            continue
+
+        for u in data.get("units", []):
+            if u["owner"] != player or u["quantity"] <= 0:
+                continue
+
+            move_range = ctf.production_rules.get(u["unit"], {}).get("move", 1)
+            if move_range <= 0 or u["unit"] in ("factory", "aaGun"):
+                continue
+
+            # BFS traversal: (current_territory, steps, path)
+            queue = deque([(terr, 0, [terr])])
+            visited = set([terr])
+
+            while queue:
+                current, steps, path = queue.popleft()
+                if steps >= move_range:
+                    continue
+
+                for neighbor in ctf.G.neighbors(current):
+                    if neighbor in visited:
+                        continue
+                    visited.add(neighbor)
+
+                    neighbor_owner = ctf.G.nodes[neighbor].get("owner", None)
+                    if neighbor_owner == player:
+                        continue  # cannot move through own territories in combat
+
+                    # Record as a valid attack destination
+                    legal_moves.append({
+                        "delegate": "combat",
+                        "from": terr,
+                        "to": neighbor,
+                        "steps": steps + 1,
+                        "units": u["unit"],
+                        "max_quantity": u["quantity"],
+                        "target_owner": neighbor_owner,
+                        "path": path + [neighbor]
+                    })
+
+                    # Continue expanding if still within move limit
+                    if steps + 1 < move_range:
+                        queue.append((neighbor, steps + 1, path + [neighbor]))
+
+    return legal_moves
+
+def generate_legal_noncombat_moves(ctf, player):
+    """
+    Generate all legal non-combat moves for a player.
+    Traverses only through and into *friendly* territories.
+    """
+    legal_moves = []
+
+    for terr, data in ctf.G.nodes(data=True):
+        if data.get("owner") != player:
+            continue
+
+        for u in data.get("units", []):
+            if u["owner"] != player or u["quantity"] <= 0:
+                continue
+
+            move_range = ctf.production_rules.get(u["unit"], {}).get("move", 1)
+            if move_range <= 0 or u["unit"] in ("factory", "aaGun"):
+                continue
+
+            # BFS: explore up to move_range steps through friendly territories
+            queue = deque([(terr, 0, [terr])])
+            visited = set([terr])
+
+            while queue:
+                current, steps, path = queue.popleft()
+                if steps >= move_range:
+                    continue
+
+                for neighbor in ctf.G.neighbors(current):
+                    if neighbor in visited:
+                        continue
+                    visited.add(neighbor)
+
+                    neighbor_owner = ctf.G.nodes[neighbor].get("owner", None)
+
+                    # For non-combat, must stay within friendly territories
+                    if neighbor_owner != player:
+                        continue  # can't move into or through enemy/neutral
+
+                    # Valid non-combat move (repositioning)
+                    move = {
+                        "delegate": "nonCombat",
+                        "from": terr,
+                        "to": neighbor,
+                        "steps": steps + 1,
+                        "units": u["unit"],
+                        "max_quantity": u["quantity"],
+                        "target_owner": neighbor_owner,
+                        "path": path + [neighbor]
+                    }
+                    legal_moves.append(move)
+
+                    # Continue exploring friendly chain up to move_range
+                    if steps + 1 < move_range:
+                        queue.append((neighbor, steps + 1, path + [neighbor]))
+
+    return legal_moves
+
+
+def print_moves(moves):
+    for m in moves:
+        print(m)
+
 def convert_action_to_json(move, move_type):
     actions = []
-    place_in = move.get("place_in", [])
-    if not place_in:
-        raise ValueError("Missing 'place_in' in move")
+    if move_type == "purchase":
+        place_in = move.get("place_in", [])
+        if not place_in:
+            raise ValueError("Missing 'place_in' in move")
 
-    target_location = place_in[0]  # Assuming one placement location
-    for unit, qty in move.get("purchase", {}).items():
-        for _ in range(qty):
-            actions.append({
-                "delegate": move_type,
-                "unit": unit,
-                "from": "",
-                "to": target_location
-            })
+        target_location = place_in[0]  # Assuming one placement location
+        for unit, qty in move.get("purchase", {}).items():
+            for _ in range(qty):
+                actions.append({
+                    "delegate": move_type,
+                    "unit": unit,
+                    "from": "",
+                    "to": target_location
+                })
+
+    else:
+        action = {
+            "delegate": move_type,
+            "from": move.get("from"),
+            "to": move.get("to"),
+            "steps": move.get("steps"),
+            "units": move.get("units"),
+            "max_quantity": move.get("max_quantity"),
+            "target_owner": move.get("target_owner"),
+            "path": move.get("path", [])
+        }
+        actions.append(action)
+    
     return actions
 
 
@@ -635,20 +790,33 @@ class OnlineGreedyAgent:
             move_type = m.group(1)
             if move_type == "purchase":
                 legal_moves = generate_legal_purchase_moves(ctf, ctf.whoAmI)
-                # print_legal_moves(legal_moves)
                 if legal_moves:
                     move = random.choice(legal_moves)
-                    response = convert_action_to_json(move, "purchase")
+                    return convert_action_to_json(move, "purchase")
                     
                 else:
                     print("No legal purchase moves available.")
-                    response = "ACK"
+                    return "ACK"
+            elif move_type == "combat":
+                legal_moves = generate_legal_combat_moves(ctf, ctf.whoAmI)
+                if legal_moves:
+                    moves = random.choice(legal_moves)
+                    return convert_action_to_json(moves, "combat")
+                else:
+                    print("No legal purchase moves available.")
+                    return "ACK"
+            elif move_type == "noncombat":
+                legal_moves = generate_legal_noncombat_moves(ctf, ctf.whoAmI)
+                if legal_moves:
+                    moves = random.choice(legal_moves)
+                    return convert_action_to_json(moves, "noncombat")
+                else:
+                    print("No legal purchase moves available.")
+                    return "ACK"            
             else:
                 print("Unsupported move type:", move_type)
-                response = "ACK"
+                return "ACK"
 
-        print("\n")
-        return response
 
 
 
