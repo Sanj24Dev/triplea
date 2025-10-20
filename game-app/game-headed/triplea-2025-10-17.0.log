@@ -1,0 +1,40 @@
+274  13:18:39.570 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+422  13:18:39.718 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+226  13:20:51.642 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+340  13:20:51.756 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+213  13:23:13.651 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+324  13:23:13.762 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+228  13:25:45.505 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+340  13:25:45.617 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+228  13:36:35.582 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+337  13:36:35.691 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+232  13:42:02.582 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+340  13:42:02.690 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+224  13:42:55.893 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+333  13:42:56.002 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+253  13:44:43.433 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+360  13:44:43.540 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+233  13:47:42.043 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+341  13:47:42.151 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+233  13:48:35.695 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+349  13:48:35.811 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+232  13:55:38.974 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+341  13:55:39.083 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+224  13:57:43.030 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+330  13:57:43.136 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+235  14:09:51.312 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+346  14:09:51.423 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+4938 14:09:56.015 [Thread-23] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+4938 14:09:56.015 [Thread-9] ERROR o.t.game.client.HeadedGameRunner - Cannot invoke "java.util.List.iterator()" because "actionsList" is null
+java.lang.NullPointerException: Cannot invoke "java.util.List.iterator()" because "actionsList" is null
+	at games.strategy.triplea.ai.tripleMind.AbstractTripleMindAi.purchase(AbstractTripleMindAi.java:264)
+	at games.strategy.triplea.ai.AbstractAi.start(AbstractAi.java:513)
+	at games.strategy.engine.framework.ServerGame.waitForPlayerToFinishStep(ServerGame.java:621)
+	at games.strategy.engine.framework.ServerGame.runStep(ServerGame.java:470)
+	at games.strategy.engine.framework.ServerGame.runNextStep(ServerGame.java:357)
+	at games.strategy.engine.framework.ServerGame.startGame(ServerGame.java:325)
+	at games.strategy.engine.framework.startup.launcher.LocalLauncher.launchInternal(LocalLauncher.java:92)
+	at games.strategy.engine.framework.startup.launcher.LocalLauncher.lambda$launch$0(LocalLauncher.java:60)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+230  14:10:07.777 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+343  14:10:07.890 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
