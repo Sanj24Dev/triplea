@@ -107,7 +107,31 @@ public class helper {
         System.out.println("Request sent: [MY_MOVE] " + move);
         String response = TripleASocket.sendAndRead("[MY_MOVE] " + move);
         System.out.println("Received move: " + response);
+        logResponse(response);
         return response;
+    }
+
+    public static void logResponse(String response) {
+        String filename = getLogFileName();
+        File logFile = new File(filename);
+        try {
+            File parentDir = logFile.getParentFile();
+            if (parentDir != null && !parentDir.exists()) {
+                parentDir.mkdirs();
+            }
+            if (!logFile.exists()) {
+                logFile.createNewFile();
+            }
+            try {
+                PrintWriter writer = new PrintWriter(new FileWriter(logFile, true));
+                writer.println("[RESPONSE] " + java.time.LocalDateTime.now() + " - " + response);
+                writer.close();
+            } catch (IOException e) {
+                System.err.println(("Failed to write log: " + e.getMessage()));
+            }
+        } catch (Exception e) {
+            System.err.println(("Failed to write log: " + e.getMessage()));
+        }
     }
 
 }

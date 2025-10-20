@@ -19,6 +19,7 @@ import games.strategy.triplea.delegate.battle.IBattle;
 import games.strategy.triplea.delegate.battle.IBattle.BattleType;
 import games.strategy.triplea.delegate.data.CasualtyDetails;
 import games.strategy.triplea.delegate.data.CasualtyList;
+import games.strategy.triplea.delegate.data.PlaceableUnits;
 import games.strategy.triplea.delegate.remote.IAbstractPlaceDelegate;
 import games.strategy.triplea.delegate.remote.IMoveDelegate;
 import games.strategy.triplea.delegate.remote.IPurchaseDelegate;
@@ -33,7 +34,9 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.*;
 
+import static games.strategy.triplea.ai.tripleMind.ProPurchaseAi.doPlace;
 import static games.strategy.triplea.ai.tripleMind.helper.requestMove;
+import static games.strategy.triplea.ai.tripleMind.util.ProMoveUtils.doMove;
 import static games.strategy.triplea.ai.tripleMind.util.ProPurchaseUtils.getUnitProduction;
 
 /** Pro AI. */
@@ -105,13 +108,14 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
       final GameData data,
       final GamePlayer player) {
 
-
+    String actions = "";
     if (nonCombat)
-        requestMove("noncombat");
+        actions = requestMove("noncombat");
     else
-        requestMove("combat");
+        actions = requestMove("combat");
 
-
+    if (actions == null)
+        return;
 
     final Instant start = Instant.now();
     ProLogUi.notifyStartOfRound(data.getSequence().getRound(), player.getName());
@@ -119,23 +123,99 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
     prepareData(data);
     boolean didCombatMove = false;
     boolean didNonCombatMove = false;
+
+    Gson gson = new Gson();
+    Type actionListType = new TypeToken<List<Action>>(){}.getType();
+    // skip if null
+    List<Action> actionsList = gson.fromJson(actions, actionListType);
+
+
+
+
     if (nonCombat) {
-      nonCombatMoveAi.doNonCombatMove(storedFactoryMoveMap, storedPurchaseTerritories, moveDel);
-      storedFactoryMoveMap = null;
-      didNonCombatMove = true;
-    } else {
-      if (storedCombatMoveMap == null) {
-        combatMoveAi.doCombatMove(moveDel);
-      } else {
-        combatMoveAi.doMove(storedCombatMoveMap, moveDel, data, player);
-        storedCombatMoveMap = null;
-      }
-      didCombatMove = true;
-      if (!hasNonCombatMove(getGameStepsForPlayer(data, player, 0))) {
-        nonCombatMoveAi.doNonCombatMove(storedFactoryMoveMap, storedPurchaseTerritories, moveDel);
-        storedFactoryMoveMap = null;
+//      nonCombatMoveAi.doNonCombatMove(storedFactoryMoveMap, storedPurchaseTerritories, moveDel);
+//      storedFactoryMoveMap = null;
+        for (Action a : actionsList) {
+            Map<Territory, ProTerritory> nonCombatMap = new HashMap<>();
+            Territory from = data.getMap().getTerritoryOrNull(a.from);
+            Territory to = data.getMap().getTerritoryOrNull(a.to);
+            Optional<UnitType> unitTypeOpt = data.getUnitTypeList().getUnitType(a.unit);
+            if (unitTypeOpt.isEmpty()) {
+                System.out.println("Invalid unit type: " + a.unit);
+                return;
+            }
+
+            UnitType unitType = unitTypeOpt.get();
+            assert from != null;
+            System.out.println(unitType.toString());
+            List<Unit> availableUnits = from.getMatches(Matches.unitIsOfType(unitType));
+            if (availableUnits.isEmpty()) {
+                System.out.println("No available unit of type " + a.unit + " in " + from.getName());
+                return;
+            }
+
+            Unit selectedUnit = availableUnits.get(0); // assuming 1 unit per action
+
+            // Get or create ProTerritory for the target
+            ProTerritory proTo = nonCombatMap.computeIfAbsent(to, t -> new ProTerritory(t, proData));
+
+            // Add attacking unit from source
+            proTo.addUnit(selectedUnit);
+
+            // Store it back
+            nonCombatMap.put(to, proTo);
+            List<MoveDescription> moves = ProMoveUtils.calculateMoveRoutes(proData, player, nonCombatMap, false);
+            doMove(proData, moves, moveDel);
+        }
+
         didNonCombatMove = true;
-      }
+    } else {
+        for (Action a : actionsList) {
+            Map<Territory, ProTerritory> attackMap = new HashMap<>();
+            Territory from = data.getMap().getTerritoryOrNull(a.from);
+            Territory to = data.getMap().getTerritoryOrNull(a.to);
+            Optional<UnitType> unitTypeOpt = data.getUnitTypeList().getUnitType(a.unit);
+            if (unitTypeOpt.isEmpty()) {
+                System.out.println("Invalid unit type: " + a.unit);
+                return;
+            }
+
+            UnitType unitType = unitTypeOpt.get();
+            assert from != null;
+            System.out.println(unitType.toString());
+            List<Unit> availableUnits = from.getMatches(Matches.unitIsOfType(unitType));
+            if (availableUnits.isEmpty()) {
+                System.out.println("No available unit of type " + a.unit + " in " + from.getName());
+                return;
+            }
+
+            Unit selectedUnit = availableUnits.get(0); // assuming 1 unit per action
+
+            // Get or create ProTerritory for the target
+            ProTerritory proTo = attackMap.computeIfAbsent(to, t -> new ProTerritory(t, proData));
+
+            // Add attacking unit from source
+            proTo.addUnit(selectedUnit);
+
+            // Store it back
+            attackMap.put(to, proTo);
+            List<MoveDescription> moves = ProMoveUtils.calculateMoveRoutes(proData, player, attackMap, true);
+            doMove(proData, moves, moveDel);
+        }
+
+        didCombatMove = true;
+//        if (storedCombatMoveMap == null) {
+//            combatMoveAi.doCombatMove(moveDel);
+//        } else {
+//            combatMoveAi.doMove(storedCombatMoveMap, moveDel, data, player);
+//            storedCombatMoveMap = null;
+//        }
+//        didCombatMove = true;
+//        if (!hasNonCombatMove(getGameStepsForPlayer(data, player, 0))) {
+//            nonCombatMoveAi.doNonCombatMove(storedFactoryMoveMap, storedPurchaseTerritories, moveDel);
+//            storedFactoryMoveMap = null;
+//            didNonCombatMove = true;
+//        }
     }
 
 
@@ -157,7 +237,8 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
 
 
     String actions = requestMove("purchase");
-
+    if (actions == null)
+        return;
 
 
 
@@ -209,111 +290,6 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
 
     }
     ProLogger.info(player.getName() + " time for purchase=" + (System.currentTimeMillis() - start));
-
-
-
-//      final long start = System.currentTimeMillis();
-//      ProLogUi.notifyStartOfRound(data.getSequence().getRound(), player.getName());
-//      initializeData();
-//      if (pusToSpend <= 0) {
-//          return;
-//      }
-//      if (purchaseForBid) {
-//          prepareData(data);
-//          storedPurchaseTerritories = purchaseAi.bid(pusToSpend, purchaseDelegate, data);
-//      } else {
-//          // Repair factories
-//          purchaseAi.repair(pusToSpend, purchaseDelegate, data, player);
-//
-//          // Check if any place territories exist
-//          final Map<Territory, ProPurchaseTerritory> purchaseTerritories =
-//                  ProPurchaseUtils.findPurchaseTerritories(proData, player);
-//          final List<Territory> possibleFactoryTerritories =
-//                  CollectionUtils.getMatches(
-//                          data.getMap().getTerritories(),
-//                          ProMatches.territoryHasNoInfraFactoryAndIsNotConqueredOwnedLand(player));
-//          if (purchaseTerritories.isEmpty() && possibleFactoryTerritories.isEmpty()) {
-//              ProLogger.info("No possible place or factory territories owned so exiting purchase logic");
-//              return;
-//          }
-//          ProLogger.info("Starting simulation for purchase phase");
-//
-//          // Setup data copy and delegates
-//          final GameData dataCopy = copyData(data);
-//          if (dataCopy == null) {
-//              return;
-//          }
-//          final GamePlayer playerCopy = dataCopy.getPlayerList().getPlayerId(player.getName());
-//          final IMoveDelegate moveDel = dataCopy.getMoveDelegate();
-//          final IDelegateBridge bridge = new ProDummyDelegateBridge(this, playerCopy, dataCopy);
-//          moveDel.setDelegateBridgeAndPlayer(bridge);
-//
-//          // Simulate the next phases until place/end of turn is reached then use simulated data for
-//          // purchase
-//          final GameSequence sequence = dataCopy.getSequence();
-//          final int nextStepIndex = sequence.getStepIndex() + 1;
-//          final List<GameStep> gameSteps = getGameStepsForPlayer(dataCopy, playerCopy, nextStepIndex);
-//          for (final GameStep step : gameSteps) {
-//              sequence.setRoundAndStep(sequence.getRound(), step.getDisplayName(), step.getPlayerId());
-//              final String stepName = step.getName();
-//              ProLogger.info("Simulating phase: " + stepName);
-//              if (GameStep.isNonCombatMoveStepName(stepName)) {
-//                  proData.initializeSimulation(this, dataCopy, playerCopy);
-//                  final Map<Territory, ProTerritory> factoryMoveMap =
-//                          nonCombatMoveAi.simulateNonCombatMove(moveDel);
-//                  if (storedFactoryMoveMap == null) {
-//                      storedFactoryMoveMap =
-//                              ProSimulateTurnUtils.transferMoveMap(proData, factoryMoveMap, data, player);
-//                  }
-//              } else if (GameStep.isCombatMoveStepName(stepName)
-//                      && !GameStep.isAirborneCombatMoveStepName(stepName)) {
-//                  proData.initializeSimulation(this, dataCopy, playerCopy);
-//                  final Map<Territory, ProTerritory> moveMap = combatMoveAi.doCombatMove(moveDel);
-//                  if (storedCombatMoveMap == null) {
-//                      storedCombatMoveMap =
-//                              ProSimulateTurnUtils.transferMoveMap(proData, moveMap, data, player);
-//                  }
-//                  // Some maps only have a combat move. For these, do both types of moves during this phase.
-//                  if (!hasNonCombatMove(gameSteps)) {
-//                      // Copy the data so we can simulate battles on it, in order to choose our "non combat"
-//                      // moves based on that (estimated) board state.
-//                      final GameData dataCopy2 = copyData(data);
-//                      if (dataCopy2 == null) {
-//                          return;
-//                      }
-//                      final GamePlayer playerCopy2 = dataCopy2.getPlayerList().getPlayerId(player.getName());
-//                      proData.initializeSimulation(this, dataCopy2, playerCopy2);
-//                      ProSimulateTurnUtils.simulateBattles(proData, dataCopy2, playerCopy2, bridge, calc);
-//                      proData.initializeSimulation(this, dataCopy2, playerCopy2);
-//                      Map<Territory, ProTerritory> factoryMoveMap =
-//                              nonCombatMoveAi.simulateNonCombatMove(moveDel);
-//                      if (storedFactoryMoveMap == null) {
-//                          storedFactoryMoveMap =
-//                                  ProSimulateTurnUtils.transferMoveMap(proData, factoryMoveMap, data, player);
-//                      }
-//                  }
-//              } else if (GameStep.isBattleStepName(stepName)) {
-//                  proData.initializeSimulation(this, dataCopy, playerCopy);
-//                  ProSimulateTurnUtils.simulateBattles(proData, dataCopy, playerCopy, bridge, calc);
-//              } else if (GameStep.isPlaceStepName(stepName) || GameStep.isEndTurnStepName(stepName)) {
-//                  proData.initializeSimulation(this, dataCopy, player);
-//                  storedPurchaseTerritories = purchaseAi.purchase(purchaseDelegate, data);
-//                  break;
-//              } else if (GameStep.isPoliticsStepName(stepName)) {
-//                  proData.initializeSimulation(this, dataCopy, player);
-//                  // Can only do politics if this player still owns its capital.
-//                  if (proData.getMyCapital() == null || proData.getMyCapital().isOwnedBy(player)) {
-//                      final PoliticsDelegate politicsDelegate = dataCopy.getPoliticsDelegate();
-//                      politicsDelegate.setDelegateBridgeAndPlayer(bridge);
-//                      final List<PoliticalActionAttachment> actions = politicsAi.politicalActions();
-//                      if (storedPoliticalActions == null) {
-//                          storedPoliticalActions = actions;
-//                      }
-//                  }
-//              }
-//          }
-//      }
-//      ProLogger.info(player.getName() + " time for purchase=" + (System.currentTimeMillis() - start));
   }
 
     public IntegerMap<ProductionRule> productionRuleMap(
@@ -375,11 +351,71 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
       final GamePlayer player) {
 
 
-    requestMove("place");
-
+    String actions = requestMove("place");
+    if (actions == null)
+        return;
     final long start = System.currentTimeMillis();
     ProLogUi.notifyStartOfRound(data.getSequence().getRound(), player.getName());
     initializeData();
+
+//      Gson gson = new Gson();
+//      Type actionListType = new TypeToken<List<Action>>(){}.getType();
+//      List<Action> actionsList = gson.fromJson(actions, actionListType);
+//
+//        // Create a list to collect all ModelPlacements
+//      Map<Territory, List<Unit>> placementsByTerritory = new HashMap<>();
+//
+//      for (Action a : actionsList) {
+//          Territory to = data.getMap().getTerritoryOrNull(a.to);
+//          if (to == null) {
+//              System.err.println("Invalid placement territory: " + a.to);
+//              continue;
+//          }
+//
+//          // Get the unit type
+//          UnitType unitType = data.getUnitTypeList().getUnitType(a.unit).orElse(null);
+//          if (unitType == null) {
+//              System.err.println("Invalid unit type: " + a.unit);
+//              continue;
+//          }
+//
+//          Unit newUnit = new Unit(unitType, player, getGameData());
+//
+//          // Group it under its target territory
+//          placementsByTerritory.computeIfAbsent(to, k -> new ArrayList<>()).add(newUnit);
+//
+//          System.out.println("Placed " + a.unit + " in " + a.to);
+//      }
+//      for (Map.Entry<Territory, List<Unit>> entry : placementsByTerritory.entrySet()) {
+//          Territory territory = entry.getKey();
+//          List<Unit> unitsToPlace = entry.getValue();
+//
+//          // Check if placement is legal
+//          PlaceableUnits placeableUnits =
+//                  placeDelegate.getPlaceableUnits(unitsToPlace, territory);
+//
+//          if (placeableUnits.isError()) {
+//              System.err.println(
+//                      "Cannot place units in " + territory.getName()
+//                              + ": " + placeableUnits.getErrorMessage());
+//              continue;
+//          }
+//
+//          // Limit to maximum allowed placements
+//          int maxAllowed = placeableUnits.getMaxUnits();
+//          if (maxAllowed == -1) {
+//              maxAllowed = Integer.MAX_VALUE; // No limit
+//          }
+//
+//          int actualCount = Math.min(maxAllowed, unitsToPlace.size());
+//          List<Unit> finalUnits = unitsToPlace.subList(0, actualCount);
+//
+//          // Perform placement
+//          doPlace(territory, finalUnits, placeDelegate);
+//          System.out.println("Placed in " + territory.getName() + ": " + finalUnits);
+//      }
+
+
     purchaseAi.place(storedPurchaseTerritories, placeDelegate);
     storedPurchaseTerritories = null;
     ProLogger.info(player.getName() + " time for place=" + (System.currentTimeMillis() - start));
