@@ -1,7 +1,7 @@
 import itertools
 import socket
 import json
-# import numpy as np
+import numpy as np
 import random
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -10,6 +10,8 @@ import re
 import sys
 import time
 from collections import deque
+import csv
+import os
 
 def parse_change_line(line: str):
     parts = line.strip().split()
@@ -142,6 +144,8 @@ class CaptureTheFlagGraph:
         self.unit_info = {}  # general unit metadata (range, move type, etc.)
         self.turn_number = 1
 
+        self.pending_props = {}
+
         self._build_graph()
         self._load_metadata()
 
@@ -185,6 +189,7 @@ class CaptureTheFlagGraph:
             self.G.owners[owner] = {
                 "name": owner,
                 "PU": int(pu),
+                "latest_loc": "", # to maintain the latest owner=territory that got updated, for logs that do not mention any territory that the unit belongs to 
                 "unplaced": {}  # dict of units -> qty
             }
 
@@ -215,13 +220,13 @@ class CaptureTheFlagGraph:
         for node in self.G.nodes:
             owner = self.G.nodes[node].get("owner", None)
             if owner == "Russians":
-                colors.append("red")
+                colors.append("brown")
             elif owner == "Italians":
                 colors.append("green")
             elif owner == "Germans":
-                colors.append("black")
+                colors.append("blue")
             elif owner == "Chinese":
-                colors.append("yellow")
+                colors.append("purple")
             else:
                 colors.append("lightgray")
         return colors
@@ -245,7 +250,12 @@ class CaptureTheFlagGraph:
 
             # Unit label
             if units:
-                unit_lines = [f"{u['quantity']} {u['unit']}" for u in units]
+                unit_lines = []
+                for u in units:
+                    props = u.get("properties", {})
+                    in_combat = str(props.get("wasInCombat", "")).lower() == "true"
+                    tag = " [inCombat]" if in_combat else ""
+                    unit_lines.append(f"{u['quantity']} {u['unit']} ({u['owner']}){tag}")
                 labels[node] = "\n".join(unit_lines)
                 x, y = self.pos[node]
                 label_pos[node] = (x, y + 0.08)
@@ -262,19 +272,6 @@ class CaptureTheFlagGraph:
         #         self.G.nodes[territory]["shape"] = "ellipse"
 
 
-        # Edge colors (combat marking)
-        edge_colors = []
-        for u, v in self.G.edges:
-            in_combat = False
-            for node in (u, v):
-                units = self.G.nodes[node].get("units", [])
-                for unit in units:
-                    props = self.G.graph.get("unit_properties", [])
-                    for p in props:
-                        if p["unit"] == unit["unit"] and p["owner"] == unit["owner"]:
-                            if p["property"] == "wasInCombat" and p["new_value"] == "true":
-                                in_combat = True
-            edge_colors.append("red" if in_combat else "black")
 
         # Update visuals
         new_colors = self._get_colors()
@@ -282,8 +279,10 @@ class CaptureTheFlagGraph:
         self.node_collection.set_edgecolor(border_colors)
         self.node_collection.set_linewidth(2.0)
 
-        self.edge_collection.set_edgecolor(edge_colors)
-        self.edge_collection.set_linewidth(2.0)
+        # self.edge_collection.set_edgecolor(edge_colors)
+        # self.edge_collection.set_linewidth(3.0)
+        # self.edge_collection.set_zorder(1)
+        # self.node_collection.set_zorder(2)
 
         self.fig.set_size_inches(16, 16)
 
@@ -337,6 +336,7 @@ class CaptureTheFlagGraph:
     def update_ownership(self, territory, new_owner):
         if territory in self.G.nodes:
             self.G.nodes[territory]["owner"] = new_owner
+            self.G.owners[new_owner]["latest_loc"] = territory
             print(f"{territory} is now owned by {new_owner}")
 
     def add_unit(self, territory, unit, owner, quantity=1, properties=None):
@@ -395,21 +395,20 @@ class CaptureTheFlagGraph:
         Update a property for a specific unit in a territory.
         Automatically stores old value for reference.
         """
-        if territory in self.G.nodes:
+        if not hasattr(self, "pending_props"):
+            self.pending_props = {}
+        territory = self.G.owners[owner]["latest_loc"]
+        if territory and territory in self.G.nodes:
             for u in self.G.nodes[territory]["units"]:
                 if u["unit"] == unit and u["owner"] == owner:
                     old_val = u["properties"].get(prop, None)
                     u["properties"][prop] = new_val
-                    self.G.graph.setdefault("unit_properties", []).append({
-                        "territory": territory,
-                        "unit": unit,
-                        "owner": owner,
-                        "property": prop,
-                        "old_value": old_val,
-                        "new_value": new_val
-                    })
                     print(f"Updated {unit} ({owner}) in {territory}: {prop} changed from {old_val} to {new_val}")
                     break
+            else:
+                self.pending_props[prop] = new_val
+                print(f"Updated pending props: {self.pending_props}")
+
 
 
     def add_connection(self, from_t, to_t):
@@ -437,14 +436,15 @@ class CaptureTheFlagGraph:
 
 
 
-    def apply_change_line(ctf, line: str, ispartComposite):
+    def apply_change_line(self, line: str, ispartComposite):
         line = line.strip()
+        # print(f"SEARCHING  {line}")
 
         # --- Role assignment ---
         m = re.search(r"Role: (\w+)", line)
         if m:
             role = m.group(1)
-            ctf.update_my_role(role)
+            self.update_my_role(role)
             return
 
         # havent checked in composite
@@ -461,30 +461,50 @@ class CaptureTheFlagGraph:
                         id_terr = re.findall(r"([0-9a-f]+):.*?battle in (\w+)", battles)
                         for pair in id_terr:
                             battle_id, territory = pair
-                            ctf.add_battle_record(player, battle_id, territory)
+                            self.add_battle_record(player, battle_id, territory)
             return
 
         # --- CompositeChange ---
         if "CompositeChange" in line:
-            # Extract sub-changes safely
-            # Match until ], >, or end-of-line
-            parts = re.findall(
-                r"(Add unit change.*?(?:\[.*?\])?|Remove unit change.*?(?:\[.*?\])?|Resource:PUs.*?|takes .*? from .*?)(?:, |$)", 
-                line
+            # Collect the text inside the top-level CompositeChange <[ ... ]>
+            start = line.find("<[")
+            if start == -1:
+                return
+            start += 2
+            depth = 1
+            inner = []
+            for i in range(start, len(line)):
+                if line[i:i+2] == "<[":
+                    depth += 1
+                    inner.append(line[i:i+2])
+                    continue
+                if line[i:i+2] == "]>":
+                    depth -= 1
+                    if depth == 0:
+                        break
+                    inner.append(line[i:i+2])
+                    continue
+                inner.append(line[i])
+
+            inner_text = ''.join(inner)
+
+            # Split at commas that start a new sub-change
+            parts = re.split(
+                r", (?=(?:Property change|Add unit change|Remove unit change|Change resource|takes |CompositeChange ))",
+                inner_text
             )
 
-            # print(parts)
             for p in parts:
-                # print("\tDOING: ", p)
-                ctf.apply_change_line(p, 1)
-                
+                p = p.strip()
+                if p:
+                    self.apply_change_line(p, 1)
             return
 
         # --- Territory takes ---
         m = re.search(r"(\w+) takes (\w+) from (\w+)", line)
         if m:
             player, territory, old_owner = m.groups()
-            ctf.update_ownership(territory, player)
+            self.update_ownership(territory, player)
             return
 
         # --- Add unit change ---
@@ -497,7 +517,11 @@ class CaptureTheFlagGraph:
                 m2 = re.match(r"(\w+) owned by (\w+)", u)
                 if m2:
                     unit, owner = m2.groups()
-                    ctf.add_unit(territory, unit.strip(), owner.strip())
+                    self.add_unit(territory, unit.strip(), owner.strip())
+                    if self.pending_props != {}:
+                        for key in self.pending_props.keys():
+                            self.update_unit_property(unit.strip(), owner.strip(), key, self.pending_props[key])
+                        self.pending_props = {}
             return
 
         # --- Remove unit change ---
@@ -511,7 +535,7 @@ class CaptureTheFlagGraph:
                 m2 = re.match(r"(\w+) owned by (\w+)", u)
                 if m2:
                     unit, owner = m2.groups()
-                    ctf.remove_unit(territory, unit.strip(), owner.strip())
+                    self.remove_unit(territory, unit.strip(), owner.strip())
             return
 
         # # --- Resource change ---
@@ -520,7 +544,7 @@ class CaptureTheFlagGraph:
         if m:
             qty, player = m.groups()
             qty = int(qty)
-            ctf.update_pus(player, qty)
+            self.update_pus(player, qty)
             return
 
         # # --- Property change ---
@@ -532,7 +556,7 @@ class CaptureTheFlagGraph:
         if m:
             # Property change, unit:armour owned by Russians property:wasInCombat newValue:true oldValue:false
             unit, owner, prop, new_val, old_val = m.groups()
-            # ctf.update_unit_property(unit.strip(), owner.strip(), prop.strip(), new_val.strip())
+            self.update_unit_property(unit.strip(), owner.strip(), prop.strip(), new_val.strip())
             return
 
     def get_factories(self, player):
@@ -548,6 +572,8 @@ class CaptureTheFlagGraph:
     
 
 def generate_legal_purchase_moves(ctf, player):
+    ctf.G.owners[ctf.whoAmI]["unplaced"].clear()
+    # print("Before purchase: ", ctf.G.owners[ctf.whoAmI]["unplaced"])
     rules = ctf.production_rules
     resources = ctf.get_player_resources(player)
     factories = ctf.get_factories(player)
@@ -587,11 +613,6 @@ def print_legal_moves(moves):
 
 
 def generate_legal_combat_moves(ctf, player):
-    """
-    Generate all legal combat moves for a player, allowing multi-step moves
-    (e.g., infantry move=2 â†’ can reach up to 2 edges away).
-    Traverses only through neutral or enemy territories.
-    """
     legal_moves = []
 
     for terr, data in ctf.G.nodes(data=True):
@@ -643,10 +664,6 @@ def generate_legal_combat_moves(ctf, player):
     return legal_moves
 
 def generate_legal_noncombat_moves(ctf, player):
-    """
-    Generate all legal non-combat moves for a player.
-    Traverses only through and into *friendly* territories.
-    """
     legal_moves = []
 
     for terr, data in ctf.G.nodes(data=True):
@@ -700,6 +717,33 @@ def generate_legal_noncombat_moves(ctf, player):
 
     return legal_moves
 
+def generate_legal_place_moves(ctf, player):
+    # print("Before place: ", ctf.G.owners[ctf.whoAmI]["unplaced"])
+    factories = ctf.get_factories(player)
+
+    if not factories:
+        return []  # can't build if no factory
+
+    # Extract unit costs
+    unplaced_units = [u for u in ctf.G.owners[player]["unplaced"]]
+
+    if not unplaced_units:
+        return []
+
+    # Each unit can go to any factory or "None" (not placed)
+    placement_options = [factories + [None] for _ in unplaced_units]
+
+    # Cartesian product → all combinations of choices
+    all_combinations = itertools.product(*placement_options)
+
+    legal_moves = []
+    for combo in all_combinations:
+        # Build the list of (unit, factory) for all placed ones
+        moves = [{"unit":unit, "to":place_in} for unit, place_in in zip(unplaced_units, combo) if place_in is not None]
+        legal_moves.append(moves)
+
+    return legal_moves
+
 
 def print_moves(moves):
     for m in moves:
@@ -722,16 +766,37 @@ def convert_action_to_json(move, move_type):
                     "to": target_location
                 })
 
+    # elif move_type == "combat":
+    #     for m in move:
+    #         action = {
+    #             "delegate": move_type,
+    #             "from": m.get("from"),
+    #             "to": m.get("to"),
+    #             # "steps": move.get("steps"),
+    #             "unit": m.get("units"),
+    #             # "max_quantity": move.get("max_quantity"),
+    #             # "target_owner": move.get("target_owner"),
+    #             # "path": move.get("path", [])
+    #         }
+    #         actions.append(action)
+    elif move_type == "place":
+        for m in move:
+            actions.append({
+                "delegate": move_type,
+                "from": "",
+                "to": m.get("to"),
+                "unit": m.get("unit")
+            })
     else:
         action = {
             "delegate": move_type,
             "from": move.get("from"),
             "to": move.get("to"),
-            "steps": move.get("steps"),
-            "units": move.get("units"),
-            "max_quantity": move.get("max_quantity"),
-            "target_owner": move.get("target_owner"),
-            "path": move.get("path", [])
+            # "steps": move.get("steps"),
+            "unit": move.get("units"),
+            # "max_quantity": move.get("max_quantity"),
+            # "target_owner": move.get("target_owner"),
+            # "path": move.get("path", [])
         }
         actions.append(action)
     
@@ -779,48 +844,164 @@ class OnlineGreedyAgent:
 
     #     return best_action
 
-    def get_move(self, line):
+    def get_move(self, line, ctf):
         line = line.strip()
         print("\n")
         print(line)
         
+        try:
+            m = re.search(r"\[MY_MOVE\] (\w+)", line)
+            if m:
+                move_type = m.group(1)
+                if move_type == "purchase":
+                    legal_moves = generate_legal_purchase_moves(ctf, ctf.whoAmI)
+                    if legal_moves:
+                        # print("node_features shape:", state["node_features"].shape)
+                        # print("adjacency shape:", state["adjacency"].shape)
+                        # print("global_features shape:", state["global_features"].shape)
+                        # time.sleep(15)
 
-        m = re.search(r"\[MY_MOVE\] (\w+)", line)
-        if m:
-            move_type = m.group(1)
-            if move_type == "purchase":
-                legal_moves = generate_legal_purchase_moves(ctf, ctf.whoAmI)
-                if legal_moves:
-                    move = random.choice(legal_moves)
-                    return convert_action_to_json(move, "purchase")
-                    
+                        move = random.choice(legal_moves)
+                        response = convert_action_to_json(move, "purchase")
+                        
+                    else:
+                        print("No legal purchase moves available.")
+                        response = []
+                elif move_type == "combat":
+                    legal_moves = generate_legal_combat_moves(ctf, ctf.whoAmI)
+                    if legal_moves:
+                        moves = random.choice(legal_moves)
+                        response = convert_action_to_json(moves, "combat")
+                    else:
+                        print("No legal combat moves available.")
+                        response = []
+                elif move_type == "noncombat":
+                    legal_moves = generate_legal_noncombat_moves(ctf, ctf.whoAmI)
+                    if legal_moves:
+                        moves = random.choice(legal_moves)
+                        response = convert_action_to_json(moves, "noncombat")
+                    else:
+                        print("No legal noncombat moves available.")
+                        response = []
+                elif move_type == "place":
+                    legal_moves = generate_legal_place_moves(ctf, ctf.whoAmI)
+                    if legal_moves:
+                        moves = random.choice(legal_moves)
+                        response = convert_action_to_json(moves, "place")
+                        response = []
+                    else:
+                        print("No legal place moves available.")
+                        response = []          
                 else:
-                    print("No legal purchase moves available.")
-                    return "ACK"
-            elif move_type == "combat":
-                legal_moves = generate_legal_combat_moves(ctf, ctf.whoAmI)
-                if legal_moves:
-                    moves = random.choice(legal_moves)
-                    return convert_action_to_json(moves, "combat")
-                else:
-                    print("No legal purchase moves available.")
-                    return "ACK"
-            elif move_type == "noncombat":
-                legal_moves = generate_legal_noncombat_moves(ctf, ctf.whoAmI)
-                if legal_moves:
-                    moves = random.choice(legal_moves)
-                    return convert_action_to_json(moves, "noncombat")
-                else:
-                    print("No legal purchase moves available.")
-                    return "ACK"            
-            else:
-                print("Unsupported move type:", move_type)
-                return "ACK"
+                    print("Unsupported move type:", move_type)
+                    response = []
+            state = self.get_state_encoding(ctf, move_type)
+            append_state_to_csv(state)
+            return response    
+        except Exception as e:
+            print(e)
+            time.sleep(4)
+            return []
 
 
+    def get_state_encoding(self, ctf, delegate):
+        '''
+        state = {
+            node_features - features of a territory - owner, units_i_own, avg_attack_of_stationed_units, avg_defense_of_stationed_units, total_unit_count, is_victory_city, is_in_battle 
+            adjacency - matrix
+            global_features - delegate_type
+        }
+        '''
+        num_players = len(ctf.G.owners)
+        owner_to_idx = {owner: i for i, owner in enumerate(ctf.G.owners.keys())}
+        num_nodes = len(ctf.G.nodes)
+        
+        node_features = []
+        
+        for terr, data in ctf.G.nodes(data=True):
+            owner_vec = np.zeros(num_players, dtype=np.float32)
+            if data["owner"] in owner_to_idx:
+                owner_vec[owner_to_idx[data["owner"]]] = 1.0
 
+            units = data.get("units", [])
+            total_units = float(sum(u["quantity"] for u in units))
 
+            attack_values, defense_values, in_combat_flags, moved_values = [], [], [], []
 
+            for u in units:
+                rule = ctf.production_rules.get(u["unit"], {})
+                if "attack" in rule:
+                    attack_values.append(float(rule["attack"]))
+                if "defense" in rule:
+                    defense_values.append(float(rule["defense"]))
+
+                props = u.get("properties", {})
+                if str(props.get("wasInCombat", "")).lower() == "true":
+                    in_combat_flags.append(1.0)
+                val = props.get("alreadyMoved", 0)
+                try:
+                    moved_values.append(float(val))
+                except (ValueError, TypeError):
+                    moved_values.append(0.0)
+
+            avg_attack = np.mean(attack_values) if attack_values else 0.0
+            avg_defense = np.mean(defense_values) if defense_values else 0.0
+            frac_in_combat = np.mean(in_combat_flags) if in_combat_flags else 0.0
+            avg_moved = np.mean(moved_values) if moved_values else 0.0
+            is_victory_city = float(terr in ctf.victory_cities)
+            in_battle = float(data.get("properties", {}).get("battle", False))
+
+            numeric_features = np.array([
+                total_units, avg_attack, avg_defense,
+                frac_in_combat, avg_moved, is_victory_city, in_battle
+            ], dtype=np.float32)
+
+            node_vec = np.concatenate([owner_vec, numeric_features])
+            node_features.append(node_vec)
+
+        
+        node_features = np.array(node_features, dtype=np.float32)
+
+        adjacency = nx.to_numpy_array(ctf.G, dtype=np.float32)
+
+        delegate_types = ["purchase", "combat", "noncombat"]    
+        delegate_onehot = np.zeros(len(delegate_types))    
+        delegate_onehot[delegate_types.index(delegate)] = 1             
+        global_features = np.concatenate([delegate_onehot])
+
+        state = {
+            "node_features": node_features,
+            "adjacency": adjacency,
+            "global_features": global_features
+        }
+        return state
+
+def append_state_to_csv(state, base_filename="state_dataset2.csv", round_num=None):
+    # Flatten arrays to 1D for easy row appending
+    flat_node = state["node_features"].flatten()
+    flat_adj = state["adjacency"].flatten()
+    flat_global = state["global_features"].flatten()
+    
+    row = np.concatenate([flat_node, flat_adj, flat_global])
+
+    # Optionally include round number as the first column
+    if round_num is not None:
+        row = np.concatenate([[round_num], row])
+
+    # Append header only once (if file doesn’t exist)
+    write_header = not os.path.exists(base_filename)
+
+    with open(base_filename, "a", newline="") as f:
+        writer = csv.writer(f)
+        if write_header:
+            header = []
+            if round_num is not None:
+                header.append("round")
+            header += [f"node_feat_{i}" for i in range(len(flat_node))] # for everyy territory ["player1_owner", "player2_owner", "player3_owner", "player4_owner", "total_units", "avg_attack", "avg_defense", "frac_in_combat", "avg_moved", "is_victory_city", "in_battle"]
+            header += [f"adj_{i}" for i in range(len(flat_adj))] # 29x29
+            header += [f"global_{i}" for i in range(len(flat_global))] #["purchase", "combat", "noncombat"]
+            writer.writerow(header)
+        writer.writerow(row)
 
 
 
@@ -853,7 +1034,7 @@ def agent_loop(state_dim, host="127.0.0.1", port=5000):
                             continue
 
                         if msg.startswith("[MY_MOVE]"):
-                            response = agent.get_move(msg)
+                            response = agent.get_move(msg, ctf)
                         else:
                             ctf.apply_change_line(msg, 0)
                             response = "ACK"
@@ -866,12 +1047,14 @@ def agent_loop(state_dim, host="127.0.0.1", port=5000):
     except KeyboardInterrupt:
         sock.close()
 
+    except Exception as e:
+        print(e)
+        time.sleep(4)
+
     finally:
-        # sock.close()
-        # sys.exit(0)
         return
                 
-            # print(buffer)
+
 
         # msg = json.loads(data)
         # state_vec = np.array(msg["state_vec"], dtype=np.float32)
@@ -892,6 +1075,12 @@ def agent_loop(state_dim, host="127.0.0.1", port=5000):
         # agent.epsilon *= agent.epsilon_decay
 
 
+
+
+
+
+
+
 with open("config.json", 'r') as f:
     data = json.load(f)
 
@@ -906,6 +1095,8 @@ with open(output_file, "r") as f:
 
 ctf = CaptureTheFlagGraph("gameInfo/Capture The Flag.json")
 
+
+
 agent_loop(10)
 
 ts = time.strftime("%Y%m%d_%H%M%S")
@@ -918,7 +1109,7 @@ print(f"Graph structure saved as {json_file}")
 
 # Save figure as PNG
 img_file = f"final_graph_{ts}.png"
-# ctf.fig.savefig(img_file, dpi=300, bbox_inches="tight")
+ctf.fig.savefig(img_file, dpi=300, bbox_inches="tight")
 print(f"Graph exported as {img_file}")
 print("\nShutting down...")
 

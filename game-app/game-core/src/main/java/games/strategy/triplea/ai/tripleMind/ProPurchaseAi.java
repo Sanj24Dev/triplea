@@ -413,140 +413,161 @@ class ProPurchaseAi {
     return true;
   }
 
-  void place(
-      final Map<Territory, ProPurchaseTerritory> purchaseTerritories,
-      final IAbstractPlaceDelegate placeDelegate) {
-    ProLogger.info("Starting place phase");
+//    public void place(final IAbstractPlaceDelegate placeDelegate, final List<ModelPlacement> modelPlacements) {
+//        ProLogger.info("Starting place phase (model-controlled)");
+//
+//        data = proData.getData();
+//        player = proData.getPlayer();
+//        proData.getUnitsToBeConsumed().clear();
+//
+//        // Execute model-decided placements
+//        for (final ModelPlacement mp : modelPlacements) {
+//            Territory territory = data.getMap().getTerritoryOrNull(mp.territoryName);
+//            if (territory != null && !mp.units.isEmpty()) {
+//                doPlace(territory, mp.units, placeDelegate);
+//                ProLogger.debug("Placed " + mp.units + " in " + territory);
+//            }
+//        }
+//
+//        territoryManager = null;
+//    }
 
-    data = proData.getData();
-    player = proData.getPlayer();
-    territoryManager = new ProTerritoryManager(calc, proData);
+    void place(
+            final Map<Territory, ProPurchaseTerritory> purchaseTerritories,
+            final IAbstractPlaceDelegate placeDelegate) {
+        ProLogger.info("Starting place phase");
 
-    // Clear list of units to be consumed, since we only used for movement phase.
-    // Additionally, we omit units in this list when checking for eligible units to consume, so
-    // we need to clear it before we actually do placement.
-    proData.getUnitsToBeConsumed().clear();
+        data = proData.getData();
+        player = proData.getPlayer();
+        territoryManager = new ProTerritoryManager(calc, proData);
 
-    if (purchaseTerritories != null) {
-      // Place all units calculated during purchase phase (land then sea to reduce failed
-      // placements)
-      for (final ProPurchaseTerritory t : purchaseTerritories.values()) {
-        for (final ProPlaceTerritory ppt : t.getCanPlaceTerritories()) {
-          if (!ppt.getTerritory().isWater()) {
-            final List<Unit> unitsToPlace = new ArrayList<>();
-            for (final Unit placeUnit : ppt.getPlaceUnits()) {
-              for (final Unit myUnit : player.getUnitCollection()) {
-                if (myUnit.getType().equals(placeUnit.getType())
-                    && !unitsToPlace.contains(myUnit)) {
-                  unitsToPlace.add(myUnit);
-                  break;
+        // Clear list of units to be consumed, since we only used for movement phase.
+        // Additionally, we omit units in this list when checking for eligible units to consume, so
+        // we need to clear it before we actually do placement.
+        proData.getUnitsToBeConsumed().clear();
+
+        if (purchaseTerritories != null) {
+            // Place all units calculated during purchase phase (land then sea to reduce failed
+            // placements)
+            for (final ProPurchaseTerritory t : purchaseTerritories.values()) {
+                for (final ProPlaceTerritory ppt : t.getCanPlaceTerritories()) {
+                    if (!ppt.getTerritory().isWater()) {
+                        final List<Unit> unitsToPlace = new ArrayList<>();
+                        for (final Unit placeUnit : ppt.getPlaceUnits()) {
+                            for (final Unit myUnit : player.getUnitCollection()) {
+                                if (myUnit.getType().equals(placeUnit.getType())
+                                        && !unitsToPlace.contains(myUnit)) {
+                                    unitsToPlace.add(myUnit);
+                                    break;
+                                }
+                            }
+                        }
+                        doPlace(
+                                data.getMap().getTerritoryOrNull(ppt.getTerritory().getName()),
+                                unitsToPlace,
+                                placeDelegate);
+                        ProLogger.debug(ppt.getTerritory() + " placed units: " + unitsToPlace);
+                    }
                 }
-              }
             }
-            doPlace(
-                data.getMap().getTerritoryOrNull(ppt.getTerritory().getName()),
-                unitsToPlace,
-                placeDelegate);
-            ProLogger.debug(ppt.getTerritory() + " placed units: " + unitsToPlace);
-          }
-        }
-      }
-      for (final ProPurchaseTerritory t : purchaseTerritories.values()) {
-        for (final ProPlaceTerritory ppt : t.getCanPlaceTerritories()) {
-          if (ppt.getTerritory().isWater()) {
-            final List<Unit> unitsToPlace = new ArrayList<>();
-            for (final Unit placeUnit : ppt.getPlaceUnits()) {
-              for (final Unit myUnit : player.getUnitCollection()) {
-                if (myUnit.getType().equals(placeUnit.getType())
-                    && !unitsToPlace.contains(myUnit)) {
-                  unitsToPlace.add(myUnit);
-                  break;
+            for (final ProPurchaseTerritory t : purchaseTerritories.values()) {
+                for (final ProPlaceTerritory ppt : t.getCanPlaceTerritories()) {
+                    if (ppt.getTerritory().isWater()) {
+                        final List<Unit> unitsToPlace = new ArrayList<>();
+                        for (final Unit placeUnit : ppt.getPlaceUnits()) {
+                            for (final Unit myUnit : player.getUnitCollection()) {
+                                if (myUnit.getType().equals(placeUnit.getType())
+                                        && !unitsToPlace.contains(myUnit)) {
+                                    unitsToPlace.add(myUnit);
+                                    break;
+                                }
+                            }
+                        }
+                        doPlace(
+                                data.getMap().getTerritoryOrNull(ppt.getTerritory().getName()),
+                                unitsToPlace,
+                                placeDelegate);
+                        ProLogger.debug(ppt.getTerritory() + " placed units: " + unitsToPlace);
+                    }
                 }
-              }
             }
-            doPlace(
-                data.getMap().getTerritoryOrNull(ppt.getTerritory().getName()),
-                unitsToPlace,
-                placeDelegate);
-            ProLogger.debug(ppt.getTerritory() + " placed units: " + unitsToPlace);
-          }
         }
-      }
-    }
 
-    // Place remaining units (currently only implemented to handle land units, ex. WW2v3 China)
-    if (player.getUnits().isEmpty()) {
-      return;
-    }
-
-    // Current data at the start of place
-    ProLogger.debug("Remaining units to place: " + player.getUnits());
-
-    // Find all place territories
-    final Map<Territory, ProPurchaseTerritory> placeNonConstructionTerritories =
-        ProPurchaseUtils.findPurchaseTerritories(proData, player);
-    final Set<Territory> placeTerritories = new HashSet<>();
-    for (final Territory t : placeNonConstructionTerritories.keySet()) {
-      for (final ProPlaceTerritory ppt :
-          placeNonConstructionTerritories.get(t).getCanPlaceTerritories()) {
-        placeTerritories.add(ppt.getTerritory());
-      }
-    }
-
-    // Determine max enemy attack units and current allied defenders
-    territoryManager.populateEnemyAttackOptions(
-        new ArrayList<>(), new ArrayList<>(placeTerritories));
-    findDefendersInPlaceTerritories(placeNonConstructionTerritories);
-
-    // Prioritize land territories that need defended and place additional defenders
-    final List<ProPlaceTerritory> needToDefendLandTerritories =
-        prioritizeTerritoriesToDefend(placeNonConstructionTerritories, true);
-    placeDefenders(placeNonConstructionTerritories, needToDefendLandTerritories, placeDelegate);
-
-    // Prioritize sea territories that need defended and place additional defenders
-    final List<ProPlaceTerritory> needToDefendSeaTerritories =
-        prioritizeTerritoriesToDefend(placeNonConstructionTerritories, false);
-    placeDefenders(placeNonConstructionTerritories, needToDefendSeaTerritories, placeDelegate);
-
-    // Find strategic value for each territory
-    ProLogger.info("Find strategic value for place territories");
-    final Set<Territory> territoriesToCheck = new HashSet<>();
-    for (final ProPurchaseTerritory t : placeNonConstructionTerritories.values()) {
-      for (final ProPlaceTerritory ppt : t.getCanPlaceTerritories()) {
-        territoriesToCheck.add(ppt.getTerritory());
-      }
-    }
-    final Map<Territory, Double> territoryValueMap =
-        ProTerritoryValueUtils.findTerritoryValues(
-            proData, player, List.of(), List.of(), territoriesToCheck);
-    for (final ProPurchaseTerritory t : placeNonConstructionTerritories.values()) {
-      for (final ProPlaceTerritory ppt : t.getCanPlaceTerritories()) {
-        ppt.setStrategicValue(territoryValueMap.get(ppt.getTerritory()));
-        ProLogger.debug(
-            ppt.getTerritory() + ", strategicValue=" + territoryValueMap.get(ppt.getTerritory()));
-      }
-    }
-
-    // Prioritize place territories
-    final List<ProPlaceTerritory> prioritizedTerritories =
-        prioritizeLandTerritories(placeNonConstructionTerritories);
-    for (final ProPurchaseTerritory ppt : placeNonConstructionTerritories.values()) {
-      for (final ProPlaceTerritory placeTerritory : ppt.getCanPlaceTerritories()) {
-        if (!prioritizedTerritories.contains(placeTerritory)) {
-          prioritizedTerritories.add(placeTerritory);
+        // Place remaining units (currently only implemented to handle land units, ex. WW2v3 China)
+        if (player.getUnits().isEmpty()) {
+            return;
         }
-      }
+
+        // Current data at the start of place
+        ProLogger.debug("Remaining units to place: " + player.getUnits());
+
+        // Find all place territories
+        final Map<Territory, ProPurchaseTerritory> placeNonConstructionTerritories =
+                ProPurchaseUtils.findPurchaseTerritories(proData, player);
+        final Set<Territory> placeTerritories = new HashSet<>();
+        for (final Territory t : placeNonConstructionTerritories.keySet()) {
+            for (final ProPlaceTerritory ppt :
+                    placeNonConstructionTerritories.get(t).getCanPlaceTerritories()) {
+                placeTerritories.add(ppt.getTerritory());
+            }
+        }
+
+        // Determine max enemy attack units and current allied defenders
+        territoryManager.populateEnemyAttackOptions(
+                new ArrayList<>(), new ArrayList<>(placeTerritories));
+        findDefendersInPlaceTerritories(placeNonConstructionTerritories);
+
+        // Prioritize land territories that need defended and place additional defenders
+        final List<ProPlaceTerritory> needToDefendLandTerritories =
+                prioritizeTerritoriesToDefend(placeNonConstructionTerritories, true);
+        placeDefenders(placeNonConstructionTerritories, needToDefendLandTerritories, placeDelegate);
+
+        // Prioritize sea territories that need defended and place additional defenders
+        final List<ProPlaceTerritory> needToDefendSeaTerritories =
+                prioritizeTerritoriesToDefend(placeNonConstructionTerritories, false);
+        placeDefenders(placeNonConstructionTerritories, needToDefendSeaTerritories, placeDelegate);
+
+        // Find strategic value for each territory
+        ProLogger.info("Find strategic value for place territories");
+        final Set<Territory> territoriesToCheck = new HashSet<>();
+        for (final ProPurchaseTerritory t : placeNonConstructionTerritories.values()) {
+            for (final ProPlaceTerritory ppt : t.getCanPlaceTerritories()) {
+                territoriesToCheck.add(ppt.getTerritory());
+            }
+        }
+        final Map<Territory, Double> territoryValueMap =
+                ProTerritoryValueUtils.findTerritoryValues(
+                        proData, player, List.of(), List.of(), territoriesToCheck);
+        for (final ProPurchaseTerritory t : placeNonConstructionTerritories.values()) {
+            for (final ProPlaceTerritory ppt : t.getCanPlaceTerritories()) {
+                ppt.setStrategicValue(territoryValueMap.get(ppt.getTerritory()));
+                ProLogger.debug(
+                        ppt.getTerritory() + ", strategicValue=" + territoryValueMap.get(ppt.getTerritory()));
+            }
+        }
+
+        // Prioritize place territories
+        final List<ProPlaceTerritory> prioritizedTerritories =
+                prioritizeLandTerritories(placeNonConstructionTerritories);
+        for (final ProPurchaseTerritory ppt : placeNonConstructionTerritories.values()) {
+            for (final ProPlaceTerritory placeTerritory : ppt.getCanPlaceTerritories()) {
+                if (!prioritizedTerritories.contains(placeTerritory)) {
+                    prioritizedTerritories.add(placeTerritory);
+                }
+            }
+        }
+
+        // Place regular then isConstruction units (placeDelegate.getPlaceableUnits doesn't handle
+        // combined)
+        placeUnits(prioritizedTerritories, placeDelegate, Matches.unitIsNotConstruction());
+        placeUnits(prioritizedTerritories, placeDelegate, Matches.unitIsConstruction());
+
+        territoryManager = null;
     }
 
-    // Place regular then isConstruction units (placeDelegate.getPlaceableUnits doesn't handle
-    // combined)
-    placeUnits(prioritizedTerritories, placeDelegate, Matches.unitIsNotConstruction());
-    placeUnits(prioritizedTerritories, placeDelegate, Matches.unitIsConstruction());
 
-    territoryManager = null;
-  }
 
-  private void findDefendersInPlaceTerritories(
+    private void findDefendersInPlaceTerritories(
       final Map<Territory, ProPurchaseTerritory> purchaseTerritories) {
     ProLogger.info("Find defenders in possible place territories");
     for (final ProPurchaseTerritory ppt : purchaseTerritories.values()) {
@@ -2600,8 +2621,8 @@ class ProPurchaseAi {
     return territories;
   }
 
-  private static void doPlace(
-      final Territory t, final Collection<Unit> toPlace, final IAbstractPlaceDelegate del) {
+  static void doPlace(
+          final Territory t, final Collection<Unit> toPlace, final IAbstractPlaceDelegate del) {
     for (final Unit unit : toPlace) {
       del.placeUnits(List.of(unit), t, IAbstractPlaceDelegate.BidMode.NOT_BID)
           .ifPresent(
