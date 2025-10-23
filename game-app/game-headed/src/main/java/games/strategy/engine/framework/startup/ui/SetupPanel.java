@@ -275,7 +275,7 @@ public abstract class SetupPanel extends JPanel implements SetupModel {
               () -> {
                   setAllTypes.setSelectedItem(I18nEngineFramework.get().getText("startup.PlayerTypes.PLAYER_TYPE_AI_FAST_LABEL"));
                   final PlayerSelectorRow row = playerRows.get(getAIRoleId(playerRows.size()));
-                  row.setPlayerType(I18nEngineFramework.get().getText("startup.PlayerTypes.PLAYER_TYPE_AI_TRIPLE_MIND_LABEL"));
+//                  row.setPlayerType(I18nEngineFramework.get().getText("startup.PlayerTypes.PLAYER_TYPE_AI_TRIPLE_MIND_LABEL"));
                   playButton.doClick();
                   logAI("INFO", "Role: " + row.getPlayerName());
 //                  canClickStart = 1;

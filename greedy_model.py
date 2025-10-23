@@ -337,7 +337,7 @@ class CaptureTheFlagGraph:
         if territory in self.G.nodes:
             self.G.nodes[territory]["owner"] = new_owner
             self.G.owners[new_owner]["latest_loc"] = territory
-            print(f"{territory} is now owned by {new_owner}")
+            # print(f"{territory} is now owned by {new_owner}")
 
     def add_unit(self, territory, unit, owner, quantity=1, properties=None):
         """Add a unit to a territory or to a player's unplaced pool (purchase)."""
@@ -362,13 +362,13 @@ class CaptureTheFlagGraph:
             counts = self.G.nodes[territory].setdefault("unit_counts", {})
             counts[unit] = counts.get(unit, 0) + quantity
 
-            print(f"Added {quantity} {unit}(s) for {owner} in {territory}")
+            # print(f"Added {quantity} {unit}(s) for {owner} in {territory}")
 
         # --- Case 2: Purchase (unplaced pool) ---
         elif territory in self.G.owners:
             unplaced = self.G.owners[territory]["unplaced"]
             unplaced[unit] = unplaced.get(unit, 0) + quantity
-            print(f"Purchased {quantity} {unit}(s) for {territory}")
+            # print(f"Purchased {quantity} {unit}(s) for {territory}")
 
 
 
@@ -382,12 +382,12 @@ class CaptureTheFlagGraph:
                     if u["quantity"] <= 0:
                         units.remove(u)
                     break
-            print(f"Removed {quantity} {unit}(s) of {owner} from {territory}")
+            # print(f"Removed {quantity} {unit}(s) of {owner} from {territory}")
 
         elif territory in self.G.owners:
             unplaced = self.G.owners[territory]["unplaced"]
             unplaced[unit] = unplaced.get(unit, 0) - quantity
-            print(f"Placed {quantity} {unit}(s) for {territory}")
+            # print(f"Placed {quantity} {unit}(s) for {territory}")
 
 
     def update_unit_property(self, unit, owner, prop, new_val):
@@ -403,26 +403,26 @@ class CaptureTheFlagGraph:
                 if u["unit"] == unit and u["owner"] == owner:
                     old_val = u["properties"].get(prop, None)
                     u["properties"][prop] = new_val
-                    print(f"Updated {unit} ({owner}) in {territory}: {prop} changed from {old_val} to {new_val}")
+                    # print(f"Updated {unit} ({owner}) in {territory}: {prop} changed from {old_val} to {new_val}")
                     break
             else:
                 self.pending_props[prop] = new_val
-                print(f"Updated pending props: {self.pending_props}")
+                # print(f"Updated pending props: {self.pending_props}")
 
 
 
     def add_connection(self, from_t, to_t):
         self.G.add_edge(from_t, to_t, color="black")  # default color
-        print(f"Connection added between {from_t} and {to_t}")
+        # print(f"Connection added between {from_t} and {to_t}")
 
     def remove_connection(self, from_t, to_t):
         if self.G.has_edge(from_t, to_t):
             self.G.remove_edge(from_t, to_t)
-            print(f"Connection removed between {from_t} and {to_t}")
+            # print(f"Connection removed between {from_t} and {to_t}")
 
     def update_pus(self, player, qty):
         self.G.owners[player]["PU"] += qty
-        print(f"Updated resources for {player}: {self.G.owners[player]["PU"]}")
+        # print(f"Updated resources for {player}: {self.G.owners[player]["PU"]}")
 
     def add_battle_record(self, player, battle_id, territory):
         """
@@ -431,7 +431,7 @@ class CaptureTheFlagGraph:
         """
         # self.G.graph.setdefault("battles", {}).setdefault(player, []).append(battle)
         self.G.nodes[territory]["properties"]["battle"] = True
-        print(f"{player}: Battle at {territory}")
+        # print(f"{player}: Battle at {territory}")
 
 
 
@@ -809,6 +809,8 @@ class OnlineGreedyAgent:
         self.alpha = alpha
         self.epsilon = epsilon
         self.epsilon_decay = epsilon_decay
+
+        self.latest_legal_moves = []
         # self.w = np.zeros(state_dim, dtype=np.float32)
 
     # def value(self, s):
@@ -976,6 +978,29 @@ class OnlineGreedyAgent:
         }
         return state
 
+
+    def update_legal_moves(self, move_type, player):
+        global MOVE_DICT
+
+        if move_type == "purchase":
+            legal_moves = generate_legal_purchase_moves(ctf, player)
+            self.latest_legal_moves = legal_moves
+
+            # --- Update move dictionary ---
+            updated = False
+            for move in legal_moves:
+                # Represent move as a canonical string key
+                key = json.dumps(move, sort_keys=True)
+
+                if key not in MOVE_DICT:
+                    MOVE_DICT[key] = len(MOVE_DICT)
+                    updated = True
+
+            # Save dictionary if new moves were added
+            if updated:
+                with open(MOVE_DICT_PATH, "w") as f:
+                    json.dump(MOVE_DICT, f, indent=2)
+
 def append_state_to_csv(state, base_filename="state_dataset2.csv", round_num=None):
     # Flatten arrays to 1D for easy row appending
     flat_node = state["node_features"].flatten()
@@ -1004,6 +1029,130 @@ def append_state_to_csv(state, base_filename="state_dataset2.csv", round_num=Non
         writer.writerow(row)
 
 
+def parse_purchase_line(ctf, player, line):
+    """
+    Parse a purchase log line like:
+    'ProductionRule:buyArtillery -> 1 ProductionRule:buyInfantry -> 1'
+    and return a dict in the same format as generate_legal_purchase_moves().
+    """
+    # Step 1. Find all "ProductionRule:buyX -> N" patterns
+    matches = re.findall(r"ProductionRule:buy(\w+)\s*->\s*(\d+)", line)
+    if not matches:
+        return None  # no valid matches
+
+    # Step 2. Normalize names and quantities
+    purchase_dict = {}
+    for unit_name, qty_str in matches:
+        unit_name = unit_name.lower()  # optional normalization
+        qty = int(qty_str)
+        purchase_dict[unit_name] = purchase_dict.get(unit_name, 0) + qty
+
+    # Step 3. Compute total cost using production rules
+    total_cost = 0
+    for unit_name, qty in purchase_dict.items():
+        rule = ctf.production_rules.get(unit_name)
+        if rule:
+            total_cost += rule.get("cost", 0) * qty
+        else:
+            print(f"Warning: no cost found for {unit_name}")
+
+    # Step 4. Get available factories
+    factories = ctf.get_factories(player)
+
+    return {
+        "purchase": purchase_dict,
+        "cost": total_cost,
+        "place_in": factories
+    }
+
+def save_delegate(state, move_type, round_num=None, legal_moves=None, chosen_move=None, base_filename="_dataset.csv"):
+    base_filename = f"{move_type}{base_filename}"
+
+    # Flatten state arrays
+    flat_node = state["node_features"].flatten()
+    # flat_adj = state["adjacency"].flatten()
+    # flat_global = state["global_features"].flatten()
+    flat_adj = []
+    flat_global = []
+
+    # Combine into one base row
+    row = np.concatenate([flat_node, flat_adj, flat_global])
+
+    # Include round number (optional)
+    if round_num is not None:
+        row = np.concatenate([[round_num], row])
+
+    legal_flat, chosen_flat = [], []
+    if move_type == "purchase" and legal_moves is not None:
+        all_units = sorted({u for move in legal_moves for u in move["purchase"].keys()})
+        for move in legal_moves:
+            vec = [move["purchase"].get(u, 0) for u in all_units]
+            legal_flat.extend(vec)
+
+        if chosen_move:
+            chosen_flat = [chosen_move["purchase"].get(u, 0) for u in all_units]
+        else:
+            chosen_flat = [0] * len(all_units)
+
+        row = np.concatenate([row, legal_flat, chosen_flat])
+
+    # --- Write to CSV ---
+    write_header = not os.path.exists(base_filename)
+    with open(base_filename, "a", newline="") as f:
+        writer = csv.writer(f)
+
+        # Build header on first write
+        if write_header:
+            header = []
+            if round_num is not None:
+                header.append("round")
+
+            header += [f"node_feat_{i}" for i in range(len(flat_node))]
+            # header += [f"adj_{i}" for i in range(len(flat_adj))]
+            # header += [f"global_{i}" for i in range(len(flat_global))]
+
+            if move_type == "purchase" and legal_moves is not None:
+                header += [f"legal_{i}" for i in range(len(legal_flat))]
+                header += [f"chosen_{i}" for i in range(len(chosen_flat))]
+
+            writer.writerow(header)
+
+        writer.writerow(row)
+
+
+def get_purchase_move_id(move):
+    key = json.dumps(move, sort_keys=True)
+    if key not in MOVE_DICT:
+        MOVE_DICT[key] = len(MOVE_DICT)
+        with open(MOVE_DICT_PATH, "w") as f:
+            json.dump(MOVE_DICT, f)
+    return MOVE_DICT[key]
+
+
+def save_delegate_json(state, player, move_type, pu_before_move, pu_after_move, round_num=None, legal_moves=None, chosen_move=None, base_filename="_dataset.jsonl"):
+    base_filename = f"{move_type}{base_filename}"
+    legal_ids = [get_purchase_move_id(m) for m in legal_moves]
+    chosen_id = get_purchase_move_id(chosen_move)
+    entry = {
+        "round": round_num,
+        "player": player,
+        "delegate": move_type,
+        "pu_before_move": pu_before_move,
+        "pu_after_move": pu_after_move,
+        "state": {
+            "node_features": state["node_features"].tolist(),
+            "adjacency": state["adjacency"].tolist(),
+            "global_features": state["global_features"].tolist()
+        },
+        "legal_moves": legal_ids,
+        "chosen_move": chosen_id
+        # ideally also isWinner
+    }
+
+    with open(base_filename, "a") as f:
+        json.dump(entry, f)
+        f.write("\n")
+
 
 def agent_loop(state_dim, host="127.0.0.1", port=5000):
     agent = OnlineGreedyAgent(state_dim)
@@ -1013,7 +1162,10 @@ def agent_loop(state_dim, host="127.0.0.1", port=5000):
     print(f"Server listening on {host}:{port}")
 
     ctf.draw()
-
+    r = 1
+    p = 1
+    pu_before_move = 0
+    pu_after_move = 0
     try:
         while True:
             conn, addr = sock.accept()
@@ -1035,11 +1187,36 @@ def agent_loop(state_dim, host="127.0.0.1", port=5000):
 
                         if msg.startswith("[MY_MOVE]"):
                             response = agent.get_move(msg, ctf)
+                        elif msg.startswith("[FOR_DB]"):
+                            parts = msg.strip().split(' ')
+                            player = parts[2]
+                            if parts[1] == "purchase": # or one of delegates
+                                pu_before_move = ctf.get_player_resources(player)
+                                agent.update_legal_moves(parts[1], parts[2])
+                            if parts[1] == "chosen":
+                                move_msg = msg.strip().split("::")[1]
+                                chosen_move = parse_purchase_line(ctf, player, move_msg)
+                                # print(agent.latest_legal_moves)
+                                for legal_move in agent.latest_legal_moves:
+                                    if chosen_move["purchase"] == legal_move["purchase"]:
+                                        # print("Chosen move:", chosen_move)
+                                        print("Saving: Round=", r, " for ", player)
+                                        pu_after_move = ctf.get_player_resources(player)
+                                        save_delegate_json(state=agent.get_state_encoding(ctf, "purchase"), player=player, move_type="purchase", round_num=r, pu_before_move=pu_before_move, pu_after_move=pu_after_move, legal_moves=agent.latest_legal_moves, chosen_move=chosen_move)
+                                        p += 1
+                                        if p == 5:
+                                            r = r+1
+                                            p = 1
+                                        break
+                            else:
+                                # print("Move: ", parts[1])
+                                agent.update_legal_moves(parts[1], parts[2])
+                            response = "ACK"
                         else:
                             ctf.apply_change_line(msg, 0)
                             response = "ACK"
 
-                        print("Sending:", response)
+                        # print("Sending:", response)
                         conn.send((json.dumps(response) + "\n").encode("utf-8"))
                         ctf.draw()
 
@@ -1078,6 +1255,13 @@ def agent_loop(state_dim, host="127.0.0.1", port=5000):
 
 
 
+
+MOVE_DICT_PATH = "move_dict.json"
+try:
+    with open(MOVE_DICT_PATH, "r") as f:
+        MOVE_DICT = json.load(f)
+except FileNotFoundError:
+    MOVE_DICT = {}
 
 
 

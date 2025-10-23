@@ -51,6 +51,8 @@ import lombok.Getter;
 import org.triplea.java.collections.CollectionUtils;
 import org.triplea.util.Tuple;
 
+import static games.strategy.triplea.ai.tripleMind.helper.logAI;
+
 /** Pro AI. */
 public abstract class AbstractProAi extends AbstractAi {
 
@@ -160,6 +162,8 @@ public abstract class AbstractProAi extends AbstractAi {
       final IPurchaseDelegate purchaseDelegate,
       final GameData data,
       final GamePlayer player) {
+//      start of move - model will log legal moves for the current state
+    logAI("FOR_DB", "purchase " + player.getName());
     final long start = System.currentTimeMillis();
     ProLogUi.notifyStartOfRound(data.getSequence().getRound(), player.getName());
     initializeData();
@@ -262,6 +266,7 @@ public abstract class AbstractProAi extends AbstractAi {
       }
     }
     ProLogger.info(player.getName() + " time for purchase=" + (System.currentTimeMillis() - start));
+
   }
 
   private GameData copyData(GameData data) {

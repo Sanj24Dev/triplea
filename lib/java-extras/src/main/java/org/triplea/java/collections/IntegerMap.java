@@ -194,6 +194,17 @@ public final class IntegerMap<T> implements Serializable {
     return buf.toString();
   }
 
+    public String toStringForChosen() {
+        final StringBuilder buf = new StringBuilder();
+        if (mapValues.isEmpty()) {
+            buf.append("empty ");
+        }
+        for (final Map.Entry<T, Integer> entry : mapValues.entrySet()) {
+            buf.append(entry.getKey()).append(" -> ").append(entry.getValue()).append(' ');
+        }
+        return buf.toString();
+    }
+
   @Override
   public int hashCode() {
     return Objects.hashCode(mapValues);

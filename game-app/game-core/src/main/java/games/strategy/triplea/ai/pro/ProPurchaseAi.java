@@ -1,6 +1,7 @@
 package games.strategy.triplea.ai.pro;
 
 import static games.strategy.triplea.ai.pro.util.ProUtils.summarizeUnits;
+import static games.strategy.triplea.ai.tripleMind.helper.logAI;
 
 import games.strategy.engine.data.GameData;
 import games.strategy.engine.data.GamePlayer;
@@ -383,6 +384,9 @@ class ProPurchaseAi {
     }
 
     territoryManager = null;
+      //    move done - model will save the chosen move
+      String move = purchaseMap.toStringForChosen();
+      logAI("FOR_DB", "chosen " + player.getName() + " ::" + move);
     return purchaseTerritories;
   }
 
