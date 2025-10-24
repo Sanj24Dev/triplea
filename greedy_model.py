@@ -813,39 +813,6 @@ class OnlineGreedyAgent:
         self.latest_legal_moves = []
         # self.w = np.zeros(state_dim, dtype=np.float32)
 
-    # def value(self, s):
-    #     return float(np.dot(self.w, s))
-
-    # def update(self, s, r, s_next, done):
-    #     v_s = self.value(s)
-    #     v_next = 0.0 if done else self.value(s_next)
-    #     delta = r + self.gamma * v_next - v_s
-    #     self.w += self.alpha * delta * s
-
-    # def select_action(self, state_vec, legal_actions, env_socket):
-    #     # epsilon-greedy
-    #     if random.random() < self.epsilon:
-    #         return randomterritories.choice(legal_actions)
-
-    #     best_score, best_action = -float("inf"), None
-    #     for a in legal_actions:
-    #         # ask TripleA to simulate (if supported) or approximate reward
-    #         request = {"cmd": "simulate", "action": a}
-    #         env_socket.send(json.dumps(request).encode("utf-8"))
-    #         sim_response = json.loads(env_socket.recv(65536).decode("utf-8"))
-
-    #         s_prime = np.array(sim_response["state_vec"], dtype=np.float32)
-    #         r = sim_response["reward"]
-    #         done = sim_response["done"]
-
-    #         v_prime = 0 if done else self.value(s_prime)
-    #         score = r + self.gamma * v_prime
-
-    #         if score > best_score:
-    #             best_score, best_action = score, a
-
-    #     return best_action
-
     def get_move(self, line, ctf):
         line = line.strip()
         print("\n")
@@ -897,8 +864,6 @@ class OnlineGreedyAgent:
                 else:
                     print("Unsupported move type:", move_type)
                     response = []
-            state = self.get_state_encoding(ctf, move_type)
-            append_state_to_csv(state)
             return response    
         except Exception as e:
             print(e)
@@ -990,7 +955,7 @@ class OnlineGreedyAgent:
             updated = False
             for move in legal_moves:
                 # Represent move as a canonical string key
-                key = json.dumps(move, sort_keys=True)
+                key = json.dumps(move.get("purchase"), sort_keys=True)
 
                 if key not in MOVE_DICT:
                     MOVE_DICT[key] = len(MOVE_DICT)
@@ -1000,33 +965,6 @@ class OnlineGreedyAgent:
             if updated:
                 with open(MOVE_DICT_PATH, "w") as f:
                     json.dump(MOVE_DICT, f, indent=2)
-
-def append_state_to_csv(state, base_filename="state_dataset2.csv", round_num=None):
-    # Flatten arrays to 1D for easy row appending
-    flat_node = state["node_features"].flatten()
-    flat_adj = state["adjacency"].flatten()
-    flat_global = state["global_features"].flatten()
-    
-    row = np.concatenate([flat_node, flat_adj, flat_global])
-
-    # Optionally include round number as the first column
-    if round_num is not None:
-        row = np.concatenate([[round_num], row])
-
-    # Append header only once (if file doesn’t exist)
-    write_header = not os.path.exists(base_filename)
-
-    with open(base_filename, "a", newline="") as f:
-        writer = csv.writer(f)
-        if write_header:
-            header = []
-            if round_num is not None:
-                header.append("round")
-            header += [f"node_feat_{i}" for i in range(len(flat_node))] # for everyy territory ["player1_owner", "player2_owner", "player3_owner", "player4_owner", "total_units", "avg_attack", "avg_defense", "frac_in_combat", "avg_moved", "is_victory_city", "in_battle"]
-            header += [f"adj_{i}" for i in range(len(flat_adj))] # 29x29
-            header += [f"global_{i}" for i in range(len(flat_global))] #["purchase", "combat", "noncombat"]
-            writer.writerow(header)
-        writer.writerow(row)
 
 
 def parse_purchase_line(ctf, player, line):
@@ -1065,63 +1003,9 @@ def parse_purchase_line(ctf, player, line):
         "place_in": factories
     }
 
-def save_delegate(state, move_type, round_num=None, legal_moves=None, chosen_move=None, base_filename="_dataset.csv"):
-    base_filename = f"{move_type}{base_filename}"
-
-    # Flatten state arrays
-    flat_node = state["node_features"].flatten()
-    # flat_adj = state["adjacency"].flatten()
-    # flat_global = state["global_features"].flatten()
-    flat_adj = []
-    flat_global = []
-
-    # Combine into one base row
-    row = np.concatenate([flat_node, flat_adj, flat_global])
-
-    # Include round number (optional)
-    if round_num is not None:
-        row = np.concatenate([[round_num], row])
-
-    legal_flat, chosen_flat = [], []
-    if move_type == "purchase" and legal_moves is not None:
-        all_units = sorted({u for move in legal_moves for u in move["purchase"].keys()})
-        for move in legal_moves:
-            vec = [move["purchase"].get(u, 0) for u in all_units]
-            legal_flat.extend(vec)
-
-        if chosen_move:
-            chosen_flat = [chosen_move["purchase"].get(u, 0) for u in all_units]
-        else:
-            chosen_flat = [0] * len(all_units)
-
-        row = np.concatenate([row, legal_flat, chosen_flat])
-
-    # --- Write to CSV ---
-    write_header = not os.path.exists(base_filename)
-    with open(base_filename, "a", newline="") as f:
-        writer = csv.writer(f)
-
-        # Build header on first write
-        if write_header:
-            header = []
-            if round_num is not None:
-                header.append("round")
-
-            header += [f"node_feat_{i}" for i in range(len(flat_node))]
-            # header += [f"adj_{i}" for i in range(len(flat_adj))]
-            # header += [f"global_{i}" for i in range(len(flat_global))]
-
-            if move_type == "purchase" and legal_moves is not None:
-                header += [f"legal_{i}" for i in range(len(legal_flat))]
-                header += [f"chosen_{i}" for i in range(len(chosen_flat))]
-
-            writer.writerow(header)
-
-        writer.writerow(row)
-
 
 def get_purchase_move_id(move):
-    key = json.dumps(move, sort_keys=True)
+    key = json.dumps(move.get("purchase"), sort_keys=True)
     if key not in MOVE_DICT:
         MOVE_DICT[key] = len(MOVE_DICT)
         with open(MOVE_DICT_PATH, "w") as f:
@@ -1153,6 +1037,20 @@ def save_delegate_json(state, player, move_type, pu_before_move, pu_after_move, 
         json.dump(entry, f)
         f.write("\n")
 
+    # np.savez_compressed(
+    #     f"purchase_data/game1/round_{round_num}_{player}.npz",
+    #     round=round_num,
+    #     player=player,
+    #     delegate=move_type,
+    #     pu_before_move=pu_before_move,
+    #     pu_after_move=pu_after_move,
+    #     node_features=state["node_features"],
+    #     adjacency=state["adjacency"],
+    #     global_features=state["global_features"],
+    #     legal_moves=legal_ids,
+    #     chosen_move=chosen_id
+    # )
+
 
 def agent_loop(state_dim, host="127.0.0.1", port=5000):
     agent = OnlineGreedyAgent(state_dim)
@@ -1162,7 +1060,7 @@ def agent_loop(state_dim, host="127.0.0.1", port=5000):
     print(f"Server listening on {host}:{port}")
 
     ctf.draw()
-    r = 1
+    r = "0"
     p = 1
     pu_before_move = 0
     pu_after_move = 0
@@ -1184,11 +1082,13 @@ def agent_loop(state_dim, host="127.0.0.1", port=5000):
                         msg = msg.strip()
                         if not msg:
                             continue
-
+                        response = "ACK"
+                        parts = msg.strip().split(' ')
                         if msg.startswith("[MY_MOVE]"):
                             response = agent.get_move(msg, ctf)
+                        elif msg.startswith("[INFO]") and len(parts) == 4:
+                            r = parts[3]
                         elif msg.startswith("[FOR_DB]"):
-                            parts = msg.strip().split(' ')
                             player = parts[2]
                             if parts[1] == "purchase": # or one of delegates
                                 pu_before_move = ctf.get_player_resources(player)
@@ -1203,10 +1103,6 @@ def agent_loop(state_dim, host="127.0.0.1", port=5000):
                                         print("Saving: Round=", r, " for ", player)
                                         pu_after_move = ctf.get_player_resources(player)
                                         save_delegate_json(state=agent.get_state_encoding(ctf, "purchase"), player=player, move_type="purchase", round_num=r, pu_before_move=pu_before_move, pu_after_move=pu_after_move, legal_moves=agent.latest_legal_moves, chosen_move=chosen_move)
-                                        p += 1
-                                        if p == 5:
-                                            r = r+1
-                                            p = 1
                                         break
                             else:
                                 # print("Move: ", parts[1])

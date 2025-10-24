@@ -5,7 +5,8 @@ import json
 import xml.etree.ElementTree as ET
 
 
-play_rounds = 1
+play_rounds = 100
+play_games = 3
 
 
 def count_rounds(filename):
