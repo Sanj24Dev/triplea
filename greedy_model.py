@@ -991,17 +991,17 @@ def append_state_to_csv(state, base_filename="state_dataset2.csv", round_num=Non
     # Append header only once (if file doesn’t exist)
     write_header = not os.path.exists(base_filename)
 
-    with open(base_filename, "a", newline="") as f:
-        writer = csv.writer(f)
-        if write_header:
-            header = []
-            if round_num is not None:
-                header.append("round")
-            header += [f"node_feat_{i}" for i in range(len(flat_node))] # for everyy territory ["player1_owner", "player2_owner", "player3_owner", "player4_owner", "total_units", "avg_attack", "avg_defense", "frac_in_combat", "avg_moved", "is_victory_city", "in_battle"]
-            header += [f"adj_{i}" for i in range(len(flat_adj))] # 29x29
-            header += [f"global_{i}" for i in range(len(flat_global))] #["purchase", "combat", "noncombat"]
-            writer.writerow(header)
-        writer.writerow(row)
+    # with open(base_filename, "a", newline="") as f:
+    #     writer = csv.writer(f)
+    #     if write_header:
+    #         header = []
+    #         if round_num is not None:
+    #             header.append("round")
+    #         header += [f"node_feat_{i}" for i in range(len(flat_node))] # for everyy territory ["player1_owner", "player2_owner", "player3_owner", "player4_owner", "total_units", "avg_attack", "avg_defense", "frac_in_combat", "avg_moved", "is_victory_city", "in_battle"]
+    #         header += [f"adj_{i}" for i in range(len(flat_adj))] # 29x29
+    #         header += [f"global_{i}" for i in range(len(flat_global))] #["purchase", "combat", "noncombat"]
+    #         writer.writerow(header)
+    #     writer.writerow(row)
 
 
 
