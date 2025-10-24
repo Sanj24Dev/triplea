@@ -1,8 +1,8 @@
 > Task :game-app:domain-data:compileJava UP-TO-DATE
-> Task :lib:java-extras:compileJava UP-TO-DATE
-> Task :lib:websocket-client:compileJava UP-TO-DATE
-> Task :lib:feign-common:compileJava UP-TO-DATE
-> Task :lib:websocket-server:compileJava UP-TO-DATE
+> Task :lib:java-extras:compileJava FROM-CACHE
+> Task :lib:websocket-client:compileJava FROM-CACHE
+> Task :lib:feign-common:compileJava FROM-CACHE
+> Task :lib:websocket-server:compileJava FROM-CACHE
 > Task :lib:websocket-server:processResources NO-SOURCE
 > Task :lib:websocket-server:classes UP-TO-DATE
 > Task :lib:websocket-server:jar UP-TO-DATE
@@ -10,31 +10,31 @@
 > Task :game-app:game-relay-server:processResources NO-SOURCE
 > Task :game-app:game-relay-server:classes UP-TO-DATE
 > Task :game-app:game-relay-server:jar UP-TO-DATE
-> Task :lib:xml-reader:compileJava UP-TO-DATE
+> Task :lib:xml-reader:compileJava FROM-CACHE
 > Task :lib:xml-reader:processResources NO-SOURCE
 > Task :lib:xml-reader:classes UP-TO-DATE
 > Task :lib:xml-reader:jar UP-TO-DATE
-> Task :game-app:map-data:compileJava UP-TO-DATE
+> Task :game-app:map-data:compileJava FROM-CACHE
 > Task :game-app:map-data:processResources NO-SOURCE
 > Task :game-app:map-data:classes UP-TO-DATE
 > Task :game-app:map-data:jar UP-TO-DATE
-> Task :http-clients:lobby-client:compileJava UP-TO-DATE
-> Task :lib:swing-lib:compileJava UP-TO-DATE
+> Task :http-clients:lobby-client:compileJava FROM-CACHE
+> Task :lib:swing-lib:compileJava FROM-CACHE
 > Task :lib:swing-lib:processResources NO-SOURCE
 > Task :lib:swing-lib:classes UP-TO-DATE
 > Task :lib:swing-lib:jar UP-TO-DATE
-> Task :game-app:game-core:compileJava UP-TO-DATE
+> Task :game-app:game-core:compileJava FROM-CACHE
 > Task :game-app:game-core:processResources UP-TO-DATE
 > Task :game-app:game-core:classes UP-TO-DATE
-> Task :game-app:game-core:jar UP-TO-DATE
-> Task :game-app:ai:compileJava UP-TO-DATE
+> Task :game-app:game-core:jar
+> Task :game-app:ai:compileJava FROM-CACHE
 > Task :game-app:ai:processResources NO-SOURCE
 > Task :game-app:ai:classes UP-TO-DATE
 > Task :game-app:ai:jar UP-TO-DATE
 > Task :game-app:domain-data:processResources NO-SOURCE
 > Task :game-app:domain-data:classes UP-TO-DATE
 > Task :game-app:domain-data:jar UP-TO-DATE
-> Task :game-app:game-headed:compileJava UP-TO-DATE
+> Task :game-app:game-headed:compileJava FROM-CACHE
 > Task :game-app:game-headed:processResources UP-TO-DATE
 > Task :game-app:game-headed:classes UP-TO-DATE
 
@@ -49,75 +49,75 @@ Download https://github.com/triplea-game/assets/releases/download/47/game_headed
 > Task :lib:feign-common:jar UP-TO-DATE
 > Task :lib:java-extras:processResources NO-SOURCE
 > Task :lib:java-extras:classes UP-TO-DATE
-> Task :lib:java-extras:jar UP-TO-DATE
+> Task :lib:java-extras:jar
 > Task :lib:websocket-client:processResources NO-SOURCE
 > Task :lib:websocket-client:classes UP-TO-DATE
 > Task :lib:websocket-client:jar UP-TO-DATE
 
 > Task :game-app:game-headed:run
-11:22:56,609 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.5.18
-11:22:56,610 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - No custom configurators were discovered as a service.
-11:22:56,610 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
-11:22:56,611 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
-11:22:56,615 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
-11:22:56,615 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
-11:22:56,621 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 4 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
-11:22:56,621 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
-11:22:56,621 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
-11:22:56,621 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
-11:22:56,624 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/home/sanjana/triplea/triplea/game-app/game-headed/build/resources/main/logback.xml]
-11:22:56,677 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [swingMessage]
-11:22:56,677 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.triplea.debug.Slf4jLogMessageUploader]
-11:22:56,678 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [FILE]
-11:22:56,678 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
-11:22:56,681 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@6973b51b - value "/home/sanjana/triplea/triplea.log" substituted for "${user.home}/triplea/triplea.log"
-11:22:56,683 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
-11:22:56,703 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - setting totalSizeCap to 10 MB
-11:22:56,704 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - Archive files will be limited to [1 MB] each.
-11:22:56,704 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - No compression will be used
-11:22:56,705 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - Will use the pattern triplea-%d{yyyy-MM-dd}.%i.log for the active file
-11:22:56,713 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@43195e57 - The date pattern is 'yyyy-MM-dd' from file name pattern 'triplea-%d{yyyy-MM-dd}.%i.log'.
-11:22:56,713 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@43195e57 - Roll-over at midnight.
-11:22:56,715 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@43195e57 - Setting initial period to 2025-10-24T15:20:27.610Z
-11:22:56,717 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - Active log file name: /home/sanjana/triplea/triplea.log
-11:22:56,718 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - Setting currentFileLength to 275 for /home/sanjana/triplea/triplea.log
-11:22:56,719 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - File property is set to [/home/sanjana/triplea/triplea.log]
-11:22:56,719 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [console]
-11:22:56,719 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
-11:22:56,720 |-WARN in ch.qos.logback.core.ConsoleAppender[console] - This appender no longer admits a layout as a sub-component, set an encoder instead.
-11:22:56,720 |-WARN in ch.qos.logback.core.ConsoleAppender[console] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.
-11:22:56,720 |-WARN in ch.qos.logback.core.ConsoleAppender[console] - See also https://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details
-11:22:56,720 |-INFO in ch.qos.logback.core.ConsoleAppender[console] - BEWARE: Writing to the console can be very slow. Avoid logging to the 
-11:22:56,720 |-INFO in ch.qos.logback.core.ConsoleAppender[console] - console in production environments, especially in high volume systems.
-11:22:56,720 |-INFO in ch.qos.logback.core.ConsoleAppender[console] - See also https://logback.qos.ch/codes.html#slowConsole
-11:22:56,720 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to DEBUG
-11:22:56,720 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [swingMessage] to Logger[ROOT]
-11:22:56,720 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [console] to Logger[ROOT]
-11:22:56,720 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [FILE] to Logger[ROOT]
-11:22:56,721 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.http] to INFO
-11:22:56,721 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@333291e3 - End of configuration.
-11:22:56,721 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@479d31f3 - Registering current configuration as safe fallback point
-11:22:56,721 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 100 milliseconds. ExecutionStatus=DO_NOT_INVOKE_NEXT_IF_ANY
+11:55:11,875 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.5.18
+11:55:11,875 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - No custom configurators were discovered as a service.
+11:55:11,875 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
+11:55:11,876 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
+11:55:11,879 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
+11:55:11,879 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
+11:55:11,883 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 3 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+11:55:11,883 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
+11:55:11,883 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
+11:55:11,883 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+11:55:11,885 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/home/sanjana/triplea/triplea/game-app/game-headed/build/resources/main/logback.xml]
+11:55:11,934 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [swingMessage]
+11:55:11,934 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.triplea.debug.Slf4jLogMessageUploader]
+11:55:11,935 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [FILE]
+11:55:11,935 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+11:55:11,938 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@6973b51b - value "/home/sanjana/triplea/triplea.log" substituted for "${user.home}/triplea/triplea.log"
+11:55:11,940 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+11:55:11,963 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - setting totalSizeCap to 10 MB
+11:55:11,964 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - Archive files will be limited to [1 MB] each.
+11:55:11,964 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - No compression will be used
+11:55:11,966 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - Will use the pattern triplea-%d{yyyy-MM-dd}.%i.log for the active file
+11:55:11,974 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@43195e57 - The date pattern is 'yyyy-MM-dd' from file name pattern 'triplea-%d{yyyy-MM-dd}.%i.log'.
+11:55:11,974 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@43195e57 - Roll-over at midnight.
+11:55:11,976 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@43195e57 - Setting initial period to 2025-10-24T15:24:27.325Z
+11:55:11,980 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - Active log file name: /home/sanjana/triplea/triplea.log
+11:55:11,981 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - Setting currentFileLength to 825 for /home/sanjana/triplea/triplea.log
+11:55:11,981 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - File property is set to [/home/sanjana/triplea/triplea.log]
+11:55:11,981 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [console]
+11:55:11,981 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+11:55:11,982 |-WARN in ch.qos.logback.core.ConsoleAppender[console] - This appender no longer admits a layout as a sub-component, set an encoder instead.
+11:55:11,982 |-WARN in ch.qos.logback.core.ConsoleAppender[console] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.
+11:55:11,982 |-WARN in ch.qos.logback.core.ConsoleAppender[console] - See also https://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details
+11:55:11,982 |-INFO in ch.qos.logback.core.ConsoleAppender[console] - BEWARE: Writing to the console can be very slow. Avoid logging to the 
+11:55:11,982 |-INFO in ch.qos.logback.core.ConsoleAppender[console] - console in production environments, especially in high volume systems.
+11:55:11,982 |-INFO in ch.qos.logback.core.ConsoleAppender[console] - See also https://logback.qos.ch/codes.html#slowConsole
+11:55:11,982 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to DEBUG
+11:55:11,982 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [swingMessage] to Logger[ROOT]
+11:55:11,983 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [console] to Logger[ROOT]
+11:55:11,983 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [FILE] to Logger[ROOT]
+11:55:11,983 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.http] to INFO
+11:55:11,983 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@333291e3 - End of configuration.
+11:55:11,983 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@479d31f3 - Registering current configuration as safe fallback point
+11:55:11,983 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 100 milliseconds. ExecutionStatus=DO_NOT_INVOKE_NEXT_IF_ANY
 
-11:22:56.849 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
-11:22:56.959 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+11:55:12.098 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+11:55:12.200 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
 Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "ChineseBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ChineseBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "ChineseBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "ChineseBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "ChineseBase"}]
+Received move: [{"delegate": "purchase", "unit": "artillery", "from": "", "to": "GermanBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "GermanBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "GermanBase"}]
 Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ChineseStart", "to": "ChineseStartRight", "unit": "infantry"}]
+Received move: [{"delegate": "combat", "from": "GermanStart", "to": "GermanStartLeft", "unit": "infantry"}]
 UnitType{name=infantry}
 Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ChineseBase", "to": "ChineseStartRight", "unit": "armour"}]
-UnitType{name=armour}
+Received move: [{"delegate": "noncombat", "from": "GermanStart", "to": "GermanBase", "unit": "infantry"}]
+UnitType{name=infantry}
 Request sent: [MY_MOVE] place
 Received move: []
 Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "artillery", "from": "", "to": "ChineseBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ChineseBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ChineseBase"}]
+Received move: [{"delegate": "purchase", "unit": "artillery", "from": "", "to": "GermanBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "GermanBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "GermanBase"}]
 Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ChineseStart", "to": "ChineseStartLeft", "unit": "infantry"}]
+Received move: [{"delegate": "combat", "from": "GermanStartLeft", "to": "BottomBar", "unit": "infantry"}]
 UnitType{name=infantry}
 Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ChineseBase", "to": "ChineseStartLeft", "unit": "armour"}]
+Received move: [{"delegate": "noncombat", "from": "GermanBase", "to": "GermanStart", "unit": "armour"}]
 UnitType{name=armour}
 Request sent: [MY_MOVE] place
 Received move: []
