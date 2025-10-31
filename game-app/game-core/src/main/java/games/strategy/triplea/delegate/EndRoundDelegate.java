@@ -308,22 +308,23 @@ public class EndRoundDelegate extends BaseTripleADelegate {
           "Victory Achieved"
               + (winners.isEmpty() ? "" : " by " + MyFormatter.defaultNamedToTextList(winners));
 
-      if (ClientSetting.useWebsocketNetwork.getValue().orElse(false)) {
-        Preconditions.checkNotNull(clientNetworkBridge);
-        clientNetworkBridge.sendMessage(
-            IDisplay.BroadcastMessageMessage.builder()
-                .message("<html>" + status + "</html>")
-                .title(title)
-                .build());
-      } else {
-        // we send the bridge, because we can call this method from outside this delegate, which
-        // means our local copy of playerBridge could be null.
-        bridge
-            .getDisplayChannelBroadcaster()
-            .reportMessageToAll(("<html>" + status + "</html>"), title, true, false, true);
-        bridge.stopGameSequence(status, title);
-      }
+//      if (ClientSetting.useWebsocketNetwork.getValue().orElse(false)) {
+//        Preconditions.checkNotNull(clientNetworkBridge);
+//        clientNetworkBridge.sendMessage(
+//            IDisplay.BroadcastMessageMessage.builder()
+//                .message("<html>" + status + "</html>")
+//                .title(title)
+//                .build());
+//      } else {
+//        // we send the bridge, because we can call this method from outside this delegate, which
+//        // means our local copy of playerBridge could be null.
+//        bridge
+//            .getDisplayChannelBroadcaster()
+//            .reportMessageToAll(("<html>" + status + "</html>"), title, true, false, true);
+//        bridge.stopGameSequence(status, title);
+//      }
     }
+
   }
 
   /** if null, the game is not over yet. */

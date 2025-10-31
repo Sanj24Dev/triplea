@@ -43,6 +43,7 @@ import games.strategy.net.Messengers;
 import games.strategy.net.websocket.ClientNetworkBridge;
 import games.strategy.triplea.delegate.DiceRoll;
 import games.strategy.triplea.delegate.EditDelegate;
+import games.strategy.triplea.delegate.EndRoundDelegate;
 import games.strategy.triplea.settings.ClientSetting;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -94,6 +95,8 @@ public class ServerGame extends AbstractGame {
 
   // If true, setting delegateExecutionStopped to true will stop the game (return from startGame()).
   @Setter private boolean stopGameOnDelegateExecutionStop = false;
+
+  private boolean sentStoppedMsg = false;
 
   public ServerGame(
       final GameData data,
@@ -601,6 +604,21 @@ public class ServerGame extends AbstractGame {
       final IDelegate delegate = getCurrentStep().getDelegate();
       delegate.setDelegateBridgeAndPlayer(bridge, clientNetworkBridge);
       delegate.start();
+      EndRoundDelegate endDelegate = (EndRoundDelegate) gameData.getEndRoundDelegate();
+      Collection<GamePlayer> winner = endDelegate.getWinners();
+      if (winner != null) {
+//          stopGame();
+          if(!sentStoppedMsg) {
+              logAI("INFO", "Game stopped " + winner.toString());
+              sentStoppedMsg = true;
+          }
+//          try {
+//              Thread.sleep(5000);
+//          } catch (InterruptedException e) {
+//              e.printStackTrace();
+//          }
+          // send winner and update game number
+      }
     } finally {
       delegateExecutionManager.leaveDelegateExecution();
     }

@@ -12,6 +12,7 @@ import time
 from collections import deque
 import csv
 import os
+import zipfile
 
 def parse_change_line(line: str):
     parts = line.strip().split()
@@ -212,6 +213,15 @@ class CaptureTheFlagGraph:
         # --- Store Unit and Victory City Info ---
         self.unit_info = self.data.get("units", {})
         self.victory_cities = set(self.data.get("victory_cities", []))
+
+
+    def reset(self):
+        """Reset graph state to initial configuration."""
+        self.G.clear()
+        self._build_graph()
+        self._load_metadata()
+        self.turn_number = 1
+        print("Graph reset complete.")
 
 
     #  only for display - can remove
@@ -1013,8 +1023,8 @@ def get_purchase_move_id(move):
     return MOVE_DICT[key]
 
 
-def save_delegate_json(state, player, move_type, pu_before_move, pu_after_move, round_num=None, legal_moves=None, chosen_move=None, base_filename="_dataset.jsonl"):
-    base_filename = f"{move_type}{base_filename}"
+def save_delegate_json(state, player, move_type, pu_before_move, pu_after_move, ep, round_num=None, legal_moves=None, chosen_move=None, base_filename="_dataset.jsonl"):
+    base_filename = f"{move_type}{ep}{base_filename}"
     legal_ids = [get_purchase_move_id(m) for m in legal_moves]
     chosen_id = get_purchase_move_id(chosen_move)
     entry = {
@@ -1061,7 +1071,7 @@ def agent_loop(state_dim, host="127.0.0.1", port=5000):
 
     ctf.draw()
     r = "0"
-    p = 1
+    episode = 1
     pu_before_move = 0
     pu_after_move = 0
     try:
@@ -1088,6 +1098,24 @@ def agent_loop(state_dim, host="127.0.0.1", port=5000):
                             response = agent.get_move(msg, ctf)
                         elif msg.startswith("[INFO]") and len(parts) == 4:
                             r = parts[3]
+                        # [INFO] Game stopped [PlayerId named: Russians]
+                        elif msg.startswith("[INFO]") and parts[2] == "stopped":
+                            # clear the graph
+                            # json_file = f"final_graph_{ts}.json"
+                            # print(f"Graph structure saved")
+                            ctf.reset()
+                            winner = parts[5].split("]")[0]
+                            agent.latest_legal_moves = []   # reset agent memory if needed
+                            r = "0"
+                            dataset_path = f"purchase{episode}_dataset.jsonl" # zip this file and delete the text file
+                            if os.path.exists(dataset_path):
+                                zip_filename = f"purchase{episode}winner{winner}_dataset.zip" 
+                                with zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
+                                    zipf.write(dataset_path, arcname=os.path.basename(dataset_path))
+                                os.remove(dataset_path)
+                            else:
+                                print("No dataset file found for this episode.")
+                            episode += 1
                         elif msg.startswith("[FOR_DB]"):
                             player = parts[2]
                             if parts[1] == "purchase": # or one of delegates
@@ -1102,7 +1130,7 @@ def agent_loop(state_dim, host="127.0.0.1", port=5000):
                                         # print("Chosen move:", chosen_move)
                                         print("Saving: Round=", r, " for ", player)
                                         pu_after_move = ctf.get_player_resources(player)
-                                        save_delegate_json(state=agent.get_state_encoding(ctf, "purchase"), player=player, move_type="purchase", round_num=r, pu_before_move=pu_before_move, pu_after_move=pu_after_move, legal_moves=agent.latest_legal_moves, chosen_move=chosen_move)
+                                        save_delegate_json(state=agent.get_state_encoding(ctf, "purchase"), player=player, move_type="purchase", round_num=r, pu_before_move=pu_before_move, pu_after_move=pu_after_move, legal_moves=agent.latest_legal_moves, chosen_move=chosen_move, ep=episode)
                                         break
                             else:
                                 # print("Move: ", parts[1])
@@ -1174,8 +1202,6 @@ with open(output_file, "r") as f:
     game_data = json.load(f)
 
 ctf = CaptureTheFlagGraph("gameInfo/Capture The Flag.json")
-
-
 
 agent_loop(10)
 

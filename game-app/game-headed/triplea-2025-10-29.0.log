@@ -1,0 +1,22 @@
+344  14:18:47.543 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+501  14:18:47.700 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+348  14:19:12.616 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+482  14:19:12.750 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+1235543 14:39:47.811 [Thread-4646] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+293  14:47:22.968 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+430  14:47:23.105 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+1482089 15:12:04.764 [Thread-5716] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+267  17:36:27.608 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+407  17:36:27.748 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+284  18:00:06.029 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+402  18:00:06.147 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+97693 18:01:43.438 [Thread-9] WARN  g.s.engine.framework.ServerGame - Could not stop delegate execution.
+243  18:05:42.307 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+371  18:05:42.435 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+265  18:38:47.559 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+391  18:38:47.685 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+2177336 19:15:04.630 [Thread-9] WARN  g.s.engine.framework.ServerGame - Could not stop delegate execution.
+251  19:21:15.848 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+404  19:21:16.001 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+311  19:38:31.700 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+436  19:38:31.825 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml

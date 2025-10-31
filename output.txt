@@ -1,1 +1,198 @@
-hello #123
+Starting a Gradle Daemon, 1 incompatible Daemon could not be reused, use --status for details
+> Task :game-app:domain-data:compileJava FROM-CACHE
+> Task :lib:java-extras:compileJava FROM-CACHE
+> Task :lib:websocket-client:compileJava FROM-CACHE
+> Task :lib:feign-common:compileJava FROM-CACHE
+> Task :lib:websocket-server:compileJava FROM-CACHE
+> Task :lib:websocket-server:processResources NO-SOURCE
+> Task :lib:websocket-server:classes UP-TO-DATE
+> Task :lib:websocket-server:jar
+> Task :game-app:game-relay-server:compileJava FROM-CACHE
+> Task :game-app:game-relay-server:processResources NO-SOURCE
+> Task :game-app:game-relay-server:classes UP-TO-DATE
+> Task :game-app:game-relay-server:jar
+> Task :lib:xml-reader:compileJava FROM-CACHE
+> Task :lib:xml-reader:processResources NO-SOURCE
+> Task :lib:xml-reader:classes UP-TO-DATE
+> Task :lib:xml-reader:jar
+> Task :game-app:map-data:compileJava FROM-CACHE
+> Task :game-app:map-data:processResources NO-SOURCE
+> Task :game-app:map-data:classes UP-TO-DATE
+> Task :game-app:map-data:jar
+> Task :http-clients:lobby-client:compileJava FROM-CACHE
+> Task :lib:swing-lib:compileJava FROM-CACHE
+> Task :lib:swing-lib:processResources NO-SOURCE
+> Task :lib:swing-lib:classes UP-TO-DATE
+> Task :lib:swing-lib:jar
+
+> Task :game-app:game-core:compileJava
+
+> Task :game-app:game-core:processResources UP-TO-DATE
+> Task :game-app:game-core:classes
+> Task :game-app:game-core:jar
+> Task :game-app:ai:compileJava
+> Task :game-app:ai:processResources NO-SOURCE
+> Task :game-app:ai:classes
+> Task :game-app:ai:jar
+> Task :game-app:domain-data:processResources NO-SOURCE
+> Task :game-app:domain-data:classes UP-TO-DATE
+> Task :game-app:domain-data:jar
+
+> Task :game-app:game-headed:compileJava
+
+> Task :game-app:game-headed:processResources UP-TO-DATE
+> Task :game-app:game-headed:classes
+
+> Task :game-app:game-headed:downloadAssets
+Download https://github.com/triplea-game/assets/releases/download/47/game_headed_assets.zip
+
+> Task :http-clients:lobby-client:processResources NO-SOURCE
+> Task :http-clients:lobby-client:classes UP-TO-DATE
+> Task :http-clients:lobby-client:jar
+> Task :lib:feign-common:processResources NO-SOURCE
+> Task :lib:feign-common:classes UP-TO-DATE
+> Task :lib:feign-common:jar
+> Task :lib:java-extras:processResources NO-SOURCE
+> Task :lib:java-extras:classes UP-TO-DATE
+> Task :lib:java-extras:jar
+> Task :lib:websocket-client:processResources NO-SOURCE
+> Task :lib:websocket-client:classes UP-TO-DATE
+> Task :lib:websocket-client:jar
+
+> Task :game-app:game-headed:run
+12:43:16,076 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.5.18
+12:43:16,077 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - No custom configurators were discovered as a service.
+12:43:16,077 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
+12:43:16,078 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
+12:43:16,081 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
+12:43:16,081 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
+12:43:16,085 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 4 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+12:43:16,085 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
+12:43:16,086 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
+12:43:16,086 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+12:43:16,088 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/home/sanjana/triplea/triplea/game-app/game-headed/build/resources/main/logback.xml]
+12:43:16,137 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [swingMessage]
+12:43:16,137 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.triplea.debug.Slf4jLogMessageUploader]
+12:43:16,139 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [FILE]
+12:43:16,139 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+12:43:16,142 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@6973b51b - value "/home/sanjana/triplea/triplea.log" substituted for "${user.home}/triplea/triplea.log"
+12:43:16,144 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+12:43:16,165 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - setting totalSizeCap to 10 MB
+12:43:16,166 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - Archive files will be limited to [1 MB] each.
+12:43:16,166 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - No compression will be used
+12:43:16,168 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - Will use the pattern triplea-%d{yyyy-MM-dd}.%i.log for the active file
+12:43:16,176 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@43195e57 - The date pattern is 'yyyy-MM-dd' from file name pattern 'triplea-%d{yyyy-MM-dd}.%i.log'.
+12:43:16,176 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@43195e57 - Roll-over at midnight.
+12:43:16,178 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@43195e57 - Setting initial period to 2025-10-30T15:30:21.930Z
+12:43:16,181 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - Active log file name: /home/sanjana/triplea/triplea.log
+12:43:16,182 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - Setting currentFileLength to 275 for /home/sanjana/triplea/triplea.log
+12:43:16,182 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - File property is set to [/home/sanjana/triplea/triplea.log]
+12:43:16,182 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [console]
+12:43:16,182 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+12:43:16,184 |-WARN in ch.qos.logback.core.ConsoleAppender[console] - This appender no longer admits a layout as a sub-component, set an encoder instead.
+12:43:16,184 |-WARN in ch.qos.logback.core.ConsoleAppender[console] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.
+12:43:16,184 |-WARN in ch.qos.logback.core.ConsoleAppender[console] - See also https://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details
+12:43:16,184 |-INFO in ch.qos.logback.core.ConsoleAppender[console] - BEWARE: Writing to the console can be very slow. Avoid logging to the 
+12:43:16,184 |-INFO in ch.qos.logback.core.ConsoleAppender[console] - console in production environments, especially in high volume systems.
+12:43:16,184 |-INFO in ch.qos.logback.core.ConsoleAppender[console] - See also https://logback.qos.ch/codes.html#slowConsole
+12:43:16,184 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to DEBUG
+12:43:16,184 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [swingMessage] to Logger[ROOT]
+12:43:16,184 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [console] to Logger[ROOT]
+12:43:16,184 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [FILE] to Logger[ROOT]
+12:43:16,184 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.http] to INFO
+12:43:16,184 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@333291e3 - End of configuration.
+12:43:16,184 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@479d31f3 - Registering current configuration as safe fallback point
+12:43:16,185 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 99 milliseconds. ExecutionStatus=DO_NOT_INVOKE_NEXT_IF_ANY
+
+12:43:16.347 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+12:43:16.479 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+Starting new game...
+Playing round 0
+Playing round 1
+Playing round 2
+Playing round 3
+Playing round 4
+Playing round 5
+Playing round 6
+Playing round 7
+Playing round 8
+Playing round 9
+Playing round 10
+Playing round 11
+Playing round 12
+Playing round 13
+Playing round 14
+Playing round 15
+Playing round 16
+Playing round 17
+Playing round 18
+Playing round 19
+Playing round 20
+Playing round 21
+Playing round 22
+Playing round 23
+Playing round 24
+Playing round 25
+Playing round 26
+Playing round 27
+Playing round 28
+Playing round 29
+Playing round 30
+Playing round 31
+Playing round 32
+Playing round 33
+Playing round 34
+Playing round 35
+Playing round 36
+Playing round 37
+Playing round 38
+Playing round 39
+Playing round 40
+Playing round 41
+Playing round 42
+Playing round 43
+Playing round 44
+Playing round 45
+Playing round 46
+Playing round 47
+Playing round 48
+Game stopped (winner detected).
+Stopping current game...
+Completed game 1/10
+Starting new game...
+Game stopped (winner detected).
+Stopping current game...
+Completed game 2/10
+Starting new game...
+Game stopped (winner detected).
+Stopping current game...
+Completed game 3/10
+Starting new game...
+Game stopped (winner detected).
+Stopping current game...
+Completed game 4/10
+Starting new game...
+Game stopped (winner detected).
+Stopping current game...
+Completed game 5/10
+Starting new game...
+Game stopped (winner detected).
+Stopping current game...
+Completed game 6/10
+Starting new game...
+Game stopped (winner detected).
+Stopping current game...
+Completed game 7/10
+Starting new game...
+Game stopped (winner detected).
+Stopping current game...
+Completed game 8/10
+Starting new game...
+Game stopped (winner detected).
+Stopping current game...
+Completed game 9/10
+Starting new game...
+Game stopped (winner detected).
+Stopping current game...
+Completed game 10/10
+All games finished.
