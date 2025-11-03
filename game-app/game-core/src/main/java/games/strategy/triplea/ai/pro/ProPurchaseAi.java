@@ -386,7 +386,7 @@ class ProPurchaseAi {
     territoryManager = null;
       //    move done - model will save the chosen move
       String move = purchaseMap.toStringForChosen();
-      logAI("FOR_DB", "chosen " + player.getName() + " ::" + move);
+      logAI("FOR_DB", player.getName() + " chosen purchase ::" + move);
     return purchaseTerritories;
   }
 

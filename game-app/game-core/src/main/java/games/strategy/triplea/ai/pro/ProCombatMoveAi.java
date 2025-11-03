@@ -1,6 +1,7 @@
 package games.strategy.triplea.ai.pro;
 
 import static games.strategy.triplea.ai.pro.util.ProUtils.summarizeUnits;
+import static games.strategy.triplea.ai.tripleMind.helper.logAI;
 
 import games.strategy.engine.data.GameData;
 import games.strategy.engine.data.GamePlayer;
@@ -62,7 +63,7 @@ public class ProCombatMoveAi {
     calc = ai.getCalc();
   }
 
-  Map<Territory, ProTerritory> doCombatMove(final IMoveDelegate moveDel) {
+  Map<Territory, ProTerritory> doCombatMove(final IMoveDelegate moveDel, boolean isSim) {
     ProLogger.info("Starting combat move phase");
 
     // Current data at the start of combat move
@@ -133,7 +134,8 @@ public class ProCombatMoveAi {
     checkContestedSeaTerritories();
 
     // Calculate attack routes and perform moves
-    doMove(territoryManager.getAttackOptions().getTerritoryMap(), moveDel, data, player);
+      Map<Territory, ProTerritory> myAttacks = territoryManager.getAttackOptions().getTerritoryMap();
+    doMove(territoryManager.getAttackOptions().getTerritoryMap(), moveDel, data, player, isSim);
 
     // Set strafing territories to avoid retreats
     ai.setStoredStrafingTerritories(territoryManager.getStrafingTerritories());
@@ -146,6 +148,10 @@ public class ProCombatMoveAi {
     final Map<Territory, ProTerritory> result =
         territoryManager.getAttackOptions().getTerritoryMap();
     territoryManager = null;
+    if(!isSim) {
+        String move = myAttacks.toString();
+        logAI("FOR_DB", player.getName() + " chosen combat ::" + move);
+    }
     return result;
   }
 
@@ -153,7 +159,8 @@ public class ProCombatMoveAi {
       final Map<Territory, ProTerritory> attackMap,
       final IMoveDelegate moveDel,
       final GameData data,
-      final GamePlayer player) {
+      final GamePlayer player,
+      boolean isSim) {
     this.data = data;
     this.player = player;
 
@@ -167,6 +174,10 @@ public class ProCombatMoveAi {
     ProMoveUtils.doMove(
         proData, ProMoveUtils.calculateBombingRoutes(proData, player, attackMap), moveDel);
     isBombing = false;
+      if(!isSim) {
+          String move = attackMap.toString();
+          logAI("FOR_DB", player.getName() + " chosen combat ::" + move);
+      }
   }
 
   boolean isBombing() {

@@ -1061,7 +1061,7 @@ def save_delegate_json(state, player, move_type, pu_before_move, pu_after_move, 
     #     chosen_move=chosen_id
     # )
 
-
+combat_move_started = False
 def agent_loop(state_dim, host="127.0.0.1", port=5000):
     agent = OnlineGreedyAgent(state_dim)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -1074,6 +1074,7 @@ def agent_loop(state_dim, host="127.0.0.1", port=5000):
     episode = 1
     pu_before_move = 0
     pu_after_move = 0
+    
     try:
         while True:
             conn, addr = sock.accept()
@@ -1117,24 +1118,31 @@ def agent_loop(state_dim, host="127.0.0.1", port=5000):
                                 print("No dataset file found for this episode.")
                             episode += 1
                         elif msg.startswith("[FOR_DB]"):
-                            player = parts[2]
-                            if parts[1] == "purchase": # or one of delegates
+                            player = parts[1]
+                            task = parts[2]
+                            if task == "purchase": 
                                 pu_before_move = ctf.get_player_resources(player)
-                                agent.update_legal_moves(parts[1], parts[2])
-                            if parts[1] == "chosen":
+                                agent.update_legal_moves(task, player)
+                            elif task == "combat": 
+                                pu_before_move = ctf.get_player_resources(player)
+                                combat_move_started = True
+                                agent.update_legal_moves(task, player)
+                            elif task == "chosen":
+                                chosen_delegate = parts[3]
                                 move_msg = msg.strip().split("::")[1]
-                                chosen_move = parse_purchase_line(ctf, player, move_msg)
-                                # print(agent.latest_legal_moves)
-                                for legal_move in agent.latest_legal_moves:
-                                    if chosen_move["purchase"] == legal_move["purchase"]:
-                                        # print("Chosen move:", chosen_move)
-                                        print("Saving: Round=", r, " for ", player)
-                                        pu_after_move = ctf.get_player_resources(player)
-                                        save_delegate_json(state=agent.get_state_encoding(ctf, "purchase"), player=player, move_type="purchase", round_num=r, pu_before_move=pu_before_move, pu_after_move=pu_after_move, legal_moves=agent.latest_legal_moves, chosen_move=chosen_move, ep=episode)
-                                        break
+                                if chosen_delegate == "purchase":
+                                    chosen_move = parse_purchase_line(ctf, player, move_msg)
+                                    # print(agent.latest_legal_moves)
+                                    for legal_move in agent.latest_legal_moves:
+                                        if chosen_move["purchase"] == legal_move["purchase"]:
+                                            # print("Chosen move:", chosen_move)
+                                            print("Saving purchase: Round=", r, " for ", player)
+                                            pu_after_move = ctf.get_player_resources(player)
+                                            save_delegate_json(state=agent.get_state_encoding(ctf, "purchase"), player=player, move_type="purchase", round_num=r, pu_before_move=pu_before_move, pu_after_move=pu_after_move, legal_moves=agent.latest_legal_moves, chosen_move=chosen_move, ep=episode)
+                                            break
                             else:
                                 # print("Move: ", parts[1])
-                                agent.update_legal_moves(parts[1], parts[2])
+                                agent.update_legal_moves(task, player)
                             response = "ACK"
                         else:
                             ctf.apply_change_line(msg, 0)

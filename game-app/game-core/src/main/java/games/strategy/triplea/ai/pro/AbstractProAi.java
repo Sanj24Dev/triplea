@@ -128,20 +128,23 @@ public abstract class AbstractProAi extends AbstractAi {
     boolean didCombatMove = false;
     boolean didNonCombatMove = false;
     if (nonCombat) {
+        logAI("FOR_DB", player.getName() + " non-combat");
       nonCombatMoveAi.doNonCombatMove(storedFactoryMoveMap, storedPurchaseTerritories, moveDel);
       storedFactoryMoveMap = null;
       didNonCombatMove = true;
     } else {
+        logAI("FOR_DB", player.getName() + " combat");
       if (storedCombatMoveMap == null) {
-        combatMoveAi.doCombatMove(moveDel);
+        combatMoveAi.doCombatMove(moveDel, false);
       } else {
-        combatMoveAi.doMove(storedCombatMoveMap, moveDel, data, player);
+        combatMoveAi.doMove(storedCombatMoveMap, moveDel, data, player, false);
         storedCombatMoveMap = null;
       }
       didCombatMove = true;
       // Some maps only have a single "combat" move phase. For these, do "non-combat" moves too,
       // after combat moves.
       if (!hasNonCombatMove(getGameStepsForPlayer(data, player, 0))) {
+          logAI("FOR_DB", player.getName() + " non-combat");
         nonCombatMoveAi.doNonCombatMove(storedFactoryMoveMap, storedPurchaseTerritories, moveDel);
         storedFactoryMoveMap = null;
         didNonCombatMove = true;
@@ -163,7 +166,7 @@ public abstract class AbstractProAi extends AbstractAi {
       final GameData data,
       final GamePlayer player) {
 //      start of move - model will log legal moves for the current state
-    logAI("FOR_DB", "purchase " + player.getName());
+      logAI("FOR_DB", player.getName() + " purchase");
     final long start = System.currentTimeMillis();
     ProLogUi.notifyStartOfRound(data.getSequence().getRound(), player.getName());
     initializeData();
@@ -220,7 +223,7 @@ public abstract class AbstractProAi extends AbstractAi {
         } else if (GameStep.isCombatMoveStepName(stepName)
             && !GameStep.isAirborneCombatMoveStepName(stepName)) {
           proData.initializeSimulation(this, dataCopy, playerCopy);
-          final Map<Territory, ProTerritory> moveMap = combatMoveAi.doCombatMove(moveDel);
+          final Map<Territory, ProTerritory> moveMap = combatMoveAi.doCombatMove(moveDel, true);
           if (storedCombatMoveMap == null) {
             storedCombatMoveMap =
                 ProSimulateTurnUtils.transferMoveMap(proData, moveMap, data, player);
