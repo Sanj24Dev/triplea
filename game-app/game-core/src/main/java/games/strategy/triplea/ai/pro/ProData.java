@@ -112,4 +112,8 @@ public final class ProData {
   public ProTerritory getProTerritory(Map<Territory, ProTerritory> moveMap, Territory t) {
     return moveMap.computeIfAbsent(t, k -> new ProTerritory(t, this));
   }
+
+    public GamePlayer getPlayer() {
+        return player;
+    }
 }

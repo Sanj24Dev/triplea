@@ -148,10 +148,10 @@ public class ProCombatMoveAi {
     final Map<Territory, ProTerritory> result =
         territoryManager.getAttackOptions().getTerritoryMap();
     territoryManager = null;
-    if(!isSim) {
-        String move = myAttacks.toString();
-        logAI("FOR_DB", player.getName() + " chosen combat ::" + move);
-    }
+//    if(!isSim) {
+//        String move = myAttacks.toString();
+//        logAI("FOR_DB", player.getName() + " chosen combat ::" + move);
+//    }
     return result;
   }
 
@@ -165,19 +165,19 @@ public class ProCombatMoveAi {
     this.player = player;
 
     ProMoveUtils.doMove(
-        proData, ProMoveUtils.calculateMoveRoutes(proData, player, attackMap, true), moveDel);
+        proData, ProMoveUtils.calculateMoveRoutes(proData, player, attackMap, true), moveDel, true);
     ProMoveUtils.doMove(
-        proData, ProMoveUtils.calculateAmphibRoutes(proData, player, attackMap, true), moveDel);
+        proData, ProMoveUtils.calculateAmphibRoutes(proData, player, attackMap, true), moveDel, true);
     ProMoveUtils.doMove(
-        proData, ProMoveUtils.calculateBombardMoveRoutes(proData, player, attackMap), moveDel);
+        proData, ProMoveUtils.calculateBombardMoveRoutes(proData, player, attackMap), moveDel, true);
     isBombing = true;
     ProMoveUtils.doMove(
-        proData, ProMoveUtils.calculateBombingRoutes(proData, player, attackMap), moveDel);
+        proData, ProMoveUtils.calculateBombingRoutes(proData, player, attackMap), moveDel, true);
     isBombing = false;
-      if(!isSim) {
-          String move = attackMap.toString();
-          logAI("FOR_DB", player.getName() + " chosen combat ::" + move);
-      }
+//      if(!isSim) {
+//          String move = attackMap.toString();
+//          logAI("FOR_DB", player.getName() + " chosen combat ::" + move);
+//      }
   }
 
   boolean isBombing() {

@@ -219,13 +219,13 @@ class ProNonCombatMoveAi {
 
     // Calculate move routes and perform moves
     ProMoveUtils.doMove(
-        proData, ProMoveUtils.calculateMoveRoutes(proData, player, moveMap, isCombatMove), moveDel);
+        proData, ProMoveUtils.calculateMoveRoutes(proData, player, moveMap, isCombatMove), moveDel, false);
 
     // Calculate amphib move routes and perform moves
     ProMoveUtils.doMove(
         proData,
         ProMoveUtils.calculateAmphibRoutes(proData, player, moveMap, isCombatMove),
-        moveDel);
+        moveDel, false);
   }
 
   private void findUnitsThatCantMove(
