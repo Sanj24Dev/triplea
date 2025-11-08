@@ -616,15 +616,15 @@ public final class TripleAFrame extends JFrame implements QuitHandler {
    * and the application will return to the main menu.
    */
   public void leaveGame() {
-    final boolean confirmed =
-        EventThreadJOptionPane.showConfirmDialog(
-            this,
-            "Are you sure you want to leave the current game?\nUnsaved game data will be lost.",
-            "Leave Game",
-            ConfirmDialogType.YES_NO);
-    if (!confirmed) {
-      return;
-    }
+//    final boolean confirmed =
+//        EventThreadJOptionPane.showConfirmDialog(
+//            this,
+//            "Are you sure you want to leave the current game?\nUnsaved game data will be lost.",
+//            "Leave Game",
+//            ConfirmDialogType.YES_NO);
+//    if (!confirmed) {
+//      return;
+//    }
     if (game instanceof ServerGame) {
       ((ServerGame) game).stopGame();
     } else {
