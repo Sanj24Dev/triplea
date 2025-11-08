@@ -345,80 +345,16 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
 
   @Override
   protected void place(
-      final boolean bid,
-      final IAbstractPlaceDelegate placeDelegate,
-      final GameState data,
-      final GamePlayer player) {
-
-
-    String actions = requestMove("place");
-    if (actions == null)
-        return;
-    final long start = System.currentTimeMillis();
-    ProLogUi.notifyStartOfRound(data.getSequence().getRound(), player.getName());
-    initializeData();
-
-//      Gson gson = new Gson();
-//      Type actionListType = new TypeToken<List<Action>>(){}.getType();
-//      List<Action> actionsList = gson.fromJson(actions, actionListType);
-//
-//        // Create a list to collect all ModelPlacements
-//      Map<Territory, List<Unit>> placementsByTerritory = new HashMap<>();
-//
-//      for (Action a : actionsList) {
-//          Territory to = data.getMap().getTerritoryOrNull(a.to);
-//          if (to == null) {
-//              System.err.println("Invalid placement territory: " + a.to);
-//              continue;
-//          }
-//
-//          // Get the unit type
-//          UnitType unitType = data.getUnitTypeList().getUnitType(a.unit).orElse(null);
-//          if (unitType == null) {
-//              System.err.println("Invalid unit type: " + a.unit);
-//              continue;
-//          }
-//
-//          Unit newUnit = new Unit(unitType, player, getGameData());
-//
-//          // Group it under its target territory
-//          placementsByTerritory.computeIfAbsent(to, k -> new ArrayList<>()).add(newUnit);
-//
-//          System.out.println("Placed " + a.unit + " in " + a.to);
-//      }
-//      for (Map.Entry<Territory, List<Unit>> entry : placementsByTerritory.entrySet()) {
-//          Territory territory = entry.getKey();
-//          List<Unit> unitsToPlace = entry.getValue();
-//
-//          // Check if placement is legal
-//          PlaceableUnits placeableUnits =
-//                  placeDelegate.getPlaceableUnits(unitsToPlace, territory);
-//
-//          if (placeableUnits.isError()) {
-//              System.err.println(
-//                      "Cannot place units in " + territory.getName()
-//                              + ": " + placeableUnits.getErrorMessage());
-//              continue;
-//          }
-//
-//          // Limit to maximum allowed placements
-//          int maxAllowed = placeableUnits.getMaxUnits();
-//          if (maxAllowed == -1) {
-//              maxAllowed = Integer.MAX_VALUE; // No limit
-//          }
-//
-//          int actualCount = Math.min(maxAllowed, unitsToPlace.size());
-//          List<Unit> finalUnits = unitsToPlace.subList(0, actualCount);
-//
-//          // Perform placement
-//          doPlace(territory, finalUnits, placeDelegate);
-//          System.out.println("Placed in " + territory.getName() + ": " + finalUnits);
-//      }
-
-
-    purchaseAi.place(storedPurchaseTerritories, placeDelegate);
-    storedPurchaseTerritories = null;
-    ProLogger.info(player.getName() + " time for place=" + (System.currentTimeMillis() - start));
+          final boolean bid,
+          final IAbstractPlaceDelegate placeDelegate,
+          final GameState data,
+          final GamePlayer player) {
+      final long start = System.currentTimeMillis();
+      ProLogUi.notifyStartOfRound(data.getSequence().getRound(), player.getName());
+      initializeData();
+      purchaseAi.place(storedPurchaseTerritories, placeDelegate);
+      storedPurchaseTerritories = null;
+      ProLogger.info(player.getName() + " time for place=" + (System.currentTimeMillis() - start));
   }
 
   @Override
