@@ -46,7 +46,7 @@ def main():
     with open("config.json", 'r') as f:
         data = json.load(f)
 
-    root_log_folder = "/home/sanjana/triplea/logs/"
+    root_log_folder = "/storage/home/hcoda1/6/snayak89/tripleMind/logs/"
     log_file = os.path.join(root_log_folder, data["PLAYER_NAME"], f"{data['DEFAULT_GAME_NAME_PREF']}.log")
 
     games_played = 0

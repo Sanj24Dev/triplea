@@ -238,14 +238,14 @@ public abstract class ClientSetting<T> implements GameSetting<T> {
 
       // do i need to check if it is headed???
       // default values
-      String gameName = "Zombies-World_War_2";
-      String gameUri  = "file:///home/sanjana/triplea/downloadedMaps/zombies-world_war_2/games/AAZ.xml";
-      String player_name = "RL_BOT_UNKNOWN";
+      String gameName = "Capture The Flag";
+      String gameUri  = "file:///storage/home/hcoda1/6/snayak89/tripleMind/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml";
+      String player_name = "RL_BOT_3";
 //    String iteration = "";
 
       try {
           StringBuilder json = new StringBuilder();
-          try (BufferedReader reader = new BufferedReader(new FileReader("/home/sanjana/triplea/triplea/config.json"))) {
+          try (BufferedReader reader = new BufferedReader(new FileReader("/storage/home/hcoda1/6/snayak89/tripleMind/triplea/config.json"))) {
               String line;
               while ((line = reader.readLine()) != null) {
                   json.append(line.trim());
