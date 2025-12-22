@@ -1,0 +1,8 @@
+Attack: 
+	combat delegate on GermanStartRight
+	Move units:1xinfantry from GermanStart
+	strength=1
+Attack: 
+	combat delegate on GermanStepOne
+	Move units:1xinfantry from GermanStart
+	strength=1

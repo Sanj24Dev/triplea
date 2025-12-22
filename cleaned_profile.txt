@@ -1,0 +1,45 @@
+Wrote filtered profile to mcts_filtered.prof
+Mon Dec  8 15:19:09 2025    mcts.prof
+
+         5613133 function calls in 3.023 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.004    0.004    3.023    3.023 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:980(mcts_search)
+       71    0.026    0.000    2.966    0.042 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:905(simulate)
+   152083    1.232    0.000    1.588    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:396(__can_reach)
+      787    0.161    0.000    1.442    0.002 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:456(combat_legal_moves)
+      852    0.541    0.001    1.034    0.001 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:531(non_combat_legal_moves)
+      781    0.138    0.000    0.453    0.001 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:364(purchase_legal_moves)
+  1263398    0.134    0.000    0.134    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:387(<genexpr>)
+   140190    0.077    0.000    0.077    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:14(__init__)
+       71    0.000    0.000    0.041    0.001 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:875(expand)
+      142    0.008    0.000    0.016    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:299(clone_shallow)
+       71    0.001    0.000    0.011    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:1025(evaluate_state)
+       71    0.000    0.000    0.011    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:858(select)
+      284    0.008    0.000    0.010    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:690(_calculate_player_strength)
+     7021    0.006    0.000    0.009    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/ctf_graph.py:25(add_unit)
+      850    0.004    0.000    0.009    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:668(apply_noncombat_move)
+      988    0.003    0.000    0.007    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:346(is_terminal)
+      852    0.004    0.000    0.007    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:618(apply_combat_move)
+     2495    0.003    0.000    0.003    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/ctf_graph.py:33(remove_unit)
+      852    0.001    0.000    0.003    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/ctf_graph.py:57(place_units)
+     5854    0.003    0.000    0.003    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/ctf_graph.py:8(__init__)
+     4940    0.002    0.000    0.002    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:352(<genexpr>)
+      781    0.002    0.000    0.002    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:602(apply_purchase_move)
+      207    0.000    0.000    0.002    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:765(is_terminal)
+     4118    0.001    0.000    0.001    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/ctf_graph.py:18(__init__)
+       65    0.000    0.000    0.001    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:768(best_child)
+     5467    0.001    0.000    0.001    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:382(<genexpr>)
+      781    0.001    0.000    0.001    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:379(<listcomp>)
+       65    0.001    0.000    0.001    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:769(<listcomp>)
+      568    0.000    0.000    0.000    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/ctf_graph.py:47(__init__)
+       71    0.000    0.000    0.000    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:969(backpropagate)
+      605    0.000    0.000    0.000    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:643(<genexpr>)
+      514    0.000    0.000    0.000    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:644(<genexpr>)
+       72    0.000    0.000    0.000    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:753(__init__)
+        1    0.000    0.000    0.000    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:21(__repr__)
+        6    0.000    0.000    0.000    0.000 /storage/home/hcoda1/6/snayak89/tripleMind/triplea/combat_mcts_agent.py:1011(<lambda>)
+
+
