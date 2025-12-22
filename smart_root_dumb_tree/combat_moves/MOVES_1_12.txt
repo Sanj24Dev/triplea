@@ -1,0 +1,2246 @@
+Attack: 
+	combat delegate on BottomBar
+	Move units:29xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=916
+Attack: 
+	combat delegate on BottomBar
+	Move units:29xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=913
+Attack: 
+	combat delegate on BottomBar
+	Move units:29xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=904
+Attack: 
+	combat delegate on BottomBar
+	Move units:29xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=901
+Attack: 
+	combat delegate on BottomBar
+	Move units:29xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=892
+Attack: 
+	combat delegate on BottomBar
+	Move units:29xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=889
+Attack: 
+	combat delegate on BottomBar
+	Move units:28xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=887
+Attack: 
+	combat delegate on BottomBar
+	Move units:28xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=884
+Attack: 
+	combat delegate on BottomBar
+	Move units:29xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=880
+Attack: 
+	combat delegate on BottomBar
+	Move units:29xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=877
+Attack: 
+	combat delegate on BottomBar
+	Move units:28xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=875
+Attack: 
+	combat delegate on BottomBar
+	Move units:28xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=872
+Attack: 
+	combat delegate on BottomBar
+	Move units:29xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=868
+Attack: 
+	combat delegate on BottomBar
+	Move units:29xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=865
+Attack: 
+	combat delegate on BottomBar
+	Move units:28xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=863
+Attack: 
+	combat delegate on BottomBar
+	Move units:28xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=860
+Attack: 
+	combat delegate on BottomBar
+	Move units:27xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=858
+Attack: 
+	combat delegate on BottomBar
+	Move units:29xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=856
+Attack: 
+	combat delegate on BottomBar
+	Move units:27xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=855
+Attack: 
+	combat delegate on BottomBar
+	Move units:29xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=853
+Attack: 
+	combat delegate on BottomBar
+	Move units:28xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=851
+Attack: 
+	combat delegate on BottomBar
+	Move units:28xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=848
+Attack: 
+	combat delegate on BottomBar
+	Move units:27xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=846
+Attack: 
+	combat delegate on BottomBar
+	Move units:29xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=844
+Attack: 
+	combat delegate on BottomBar
+	Move units:27xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=843
+Attack: 
+	combat delegate on BottomBar
+	Move units:29xinfantry from GermanStartLeft
+	strength=841
+Attack: 
+	combat delegate on BottomBar
+	Move units:28xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=839
+Attack: 
+	combat delegate on BottomBar
+	Move units:28xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=836
+Attack: 
+	combat delegate on BottomBar
+	Move units:27xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=834
+Attack: 
+	combat delegate on BottomBar
+	Move units:27xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=831
+Attack: 
+	combat delegate on BottomBar
+	Move units:26xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=829
+Attack: 
+	combat delegate on BottomBar
+	Move units:28xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=827
+Attack: 
+	combat delegate on BottomBar
+	Move units:26xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=826
+Attack: 
+	combat delegate on BottomBar
+	Move units:28xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=824
+Attack: 
+	combat delegate on BottomBar
+	Move units:27xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=822
+Attack: 
+	combat delegate on BottomBar
+	Move units:27xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=819
+Attack: 
+	combat delegate on BottomBar
+	Move units:26xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=817
+Attack: 
+	combat delegate on BottomBar
+	Move units:28xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=815
+Attack: 
+	combat delegate on BottomBar
+	Move units:26xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=814
+Attack: 
+	combat delegate on BottomBar
+	Move units:28xinfantry from GermanStartLeft
+	strength=812
+Attack: 
+	combat delegate on BottomBar
+	Move units:27xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=810
+Attack: 
+	combat delegate on BottomBar
+	Move units:27xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=807
+Attack: 
+	combat delegate on BottomBar
+	Move units:26xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=805
+Attack: 
+	combat delegate on BottomBar
+	Move units:26xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=802
+Attack: 
+	combat delegate on BottomBar
+	Move units:25xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=800
+Attack: 
+	combat delegate on BottomBar
+	Move units:27xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=798
+Attack: 
+	combat delegate on BottomBar
+	Move units:25xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=797
+Attack: 
+	combat delegate on BottomBar
+	Move units:27xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=795
+Attack: 
+	combat delegate on BottomBar
+	Move units:26xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=793
+Attack: 
+	combat delegate on BottomBar
+	Move units:26xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=790
+Attack: 
+	combat delegate on BottomBar
+	Move units:25xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=788
+Attack: 
+	combat delegate on BottomBar
+	Move units:27xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=786
+Attack: 
+	combat delegate on BottomBar
+	Move units:25xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=785
+Attack: 
+	combat delegate on BottomBar
+	Move units:27xinfantry from GermanStartLeft
+	strength=783
+Attack: 
+	combat delegate on BottomBar
+	Move units:26xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=781
+Attack: 
+	combat delegate on BottomBar
+	Move units:26xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=778
+Attack: 
+	combat delegate on BottomBar
+	Move units:25xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=776
+Attack: 
+	combat delegate on BottomBar
+	Move units:25xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=773
+Attack: 
+	combat delegate on BottomBar
+	Move units:24xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=771
+Attack: 
+	combat delegate on BottomBar
+	Move units:26xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=769
+Attack: 
+	combat delegate on BottomBar
+	Move units:24xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=768
+Attack: 
+	combat delegate on BottomBar
+	Move units:26xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=766
+Attack: 
+	combat delegate on BottomBar
+	Move units:25xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=764
+Attack: 
+	combat delegate on BottomBar
+	Move units:25xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=761
+Attack: 
+	combat delegate on BottomBar
+	Move units:24xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=759
+Attack: 
+	combat delegate on BottomBar
+	Move units:26xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=757
+Attack: 
+	combat delegate on BottomBar
+	Move units:24xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=756
+Attack: 
+	combat delegate on BottomBar
+	Move units:26xinfantry from GermanStartLeft
+	strength=754
+Attack: 
+	combat delegate on BottomBar
+	Move units:25xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=752
+Attack: 
+	combat delegate on BottomBar
+	Move units:25xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=749
+Attack: 
+	combat delegate on BottomBar
+	Move units:24xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=747
+Attack: 
+	combat delegate on BottomBar
+	Move units:24xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=744
+Attack: 
+	combat delegate on BottomBar
+	Move units:23xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=742
+Attack: 
+	combat delegate on BottomBar
+	Move units:25xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=740
+Attack: 
+	combat delegate on BottomBar
+	Move units:23xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=739
+Attack: 
+	combat delegate on BottomBar
+	Move units:25xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=737
+Attack: 
+	combat delegate on BottomBar
+	Move units:24xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=735
+Attack: 
+	combat delegate on BottomBar
+	Move units:24xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=732
+Attack: 
+	combat delegate on BottomBar
+	Move units:23xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=730
+Attack: 
+	combat delegate on BottomBar
+	Move units:25xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=728
+Attack: 
+	combat delegate on BottomBar
+	Move units:23xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=727
+Attack: 
+	combat delegate on BottomBar
+	Move units:25xinfantry from GermanStartLeft
+	strength=725
+Attack: 
+	combat delegate on BottomBar
+	Move units:24xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=723
+Attack: 
+	combat delegate on BottomBar
+	Move units:24xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=720
+Attack: 
+	combat delegate on BottomBar
+	Move units:23xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=718
+Attack: 
+	combat delegate on BottomBar
+	Move units:23xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=715
+Attack: 
+	combat delegate on BottomBar
+	Move units:22xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=713
+Attack: 
+	combat delegate on BottomBar
+	Move units:24xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=711
+Attack: 
+	combat delegate on BottomBar
+	Move units:22xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=710
+Attack: 
+	combat delegate on BottomBar
+	Move units:24xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=708
+Attack: 
+	combat delegate on BottomBar
+	Move units:23xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=706
+Attack: 
+	combat delegate on BottomBar
+	Move units:23xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=703
+Attack: 
+	combat delegate on BottomBar
+	Move units:22xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=701
+Attack: 
+	combat delegate on BottomBar
+	Move units:24xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=699
+Attack: 
+	combat delegate on BottomBar
+	Move units:22xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=698
+Attack: 
+	combat delegate on BottomBar
+	Move units:24xinfantry from GermanStartLeft
+	strength=696
+Attack: 
+	combat delegate on BottomBar
+	Move units:23xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=694
+Attack: 
+	combat delegate on BottomBar
+	Move units:23xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=691
+Attack: 
+	combat delegate on BottomBar
+	Move units:22xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=689
+Attack: 
+	combat delegate on BottomBar
+	Move units:22xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=686
+Attack: 
+	combat delegate on BottomBar
+	Move units:21xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=684
+Attack: 
+	combat delegate on BottomBar
+	Move units:23xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=682
+Attack: 
+	combat delegate on BottomBar
+	Move units:21xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=681
+Attack: 
+	combat delegate on BottomBar
+	Move units:23xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=679
+Attack: 
+	combat delegate on BottomBar
+	Move units:22xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=677
+Attack: 
+	combat delegate on BottomBar
+	Move units:22xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=674
+Attack: 
+	combat delegate on BottomBar
+	Move units:21xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=672
+Attack: 
+	combat delegate on BottomBar
+	Move units:23xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=670
+Attack: 
+	combat delegate on BottomBar
+	Move units:21xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=669
+Attack: 
+	combat delegate on BottomBar
+	Move units:23xinfantry from GermanStartLeft
+	strength=667
+Attack: 
+	combat delegate on BottomBar
+	Move units:22xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=665
+Attack: 
+	combat delegate on BottomBar
+	Move units:22xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=662
+Attack: 
+	combat delegate on BottomBar
+	Move units:21xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=660
+Attack: 
+	combat delegate on BottomBar
+	Move units:21xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=657
+Attack: 
+	combat delegate on BottomBar
+	Move units:20xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=655
+Attack: 
+	combat delegate on BottomBar
+	Move units:22xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=653
+Attack: 
+	combat delegate on BottomBar
+	Move units:20xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=652
+Attack: 
+	combat delegate on BottomBar
+	Move units:22xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=650
+Attack: 
+	combat delegate on BottomBar
+	Move units:21xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=648
+Attack: 
+	combat delegate on BottomBar
+	Move units:21xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=645
+Attack: 
+	combat delegate on BottomBar
+	Move units:20xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=643
+Attack: 
+	combat delegate on BottomBar
+	Move units:22xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=641
+Attack: 
+	combat delegate on BottomBar
+	Move units:20xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=640
+Attack: 
+	combat delegate on BottomBar
+	Move units:22xinfantry from GermanStartLeft
+	strength=638
+Attack: 
+	combat delegate on BottomBar
+	Move units:21xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=636
+Attack: 
+	combat delegate on BottomBar
+	Move units:21xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=633
+Attack: 
+	combat delegate on BottomBar
+	Move units:20xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=631
+Attack: 
+	combat delegate on BottomBar
+	Move units:20xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=628
+Attack: 
+	combat delegate on BottomBar
+	Move units:19xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=626
+Attack: 
+	combat delegate on BottomBar
+	Move units:21xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=624
+Attack: 
+	combat delegate on BottomBar
+	Move units:19xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=623
+Attack: 
+	combat delegate on BottomBar
+	Move units:21xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=621
+Attack: 
+	combat delegate on BottomBar
+	Move units:20xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=619
+Attack: 
+	combat delegate on BottomBar
+	Move units:20xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=616
+Attack: 
+	combat delegate on BottomBar
+	Move units:19xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=614
+Attack: 
+	combat delegate on BottomBar
+	Move units:21xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=612
+Attack: 
+	combat delegate on BottomBar
+	Move units:19xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=611
+Attack: 
+	combat delegate on BottomBar
+	Move units:21xinfantry from GermanStartLeft
+	strength=609
+Attack: 
+	combat delegate on BottomBar
+	Move units:20xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=607
+Attack: 
+	combat delegate on BottomBar
+	Move units:20xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=604
+Attack: 
+	combat delegate on BottomBar
+	Move units:19xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=602
+Attack: 
+	combat delegate on BottomBar
+	Move units:19xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=599
+Attack: 
+	combat delegate on BottomBar
+	Move units:18xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=597
+Attack: 
+	combat delegate on BottomBar
+	Move units:20xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=595
+Attack: 
+	combat delegate on BottomBar
+	Move units:18xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=594
+Attack: 
+	combat delegate on BottomBar
+	Move units:20xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=592
+Attack: 
+	combat delegate on BottomBar
+	Move units:19xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=590
+Attack: 
+	combat delegate on BottomBar
+	Move units:19xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=587
+Attack: 
+	combat delegate on BottomBar
+	Move units:18xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=585
+Attack: 
+	combat delegate on BottomBar
+	Move units:20xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=583
+Attack: 
+	combat delegate on BottomBar
+	Move units:18xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=582
+Attack: 
+	combat delegate on BottomBar
+	Move units:20xinfantry from GermanStartLeft
+	strength=580
+Attack: 
+	combat delegate on BottomBar
+	Move units:19xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=578
+Attack: 
+	combat delegate on BottomBar
+	Move units:19xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=575
+Attack: 
+	combat delegate on BottomBar
+	Move units:18xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=573
+Attack: 
+	combat delegate on BottomBar
+	Move units:18xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=570
+Attack: 
+	combat delegate on BottomBar
+	Move units:17xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=568
+Attack: 
+	combat delegate on BottomBar
+	Move units:19xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=566
+Attack: 
+	combat delegate on BottomBar
+	Move units:17xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=565
+Attack: 
+	combat delegate on BottomBar
+	Move units:19xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=563
+Attack: 
+	combat delegate on BottomBar
+	Move units:18xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=561
+Attack: 
+	combat delegate on BottomBar
+	Move units:18xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=558
+Attack: 
+	combat delegate on BottomBar
+	Move units:17xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=556
+Attack: 
+	combat delegate on BottomBar
+	Move units:19xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=554
+Attack: 
+	combat delegate on BottomBar
+	Move units:17xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=553
+Attack: 
+	combat delegate on BottomBar
+	Move units:19xinfantry from GermanStartLeft
+	strength=551
+Attack: 
+	combat delegate on BottomBar
+	Move units:18xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=549
+Attack: 
+	combat delegate on BottomBar
+	Move units:18xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=546
+Attack: 
+	combat delegate on BottomBar
+	Move units:17xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=544
+Attack: 
+	combat delegate on BottomBar
+	Move units:17xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=541
+Attack: 
+	combat delegate on BottomBar
+	Move units:16xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=539
+Attack: 
+	combat delegate on BottomBar
+	Move units:18xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=537
+Attack: 
+	combat delegate on BottomBar
+	Move units:16xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=536
+Attack: 
+	combat delegate on BottomBar
+	Move units:18xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=534
+Attack: 
+	combat delegate on BottomBar
+	Move units:17xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=532
+Attack: 
+	combat delegate on BottomBar
+	Move units:17xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=529
+Attack: 
+	combat delegate on BottomBar
+	Move units:16xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=527
+Attack: 
+	combat delegate on BottomBar
+	Move units:18xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=525
+Attack: 
+	combat delegate on BottomBar
+	Move units:16xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=524
+Attack: 
+	combat delegate on BottomBar
+	Move units:18xinfantry from GermanStartLeft
+	strength=522
+Attack: 
+	combat delegate on BottomBar
+	Move units:17xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=520
+Attack: 
+	combat delegate on BottomBar
+	Move units:17xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=517
+Attack: 
+	combat delegate on BottomBar
+	Move units:16xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=515
+Attack: 
+	combat delegate on BottomBar
+	Move units:16xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=512
+Attack: 
+	combat delegate on BottomBar
+	Move units:15xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=510
+Attack: 
+	combat delegate on BottomBar
+	Move units:17xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=508
+Attack: 
+	combat delegate on BottomBar
+	Move units:15xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=507
+Attack: 
+	combat delegate on BottomBar
+	Move units:17xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=505
+Attack: 
+	combat delegate on BottomBar
+	Move units:16xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=503
+Attack: 
+	combat delegate on BottomBar
+	Move units:16xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=500
+Attack: 
+	combat delegate on BottomBar
+	Move units:15xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=498
+Attack: 
+	combat delegate on BottomBar
+	Move units:17xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=496
+Attack: 
+	combat delegate on BottomBar
+	Move units:15xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=495
+Attack: 
+	combat delegate on BottomBar
+	Move units:17xinfantry from GermanStartLeft
+	strength=493
+Attack: 
+	combat delegate on BottomBar
+	Move units:16xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=491
+Attack: 
+	combat delegate on BottomBar
+	Move units:16xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=488
+Attack: 
+	combat delegate on BottomBar
+	Move units:15xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=486
+Attack: 
+	combat delegate on BottomBar
+	Move units:15xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=483
+Attack: 
+	combat delegate on BottomBar
+	Move units:14xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=481
+Attack: 
+	combat delegate on BottomBar
+	Move units:16xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=479
+Attack: 
+	combat delegate on BottomBar
+	Move units:14xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=478
+Attack: 
+	combat delegate on BottomBar
+	Move units:16xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=476
+Attack: 
+	combat delegate on BottomBar
+	Move units:15xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=474
+Attack: 
+	combat delegate on BottomBar
+	Move units:15xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=471
+Attack: 
+	combat delegate on BottomBar
+	Move units:14xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=469
+Attack: 
+	combat delegate on BottomBar
+	Move units:16xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=467
+Attack: 
+	combat delegate on BottomBar
+	Move units:14xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=466
+Attack: 
+	combat delegate on BottomBar
+	Move units:16xinfantry from GermanStartLeft
+	strength=464
+Attack: 
+	combat delegate on BottomBar
+	Move units:15xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=462
+Attack: 
+	combat delegate on BottomBar
+	Move units:15xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=459
+Attack: 
+	combat delegate on BottomBar
+	Move units:14xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=457
+Attack: 
+	combat delegate on BottomBar
+	Move units:14xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=454
+Attack: 
+	combat delegate on BottomBar
+	Move units:13xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=452
+Attack: 
+	combat delegate on BottomBar
+	Move units:15xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=450
+Attack: 
+	combat delegate on BottomBar
+	Move units:13xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=449
+Attack: 
+	combat delegate on BottomBar
+	Move units:15xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=447
+Attack: 
+	combat delegate on BottomBar
+	Move units:14xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=445
+Attack: 
+	combat delegate on BottomBar
+	Move units:14xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=442
+Attack: 
+	combat delegate on BottomBar
+	Move units:13xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=440
+Attack: 
+	combat delegate on BottomBar
+	Move units:15xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=438
+Attack: 
+	combat delegate on BottomBar
+	Move units:13xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=437
+Attack: 
+	combat delegate on BottomBar
+	Move units:15xinfantry from GermanStartLeft
+	strength=435
+Attack: 
+	combat delegate on BottomBar
+	Move units:14xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=433
+Attack: 
+	combat delegate on BottomBar
+	Move units:14xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=430
+Attack: 
+	combat delegate on BottomBar
+	Move units:13xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=428
+Attack: 
+	combat delegate on BottomBar
+	Move units:13xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=425
+Attack: 
+	combat delegate on BottomBar
+	Move units:12xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=423
+Attack: 
+	combat delegate on BottomBar
+	Move units:14xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=421
+Attack: 
+	combat delegate on BottomBar
+	Move units:12xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=420
+Attack: 
+	combat delegate on BottomBar
+	Move units:14xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=418
+Attack: 
+	combat delegate on BottomBar
+	Move units:13xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=416
+Attack: 
+	combat delegate on BottomBar
+	Move units:13xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=413
+Attack: 
+	combat delegate on BottomBar
+	Move units:12xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=411
+Attack: 
+	combat delegate on BottomBar
+	Move units:14xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=409
+Attack: 
+	combat delegate on BottomBar
+	Move units:12xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=408
+Attack: 
+	combat delegate on BottomBar
+	Move units:14xinfantry from GermanStartLeft
+	strength=406
+Attack: 
+	combat delegate on BottomBar
+	Move units:13xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=404
+Attack: 
+	combat delegate on BottomBar
+	Move units:13xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=401
+Attack: 
+	combat delegate on BottomBar
+	Move units:12xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=399
+Attack: 
+	combat delegate on BottomBar
+	Move units:12xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=396
+Attack: 
+	combat delegate on BottomBar
+	Move units:11xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=394
+Attack: 
+	combat delegate on BottomBar
+	Move units:13xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=392
+Attack: 
+	combat delegate on BottomBar
+	Move units:11xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=391
+Attack: 
+	combat delegate on BottomBar
+	Move units:13xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=389
+Attack: 
+	combat delegate on BottomBar
+	Move units:12xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=387
+Attack: 
+	combat delegate on BottomBar
+	Move units:12xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=384
+Attack: 
+	combat delegate on BottomBar
+	Move units:11xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=382
+Attack: 
+	combat delegate on BottomBar
+	Move units:13xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=380
+Attack: 
+	combat delegate on BottomBar
+	Move units:11xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=379
+Attack: 
+	combat delegate on BottomBar
+	Move units:13xinfantry from GermanStartLeft
+	strength=377
+Attack: 
+	combat delegate on BottomBar
+	Move units:12xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=375
+Attack: 
+	combat delegate on BottomBar
+	Move units:12xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=372
+Attack: 
+	combat delegate on BottomBar
+	Move units:11xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=370
+Attack: 
+	combat delegate on BottomBar
+	Move units:11xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=367
+Attack: 
+	combat delegate on BottomBar
+	Move units:10xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=365
+Attack: 
+	combat delegate on BottomBar
+	Move units:12xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=363
+Attack: 
+	combat delegate on BottomBar
+	Move units:10xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=362
+Attack: 
+	combat delegate on BottomBar
+	Move units:12xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=360
+Attack: 
+	combat delegate on BottomBar
+	Move units:11xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=358
+Attack: 
+	combat delegate on BottomBar
+	Move units:11xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=355
+Attack: 
+	combat delegate on BottomBar
+	Move units:10xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=353
+Attack: 
+	combat delegate on BottomBar
+	Move units:12xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=351
+Attack: 
+	combat delegate on BottomBar
+	Move units:10xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=350
+Attack: 
+	combat delegate on BottomBar
+	Move units:12xinfantry from GermanStartLeft
+	strength=348
+Attack: 
+	combat delegate on BottomBar
+	Move units:11xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=346
+Attack: 
+	combat delegate on BottomBar
+	Move units:11xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=343
+Attack: 
+	combat delegate on BottomBar
+	Move units:10xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=341
+Attack: 
+	combat delegate on BottomBar
+	Move units:10xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=338
+Attack: 
+	combat delegate on BottomBar
+	Move units:9xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=336
+Attack: 
+	combat delegate on BottomBar
+	Move units:11xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=334
+Attack: 
+	combat delegate on BottomBar
+	Move units:9xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=333
+Attack: 
+	combat delegate on BottomBar
+	Move units:11xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=331
+Attack: 
+	combat delegate on BottomBar
+	Move units:10xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=329
+Attack: 
+	combat delegate on BottomBar
+	Move units:10xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=326
+Attack: 
+	combat delegate on BottomBar
+	Move units:9xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=324
+Attack: 
+	combat delegate on BottomBar
+	Move units:11xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=322
+Attack: 
+	combat delegate on BottomBar
+	Move units:9xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=321
+Attack: 
+	combat delegate on BottomBar
+	Move units:11xinfantry from GermanStartLeft
+	strength=319
+Attack: 
+	combat delegate on BottomBar
+	Move units:10xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=317
+Attack: 
+	combat delegate on BottomBar
+	Move units:10xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=314
+Attack: 
+	combat delegate on BottomBar
+	Move units:9xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=312
+Attack: 
+	combat delegate on BottomBar
+	Move units:9xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=309
+Attack: 
+	combat delegate on BottomBar
+	Move units:8xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=307
+Attack: 
+	combat delegate on BottomBar
+	Move units:10xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=305
+Attack: 
+	combat delegate on BottomBar
+	Move units:8xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=304
+Attack: 
+	combat delegate on BottomBar
+	Move units:10xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=302
+Attack: 
+	combat delegate on BottomBar
+	Move units:9xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=300
+Attack: 
+	combat delegate on BottomBar
+	Move units:9xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=297
+Attack: 
+	combat delegate on BottomBar
+	Move units:8xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=295
+Attack: 
+	combat delegate on BottomBar
+	Move units:10xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=293
+Attack: 
+	combat delegate on BottomBar
+	Move units:8xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=292
+Attack: 
+	combat delegate on BottomBar
+	Move units:10xinfantry from GermanStartLeft
+	strength=290
+Attack: 
+	combat delegate on BottomBar
+	Move units:9xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=288
+Attack: 
+	combat delegate on BottomBar
+	Move units:9xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=285
+Attack: 
+	combat delegate on BottomBar
+	Move units:8xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=283
+Attack: 
+	combat delegate on BottomBar
+	Move units:8xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=280
+Attack: 
+	combat delegate on BottomBar
+	Move units:7xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=278
+Attack: 
+	combat delegate on BottomBar
+	Move units:9xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=276
+Attack: 
+	combat delegate on BottomBar
+	Move units:7xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=275
+Attack: 
+	combat delegate on BottomBar
+	Move units:9xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=273
+Attack: 
+	combat delegate on BottomBar
+	Move units:8xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=271
+Attack: 
+	combat delegate on BottomBar
+	Move units:8xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=268
+Attack: 
+	combat delegate on BottomBar
+	Move units:7xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=266
+Attack: 
+	combat delegate on BottomBar
+	Move units:9xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=264
+Attack: 
+	combat delegate on BottomBar
+	Move units:7xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=263
+Attack: 
+	combat delegate on BottomBar
+	Move units:9xinfantry from GermanStartLeft
+	strength=261
+Attack: 
+	combat delegate on BottomBar
+	Move units:8xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=259
+Attack: 
+	combat delegate on BottomBar
+	Move units:8xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=256
+Attack: 
+	combat delegate on BottomBar
+	Move units:7xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=254
+Attack: 
+	combat delegate on BottomBar
+	Move units:7xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=251
+Attack: 
+	combat delegate on BottomBar
+	Move units:6xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=249
+Attack: 
+	combat delegate on BottomBar
+	Move units:8xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=247
+Attack: 
+	combat delegate on BottomBar
+	Move units:6xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=246
+Attack: 
+	combat delegate on BottomBar
+	Move units:8xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=244
+Attack: 
+	combat delegate on BottomBar
+	Move units:7xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=242
+Attack: 
+	combat delegate on BottomBar
+	Move units:7xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=239
+Attack: 
+	combat delegate on BottomBar
+	Move units:6xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=237
+Attack: 
+	combat delegate on BottomBar
+	Move units:8xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=235
+Attack: 
+	combat delegate on BottomBar
+	Move units:6xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=234
+Attack: 
+	combat delegate on BottomBar
+	Move units:8xinfantry from GermanStartLeft
+	strength=232
+Attack: 
+	combat delegate on BottomBar
+	Move units:7xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=230
+Attack: 
+	combat delegate on BottomBar
+	Move units:7xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=227
+Attack: 
+	combat delegate on BottomBar
+	Move units:6xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=225
+Attack: 
+	combat delegate on BottomBar
+	Move units:6xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=222
+Attack: 
+	combat delegate on BottomBar
+	Move units:5xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=220
+Attack: 
+	combat delegate on BottomBar
+	Move units:7xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=218
+Attack: 
+	combat delegate on BottomBar
+	Move units:5xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=217
+Attack: 
+	combat delegate on BottomBar
+	Move units:7xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=215
+Attack: 
+	combat delegate on BottomBar
+	Move units:6xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=213
+Attack: 
+	combat delegate on BottomBar
+	Move units:6xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=210
+Attack: 
+	combat delegate on BottomBar
+	Move units:5xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=208
+Attack: 
+	combat delegate on BottomBar
+	Move units:7xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=206
+Attack: 
+	combat delegate on BottomBar
+	Move units:5xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=205
+Attack: 
+	combat delegate on BottomBar
+	Move units:7xinfantry from GermanStartLeft
+	strength=203
+Attack: 
+	combat delegate on BottomBar
+	Move units:6xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=201
+Attack: 
+	combat delegate on BottomBar
+	Move units:6xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=198
+Attack: 
+	combat delegate on BottomBar
+	Move units:5xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=196
+Attack: 
+	combat delegate on BottomBar
+	Move units:5xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=193
+Attack: 
+	combat delegate on BottomBar
+	Move units:4xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=191
+Attack: 
+	combat delegate on BottomBar
+	Move units:6xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=189
+Attack: 
+	combat delegate on BottomBar
+	Move units:4xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=188
+Attack: 
+	combat delegate on BottomBar
+	Move units:6xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=186
+Attack: 
+	combat delegate on BottomBar
+	Move units:5xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=184
+Attack: 
+	combat delegate on BottomBar
+	Move units:5xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=181
+Attack: 
+	combat delegate on BottomBar
+	Move units:4xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=179
+Attack: 
+	combat delegate on BottomBar
+	Move units:6xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=177
+Attack: 
+	combat delegate on BottomBar
+	Move units:4xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=176
+Attack: 
+	combat delegate on BottomBar
+	Move units:6xinfantry from GermanStartLeft
+	strength=174
+Attack: 
+	combat delegate on BottomBar
+	Move units:5xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=172
+Attack: 
+	combat delegate on BottomBar
+	Move units:5xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=169
+Attack: 
+	combat delegate on BottomBar
+	Move units:4xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=167
+Attack: 
+	combat delegate on BottomBar
+	Move units:4xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=164
+Attack: 
+	combat delegate on BottomBar
+	Move units:3xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=162
+Attack: 
+	combat delegate on BottomBar
+	Move units:5xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=160
+Attack: 
+	combat delegate on BottomBar
+	Move units:3xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=159
+Attack: 
+	combat delegate on BottomBar
+	Move units:5xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=157
+Attack: 
+	combat delegate on BottomBar
+	Move units:4xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=155
+Attack: 
+	combat delegate on BottomBar
+	Move units:4xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=152
+Attack: 
+	combat delegate on BottomBar
+	Move units:3xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=150
+Attack: 
+	combat delegate on BottomBar
+	Move units:5xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=148
+Attack: 
+	combat delegate on BottomBar
+	Move units:3xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=147
+Attack: 
+	combat delegate on BottomBar
+	Move units:5xinfantry from GermanStartLeft
+	strength=145
+Attack: 
+	combat delegate on BottomBar
+	Move units:4xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=143
+Attack: 
+	combat delegate on BottomBar
+	Move units:4xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=140
+Attack: 
+	combat delegate on BottomBar
+	Move units:3xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=138
+Attack: 
+	combat delegate on BottomBar
+	Move units:3xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=135
+Attack: 
+	combat delegate on BottomBar
+	Move units:2xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=133
+Attack: 
+	combat delegate on BottomBar
+	Move units:4xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=131
+Attack: 
+	combat delegate on BottomBar
+	Move units:2xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=130
+Attack: 
+	combat delegate on BottomBar
+	Move units:4xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=128
+Attack: 
+	combat delegate on BottomBar
+	Move units:3xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=126
+Attack: 
+	combat delegate on BottomBar
+	Move units:3xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=123
+Attack: 
+	combat delegate on BottomBar
+	Move units:2xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=121
+Attack: 
+	combat delegate on BottomBar
+	Move units:4xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=119
+Attack: 
+	combat delegate on BottomBar
+	Move units:2xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=118
+Attack: 
+	combat delegate on BottomBar
+	Move units:4xinfantry from GermanStartLeft
+	strength=116
+Attack: 
+	combat delegate on BottomBar
+	Move units:3xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=114
+Attack: 
+	combat delegate on BottomBar
+	Move units:3xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=111
+Attack: 
+	combat delegate on BottomBar
+	Move units:2xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=109
+Attack: 
+	combat delegate on BottomBar
+	Move units:2xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=106
+Attack: 
+	combat delegate on BottomBar
+	Move units:1xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=104
+Attack: 
+	combat delegate on BottomBar
+	Move units:3xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=102
+Attack: 
+	combat delegate on BottomBar
+	Move units:1xinfantry from GermanStartLeft
+	Move units:6xartillery from GermanStartLeft
+	strength=101
+Attack: 
+	combat delegate on BottomBar
+	Move units:3xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=99
+Attack: 
+	combat delegate on BottomBar
+	Move units:2xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=97
+Attack: 
+	combat delegate on BottomBar
+	Move units:2xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=94
+Attack: 
+	combat delegate on BottomBar
+	Move units:1xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=92
+Attack: 
+	combat delegate on BottomBar
+	Move units:3xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=90
+Attack: 
+	combat delegate on BottomBar
+	Move units:1xinfantry from GermanStartLeft
+	Move units:5xartillery from GermanStartLeft
+	strength=89
+Attack: 
+	combat delegate on BottomBar
+	Move units:3xinfantry from GermanStartLeft
+	strength=87
+Attack: 
+	combat delegate on BottomBar
+	Move units:2xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=85
+Attack: 
+	combat delegate on BottomBar
+	Move units:2xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=82
+Attack: 
+	combat delegate on BottomBar
+	Move units:1xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=80
+Attack: 
+	combat delegate on BottomBar
+	Move units:1xinfantry from GermanStartLeft
+	Move units:4xartillery from GermanStartLeft
+	strength=77
+Attack: 
+	combat delegate on BottomBar
+	Move units:6xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=75
+Attack: 
+	combat delegate on BottomBar
+	Move units:2xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=73
+Attack: 
+	combat delegate on BottomBar
+	Move units:6xartillery from GermanStartLeft
+	strength=72
+Attack: 
+	combat delegate on BottomBar
+	Move units:2xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=70
+Attack: 
+	combat delegate on BottomBar
+	Move units:1xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=68
+Attack: 
+	combat delegate on BottomBar
+	Move units:1xinfantry from GermanStartLeft
+	Move units:3xartillery from GermanStartLeft
+	strength=65
+Attack: 
+	combat delegate on BottomBar
+	Move units:5xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=63
+Attack: 
+	combat delegate on BottomBar
+	Move units:2xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=61
+Attack: 
+	combat delegate on BottomBar
+	Move units:5xartillery from GermanStartLeft
+	strength=60
+Attack: 
+	combat delegate on BottomBar
+	Move units:2xinfantry from GermanStartLeft
+	strength=58
+Attack: 
+	combat delegate on BottomBar
+	Move units:1xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=56
+Attack: 
+	combat delegate on BottomBar
+	Move units:1xinfantry from GermanStartLeft
+	Move units:2xartillery from GermanStartLeft
+	strength=53
+Attack: 
+	combat delegate on BottomBar
+	Move units:4xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=51
+Attack: 
+	combat delegate on BottomBar
+	Move units:4xartillery from GermanStartLeft
+	strength=48
+Attack: 
+	combat delegate on BottomBar
+	Move units:1xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=44
+Attack: 
+	combat delegate on BottomBar
+	Move units:1xinfantry from GermanStartLeft
+	Move units:1xartillery from GermanStartLeft
+	strength=41
+Attack: 
+	combat delegate on BottomBar
+	Move units:3xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=39
+Attack: 
+	combat delegate on BottomBar
+	Move units:3xartillery from GermanStartLeft
+	strength=36
+Attack: 
+	combat delegate on BottomBar
+	Move units:1xinfantry from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=32
+Attack: 
+	combat delegate on BottomBar
+	Move units:1xinfantry from GermanStartLeft
+	strength=29
+Attack: 
+	combat delegate on BottomBar
+	Move units:2xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=27
+Attack: 
+	combat delegate on BottomBar
+	Move units:2xartillery from GermanStartLeft
+	strength=24
+Attack: 
+	combat delegate on BottomBar
+	Move units:1xartillery from GermanStartLeft
+	Move units:1xarmour from GermanStartLeft
+	strength=15
+Attack: 
+	combat delegate on BottomBar
+	Move units:1xartillery from GermanStartLeft
+	strength=12
+Attack: 
+	combat delegate on BottomBar
+	Move units:1xarmour from GermanStartLeft
+	strength=3
+Attack: 
+	combat delegate on GermanStartRight
+	Move units:1xarmour from GermanBase
+	strength=3
+Attack: 
+	combat delegate on BottomBar
+	strength=0
+Attack: 
+	combat delegate on GermanStartRight
+	strength=0
+Attack: 
+	combat delegate on ChineseStartRight
+	strength=0

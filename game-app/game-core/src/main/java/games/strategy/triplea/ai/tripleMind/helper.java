@@ -15,15 +15,24 @@ class Action {
     String unit;
     String from;
     String to;
+    String count;
 }
 
 public class helper {
     static String log_folder = "/storage/home/hcoda1/6/snayak89/tripleMind/logs/";       // update with your log file name
-
+    static String me;
     public static int getAIRoleId(int n) {
         Random rand = new Random();
         return rand.nextInt(n);
 //        return 0;
+    }
+
+    public static void saveWhoAmI(String player) {
+        me = player;
+    }
+
+    public static String getWhoAmI() {
+        return me;
     }
 
     public static String extractValue(String json, String key, String fallback) {
@@ -54,6 +63,8 @@ public class helper {
         log_file += player_name + "/" + gameName + ".log";
         return log_file;
     }
+
+    
 
     public static void logAI (String type, String msg) {
         String filename = getLogFileName();

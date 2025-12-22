@@ -1,0 +1,15 @@
+MCTS Efficiency Summary
+==============================
+Total rounds: 34
+Iterations per round:
+  Mean: 46.85
+  Min : 1
+  Max : 252
+
+Efficiency (best_node_visits / num_iterations):
+  Mean: 0.3134
+  Min : 0.0345
+  Max : 1.0000
+
+Peak efficiency of 1.0000 observed at round 11
+

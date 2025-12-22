@@ -1,0 +1,2239 @@
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:29xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=916
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:29xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=913
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:29xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=904
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:29xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=901
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:29xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=892
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:29xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=889
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:28xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=887
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:28xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=884
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:29xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=880
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:29xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=877
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:28xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=875
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:28xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=872
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:29xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=868
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:29xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=865
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:28xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=863
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:28xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=860
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:27xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=858
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:29xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=856
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:27xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=855
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:29xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=853
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:28xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=851
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:28xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=848
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:27xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=846
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:29xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=844
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:27xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=843
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:29xinfantry from BottomBar
+	strength=841
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:28xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=839
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:28xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=836
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:27xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=834
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:27xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=831
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:26xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=829
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:28xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=827
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:26xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=826
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:28xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=824
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:27xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=822
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:27xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=819
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:26xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=817
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:28xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=815
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:26xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=814
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:28xinfantry from BottomBar
+	strength=812
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:27xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=810
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:27xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=807
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:26xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=805
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:26xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=802
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:25xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=800
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:27xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=798
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:25xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=797
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:27xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=795
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:26xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=793
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:26xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=790
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:25xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=788
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:27xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=786
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:25xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=785
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:27xinfantry from BottomBar
+	strength=783
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:26xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=781
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:26xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=778
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:25xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=776
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:25xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=773
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:24xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=771
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:26xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=769
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:24xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=768
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:26xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=766
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:25xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=764
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:25xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=761
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:24xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=759
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:26xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=757
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:24xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=756
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:26xinfantry from BottomBar
+	strength=754
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:25xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=752
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:25xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=749
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:24xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=747
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:24xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=744
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:23xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=742
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:25xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=740
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:23xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=739
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:25xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=737
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:24xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=735
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:24xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=732
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:23xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=730
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:25xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=728
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:23xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=727
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:25xinfantry from BottomBar
+	strength=725
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:24xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=723
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:24xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=720
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:23xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=718
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:23xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=715
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:22xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=713
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:24xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=711
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:22xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=710
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:24xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=708
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:23xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=706
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:23xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=703
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:22xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=701
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:24xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=699
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:22xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=698
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:24xinfantry from BottomBar
+	strength=696
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:23xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=694
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:23xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=691
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:22xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=689
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:22xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=686
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:21xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=684
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:23xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=682
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:21xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=681
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:23xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=679
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:22xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=677
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:22xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=674
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:21xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=672
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:23xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=670
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:21xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=669
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:23xinfantry from BottomBar
+	strength=667
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:22xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=665
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:22xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=662
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:21xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=660
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:21xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=657
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:20xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=655
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:22xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=653
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:20xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=652
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:22xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=650
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:21xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=648
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:21xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=645
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:20xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=643
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:22xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=641
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:20xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=640
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:22xinfantry from BottomBar
+	strength=638
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:21xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=636
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:21xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=633
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:20xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=631
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:20xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=628
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:19xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=626
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:21xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=624
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:19xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=623
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:21xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=621
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:20xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=619
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:20xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=616
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:19xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=614
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:21xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=612
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:19xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=611
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:21xinfantry from BottomBar
+	strength=609
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:20xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=607
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:20xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=604
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:19xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=602
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:19xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=599
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:18xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=597
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:20xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=595
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:18xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=594
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:20xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=592
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:19xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=590
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:19xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=587
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:18xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=585
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:20xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=583
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:18xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=582
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:20xinfantry from BottomBar
+	strength=580
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:19xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=578
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:19xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=575
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:18xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=573
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:18xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=570
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:17xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=568
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:19xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=566
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:17xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=565
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:19xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=563
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:18xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=561
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:18xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=558
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:17xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=556
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:19xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=554
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:17xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=553
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:19xinfantry from BottomBar
+	strength=551
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:18xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=549
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:18xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=546
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:17xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=544
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:17xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=541
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:16xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=539
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:18xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=537
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:16xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=536
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:18xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=534
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:17xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=532
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:17xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=529
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:16xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=527
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:18xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=525
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:16xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=524
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:18xinfantry from BottomBar
+	strength=522
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:17xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=520
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:17xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=517
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:16xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=515
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:16xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=512
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:15xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=510
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:17xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=508
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:15xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=507
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:17xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=505
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:16xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=503
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:16xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=500
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:15xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=498
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:17xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=496
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:15xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=495
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:17xinfantry from BottomBar
+	strength=493
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:16xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=491
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:16xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=488
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:15xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=486
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:15xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=483
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:14xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=481
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:16xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=479
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:14xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=478
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:16xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=476
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:15xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=474
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:15xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=471
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:14xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=469
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:16xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=467
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:14xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=466
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:16xinfantry from BottomBar
+	strength=464
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:15xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=462
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:15xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=459
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:14xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=457
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:14xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=454
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:13xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=452
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:15xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=450
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:13xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=449
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:15xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=447
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:14xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=445
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:14xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=442
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:13xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=440
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:15xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=438
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:13xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=437
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:15xinfantry from BottomBar
+	strength=435
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:14xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=433
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:14xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=430
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:13xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=428
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:13xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=425
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:12xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=423
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:14xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=421
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:12xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=420
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:14xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=418
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:13xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=416
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:13xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=413
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:12xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=411
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:14xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=409
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:12xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=408
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:14xinfantry from BottomBar
+	strength=406
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:13xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=404
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:13xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=401
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:12xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=399
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:12xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=396
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:11xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=394
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:13xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=392
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:11xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=391
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:13xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=389
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:12xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=387
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:12xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=384
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:11xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=382
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:13xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=380
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:11xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=379
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:13xinfantry from BottomBar
+	strength=377
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:12xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=375
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:12xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=372
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:11xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=370
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:11xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=367
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:10xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=365
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:12xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=363
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:10xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=362
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:12xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=360
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:11xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=358
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:11xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=355
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:10xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=353
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:12xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=351
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:10xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=350
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:12xinfantry from BottomBar
+	strength=348
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:11xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=346
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:11xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=343
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:10xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=341
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:10xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=338
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:9xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=336
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:11xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=334
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:9xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=333
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:11xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=331
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:10xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=329
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:10xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=326
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:9xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=324
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:11xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=322
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:9xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=321
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:11xinfantry from BottomBar
+	strength=319
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:10xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=317
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:10xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=314
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:9xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=312
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:9xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=309
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:8xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=307
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:10xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=305
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:8xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=304
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:10xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=302
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:9xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=300
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:9xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=297
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:8xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=295
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:10xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=293
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:8xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=292
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:10xinfantry from BottomBar
+	strength=290
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:9xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=288
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:9xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=285
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:8xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=283
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:8xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=280
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:7xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=278
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:9xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=276
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:7xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=275
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:9xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=273
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:8xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=271
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:8xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=268
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:7xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=266
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:9xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=264
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:7xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=263
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:9xinfantry from BottomBar
+	strength=261
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:8xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=259
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:8xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=256
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:7xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=254
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:7xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=251
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:6xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=249
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:8xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=247
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:6xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=246
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:8xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=244
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:7xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=242
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:7xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=239
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:6xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=237
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:8xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=235
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:6xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=234
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:8xinfantry from BottomBar
+	strength=232
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:7xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=230
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:7xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=227
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:6xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=225
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:6xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=222
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:5xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=220
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:7xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=218
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:5xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=217
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:7xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=215
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:6xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=213
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:6xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=210
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:5xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=208
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:7xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=206
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:5xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=205
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:7xinfantry from BottomBar
+	strength=203
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:6xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=201
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:6xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=198
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:5xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=196
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:5xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=193
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:4xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=191
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:6xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=189
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:4xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=188
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:6xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=186
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:5xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=184
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:5xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=181
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:4xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=179
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:6xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=177
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:4xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=176
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:6xinfantry from BottomBar
+	strength=174
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:5xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=172
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:5xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=169
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:4xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=167
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:4xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=164
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:3xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=162
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:5xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=160
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:3xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=159
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:5xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=157
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:4xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=155
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:4xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=152
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:3xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=150
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:5xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=148
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:3xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=147
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:5xinfantry from BottomBar
+	strength=145
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:4xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=143
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:4xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=140
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:3xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=138
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:3xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=135
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:2xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=133
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:4xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=131
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:2xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=130
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:4xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=128
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:3xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=126
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:3xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=123
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:2xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=121
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:4xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=119
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:2xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=118
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:4xinfantry from BottomBar
+	strength=116
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:3xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=114
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:3xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=111
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:2xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=109
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:2xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=106
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=104
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:3xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=102
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xinfantry from BottomBar
+	Move units:6xartillery from BottomBar
+	strength=101
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:3xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=99
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:2xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=97
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:2xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=94
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=92
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:3xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=90
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xinfantry from BottomBar
+	Move units:5xartillery from BottomBar
+	strength=89
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:3xinfantry from BottomBar
+	strength=87
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:2xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=85
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:2xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=82
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=80
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xinfantry from BottomBar
+	Move units:4xartillery from BottomBar
+	strength=77
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:6xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=75
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:2xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=73
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:6xartillery from BottomBar
+	strength=72
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:2xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=70
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=68
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xinfantry from BottomBar
+	Move units:3xartillery from BottomBar
+	strength=65
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:5xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=63
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:2xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=61
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:5xartillery from BottomBar
+	strength=60
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:2xinfantry from BottomBar
+	strength=58
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=56
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xinfantry from BottomBar
+	Move units:2xartillery from BottomBar
+	strength=53
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:4xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=51
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:4xartillery from BottomBar
+	strength=48
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=44
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xinfantry from BottomBar
+	Move units:1xartillery from BottomBar
+	strength=41
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:3xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=39
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:3xartillery from BottomBar
+	strength=36
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xinfantry from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=32
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xinfantry from BottomBar
+	strength=29
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:2xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=27
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:2xartillery from BottomBar
+	strength=24
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xartillery from BottomBar
+	Move units:1xarmour from BottomBar
+	strength=15
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xartillery from BottomBar
+	strength=12
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xarmour from BottomBar
+	strength=3
+Attack: 
+	combat delegate on Flag
+	strength=0
+Attack: 
+	combat delegate on ChineseStartRight
+	strength=0

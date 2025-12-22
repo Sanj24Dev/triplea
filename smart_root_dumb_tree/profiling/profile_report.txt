@@ -1,0 +1,578 @@
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_01.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.005 |   1.003
+simulate                                 |   0.022 |   0.896
+combat_legal_moves                       |   0.153 |   0.710
+heuristic_non_combat_legal_moves         |   0.060 |   0.134
+_build_reachability_context              |   0.064 |   0.066
+clone_shallow                            |   0.031 |   0.059
+expand                                   |   0.002 |   0.055
+check_reachability                       |   0.033 |   0.050
+select                                   |   0.002 |   0.043
+is_terminal                              |   0.009 |   0.020
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_02.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.004 |   1.004
+simulate                                 |   0.020 |   0.899
+combat_legal_moves                       |   0.169 |   0.678
+heuristic_non_combat_legal_moves         |   0.076 |   0.178
+check_reachability                       |   0.051 |   0.076
+expand                                   |   0.001 |   0.059
+clone_shallow                            |   0.029 |   0.059
+_build_reachability_context              |   0.056 |   0.058
+select                                   |   0.001 |   0.037
+is_terminal                              |   0.008 |   0.018
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_03.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.005 |   1.006
+simulate                                 |   0.020 |   0.910
+combat_legal_moves                       |   0.227 |   0.704
+heuristic_non_combat_legal_moves         |   0.069 |   0.165
+check_reachability                       |   0.048 |   0.072
+_build_reachability_context              |   0.049 |   0.051
+clone_shallow                            |   0.024 |   0.051
+expand                                   |   0.001 |   0.049
+select                                   |   0.001 |   0.040
+apply_combat_move                        |   0.009 |   0.019
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_04.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.005 |   1.001
+simulate                                 |   0.021 |   0.908
+combat_legal_moves                       |   0.201 |   0.668
+heuristic_non_combat_legal_moves         |   0.078 |   0.194
+check_reachability                       |   0.061 |   0.091
+expand                                   |   0.001 |   0.057
+clone_shallow                            |   0.024 |   0.052
+_build_reachability_context              |   0.045 |   0.047
+select                                   |   0.001 |   0.029
+apply_combat_move                        |   0.010 |   0.020
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_05.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.004 |   1.007
+simulate                                 |   0.021 |   0.912
+combat_legal_moves                       |   0.270 |   0.714
+heuristic_non_combat_legal_moves         |   0.067 |   0.169
+check_reachability                       |   0.054 |   0.081
+expand                                   |   0.001 |   0.046
+clone_shallow                            |   0.020 |   0.044
+select                                   |   0.001 |   0.041
+_build_reachability_context              |   0.039 |   0.041
+apply_combat_move                        |   0.009 |   0.019
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_06.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.004 |   1.010
+simulate                                 |   0.021 |   0.929
+combat_legal_moves                       |   0.267 |   0.691
+heuristic_non_combat_legal_moves         |   0.065 |   0.200
+check_reachability                       |   0.088 |   0.114
+clone_shallow                            |   0.021 |   0.044
+expand                                   |   0.001 |   0.044
+_build_reachability_context              |   0.037 |   0.039
+select                                   |   0.001 |   0.031
+apply_combat_move                        |   0.008 |   0.017
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_07.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.004 |   1.009
+simulate                                 |   0.023 |   0.956
+combat_legal_moves                       |   0.402 |   0.780
+heuristic_non_combat_legal_moves         |   0.050 |   0.130
+check_reachability                       |   0.044 |   0.065
+clone_shallow                            |   0.015 |   0.033
+expand                                   |   0.001 |   0.032
+_build_reachability_context              |   0.027 |   0.028
+apply_combat_move                        |   0.007 |   0.015
+select                                   |   0.001 |   0.014
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_08.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.002 |   1.023
+simulate                                 |   0.031 |   0.995
+combat_legal_moves                       |   0.573 |   0.878
+heuristic_non_combat_legal_moves         |   0.027 |   0.071
+check_reachability                       |   0.024 |   0.036
+clone_shallow                            |   0.008 |   0.018
+expand                                   |   0.000 |   0.017
+_build_reachability_context              |   0.015 |   0.016
+__init__                                 |   0.015 |   0.015
+apply_combat_move                        |   0.004 |   0.009
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_09.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.004 |   1.006
+simulate                                 |   0.034 |   0.980
+combat_legal_moves                       |   0.564 |   0.865
+heuristic_non_combat_legal_moves         |   0.025 |   0.066
+check_reachability                       |   0.023 |   0.034
+clone_shallow                            |   0.007 |   0.016
+expand                                   |   0.000 |   0.014
+_build_reachability_context              |   0.013 |   0.014
+__init__                                 |   0.013 |   0.013
+apply_combat_move                        |   0.004 |   0.009
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_10.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.002 |   1.008
+simulate                                 |   0.039 |   0.999
+combat_legal_moves                       |   0.672 |   0.924
+heuristic_non_combat_legal_moves         |   0.010 |   0.027
+__init__                                 |   0.016 |   0.016
+check_reachability                       |   0.010 |   0.014
+clone_shallow                            |   0.003 |   0.006
+expand                                   |   0.000 |   0.006
+_build_reachability_context              |   0.005 |   0.006
+apply_combat_move                        |   0.002 |   0.005
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_11.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.617
+simulate                                 |   0.056 |   1.615
+combat_legal_moves                       |   1.215 |   1.557
+__init__                                 |   0.019 |   0.019
+heuristic_non_combat_legal_moves         |   0.001 |   0.002
+check_reachability                       |   0.001 |   0.001
+log                                      |   0.000 |   0.001
+expand                                   |   0.000 |   0.000
+clone_shallow                            |   0.000 |   0.000
+_build_reachability_context              |   0.000 |   0.000
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_12.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.003 |   1.071
+simulate                                 |   0.037 |   1.061
+combat_legal_moves                       |   0.756 |   1.004
+__init__                                 |   0.017 |   0.017
+heuristic_non_combat_legal_moves         |   0.006 |   0.016
+check_reachability                       |   0.006 |   0.008
+expand                                   |   0.000 |   0.004
+clone_shallow                            |   0.002 |   0.004
+_build_reachability_context              |   0.003 |   0.003
+apply_combat_move                        |   0.001 |   0.003
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_13.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.008 |   1.105
+simulate                                 |   0.033 |   1.092
+combat_legal_moves                       |   0.792 |   1.044
+__init__                                 |   0.017 |   0.017
+heuristic_non_combat_legal_moves         |   0.004 |   0.011
+check_reachability                       |   0.004 |   0.006
+expand                                   |   0.000 |   0.003
+clone_shallow                            |   0.001 |   0.003
+_build_reachability_context              |   0.002 |   0.002
+apply_combat_move                        |   0.001 |   0.002
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_14.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.009 |   1.039
+simulate                                 |   0.030 |   1.025
+combat_legal_moves                       |   0.747 |   0.976
+__init__                                 |   0.015 |   0.015
+heuristic_non_combat_legal_moves         |   0.005 |   0.015
+check_reachability                       |   0.006 |   0.008
+expand                                   |   0.000 |   0.005
+clone_shallow                            |   0.001 |   0.003
+_build_reachability_context              |   0.003 |   0.003
+apply_combat_move                        |   0.001 |   0.003
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_15.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.011 |   1.198
+simulate                                 |   0.032 |   1.181
+combat_legal_moves                       |   0.876 |   1.135
+__init__                                 |   0.019 |   0.019
+heuristic_non_combat_legal_moves         |   0.004 |   0.012
+check_reachability                       |   0.005 |   0.007
+expand                                   |   0.000 |   0.004
+clone_shallow                            |   0.001 |   0.003
+_build_reachability_context              |   0.002 |   0.002
+apply_combat_move                        |   0.001 |   0.002
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_16.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.041 |   1.742
+simulate                                 |   0.018 |   1.698
+combat_legal_moves                       |   1.310 |   1.674
+__init__                                 |   0.023 |   0.023
+heuristic_non_combat_legal_moves         |   0.002 |   0.005
+check_reachability                       |   0.002 |   0.003
+expand                                   |   0.000 |   0.001
+clone_shallow                            |   0.000 |   0.001
+_build_reachability_context              |   0.001 |   0.001
+apply_combat_move                        |   0.000 |   0.001
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_17.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.002 |   1.136
+simulate                                 |   0.040 |   1.128
+combat_legal_moves                       |   0.811 |   1.069
+__init__                                 |   0.019 |   0.019
+heuristic_non_combat_legal_moves         |   0.005 |   0.015
+check_reachability                       |   0.006 |   0.008
+expand                                   |   0.000 |   0.004
+clone_shallow                            |   0.001 |   0.003
+_build_reachability_context              |   0.003 |   0.003
+apply_combat_move                        |   0.001 |   0.003
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_18.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.127
+simulate                                 |   0.038 |   1.122
+combat_legal_moves                       |   0.834 |   1.076
+__init__                                 |   0.018 |   0.018
+heuristic_non_combat_legal_moves         |   0.002 |   0.007
+check_reachability                       |   0.003 |   0.004
+expand                                   |   0.000 |   0.002
+_build_reachability_context              |   0.001 |   0.001
+clone_shallow                            |   0.001 |   0.001
+apply_combat_move                        |   0.001 |   0.001
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_19.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.250
+simulate                                 |   0.043 |   1.247
+combat_legal_moves                       |   0.929 |   1.195
+__init__                                 |   0.019 |   0.019
+heuristic_non_combat_legal_moves         |   0.002 |   0.007
+check_reachability                       |   0.003 |   0.004
+expand                                   |   0.000 |   0.002
+clone_shallow                            |   0.001 |   0.001
+_build_reachability_context              |   0.001 |   0.001
+apply_combat_move                        |   0.001 |   0.001
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_20.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.085
+simulate                                 |   0.037 |   1.080
+combat_legal_moves                       |   0.795 |   1.033
+__init__                                 |   0.016 |   0.016
+heuristic_non_combat_legal_moves         |   0.003 |   0.008
+check_reachability                       |   0.003 |   0.004
+expand                                   |   0.000 |   0.002
+clone_shallow                            |   0.001 |   0.002
+_build_reachability_context              |   0.002 |   0.002
+apply_combat_move                        |   0.001 |   0.001
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_21.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.029
+simulate                                 |   0.038 |   1.021
+combat_legal_moves                       |   0.725 |   0.960
+heuristic_non_combat_legal_moves         |   0.007 |   0.019
+__init__                                 |   0.017 |   0.017
+check_reachability                       |   0.007 |   0.010
+expand                                   |   0.000 |   0.006
+clone_shallow                            |   0.002 |   0.005
+_build_reachability_context              |   0.004 |   0.004
+apply_combat_move                        |   0.001 |   0.003
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_22.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.266
+simulate                                 |   0.041 |   1.264
+combat_legal_moves                       |   0.959 |   1.220
+__init__                                 |   0.018 |   0.018
+heuristic_non_combat_legal_moves         |   0.001 |   0.002
+check_reachability                       |   0.001 |   0.002
+log                                      |   0.000 |   0.001
+expand                                   |   0.000 |   0.001
+clone_shallow                            |   0.000 |   0.001
+_build_reachability_context              |   0.000 |   0.000
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_23.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |  20.458
+simulate                                 |   0.757 |  20.456
+combat_legal_moves                       |  15.271 |  19.696
+__init__                                 |   0.244 |   0.244
+heuristic_non_combat_legal_moves         |   0.001 |   0.003
+check_reachability                       |   0.001 |   0.002
+clone_shallow                            |   0.001 |   0.001
+log                                      |   0.000 |   0.001
+expand                                   |   0.000 |   0.000
+_build_reachability_context              |   0.000 |   0.000
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_24.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.048
+simulate                                 |   0.044 |   1.044
+combat_legal_moves                       |   0.697 |   0.992
+__init__                                 |   0.023 |   0.023
+heuristic_non_combat_legal_moves         |   0.002 |   0.006
+check_reachability                       |   0.002 |   0.003
+expand                                   |   0.000 |   0.002
+clone_shallow                            |   0.001 |   0.002
+_build_reachability_context              |   0.001 |   0.001
+apply_combat_move                        |   0.000 |   0.001
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_25.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |  38.497
+simulate                                 |   1.372 |  38.495
+combat_legal_moves                       |  28.324 |  37.121
+__init__                                 |   0.532 |   0.532
+heuristic_non_combat_legal_moves         |   0.001 |   0.002
+check_reachability                       |   0.001 |   0.002
+log                                      |   0.000 |   0.001
+clone_shallow                            |   0.000 |   0.000
+expand                                   |   0.000 |   0.000
+_build_reachability_context              |   0.000 |   0.000
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_26.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.184
+simulate                                 |   0.050 |   1.181
+combat_legal_moves                       |   0.793 |   1.125
+__init__                                 |   0.026 |   0.026
+heuristic_non_combat_legal_moves         |   0.002 |   0.005
+check_reachability                       |   0.002 |   0.003
+expand                                   |   0.000 |   0.001
+_build_reachability_context              |   0.001 |   0.001
+clone_shallow                            |   0.000 |   0.001
+log                                      |   0.000 |   0.001
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_27.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.003
+simulate                                 |   0.040 |   0.985
+combat_legal_moves                       |   0.609 |   0.904
+heuristic_non_combat_legal_moves         |   0.014 |   0.036
+__init__                                 |   0.020 |   0.020
+check_reachability                       |   0.012 |   0.017
+expand                                   |   0.000 |   0.014
+clone_shallow                            |   0.005 |   0.009
+_build_reachability_context              |   0.008 |   0.008
+apply_combat_move                        |   0.002 |   0.005
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_28.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.048
+simulate                                 |   0.029 |   0.948
+combat_legal_moves                       |   0.655 |   0.939
+select                                   |   0.000 |   0.079
+heuristic_non_combat_legal_moves         |   0.019 |   0.049
+check_reachability                       |   0.017 |   0.024
+expand                                   |   0.000 |   0.017
+__init__                                 |   0.017 |   0.017
+clone_shallow                            |   0.006 |   0.012
+_build_reachability_context              |   0.012 |   0.012
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_29.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.014
+simulate                                 |   0.034 |   0.965
+combat_legal_moves                       |   0.634 |   0.906
+heuristic_non_combat_legal_moves         |   0.017 |   0.046
+select                                   |   0.000 |   0.032
+check_reachability                       |   0.016 |   0.023
+__init__                                 |   0.016 |   0.016
+expand                                   |   0.000 |   0.014
+_build_reachability_context              |   0.011 |   0.012
+clone_shallow                            |   0.006 |   0.012
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_30.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.119
+simulate                                 |   0.037 |   1.116
+combat_legal_moves                       |   0.847 |   1.076
+__init__                                 |   0.016 |   0.016
+heuristic_non_combat_legal_moves         |   0.001 |   0.003
+check_reachability                       |   0.001 |   0.002
+expand                                   |   0.000 |   0.001
+log                                      |   0.000 |   0.001
+_build_reachability_context              |   0.001 |   0.001
+clone_shallow                            |   0.000 |   0.001
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_31.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.065
+simulate                                 |   0.041 |   1.059
+combat_legal_moves                       |   0.766 |   1.000
+__init__                                 |   0.018 |   0.018
+heuristic_non_combat_legal_moves         |   0.005 |   0.014
+check_reachability                       |   0.006 |   0.008
+expand                                   |   0.000 |   0.004
+clone_shallow                            |   0.002 |   0.003
+_build_reachability_context              |   0.003 |   0.003
+apply_combat_move                        |   0.001 |   0.002
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_32.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.576
+simulate                                 |   0.051 |   1.574
+combat_legal_moves                       |   1.207 |   1.520
+__init__                                 |   0.022 |   0.022
+heuristic_non_combat_legal_moves         |   0.001 |   0.002
+check_reachability                       |   0.001 |   0.001
+log                                      |   0.000 |   0.001
+clone_shallow                            |   0.000 |   0.000
+expand                                   |   0.000 |   0.000
+_build_reachability_context              |   0.000 |   0.000
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_33.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.025
+simulate                                 |   0.039 |   1.003
+combat_legal_moves                       |   0.651 |   0.919
+heuristic_non_combat_legal_moves         |   0.015 |   0.041
+check_reachability                       |   0.015 |   0.022
+__init__                                 |   0.017 |   0.017
+clone_shallow                            |   0.005 |   0.011
+_build_reachability_context              |   0.010 |   0.010
+select                                   |   0.000 |   0.009
+expand                                   |   0.000 |   0.009
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_34.prof
+============================================================
+
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.157
+simulate                                 |   0.037 |   1.152
+combat_legal_moves                       |   0.842 |   1.099
+__init__                                 |   0.021 |   0.021
+heuristic_non_combat_legal_moves         |   0.004 |   0.012
+check_reachability                       |   0.005 |   0.007
+clone_shallow                            |   0.002 |   0.003
+expand                                   |   0.000 |   0.003
+_build_reachability_context              |   0.003 |   0.003
+apply_combat_move                        |   0.001 |   0.002
+

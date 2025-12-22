@@ -6,6 +6,38 @@ import os
 import ast
 
 
+# def convert_combat_to_json(move):
+#     actions = []
+#     # attacking one territory
+#     for attack in move.moves:
+#         qty = attack.get("quantity")
+#         for q in range(0, qty):
+#             action = {
+#                 "delegate": "combat",
+#                 "from": attack.get("from"),
+#                 "to": move.to_terr,
+#                 "unit": attack.get("unit").unit_type,
+#             }
+#             actions.append(action)
+#     return actions
+
+
+def convert_combat_to_json(move):
+    actions = []
+    # attacking one territory
+    for attack in move.moves:
+        qty = attack.get("quantity")
+        action = {
+            "delegate": "combat",
+            "from": attack.get("from"),
+            "to": move.to_terr,
+            "unit": attack.get("unit").unit_type,
+            "count": qty,
+        }
+        actions.append(action)
+    return actions
+
+
 def convert_action_to_json(move, move_type):
     actions = []
     if move_type == "purchase":
@@ -23,19 +55,6 @@ def convert_action_to_json(move, move_type):
                     "to": target_location
                 })
 
-    # elif move_type == "combat":
-    #     for m in move:
-    #         action = {
-    #             "delegate": move_type,
-    #             "from": m.get("from"),
-    #             "to": m.get("to"),
-    #             # "steps": move.get("steps"),
-    #             "unit": m.get("units"),
-    #             # "max_quantity": move.get("max_quantity"),
-    #             # "target_owner": move.get("target_owner"),
-    #             # "path": move.get("path", [])
-    #         }
-    #         actions.append(action)
     elif move_type == "place":
         for m in move:
             actions.append({
@@ -49,11 +68,7 @@ def convert_action_to_json(move, move_type):
             "delegate": move_type,
             "from": move.get("from"),
             "to": move.get("to"),
-            # "steps": move.get("steps"),
             "unit": move.get("units"),
-            # "max_quantity": move.get("max_quantity"),
-            # "target_owner": move.get("target_owner"),
-            # "path": move.get("path", [])
         }
         actions.append(action)
     
@@ -101,6 +116,20 @@ def parse_triplea_map(xml_path, output_path):
         unit = rule.find("result").attrib["resourceOrUnit"]
         production_rules[name] = {"unit": unit, "cost": cost}
 
+    # --- Extract Territory Production Values (income per territory) ---
+    territory_production = {}
+    for attach in root.findall(".//attachmentList/attachment[@type='territory']"):
+        territory_name = attach.attrib["attachTo"]
+        for opt in attach.findall("option"):
+            if opt.attrib.get("name") == "production":
+                territory_production[territory_name] = int(opt.attrib["value"])
+                break
+    
+    # Set default production value of 0 for territories without explicit production
+    for territory in territories:
+        if territory not in territory_production:
+            territory_production[territory] = 0
+
     # --- Extract Starting Territory Ownership ---
     starting_ownership = {
         terr.attrib["territory"]: terr.attrib["owner"]
@@ -139,6 +168,7 @@ def parse_triplea_map(xml_path, output_path):
         "units": units,
         "unit_stats": unit_stats,
         "production_rules": production_rules,
+        "territory_production": territory_production,  # Added here
         "starting_ownership": starting_ownership,
         "starting_units": starting_units,
         "initial_resources": initial_resources,
@@ -221,3 +251,4 @@ def parse_combat_line(ctf, player, line):
         print(f"Error parsing combat move message for {player}: {e}")
         print("Raw move_msg:", line)
         return []
+    

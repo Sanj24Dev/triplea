@@ -131,7 +131,7 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
 
 
 
-
+  if (actionsList != null) {
     if (nonCombat) {
 //      nonCombatMoveAi.doNonCombatMove(storedFactoryMoveMap, storedPurchaseTerritories, moveDel);
 //      storedFactoryMoveMap = null;
@@ -188,14 +188,24 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
                 System.out.println("No available unit of type " + a.unit + " in " + from.getName());
                 return;
             }
-
-            Unit selectedUnit = availableUnits.get(0); // assuming 1 unit per action
+            int count;
+            try {
+                count = Integer.parseInt(a.count);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid count: " + a.count);
+                return;
+            }
+            // Unit selectedUnit = availableUnits.get(0); // assuming 1 unit per action
+            List<Unit> selectedUnits = availableUnits.subList(0, count);
 
             // Get or create ProTerritory for the target
             ProTerritory proTo = attackMap.computeIfAbsent(to, t -> new ProTerritory(t, proData));
 
             // Add attacking unit from source
-            proTo.addUnit(selectedUnit);
+            // proTo.addUnit(selectedUnit);
+            for (Unit u : selectedUnits) {
+                proTo.addUnit(u);
+            }
 
             // Store it back
             attackMap.put(to, proTo);
@@ -217,6 +227,7 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
 //            didNonCombatMove = true;
 //        }
     }
+  }
 
 
 
@@ -261,6 +272,8 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
         Type actionListType = new TypeToken<List<Action>>(){}.getType();
         List<Action> actionsList = gson.fromJson(actions, actionListType);
         final Map<Territory, ProPurchaseTerritory> purchaseTerritories = new HashMap<>();
+        if (actionsList == null) 
+          return;
         for (Action a : actionsList) {
             Territory t = data.getMap().getTerritoryOrNull(a.to);
             if (t == null) continue;

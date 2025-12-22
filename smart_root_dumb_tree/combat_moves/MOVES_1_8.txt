@@ -1,0 +1,28 @@
+Attack: 
+	combat delegate on BottomBar
+	Move units:3xarmour from GermanStartLeft
+	strength=27
+Attack: 
+	combat delegate on GermanStartRight
+	Move units:1xarmour from GermanStartLeft
+	strength=9
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xarmour from GermanStartLeft
+	strength=9
+Attack: 
+	combat delegate on GermanStepTwo
+	Move units:1xinfantry from GermanStepOne
+	strength=1
+Attack: 
+	combat delegate on BottomBar
+	strength=0
+Attack: 
+	combat delegate on GermanStartRight
+	strength=0
+Attack: 
+	combat delegate on GermanStepTwo
+	strength=0
+Attack: 
+	combat delegate on ChineseStartRight
+	strength=0
