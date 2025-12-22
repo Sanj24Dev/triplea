@@ -1,0 +1,69 @@
+Attack: 
+	combat delegate on GermanStepOne
+	Move units:7xarmour from GermanStartLeft
+	strength=147
+Attack: 
+	combat delegate on GermanStepOne
+	Move units:6xarmour from GermanStartLeft
+	strength=126
+Attack: 
+	combat delegate on GermanStepOne
+	Move units:5xarmour from GermanStartLeft
+	strength=105
+Attack: 
+	combat delegate on GermanStepOne
+	Move units:4xarmour from GermanStartLeft
+	strength=84
+Attack: 
+	combat delegate on GermanStepOne
+	Move units:3xarmour from GermanStartLeft
+	strength=63
+Attack: 
+	combat delegate on GermanStepOne
+	Move units:2xarmour from GermanStartLeft
+	strength=42
+Attack: 
+	combat delegate on BottomBar
+	Move units:1xarmour from GermanStartLeft
+	strength=21
+Attack: 
+	combat delegate on GermanStartRight
+	Move units:1xarmour from GermanStartLeft
+	strength=21
+Attack: 
+	combat delegate on GermanStepOne
+	Move units:1xarmour from GermanStartLeft
+	strength=21
+Attack: 
+	combat delegate on ChineseStartRight
+	Move units:1xarmour from GermanStartLeft
+	strength=21
+Attack: 
+	combat delegate on ChineseStepTwo
+	Move units:1xinfantry from ChineseStepOne
+	strength=17
+Attack: 
+	combat delegate on ChineseStart
+	Move units:1xartillery from ChineseStepOne
+	strength=12
+Attack: 
+	combat delegate on ChineseStart
+	strength=0
+Attack: 
+	combat delegate on BottomBar
+	strength=0
+Attack: 
+	combat delegate on GermanStartRight
+	strength=0
+Attack: 
+	combat delegate on GermanStepOne
+	strength=0
+Attack: 
+	combat delegate on ChineseStepTwo
+	strength=0
+Attack: 
+	combat delegate on ChineseStartLeft
+	strength=0
+Attack: 
+	combat delegate on ChineseStartRight
+	strength=0

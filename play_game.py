@@ -5,7 +5,7 @@ import json
 import os
 
 # --- CONFIG ---
-PLAY_ROUNDS = 2   # max rounds per game
+PLAY_ROUNDS = 100   # max rounds per game
 PLAY_GAMES = 1     # number of games to play
 CHECK_INTERVAL = 2  # seconds between log checks
 

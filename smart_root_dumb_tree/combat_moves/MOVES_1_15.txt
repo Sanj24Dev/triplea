@@ -1,0 +1,4469 @@
+Attack: 
+	combat delegate on ChineseBase
+	Move units:29xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=916
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:29xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=916
+Attack: 
+	combat delegate on ChineseBase
+	Move units:29xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=913
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:29xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=913
+Attack: 
+	combat delegate on ChineseBase
+	Move units:29xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=904
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:29xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=904
+Attack: 
+	combat delegate on ChineseBase
+	Move units:29xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=901
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:29xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=901
+Attack: 
+	combat delegate on ChineseBase
+	Move units:29xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=892
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:29xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=892
+Attack: 
+	combat delegate on ChineseBase
+	Move units:29xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=889
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:29xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=889
+Attack: 
+	combat delegate on ChineseBase
+	Move units:28xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=887
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:28xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=887
+Attack: 
+	combat delegate on ChineseBase
+	Move units:28xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=884
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:28xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=884
+Attack: 
+	combat delegate on ChineseBase
+	Move units:29xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=880
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:29xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=880
+Attack: 
+	combat delegate on ChineseBase
+	Move units:29xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=877
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:29xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=877
+Attack: 
+	combat delegate on ChineseBase
+	Move units:28xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=875
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:28xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=875
+Attack: 
+	combat delegate on ChineseBase
+	Move units:28xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=872
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:28xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=872
+Attack: 
+	combat delegate on ChineseBase
+	Move units:29xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=868
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:29xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=868
+Attack: 
+	combat delegate on ChineseBase
+	Move units:29xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=865
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:29xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=865
+Attack: 
+	combat delegate on ChineseBase
+	Move units:28xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=863
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:28xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=863
+Attack: 
+	combat delegate on ChineseBase
+	Move units:28xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=860
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:28xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=860
+Attack: 
+	combat delegate on ChineseBase
+	Move units:27xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=858
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:27xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=858
+Attack: 
+	combat delegate on ChineseBase
+	Move units:29xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=856
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:29xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=856
+Attack: 
+	combat delegate on ChineseBase
+	Move units:27xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=855
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:27xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=855
+Attack: 
+	combat delegate on ChineseBase
+	Move units:29xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=853
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:29xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=853
+Attack: 
+	combat delegate on ChineseBase
+	Move units:28xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=851
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:28xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=851
+Attack: 
+	combat delegate on ChineseBase
+	Move units:28xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=848
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:28xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=848
+Attack: 
+	combat delegate on ChineseBase
+	Move units:27xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=846
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:27xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=846
+Attack: 
+	combat delegate on ChineseBase
+	Move units:29xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=844
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:29xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=844
+Attack: 
+	combat delegate on ChineseBase
+	Move units:27xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=843
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:27xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=843
+Attack: 
+	combat delegate on ChineseBase
+	Move units:29xinfantry from ChineseStart
+	strength=841
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:29xinfantry from ChineseStart
+	strength=841
+Attack: 
+	combat delegate on ChineseBase
+	Move units:28xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=839
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:28xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=839
+Attack: 
+	combat delegate on ChineseBase
+	Move units:28xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=836
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:28xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=836
+Attack: 
+	combat delegate on ChineseBase
+	Move units:27xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=834
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:27xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=834
+Attack: 
+	combat delegate on ChineseBase
+	Move units:27xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=831
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:27xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=831
+Attack: 
+	combat delegate on ChineseBase
+	Move units:26xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=829
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:26xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=829
+Attack: 
+	combat delegate on ChineseBase
+	Move units:28xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=827
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:28xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=827
+Attack: 
+	combat delegate on ChineseBase
+	Move units:26xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=826
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:26xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=826
+Attack: 
+	combat delegate on ChineseBase
+	Move units:28xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=824
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:28xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=824
+Attack: 
+	combat delegate on ChineseBase
+	Move units:27xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=822
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:27xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=822
+Attack: 
+	combat delegate on ChineseBase
+	Move units:27xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=819
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:27xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=819
+Attack: 
+	combat delegate on ChineseBase
+	Move units:26xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=817
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:26xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=817
+Attack: 
+	combat delegate on ChineseBase
+	Move units:28xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=815
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:28xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=815
+Attack: 
+	combat delegate on ChineseBase
+	Move units:26xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=814
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:26xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=814
+Attack: 
+	combat delegate on ChineseBase
+	Move units:28xinfantry from ChineseStart
+	strength=812
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:28xinfantry from ChineseStart
+	strength=812
+Attack: 
+	combat delegate on ChineseBase
+	Move units:27xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=810
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:27xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=810
+Attack: 
+	combat delegate on ChineseBase
+	Move units:27xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=807
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:27xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=807
+Attack: 
+	combat delegate on ChineseBase
+	Move units:26xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=805
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:26xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=805
+Attack: 
+	combat delegate on ChineseBase
+	Move units:26xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=802
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:26xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=802
+Attack: 
+	combat delegate on ChineseBase
+	Move units:25xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=800
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:25xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=800
+Attack: 
+	combat delegate on ChineseBase
+	Move units:27xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=798
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:27xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=798
+Attack: 
+	combat delegate on ChineseBase
+	Move units:25xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=797
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:25xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=797
+Attack: 
+	combat delegate on ChineseBase
+	Move units:27xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=795
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:27xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=795
+Attack: 
+	combat delegate on ChineseBase
+	Move units:26xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=793
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:26xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=793
+Attack: 
+	combat delegate on ChineseBase
+	Move units:26xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=790
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:26xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=790
+Attack: 
+	combat delegate on ChineseBase
+	Move units:25xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=788
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:25xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=788
+Attack: 
+	combat delegate on ChineseBase
+	Move units:27xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=786
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:27xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=786
+Attack: 
+	combat delegate on ChineseBase
+	Move units:25xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=785
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:25xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=785
+Attack: 
+	combat delegate on ChineseBase
+	Move units:27xinfantry from ChineseStart
+	strength=783
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:27xinfantry from ChineseStart
+	strength=783
+Attack: 
+	combat delegate on ChineseBase
+	Move units:26xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=781
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:26xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=781
+Attack: 
+	combat delegate on ChineseBase
+	Move units:26xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=778
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:26xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=778
+Attack: 
+	combat delegate on ChineseBase
+	Move units:25xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=776
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:25xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=776
+Attack: 
+	combat delegate on ChineseBase
+	Move units:25xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=773
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:25xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=773
+Attack: 
+	combat delegate on ChineseBase
+	Move units:24xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=771
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:24xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=771
+Attack: 
+	combat delegate on ChineseBase
+	Move units:26xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=769
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:26xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=769
+Attack: 
+	combat delegate on ChineseBase
+	Move units:24xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=768
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:24xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=768
+Attack: 
+	combat delegate on ChineseBase
+	Move units:26xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=766
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:26xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=766
+Attack: 
+	combat delegate on ChineseBase
+	Move units:25xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=764
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:25xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=764
+Attack: 
+	combat delegate on ChineseBase
+	Move units:25xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=761
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:25xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=761
+Attack: 
+	combat delegate on ChineseBase
+	Move units:24xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=759
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:24xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=759
+Attack: 
+	combat delegate on ChineseBase
+	Move units:26xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=757
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:26xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=757
+Attack: 
+	combat delegate on ChineseBase
+	Move units:24xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=756
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:24xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=756
+Attack: 
+	combat delegate on ChineseBase
+	Move units:26xinfantry from ChineseStart
+	strength=754
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:26xinfantry from ChineseStart
+	strength=754
+Attack: 
+	combat delegate on ChineseBase
+	Move units:25xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=752
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:25xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=752
+Attack: 
+	combat delegate on ChineseBase
+	Move units:25xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=749
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:25xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=749
+Attack: 
+	combat delegate on ChineseBase
+	Move units:24xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=747
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:24xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=747
+Attack: 
+	combat delegate on ChineseBase
+	Move units:24xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=744
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:24xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=744
+Attack: 
+	combat delegate on ChineseBase
+	Move units:23xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=742
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:23xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=742
+Attack: 
+	combat delegate on ChineseBase
+	Move units:25xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=740
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:25xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=740
+Attack: 
+	combat delegate on ChineseBase
+	Move units:23xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=739
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:23xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=739
+Attack: 
+	combat delegate on ChineseBase
+	Move units:25xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=737
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:25xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=737
+Attack: 
+	combat delegate on ChineseBase
+	Move units:24xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=735
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:24xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=735
+Attack: 
+	combat delegate on ChineseBase
+	Move units:24xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=732
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:24xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=732
+Attack: 
+	combat delegate on ChineseBase
+	Move units:23xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=730
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:23xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=730
+Attack: 
+	combat delegate on ChineseBase
+	Move units:25xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=728
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:25xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=728
+Attack: 
+	combat delegate on ChineseBase
+	Move units:23xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=727
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:23xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=727
+Attack: 
+	combat delegate on ChineseBase
+	Move units:25xinfantry from ChineseStart
+	strength=725
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:25xinfantry from ChineseStart
+	strength=725
+Attack: 
+	combat delegate on ChineseBase
+	Move units:24xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=723
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:24xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=723
+Attack: 
+	combat delegate on ChineseBase
+	Move units:24xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=720
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:24xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=720
+Attack: 
+	combat delegate on ChineseBase
+	Move units:23xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=718
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:23xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=718
+Attack: 
+	combat delegate on ChineseBase
+	Move units:23xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=715
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:23xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=715
+Attack: 
+	combat delegate on ChineseBase
+	Move units:22xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=713
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:22xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=713
+Attack: 
+	combat delegate on ChineseBase
+	Move units:24xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=711
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:24xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=711
+Attack: 
+	combat delegate on ChineseBase
+	Move units:22xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=710
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:22xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=710
+Attack: 
+	combat delegate on ChineseBase
+	Move units:24xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=708
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:24xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=708
+Attack: 
+	combat delegate on ChineseBase
+	Move units:23xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=706
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:23xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=706
+Attack: 
+	combat delegate on ChineseBase
+	Move units:23xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=703
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:23xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=703
+Attack: 
+	combat delegate on ChineseBase
+	Move units:22xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=701
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:22xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=701
+Attack: 
+	combat delegate on ChineseBase
+	Move units:24xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=699
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:24xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=699
+Attack: 
+	combat delegate on ChineseBase
+	Move units:22xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=698
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:22xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=698
+Attack: 
+	combat delegate on ChineseBase
+	Move units:24xinfantry from ChineseStart
+	strength=696
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:24xinfantry from ChineseStart
+	strength=696
+Attack: 
+	combat delegate on ChineseBase
+	Move units:23xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=694
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:23xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=694
+Attack: 
+	combat delegate on ChineseBase
+	Move units:23xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=691
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:23xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=691
+Attack: 
+	combat delegate on ChineseBase
+	Move units:22xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=689
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:22xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=689
+Attack: 
+	combat delegate on ChineseBase
+	Move units:22xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=686
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:22xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=686
+Attack: 
+	combat delegate on ChineseBase
+	Move units:21xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=684
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:21xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=684
+Attack: 
+	combat delegate on ChineseBase
+	Move units:23xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=682
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:23xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=682
+Attack: 
+	combat delegate on ChineseBase
+	Move units:21xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=681
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:21xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=681
+Attack: 
+	combat delegate on ChineseBase
+	Move units:23xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=679
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:23xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=679
+Attack: 
+	combat delegate on ChineseBase
+	Move units:22xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=677
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:22xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=677
+Attack: 
+	combat delegate on ChineseBase
+	Move units:22xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=674
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:22xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=674
+Attack: 
+	combat delegate on ChineseBase
+	Move units:21xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=672
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:21xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=672
+Attack: 
+	combat delegate on ChineseBase
+	Move units:23xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=670
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:23xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=670
+Attack: 
+	combat delegate on ChineseBase
+	Move units:21xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=669
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:21xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=669
+Attack: 
+	combat delegate on ChineseBase
+	Move units:23xinfantry from ChineseStart
+	strength=667
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:23xinfantry from ChineseStart
+	strength=667
+Attack: 
+	combat delegate on ChineseBase
+	Move units:22xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=665
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:22xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=665
+Attack: 
+	combat delegate on ChineseBase
+	Move units:22xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=662
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:22xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=662
+Attack: 
+	combat delegate on ChineseBase
+	Move units:21xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=660
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:21xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=660
+Attack: 
+	combat delegate on ChineseBase
+	Move units:21xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=657
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:21xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=657
+Attack: 
+	combat delegate on ChineseBase
+	Move units:20xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=655
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:20xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=655
+Attack: 
+	combat delegate on ChineseBase
+	Move units:22xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=653
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:22xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=653
+Attack: 
+	combat delegate on ChineseBase
+	Move units:20xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=652
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:20xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=652
+Attack: 
+	combat delegate on ChineseBase
+	Move units:22xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=650
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:22xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=650
+Attack: 
+	combat delegate on ChineseBase
+	Move units:21xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=648
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:21xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=648
+Attack: 
+	combat delegate on ChineseBase
+	Move units:21xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=645
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:21xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=645
+Attack: 
+	combat delegate on ChineseBase
+	Move units:20xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=643
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:20xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=643
+Attack: 
+	combat delegate on ChineseBase
+	Move units:22xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=641
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:22xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=641
+Attack: 
+	combat delegate on ChineseBase
+	Move units:20xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=640
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:20xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=640
+Attack: 
+	combat delegate on ChineseBase
+	Move units:22xinfantry from ChineseStart
+	strength=638
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:22xinfantry from ChineseStart
+	strength=638
+Attack: 
+	combat delegate on ChineseBase
+	Move units:21xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=636
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:21xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=636
+Attack: 
+	combat delegate on ChineseBase
+	Move units:21xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=633
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:21xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=633
+Attack: 
+	combat delegate on ChineseBase
+	Move units:20xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=631
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:20xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=631
+Attack: 
+	combat delegate on ChineseBase
+	Move units:20xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=628
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:20xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=628
+Attack: 
+	combat delegate on ChineseBase
+	Move units:19xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=626
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:19xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=626
+Attack: 
+	combat delegate on ChineseBase
+	Move units:21xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=624
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:21xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=624
+Attack: 
+	combat delegate on ChineseBase
+	Move units:19xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=623
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:19xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=623
+Attack: 
+	combat delegate on ChineseBase
+	Move units:21xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=621
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:21xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=621
+Attack: 
+	combat delegate on ChineseBase
+	Move units:20xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=619
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:20xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=619
+Attack: 
+	combat delegate on ChineseBase
+	Move units:20xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=616
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:20xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=616
+Attack: 
+	combat delegate on ChineseBase
+	Move units:19xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=614
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:19xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=614
+Attack: 
+	combat delegate on ChineseBase
+	Move units:21xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=612
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:21xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=612
+Attack: 
+	combat delegate on ChineseBase
+	Move units:19xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=611
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:19xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=611
+Attack: 
+	combat delegate on ChineseBase
+	Move units:21xinfantry from ChineseStart
+	strength=609
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:21xinfantry from ChineseStart
+	strength=609
+Attack: 
+	combat delegate on ChineseBase
+	Move units:20xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=607
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:20xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=607
+Attack: 
+	combat delegate on ChineseBase
+	Move units:20xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=604
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:20xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=604
+Attack: 
+	combat delegate on ChineseBase
+	Move units:19xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=602
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:19xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=602
+Attack: 
+	combat delegate on ChineseBase
+	Move units:19xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=599
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:19xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=599
+Attack: 
+	combat delegate on ChineseBase
+	Move units:18xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=597
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:18xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=597
+Attack: 
+	combat delegate on ChineseBase
+	Move units:20xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=595
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:20xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=595
+Attack: 
+	combat delegate on ChineseBase
+	Move units:18xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=594
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:18xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=594
+Attack: 
+	combat delegate on ChineseBase
+	Move units:20xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=592
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:20xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=592
+Attack: 
+	combat delegate on ChineseBase
+	Move units:19xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=590
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:19xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=590
+Attack: 
+	combat delegate on ChineseBase
+	Move units:19xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=587
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:19xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=587
+Attack: 
+	combat delegate on ChineseBase
+	Move units:18xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=585
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:18xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=585
+Attack: 
+	combat delegate on ChineseBase
+	Move units:20xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=583
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:20xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=583
+Attack: 
+	combat delegate on ChineseBase
+	Move units:18xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=582
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:18xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=582
+Attack: 
+	combat delegate on ChineseBase
+	Move units:20xinfantry from ChineseStart
+	strength=580
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:20xinfantry from ChineseStart
+	strength=580
+Attack: 
+	combat delegate on ChineseBase
+	Move units:19xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=578
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:19xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=578
+Attack: 
+	combat delegate on ChineseBase
+	Move units:19xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=575
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:19xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=575
+Attack: 
+	combat delegate on ChineseBase
+	Move units:18xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=573
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:18xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=573
+Attack: 
+	combat delegate on ChineseBase
+	Move units:18xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=570
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:18xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=570
+Attack: 
+	combat delegate on ChineseBase
+	Move units:17xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=568
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:17xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=568
+Attack: 
+	combat delegate on ChineseBase
+	Move units:19xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=566
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:19xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=566
+Attack: 
+	combat delegate on ChineseBase
+	Move units:17xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=565
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:17xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=565
+Attack: 
+	combat delegate on ChineseBase
+	Move units:19xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=563
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:19xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=563
+Attack: 
+	combat delegate on ChineseBase
+	Move units:18xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=561
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:18xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=561
+Attack: 
+	combat delegate on ChineseBase
+	Move units:18xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=558
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:18xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=558
+Attack: 
+	combat delegate on ChineseBase
+	Move units:17xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=556
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:17xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=556
+Attack: 
+	combat delegate on ChineseBase
+	Move units:19xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=554
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:19xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=554
+Attack: 
+	combat delegate on ChineseBase
+	Move units:17xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=553
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:17xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=553
+Attack: 
+	combat delegate on ChineseBase
+	Move units:19xinfantry from ChineseStart
+	strength=551
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:19xinfantry from ChineseStart
+	strength=551
+Attack: 
+	combat delegate on ChineseBase
+	Move units:18xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=549
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:18xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=549
+Attack: 
+	combat delegate on ChineseBase
+	Move units:18xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=546
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:18xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=546
+Attack: 
+	combat delegate on ChineseBase
+	Move units:17xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=544
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:17xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=544
+Attack: 
+	combat delegate on ChineseBase
+	Move units:17xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=541
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:17xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=541
+Attack: 
+	combat delegate on ChineseBase
+	Move units:16xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=539
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:16xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=539
+Attack: 
+	combat delegate on ChineseBase
+	Move units:18xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=537
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:18xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=537
+Attack: 
+	combat delegate on ChineseBase
+	Move units:16xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=536
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:16xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=536
+Attack: 
+	combat delegate on ChineseBase
+	Move units:18xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=534
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:18xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=534
+Attack: 
+	combat delegate on ChineseBase
+	Move units:17xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=532
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:17xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=532
+Attack: 
+	combat delegate on ChineseBase
+	Move units:17xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=529
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:17xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=529
+Attack: 
+	combat delegate on ChineseBase
+	Move units:16xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=527
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:16xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=527
+Attack: 
+	combat delegate on ChineseBase
+	Move units:18xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=525
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:18xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=525
+Attack: 
+	combat delegate on ChineseBase
+	Move units:16xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=524
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:16xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=524
+Attack: 
+	combat delegate on ChineseBase
+	Move units:18xinfantry from ChineseStart
+	strength=522
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:18xinfantry from ChineseStart
+	strength=522
+Attack: 
+	combat delegate on ChineseBase
+	Move units:17xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=520
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:17xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=520
+Attack: 
+	combat delegate on ChineseBase
+	Move units:17xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=517
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:17xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=517
+Attack: 
+	combat delegate on ChineseBase
+	Move units:16xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=515
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:16xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=515
+Attack: 
+	combat delegate on ChineseBase
+	Move units:16xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=512
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:16xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=512
+Attack: 
+	combat delegate on ChineseBase
+	Move units:15xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=510
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:15xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=510
+Attack: 
+	combat delegate on ChineseBase
+	Move units:17xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=508
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:17xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=508
+Attack: 
+	combat delegate on ChineseBase
+	Move units:15xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=507
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:15xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=507
+Attack: 
+	combat delegate on ChineseBase
+	Move units:17xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=505
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:17xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=505
+Attack: 
+	combat delegate on ChineseBase
+	Move units:16xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=503
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:16xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=503
+Attack: 
+	combat delegate on ChineseBase
+	Move units:16xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=500
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:16xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=500
+Attack: 
+	combat delegate on ChineseBase
+	Move units:15xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=498
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:15xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=498
+Attack: 
+	combat delegate on ChineseBase
+	Move units:17xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=496
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:17xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=496
+Attack: 
+	combat delegate on ChineseBase
+	Move units:15xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=495
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:15xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=495
+Attack: 
+	combat delegate on ChineseBase
+	Move units:17xinfantry from ChineseStart
+	strength=493
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:17xinfantry from ChineseStart
+	strength=493
+Attack: 
+	combat delegate on ChineseBase
+	Move units:16xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=491
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:16xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=491
+Attack: 
+	combat delegate on ChineseBase
+	Move units:16xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=488
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:16xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=488
+Attack: 
+	combat delegate on ChineseBase
+	Move units:15xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=486
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:15xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=486
+Attack: 
+	combat delegate on ChineseBase
+	Move units:15xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=483
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:15xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=483
+Attack: 
+	combat delegate on ChineseBase
+	Move units:14xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=481
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:14xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=481
+Attack: 
+	combat delegate on ChineseBase
+	Move units:16xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=479
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:16xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=479
+Attack: 
+	combat delegate on ChineseBase
+	Move units:14xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=478
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:14xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=478
+Attack: 
+	combat delegate on ChineseBase
+	Move units:16xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=476
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:16xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=476
+Attack: 
+	combat delegate on ChineseBase
+	Move units:15xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=474
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:15xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=474
+Attack: 
+	combat delegate on ChineseBase
+	Move units:15xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=471
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:15xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=471
+Attack: 
+	combat delegate on ChineseBase
+	Move units:14xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=469
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:14xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=469
+Attack: 
+	combat delegate on ChineseBase
+	Move units:16xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=467
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:16xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=467
+Attack: 
+	combat delegate on ChineseBase
+	Move units:14xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=466
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:14xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=466
+Attack: 
+	combat delegate on ChineseBase
+	Move units:16xinfantry from ChineseStart
+	strength=464
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:16xinfantry from ChineseStart
+	strength=464
+Attack: 
+	combat delegate on ChineseBase
+	Move units:15xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=462
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:15xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=462
+Attack: 
+	combat delegate on ChineseBase
+	Move units:15xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=459
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:15xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=459
+Attack: 
+	combat delegate on ChineseBase
+	Move units:14xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=457
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:14xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=457
+Attack: 
+	combat delegate on ChineseBase
+	Move units:14xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=454
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:14xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=454
+Attack: 
+	combat delegate on ChineseBase
+	Move units:13xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=452
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:13xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=452
+Attack: 
+	combat delegate on ChineseBase
+	Move units:15xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=450
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:15xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=450
+Attack: 
+	combat delegate on ChineseBase
+	Move units:13xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=449
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:13xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=449
+Attack: 
+	combat delegate on ChineseBase
+	Move units:15xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=447
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:15xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=447
+Attack: 
+	combat delegate on ChineseBase
+	Move units:14xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=445
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:14xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=445
+Attack: 
+	combat delegate on ChineseBase
+	Move units:14xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=442
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:14xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=442
+Attack: 
+	combat delegate on ChineseBase
+	Move units:13xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=440
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:13xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=440
+Attack: 
+	combat delegate on ChineseBase
+	Move units:15xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=438
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:15xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=438
+Attack: 
+	combat delegate on ChineseBase
+	Move units:13xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=437
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:13xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=437
+Attack: 
+	combat delegate on ChineseBase
+	Move units:15xinfantry from ChineseStart
+	strength=435
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:15xinfantry from ChineseStart
+	strength=435
+Attack: 
+	combat delegate on ChineseBase
+	Move units:14xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=433
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:14xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=433
+Attack: 
+	combat delegate on ChineseBase
+	Move units:14xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=430
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:14xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=430
+Attack: 
+	combat delegate on ChineseBase
+	Move units:13xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=428
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:13xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=428
+Attack: 
+	combat delegate on ChineseBase
+	Move units:13xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=425
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:13xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=425
+Attack: 
+	combat delegate on ChineseBase
+	Move units:12xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=423
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:12xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=423
+Attack: 
+	combat delegate on ChineseBase
+	Move units:14xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=421
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:14xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=421
+Attack: 
+	combat delegate on ChineseBase
+	Move units:12xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=420
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:12xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=420
+Attack: 
+	combat delegate on ChineseBase
+	Move units:14xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=418
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:14xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=418
+Attack: 
+	combat delegate on ChineseBase
+	Move units:13xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=416
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:13xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=416
+Attack: 
+	combat delegate on ChineseBase
+	Move units:13xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=413
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:13xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=413
+Attack: 
+	combat delegate on ChineseBase
+	Move units:12xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=411
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:12xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=411
+Attack: 
+	combat delegate on ChineseBase
+	Move units:14xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=409
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:14xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=409
+Attack: 
+	combat delegate on ChineseBase
+	Move units:12xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=408
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:12xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=408
+Attack: 
+	combat delegate on ChineseBase
+	Move units:14xinfantry from ChineseStart
+	strength=406
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:14xinfantry from ChineseStart
+	strength=406
+Attack: 
+	combat delegate on ChineseBase
+	Move units:13xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=404
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:13xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=404
+Attack: 
+	combat delegate on ChineseBase
+	Move units:13xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=401
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:13xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=401
+Attack: 
+	combat delegate on ChineseBase
+	Move units:12xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=399
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:12xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=399
+Attack: 
+	combat delegate on ChineseBase
+	Move units:12xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=396
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:12xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=396
+Attack: 
+	combat delegate on ChineseBase
+	Move units:11xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=394
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:11xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=394
+Attack: 
+	combat delegate on ChineseBase
+	Move units:13xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=392
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:13xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=392
+Attack: 
+	combat delegate on ChineseBase
+	Move units:11xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=391
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:11xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=391
+Attack: 
+	combat delegate on ChineseBase
+	Move units:13xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=389
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:13xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=389
+Attack: 
+	combat delegate on ChineseBase
+	Move units:12xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=387
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:12xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=387
+Attack: 
+	combat delegate on ChineseBase
+	Move units:12xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=384
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:12xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=384
+Attack: 
+	combat delegate on ChineseBase
+	Move units:11xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=382
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:11xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=382
+Attack: 
+	combat delegate on ChineseBase
+	Move units:13xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=380
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:13xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=380
+Attack: 
+	combat delegate on ChineseBase
+	Move units:11xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=379
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:11xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=379
+Attack: 
+	combat delegate on ChineseBase
+	Move units:13xinfantry from ChineseStart
+	strength=377
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:13xinfantry from ChineseStart
+	strength=377
+Attack: 
+	combat delegate on ChineseBase
+	Move units:12xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=375
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:12xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=375
+Attack: 
+	combat delegate on ChineseBase
+	Move units:12xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=372
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:12xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=372
+Attack: 
+	combat delegate on ChineseBase
+	Move units:11xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=370
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:11xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=370
+Attack: 
+	combat delegate on ChineseBase
+	Move units:11xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=367
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:11xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=367
+Attack: 
+	combat delegate on ChineseBase
+	Move units:10xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=365
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:10xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=365
+Attack: 
+	combat delegate on ChineseBase
+	Move units:12xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=363
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:12xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=363
+Attack: 
+	combat delegate on ChineseBase
+	Move units:10xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=362
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:10xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=362
+Attack: 
+	combat delegate on ChineseBase
+	Move units:12xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=360
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:12xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=360
+Attack: 
+	combat delegate on ChineseBase
+	Move units:11xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=358
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:11xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=358
+Attack: 
+	combat delegate on ChineseBase
+	Move units:11xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=355
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:11xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=355
+Attack: 
+	combat delegate on ChineseBase
+	Move units:10xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=353
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:10xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=353
+Attack: 
+	combat delegate on ChineseBase
+	Move units:12xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=351
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:12xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=351
+Attack: 
+	combat delegate on ChineseBase
+	Move units:10xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=350
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:10xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=350
+Attack: 
+	combat delegate on ChineseBase
+	Move units:12xinfantry from ChineseStart
+	strength=348
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:12xinfantry from ChineseStart
+	strength=348
+Attack: 
+	combat delegate on ChineseBase
+	Move units:11xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=346
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:11xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=346
+Attack: 
+	combat delegate on ChineseBase
+	Move units:11xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=343
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:11xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=343
+Attack: 
+	combat delegate on ChineseBase
+	Move units:10xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=341
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:10xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=341
+Attack: 
+	combat delegate on ChineseBase
+	Move units:10xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=338
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:10xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=338
+Attack: 
+	combat delegate on ChineseBase
+	Move units:9xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=336
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:9xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=336
+Attack: 
+	combat delegate on ChineseBase
+	Move units:11xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=334
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:11xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=334
+Attack: 
+	combat delegate on ChineseBase
+	Move units:9xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=333
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:9xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=333
+Attack: 
+	combat delegate on ChineseBase
+	Move units:11xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=331
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:11xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=331
+Attack: 
+	combat delegate on ChineseBase
+	Move units:10xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=329
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:10xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=329
+Attack: 
+	combat delegate on ChineseBase
+	Move units:10xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=326
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:10xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=326
+Attack: 
+	combat delegate on ChineseBase
+	Move units:9xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=324
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:9xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=324
+Attack: 
+	combat delegate on ChineseBase
+	Move units:11xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=322
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:11xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=322
+Attack: 
+	combat delegate on ChineseBase
+	Move units:9xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=321
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:9xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=321
+Attack: 
+	combat delegate on ChineseBase
+	Move units:11xinfantry from ChineseStart
+	strength=319
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:11xinfantry from ChineseStart
+	strength=319
+Attack: 
+	combat delegate on ChineseBase
+	Move units:10xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=317
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:10xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=317
+Attack: 
+	combat delegate on ChineseBase
+	Move units:10xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=314
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:10xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=314
+Attack: 
+	combat delegate on ChineseBase
+	Move units:9xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=312
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:9xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=312
+Attack: 
+	combat delegate on ChineseBase
+	Move units:9xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=309
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:9xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=309
+Attack: 
+	combat delegate on ChineseBase
+	Move units:8xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=307
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:8xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=307
+Attack: 
+	combat delegate on ChineseBase
+	Move units:10xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=305
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:10xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=305
+Attack: 
+	combat delegate on ChineseBase
+	Move units:8xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=304
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:8xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=304
+Attack: 
+	combat delegate on ChineseBase
+	Move units:10xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=302
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:10xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=302
+Attack: 
+	combat delegate on ChineseBase
+	Move units:9xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=300
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:9xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=300
+Attack: 
+	combat delegate on ChineseBase
+	Move units:9xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=297
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:9xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=297
+Attack: 
+	combat delegate on ChineseBase
+	Move units:8xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=295
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:8xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=295
+Attack: 
+	combat delegate on ChineseBase
+	Move units:10xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=293
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:10xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=293
+Attack: 
+	combat delegate on ChineseBase
+	Move units:8xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=292
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:8xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=292
+Attack: 
+	combat delegate on ChineseBase
+	Move units:10xinfantry from ChineseStart
+	strength=290
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:10xinfantry from ChineseStart
+	strength=290
+Attack: 
+	combat delegate on ChineseBase
+	Move units:9xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=288
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:9xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=288
+Attack: 
+	combat delegate on ChineseBase
+	Move units:9xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=285
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:9xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=285
+Attack: 
+	combat delegate on ChineseBase
+	Move units:8xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=283
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:8xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=283
+Attack: 
+	combat delegate on ChineseBase
+	Move units:8xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=280
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:8xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=280
+Attack: 
+	combat delegate on ChineseBase
+	Move units:7xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=278
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:7xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=278
+Attack: 
+	combat delegate on ChineseBase
+	Move units:9xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=276
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:9xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=276
+Attack: 
+	combat delegate on ChineseBase
+	Move units:7xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=275
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:7xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=275
+Attack: 
+	combat delegate on ChineseBase
+	Move units:9xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=273
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:9xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=273
+Attack: 
+	combat delegate on ChineseBase
+	Move units:8xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=271
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:8xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=271
+Attack: 
+	combat delegate on ChineseBase
+	Move units:8xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=268
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:8xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=268
+Attack: 
+	combat delegate on ChineseBase
+	Move units:7xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=266
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:7xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=266
+Attack: 
+	combat delegate on ChineseBase
+	Move units:9xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=264
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:9xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=264
+Attack: 
+	combat delegate on ChineseBase
+	Move units:7xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=263
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:7xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=263
+Attack: 
+	combat delegate on ChineseBase
+	Move units:9xinfantry from ChineseStart
+	strength=261
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:9xinfantry from ChineseStart
+	strength=261
+Attack: 
+	combat delegate on ChineseBase
+	Move units:8xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=259
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:8xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=259
+Attack: 
+	combat delegate on ChineseBase
+	Move units:8xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=256
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:8xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=256
+Attack: 
+	combat delegate on ChineseBase
+	Move units:7xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=254
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:7xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=254
+Attack: 
+	combat delegate on ChineseBase
+	Move units:7xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=251
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:7xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=251
+Attack: 
+	combat delegate on ChineseBase
+	Move units:6xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=249
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:6xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=249
+Attack: 
+	combat delegate on ChineseBase
+	Move units:8xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=247
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:8xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=247
+Attack: 
+	combat delegate on ChineseBase
+	Move units:6xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=246
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:6xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=246
+Attack: 
+	combat delegate on ChineseBase
+	Move units:8xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=244
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:8xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=244
+Attack: 
+	combat delegate on ChineseBase
+	Move units:7xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=242
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:7xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=242
+Attack: 
+	combat delegate on ChineseBase
+	Move units:7xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=239
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:7xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=239
+Attack: 
+	combat delegate on ChineseBase
+	Move units:6xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=237
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:6xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=237
+Attack: 
+	combat delegate on ChineseBase
+	Move units:8xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=235
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:8xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=235
+Attack: 
+	combat delegate on ChineseBase
+	Move units:6xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=234
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:6xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=234
+Attack: 
+	combat delegate on ChineseBase
+	Move units:8xinfantry from ChineseStart
+	strength=232
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:8xinfantry from ChineseStart
+	strength=232
+Attack: 
+	combat delegate on ChineseBase
+	Move units:7xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=230
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:7xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=230
+Attack: 
+	combat delegate on ChineseBase
+	Move units:7xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=227
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:7xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=227
+Attack: 
+	combat delegate on ChineseBase
+	Move units:6xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=225
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:6xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=225
+Attack: 
+	combat delegate on ChineseBase
+	Move units:6xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=222
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:6xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=222
+Attack: 
+	combat delegate on ChineseBase
+	Move units:5xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=220
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:5xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=220
+Attack: 
+	combat delegate on ChineseBase
+	Move units:7xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=218
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:7xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=218
+Attack: 
+	combat delegate on ChineseBase
+	Move units:5xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=217
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:5xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=217
+Attack: 
+	combat delegate on ChineseBase
+	Move units:7xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=215
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:7xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=215
+Attack: 
+	combat delegate on ChineseBase
+	Move units:6xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=213
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:6xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=213
+Attack: 
+	combat delegate on ChineseBase
+	Move units:6xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=210
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:6xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=210
+Attack: 
+	combat delegate on ChineseBase
+	Move units:5xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=208
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:5xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=208
+Attack: 
+	combat delegate on ChineseBase
+	Move units:7xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=206
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:7xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=206
+Attack: 
+	combat delegate on ChineseBase
+	Move units:5xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=205
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:5xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=205
+Attack: 
+	combat delegate on ChineseBase
+	Move units:7xinfantry from ChineseStart
+	strength=203
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:7xinfantry from ChineseStart
+	strength=203
+Attack: 
+	combat delegate on ChineseBase
+	Move units:6xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=201
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:6xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=201
+Attack: 
+	combat delegate on ChineseBase
+	Move units:6xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=198
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:6xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=198
+Attack: 
+	combat delegate on ChineseBase
+	Move units:5xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=196
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:5xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=196
+Attack: 
+	combat delegate on ChineseBase
+	Move units:5xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=193
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:5xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=193
+Attack: 
+	combat delegate on ChineseBase
+	Move units:4xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=191
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:4xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=191
+Attack: 
+	combat delegate on ChineseBase
+	Move units:6xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=189
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:6xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=189
+Attack: 
+	combat delegate on ChineseBase
+	Move units:4xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=188
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:4xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=188
+Attack: 
+	combat delegate on ChineseBase
+	Move units:6xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=186
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:6xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=186
+Attack: 
+	combat delegate on ChineseBase
+	Move units:5xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=184
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:5xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=184
+Attack: 
+	combat delegate on ChineseBase
+	Move units:5xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=181
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:5xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=181
+Attack: 
+	combat delegate on ChineseBase
+	Move units:4xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=179
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:4xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=179
+Attack: 
+	combat delegate on ChineseBase
+	Move units:6xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=177
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:6xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=177
+Attack: 
+	combat delegate on ChineseBase
+	Move units:4xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=176
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:4xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=176
+Attack: 
+	combat delegate on ChineseBase
+	Move units:6xinfantry from ChineseStart
+	strength=174
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:6xinfantry from ChineseStart
+	strength=174
+Attack: 
+	combat delegate on ChineseBase
+	Move units:5xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=172
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:5xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=172
+Attack: 
+	combat delegate on ChineseBase
+	Move units:5xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=169
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:5xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=169
+Attack: 
+	combat delegate on ChineseBase
+	Move units:4xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=167
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:4xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=167
+Attack: 
+	combat delegate on ChineseBase
+	Move units:4xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=164
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:4xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=164
+Attack: 
+	combat delegate on ChineseBase
+	Move units:3xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=162
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:3xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=162
+Attack: 
+	combat delegate on ChineseBase
+	Move units:5xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=160
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:5xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=160
+Attack: 
+	combat delegate on ChineseBase
+	Move units:3xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=159
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:3xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=159
+Attack: 
+	combat delegate on ChineseBase
+	Move units:5xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=157
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:5xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=157
+Attack: 
+	combat delegate on ChineseBase
+	Move units:4xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=155
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:4xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=155
+Attack: 
+	combat delegate on ChineseBase
+	Move units:4xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=152
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:4xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=152
+Attack: 
+	combat delegate on ChineseBase
+	Move units:3xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=150
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:3xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=150
+Attack: 
+	combat delegate on ChineseBase
+	Move units:5xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=148
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:5xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=148
+Attack: 
+	combat delegate on ChineseBase
+	Move units:3xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=147
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:3xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=147
+Attack: 
+	combat delegate on ChineseBase
+	Move units:5xinfantry from ChineseStart
+	strength=145
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:5xinfantry from ChineseStart
+	strength=145
+Attack: 
+	combat delegate on ChineseBase
+	Move units:4xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=143
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:4xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=143
+Attack: 
+	combat delegate on ChineseBase
+	Move units:4xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=140
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:4xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=140
+Attack: 
+	combat delegate on ChineseBase
+	Move units:3xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=138
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:3xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=138
+Attack: 
+	combat delegate on ChineseBase
+	Move units:3xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=135
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:3xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=135
+Attack: 
+	combat delegate on ChineseBase
+	Move units:2xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=133
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:2xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=133
+Attack: 
+	combat delegate on ChineseBase
+	Move units:4xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=131
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:4xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=131
+Attack: 
+	combat delegate on ChineseBase
+	Move units:2xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=130
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:2xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=130
+Attack: 
+	combat delegate on ChineseBase
+	Move units:4xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=128
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:4xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=128
+Attack: 
+	combat delegate on ChineseBase
+	Move units:3xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=126
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:3xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=126
+Attack: 
+	combat delegate on ChineseBase
+	Move units:3xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=123
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:3xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=123
+Attack: 
+	combat delegate on ChineseBase
+	Move units:2xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=121
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:2xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=121
+Attack: 
+	combat delegate on ChineseBase
+	Move units:4xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=119
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:4xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=119
+Attack: 
+	combat delegate on ChineseBase
+	Move units:2xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=118
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:2xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=118
+Attack: 
+	combat delegate on ChineseBase
+	Move units:4xinfantry from ChineseStart
+	strength=116
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:4xinfantry from ChineseStart
+	strength=116
+Attack: 
+	combat delegate on ChineseBase
+	Move units:3xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=114
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:3xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=114
+Attack: 
+	combat delegate on ChineseBase
+	Move units:3xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=111
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:3xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=111
+Attack: 
+	combat delegate on ChineseBase
+	Move units:2xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=109
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:2xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=109
+Attack: 
+	combat delegate on ChineseBase
+	Move units:2xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=106
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:2xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=106
+Attack: 
+	combat delegate on ChineseBase
+	Move units:1xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=104
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:1xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=104
+Attack: 
+	combat delegate on ChineseBase
+	Move units:3xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=102
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:3xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=102
+Attack: 
+	combat delegate on ChineseBase
+	Move units:1xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=101
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:1xinfantry from ChineseStart
+	Move units:6xartillery from ChineseStart
+	strength=101
+Attack: 
+	combat delegate on ChineseBase
+	Move units:3xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=99
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:3xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=99
+Attack: 
+	combat delegate on ChineseBase
+	Move units:2xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=97
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:2xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=97
+Attack: 
+	combat delegate on ChineseBase
+	Move units:2xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=94
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:2xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=94
+Attack: 
+	combat delegate on ChineseBase
+	Move units:1xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=92
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:1xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=92
+Attack: 
+	combat delegate on ChineseBase
+	Move units:3xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=90
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:3xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=90
+Attack: 
+	combat delegate on ChineseBase
+	Move units:1xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=89
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:1xinfantry from ChineseStart
+	Move units:5xartillery from ChineseStart
+	strength=89
+Attack: 
+	combat delegate on ChineseBase
+	Move units:3xinfantry from ChineseStart
+	strength=87
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:3xinfantry from ChineseStart
+	strength=87
+Attack: 
+	combat delegate on ChineseBase
+	Move units:2xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=85
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:2xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=85
+Attack: 
+	combat delegate on ChineseBase
+	Move units:2xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=82
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:2xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=82
+Attack: 
+	combat delegate on ChineseBase
+	Move units:1xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=80
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:1xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=80
+Attack: 
+	combat delegate on ChineseBase
+	Move units:1xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=77
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:1xinfantry from ChineseStart
+	Move units:4xartillery from ChineseStart
+	strength=77
+Attack: 
+	combat delegate on ChineseBase
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=75
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:6xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=75
+Attack: 
+	combat delegate on ChineseBase
+	Move units:2xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=73
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:2xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=73
+Attack: 
+	combat delegate on ChineseBase
+	Move units:6xartillery from ChineseStart
+	strength=72
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:6xartillery from ChineseStart
+	strength=72
+Attack: 
+	combat delegate on ChineseBase
+	Move units:2xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=70
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:2xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=70
+Attack: 
+	combat delegate on ChineseBase
+	Move units:1xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=68
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:1xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=68
+Attack: 
+	combat delegate on ChineseBase
+	Move units:1xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=65
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:1xinfantry from ChineseStart
+	Move units:3xartillery from ChineseStart
+	strength=65
+Attack: 
+	combat delegate on ChineseBase
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=63
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:5xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=63
+Attack: 
+	combat delegate on ChineseBase
+	Move units:2xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=61
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:2xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=61
+Attack: 
+	combat delegate on ChineseBase
+	Move units:5xartillery from ChineseStart
+	strength=60
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:5xartillery from ChineseStart
+	strength=60
+Attack: 
+	combat delegate on ChineseBase
+	Move units:2xinfantry from ChineseStart
+	strength=58
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:2xinfantry from ChineseStart
+	strength=58
+Attack: 
+	combat delegate on ChineseBase
+	Move units:1xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=56
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:1xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=56
+Attack: 
+	combat delegate on ChineseBase
+	Move units:1xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=53
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:1xinfantry from ChineseStart
+	Move units:2xartillery from ChineseStart
+	strength=53
+Attack: 
+	combat delegate on ChineseBase
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=51
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:4xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=51
+Attack: 
+	combat delegate on ChineseBase
+	Move units:4xartillery from ChineseStart
+	strength=48
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:4xartillery from ChineseStart
+	strength=48
+Attack: 
+	combat delegate on ChineseBase
+	Move units:1xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=44
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:1xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=44
+Attack: 
+	combat delegate on ChineseBase
+	Move units:1xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=41
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:1xinfantry from ChineseStart
+	Move units:1xartillery from ChineseStart
+	strength=41
+Attack: 
+	combat delegate on ChineseBase
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=39
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:3xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=39
+Attack: 
+	combat delegate on ChineseBase
+	Move units:3xartillery from ChineseStart
+	strength=36
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:3xartillery from ChineseStart
+	strength=36
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:1xinfantry from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=32
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:1xinfantry from ChineseStart
+	strength=29
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:2xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=27
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:2xartillery from ChineseStart
+	strength=24
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:1xartillery from ChineseStart
+	Move units:1xarmour from ChineseStart
+	strength=15
+Attack: 
+	combat delegate on GermanStepTwo
+	Move units:2xarmour from GermanStepOne
+	strength=12
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:1xartillery from ChineseStart
+	strength=12
+Attack: 
+	combat delegate on ChineseStepOne
+	Move units:1xartillery from ChineseStart
+	strength=12
+Attack: 
+	combat delegate on GermanStartRight
+	Move units:1xarmour from GermanBase
+	strength=6
+Attack: 
+	combat delegate on Flag
+	Move units:1xarmour from GermanStepOne
+	strength=6
+Attack: 
+	combat delegate on ChineseStartLeft
+	Move units:1xarmour from ChineseStart
+	strength=3
+Attack: 
+	combat delegate on ChineseBase
+	strength=0
+Attack: 
+	combat delegate on GermanStartRight
+	strength=0
+Attack: 
+	combat delegate on GermanStepTwo
+	strength=0
+Attack: 
+	combat delegate on ChineseStartLeft
+	strength=0
+Attack: 
+	combat delegate on ChineseStepOne
+	strength=0
+Attack: 
+	combat delegate on Flag
+	strength=0

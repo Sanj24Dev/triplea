@@ -23,6 +23,7 @@ import org.triplea.swing.SwingComponents;
 
 import static games.strategy.triplea.ai.tripleMind.helper.getAIRoleId;
 import static games.strategy.triplea.ai.tripleMind.helper.logAI;
+import static games.strategy.triplea.ai.tripleMind.helper.saveWhoAmI;
 
 /**
  * Headed Implementation of SetupConfiguration. This is the base-class for any panel that configures
@@ -277,6 +278,7 @@ public abstract class SetupPanel extends JPanel implements SetupModel {
                   final PlayerSelectorRow row = playerRows.get(getAIRoleId(playerRows.size()));
                   row.setPlayerType(I18nEngineFramework.get().getText("startup.PlayerTypes.PLAYER_TYPE_AI_TRIPLE_MIND_LABEL"));
                   playButton.doClick();
+                  saveWhoAmI(row.getPlayerName());
                   logAI("INFO", "Role: " + row.getPlayerName());
 //                  canClickStart = 1;
 

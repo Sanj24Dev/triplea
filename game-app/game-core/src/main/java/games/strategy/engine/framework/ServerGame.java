@@ -3,6 +3,7 @@ package games.strategy.engine.framework;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static games.strategy.triplea.Constants.EDIT_MODE;
 import static games.strategy.triplea.ai.tripleMind.helper.logAI;
+import static games.strategy.triplea.ai.tripleMind.helper.getWhoAmI;
 
 import games.strategy.engine.GameOverException;
 import games.strategy.engine.data.Change;
@@ -606,12 +607,23 @@ public class ServerGame extends AbstractGame {
         delegate.start();
         EndRoundDelegate endDelegate = (EndRoundDelegate) gameData.getEndRoundDelegate();
         Collection<GamePlayer> winner = endDelegate.getWinners();
+        // check if i am still in the game, if not then send end game
         if (winner != null) {
             if(!sentStoppedMsg) {
                 logAI("INFO", "Game stopped " + winner.toString());
                 sentStoppedMsg = true;
             }
         }
+        String me = getWhoAmI();
+        boolean ownsTerritory = gameData.getMap().getTerritories().stream().anyMatch(t -> me.equals(t.getOwner().getName()));
+        if (!ownsTerritory) {
+            if(!sentStoppedMsg) {
+                logAI("INFO", "Game stopped lost");
+                sentStoppedMsg = true;
+            }
+        }
+
+
     } finally {
       delegateExecutionManager.leaveDelegateExecution();
     }

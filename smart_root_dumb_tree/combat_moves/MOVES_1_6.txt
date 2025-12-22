@@ -1,0 +1,96 @@
+Attack: 
+	combat delegate on GermanStartLeft
+	Move units:3xarmour from GermanBase
+	Move units:1xarmour from GermanStart
+	Move units:1xartillery from GermanStart
+	strength=32
+Attack: 
+	combat delegate on GermanStartLeft
+	Move units:3xarmour from GermanBase
+	Move units:1xarmour from GermanStart
+	strength=30
+Attack: 
+	combat delegate on GermanStartLeft
+	Move units:3xarmour from GermanBase
+	Move units:1xartillery from GermanStart
+	strength=29
+Attack: 
+	combat delegate on GermanStartLeft
+	Move units:3xarmour from GermanBase
+	strength=27
+Attack: 
+	combat delegate on GermanStartLeft
+	Move units:2xarmour from GermanBase
+	Move units:1xarmour from GermanStart
+	Move units:1xartillery from GermanStart
+	strength=23
+Attack: 
+	combat delegate on GermanStartLeft
+	Move units:2xarmour from GermanBase
+	Move units:1xarmour from GermanStart
+	strength=21
+Attack: 
+	combat delegate on GermanStartLeft
+	Move units:2xarmour from GermanBase
+	Move units:1xartillery from GermanStart
+	strength=20
+Attack: 
+	combat delegate on GermanStartLeft
+	Move units:2xarmour from GermanBase
+	strength=18
+Attack: 
+	combat delegate on GermanStartLeft
+	Move units:1xarmour from GermanBase
+	Move units:1xarmour from GermanStart
+	Move units:1xartillery from GermanStart
+	strength=14
+Attack: 
+	combat delegate on GermanStartLeft
+	Move units:1xarmour from GermanBase
+	Move units:1xarmour from GermanStart
+	strength=12
+Attack: 
+	combat delegate on GermanStartLeft
+	Move units:1xarmour from GermanBase
+	Move units:1xartillery from GermanStart
+	strength=11
+Attack: 
+	combat delegate on GermanStartLeft
+	Move units:1xarmour from GermanBase
+	strength=9
+Attack: 
+	combat delegate on GermanStartRight
+	Move units:1xarmour from GermanBase
+	strength=9
+Attack: 
+	combat delegate on GermanStartLeft
+	Move units:1xarmour from GermanStart
+	Move units:1xartillery from GermanStart
+	strength=5
+Attack: 
+	combat delegate on GermanStartLeft
+	Move units:1xarmour from GermanStart
+	strength=3
+Attack: 
+	combat delegate on GermanStepTwo
+	Move units:1xarmour from GermanStart
+	strength=3
+Attack: 
+	combat delegate on RightBar
+	Move units:1xarmour from GermanStart
+	strength=3
+Attack: 
+	combat delegate on GermanStartLeft
+	strength=0
+Attack: 
+	combat delegate on GermanStartRight
+	strength=0
+Attack: 
+	combat delegate on GermanStepTwo
+	strength=0
+Attack: 
+	combat delegate on BottomBar
+	strength=0
+Attack: 
+	combat delegate on RightBar
+	strength=0
