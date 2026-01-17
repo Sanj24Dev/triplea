@@ -12,23 +12,30 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("--reduction_file", type=str, required=True)
 parser.add_argument("--efficiency_file", type=str, required=True)
+parser.add_argument("--outcome_file", type=str, required=True)
+parser.add_argument("--quality_file", type=str, required=True)
 args = parser.parse_args()
 
 reduction_file = args.reduction_file
 efficiency_file = args.efficiency_file
+outcome_file = args.outcome_file
+quality_file = args.quality_file
 
 
 def agent_loop(host="127.0.0.1", port=5000):
-    agent = MCTS(reduction_file, efficiency_file)
+    turn_order = ["Russians", "Italians", "Germans", "Chinese"]
+    agent = MCTS(reduction_file, efficiency_file, quality_file, ctf.production_rules, ctf.territory_production, ctf.victory_cities, ctf.G, turn_order)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind((host, port))
     sock.listen(1)
     print(f"Server listening on {host}:{port}")
 
-    ctf.draw()
+    # ctf.draw()
     r = "0"
+    my_player = ""
 
     try:
+        # print("Waiting for accept()")
         while True:
             conn, addr = sock.accept()
             # print("Client connected from", addr)
@@ -38,6 +45,7 @@ def agent_loop(host="127.0.0.1", port=5000):
                 while True:
                     data = conn.recv(1024)
                     if not data:
+                        # print("game disconnected")
                         break
                     buffer += data.decode()
 
@@ -55,14 +63,23 @@ def agent_loop(host="127.0.0.1", port=5000):
                             response = agent.get_move(msg, ctf, r)
                             # response = []
                         elif msg.startswith("[INFO]") and "stopped" in msg: 
+                            if "lost" in msg:
+                                ctf.game_outcome_metric.log(ctf.game_num, ctf.round, "lost")
+                            elif parts[3] == my_player:
+                                ctf.game_outcome_metric.log(ctf.game_num, ctf.round, "won")
+                            else:
+                                ctf.game_outcome_metric.log(ctf.game_num, ctf.round, "lost")
                             ctf.reset()
                             agent.latest_legal_moves = []   # reset agent memory
                             r = "0"
                             ctf.game_num += 1
                             print("Starting next game in 5s.")
                             time.sleep(5)
-                        elif msg.startswith("[INFO]") and len(parts) == 4:
+                        elif msg.startswith("[INFO]") and "Round" in msg:
                             r = parts[3]
+                        elif msg.startswith("[INFO]") and "Role:" in msg:
+                            ctf.apply_change_line(msg, 0)
+                            my_player = parts[2]
                         else:
                             ctf.apply_change_line(msg, 0)
                             response = "ACK"
@@ -70,7 +87,7 @@ def agent_loop(host="127.0.0.1", port=5000):
                         if response != "ACK":
                             print("Sending:", response)
                         conn.send((json.dumps(response) + "\n").encode("utf-8"))
-                        ctf.draw()
+                        # ctf.draw()
 
 
     except KeyboardInterrupt:
@@ -97,7 +114,7 @@ parse_triplea_map(xml_file, output_file)
 with open(output_file, "r") as f:
     game_data = json.load(f)
 
-ctf = CaptureTheFlag("gameInfo/Capture The Flag.json")
+ctf = CaptureTheFlag("gameInfo/Capture The Flag.json", outcome_file)
 ctf.game_num = 1
 
 

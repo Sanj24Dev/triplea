@@ -11,14 +11,14 @@ import ast
 #     # attacking one territory
 #     for attack in move.moves:
 #         qty = attack.get("quantity")
-#         for q in range(0, qty):
-#             action = {
-#                 "delegate": "combat",
-#                 "from": attack.get("from"),
-#                 "to": move.to_terr,
-#                 "unit": attack.get("unit").unit_type,
-#             }
-#             actions.append(action)
+#         action = {
+#             "delegate": "combat",
+#             "from": attack.get("from"),
+#             "to": move.to_terr,
+#             "unit": attack.get("unit").unit_type,
+#             "count": qty,
+#         }
+#         actions.append(action)
 #     return actions
 
 
@@ -26,12 +26,12 @@ def convert_combat_to_json(move):
     actions = []
     # attacking one territory
     for attack in move.moves:
-        qty = attack.get("quantity")
+        qty = attack.quantity
         action = {
             "delegate": "combat",
-            "from": attack.get("from"),
+            "from": attack.from_territory,
             "to": move.to_terr,
-            "unit": attack.get("unit").unit_type,
+            "unit": attack.unit_type,
             "count": qty,
         }
         actions.append(action)

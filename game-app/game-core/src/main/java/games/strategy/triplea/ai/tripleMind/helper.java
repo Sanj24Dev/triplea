@@ -67,6 +67,7 @@ public class helper {
     
 
     public static void logAI (String type, String msg) {
+        // System.out.println("Logging");
         String filename = getLogFileName();
         File logFile = new File(filename);
         try {

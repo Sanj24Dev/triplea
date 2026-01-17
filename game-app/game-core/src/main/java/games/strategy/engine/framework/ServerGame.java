@@ -4,6 +4,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import static games.strategy.triplea.Constants.EDIT_MODE;
 import static games.strategy.triplea.ai.tripleMind.helper.logAI;
 import static games.strategy.triplea.ai.tripleMind.helper.getWhoAmI;
+// import static games.strategy.triplea.ai.tripleMind.TripleASocket.startSocket;
+// import static games.strategy.triplea.ai.tripleMind.TripleASocket.connectSocket;
 
 import games.strategy.engine.GameOverException;
 import games.strategy.engine.data.Change;
@@ -319,6 +321,8 @@ public class ServerGame extends AbstractGame {
   public void startGame() {
     int round = 0;
     try {
+      // startSocket();
+      // connectSocket();
       setUpGameForRunningSteps();
       while (!isGameOver) {
           if (round != gameData.getSequence().getRound())
@@ -610,7 +614,7 @@ public class ServerGame extends AbstractGame {
         // check if i am still in the game, if not then send end game
         if (winner != null) {
             if(!sentStoppedMsg) {
-                logAI("INFO", "Game stopped " + winner.toString());
+                logAI("INFO", "Game stopped " + winner.iterator().next().getName());
                 sentStoppedMsg = true;
             }
         }
