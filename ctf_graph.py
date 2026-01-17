@@ -3,6 +3,30 @@ import re
 import networkx as nx
 import matplotlib.pyplot as plt
 from collections import deque
+import csv
+import os
+
+class MetricLogger:
+    def __init__(self, filename, header=None):
+        self.filename = filename
+        self.header = header
+
+        # Ensure directory exists
+        folder = os.path.dirname(filename)
+        if folder and not os.path.exists(folder):
+            os.makedirs(folder, exist_ok=True)
+
+        # Create file and write header
+        if header and not os.path.exists(filename):
+            with open(filename, "w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(header)
+
+
+    def log(self, *values):
+        """Append one row of metrics."""
+        with open(self.filename, "a", newline="") as f:
+            csv.writer(f).writerow(values)
 
 class Unit:
     def __init__(self, unit_type, owner, quantity=1, properties=None):
@@ -60,7 +84,7 @@ class Player:
         self.unplaced.clear()
     
 class CaptureTheFlag:
-    def __init__(self, json_path):
+    def __init__(self, json_path, outcome_file):
         with open(json_path, "r") as f:
             self.data = json.load(f)
 
@@ -74,9 +98,14 @@ class CaptureTheFlag:
         self.victory_cities = set()
         self.unit_info = {}
         self.pending_props = {}
-        self._reachability_cache = {}
+        # self._reachability_cache = {}
         self.round = 0
         self.game_num = 0
+
+        self.game_outcome_metric = MetricLogger(
+            outcome_file,
+            header=["game", "rounds_played", "outcome"]
+        )
 
         # build graph
         self._build_graph()
@@ -440,7 +469,7 @@ class CaptureTheFlag:
         factories = []
         for territory_name, territory in self.territories.items():
             for unit in territory.units:
-                if unit.owner == player and unit.unit_type == "factory":
+                if unit.unit_type == "factory" and unit.owner == player:
                     factories.append(territory_name)
         return factories
     
@@ -450,10 +479,6 @@ class CaptureTheFlag:
         return 0
 
 
-
-
-
-
     # MCTS algorithm helper functions
     def get_enemy_territories(self, player):
         enemy_territories = []
@@ -461,7 +486,6 @@ class CaptureTheFlag:
             if territory.owner != player:
                 enemy_territories.append(territory_name)
         return enemy_territories
-    
     
     
     def get_enemy_territories_by_priority(self, player):
@@ -515,10 +539,10 @@ class CaptureTheFlag:
             return False
         if unit_type in ("fighter", "bomber"):
             move_range -= 1 # to account for the landing after it reaches the enemy terr: so it can reach the enemy terr/neutral only by going through terr owned by me, and once it reaches that terr, it attacks and falls back by 1
-        cache_key = (unit_type, from_territory, to_territory)
-
-        if cache_key in self._reachability_cache:
-            return self._reachability_cache[cache_key]
+        
+        # cache_key = (unit_type, from_territory, to_territory)
+        # if cache_key in self._reachability_cache:
+        #     return self._reachability_cache[cache_key]
         
 
         queue = deque([(from_territory, 0)])
@@ -566,7 +590,7 @@ class CaptureTheFlag:
     
                 queue.append((neighbor, steps + 1))
         
-        self._reachability_cache[cache_key] = result
+        # self._reachability_cache[cache_key] = result
         # if unit_type == "armour":
         #     print()
         return result

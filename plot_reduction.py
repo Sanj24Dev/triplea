@@ -1,75 +1,91 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
 INPUT_FILE = "smart_root_dumb_tree/metrics/reduction.csv"
 OUTPUT_FILE = "smart_root_dumb_tree/metrics/reduction_summary.txt"
 
 df = pd.read_csv(INPUT_FILE)
 
-# === COMPUTE METRICS ===
-df["reduction"] = (df["total_moves"] - df["pruned_moves"])/ df["total_moves"]
+# === COMPUTE ROUND-WISE METRICS ===
+df["reduction"] = np.where(
+    df["total_moves"] == 0,
+    0,
+    (df["total_moves"] - df["pruned_moves"]) / df["total_moves"]
+)
 df["reduction_percent"] = df["reduction"] * 100
 
-# Summary per game
-game_summary = df.groupby("game").agg(
-    avg_total_moves=("total_moves", "mean"),
-    avg_pruned=("pruned_moves", "mean"),
-    avg_reduction=("reduction", "mean"),
-    avg_reduction_percent=("reduction_percent", "mean")
-).reset_index()
+# === GAME-WISE SUMMARY (AVG OF ROUND-WISE REDUCTION) ===
+game_summary = (
+    df.groupby("game")
+      .agg(
+          rounds=("round", "count"),
+          avg_round_reduction=("reduction", "mean"),
+          avg_round_reduction_percent=("reduction_percent", "mean")
+      )
+      .reset_index()
+)
+# Compute overall averages (across all games)
+overall_row = pd.DataFrame([{
+    "game": "OVERALL",
+    "rounds": game_summary["rounds"].mean(),  # or sum(), depending on intent
+    "avg_round_reduction": game_summary["avg_round_reduction"].mean(),
+    "avg_round_reduction_percent": game_summary["avg_round_reduction_percent"].mean()
+}])
+
+# Append to summary
+game_summary = pd.concat([game_summary, overall_row], ignore_index=True)
+
+# Identify game with highest avg round-wise reduction
+best_game = game_summary.loc[
+    game_summary["avg_round_reduction_percent"].idxmax(), "game"
+]
+
+df_best = df[df["game"] == best_game].copy()
 
 text_output = []
-text_output.append("=== Overall Data ===")
-text_output.append(df.to_string(index=False))
-text_output.append("\n=== Game Summary ===")
+
+text_output.append("=== Round-wise Reduction Data ===\n")
+text_output.append(df[[
+    "game", "round", "total_moves", "pruned_moves", "reduction_percent"
+]].to_string(index=False))
+
+text_output.append("\n\n=== Game-wise Summary (Avg of Round-wise Reduction) ===\n")
 text_output.append(game_summary.to_string(index=False))
-text_output_str = "\n".join(text_output)
 
-# Print to console
-# print(text_output_str)
+# text_output.append(
+#     f"\n\nGame with highest average round-wise reduction: "
+#     f"Game {best_game} "
+#     f"({game_summary.loc[game_summary['game']==best_game, 'avg_round_reduction_percent'].values[0]:.2f}%)\n"
+# )
 
-# Save to text file
 with open(OUTPUT_FILE, "w") as f:
-    f.write(text_output_str)
+    f.write("\n".join(text_output))
 
-
-# === PLOTS ===
-
-# 1. Reduction per round (per game)
 plt.figure()
-for g, gdf in df.groupby("game"):
-    plt.plot(gdf["round"], gdf["reduction_percent"], marker="o", label=f"Game {g}")
+plt.plot(
+    df_best["round"],
+    df_best["reduction_percent"],
+    marker="o"
+)
 
 plt.xlabel("Round")
 plt.ylabel("Reduction (%)")
-plt.title("Pruned Moves Reduction per Round")
-plt.legend()
+plt.title(f"Round-wise Action Space Reduction (Game {best_game})")
 plt.grid(True)
 plt.tight_layout()
 plt.savefig("smart_root_dumb_tree/metrics/reduction_per_round.png")
-# plt.show()
+plt.close()
 
-# 2. Avg reduction per game
 plt.figure()
-plt.bar(game_summary["game"], game_summary["avg_reduction_percent"])
-plt.xlabel("Game")
-plt.ylabel("Average Reduction (%)")
-plt.title("Average Move Reduction Across Games")
-plt.grid(True, axis="y")
-plt.tight_layout()
-plt.savefig("smart_root_dumb_tree/metrics/avg_reduction_per_game.png")
-# plt.show()
+plt.plot(df_best["round"], df_best["total_moves"], marker="o", label="Total moves")
+plt.plot(df_best["round"], df_best["pruned_moves"], marker="o", label="Pruned moves")
 
-# 3. Total vs Pruned Moves (optional)
-plt.figure()
-plt.plot(df["round"], df["total_moves"], marker="o", label="Total moves")
-plt.plot(df["round"], df["pruned_moves"], marker="o", label="Pruned moves")
 plt.xlabel("Round")
 plt.ylabel("Moves")
-plt.title("Total vs Pruned Moves")
+plt.title(f"Total vs Pruned Moves (Game {best_game})")
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
 plt.savefig("smart_root_dumb_tree/metrics/total_vs_pruned.png")
-plt.show()
-
+plt.close()

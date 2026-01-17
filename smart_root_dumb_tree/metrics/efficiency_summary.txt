@@ -1,15 +1,93 @@
-MCTS Efficiency Summary
-==============================
-Total rounds: 34
+MCTS Efficiency Summary (Game-wise)
+========================================
+
+Game 1
+--------------------
+Total rounds: 28
 Iterations per round:
-  Mean: 46.85
+  Mean: 4.50
   Min : 1
-  Max : 252
-
-Efficiency (best_node_visits / num_iterations):
-  Mean: 0.3134
-  Min : 0.0345
+  Max : 13
+Exploration_coverage (actions_explored / total_actions):
+  Mean: 0.2394
+  Min : 0.0000
   Max : 1.0000
+Avg Tree depth per round:
+  Mean: 7.1847
+  Min : 2.0000
+  Max : 10.0000
+Game 2
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 4.73
+  Min : 1
+  Max : 22
+Exploration_coverage (actions_explored / total_actions):
+  Mean: 0.2532
+  Min : 0.0000
+  Max : 1.0000
+Avg Tree depth per round:
+  Mean: 7.8195
+  Min : 2.0000
+  Max : 10.0000
+Game 3
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 6.20
+  Min : 1
+  Max : 13
+Exploration_coverage (actions_explored / total_actions):
+  Mean: 0.4973
+  Min : 0.0002
+  Max : 1.0000
+Avg Tree depth per round:
+  Mean: 8.6499
+  Min : 6.0000
+  Max : 10.0000
+Game 4
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 5.83
+  Min : 1
+  Max : 15
+Exploration_coverage (actions_explored / total_actions):
+  Mean: 0.5613
+  Min : 0.0002
+  Max : 1.0000
+Avg Tree depth per round:
+  Mean: 8.1199
+  Min : 2.0000
+  Max : 10.0000
+Game 5
+--------------------
+Total rounds: 39
+Iterations per round:
+  Mean: 3.33
+  Min : 1
+  Max : 17
+Exploration_coverage (actions_explored / total_actions):
+  Mean: 0.1506
+  Min : 0.0000
+  Max : 1.0000
+Avg Tree depth per round:
+  Mean: 6.3609
+  Min : 2.0000
+  Max : 10.0000
 
-Peak efficiency of 1.0000 observed at round 11
-
+OVERALL AVERAGES (Across Games)
+==============================
+Iterations per round (game-averaged):
+  Mean: 4.92
+  Min: 1
+  Max: 22
+Exploration coverage (game-averaged):
+  Mean: 0.34
+  Min: 0.00
+  Max: 1.0
+Avg tree depth per round (game-averaged):
+  Mean: 7.63
+  Min: 2.0
+  Max: 10.0
