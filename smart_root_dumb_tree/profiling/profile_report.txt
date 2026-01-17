@@ -1,578 +1,1596 @@
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_01.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.005 |   1.003
-simulate                                 |   0.022 |   0.896
-combat_legal_moves                       |   0.153 |   0.710
-heuristic_non_combat_legal_moves         |   0.060 |   0.134
-_build_reachability_context              |   0.064 |   0.066
-clone_shallow                            |   0.031 |   0.059
-expand                                   |   0.002 |   0.055
-check_reachability                       |   0.033 |   0.050
-select                                   |   0.002 |   0.043
-is_terminal                              |   0.009 |   0.020
+mcts_search                              |   0.000 |   1.009
+simulate                                 |   0.005 |   0.962
+check_reachability                       |   0.532 |   0.787
+combat_legal_moves                       |   0.075 |   0.734
+heuristic_non_combat_legal_moves         |   0.027 |   0.175
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_02.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.004 |   1.004
-simulate                                 |   0.020 |   0.899
-combat_legal_moves                       |   0.169 |   0.678
-heuristic_non_combat_legal_moves         |   0.076 |   0.178
-check_reachability                       |   0.051 |   0.076
-expand                                   |   0.001 |   0.059
-clone_shallow                            |   0.029 |   0.059
-_build_reachability_context              |   0.056 |   0.058
-select                                   |   0.001 |   0.037
-is_terminal                              |   0.008 |   0.018
+mcts_search                              |   0.000 |   1.008
+simulate                                 |   0.004 |   0.964
+check_reachability                       |   0.545 |   0.811
+combat_legal_moves                       |   0.067 |   0.705
+heuristic_non_combat_legal_moves         |   0.027 |   0.218
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_03.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.005 |   1.006
-simulate                                 |   0.020 |   0.910
-combat_legal_moves                       |   0.227 |   0.704
-heuristic_non_combat_legal_moves         |   0.069 |   0.165
-check_reachability                       |   0.048 |   0.072
-_build_reachability_context              |   0.049 |   0.051
-clone_shallow                            |   0.024 |   0.051
-expand                                   |   0.001 |   0.049
-select                                   |   0.001 |   0.040
-apply_combat_move                        |   0.009 |   0.019
+mcts_search                              |   0.000 |   1.012
+simulate                                 |   0.004 |   0.968
+check_reachability                       |   0.538 |   0.803
+combat_legal_moves                       |   0.072 |   0.685
+heuristic_non_combat_legal_moves         |   0.028 |   0.237
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_04.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.014 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.005 |   1.001
-simulate                                 |   0.021 |   0.908
-combat_legal_moves                       |   0.201 |   0.668
-heuristic_non_combat_legal_moves         |   0.078 |   0.194
-check_reachability                       |   0.061 |   0.091
-expand                                   |   0.001 |   0.057
-clone_shallow                            |   0.024 |   0.052
-_build_reachability_context              |   0.045 |   0.047
-select                                   |   0.001 |   0.029
-apply_combat_move                        |   0.010 |   0.020
+mcts_search                              |   0.000 |   1.014
+simulate                                 |   0.007 |   0.977
+check_reachability                       |   0.481 |   0.718
+combat_legal_moves                       |   0.139 |   0.713
+heuristic_non_combat_legal_moves         |   0.026 |   0.216
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_05.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.006 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.004 |   1.007
-simulate                                 |   0.021 |   0.912
-combat_legal_moves                       |   0.270 |   0.714
-heuristic_non_combat_legal_moves         |   0.067 |   0.169
-check_reachability                       |   0.054 |   0.081
-expand                                   |   0.001 |   0.046
-clone_shallow                            |   0.020 |   0.044
-select                                   |   0.001 |   0.041
-_build_reachability_context              |   0.039 |   0.041
-apply_combat_move                        |   0.009 |   0.019
+mcts_search                              |   0.000 |   1.006
+simulate                                 |   0.007 |   0.970
+combat_legal_moves                       |   0.190 |   0.703
+check_reachability                       |   0.439 |   0.655
+heuristic_non_combat_legal_moves         |   0.023 |   0.221
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_06.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.017 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.004 |   1.010
-simulate                                 |   0.021 |   0.929
-combat_legal_moves                       |   0.267 |   0.691
-heuristic_non_combat_legal_moves         |   0.065 |   0.200
-check_reachability                       |   0.088 |   0.114
-clone_shallow                            |   0.021 |   0.044
-expand                                   |   0.001 |   0.044
-_build_reachability_context              |   0.037 |   0.039
-select                                   |   0.001 |   0.031
-apply_combat_move                        |   0.008 |   0.017
+mcts_search                              |   0.001 |   1.017
+simulate                                 |   0.010 |   0.985
+combat_legal_moves                       |   0.253 |   0.773
+check_reachability                       |   0.399 |   0.589
+heuristic_non_combat_legal_moves         |   0.020 |   0.169
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_07.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.004 |   1.009
-simulate                                 |   0.023 |   0.956
-combat_legal_moves                       |   0.402 |   0.780
-heuristic_non_combat_legal_moves         |   0.050 |   0.130
-check_reachability                       |   0.044 |   0.065
-clone_shallow                            |   0.015 |   0.033
-expand                                   |   0.001 |   0.032
-_build_reachability_context              |   0.027 |   0.028
-apply_combat_move                        |   0.007 |   0.015
-select                                   |   0.001 |   0.014
+mcts_search                              |   0.000 |   1.008
+simulate                                 |   0.008 |   0.973
+combat_legal_moves                       |   0.168 |   0.712
+check_reachability                       |   0.457 |   0.677
+heuristic_non_combat_legal_moves         |   0.024 |   0.215
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_08.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.006 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.002 |   1.023
-simulate                                 |   0.031 |   0.995
-combat_legal_moves                       |   0.573 |   0.878
-heuristic_non_combat_legal_moves         |   0.027 |   0.071
-check_reachability                       |   0.024 |   0.036
-clone_shallow                            |   0.008 |   0.018
-expand                                   |   0.000 |   0.017
-_build_reachability_context              |   0.015 |   0.016
-__init__                                 |   0.015 |   0.015
-apply_combat_move                        |   0.004 |   0.009
+mcts_search                              |   0.000 |   1.006
+simulate                                 |   0.008 |   0.973
+combat_legal_moves                       |   0.196 |   0.711
+check_reachability                       |   0.438 |   0.654
+heuristic_non_combat_legal_moves         |   0.023 |   0.221
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_09.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.003 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.004 |   1.006
-simulate                                 |   0.034 |   0.980
-combat_legal_moves                       |   0.564 |   0.865
-heuristic_non_combat_legal_moves         |   0.025 |   0.066
-check_reachability                       |   0.023 |   0.034
-clone_shallow                            |   0.007 |   0.016
-expand                                   |   0.000 |   0.014
-_build_reachability_context              |   0.013 |   0.014
-__init__                                 |   0.013 |   0.013
-apply_combat_move                        |   0.004 |   0.009
+mcts_search                              |   0.000 |   1.003
+simulate                                 |   0.009 |   0.975
+combat_legal_moves                       |   0.227 |   0.741
+check_reachability                       |   0.413 |   0.615
+heuristic_non_combat_legal_moves         |   0.021 |   0.193
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_10.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.002 |   1.008
-simulate                                 |   0.039 |   0.999
-combat_legal_moves                       |   0.672 |   0.924
-heuristic_non_combat_legal_moves         |   0.010 |   0.027
-__init__                                 |   0.016 |   0.016
-check_reachability                       |   0.010 |   0.014
-clone_shallow                            |   0.003 |   0.006
-expand                                   |   0.000 |   0.006
-_build_reachability_context              |   0.005 |   0.006
-apply_combat_move                        |   0.002 |   0.005
+mcts_search                              |   0.000 |   1.009
+simulate                                 |   0.009 |   0.981
+combat_legal_moves                       |   0.238 |   0.732
+check_reachability                       |   0.403 |   0.606
+heuristic_non_combat_legal_moves         |   0.021 |   0.208
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_11.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.000 |   1.617
-simulate                                 |   0.056 |   1.615
-combat_legal_moves                       |   1.215 |   1.557
-__init__                                 |   0.019 |   0.019
-heuristic_non_combat_legal_moves         |   0.001 |   0.002
-check_reachability                       |   0.001 |   0.001
-log                                      |   0.000 |   0.001
-expand                                   |   0.000 |   0.000
-clone_shallow                            |   0.000 |   0.000
-_build_reachability_context              |   0.000 |   0.000
+mcts_search                              |   0.000 |   1.012
+simulate                                 |   0.011 |   0.984
+combat_legal_moves                       |   0.278 |   0.742
+check_reachability                       |   0.369 |   0.554
+heuristic_non_combat_legal_moves         |   0.020 |   0.202
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_12.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 2.200 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.003 |   1.071
-simulate                                 |   0.037 |   1.061
-combat_legal_moves                       |   0.756 |   1.004
-__init__                                 |   0.017 |   0.017
-heuristic_non_combat_legal_moves         |   0.006 |   0.016
-check_reachability                       |   0.006 |   0.008
-expand                                   |   0.000 |   0.004
-clone_shallow                            |   0.002 |   0.004
-_build_reachability_context              |   0.003 |   0.003
-apply_combat_move                        |   0.001 |   0.003
+mcts_search                              |   0.000 |   2.200
+simulate                                 |   0.053 |   2.194
+combat_legal_moves                       |   1.645 |   2.131
+__init__                                 |   0.096 |   0.096
+check_reachability                       |   0.011 |   0.016
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_13.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.265 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.008 |   1.105
-simulate                                 |   0.033 |   1.092
-combat_legal_moves                       |   0.792 |   1.044
-__init__                                 |   0.017 |   0.017
-heuristic_non_combat_legal_moves         |   0.004 |   0.011
-check_reachability                       |   0.004 |   0.006
-expand                                   |   0.000 |   0.003
-clone_shallow                            |   0.001 |   0.003
-_build_reachability_context              |   0.002 |   0.002
-apply_combat_move                        |   0.001 |   0.002
+mcts_search                              |   0.000 |   1.265
+simulate                                 |   0.026 |   1.249
+combat_legal_moves                       |   0.765 |   1.138
+check_reachability                       |   0.133 |   0.199
+heuristic_non_combat_legal_moves         |   0.007 |   0.070
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_14.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.006 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.009 |   1.039
-simulate                                 |   0.030 |   1.025
-combat_legal_moves                       |   0.747 |   0.976
-__init__                                 |   0.015 |   0.015
-heuristic_non_combat_legal_moves         |   0.005 |   0.015
-check_reachability                       |   0.006 |   0.008
-expand                                   |   0.000 |   0.005
-clone_shallow                            |   0.001 |   0.003
-_build_reachability_context              |   0.003 |   0.003
-apply_combat_move                        |   0.001 |   0.003
+mcts_search                              |   0.000 |   1.006
+simulate                                 |   0.016 |   0.991
+combat_legal_moves                       |   0.524 |   0.859
+check_reachability                       |   0.188 |   0.282
+heuristic_non_combat_legal_moves         |   0.010 |   0.100
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_15.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.849 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.011 |   1.198
-simulate                                 |   0.032 |   1.181
-combat_legal_moves                       |   0.876 |   1.135
-__init__                                 |   0.019 |   0.019
-heuristic_non_combat_legal_moves         |   0.004 |   0.012
-check_reachability                       |   0.005 |   0.007
-expand                                   |   0.000 |   0.004
-clone_shallow                            |   0.001 |   0.003
-_build_reachability_context              |   0.002 |   0.002
-apply_combat_move                        |   0.001 |   0.002
+mcts_search                              |   0.001 |   1.849
+simulate                                 |   0.039 |   1.843
+combat_legal_moves                       |   1.422 |   1.793
+__init__                                 |   0.074 |   0.074
+check_reachability                       |   0.012 |   0.018
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_16.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.121 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.041 |   1.742
-simulate                                 |   0.018 |   1.698
-combat_legal_moves                       |   1.310 |   1.674
-__init__                                 |   0.023 |   0.023
-heuristic_non_combat_legal_moves         |   0.002 |   0.005
-check_reachability                       |   0.002 |   0.003
-expand                                   |   0.000 |   0.001
-clone_shallow                            |   0.000 |   0.001
-_build_reachability_context              |   0.001 |   0.001
-apply_combat_move                        |   0.000 |   0.001
+mcts_search                              |   0.000 |   1.121
+simulate                                 |   0.021 |   1.106
+combat_legal_moves                       |   0.637 |   0.951
+check_reachability                       |   0.158 |   0.241
+heuristic_non_combat_legal_moves         |   0.010 |   0.121
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_17.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.055 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.002 |   1.136
-simulate                                 |   0.040 |   1.128
-combat_legal_moves                       |   0.811 |   1.069
-__init__                                 |   0.019 |   0.019
-heuristic_non_combat_legal_moves         |   0.005 |   0.015
-check_reachability                       |   0.006 |   0.008
-expand                                   |   0.000 |   0.004
-clone_shallow                            |   0.001 |   0.003
-_build_reachability_context              |   0.003 |   0.003
-apply_combat_move                        |   0.001 |   0.003
+mcts_search                              |   0.001 |   1.055
+simulate                                 |   0.017 |   1.040
+combat_legal_moves                       |   0.556 |   0.884
+check_reachability                       |   0.181 |   0.276
+heuristic_non_combat_legal_moves         |   0.011 |   0.125
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_18.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.001 |   1.127
-simulate                                 |   0.038 |   1.122
-combat_legal_moves                       |   0.834 |   1.076
-__init__                                 |   0.018 |   0.018
-heuristic_non_combat_legal_moves         |   0.002 |   0.007
-check_reachability                       |   0.003 |   0.004
-expand                                   |   0.000 |   0.002
-_build_reachability_context              |   0.001 |   0.001
-clone_shallow                            |   0.001 |   0.001
-apply_combat_move                        |   0.001 |   0.001
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.018 |   0.992
+combat_legal_moves                       |   0.555 |   0.839
+check_reachability                       |   0.150 |   0.232
+heuristic_non_combat_legal_moves         |   0.009 |   0.121
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_19.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.040 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.000 |   1.250
-simulate                                 |   0.043 |   1.247
-combat_legal_moves                       |   0.929 |   1.195
-__init__                                 |   0.019 |   0.019
-heuristic_non_combat_legal_moves         |   0.002 |   0.007
-check_reachability                       |   0.003 |   0.004
-expand                                   |   0.000 |   0.002
-clone_shallow                            |   0.001 |   0.001
-_build_reachability_context              |   0.001 |   0.001
-apply_combat_move                        |   0.001 |   0.001
+mcts_search                              |   0.001 |   1.040
+simulate                                 |   0.018 |   1.025
+combat_legal_moves                       |   0.521 |   0.829
+check_reachability                       |   0.191 |   0.295
+heuristic_non_combat_legal_moves         |   0.012 |   0.164
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_20.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.155 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.001 |   1.085
-simulate                                 |   0.037 |   1.080
-combat_legal_moves                       |   0.795 |   1.033
-__init__                                 |   0.016 |   0.016
-heuristic_non_combat_legal_moves         |   0.003 |   0.008
-check_reachability                       |   0.003 |   0.004
-expand                                   |   0.000 |   0.002
-clone_shallow                            |   0.001 |   0.002
-_build_reachability_context              |   0.002 |   0.002
-apply_combat_move                        |   0.001 |   0.001
+mcts_search                              |   0.005 |   1.155
+simulate                                 |   0.017 |   1.134
+combat_legal_moves                       |   0.625 |   0.952
+check_reachability                       |   0.181 |   0.279
+heuristic_non_combat_legal_moves         |   0.011 |   0.150
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_21.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.059 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.001 |   1.029
-simulate                                 |   0.038 |   1.021
-combat_legal_moves                       |   0.725 |   0.960
-heuristic_non_combat_legal_moves         |   0.007 |   0.019
-__init__                                 |   0.017 |   0.017
-check_reachability                       |   0.007 |   0.010
-expand                                   |   0.000 |   0.006
-clone_shallow                            |   0.002 |   0.005
-_build_reachability_context              |   0.004 |   0.004
-apply_combat_move                        |   0.001 |   0.003
+mcts_search                              |   0.000 |   1.059
+simulate                                 |   0.021 |   1.044
+combat_legal_moves                       |   0.656 |   0.920
+check_reachability                       |   0.100 |   0.155
+heuristic_non_combat_legal_moves         |   0.006 |   0.093
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_22.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 7.959 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.000 |   1.266
-simulate                                 |   0.041 |   1.264
-combat_legal_moves                       |   0.959 |   1.220
-__init__                                 |   0.018 |   0.018
-heuristic_non_combat_legal_moves         |   0.001 |   0.002
-check_reachability                       |   0.001 |   0.002
-log                                      |   0.000 |   0.001
-expand                                   |   0.000 |   0.001
-clone_shallow                            |   0.000 |   0.001
-_build_reachability_context              |   0.000 |   0.000
+mcts_search                              |   0.000 |   7.959
+simulate                                 |   0.193 |   7.945
+combat_legal_moves                       |   6.041 |   7.717
+__init__                                 |   0.342 |   0.342
+check_reachability                       |   0.032 |   0.050
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_23.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.234 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.000 |  20.458
-simulate                                 |   0.757 |  20.456
-combat_legal_moves                       |  15.271 |  19.696
-__init__                                 |   0.244 |   0.244
-heuristic_non_combat_legal_moves         |   0.001 |   0.003
-check_reachability                       |   0.001 |   0.002
-clone_shallow                            |   0.001 |   0.001
-log                                      |   0.000 |   0.001
-expand                                   |   0.000 |   0.000
-_build_reachability_context              |   0.000 |   0.000
+mcts_search                              |   0.007 |   1.234
+simulate                                 |   0.030 |   1.222
+combat_legal_moves                       |   0.815 |   1.148
+check_reachability                       |   0.043 |   0.066
+__init__                                 |   0.051 |   0.051
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_24.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.163 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.000 |   1.048
-simulate                                 |   0.044 |   1.044
-combat_legal_moves                       |   0.697 |   0.992
-__init__                                 |   0.023 |   0.023
-heuristic_non_combat_legal_moves         |   0.002 |   0.006
-check_reachability                       |   0.002 |   0.003
-expand                                   |   0.000 |   0.002
-clone_shallow                            |   0.001 |   0.002
-_build_reachability_context              |   0.001 |   0.001
-apply_combat_move                        |   0.000 |   0.001
+mcts_search                              |   0.000 |   1.163
+simulate                                 |   0.027 |   1.156
+combat_legal_moves                       |   0.844 |   1.095
+check_reachability                       |   0.030 |   0.046
+__init__                                 |   0.036 |   0.036
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_25.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.613 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.000 |  38.497
-simulate                                 |   1.372 |  38.495
-combat_legal_moves                       |  28.324 |  37.121
-__init__                                 |   0.532 |   0.532
-heuristic_non_combat_legal_moves         |   0.001 |   0.002
-check_reachability                       |   0.001 |   0.002
-log                                      |   0.000 |   0.001
-clone_shallow                            |   0.000 |   0.000
-expand                                   |   0.000 |   0.000
-_build_reachability_context              |   0.000 |   0.000
+mcts_search                              |   0.000 |   1.613
+simulate                                 |   0.035 |   1.602
+combat_legal_moves                       |   1.202 |   1.550
+__init__                                 |   0.069 |   0.069
+check_reachability                       |   0.013 |   0.020
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_26.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.255 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.001 |   1.184
-simulate                                 |   0.050 |   1.181
-combat_legal_moves                       |   0.793 |   1.125
-__init__                                 |   0.026 |   0.026
-heuristic_non_combat_legal_moves         |   0.002 |   0.005
-check_reachability                       |   0.002 |   0.003
-expand                                   |   0.000 |   0.001
-_build_reachability_context              |   0.001 |   0.001
-clone_shallow                            |   0.000 |   0.001
-log                                      |   0.000 |   0.001
+mcts_search                              |   0.007 |   1.255
+simulate                                 |   0.019 |   1.235
+combat_legal_moves                       |   0.860 |   1.141
+check_reachability                       |   0.074 |   0.113
+heuristic_non_combat_legal_moves         |   0.005 |   0.061
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_27.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.291 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.001 |   1.003
-simulate                                 |   0.040 |   0.985
-combat_legal_moves                       |   0.609 |   0.904
-heuristic_non_combat_legal_moves         |   0.014 |   0.036
-__init__                                 |   0.020 |   0.020
-check_reachability                       |   0.012 |   0.017
-expand                                   |   0.000 |   0.014
-clone_shallow                            |   0.005 |   0.009
-_build_reachability_context              |   0.008 |   0.008
-apply_combat_move                        |   0.002 |   0.005
+mcts_search                              |   0.000 |   1.291
+simulate                                 |   0.022 |   1.285
+combat_legal_moves                       |   1.043 |   1.235
+check_reachability                       |   0.023 |   0.036
+__init__                                 |   0.031 |   0.031
 
 ============================================================
 PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_28.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.039 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.001 |   1.048
-simulate                                 |   0.029 |   0.948
-combat_legal_moves                       |   0.655 |   0.939
-select                                   |   0.000 |   0.079
-heuristic_non_combat_legal_moves         |   0.019 |   0.049
-check_reachability                       |   0.017 |   0.024
-expand                                   |   0.000 |   0.017
-__init__                                 |   0.017 |   0.017
-clone_shallow                            |   0.006 |   0.012
-_build_reachability_context              |   0.012 |   0.012
+mcts_search                              |   0.001 |   1.039
+simulate                                 |   0.014 |   1.020
+combat_legal_moves                       |   0.445 |   0.700
+check_reachability                       |   0.247 |   0.390
+heuristic_non_combat_legal_moves         |   0.017 |   0.288
 
 ============================================================
-PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_29.prof
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_01.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.001 |   1.014
-simulate                                 |   0.034 |   0.965
-combat_legal_moves                       |   0.634 |   0.906
-heuristic_non_combat_legal_moves         |   0.017 |   0.046
-select                                   |   0.000 |   0.032
-check_reachability                       |   0.016 |   0.023
-__init__                                 |   0.016 |   0.016
-expand                                   |   0.000 |   0.014
-_build_reachability_context              |   0.011 |   0.012
-clone_shallow                            |   0.006 |   0.012
+mcts_search                              |   0.000 |   1.010
+simulate                                 |   0.008 |   0.948
+combat_legal_moves                       |   0.105 |   0.741
+check_reachability                       |   0.473 |   0.705
+heuristic_non_combat_legal_moves         |   0.031 |   0.129
 
 ============================================================
-PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_30.prof
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_02.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.006 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.000 |   1.119
-simulate                                 |   0.037 |   1.116
-combat_legal_moves                       |   0.847 |   1.076
-__init__                                 |   0.016 |   0.016
-heuristic_non_combat_legal_moves         |   0.001 |   0.003
-check_reachability                       |   0.001 |   0.002
-expand                                   |   0.000 |   0.001
-log                                      |   0.000 |   0.001
-_build_reachability_context              |   0.001 |   0.001
-clone_shallow                            |   0.000 |   0.001
+mcts_search                              |   0.000 |   1.006
+simulate                                 |   0.005 |   0.959
+check_reachability                       |   0.525 |   0.782
+combat_legal_moves                       |   0.079 |   0.727
+heuristic_non_combat_legal_moves         |   0.029 |   0.184
 
 ============================================================
-PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_31.prof
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_03.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.018 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.000 |   1.065
-simulate                                 |   0.041 |   1.059
-combat_legal_moves                       |   0.766 |   1.000
-__init__                                 |   0.018 |   0.018
-heuristic_non_combat_legal_moves         |   0.005 |   0.014
-check_reachability                       |   0.006 |   0.008
-expand                                   |   0.000 |   0.004
-clone_shallow                            |   0.002 |   0.003
-_build_reachability_context              |   0.003 |   0.003
-apply_combat_move                        |   0.001 |   0.002
+mcts_search                              |   0.000 |   1.018
+simulate                                 |   0.004 |   0.968
+check_reachability                       |   0.545 |   0.812
+combat_legal_moves                       |   0.073 |   0.729
+heuristic_non_combat_legal_moves         |   0.028 |   0.203
 
 ============================================================
-PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_32.prof
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_04.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.015 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.000 |   1.576
-simulate                                 |   0.051 |   1.574
-combat_legal_moves                       |   1.207 |   1.520
-__init__                                 |   0.022 |   0.022
-heuristic_non_combat_legal_moves         |   0.001 |   0.002
-check_reachability                       |   0.001 |   0.001
-log                                      |   0.000 |   0.001
-clone_shallow                            |   0.000 |   0.000
-expand                                   |   0.000 |   0.000
-_build_reachability_context              |   0.000 |   0.000
+mcts_search                              |   0.000 |   1.015
+simulate                                 |   0.004 |   0.969
+check_reachability                       |   0.542 |   0.804
+combat_legal_moves                       |   0.078 |   0.711
+heuristic_non_combat_legal_moves         |   0.028 |   0.221
 
 ============================================================
-PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_33.prof
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_05.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.018 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.001 |   1.025
-simulate                                 |   0.039 |   1.003
-combat_legal_moves                       |   0.651 |   0.919
-heuristic_non_combat_legal_moves         |   0.015 |   0.041
-check_reachability                       |   0.015 |   0.022
-__init__                                 |   0.017 |   0.017
-clone_shallow                            |   0.005 |   0.011
-_build_reachability_context              |   0.010 |   0.010
-select                                   |   0.000 |   0.009
-expand                                   |   0.000 |   0.009
+mcts_search                              |   0.000 |   1.018
+simulate                                 |   0.005 |   0.975
+check_reachability                       |   0.526 |   0.783
+combat_legal_moves                       |   0.098 |   0.717
+heuristic_non_combat_legal_moves         |   0.027 |   0.221
 
 ============================================================
-PROFILE FILE: smart_root_dumb_tree/profiles/mcts_1_34.prof
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_06.prof
 ============================================================
-
+TOTAL PROFILE RUNTIME (CPU): 1.033 s
 Function                                 | tottime | cumtime
 --------------------------------------------------------------------------------
-mcts_search                              |   0.000 |   1.157
-simulate                                 |   0.037 |   1.152
-combat_legal_moves                       |   0.842 |   1.099
-__init__                                 |   0.021 |   0.021
-heuristic_non_combat_legal_moves         |   0.004 |   0.012
-check_reachability                       |   0.005 |   0.007
-clone_shallow                            |   0.002 |   0.003
-expand                                   |   0.000 |   0.003
-_build_reachability_context              |   0.003 |   0.003
-apply_combat_move                        |   0.001 |   0.002
+mcts_search                              |   0.000 |   1.033
+simulate                                 |   0.006 |   0.990
+check_reachability                       |   0.515 |   0.771
+combat_legal_moves                       |   0.112 |   0.706
+heuristic_non_combat_legal_moves         |   0.028 |   0.242
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_07.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.021 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.021
+simulate                                 |   0.007 |   0.985
+check_reachability                       |   0.485 |   0.729
+combat_legal_moves                       |   0.135 |   0.694
+heuristic_non_combat_legal_moves         |   0.028 |   0.244
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_08.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.026 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.026
+simulate                                 |   0.007 |   0.994
+combat_legal_moves                       |   0.187 |   0.706
+check_reachability                       |   0.454 |   0.684
+heuristic_non_combat_legal_moves         |   0.026 |   0.246
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_09.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.032 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.032
+simulate                                 |   0.012 |   1.005
+combat_legal_moves                       |   0.287 |   0.757
+check_reachability                       |   0.374 |   0.563
+heuristic_non_combat_legal_moves         |   0.021 |   0.209
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_10.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.091 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.091
+simulate                                 |   0.017 |   1.070
+combat_legal_moves                       |   0.511 |   0.889
+check_reachability                       |   0.236 |   0.357
+heuristic_non_combat_legal_moves         |   0.013 |   0.147
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_11.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.037 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.037
+simulate                                 |   0.008 |   1.010
+check_reachability                       |   0.471 |   0.714
+combat_legal_moves                       |   0.169 |   0.677
+heuristic_non_combat_legal_moves         |   0.026 |   0.294
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_12.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.069 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.069
+simulate                                 |   0.018 |   1.055
+combat_legal_moves                       |   0.524 |   0.883
+check_reachability                       |   0.215 |   0.327
+heuristic_non_combat_legal_moves         |   0.013 |   0.138
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_13.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.048 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.048
+simulate                                 |   0.011 |   1.018
+combat_legal_moves                       |   0.264 |   0.733
+check_reachability                       |   0.395 |   0.597
+heuristic_non_combat_legal_moves         |   0.023 |   0.240
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_14.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.108 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.108
+simulate                                 |   0.014 |   1.081
+combat_legal_moves                       |   0.387 |   0.850
+check_reachability                       |   0.337 |   0.509
+heuristic_non_combat_legal_moves         |   0.019 |   0.187
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_15.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.042 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.042
+simulate                                 |   0.014 |   1.023
+combat_legal_moves                       |   0.387 |   0.814
+check_reachability                       |   0.307 |   0.463
+heuristic_non_combat_legal_moves         |   0.016 |   0.173
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_16.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.063 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.063
+simulate                                 |   0.018 |   1.043
+combat_legal_moves                       |   0.480 |   0.866
+check_reachability                       |   0.238 |   0.360
+heuristic_non_combat_legal_moves         |   0.013 |   0.140
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_17.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.093 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.093
+simulate                                 |   0.017 |   1.074
+combat_legal_moves                       |   0.469 |   0.857
+check_reachability                       |   0.264 |   0.404
+heuristic_non_combat_legal_moves         |   0.015 |   0.180
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_18.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.050 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.050
+simulate                                 |   0.014 |   1.030
+combat_legal_moves                       |   0.438 |   0.825
+check_reachability                       |   0.276 |   0.417
+heuristic_non_combat_legal_moves         |   0.016 |   0.169
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_19.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.272 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.272
+simulate                                 |   0.026 |   1.261
+combat_legal_moves                       |   0.802 |   1.139
+check_reachability                       |   0.121 |   0.185
+heuristic_non_combat_legal_moves         |   0.007 |   0.086
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_20.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 2.031 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   2.031
+simulate                                 |   0.039 |   2.021
+combat_legal_moves                       |   1.375 |   1.858
+check_reachability                       |   0.150 |   0.231
+heuristic_non_combat_legal_moves         |   0.009 |   0.113
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_21.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.111 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.111
+simulate                                 |   0.018 |   1.100
+combat_legal_moves                       |   0.646 |   0.939
+check_reachability                       |   0.162 |   0.252
+heuristic_non_combat_legal_moves         |   0.010 |   0.133
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_22.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.955 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.012 |   1.955
+simulate                                 |   0.031 |   1.933
+combat_legal_moves                       |   1.357 |   1.816
+check_reachability                       |   0.094 |   0.145
+heuristic_non_combat_legal_moves         |   0.006 |   0.077
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_23.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 3.665 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   3.665
+simulate                                 |   0.084 |   3.659
+combat_legal_moves                       |   2.718 |   3.504
+__init__                                 |   0.140 |   0.140
+check_reachability                       |   0.078 |   0.098
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_24.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 3.653 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   3.653
+simulate                                 |   0.083 |   3.643
+combat_legal_moves                       |   2.551 |   3.429
+check_reachability                       |   0.144 |   0.224
+__init__                                 |   0.143 |   0.143
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_25.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.177 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.002 |   1.177
+simulate                                 |   0.026 |   1.169
+combat_legal_moves                       |   0.789 |   1.081
+check_reachability                       |   0.066 |   0.102
+heuristic_non_combat_legal_moves         |   0.005 |   0.057
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_26.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.082 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.082
+simulate                                 |   0.017 |   1.068
+combat_legal_moves                       |   0.532 |   0.862
+check_reachability                       |   0.215 |   0.330
+heuristic_non_combat_legal_moves         |   0.013 |   0.175
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_27.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.058 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.058
+simulate                                 |   0.023 |   1.048
+combat_legal_moves                       |   0.601 |   0.927
+check_reachability                       |   0.136 |   0.208
+heuristic_non_combat_legal_moves         |   0.008 |   0.087
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_28.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 125.640 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 | 125.640
+simulate                                 |   3.339 | 125.633
+combat_legal_moves                       |  94.585 | 122.267
+__init__                                 |   6.029 |   6.029
+check_reachability                       |   0.030 |   0.045
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_29.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 41.199 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |  41.199
+simulate                                 |   1.160 |  41.192
+combat_legal_moves                       |  30.331 |  40.011
+__init__                                 |   2.033 |   2.033
+check_reachability                       |   0.017 |   0.026
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_30.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 32.466 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.005 |  32.466
+simulate                                 |   0.853 |  32.455
+combat_legal_moves                       |  24.110 |  31.573
+__init__                                 |   1.518 |   1.518
+check_reachability                       |   0.029 |   0.044
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_31.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 15.024 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |  15.024
+simulate                                 |   0.389 |  15.018
+combat_legal_moves                       |  11.251 |  14.609
+__init__                                 |   0.678 |   0.678
+check_reachability                       |   0.019 |   0.030
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_32.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.214 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.214
+simulate                                 |   0.033 |   1.207
+combat_legal_moves                       |   0.815 |   1.147
+__init__                                 |   0.057 |   0.057
+check_reachability                       |   0.032 |   0.049
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_2_33.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 5.989 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   5.989
+simulate                                 |   0.143 |   5.981
+combat_legal_moves                       |   4.506 |   5.814
+__init__                                 |   0.266 |   0.266
+check_reachability                       |   0.024 |   0.037
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_3_01.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.004 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.004
+simulate                                 |   0.005 |   0.958
+check_reachability                       |   0.524 |   0.780
+combat_legal_moves                       |   0.077 |   0.730
+heuristic_non_combat_legal_moves         |   0.028 |   0.175
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_3_02.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.009
+simulate                                 |   0.004 |   0.963
+check_reachability                       |   0.537 |   0.804
+combat_legal_moves                       |   0.066 |   0.693
+heuristic_non_combat_legal_moves         |   0.028 |   0.223
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_3_03.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.007
+simulate                                 |   0.004 |   0.967
+check_reachability                       |   0.527 |   0.792
+combat_legal_moves                       |   0.076 |   0.698
+heuristic_non_combat_legal_moves         |   0.028 |   0.220
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_3_04.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.020 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.020
+simulate                                 |   0.005 |   0.975
+check_reachability                       |   0.521 |   0.777
+combat_legal_moves                       |   0.095 |   0.705
+heuristic_non_combat_legal_moves         |   0.027 |   0.222
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_3_05.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.013 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.013
+simulate                                 |   0.007 |   0.977
+combat_legal_moves                       |   0.142 |   0.726
+check_reachability                       |   0.480 |   0.718
+heuristic_non_combat_legal_moves         |   0.024 |   0.206
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_3_06.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.020 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.019
+simulate                                 |   0.006 |   0.979
+check_reachability                       |   0.492 |   0.739
+combat_legal_moves                       |   0.126 |   0.699
+heuristic_non_combat_legal_moves         |   0.026 |   0.234
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_3_07.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.018 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.018
+simulate                                 |   0.015 |   0.995
+combat_legal_moves                       |   0.393 |   0.832
+check_reachability                       |   0.286 |   0.428
+heuristic_non_combat_legal_moves         |   0.014 |   0.125
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_3_08.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.006 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.006
+simulate                                 |   0.009 |   0.973
+combat_legal_moves                       |   0.225 |   0.721
+check_reachability                       |   0.413 |   0.623
+heuristic_non_combat_legal_moves         |   0.021 |   0.218
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_3_09.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.090 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.090
+simulate                                 |   0.017 |   1.067
+combat_legal_moves                       |   0.456 |   0.886
+check_reachability                       |   0.270 |   0.405
+heuristic_non_combat_legal_moves         |   0.014 |   0.137
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_3_10.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.134 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.134
+simulate                                 |   0.020 |   1.115
+combat_legal_moves                       |   0.573 |   0.985
+check_reachability                       |   0.212 |   0.316
+heuristic_non_combat_legal_moves         |   0.011 |   0.090
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_3_11.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.011 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.011
+simulate                                 |   0.022 |   1.004
+combat_legal_moves                       |   0.680 |   0.946
+check_reachability                       |   0.065 |   0.097
+__init__                                 |   0.035 |   0.035
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_3_12.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.010
+simulate                                 |   0.014 |   0.989
+combat_legal_moves                       |   0.395 |   0.806
+check_reachability                       |   0.282 |   0.423
+heuristic_non_combat_legal_moves         |   0.014 |   0.147
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_3_13.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.013 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.013
+simulate                                 |   0.016 |   0.996
+combat_legal_moves                       |   0.483 |   0.803
+check_reachability                       |   0.207 |   0.315
+heuristic_non_combat_legal_moves         |   0.012 |   0.161
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_3_14.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 2.139 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   2.138
+simulate                                 |   0.048 |   2.094
+combat_legal_moves                       |   1.462 |   1.978
+check_reachability                       |   0.081 |   0.124
+__init__                                 |   0.090 |   0.090
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_3_15.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.598 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.598
+simulate                                 |   0.036 |   1.588
+combat_legal_moves                       |   1.089 |   1.482
+check_reachability                       |   0.076 |   0.117
+heuristic_non_combat_legal_moves         |   0.005 |   0.061
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_4_01.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.013 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.013
+simulate                                 |   0.005 |   0.962
+check_reachability                       |   0.521 |   0.775
+combat_legal_moves                       |   0.080 |   0.736
+heuristic_non_combat_legal_moves         |   0.028 |   0.167
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_4_02.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.012
+simulate                                 |   0.004 |   0.964
+check_reachability                       |   0.532 |   0.801
+combat_legal_moves                       |   0.073 |   0.721
+heuristic_non_combat_legal_moves         |   0.028 |   0.201
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_4_03.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.017 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.017
+simulate                                 |   0.005 |   0.969
+check_reachability                       |   0.530 |   0.795
+combat_legal_moves                       |   0.082 |   0.708
+heuristic_non_combat_legal_moves         |   0.028 |   0.221
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_4_04.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.015 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.015
+simulate                                 |   0.004 |   0.961
+check_reachability                       |   0.528 |   0.792
+combat_legal_moves                       |   0.082 |   0.694
+heuristic_non_combat_legal_moves         |   0.028 |   0.231
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_4_05.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.017 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.017
+simulate                                 |   0.006 |   0.974
+check_reachability                       |   0.503 |   0.754
+combat_legal_moves                       |   0.113 |   0.701
+heuristic_non_combat_legal_moves         |   0.027 |   0.230
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_4_06.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.016 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.016
+simulate                                 |   0.006 |   0.980
+combat_legal_moves                       |   0.165 |   0.726
+check_reachability                       |   0.468 |   0.701
+heuristic_non_combat_legal_moves         |   0.025 |   0.210
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_4_07.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.027 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.027
+simulate                                 |   0.008 |   0.989
+combat_legal_moves                       |   0.163 |   0.727
+check_reachability                       |   0.467 |   0.700
+heuristic_non_combat_legal_moves         |   0.025 |   0.218
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_4_08.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.019 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.019
+simulate                                 |   0.015 |   0.988
+combat_legal_moves                       |   0.385 |   0.821
+check_reachability                       |   0.284 |   0.426
+heuristic_non_combat_legal_moves         |   0.016 |   0.130
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_4_09.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.025 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.025
+simulate                                 |   0.011 |   0.996
+combat_legal_moves                       |   0.263 |   0.768
+check_reachability                       |   0.390 |   0.587
+heuristic_non_combat_legal_moves         |   0.020 |   0.189
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_4_10.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.020 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.020
+simulate                                 |   0.012 |   0.997
+combat_legal_moves                       |   0.310 |   0.785
+check_reachability                       |   0.354 |   0.535
+heuristic_non_combat_legal_moves         |   0.018 |   0.176
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_4_11.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.073 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.073
+simulate                                 |   0.017 |   1.048
+combat_legal_moves                       |   0.443 |   0.871
+check_reachability                       |   0.270 |   0.404
+heuristic_non_combat_legal_moves         |   0.014 |   0.138
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_4_12.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.111 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.111
+simulate                                 |   0.021 |   1.091
+combat_legal_moves                       |   0.580 |   0.962
+check_reachability                       |   0.180 |   0.272
+heuristic_non_combat_legal_moves         |   0.010 |   0.089
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_4_13.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 2.032 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   2.032
+simulate                                 |   0.047 |   2.026
+combat_legal_moves                       |   1.532 |   1.970
+__init__                                 |   0.084 |   0.084
+check_reachability                       |   0.011 |   0.017
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_4_14.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.034 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.034
+simulate                                 |   0.022 |   1.018
+combat_legal_moves                       |   0.589 |   0.931
+check_reachability                       |   0.123 |   0.183
+heuristic_non_combat_legal_moves         |   0.007 |   0.052
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_4_15.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.097 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.002 |   1.097
+simulate                                 |   0.025 |   1.088
+combat_legal_moves                       |   0.772 |   1.047
+check_reachability                       |   0.032 |   0.046
+__init__                                 |   0.041 |   0.041
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_4_16.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 5.532 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   5.532
+simulate                                 |   0.135 |   5.526
+combat_legal_moves                       |   4.103 |   5.359
+__init__                                 |   0.233 |   0.233
+check_reachability                       |   0.057 |   0.085
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_4_17.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.124 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.003 |   1.124
+simulate                                 |   0.026 |   1.115
+combat_legal_moves                       |   0.797 |   1.077
+__init__                                 |   0.044 |   0.044
+check_reachability                       |   0.020 |   0.030
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_4_18.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.041 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.005 |   1.041
+simulate                                 |   0.021 |   1.031
+combat_legal_moves                       |   0.679 |   0.981
+check_reachability                       |   0.077 |   0.099
+__init__                                 |   0.036 |   0.036
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_01.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.003 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.003
+simulate                                 |   0.006 |   0.950
+check_reachability                       |   0.496 |   0.744
+combat_legal_moves                       |   0.089 |   0.730
+heuristic_non_combat_legal_moves         |   0.029 |   0.156
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_02.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.013 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.013
+simulate                                 |   0.004 |   0.969
+check_reachability                       |   0.536 |   0.802
+combat_legal_moves                       |   0.074 |   0.724
+heuristic_non_combat_legal_moves         |   0.028 |   0.199
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_03.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.010
+simulate                                 |   0.005 |   0.964
+check_reachability                       |   0.525 |   0.783
+combat_legal_moves                       |   0.080 |   0.695
+heuristic_non_combat_legal_moves         |   0.031 |   0.222
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_04.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.023 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.023
+simulate                                 |   0.005 |   0.979
+check_reachability                       |   0.501 |   0.749
+combat_legal_moves                       |   0.127 |   0.719
+heuristic_non_combat_legal_moves         |   0.027 |   0.215
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_06.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.116 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.002 |   1.116
+simulate                                 |   0.015 |   1.088
+combat_legal_moves                       |   0.438 |   0.895
+check_reachability                       |   0.299 |   0.449
+heuristic_non_combat_legal_moves         |   0.016 |   0.149
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_07.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.025 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.025
+simulate                                 |   0.008 |   0.994
+combat_legal_moves                       |   0.212 |   0.743
+check_reachability                       |   0.435 |   0.650
+heuristic_non_combat_legal_moves         |   0.023 |   0.206
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_08.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.029 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.029
+simulate                                 |   0.009 |   0.993
+combat_legal_moves                       |   0.195 |   0.733
+check_reachability                       |   0.435 |   0.655
+heuristic_non_combat_legal_moves         |   0.023 |   0.211
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_09.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.260 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.260
+simulate                                 |   0.025 |   1.246
+combat_legal_moves                       |   0.718 |   1.128
+check_reachability                       |   0.166 |   0.248
+heuristic_non_combat_legal_moves         |   0.009 |   0.077
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_10.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.053 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.053
+simulate                                 |   0.016 |   1.028
+combat_legal_moves                       |   0.413 |   0.853
+check_reachability                       |   0.283 |   0.423
+heuristic_non_combat_legal_moves         |   0.015 |   0.134
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_11.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.120 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.120
+simulate                                 |   0.019 |   1.099
+combat_legal_moves                       |   0.550 |   0.962
+check_reachability                       |   0.218 |   0.328
+heuristic_non_combat_legal_moves         |   0.011 |   0.098
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_12.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 13.879 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |  13.879
+simulate                                 |   0.354 |  13.871
+combat_legal_moves                       |  10.467 |  13.506
+__init__                                 |   0.619 |   0.619
+check_reachability                       |   0.017 |   0.025
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_13.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.017 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.017
+simulate                                 |   0.019 |   0.999
+combat_legal_moves                       |   0.430 |   0.822
+check_reachability                       |   0.233 |   0.353
+heuristic_non_combat_legal_moves         |   0.014 |   0.138
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_14.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.066 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.066
+simulate                                 |   0.025 |   1.055
+combat_legal_moves                       |   0.586 |   0.958
+check_reachability                       |   0.137 |   0.207
+heuristic_non_combat_legal_moves         |   0.007 |   0.062
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_15.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.461 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.014 |   1.461
+simulate                                 |   0.018 |   1.437
+combat_legal_moves                       |   0.965 |   1.353
+check_reachability                       |   0.097 |   0.147
+heuristic_non_combat_legal_moves         |   0.005 |   0.056
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_16.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.225 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.225
+simulate                                 |   0.023 |   1.209
+combat_legal_moves                       |   0.663 |   1.053
+check_reachability                       |   0.197 |   0.299
+heuristic_non_combat_legal_moves         |   0.010 |   0.117
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_17.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 2.898 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   2.898
+simulate                                 |   0.068 |   2.892
+combat_legal_moves                       |   2.145 |   2.768
+__init__                                 |   0.115 |   0.115
+clone                                    |   0.000 |   0.050
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_18.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.231 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.231
+simulate                                 |   0.025 |   1.216
+combat_legal_moves                       |   0.683 |   1.081
+check_reachability                       |   0.177 |   0.266
+heuristic_non_combat_legal_moves         |   0.009 |   0.095
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_19.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.090 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.090
+simulate                                 |   0.022 |   1.075
+combat_legal_moves                       |   0.610 |   0.966
+check_reachability                       |   0.146 |   0.219
+heuristic_non_combat_legal_moves         |   0.008 |   0.072
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_20.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.099 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.099
+simulate                                 |   0.026 |   1.093
+combat_legal_moves                       |   0.734 |   1.028
+check_reachability                       |   0.060 |   0.091
+__init__                                 |   0.039 |   0.039
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_21.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.198 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.198
+simulate                                 |   0.027 |   1.187
+combat_legal_moves                       |   0.780 |   1.111
+check_reachability                       |   0.079 |   0.118
+__init__                                 |   0.044 |   0.044
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_22.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.255 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.255
+simulate                                 |   0.028 |   1.244
+combat_legal_moves                       |   0.811 |   1.154
+check_reachability                       |   0.093 |   0.141
+heuristic_non_combat_legal_moves         |   0.005 |   0.053
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_23.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 6.063 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   6.063
+simulate                                 |   0.147 |   6.056
+combat_legal_moves                       |   4.561 |   5.897
+__init__                                 |   0.266 |   0.266
+check_reachability                       |   0.015 |   0.023
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_24.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.684 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.684
+simulate                                 |   0.041 |   1.678
+combat_legal_moves                       |   1.165 |   1.594
+check_reachability                       |   0.067 |   0.101
+__init__                                 |   0.061 |   0.061
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_25.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 2.500 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   2.500
+simulate                                 |   0.057 |   2.494
+combat_legal_moves                       |   1.788 |   2.383
+check_reachability                       |   0.069 |   0.105
+__init__                                 |   0.104 |   0.104
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_26.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.841 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.841
+simulate                                 |   0.043 |   1.834
+combat_legal_moves                       |   1.357 |   1.779
+__init__                                 |   0.081 |   0.081
+check_reachability                       |   0.017 |   0.025
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_27.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 3.216 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.002 |   3.216
+simulate                                 |   0.076 |   3.208
+combat_legal_moves                       |   2.402 |   3.115
+__init__                                 |   0.133 |   0.133
+check_reachability                       |   0.028 |   0.042
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_28.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.189 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.189
+simulate                                 |   0.027 |   1.183
+combat_legal_moves                       |   0.798 |   1.110
+check_reachability                       |   0.068 |   0.102
+__init__                                 |   0.042 |   0.042
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_29.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.905 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.905
+simulate                                 |   0.044 |   1.899
+combat_legal_moves                       |   1.401 |   1.831
+__init__                                 |   0.068 |   0.068
+check_reachability                       |   0.035 |   0.053
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_30.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 7.273 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   7.273
+simulate                                 |   0.178 |   7.266
+combat_legal_moves                       |   5.456 |   7.070
+__init__                                 |   0.302 |   0.302
+check_reachability                       |   0.028 |   0.042
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_31.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.249 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.249
+simulate                                 |   0.028 |   1.238
+combat_legal_moves                       |   0.813 |   1.146
+check_reachability                       |   0.087 |   0.131
+heuristic_non_combat_legal_moves         |   0.005 |   0.054
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_32.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 3.980 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   3.980
+simulate                                 |   0.094 |   3.974
+combat_legal_moves                       |   2.991 |   3.868
+__init__                                 |   0.175 |   0.175
+check_reachability                       |   0.013 |   0.020
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_33.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 2.623 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   2.623
+simulate                                 |   0.059 |   2.617
+combat_legal_moves                       |   1.951 |   2.546
+__init__                                 |   0.121 |   0.121
+check_reachability                       |   0.010 |   0.016
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_34.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.844 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.844
+simulate                                 |   0.042 |   1.835
+combat_legal_moves                       |   1.373 |   1.780
+__init__                                 |   0.077 |   0.077
+check_reachability                       |   0.012 |   0.018
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_35.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.253 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.252
+simulate                                 |   0.020 |   1.239
+combat_legal_moves                       |   0.995 |   1.188
+check_reachability                       |   0.020 |   0.031
+__init__                                 |   0.030 |   0.030
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_36.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 3.155 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   3.155
+simulate                                 |   0.055 |   3.144
+combat_legal_moves                       |   2.474 |   3.019
+check_reachability                       |   0.080 |   0.122
+__init__                                 |   0.085 |   0.085
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_37.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 263.301 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 | 263.300
+simulate                                 |   6.832 | 263.293
+combat_legal_moves                       | 197.556 | 256.434
+__init__                                 |  12.066 |  12.066
+check_reachability                       |   0.035 |   0.054
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_38.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.305 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.305
+simulate                                 |   0.038 |   1.299
+combat_legal_moves                       |   0.851 |   1.215
+check_reachability                       |   0.047 |   0.073
+__init__                                 |   0.057 |   0.057
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_39.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.081 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.007 |   1.081
+simulate                                 |   0.022 |   1.065
+combat_legal_moves                       |   0.689 |   0.990
+check_reachability                       |   0.048 |   0.074
+__init__                                 |   0.046 |   0.046
+
+============================================================
+PROFILE FILE: smart_root_dumb_tree/profiles/mcts_5_40.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.115 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.115
+simulate                                 |   0.025 |   1.099
+combat_legal_moves                       |   0.579 |   0.898
+check_reachability                       |   0.158 |   0.246
+heuristic_non_combat_legal_moves         |   0.011 |   0.160
 

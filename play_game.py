@@ -6,8 +6,9 @@ import os
 
 # --- CONFIG ---
 PLAY_ROUNDS = 100   # max rounds per game
-PLAY_GAMES = 1     # number of games to play
+PLAY_GAMES = 5      # number of games to play
 CHECK_INTERVAL = 2  # seconds between log checks
+
 
 def count_rounds(filename):
     """Count lines containing 'Round'."""
@@ -27,12 +28,27 @@ def count_stopped(filename):
     return False
 
 def start_game():
-    """Start a new TripleA game process."""
     print("Starting new game...")
     return subprocess.Popen(["./gradlew", ":game-app:game-headed:run"])
 
+def clean_up_logfile(filename):
+    try:
+        with open(filename, "r") as f:
+            lines = f.readlines()
+    except FileNotFoundError:
+        return
+
+    last_stopped_idx = -1
+    for i, line in enumerate(lines):
+        if "stopped" in line:
+            last_stopped_idx = i
+
+    # Rewrite file
+    with open(filename, "w") as f:
+        if last_stopped_idx != -1:
+            f.writelines(lines[last_stopped_idx + 1:])
+
 def terminate_game(process):
-    """Gracefully stop the current game."""
     print("Stopping current game...")
     try:
         process.send_signal(signal.SIGINT)
@@ -66,21 +82,23 @@ def main():
                     break
 
                 # Check log status
-                rounds = count_rounds(log_file) - rounds_till_last
+                rounds = count_rounds(log_file)
                 curr_stopped = count_stopped(log_file)
 
                 if rounds > PLAY_ROUNDS:
                     print(f"{PLAY_ROUNDS} rounds completed. Ending game.")
                     rounds_till_last += rounds
                     terminate_game(process)
-                    prev_stopped = curr_stopped
+                    clean_up_logfile(log_file)
+                    # prev_stopped = curr_stopped
                     break
 
                 if prev_stopped < curr_stopped:
                     print(f"Game stopped (winner detected). {curr_stopped} {prev_stopped}")
                     rounds_till_last += rounds
                     terminate_game(process)
-                    prev_stopped = curr_stopped
+                    clean_up_logfile(log_file)
+                    # prev_stopped = curr_stopped
                     break
 
                 if prev_round != rounds:
