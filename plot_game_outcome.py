@@ -1,7 +1,14 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import argparse
 
-FOLDER="smart_root_dumb_tree/metrics"
+parser = argparse.ArgumentParser()
+parser.add_argument("--folder", type=str, required=True)
+args = parser.parse_args()
+
+main_folder = args.folder
+FOLDER = f"{main_folder}/metrics"
+
 INPUT=f"{FOLDER}/game_outcome.csv"
 
 df = pd.read_csv(INPUT)

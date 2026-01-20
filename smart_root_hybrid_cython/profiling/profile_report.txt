@@ -1,0 +1,2808 @@
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_01.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.019 |   0.884
+heuristic_combat_legal_moves             |   0.183 |   0.609
+check_reachability                       |   0.332 |   0.429
+clone                                    |   0.001 |   0.229
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_02.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.014 |   0.898
+heuristic_combat_legal_moves             |   0.166 |   0.603
+check_reachability                       |   0.385 |   0.493
+clone                                    |   0.001 |   0.202
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_04.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.012 |   0.904
+heuristic_combat_legal_moves             |   0.157 |   0.599
+check_reachability                       |   0.407 |   0.520
+clone                                    |   0.000 |   0.194
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_05.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.011 |   0.904
+heuristic_combat_legal_moves             |   0.153 |   0.599
+check_reachability                       |   0.421 |   0.535
+clone                                    |   0.000 |   0.191
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_06.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.011 |   0.908
+heuristic_combat_legal_moves             |   0.153 |   0.609
+check_reachability                       |   0.427 |   0.544
+clone                                    |   0.000 |   0.187
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_07.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.010 |   0.915
+heuristic_combat_legal_moves             |   0.149 |   0.591
+check_reachability                       |   0.415 |   0.526
+clone                                    |   0.000 |   0.214
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_08.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.010 |   0.908
+heuristic_combat_legal_moves             |   0.153 |   0.614
+check_reachability                       |   0.432 |   0.550
+clone                                    |   0.000 |   0.183
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_09.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.011 |   0.906
+heuristic_combat_legal_moves             |   0.152 |   0.597
+check_reachability                       |   0.424 |   0.542
+heuristic_non_combat_legal_moves         |   0.046 |   0.190
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_10.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.011 |   0.911
+heuristic_combat_legal_moves             |   0.150 |   0.594
+check_reachability                       |   0.428 |   0.546
+heuristic_non_combat_legal_moves         |   0.047 |   0.196
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_11.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.010 |   0.910
+heuristic_combat_legal_moves             |   0.150 |   0.595
+check_reachability                       |   0.430 |   0.549
+heuristic_non_combat_legal_moves         |   0.047 |   0.196
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_12.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.010 |   0.913
+heuristic_combat_legal_moves             |   0.150 |   0.604
+check_reachability                       |   0.438 |   0.559
+heuristic_non_combat_legal_moves         |   0.046 |   0.194
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_13.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.011 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.011
+simulate                                 |   0.010 |   0.913
+heuristic_combat_legal_moves             |   0.152 |   0.618
+check_reachability                       |   0.439 |   0.560
+clone                                    |   0.000 |   0.181
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_14.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.011 |   0.905
+heuristic_combat_legal_moves             |   0.152 |   0.592
+check_reachability                       |   0.419 |   0.535
+heuristic_non_combat_legal_moves         |   0.047 |   0.192
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_15.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.011 |   0.908
+heuristic_combat_legal_moves             |   0.150 |   0.586
+check_reachability                       |   0.423 |   0.540
+heuristic_non_combat_legal_moves         |   0.049 |   0.203
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_16.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.899
+heuristic_combat_legal_moves             |   0.154 |   0.592
+check_reachability                       |   0.412 |   0.527
+clone                                    |   0.000 |   0.191
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_17.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.010 |   0.861
+heuristic_combat_legal_moves             |   0.138 |   0.541
+check_reachability                       |   0.405 |   0.515
+clone                                    |   0.000 |   0.230
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_18.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.010 |   0.911
+heuristic_combat_legal_moves             |   0.145 |   0.582
+check_reachability                       |   0.437 |   0.555
+heuristic_non_combat_legal_moves         |   0.050 |   0.213
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_19.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.904
+check_reachability                       |   0.423 |   0.537
+heuristic_combat_legal_moves             |   0.137 |   0.525
+heuristic_non_combat_legal_moves         |   0.060 |   0.256
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_20.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.080 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.080
+simulate                                 |   0.012 |   0.973
+heuristic_combat_legal_moves             |   0.133 |   0.557
+check_reachability                       |   0.405 |   0.517
+heuristic_non_combat_legal_moves         |   0.070 |   0.287
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_21.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.904
+check_reachability                       |   0.415 |   0.530
+heuristic_combat_legal_moves             |   0.118 |   0.429
+heuristic_non_combat_legal_moves         |   0.082 |   0.354
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_22.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.006
+simulate                                 |   0.011 |   0.904
+check_reachability                       |   0.414 |   0.528
+heuristic_combat_legal_moves             |   0.122 |   0.446
+heuristic_non_combat_legal_moves         |   0.078 |   0.335
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_23.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.006 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.006
+simulate                                 |   0.011 |   0.904
+check_reachability                       |   0.423 |   0.539
+heuristic_combat_legal_moves             |   0.122 |   0.451
+heuristic_non_combat_legal_moves         |   0.078 |   0.336
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_1_24.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.011 |   0.904
+check_reachability                       |   0.415 |   0.529
+heuristic_combat_legal_moves             |   0.115 |   0.416
+heuristic_non_combat_legal_moves         |   0.084 |   0.363
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_01.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.003 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.003
+simulate                                 |   0.022 |   0.875
+heuristic_combat_legal_moves             |   0.196 |   0.606
+check_reachability                       |   0.299 |   0.388
+clone                                    |   0.001 |   0.237
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_02.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.016 |   0.894
+heuristic_combat_legal_moves             |   0.174 |   0.608
+check_reachability                       |   0.366 |   0.471
+clone                                    |   0.001 |   0.208
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_03.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.013 |   0.900
+heuristic_combat_legal_moves             |   0.163 |   0.599
+check_reachability                       |   0.394 |   0.504
+clone                                    |   0.000 |   0.199
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_04.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.006 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.006
+simulate                                 |   0.013 |   0.903
+heuristic_combat_legal_moves             |   0.162 |   0.601
+check_reachability                       |   0.402 |   0.513
+clone                                    |   0.000 |   0.189
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_05.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.012 |   0.905
+heuristic_combat_legal_moves             |   0.160 |   0.598
+check_reachability                       |   0.406 |   0.518
+clone                                    |   0.000 |   0.190
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_06.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.004 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.004
+simulate                                 |   0.012 |   0.903
+heuristic_combat_legal_moves             |   0.160 |   0.600
+check_reachability                       |   0.406 |   0.519
+clone                                    |   0.000 |   0.186
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_07.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.012 |   0.909
+heuristic_combat_legal_moves             |   0.158 |   0.607
+check_reachability                       |   0.415 |   0.531
+clone                                    |   0.000 |   0.186
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_08.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.011 |   0.910
+heuristic_combat_legal_moves             |   0.155 |   0.608
+check_reachability                       |   0.421 |   0.538
+clone                                    |   0.000 |   0.188
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_09.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.011 |   0.912
+heuristic_combat_legal_moves             |   0.157 |   0.612
+check_reachability                       |   0.421 |   0.538
+clone                                    |   0.000 |   0.185
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_10.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.012 |   0.908
+heuristic_combat_legal_moves             |   0.157 |   0.607
+check_reachability                       |   0.417 |   0.532
+clone                                    |   0.000 |   0.186
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_11.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.004 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.004
+simulate                                 |   0.012 |   0.905
+heuristic_combat_legal_moves             |   0.158 |   0.607
+check_reachability                       |   0.413 |   0.528
+clone                                    |   0.000 |   0.184
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_12.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.025 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.025
+simulate                                 |   0.012 |   0.906
+heuristic_combat_legal_moves             |   0.158 |   0.608
+check_reachability                       |   0.415 |   0.529
+clone                                    |   0.000 |   0.186
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_13.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.012
+simulate                                 |   0.013 |   0.905
+heuristic_combat_legal_moves             |   0.160 |   0.591
+check_reachability                       |   0.397 |   0.508
+clone                                    |   0.000 |   0.194
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_14.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.013 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.013
+simulate                                 |   0.012 |   0.906
+heuristic_combat_legal_moves             |   0.158 |   0.604
+check_reachability                       |   0.411 |   0.526
+clone                                    |   0.000 |   0.186
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_15.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.012 |   0.906
+heuristic_combat_legal_moves             |   0.159 |   0.603
+check_reachability                       |   0.410 |   0.524
+clone                                    |   0.000 |   0.190
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_16.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.012 |   0.907
+heuristic_combat_legal_moves             |   0.159 |   0.610
+check_reachability                       |   0.416 |   0.532
+clone                                    |   0.000 |   0.184
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_17.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.012 |   0.904
+heuristic_combat_legal_moves             |   0.158 |   0.602
+check_reachability                       |   0.409 |   0.523
+clone                                    |   0.000 |   0.190
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_18.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.012 |   0.907
+heuristic_combat_legal_moves             |   0.160 |   0.607
+check_reachability                       |   0.415 |   0.530
+clone                                    |   0.000 |   0.183
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_19.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.915
+heuristic_combat_legal_moves             |   0.142 |   0.549
+check_reachability                       |   0.400 |   0.509
+clone                                    |   0.000 |   0.225
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_20.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.010 |   0.918
+heuristic_combat_legal_moves             |   0.135 |   0.531
+check_reachability                       |   0.394 |   0.500
+clone                                    |   0.000 |   0.252
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_21.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.016 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.016
+simulate                                 |   0.012 |   0.897
+heuristic_combat_legal_moves             |   0.146 |   0.550
+check_reachability                       |   0.408 |   0.517
+heuristic_non_combat_legal_moves         |   0.056 |   0.229
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_22.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.012 |   0.907
+heuristic_combat_legal_moves             |   0.146 |   0.549
+check_reachability                       |   0.413 |   0.526
+heuristic_non_combat_legal_moves         |   0.058 |   0.235
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_23.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.011
+simulate                                 |   0.012 |   0.900
+heuristic_combat_legal_moves             |   0.141 |   0.523
+check_reachability                       |   0.412 |   0.521
+heuristic_non_combat_legal_moves         |   0.062 |   0.255
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_24.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.012 |   0.901
+heuristic_combat_legal_moves             |   0.150 |   0.554
+check_reachability                       |   0.407 |   0.517
+heuristic_non_combat_legal_moves         |   0.057 |   0.225
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_25.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.021 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.021
+simulate                                 |   0.012 |   0.895
+heuristic_combat_legal_moves             |   0.148 |   0.542
+check_reachability                       |   0.390 |   0.496
+heuristic_non_combat_legal_moves         |   0.054 |   0.212
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_26.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.013 |   0.902
+heuristic_combat_legal_moves             |   0.150 |   0.532
+check_reachability                       |   0.391 |   0.497
+heuristic_non_combat_legal_moves         |   0.062 |   0.237
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_27.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.014 |   0.902
+heuristic_combat_legal_moves             |   0.153 |   0.538
+check_reachability                       |   0.388 |   0.494
+heuristic_non_combat_legal_moves         |   0.061 |   0.231
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_28.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.013 |   0.902
+heuristic_combat_legal_moves             |   0.150 |   0.536
+check_reachability                       |   0.393 |   0.500
+heuristic_non_combat_legal_moves         |   0.063 |   0.236
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_29.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.004 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.004
+simulate                                 |   0.012 |   0.902
+heuristic_combat_legal_moves             |   0.143 |   0.528
+check_reachability                       |   0.409 |   0.521
+heuristic_non_combat_legal_moves         |   0.064 |   0.255
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_30.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.019 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.019
+simulate                                 |   0.012 |   0.906
+heuristic_combat_legal_moves             |   0.143 |   0.528
+check_reachability                       |   0.413 |   0.524
+heuristic_non_combat_legal_moves         |   0.065 |   0.259
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_31.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.012 |   0.906
+heuristic_combat_legal_moves             |   0.136 |   0.550
+check_reachability                       |   0.434 |   0.538
+heuristic_non_combat_legal_moves         |   0.060 |   0.237
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_32.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.012 |   0.902
+heuristic_combat_legal_moves             |   0.145 |   0.534
+check_reachability                       |   0.407 |   0.518
+heuristic_non_combat_legal_moves         |   0.062 |   0.246
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_33.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.004 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.004
+simulate                                 |   0.012 |   0.900
+heuristic_combat_legal_moves             |   0.147 |   0.545
+check_reachability                       |   0.408 |   0.518
+heuristic_non_combat_legal_moves         |   0.059 |   0.235
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_34.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.013 |   0.899
+heuristic_combat_legal_moves             |   0.150 |   0.541
+check_reachability                       |   0.399 |   0.507
+heuristic_non_combat_legal_moves         |   0.060 |   0.233
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_35.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.006 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.005
+simulate                                 |   0.013 |   0.895
+heuristic_combat_legal_moves             |   0.151 |   0.551
+check_reachability                       |   0.401 |   0.509
+heuristic_non_combat_legal_moves         |   0.058 |   0.224
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_36.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.013 |   0.897
+heuristic_combat_legal_moves             |   0.142 |   0.493
+check_reachability                       |   0.360 |   0.460
+clone                                    |   0.001 |   0.246
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_37.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.014 |   0.904
+heuristic_combat_legal_moves             |   0.138 |   0.557
+check_reachability                       |   0.428 |   0.521
+heuristic_non_combat_legal_moves         |   0.058 |   0.222
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_38.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.013 |   0.901
+check_reachability                       |   0.398 |   0.507
+heuristic_combat_legal_moves             |   0.138 |   0.483
+heuristic_non_combat_legal_moves         |   0.071 |   0.291
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_39.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.198 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.198
+simulate                                 |   0.006 |   0.894
+check_reachability                       |   0.415 |   0.470
+heuristic_combat_legal_moves             |   0.066 |   0.452
+clone                                    |   0.000 |   0.330
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_40.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.012 |   0.898
+check_reachability                       |   0.389 |   0.497
+heuristic_combat_legal_moves             |   0.131 |   0.445
+heuristic_non_combat_legal_moves         |   0.079 |   0.317
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_41.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.029 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.029
+simulate                                 |   0.011 |   0.868
+check_reachability                       |   0.414 |   0.519
+heuristic_combat_legal_moves             |   0.123 |   0.496
+heuristic_non_combat_legal_moves         |   0.064 |   0.290
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_42.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.003 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.003
+simulate                                 |   0.013 |   0.897
+check_reachability                       |   0.393 |   0.502
+heuristic_combat_legal_moves             |   0.137 |   0.482
+heuristic_non_combat_legal_moves         |   0.072 |   0.286
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_43.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.906
+check_reachability                       |   0.417 |   0.532
+heuristic_combat_legal_moves             |   0.132 |   0.493
+heuristic_non_combat_legal_moves         |   0.071 |   0.293
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_44.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.011 |   0.905
+check_reachability                       |   0.417 |   0.532
+heuristic_combat_legal_moves             |   0.135 |   0.503
+heuristic_non_combat_legal_moves         |   0.068 |   0.284
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_45.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.011 |   0.902
+check_reachability                       |   0.413 |   0.527
+heuristic_combat_legal_moves             |   0.138 |   0.513
+heuristic_non_combat_legal_moves         |   0.066 |   0.270
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_46.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.012 |   0.901
+check_reachability                       |   0.411 |   0.522
+heuristic_combat_legal_moves             |   0.139 |   0.513
+heuristic_non_combat_legal_moves         |   0.066 |   0.269
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_47.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.005 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.005
+simulate                                 |   0.012 |   0.896
+check_reachability                       |   0.402 |   0.513
+heuristic_combat_legal_moves             |   0.133 |   0.475
+heuristic_non_combat_legal_moves         |   0.072 |   0.299
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_48.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.013 |   0.900
+check_reachability                       |   0.395 |   0.504
+heuristic_combat_legal_moves             |   0.136 |   0.476
+heuristic_non_combat_legal_moves         |   0.073 |   0.294
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_49.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.907
+check_reachability                       |   0.413 |   0.527
+heuristic_combat_legal_moves             |   0.129 |   0.469
+heuristic_non_combat_legal_moves         |   0.073 |   0.312
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_50.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.006 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.006
+simulate                                 |   0.010 |   0.911
+check_reachability                       |   0.435 |   0.554
+heuristic_combat_legal_moves             |   0.121 |   0.453
+heuristic_non_combat_legal_moves         |   0.077 |   0.344
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_51.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.906
+check_reachability                       |   0.418 |   0.533
+heuristic_combat_legal_moves             |   0.123 |   0.450
+heuristic_non_combat_legal_moves         |   0.078 |   0.335
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_52.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.904
+check_reachability                       |   0.414 |   0.527
+heuristic_combat_legal_moves             |   0.124 |   0.451
+heuristic_non_combat_legal_moves         |   0.078 |   0.329
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_53.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.905
+check_reachability                       |   0.416 |   0.530
+heuristic_combat_legal_moves             |   0.119 |   0.437
+heuristic_non_combat_legal_moves         |   0.080 |   0.344
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_54.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.012 |   0.906
+check_reachability                       |   0.415 |   0.529
+heuristic_combat_legal_moves             |   0.116 |   0.418
+heuristic_non_combat_legal_moves         |   0.086 |   0.365
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_55.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.012 |   0.907
+check_reachability                       |   0.415 |   0.529
+heuristic_combat_legal_moves             |   0.128 |   0.473
+heuristic_non_combat_legal_moves         |   0.075 |   0.313
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_56.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.003 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.003
+simulate                                 |   0.011 |   0.904
+check_reachability                       |   0.416 |   0.530
+heuristic_combat_legal_moves             |   0.134 |   0.497
+heuristic_non_combat_legal_moves         |   0.069 |   0.287
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_57.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.006
+simulate                                 |   0.012 |   0.902
+check_reachability                       |   0.411 |   0.525
+heuristic_combat_legal_moves             |   0.133 |   0.490
+heuristic_non_combat_legal_moves         |   0.070 |   0.291
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_58.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.014 |   0.900
+check_reachability                       |   0.388 |   0.496
+heuristic_combat_legal_moves             |   0.134 |   0.456
+heuristic_non_combat_legal_moves         |   0.077 |   0.313
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_59.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.011 |   0.906
+check_reachability                       |   0.418 |   0.533
+heuristic_combat_legal_moves             |   0.129 |   0.477
+heuristic_non_combat_legal_moves         |   0.072 |   0.308
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_60.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.011 |   0.907
+check_reachability                       |   0.425 |   0.543
+heuristic_combat_legal_moves             |   0.130 |   0.487
+heuristic_non_combat_legal_moves         |   0.071 |   0.307
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_61.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.010 |   0.910
+check_reachability                       |   0.428 |   0.547
+heuristic_combat_legal_moves             |   0.121 |   0.449
+heuristic_non_combat_legal_moves         |   0.078 |   0.343
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_63.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.011 |   0.908
+check_reachability                       |   0.419 |   0.535
+heuristic_combat_legal_moves             |   0.122 |   0.447
+heuristic_non_combat_legal_moves         |   0.078 |   0.338
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_64.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.011 |   0.911
+check_reachability                       |   0.427 |   0.545
+heuristic_combat_legal_moves             |   0.119 |   0.440
+heuristic_non_combat_legal_moves         |   0.079 |   0.352
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_65.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.012
+simulate                                 |   0.011 |   0.906
+check_reachability                       |   0.422 |   0.538
+heuristic_combat_legal_moves             |   0.118 |   0.435
+heuristic_non_combat_legal_moves         |   0.080 |   0.350
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_66.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.010 |   0.911
+check_reachability                       |   0.402 |   0.513
+heuristic_combat_legal_moves             |   0.107 |   0.388
+heuristic_non_combat_legal_moves         |   0.083 |   0.361
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_67.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.012 |   0.907
+check_reachability                       |   0.412 |   0.525
+heuristic_combat_legal_moves             |   0.124 |   0.452
+heuristic_non_combat_legal_moves         |   0.080 |   0.331
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_68.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.906
+check_reachability                       |   0.422 |   0.539
+heuristic_combat_legal_moves             |   0.136 |   0.521
+heuristic_non_combat_legal_moves         |   0.065 |   0.267
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_69.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.012 |   0.904
+check_reachability                       |   0.405 |   0.518
+heuristic_combat_legal_moves             |   0.127 |   0.452
+heuristic_non_combat_legal_moves         |   0.079 |   0.329
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_70.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.012 |   0.903
+check_reachability                       |   0.409 |   0.522
+heuristic_combat_legal_moves             |   0.132 |   0.492
+heuristic_non_combat_legal_moves         |   0.071 |   0.288
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_71.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.011 |   0.904
+check_reachability                       |   0.416 |   0.531
+heuristic_combat_legal_moves             |   0.127 |   0.471
+heuristic_non_combat_legal_moves         |   0.074 |   0.312
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_72.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.012 |   0.903
+check_reachability                       |   0.408 |   0.520
+heuristic_combat_legal_moves             |   0.118 |   0.424
+heuristic_non_combat_legal_moves         |   0.084 |   0.352
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_2_73.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.023 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.023
+simulate                                 |   0.012 |   0.924
+check_reachability                       |   0.388 |   0.497
+heuristic_combat_legal_moves             |   0.160 |   0.437
+heuristic_non_combat_legal_moves         |   0.087 |   0.363
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_01.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.006 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.006
+simulate                                 |   0.025 |   0.871
+heuristic_combat_legal_moves             |   0.211 |   0.608
+check_reachability                       |   0.264 |   0.347
+clone                                    |   0.001 |   0.250
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_02.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.016 |   0.893
+heuristic_combat_legal_moves             |   0.177 |   0.621
+check_reachability                       |   0.360 |   0.466
+clone                                    |   0.001 |   0.208
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_03.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.013 |   0.904
+heuristic_combat_legal_moves             |   0.162 |   0.595
+check_reachability                       |   0.393 |   0.505
+clone                                    |   0.001 |   0.194
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_04.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.013 |   0.901
+heuristic_combat_legal_moves             |   0.159 |   0.595
+check_reachability                       |   0.401 |   0.514
+clone                                    |   0.000 |   0.185
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_05.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.012 |   0.904
+heuristic_combat_legal_moves             |   0.160 |   0.604
+check_reachability                       |   0.407 |   0.522
+clone                                    |   0.001 |   0.188
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_06.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.002 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.002
+simulate                                 |   0.012 |   0.902
+heuristic_combat_legal_moves             |   0.159 |   0.601
+check_reachability                       |   0.406 |   0.521
+heuristic_non_combat_legal_moves         |   0.046 |   0.182
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_07.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.013 |   0.903
+heuristic_combat_legal_moves             |   0.160 |   0.603
+check_reachability                       |   0.404 |   0.519
+clone                                    |   0.000 |   0.188
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_08.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.011 |   0.910
+heuristic_combat_legal_moves             |   0.155 |   0.603
+check_reachability                       |   0.420 |   0.539
+heuristic_non_combat_legal_moves         |   0.047 |   0.189
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_09.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.011 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.011
+simulate                                 |   0.011 |   0.914
+heuristic_combat_legal_moves             |   0.147 |   0.575
+check_reachability                       |   0.406 |   0.520
+clone                                    |   0.000 |   0.219
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_10.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.011 |   0.911
+heuristic_combat_legal_moves             |   0.148 |   0.582
+check_reachability                       |   0.424 |   0.544
+heuristic_non_combat_legal_moves         |   0.051 |   0.210
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_11.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.011 |   0.914
+heuristic_combat_legal_moves             |   0.147 |   0.576
+check_reachability                       |   0.428 |   0.549
+heuristic_non_combat_legal_moves         |   0.054 |   0.223
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_12.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.010 |   0.912
+heuristic_combat_legal_moves             |   0.148 |   0.576
+check_reachability                       |   0.427 |   0.547
+heuristic_non_combat_legal_moves         |   0.053 |   0.220
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_13.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.010 |   0.920
+heuristic_combat_legal_moves             |   0.145 |   0.579
+check_reachability                       |   0.442 |   0.565
+heuristic_non_combat_legal_moves         |   0.055 |   0.231
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_14.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.012
+simulate                                 |   0.010 |   0.915
+heuristic_combat_legal_moves             |   0.143 |   0.569
+check_reachability                       |   0.439 |   0.562
+heuristic_non_combat_legal_moves         |   0.056 |   0.236
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_15.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.012
+simulate                                 |   0.008 |   0.926
+heuristic_combat_legal_moves             |   0.143 |   0.599
+check_reachability                       |   0.462 |   0.590
+heuristic_non_combat_legal_moves         |   0.051 |   0.224
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_16.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.014 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.014
+simulate                                 |   0.008 |   0.932
+heuristic_combat_legal_moves             |   0.131 |   0.545
+check_reachability                       |   0.421 |   0.539
+clone                                    |   0.000 |   0.233
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_17.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.012
+simulate                                 |   0.009 |   0.922
+check_reachability                       |   0.455 |   0.582
+heuristic_combat_legal_moves             |   0.140 |   0.580
+heuristic_non_combat_legal_moves         |   0.054 |   0.236
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_18.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.012
+simulate                                 |   0.010 |   0.913
+heuristic_combat_legal_moves             |   0.145 |   0.585
+check_reachability                       |   0.436 |   0.559
+heuristic_non_combat_legal_moves         |   0.052 |   0.218
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_19.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.012
+simulate                                 |   0.009 |   0.924
+heuristic_combat_legal_moves             |   0.147 |   0.598
+check_reachability                       |   0.449 |   0.574
+heuristic_non_combat_legal_moves         |   0.051 |   0.218
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_20.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.015 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.015
+simulate                                 |   0.009 |   0.923
+heuristic_combat_legal_moves             |   0.144 |   0.593
+check_reachability                       |   0.452 |   0.579
+heuristic_non_combat_legal_moves         |   0.052 |   0.222
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_21.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.014 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.014
+simulate                                 |   0.009 |   0.922
+heuristic_combat_legal_moves             |   0.144 |   0.582
+check_reachability                       |   0.447 |   0.572
+heuristic_non_combat_legal_moves         |   0.054 |   0.229
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_22.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.010 |   0.912
+heuristic_combat_legal_moves             |   0.145 |   0.564
+check_reachability                       |   0.433 |   0.552
+heuristic_non_combat_legal_moves         |   0.057 |   0.236
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_23.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.012
+simulate                                 |   0.010 |   0.917
+heuristic_combat_legal_moves             |   0.143 |   0.576
+check_reachability                       |   0.440 |   0.562
+heuristic_non_combat_legal_moves         |   0.054 |   0.228
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_24.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.011 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.011
+simulate                                 |   0.010 |   0.911
+heuristic_combat_legal_moves             |   0.142 |   0.560
+check_reachability                       |   0.434 |   0.553
+heuristic_non_combat_legal_moves         |   0.058 |   0.239
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_25.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.010 |   0.916
+check_reachability                       |   0.437 |   0.558
+heuristic_combat_legal_moves             |   0.139 |   0.541
+heuristic_non_combat_legal_moves         |   0.062 |   0.263
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_26.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.014 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.014
+simulate                                 |   0.009 |   0.908
+check_reachability                       |   0.441 |   0.561
+heuristic_combat_legal_moves             |   0.132 |   0.530
+heuristic_non_combat_legal_moves         |   0.062 |   0.269
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_27.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.014 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.014
+simulate                                 |   0.010 |   0.917
+check_reachability                       |   0.438 |   0.561
+heuristic_combat_legal_moves             |   0.141 |   0.548
+heuristic_non_combat_legal_moves         |   0.061 |   0.260
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_28.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.018 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.018
+simulate                                 |   0.010 |   0.904
+check_reachability                       |   0.434 |   0.552
+heuristic_combat_legal_moves             |   0.126 |   0.490
+heuristic_non_combat_legal_moves         |   0.071 |   0.304
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_29.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.011 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.011
+simulate                                 |   0.010 |   0.916
+check_reachability                       |   0.438 |   0.558
+heuristic_combat_legal_moves             |   0.130 |   0.498
+heuristic_non_combat_legal_moves         |   0.071 |   0.306
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_30.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.025 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.025
+simulate                                 |   0.010 |   0.876
+check_reachability                       |   0.427 |   0.536
+heuristic_combat_legal_moves             |   0.121 |   0.450
+heuristic_non_combat_legal_moves         |   0.067 |   0.319
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_31.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.015 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.015
+simulate                                 |   0.010 |   0.912
+check_reachability                       |   0.438 |   0.559
+heuristic_combat_legal_moves             |   0.127 |   0.495
+heuristic_non_combat_legal_moves         |   0.070 |   0.304
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_32.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.016 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.016
+simulate                                 |   0.010 |   0.905
+check_reachability                       |   0.439 |   0.558
+heuristic_combat_legal_moves             |   0.124 |   0.489
+heuristic_non_combat_legal_moves         |   0.071 |   0.308
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_33.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.010 |   0.910
+check_reachability                       |   0.436 |   0.557
+heuristic_combat_legal_moves             |   0.126 |   0.490
+heuristic_non_combat_legal_moves         |   0.070 |   0.307
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_34.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.016 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.016
+simulate                                 |   0.010 |   0.883
+check_reachability                       |   0.431 |   0.544
+heuristic_combat_legal_moves             |   0.119 |   0.471
+heuristic_non_combat_legal_moves         |   0.070 |   0.305
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_35.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.020 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.020
+simulate                                 |   0.009 |   0.902
+check_reachability                       |   0.427 |   0.546
+heuristic_combat_legal_moves             |   0.121 |   0.484
+heuristic_non_combat_legal_moves         |   0.071 |   0.313
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_36.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.012
+simulate                                 |   0.010 |   0.896
+check_reachability                       |   0.436 |   0.553
+heuristic_combat_legal_moves             |   0.121 |   0.477
+heuristic_non_combat_legal_moves         |   0.072 |   0.312
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_37.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.015 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.015
+simulate                                 |   0.009 |   0.907
+check_reachability                       |   0.437 |   0.558
+heuristic_combat_legal_moves             |   0.122 |   0.483
+heuristic_non_combat_legal_moves         |   0.070 |   0.308
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_38.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.016 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.016
+simulate                                 |   0.010 |   0.896
+check_reachability                       |   0.433 |   0.548
+heuristic_combat_legal_moves             |   0.123 |   0.485
+heuristic_non_combat_legal_moves         |   0.070 |   0.302
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_39.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.013 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.013
+simulate                                 |   0.010 |   0.909
+check_reachability                       |   0.429 |   0.546
+heuristic_combat_legal_moves             |   0.130 |   0.492
+heuristic_non_combat_legal_moves         |   0.071 |   0.308
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_40.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.042 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.041
+simulate                                 |   0.010 |   0.862
+check_reachability                       |   0.425 |   0.529
+heuristic_combat_legal_moves             |   0.117 |   0.438
+heuristic_non_combat_legal_moves         |   0.064 |   0.365
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_41.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.014 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.014
+simulate                                 |   0.010 |   0.901
+check_reachability                       |   0.436 |   0.554
+heuristic_combat_legal_moves             |   0.126 |   0.500
+heuristic_non_combat_legal_moves         |   0.068 |   0.292
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_42.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.048 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.048
+simulate                                 |   0.009 |   0.839
+check_reachability                       |   0.424 |   0.524
+heuristic_combat_legal_moves             |   0.111 |   0.420
+heuristic_non_combat_legal_moves         |   0.060 |   0.381
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_43.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.013 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.013
+simulate                                 |   0.010 |   0.908
+check_reachability                       |   0.433 |   0.550
+heuristic_combat_legal_moves             |   0.129 |   0.495
+heuristic_non_combat_legal_moves         |   0.070 |   0.301
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_44.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.072 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.072
+simulate                                 |   0.007 |   0.841
+check_reachability                       |   0.455 |   0.559
+heuristic_combat_legal_moves             |   0.101 |   0.483
+heuristic_non_combat_legal_moves         |   0.060 |   0.270
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_45.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.016 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.016
+simulate                                 |   0.008 |   0.913
+check_reachability                       |   0.445 |   0.568
+heuristic_combat_legal_moves             |   0.119 |   0.469
+heuristic_non_combat_legal_moves         |   0.073 |   0.330
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_46.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.085 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.085
+simulate                                 |   0.007 |   0.824
+check_reachability                       |   0.359 |   0.458
+heuristic_combat_legal_moves             |   0.096 |   0.382
+clone                                    |   0.000 |   0.322
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_47.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.016 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.016
+simulate                                 |   0.009 |   0.910
+check_reachability                       |   0.447 |   0.569
+heuristic_combat_legal_moves             |   0.120 |   0.481
+heuristic_non_combat_legal_moves         |   0.072 |   0.321
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_48.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.138 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.138
+simulate                                 |   0.006 |   0.756
+clone                                    |   0.000 |   0.431
+check_reachability                       |   0.292 |   0.373
+heuristic_combat_legal_moves             |   0.075 |   0.293
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_49.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.025 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.025
+simulate                                 |   0.009 |   0.913
+check_reachability                       |   0.410 |   0.524
+heuristic_combat_legal_moves             |   0.113 |   0.430
+heuristic_non_combat_legal_moves         |   0.074 |   0.322
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_50.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.034 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.034
+simulate                                 |   0.009 |   0.866
+check_reachability                       |   0.414 |   0.528
+heuristic_combat_legal_moves             |   0.111 |   0.421
+heuristic_non_combat_legal_moves         |   0.077 |   0.338
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_51.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.021 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.021
+simulate                                 |   0.009 |   0.903
+check_reachability                       |   0.427 |   0.545
+heuristic_combat_legal_moves             |   0.119 |   0.476
+heuristic_non_combat_legal_moves         |   0.074 |   0.321
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_52.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.092 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.092
+simulate                                 |   0.007 |   0.794
+check_reachability                       |   0.438 |   0.529
+heuristic_combat_legal_moves             |   0.089 |   0.452
+heuristic_non_combat_legal_moves         |   0.059 |   0.257
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_53.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.043 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.043
+simulate                                 |   0.009 |   0.868
+check_reachability                       |   0.394 |   0.503
+heuristic_combat_legal_moves             |   0.155 |   0.446
+heuristic_non_combat_legal_moves         |   0.073 |   0.324
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_54.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.106 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.106
+simulate                                 |   0.007 |   0.779
+check_reachability                       |   0.442 |   0.528
+heuristic_combat_legal_moves             |   0.085 |   0.455
+clone                                    |   0.000 |   0.255
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_55.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.037 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.037
+simulate                                 |   0.009 |   0.862
+check_reachability                       |   0.444 |   0.551
+heuristic_combat_legal_moves             |   0.105 |   0.462
+heuristic_non_combat_legal_moves         |   0.069 |   0.302
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_56.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.073 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.072
+simulate                                 |   0.008 |   0.825
+check_reachability                       |   0.439 |   0.536
+heuristic_combat_legal_moves             |   0.091 |   0.430
+heuristic_non_combat_legal_moves         |   0.069 |   0.303
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_57.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.029 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.029
+simulate                                 |   0.009 |   0.874
+check_reachability                       |   0.402 |   0.514
+heuristic_combat_legal_moves             |   0.108 |   0.461
+heuristic_non_combat_legal_moves         |   0.070 |   0.312
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_58.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.271 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.271
+simulate                                 |   0.004 |   0.647
+heuristic_combat_legal_moves             |   0.045 |   0.469
+expand                                   |   0.000 |   0.364
+clone                                    |   0.000 |   0.359
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_3_59.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.012
+simulate                                 |   0.011 |   0.919
+check_reachability                       |   0.432 |   0.552
+heuristic_combat_legal_moves             |   0.117 |   0.426
+heuristic_non_combat_legal_moves         |   0.086 |   0.378
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_01.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.006 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.006
+simulate                                 |   0.022 |   0.877
+heuristic_combat_legal_moves             |   0.196 |   0.605
+check_reachability                       |   0.297 |   0.387
+clone                                    |   0.001 |   0.240
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_02.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.016 |   0.893
+heuristic_combat_legal_moves             |   0.173 |   0.606
+check_reachability                       |   0.363 |   0.468
+clone                                    |   0.001 |   0.210
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_03.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.013 |   0.899
+heuristic_combat_legal_moves             |   0.163 |   0.593
+check_reachability                       |   0.389 |   0.500
+clone                                    |   0.001 |   0.197
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_04.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.013 |   0.903
+heuristic_combat_legal_moves             |   0.160 |   0.594
+check_reachability                       |   0.399 |   0.511
+clone                                    |   0.001 |   0.195
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_05.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.003 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.003
+simulate                                 |   0.012 |   0.904
+heuristic_combat_legal_moves             |   0.159 |   0.601
+check_reachability                       |   0.407 |   0.521
+clone                                    |   0.000 |   0.186
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_06.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.011 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.011
+simulate                                 |   0.012 |   0.910
+heuristic_combat_legal_moves             |   0.159 |   0.612
+check_reachability                       |   0.416 |   0.533
+clone                                    |   0.000 |   0.187
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_07.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.011 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.011
+simulate                                 |   0.011 |   0.908
+heuristic_combat_legal_moves             |   0.158 |   0.612
+check_reachability                       |   0.416 |   0.534
+clone                                    |   0.000 |   0.191
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_08.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.012 |   0.904
+heuristic_combat_legal_moves             |   0.160 |   0.607
+check_reachability                       |   0.407 |   0.523
+clone                                    |   0.001 |   0.189
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_09.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.012 |   0.907
+heuristic_combat_legal_moves             |   0.159 |   0.605
+check_reachability                       |   0.408 |   0.524
+clone                                    |   0.000 |   0.189
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_10.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.012 |   0.899
+heuristic_combat_legal_moves             |   0.160 |   0.604
+check_reachability                       |   0.403 |   0.518
+clone                                    |   0.000 |   0.192
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_11.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.012 |   0.899
+heuristic_combat_legal_moves             |   0.163 |   0.606
+check_reachability                       |   0.402 |   0.515
+clone                                    |   0.000 |   0.189
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_12.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.013 |   0.904
+heuristic_combat_legal_moves             |   0.162 |   0.602
+check_reachability                       |   0.402 |   0.515
+clone                                    |   0.001 |   0.192
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_13.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.002 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.002
+simulate                                 |   0.012 |   0.898
+heuristic_combat_legal_moves             |   0.157 |   0.600
+check_reachability                       |   0.411 |   0.526
+clone                                    |   0.000 |   0.183
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_14.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.004 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.004
+simulate                                 |   0.011 |   0.902
+heuristic_combat_legal_moves             |   0.157 |   0.601
+check_reachability                       |   0.417 |   0.534
+heuristic_non_combat_legal_moves         |   0.046 |   0.186
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_15.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.013 |   0.905
+heuristic_combat_legal_moves             |   0.160 |   0.595
+check_reachability                       |   0.403 |   0.516
+clone                                    |   0.001 |   0.190
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_16.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.012 |   0.905
+heuristic_combat_legal_moves             |   0.158 |   0.590
+check_reachability                       |   0.404 |   0.517
+clone                                    |   0.000 |   0.193
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_17.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.003 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.003
+simulate                                 |   0.012 |   0.904
+heuristic_combat_legal_moves             |   0.159 |   0.600
+check_reachability                       |   0.408 |   0.522
+heuristic_non_combat_legal_moves         |   0.047 |   0.183
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_18.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.003 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.003
+simulate                                 |   0.012 |   0.902
+heuristic_combat_legal_moves             |   0.159 |   0.600
+check_reachability                       |   0.406 |   0.521
+clone                                    |   0.000 |   0.185
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_19.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.011 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.011
+simulate                                 |   0.012 |   0.907
+heuristic_combat_legal_moves             |   0.157 |   0.604
+check_reachability                       |   0.415 |   0.531
+clone                                    |   0.000 |   0.187
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_20.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.903
+heuristic_combat_legal_moves             |   0.156 |   0.602
+check_reachability                       |   0.415 |   0.531
+clone                                    |   0.000 |   0.187
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_22.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.028 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.028
+simulate                                 |   0.012 |   0.906
+heuristic_combat_legal_moves             |   0.159 |   0.601
+check_reachability                       |   0.409 |   0.523
+clone                                    |   0.000 |   0.187
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_23.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.011 |   0.908
+heuristic_combat_legal_moves             |   0.156 |   0.599
+check_reachability                       |   0.417 |   0.533
+heuristic_non_combat_legal_moves         |   0.047 |   0.188
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_24.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.011 |   0.910
+heuristic_combat_legal_moves             |   0.155 |   0.607
+check_reachability                       |   0.423 |   0.540
+clone                                    |   0.000 |   0.185
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_25.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.011 |   0.914
+heuristic_combat_legal_moves             |   0.155 |   0.610
+check_reachability                       |   0.430 |   0.549
+heuristic_non_combat_legal_moves         |   0.046 |   0.188
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_26.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.012 |   0.909
+heuristic_combat_legal_moves             |   0.158 |   0.604
+check_reachability                       |   0.415 |   0.531
+clone                                    |   0.000 |   0.186
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_27.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.011 |   0.908
+heuristic_combat_legal_moves             |   0.155 |   0.604
+check_reachability                       |   0.419 |   0.536
+clone                                    |   0.000 |   0.187
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_28.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.011 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.011
+simulate                                 |   0.012 |   0.908
+heuristic_combat_legal_moves             |   0.157 |   0.602
+check_reachability                       |   0.412 |   0.528
+clone                                    |   0.000 |   0.189
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_29.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.011 |   0.910
+heuristic_combat_legal_moves             |   0.156 |   0.608
+check_reachability                       |   0.423 |   0.541
+heuristic_non_combat_legal_moves         |   0.046 |   0.184
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_30.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.011
+simulate                                 |   0.011 |   0.908
+heuristic_combat_legal_moves             |   0.155 |   0.596
+check_reachability                       |   0.415 |   0.531
+clone                                    |   0.000 |   0.192
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_31.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.004 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.004
+simulate                                 |   0.012 |   0.904
+heuristic_combat_legal_moves             |   0.158 |   0.599
+check_reachability                       |   0.410 |   0.525
+clone                                    |   0.000 |   0.186
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_32.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.005 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.005
+simulate                                 |   0.011 |   0.906
+heuristic_combat_legal_moves             |   0.156 |   0.601
+check_reachability                       |   0.418 |   0.535
+heuristic_non_combat_legal_moves         |   0.047 |   0.187
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_33.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.013 |   0.901
+heuristic_combat_legal_moves             |   0.160 |   0.589
+check_reachability                       |   0.399 |   0.513
+heuristic_non_combat_legal_moves         |   0.049 |   0.191
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_34.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.013 |   0.907
+heuristic_combat_legal_moves             |   0.158 |   0.591
+check_reachability                       |   0.403 |   0.517
+heuristic_non_combat_legal_moves         |   0.050 |   0.191
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_35.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.006 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.006
+simulate                                 |   0.013 |   0.898
+heuristic_combat_legal_moves             |   0.148 |   0.540
+check_reachability                       |   0.401 |   0.512
+heuristic_non_combat_legal_moves         |   0.059 |   0.237
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_4_36.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.014 |   0.899
+heuristic_combat_legal_moves             |   0.149 |   0.528
+check_reachability                       |   0.387 |   0.495
+heuristic_non_combat_legal_moves         |   0.062 |   0.238
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_01.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.006 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.006
+simulate                                 |   0.019 |   0.882
+heuristic_combat_legal_moves             |   0.185 |   0.609
+check_reachability                       |   0.328 |   0.427
+clone                                    |   0.001 |   0.230
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_02.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.014 |   0.896
+heuristic_combat_legal_moves             |   0.169 |   0.613
+check_reachability                       |   0.381 |   0.491
+clone                                    |   0.001 |   0.203
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_03.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.006 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.006
+simulate                                 |   0.013 |   0.897
+heuristic_combat_legal_moves             |   0.163 |   0.596
+check_reachability                       |   0.388 |   0.499
+clone                                    |   0.001 |   0.201
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_04.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.012 |   0.900
+heuristic_combat_legal_moves             |   0.160 |   0.598
+check_reachability                       |   0.398 |   0.512
+clone                                    |   0.001 |   0.197
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_05.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.012 |   0.904
+heuristic_combat_legal_moves             |   0.158 |   0.601
+check_reachability                       |   0.405 |   0.521
+clone                                    |   0.001 |   0.194
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_06.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.012 |   0.906
+heuristic_combat_legal_moves             |   0.157 |   0.599
+check_reachability                       |   0.410 |   0.526
+clone                                    |   0.000 |   0.193
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_07.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.906
+heuristic_combat_legal_moves             |   0.156 |   0.603
+check_reachability                       |   0.415 |   0.533
+clone                                    |   0.000 |   0.189
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_08.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.012 |   0.902
+heuristic_combat_legal_moves             |   0.156 |   0.593
+check_reachability                       |   0.404 |   0.518
+clone                                    |   0.000 |   0.196
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_09.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.011 |   0.908
+heuristic_combat_legal_moves             |   0.157 |   0.598
+check_reachability                       |   0.413 |   0.531
+clone                                    |   0.000 |   0.189
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_10.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.011 |   0.904
+heuristic_combat_legal_moves             |   0.158 |   0.601
+check_reachability                       |   0.410 |   0.526
+clone                                    |   0.001 |   0.193
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_11.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.004 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.004
+simulate                                 |   0.011 |   0.902
+heuristic_combat_legal_moves             |   0.155 |   0.605
+check_reachability                       |   0.419 |   0.537
+clone                                    |   0.000 |   0.184
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_12.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.905
+heuristic_combat_legal_moves             |   0.153 |   0.591
+check_reachability                       |   0.416 |   0.533
+heuristic_non_combat_legal_moves         |   0.047 |   0.191
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_13.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.011 |   0.906
+heuristic_combat_legal_moves             |   0.155 |   0.604
+check_reachability                       |   0.420 |   0.538
+clone                                    |   0.000 |   0.189
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_14.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.012 |   0.908
+heuristic_combat_legal_moves             |   0.159 |   0.600
+check_reachability                       |   0.409 |   0.524
+clone                                    |   0.001 |   0.190
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_15.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.012 |   0.898
+heuristic_combat_legal_moves             |   0.154 |   0.574
+check_reachability                       |   0.401 |   0.516
+heuristic_non_combat_legal_moves         |   0.050 |   0.200
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_16.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.006 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.006
+simulate                                 |   0.012 |   0.903
+heuristic_combat_legal_moves             |   0.155 |   0.580
+check_reachability                       |   0.402 |   0.516
+heuristic_non_combat_legal_moves         |   0.049 |   0.195
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_17.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.012 |   0.906
+heuristic_combat_legal_moves             |   0.155 |   0.598
+check_reachability                       |   0.411 |   0.528
+clone                                    |   0.000 |   0.191
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_18.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.011 |   0.909
+heuristic_combat_legal_moves             |   0.155 |   0.603
+check_reachability                       |   0.418 |   0.536
+clone                                    |   0.000 |   0.189
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_19.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.011 |   0.910
+heuristic_combat_legal_moves             |   0.154 |   0.604
+check_reachability                       |   0.422 |   0.541
+clone                                    |   0.000 |   0.188
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_20.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.011 |   0.908
+heuristic_combat_legal_moves             |   0.154 |   0.600
+check_reachability                       |   0.420 |   0.540
+clone                                    |   0.000 |   0.188
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_21.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.003 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.003
+simulate                                 |   0.011 |   0.905
+heuristic_combat_legal_moves             |   0.152 |   0.602
+check_reachability                       |   0.423 |   0.543
+heuristic_non_combat_legal_moves         |   0.044 |   0.184
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_22.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.011 |   0.907
+heuristic_combat_legal_moves             |   0.151 |   0.599
+check_reachability                       |   0.422 |   0.542
+clone                                    |   0.000 |   0.190
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_23.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.011 |   0.908
+heuristic_combat_legal_moves             |   0.153 |   0.602
+check_reachability                       |   0.423 |   0.542
+clone                                    |   0.000 |   0.190
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_24.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.011 |   0.907
+heuristic_combat_legal_moves             |   0.154 |   0.597
+check_reachability                       |   0.418 |   0.536
+clone                                    |   0.000 |   0.190
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_25.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.909
+heuristic_combat_legal_moves             |   0.153 |   0.596
+check_reachability                       |   0.422 |   0.541
+heuristic_non_combat_legal_moves         |   0.046 |   0.191
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_26.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.011 |   0.905
+heuristic_combat_legal_moves             |   0.148 |   0.574
+check_reachability                       |   0.417 |   0.534
+heuristic_non_combat_legal_moves         |   0.049 |   0.205
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_27.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.010 |   0.908
+heuristic_combat_legal_moves             |   0.152 |   0.599
+check_reachability                       |   0.426 |   0.545
+heuristic_non_combat_legal_moves         |   0.046 |   0.189
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_28.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.011 |   0.903
+heuristic_combat_legal_moves             |   0.147 |   0.567
+check_reachability                       |   0.411 |   0.525
+clone                                    |   0.001 |   0.203
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_29.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.905
+heuristic_combat_legal_moves             |   0.153 |   0.590
+check_reachability                       |   0.414 |   0.530
+clone                                    |   0.001 |   0.193
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_30.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.905
+heuristic_combat_legal_moves             |   0.152 |   0.575
+check_reachability                       |   0.412 |   0.527
+heuristic_non_combat_legal_moves         |   0.050 |   0.203
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_31.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.011 |   0.906
+heuristic_combat_legal_moves             |   0.155 |   0.589
+check_reachability                       |   0.410 |   0.527
+clone                                    |   0.000 |   0.193
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_32.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.011 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.010
+simulate                                 |   0.011 |   0.904
+heuristic_combat_legal_moves             |   0.149 |   0.572
+check_reachability                       |   0.409 |   0.526
+heuristic_non_combat_legal_moves         |   0.049 |   0.201
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_33.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.903
+heuristic_combat_legal_moves             |   0.151 |   0.586
+check_reachability                       |   0.411 |   0.528
+clone                                    |   0.000 |   0.198
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_34.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.013 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.013
+simulate                                 |   0.011 |   0.894
+heuristic_combat_legal_moves             |   0.149 |   0.575
+check_reachability                       |   0.412 |   0.527
+heuristic_non_combat_legal_moves         |   0.049 |   0.210
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_35.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.899
+heuristic_combat_legal_moves             |   0.152 |   0.590
+check_reachability                       |   0.413 |   0.530
+clone                                    |   0.000 |   0.191
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_36.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.015 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.014
+simulate                                 |   0.011 |   0.878
+heuristic_combat_legal_moves             |   0.148 |   0.558
+check_reachability                       |   0.396 |   0.509
+heuristic_non_combat_legal_moves         |   0.049 |   0.217
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_37.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.904
+heuristic_combat_legal_moves             |   0.154 |   0.596
+check_reachability                       |   0.412 |   0.530
+clone                                    |   0.000 |   0.192
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_38.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.011 |   0.908
+heuristic_combat_legal_moves             |   0.156 |   0.607
+check_reachability                       |   0.415 |   0.534
+clone                                    |   0.000 |   0.188
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_39.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.011 |   0.903
+heuristic_combat_legal_moves             |   0.155 |   0.598
+check_reachability                       |   0.414 |   0.531
+clone                                    |   0.000 |   0.187
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_40.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.011 |   0.903
+heuristic_combat_legal_moves             |   0.156 |   0.608
+check_reachability                       |   0.417 |   0.535
+clone                                    |   0.000 |   0.188
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_41.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.012 |   0.892
+heuristic_combat_legal_moves             |   0.156 |   0.588
+check_reachability                       |   0.399 |   0.512
+clone                                    |   0.001 |   0.197
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_42.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.013 |   0.896
+heuristic_combat_legal_moves             |   0.163 |   0.596
+check_reachability                       |   0.390 |   0.502
+clone                                    |   0.001 |   0.197
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_43.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.009 |   0.924
+heuristic_combat_legal_moves             |   0.124 |   0.473
+check_reachability                       |   0.317 |   0.409
+clone                                    |   0.000 |   0.370
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_44.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.008
+simulate                                 |   0.011 |   0.903
+heuristic_combat_legal_moves             |   0.155 |   0.603
+check_reachability                       |   0.417 |   0.535
+clone                                    |   0.000 |   0.190
+
+============================================================
+PROFILE FILE: smart_root_hybrid_cython/profiles/mcts_5_45.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.009
+simulate                                 |   0.012 |   0.908
+heuristic_combat_legal_moves             |   0.155 |   0.590
+check_reachability                       |   0.411 |   0.527
+heuristic_non_combat_legal_moves         |   0.049 |   0.193
+

@@ -1,0 +1,93 @@
+MCTS Efficiency Summary (Game-wise)
+========================================
+
+Game 1
+--------------------
+Total rounds: 72
+Iterations per round:
+  Mean: 5.90
+  Min : 2
+  Max : 19
+Exploration_coverage (actions_explored / total_actions):
+  Mean: 0.1025
+  Min : 0.0000
+  Max : 1.0000
+Avg Tree depth per round:
+  Mean: 9.0583
+  Min : 3.2500
+  Max : 10.0000
+Game 2
+--------------------
+Total rounds: 42
+Iterations per round:
+  Mean: 6.21
+  Min : 5
+  Max : 13
+Exploration_coverage (actions_explored / total_actions):
+  Mean: 0.1576
+  Min : 0.0000
+  Max : 1.0000
+Avg Tree depth per round:
+  Mean: 9.3055
+  Min : 8.5000
+  Max : 10.0000
+Game 3
+--------------------
+Total rounds: 32
+Iterations per round:
+  Mean: 6.78
+  Min : 5
+  Max : 13
+Exploration_coverage (actions_explored / total_actions):
+  Mean: 0.2664
+  Min : 0.0000
+  Max : 1.0000
+Avg Tree depth per round:
+  Mean: 9.3292
+  Min : 7.8889
+  Max : 10.0000
+Game 4
+--------------------
+Total rounds: 68
+Iterations per round:
+  Mean: 7.25
+  Min : 4
+  Max : 16
+Exploration_coverage (actions_explored / total_actions):
+  Mean: 0.1587
+  Min : 0.0000
+  Max : 1.0000
+Avg Tree depth per round:
+  Mean: 9.4383
+  Min : 8.3750
+  Max : 10.0000
+Game 5
+--------------------
+Total rounds: 35
+Iterations per round:
+  Mean: 6.26
+  Min : 5
+  Max : 16
+Exploration_coverage (actions_explored / total_actions):
+  Mean: 0.2111
+  Min : 0.0000
+  Max : 1.0000
+Avg Tree depth per round:
+  Mean: 9.2985
+  Min : 8.5000
+  Max : 10.0000
+
+OVERALL AVERAGES (Across Games)
+==============================
+Iterations per round (game-averaged):
+  Mean: 6.48
+  Min: 2
+  Max: 19
+Exploration coverage (game-averaged):
+  Mean: 0.18
+  Min: 0.00
+  Max: 1.0
+Avg tree depth per round (game-averaged):
+  Mean: 9.29
+  Min: 3.25
+  Max: 10.0
