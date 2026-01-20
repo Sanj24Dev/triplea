@@ -1,7 +1,15 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-FOLDER = "smart_root_dumb_tree/metrics"
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--folder", type=str, required=True)
+args = parser.parse_args()
+
+main_folder = args.folder
+
+FOLDER = f"{main_folder}/metrics"
 COMBAT_CSV = f"{FOLDER}/combat_quality.csv"
 OUTCOME_CSV = f"{FOLDER}/game_outcome.csv"  # Adjust filename
 

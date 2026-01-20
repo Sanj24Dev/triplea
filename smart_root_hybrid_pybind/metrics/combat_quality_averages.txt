@@ -1,0 +1,8 @@
+=== Combat Quality Metric Averages ===
+
+Outcome: LOST
+  Avg Territory Gain: 0.959
+  Avg PU Gain: 15.596
+  Territory Gain Consistency: 0.206
+  Strategic Retention Ratio: -0.020
+

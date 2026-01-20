@@ -1,0 +1,1944 @@
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_01.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.024 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.023
+simulate                                 |   0.010 |   0.964
+heuristic_combat_legal_moves             |   0.078 |   0.779
+check_reachability                       |   0.195 |   0.758
+heuristic_non_combat_legal_moves         |   0.013 |   0.131
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_02.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.015 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.015
+simulate                                 |   0.007 |   0.973
+check_reachability                       |   0.201 |   0.817
+heuristic_combat_legal_moves             |   0.065 |   0.757
+heuristic_non_combat_legal_moves         |   0.016 |   0.183
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_03.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.020 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.020
+simulate                                 |   0.006 |   0.982
+check_reachability                       |   0.203 |   0.835
+heuristic_combat_legal_moves             |   0.062 |   0.755
+heuristic_non_combat_legal_moves         |   0.016 |   0.195
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_04.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.009
+simulate                                 |   0.005 |   0.974
+check_reachability                       |   0.201 |   0.837
+heuristic_combat_legal_moves             |   0.058 |   0.735
+heuristic_non_combat_legal_moves         |   0.017 |   0.210
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_05.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.010 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.010
+simulate                                 |   0.005 |   0.978
+check_reachability                       |   0.202 |   0.839
+heuristic_combat_legal_moves             |   0.057 |   0.740
+heuristic_non_combat_legal_moves         |   0.016 |   0.205
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_06.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.011 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.011
+simulate                                 |   0.005 |   0.974
+check_reachability                       |   0.203 |   0.843
+heuristic_combat_legal_moves             |   0.057 |   0.739
+heuristic_non_combat_legal_moves         |   0.016 |   0.206
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_07.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.026 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.026
+simulate                                 |   0.005 |   0.997
+check_reachability                       |   0.208 |   0.866
+heuristic_combat_legal_moves             |   0.057 |   0.758
+heuristic_non_combat_legal_moves         |   0.016 |   0.209
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_08.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.021 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.021
+simulate                                 |   0.005 |   0.985
+check_reachability                       |   0.204 |   0.853
+heuristic_combat_legal_moves             |   0.056 |   0.744
+heuristic_non_combat_legal_moves         |   0.016 |   0.210
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_09.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.012
+simulate                                 |   0.005 |   0.980
+check_reachability                       |   0.202 |   0.845
+heuristic_combat_legal_moves             |   0.056 |   0.736
+heuristic_non_combat_legal_moves         |   0.016 |   0.210
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_10.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.026 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.026
+simulate                                 |   0.005 |   0.992
+check_reachability                       |   0.205 |   0.856
+heuristic_combat_legal_moves             |   0.057 |   0.736
+heuristic_non_combat_legal_moves         |   0.017 |   0.225
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_11.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.022 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.022
+simulate                                 |   0.005 |   0.994
+check_reachability                       |   0.204 |   0.862
+heuristic_combat_legal_moves             |   0.055 |   0.724
+heuristic_non_combat_legal_moves         |   0.017 |   0.238
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_12.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.014 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.014
+simulate                                 |   0.004 |   0.987
+check_reachability                       |   0.201 |   0.857
+heuristic_combat_legal_moves             |   0.052 |   0.695
+heuristic_non_combat_legal_moves         |   0.018 |   0.260
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_13.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.028 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.028
+simulate                                 |   0.005 |   1.001
+check_reachability                       |   0.205 |   0.867
+heuristic_combat_legal_moves             |   0.054 |   0.713
+heuristic_non_combat_legal_moves         |   0.018 |   0.255
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_14.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.013 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.013
+simulate                                 |   0.005 |   0.986
+check_reachability                       |   0.203 |   0.852
+heuristic_combat_legal_moves             |   0.054 |   0.700
+heuristic_non_combat_legal_moves         |   0.019 |   0.254
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_15.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.018 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.018
+simulate                                 |   0.005 |   0.989
+check_reachability                       |   0.204 |   0.857
+heuristic_combat_legal_moves             |   0.054 |   0.711
+heuristic_non_combat_legal_moves         |   0.018 |   0.246
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_16.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.020 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.020
+simulate                                 |   0.005 |   0.988
+check_reachability                       |   0.203 |   0.851
+heuristic_combat_legal_moves             |   0.054 |   0.704
+heuristic_non_combat_legal_moves         |   0.018 |   0.249
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_17.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.022 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.022
+simulate                                 |   0.005 |   0.993
+check_reachability                       |   0.207 |   0.861
+heuristic_combat_legal_moves             |   0.053 |   0.705
+heuristic_non_combat_legal_moves         |   0.019 |   0.257
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_18.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.026 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.026
+simulate                                 |   0.005 |   0.992
+check_reachability                       |   0.204 |   0.853
+heuristic_combat_legal_moves             |   0.053 |   0.684
+heuristic_non_combat_legal_moves         |   0.020 |   0.273
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_19.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.013 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.013
+simulate                                 |   0.004 |   0.984
+check_reachability                       |   0.202 |   0.854
+heuristic_combat_legal_moves             |   0.053 |   0.701
+heuristic_non_combat_legal_moves         |   0.018 |   0.251
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_20.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.027 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.027
+simulate                                 |   0.005 |   0.997
+check_reachability                       |   0.204 |   0.865
+heuristic_combat_legal_moves             |   0.052 |   0.691
+heuristic_non_combat_legal_moves         |   0.020 |   0.275
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_21.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.013 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.013
+simulate                                 |   0.005 |   0.984
+check_reachability                       |   0.204 |   0.852
+heuristic_combat_legal_moves             |   0.053 |   0.706
+heuristic_non_combat_legal_moves         |   0.018 |   0.246
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_22.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.027 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.027
+simulate                                 |   0.005 |   0.998
+check_reachability                       |   0.206 |   0.865
+heuristic_combat_legal_moves             |   0.055 |   0.710
+heuristic_non_combat_legal_moves         |   0.019 |   0.256
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_23.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.011 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.011
+simulate                                 |   0.005 |   0.983
+check_reachability                       |   0.203 |   0.851
+heuristic_combat_legal_moves             |   0.052 |   0.680
+heuristic_non_combat_legal_moves         |   0.020 |   0.271
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_24.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.026 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.026
+simulate                                 |   0.004 |   0.986
+check_reachability                       |   0.208 |   0.856
+heuristic_combat_legal_moves             |   0.051 |   0.678
+heuristic_non_combat_legal_moves         |   0.020 |   0.276
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_25.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.616 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.616
+simulate                                 |   0.004 |   1.591
+check_reachability                       |   0.812 |   1.469
+heuristic_combat_legal_moves             |   0.048 |   1.260
+heuristic_non_combat_legal_moves         |   0.020 |   0.302
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_26.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.026 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.026
+simulate                                 |   0.004 |   0.985
+check_reachability                       |   0.200 |   0.858
+heuristic_combat_legal_moves             |   0.046 |   0.608
+heuristic_non_combat_legal_moves         |   0.023 |   0.345
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_27.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.015 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.015
+simulate                                 |   0.004 |   0.982
+check_reachability                       |   0.198 |   0.857
+heuristic_combat_legal_moves             |   0.046 |   0.609
+heuristic_non_combat_legal_moves         |   0.023 |   0.341
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_28.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.024 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.024
+simulate                                 |   0.004 |   0.991
+check_reachability                       |   0.201 |   0.863
+heuristic_combat_legal_moves             |   0.049 |   0.649
+heuristic_non_combat_legal_moves         |   0.021 |   0.311
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_29.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.026 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.026
+simulate                                 |   0.004 |   0.999
+check_reachability                       |   0.208 |   0.878
+heuristic_combat_legal_moves             |   0.049 |   0.681
+heuristic_non_combat_legal_moves         |   0.020 |   0.289
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_30.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.049 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.049
+simulate                                 |   0.004 |   0.984
+check_reachability                       |   0.205 |   0.863
+heuristic_combat_legal_moves             |   0.050 |   0.690
+heuristic_non_combat_legal_moves         |   0.019 |   0.266
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_31.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.024 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.024
+simulate                                 |   0.004 |   0.994
+check_reachability                       |   0.203 |   0.864
+heuristic_combat_legal_moves             |   0.052 |   0.701
+heuristic_non_combat_legal_moves         |   0.019 |   0.260
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_32.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.020 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.020
+simulate                                 |   0.004 |   0.976
+check_reachability                       |   0.208 |   0.848
+heuristic_combat_legal_moves             |   0.051 |   0.685
+heuristic_non_combat_legal_moves         |   0.019 |   0.260
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_33.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.031 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.031
+simulate                                 |   0.004 |   0.994
+check_reachability                       |   0.204 |   0.864
+heuristic_combat_legal_moves             |   0.052 |   0.695
+heuristic_non_combat_legal_moves         |   0.019 |   0.267
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_34.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.025 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.025
+simulate                                 |   0.004 |   0.977
+check_reachability                       |   0.200 |   0.848
+heuristic_combat_legal_moves             |   0.051 |   0.672
+heuristic_non_combat_legal_moves         |   0.020 |   0.273
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_35.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.021 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.021
+simulate                                 |   0.004 |   0.988
+check_reachability                       |   0.203 |   0.863
+heuristic_combat_legal_moves             |   0.048 |   0.651
+heuristic_non_combat_legal_moves         |   0.021 |   0.304
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_36.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.071 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.071
+simulate                                 |   0.004 |   0.943
+check_reachability                       |   0.194 |   0.825
+heuristic_combat_legal_moves             |   0.048 |   0.648
+heuristic_non_combat_legal_moves         |   0.019 |   0.266
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_37.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.016 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.015
+simulate                                 |   0.005 |   0.984
+check_reachability                       |   0.206 |   0.846
+heuristic_combat_legal_moves             |   0.052 |   0.686
+heuristic_non_combat_legal_moves         |   0.019 |   0.260
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_38.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.024 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.024
+simulate                                 |   0.004 |   0.992
+check_reachability                       |   0.203 |   0.861
+heuristic_combat_legal_moves             |   0.052 |   0.675
+heuristic_non_combat_legal_moves         |   0.021 |   0.285
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_39.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.024 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.024
+simulate                                 |   0.004 |   0.993
+check_reachability                       |   0.203 |   0.865
+heuristic_combat_legal_moves             |   0.051 |   0.673
+heuristic_non_combat_legal_moves         |   0.021 |   0.289
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_40.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.164 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.164
+simulate                                 |   0.004 |   0.965
+check_reachability                       |   0.275 |   0.847
+heuristic_combat_legal_moves             |   0.045 |   0.683
+heuristic_non_combat_legal_moves         |   0.018 |   0.251
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_41.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.022 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.022
+simulate                                 |   0.004 |   0.979
+check_reachability                       |   0.208 |   0.851
+heuristic_combat_legal_moves             |   0.048 |   0.632
+heuristic_non_combat_legal_moves         |   0.022 |   0.315
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_42.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.067 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.067
+simulate                                 |   0.005 |   0.976
+check_reachability                       |   0.182 |   0.781
+heuristic_combat_legal_moves             |   0.046 |   0.580
+heuristic_non_combat_legal_moves         |   0.021 |   0.297
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_43.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.039 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.039
+simulate                                 |   0.004 |   0.991
+check_reachability                       |   0.206 |   0.868
+heuristic_combat_legal_moves             |   0.040 |   0.528
+heuristic_non_combat_legal_moves         |   0.027 |   0.433
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_44.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.067 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.067
+simulate                                 |   0.004 |   0.957
+check_reachability                       |   0.180 |   0.789
+heuristic_combat_legal_moves             |   0.088 |   0.540
+heuristic_non_combat_legal_moves         |   0.025 |   0.388
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_45.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.032 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.032
+simulate                                 |   0.004 |   0.995
+check_reachability                       |   0.195 |   0.863
+heuristic_combat_legal_moves             |   0.047 |   0.528
+heuristic_non_combat_legal_moves         |   0.028 |   0.436
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_46.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.063 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.063
+simulate                                 |   0.004 |   0.985
+check_reachability                       |   0.175 |   0.767
+heuristic_combat_legal_moves             |   0.041 |   0.508
+heuristic_non_combat_legal_moves         |   0.025 |   0.352
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_47.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.030 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.030
+simulate                                 |   0.004 |   0.998
+check_reachability                       |   0.196 |   0.860
+heuristic_combat_legal_moves             |   0.044 |   0.576
+heuristic_non_combat_legal_moves         |   0.026 |   0.382
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_48.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.053 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.052
+simulate                                 |   0.004 |   0.924
+check_reachability                       |   0.183 |   0.801
+heuristic_combat_legal_moves             |   0.042 |   0.537
+heuristic_non_combat_legal_moves         |   0.024 |   0.356
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_49.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.029 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.029
+simulate                                 |   0.004 |   0.988
+check_reachability                       |   0.190 |   0.840
+heuristic_combat_legal_moves             |   0.043 |   0.535
+heuristic_non_combat_legal_moves         |   0.027 |   0.402
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_50.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.048 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.048
+simulate                                 |   0.004 |   0.976
+check_reachability                       |   0.187 |   0.853
+heuristic_non_combat_legal_moves         |   0.031 |   0.494
+heuristic_combat_legal_moves             |   0.036 |   0.451
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_51.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.025 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.025
+simulate                                 |   0.004 |   0.987
+check_reachability                       |   0.182 |   0.820
+heuristic_combat_legal_moves             |   0.038 |   0.476
+heuristic_non_combat_legal_moves         |   0.028 |   0.438
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_52.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.117 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.117
+simulate                                 |   0.004 |   0.985
+check_reachability                       |   0.148 |   0.653
+heuristic_combat_legal_moves             |   0.034 |   0.407
+heuristic_non_combat_legal_moves         |   0.023 |   0.328
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_53.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.048 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.048
+simulate                                 |   0.004 |   0.943
+check_reachability                       |   0.177 |   0.777
+heuristic_combat_legal_moves             |   0.040 |   0.493
+heuristic_non_combat_legal_moves         |   0.025 |   0.376
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_54.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.082 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.082
+simulate                                 |   0.004 |   0.989
+check_reachability                       |   0.182 |   0.791
+heuristic_combat_legal_moves             |   0.042 |   0.526
+heuristic_non_combat_legal_moves         |   0.025 |   0.358
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_55.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.030 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.030
+simulate                                 |   0.004 |   0.978
+check_reachability                       |   0.193 |   0.837
+heuristic_combat_legal_moves             |   0.058 |   0.579
+heuristic_non_combat_legal_moves         |   0.025 |   0.368
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_1_56.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.037 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.037
+simulate                                 |   0.005 |   0.982
+check_reachability                       |   0.194 |   0.850
+heuristic_combat_legal_moves             |   0.042 |   0.535
+heuristic_non_combat_legal_moves         |   0.028 |   0.413
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_01.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.001 |   1.007
+simulate                                 |   0.017 |   0.947
+heuristic_combat_legal_moves             |   0.104 |   0.782
+check_reachability                       |   0.180 |   0.653
+clone                                    |   0.000 |   0.101
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_02.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.014 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.014
+simulate                                 |   0.009 |   0.969
+check_reachability                       |   0.201 |   0.785
+heuristic_combat_legal_moves             |   0.075 |   0.782
+heuristic_non_combat_legal_moves         |   0.014 |   0.145
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_03.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.016 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.016
+simulate                                 |   0.006 |   0.981
+check_reachability                       |   0.203 |   0.826
+heuristic_combat_legal_moves             |   0.063 |   0.739
+heuristic_non_combat_legal_moves         |   0.018 |   0.208
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_04.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.008
+simulate                                 |   0.006 |   0.977
+check_reachability                       |   0.203 |   0.833
+heuristic_combat_legal_moves             |   0.059 |   0.729
+heuristic_non_combat_legal_moves         |   0.018 |   0.215
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_05.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.018 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.018
+simulate                                 |   0.006 |   0.984
+check_reachability                       |   0.202 |   0.830
+heuristic_combat_legal_moves             |   0.061 |   0.723
+heuristic_non_combat_legal_moves         |   0.019 |   0.223
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_06.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.028 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.028
+simulate                                 |   0.006 |   0.994
+check_reachability                       |   0.204 |   0.842
+heuristic_combat_legal_moves             |   0.060 |   0.736
+heuristic_non_combat_legal_moves         |   0.018 |   0.220
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_07.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.019 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.019
+simulate                                 |   0.005 |   0.983
+check_reachability                       |   0.202 |   0.844
+heuristic_combat_legal_moves             |   0.059 |   0.734
+heuristic_non_combat_legal_moves         |   0.017 |   0.217
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_08.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.023 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.023
+simulate                                 |   0.005 |   0.989
+check_reachability                       |   0.205 |   0.849
+heuristic_combat_legal_moves             |   0.059 |   0.739
+heuristic_non_combat_legal_moves         |   0.017 |   0.217
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_09.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 2.808 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   2.808
+simulate                                 |   0.005 |   0.975
+check_reachability                       |   0.203 |   0.841
+heuristic_combat_legal_moves             |   0.058 |   0.733
+heuristic_non_combat_legal_moves         |   0.017 |   0.212
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_10.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.033 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.033
+simulate                                 |   0.005 |   1.005
+check_reachability                       |   0.209 |   0.869
+heuristic_combat_legal_moves             |   0.058 |   0.751
+heuristic_non_combat_legal_moves         |   0.017 |   0.223
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_11.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.029 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.029
+simulate                                 |   0.005 |   1.000
+check_reachability                       |   0.207 |   0.863
+heuristic_combat_legal_moves             |   0.057 |   0.735
+heuristic_non_combat_legal_moves         |   0.018 |   0.233
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_12.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.009 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.009
+simulate                                 |   0.005 |   0.982
+check_reachability                       |   0.204 |   0.847
+heuristic_combat_legal_moves             |   0.056 |   0.720
+heuristic_non_combat_legal_moves         |   0.018 |   0.230
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_13.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.002 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.002
+simulate                                 |   0.005 |   0.975
+check_reachability                       |   0.201 |   0.840
+heuristic_combat_legal_moves             |   0.056 |   0.703
+heuristic_non_combat_legal_moves         |   0.018 |   0.240
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_14.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.031 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.031
+simulate                                 |   0.005 |   1.000
+check_reachability                       |   0.204 |   0.858
+heuristic_combat_legal_moves             |   0.054 |   0.674
+heuristic_non_combat_legal_moves         |   0.021 |   0.292
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_15.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.029 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.029
+simulate                                 |   0.005 |   0.998
+check_reachability                       |   0.203 |   0.859
+heuristic_combat_legal_moves             |   0.051 |   0.648
+heuristic_non_combat_legal_moves         |   0.022 |   0.315
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_16.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.033 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.033
+simulate                                 |   0.005 |   1.001
+check_reachability                       |   0.199 |   0.859
+heuristic_combat_legal_moves             |   0.050 |   0.606
+heuristic_non_combat_legal_moves         |   0.025 |   0.360
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_17.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.033 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.033
+simulate                                 |   0.005 |   1.003
+check_reachability                       |   0.197 |   0.862
+heuristic_combat_legal_moves             |   0.046 |   0.558
+heuristic_non_combat_legal_moves         |   0.028 |   0.412
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_18.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.031 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.031
+simulate                                 |   0.005 |   0.999
+check_reachability                       |   0.192 |   0.861
+heuristic_non_combat_legal_moves         |   0.032 |   0.509
+heuristic_combat_legal_moves             |   0.039 |   0.454
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_19.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.029 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.029
+simulate                                 |   0.005 |   0.999
+check_reachability                       |   0.191 |   0.862
+heuristic_non_combat_legal_moves         |   0.033 |   0.500
+heuristic_combat_legal_moves             |   0.040 |   0.465
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_20.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.028 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.028
+simulate                                 |   0.005 |   0.997
+check_reachability                       |   0.188 |   0.857
+heuristic_non_combat_legal_moves         |   0.035 |   0.552
+heuristic_combat_legal_moves             |   0.036 |   0.408
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_21.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.022 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.022
+simulate                                 |   0.005 |   0.993
+check_reachability                       |   0.187 |   0.859
+heuristic_non_combat_legal_moves         |   0.033 |   0.529
+heuristic_combat_legal_moves             |   0.036 |   0.430
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_22.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.021 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.021
+simulate                                 |   0.006 |   0.987
+check_reachability                       |   0.179 |   0.837
+heuristic_non_combat_legal_moves         |   0.038 |   0.606
+heuristic_combat_legal_moves             |   0.033 |   0.336
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_23.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.011 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.011
+simulate                                 |   0.006 |   0.979
+check_reachability                       |   0.174 |   0.828
+heuristic_non_combat_legal_moves         |   0.043 |   0.669
+heuristic_combat_legal_moves             |   0.030 |   0.270
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_24.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.012
+simulate                                 |   0.006 |   0.979
+check_reachability                       |   0.170 |   0.829
+heuristic_non_combat_legal_moves         |   0.045 |   0.711
+heuristic_combat_legal_moves             |   0.026 |   0.227
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_2_25.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.017 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.017
+simulate                                 |   0.007 |   0.983
+check_reachability                       |   0.166 |   0.824
+heuristic_non_combat_legal_moves         |   0.050 |   0.775
+heuristic_combat_legal_moves             |   0.025 |   0.167
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_01.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.004 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.004
+simulate                                 |   0.016 |   0.945
+heuristic_combat_legal_moves             |   0.103 |   0.785
+check_reachability                       |   0.181 |   0.659
+clone                                    |   0.000 |   0.097
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_02.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.020 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.020
+simulate                                 |   0.008 |   0.973
+check_reachability                       |   0.199 |   0.794
+heuristic_combat_legal_moves             |   0.074 |   0.789
+heuristic_non_combat_legal_moves         |   0.014 |   0.145
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_03.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.016 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.016
+simulate                                 |   0.006 |   0.978
+check_reachability                       |   0.202 |   0.827
+heuristic_combat_legal_moves             |   0.063 |   0.741
+heuristic_non_combat_legal_moves         |   0.018 |   0.204
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_04.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.022 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.022
+simulate                                 |   0.006 |   0.987
+check_reachability                       |   0.203 |   0.833
+heuristic_combat_legal_moves             |   0.063 |   0.738
+heuristic_non_combat_legal_moves         |   0.018 |   0.215
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_05.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.026 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.026
+simulate                                 |   0.006 |   0.987
+check_reachability                       |   0.204 |   0.841
+heuristic_combat_legal_moves             |   0.061 |   0.739
+heuristic_non_combat_legal_moves         |   0.018 |   0.217
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_06.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.021 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.021
+simulate                                 |   0.005 |   0.981
+check_reachability                       |   0.206 |   0.847
+heuristic_combat_legal_moves             |   0.058 |   0.740
+heuristic_non_combat_legal_moves         |   0.017 |   0.214
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_07.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.030 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.030
+simulate                                 |   0.005 |   0.993
+check_reachability                       |   0.206 |   0.856
+heuristic_combat_legal_moves             |   0.058 |   0.741
+heuristic_non_combat_legal_moves         |   0.018 |   0.223
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_08.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.031 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.031
+simulate                                 |   0.005 |   1.003
+check_reachability                       |   0.207 |   0.869
+heuristic_combat_legal_moves             |   0.056 |   0.731
+heuristic_non_combat_legal_moves         |   0.018 |   0.240
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_09.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.027 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.027
+simulate                                 |   0.005 |   0.999
+check_reachability                       |   0.207 |   0.863
+heuristic_combat_legal_moves             |   0.057 |   0.734
+heuristic_non_combat_legal_moves         |   0.018 |   0.234
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_10.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.037 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.037
+simulate                                 |   0.005 |   1.007
+check_reachability                       |   0.208 |   0.871
+heuristic_combat_legal_moves             |   0.057 |   0.738
+heuristic_non_combat_legal_moves         |   0.018 |   0.239
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_11.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.036 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.036
+simulate                                 |   0.004 |   1.006
+check_reachability                       |   0.211 |   0.874
+heuristic_combat_legal_moves             |   0.055 |   0.733
+heuristic_non_combat_legal_moves         |   0.018 |   0.242
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_12.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.033 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.033
+simulate                                 |   0.004 |   1.001
+check_reachability                       |   0.208 |   0.870
+heuristic_combat_legal_moves             |   0.055 |   0.717
+heuristic_non_combat_legal_moves         |   0.019 |   0.253
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_13.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.022 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.022
+simulate                                 |   0.005 |   0.991
+check_reachability                       |   0.200 |   0.848
+heuristic_combat_legal_moves             |   0.054 |   0.668
+heuristic_non_combat_legal_moves         |   0.022 |   0.288
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_14.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.017 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.017
+simulate                                 |   0.005 |   0.985
+check_reachability                       |   0.202 |   0.852
+heuristic_combat_legal_moves             |   0.051 |   0.639
+heuristic_non_combat_legal_moves         |   0.022 |   0.315
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_15.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.035 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.035
+simulate                                 |   0.005 |   1.006
+check_reachability                       |   0.201 |   0.875
+heuristic_combat_legal_moves             |   0.048 |   0.604
+heuristic_non_combat_legal_moves         |   0.025 |   0.373
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_16.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.022 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.022
+simulate                                 |   0.005 |   0.985
+check_reachability                       |   0.194 |   0.847
+heuristic_combat_legal_moves             |   0.045 |   0.557
+heuristic_non_combat_legal_moves         |   0.027 |   0.393
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_17.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.013 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.013
+simulate                                 |   0.005 |   0.985
+check_reachability                       |   0.196 |   0.852
+heuristic_combat_legal_moves             |   0.046 |   0.549
+heuristic_non_combat_legal_moves         |   0.027 |   0.406
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_18.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.038 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.038
+simulate                                 |   0.004 |   0.998
+check_reachability                       |   0.196 |   0.872
+heuristic_combat_legal_moves             |   0.040 |   0.511
+heuristic_non_combat_legal_moves         |   0.029 |   0.457
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_19.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.023 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.023
+simulate                                 |   0.004 |   0.994
+check_reachability                       |   0.194 |   0.864
+heuristic_combat_legal_moves             |   0.042 |   0.503
+heuristic_non_combat_legal_moves         |   0.029 |   0.460
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_20.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.044 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.044
+simulate                                 |   0.004 |   0.991
+check_reachability                       |   0.194 |   0.864
+heuristic_combat_legal_moves             |   0.039 |   0.484
+heuristic_non_combat_legal_moves         |   0.030 |   0.476
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_21.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.030 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.030
+simulate                                 |   0.004 |   1.002
+check_reachability                       |   0.194 |   0.873
+heuristic_combat_legal_moves             |   0.041 |   0.512
+heuristic_non_combat_legal_moves         |   0.029 |   0.458
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_22.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.034 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.034
+simulate                                 |   0.005 |   0.997
+check_reachability                       |   0.185 |   0.837
+heuristic_non_combat_legal_moves         |   0.031 |   0.496
+heuristic_combat_legal_moves             |   0.036 |   0.437
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_23.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.022 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.022
+simulate                                 |   0.005 |   0.992
+check_reachability                       |   0.186 |   0.853
+heuristic_non_combat_legal_moves         |   0.035 |   0.557
+heuristic_combat_legal_moves             |   0.036 |   0.399
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_24.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.027 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.027
+simulate                                 |   0.005 |   0.996
+check_reachability                       |   0.192 |   0.856
+heuristic_non_combat_legal_moves         |   0.033 |   0.511
+heuristic_combat_legal_moves             |   0.039 |   0.449
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_25.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.034 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.034
+simulate                                 |   0.006 |   0.996
+check_reachability                       |   0.184 |   0.844
+heuristic_non_combat_legal_moves         |   0.036 |   0.561
+heuristic_combat_legal_moves             |   0.037 |   0.390
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_26.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.029 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.029
+simulate                                 |   0.006 |   0.994
+check_reachability                       |   0.180 |   0.848
+heuristic_non_combat_legal_moves         |   0.040 |   0.643
+heuristic_combat_legal_moves             |   0.031 |   0.311
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_3_27.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.008
+simulate                                 |   0.006 |   0.973
+check_reachability                       |   0.183 |   0.819
+heuristic_non_combat_legal_moves         |   0.038 |   0.592
+heuristic_combat_legal_moves             |   0.034 |   0.338
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_01.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.003 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.003
+simulate                                 |   0.016 |   0.944
+heuristic_combat_legal_moves             |   0.101 |   0.783
+check_reachability                       |   0.180 |   0.659
+clone                                    |   0.000 |   0.098
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_02.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.017 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.017
+simulate                                 |   0.008 |   0.969
+check_reachability                       |   0.199 |   0.791
+heuristic_combat_legal_moves             |   0.073 |   0.786
+heuristic_non_combat_legal_moves         |   0.014 |   0.144
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_03.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.027 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.027
+simulate                                 |   0.006 |   0.990
+check_reachability                       |   0.204 |   0.837
+heuristic_combat_legal_moves             |   0.063 |   0.748
+heuristic_non_combat_legal_moves         |   0.017 |   0.208
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_04.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.024 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.024
+simulate                                 |   0.006 |   0.990
+check_reachability                       |   0.203 |   0.835
+heuristic_combat_legal_moves             |   0.061 |   0.737
+heuristic_non_combat_legal_moves         |   0.018 |   0.214
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_05.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.019 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.019
+simulate                                 |   0.006 |   0.986
+check_reachability                       |   0.203 |   0.834
+heuristic_combat_legal_moves             |   0.060 |   0.727
+heuristic_non_combat_legal_moves         |   0.018 |   0.220
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_06.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.006 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.006
+simulate                                 |   0.006 |   0.976
+check_reachability                       |   0.201 |   0.829
+heuristic_combat_legal_moves             |   0.060 |   0.732
+heuristic_non_combat_legal_moves         |   0.017 |   0.209
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_07.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.022 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.021
+simulate                                 |   0.005 |   0.984
+check_reachability                       |   0.207 |   0.845
+heuristic_combat_legal_moves             |   0.060 |   0.742
+heuristic_non_combat_legal_moves         |   0.017 |   0.213
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_08.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.019 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.019
+simulate                                 |   0.005 |   0.985
+check_reachability                       |   0.204 |   0.842
+heuristic_combat_legal_moves             |   0.058 |   0.726
+heuristic_non_combat_legal_moves         |   0.018 |   0.224
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_09.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.019 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.019
+simulate                                 |   0.005 |   0.989
+check_reachability                       |   0.207 |   0.855
+heuristic_combat_legal_moves             |   0.058 |   0.744
+heuristic_non_combat_legal_moves         |   0.017 |   0.216
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_10.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.022 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.022
+simulate                                 |   0.005 |   0.988
+check_reachability                       |   0.204 |   0.850
+heuristic_combat_legal_moves             |   0.057 |   0.711
+heuristic_non_combat_legal_moves         |   0.019 |   0.244
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_11.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.027 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.027
+simulate                                 |   0.004 |   0.996
+check_reachability                       |   0.207 |   0.867
+heuristic_combat_legal_moves             |   0.053 |   0.691
+heuristic_non_combat_legal_moves         |   0.020 |   0.276
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_12.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.029 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.029
+simulate                                 |   0.004 |   1.005
+check_reachability                       |   0.208 |   0.879
+heuristic_combat_legal_moves             |   0.052 |   0.687
+heuristic_non_combat_legal_moves         |   0.020 |   0.289
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_13.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.007
+simulate                                 |   0.004 |   0.982
+check_reachability                       |   0.200 |   0.860
+heuristic_combat_legal_moves             |   0.049 |   0.642
+heuristic_non_combat_legal_moves         |   0.021 |   0.312
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_14.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.040 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.040
+simulate                                 |   0.004 |   1.011
+check_reachability                       |   0.208 |   0.882
+heuristic_combat_legal_moves             |   0.049 |   0.647
+heuristic_non_combat_legal_moves         |   0.022 |   0.332
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_15.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.028 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.028
+simulate                                 |   0.004 |   1.003
+check_reachability                       |   0.210 |   0.880
+heuristic_combat_legal_moves             |   0.052 |   0.705
+heuristic_non_combat_legal_moves         |   0.019 |   0.270
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_16.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.029 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.029
+simulate                                 |   0.004 |   0.998
+check_reachability                       |   0.207 |   0.867
+heuristic_combat_legal_moves             |   0.054 |   0.706
+heuristic_non_combat_legal_moves         |   0.019 |   0.260
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_17.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.037 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.037
+simulate                                 |   0.004 |   1.006
+check_reachability                       |   0.208 |   0.876
+heuristic_combat_legal_moves             |   0.053 |   0.704
+heuristic_non_combat_legal_moves         |   0.019 |   0.270
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_18.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.036 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.036
+simulate                                 |   0.004 |   1.007
+check_reachability                       |   0.208 |   0.876
+heuristic_combat_legal_moves             |   0.053 |   0.687
+heuristic_non_combat_legal_moves         |   0.021 |   0.288
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_19.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.038 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.038
+simulate                                 |   0.004 |   1.009
+check_reachability                       |   0.208 |   0.876
+heuristic_combat_legal_moves             |   0.053 |   0.692
+heuristic_non_combat_legal_moves         |   0.021 |   0.285
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_20.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.030 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.030
+simulate                                 |   0.004 |   0.999
+check_reachability                       |   0.209 |   0.868
+heuristic_combat_legal_moves             |   0.053 |   0.696
+heuristic_non_combat_legal_moves         |   0.020 |   0.272
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_21.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.022 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.022
+simulate                                 |   0.004 |   0.994
+check_reachability                       |   0.204 |   0.863
+heuristic_combat_legal_moves             |   0.050 |   0.643
+heuristic_non_combat_legal_moves         |   0.022 |   0.319
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_22.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.030 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.030
+simulate                                 |   0.004 |   0.994
+check_reachability                       |   0.206 |   0.864
+heuristic_combat_legal_moves             |   0.049 |   0.640
+heuristic_non_combat_legal_moves         |   0.022 |   0.322
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_23.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.031 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.031
+simulate                                 |   0.004 |   1.003
+check_reachability                       |   0.198 |   0.875
+heuristic_combat_legal_moves             |   0.042 |   0.530
+heuristic_non_combat_legal_moves         |   0.028 |   0.442
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_24.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.030 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.030
+simulate                                 |   0.004 |   0.992
+check_reachability                       |   0.192 |   0.862
+heuristic_non_combat_legal_moves         |   0.030 |   0.482
+heuristic_combat_legal_moves             |   0.043 |   0.479
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_25.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.035 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.035
+simulate                                 |   0.004 |   1.005
+check_reachability                       |   0.194 |   0.877
+heuristic_combat_legal_moves             |   0.040 |   0.489
+heuristic_non_combat_legal_moves         |   0.031 |   0.486
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_26.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.040 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.040
+simulate                                 |   0.004 |   1.008
+check_reachability                       |   0.195 |   0.880
+heuristic_combat_legal_moves             |   0.041 |   0.501
+heuristic_non_combat_legal_moves         |   0.030 |   0.476
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_27.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.029 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.029
+simulate                                 |   0.004 |   0.997
+check_reachability                       |   0.191 |   0.869
+heuristic_non_combat_legal_moves         |   0.031 |   0.503
+heuristic_combat_legal_moves             |   0.039 |   0.463
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_28.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.038 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.038
+simulate                                 |   0.005 |   1.009
+check_reachability                       |   0.190 |   0.875
+heuristic_non_combat_legal_moves         |   0.035 |   0.568
+heuristic_combat_legal_moves             |   0.034 |   0.405
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_29.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.020 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.020
+simulate                                 |   0.005 |   0.989
+check_reachability                       |   0.192 |   0.850
+heuristic_combat_legal_moves             |   0.041 |   0.493
+heuristic_non_combat_legal_moves         |   0.030 |   0.460
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_30.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.036 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.036
+simulate                                 |   0.005 |   1.002
+check_reachability                       |   0.181 |   0.860
+heuristic_non_combat_legal_moves         |   0.039 |   0.657
+heuristic_combat_legal_moves             |   0.029 |   0.304
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_31.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.022 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.022
+simulate                                 |   0.006 |   0.990
+check_reachability                       |   0.176 |   0.846
+heuristic_non_combat_legal_moves         |   0.043 |   0.694
+heuristic_combat_legal_moves             |   0.028 |   0.260
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_4_32.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.015 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.015
+simulate                                 |   0.006 |   0.984
+check_reachability                       |   0.165 |   0.834
+heuristic_non_combat_legal_moves         |   0.050 |   0.817
+heuristic_combat_legal_moves             |   0.021 |   0.128
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_01.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.008 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.007
+simulate                                 |   0.010 |   0.963
+heuristic_combat_legal_moves             |   0.075 |   0.738
+check_reachability                       |   0.183 |   0.716
+heuristic_non_combat_legal_moves         |   0.012 |   0.124
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_02.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.005 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.005
+simulate                                 |   0.007 |   0.964
+check_reachability                       |   0.198 |   0.805
+heuristic_combat_legal_moves             |   0.066 |   0.747
+heuristic_non_combat_legal_moves         |   0.016 |   0.182
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_03.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.012
+simulate                                 |   0.006 |   0.969
+check_reachability                       |   0.201 |   0.815
+heuristic_combat_legal_moves             |   0.064 |   0.743
+heuristic_non_combat_legal_moves         |   0.016 |   0.192
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_04.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.003 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.003
+simulate                                 |   0.005 |   0.968
+check_reachability                       |   0.201 |   0.830
+heuristic_combat_legal_moves             |   0.059 |   0.730
+heuristic_non_combat_legal_moves         |   0.017 |   0.208
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_05.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.020 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.020
+simulate                                 |   0.005 |   0.988
+check_reachability                       |   0.204 |   0.845
+heuristic_combat_legal_moves             |   0.059 |   0.738
+heuristic_non_combat_legal_moves         |   0.017 |   0.216
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_06.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.011 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.011
+simulate                                 |   0.005 |   0.976
+check_reachability                       |   0.201 |   0.829
+heuristic_combat_legal_moves             |   0.058 |   0.719
+heuristic_non_combat_legal_moves         |   0.018 |   0.219
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_07.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.011 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.011
+simulate                                 |   0.005 |   0.976
+check_reachability                       |   0.200 |   0.830
+heuristic_combat_legal_moves             |   0.058 |   0.724
+heuristic_non_combat_legal_moves         |   0.017 |   0.215
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_08.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.024 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.024
+simulate                                 |   0.005 |   0.991
+check_reachability                       |   0.205 |   0.849
+heuristic_combat_legal_moves             |   0.060 |   0.746
+heuristic_non_combat_legal_moves         |   0.017 |   0.212
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_09.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.016 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.015
+simulate                                 |   0.005 |   0.982
+check_reachability                       |   0.204 |   0.842
+heuristic_combat_legal_moves             |   0.059 |   0.740
+heuristic_non_combat_legal_moves         |   0.017 |   0.210
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_10.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.018 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.018
+simulate                                 |   0.005 |   0.983
+check_reachability                       |   0.203 |   0.842
+heuristic_combat_legal_moves             |   0.058 |   0.717
+heuristic_non_combat_legal_moves         |   0.018 |   0.235
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_11.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.014 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.014
+simulate                                 |   0.006 |   0.981
+check_reachability                       |   0.201 |   0.830
+heuristic_combat_legal_moves             |   0.057 |   0.677
+heuristic_non_combat_legal_moves         |   0.020 |   0.265
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_12.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.015 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.015
+simulate                                 |   0.005 |   0.985
+check_reachability                       |   0.202 |   0.843
+heuristic_combat_legal_moves             |   0.056 |   0.701
+heuristic_non_combat_legal_moves         |   0.019 |   0.248
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_13.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.021 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.021
+simulate                                 |   0.005 |   0.989
+check_reachability                       |   0.205 |   0.851
+heuristic_combat_legal_moves             |   0.055 |   0.700
+heuristic_non_combat_legal_moves         |   0.019 |   0.254
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_14.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.020 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.020
+simulate                                 |   0.005 |   0.989
+check_reachability                       |   0.189 |   0.805
+heuristic_combat_legal_moves             |   0.049 |   0.603
+heuristic_non_combat_legal_moves         |   0.022 |   0.301
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_15.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.012 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.012
+simulate                                 |   0.005 |   0.984
+check_reachability                       |   0.199 |   0.854
+heuristic_combat_legal_moves             |   0.048 |   0.623
+heuristic_non_combat_legal_moves         |   0.023 |   0.329
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_16.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.015 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.015
+simulate                                 |   0.005 |   0.988
+check_reachability                       |   0.200 |   0.857
+heuristic_combat_legal_moves             |   0.046 |   0.595
+heuristic_non_combat_legal_moves         |   0.024 |   0.362
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_17.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.022 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.022
+simulate                                 |   0.005 |   0.992
+check_reachability                       |   0.194 |   0.857
+heuristic_combat_legal_moves             |   0.043 |   0.536
+heuristic_non_combat_legal_moves         |   0.028 |   0.422
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_18.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.014 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.014
+simulate                                 |   0.004 |   0.983
+check_reachability                       |   0.194 |   0.850
+heuristic_combat_legal_moves             |   0.043 |   0.547
+heuristic_non_combat_legal_moves         |   0.027 |   0.400
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_19.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.017 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.017
+simulate                                 |   0.005 |   0.986
+check_reachability                       |   0.194 |   0.850
+heuristic_combat_legal_moves             |   0.045 |   0.557
+heuristic_non_combat_legal_moves         |   0.027 |   0.395
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_20.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.013 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.013
+simulate                                 |   0.004 |   0.986
+check_reachability                       |   0.194 |   0.858
+heuristic_combat_legal_moves             |   0.044 |   0.550
+heuristic_non_combat_legal_moves         |   0.026 |   0.405
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_21.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.026 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.026
+simulate                                 |   0.004 |   0.996
+check_reachability                       |   0.196 |   0.868
+heuristic_combat_legal_moves             |   0.044 |   0.552
+heuristic_non_combat_legal_moves         |   0.027 |   0.414
+
+============================================================
+PROFILE FILE: smart_root_hybrid_pybind/profiles/mcts_5_22.prof
+============================================================
+TOTAL PROFILE RUNTIME (CPU): 1.007 s
+Function                                 | tottime | cumtime
+--------------------------------------------------------------------------------
+mcts_search                              |   0.000 |   1.007
+simulate                                 |   0.004 |   0.981
+check_reachability                       |   0.190 |   0.854
+heuristic_combat_legal_moves             |   0.039 |   0.491
+heuristic_non_combat_legal_moves         |   0.029 |   0.460
+

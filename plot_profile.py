@@ -6,12 +6,20 @@ from collections import defaultdict
 import pandas as pd
 import os
 import numpy as np
+import argparse
 
-PROF_GLOB = "smart_root_dumb_tree/profiles/mcts_*.prof"
+parser = argparse.ArgumentParser()
+parser.add_argument("--folder", type=str, required=True)
+args = parser.parse_args()
+
+main_folder = args.folder
+# FOLDER = f"{main_folder}/metrics"
+
+PROF_GLOB = f"{main_folder}/profiles/mcts_*.prof"
 TARGET_FILE = "combat_mcts_agent.py"
-TEXT_REPORT = "smart_root_dumb_tree/profiling/profile_report.txt"
-CSV_OUTPUT = "smart_root_dumb_tree/profiling/profile_data.csv"
-OUTPUT_DIR = "smart_root_dumb_tree/profiling"
+TEXT_REPORT = f"{main_folder}/profiling/profile_report.txt"
+CSV_OUTPUT = f"{main_folder}/profiling/profile_data.csv"
+OUTPUT_DIR = f"{main_folder}/profiling"
 
 TOP_K_FUNCS = 5
 

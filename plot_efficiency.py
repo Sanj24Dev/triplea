@@ -1,8 +1,16 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--folder", type=str, required=True)
+args = parser.parse_args()
+
+main_folder = args.folder
+FOLDER = f"{main_folder}/metrics"
 
 # Load data
-df = pd.read_csv("smart_root_dumb_tree/metrics/mcts_efficiency.csv")
+df = pd.read_csv(f"{FOLDER}/mcts_efficiency.csv")
 
 # -----------------------------
 # Select game with max iterations
@@ -33,7 +41,7 @@ axs[1, 1].plot(df_game["round"], df_game["exploration"], marker='o')
 axs[1, 1].set_title("Exploration coverage")
 
 plt.tight_layout()
-plt.savefig("smart_root_dumb_tree/metrics/efficiency_plot.png")
+plt.savefig(f"{FOLDER}/efficiency_plot.png")
 plt.close()
 
 
@@ -122,10 +130,10 @@ axs[2].set_ylabel("Decision Value")
 axs[2].set_xlabel("Game Phase")
 
 plt.tight_layout()
-plt.savefig("smart_root_dumb_tree/metrics/aggregate_game_summary.png")
+plt.savefig(f"{FOLDER}/aggregate_game_summary.png")
 plt.close()
 
-print("Aggregate summary plot saved to smart_root_dumb_tree/metrics/aggregate_game_summary.png")
+print(f"Aggregate summary plot saved to {FOLDER}/aggregate_game_summary.png")
 
 # -----------------------------
 # Game-wise summary generation
@@ -207,7 +215,7 @@ summary_lines.append(
 # -----------------------------
 # Write summary
 # -----------------------------
-summary_path = "smart_root_dumb_tree/metrics/efficiency_summary.txt"
+summary_path = f"{FOLDER}/efficiency_summary.txt"
 with open(summary_path, "w") as f:
     f.writelines(summary_lines)
 

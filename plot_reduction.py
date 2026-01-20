@@ -1,9 +1,17 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import argparse
 
-INPUT_FILE = "smart_root_dumb_tree/metrics/reduction.csv"
-OUTPUT_FILE = "smart_root_dumb_tree/metrics/reduction_summary.txt"
+parser = argparse.ArgumentParser()
+parser.add_argument("--folder", type=str, required=True)
+args = parser.parse_args()
+
+main_folder = args.folder
+FOLDER = f"{main_folder}/metrics"
+
+INPUT_FILE = f"{FOLDER}/reduction.csv"
+OUTPUT_FILE = f"{FOLDER}/reduction_summary.txt"
 
 df = pd.read_csv(INPUT_FILE)
 
@@ -74,7 +82,7 @@ plt.ylabel("Reduction (%)")
 plt.title(f"Round-wise Action Space Reduction (Game {best_game})")
 plt.grid(True)
 plt.tight_layout()
-plt.savefig("smart_root_dumb_tree/metrics/reduction_per_round.png")
+plt.savefig(f"{FOLDER}/reduction_per_round.png")
 plt.close()
 
 plt.figure()
@@ -87,5 +95,5 @@ plt.title(f"Total vs Pruned Moves (Game {best_game})")
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
-plt.savefig("smart_root_dumb_tree/metrics/total_vs_pruned.png")
+plt.savefig(f"{FOLDER}/total_vs_pruned.png")
 plt.close()
