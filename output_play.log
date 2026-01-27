@@ -23,12 +23,10 @@
 > Task :lib:swing-lib:processResources NO-SOURCE
 > Task :lib:swing-lib:classes UP-TO-DATE
 > Task :lib:swing-lib:jar UP-TO-DATE
-
-> Task :game-app:game-core:compileJava
-
+> Task :game-app:game-core:compileJava UP-TO-DATE
 > Task :game-app:game-core:processResources UP-TO-DATE
-> Task :game-app:game-core:classes
-> Task :game-app:game-core:jar
+> Task :game-app:game-core:classes UP-TO-DATE
+> Task :game-app:game-core:jar UP-TO-DATE
 > Task :game-app:ai:compileJava UP-TO-DATE
 > Task :game-app:ai:processResources NO-SOURCE
 > Task :game-app:ai:classes UP-TO-DATE
@@ -57,259 +55,100 @@ Download https://github.com/triplea-game/assets/releases/download/47/game_headed
 > Task :lib:websocket-client:jar UP-TO-DATE
 
 > Task :game-app:game-headed:run
-13:32:10,161 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.5.18
-13:32:10,162 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - No custom configurators were discovered as a service.
-13:32:10,162 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
-13:32:10,162 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
-13:32:10,165 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
-13:32:10,165 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
-13:32:10,169 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 3 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
-13:32:10,169 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
-13:32:10,169 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
-13:32:10,169 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
-13:32:10,171 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/home/sanjana/tripleMind/triplea/game-app/game-headed/build/resources/main/logback.xml]
-13:32:10,213 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [swingMessage]
-13:32:10,213 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.triplea.debug.Slf4jLogMessageUploader]
-13:32:10,214 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [FILE]
-13:32:10,214 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
-13:32:10,216 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@6973b51b - value "/home/sanjana/triplea/triplea.log" substituted for "${user.home}/triplea/triplea.log"
-13:32:10,219 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
-13:32:10,239 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - setting totalSizeCap to 10 MB
-13:32:10,240 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - Archive files will be limited to [1 MB] each.
-13:32:10,240 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - No compression will be used
-13:32:10,241 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - Will use the pattern triplea-%d{yyyy-MM-dd}.%i.log for the active file
-13:32:10,249 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@43195e57 - The date pattern is 'yyyy-MM-dd' from file name pattern 'triplea-%d{yyyy-MM-dd}.%i.log'.
-13:32:10,249 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@43195e57 - Roll-over at midnight.
-13:32:10,251 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@43195e57 - Setting initial period to 2026-01-27T18:29:33.841Z
-13:32:10,253 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - Active log file name: /home/sanjana/triplea/triplea.log
-13:32:10,255 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - Setting currentFileLength to 306 for /home/sanjana/triplea/triplea.log
-13:32:10,255 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - File property is set to [/home/sanjana/triplea/triplea.log]
-13:32:10,255 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [console]
-13:32:10,255 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
-13:32:10,256 |-WARN in ch.qos.logback.core.ConsoleAppender[console] - This appender no longer admits a layout as a sub-component, set an encoder instead.
-13:32:10,256 |-WARN in ch.qos.logback.core.ConsoleAppender[console] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.
-13:32:10,256 |-WARN in ch.qos.logback.core.ConsoleAppender[console] - See also https://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details
-13:32:10,256 |-INFO in ch.qos.logback.core.ConsoleAppender[console] - BEWARE: Writing to the console can be very slow. Avoid logging to the 
-13:32:10,256 |-INFO in ch.qos.logback.core.ConsoleAppender[console] - console in production environments, especially in high volume systems.
-13:32:10,256 |-INFO in ch.qos.logback.core.ConsoleAppender[console] - See also https://logback.qos.ch/codes.html#slowConsole
-13:32:10,256 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to DEBUG
-13:32:10,256 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [swingMessage] to Logger[ROOT]
-13:32:10,256 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [console] to Logger[ROOT]
-13:32:10,256 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [FILE] to Logger[ROOT]
-13:32:10,257 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.http] to INFO
-13:32:10,257 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@333291e3 - End of configuration.
-13:32:10,257 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@479d31f3 - Registering current configuration as safe fallback point
-13:32:10,257 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 88 milliseconds. ExecutionStatus=DO_NOT_INVOKE_NEXT_IF_ANY
+16:37:18,940 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.5.18
+16:37:18,941 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - No custom configurators were discovered as a service.
+16:37:18,941 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
+16:37:18,941 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
+16:37:18,945 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
+16:37:18,945 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
+16:37:18,951 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 4 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+16:37:18,951 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
+16:37:18,952 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
+16:37:18,952 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+16:37:18,954 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/home/sanjana/tripleMind/triplea/game-app/game-headed/build/resources/main/logback.xml]
+16:37:19,003 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [swingMessage]
+16:37:19,003 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.triplea.debug.Slf4jLogMessageUploader]
+16:37:19,004 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [FILE]
+16:37:19,004 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+16:37:19,007 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@6973b51b - value "/home/sanjana/triplea/triplea.log" substituted for "${user.home}/triplea/triplea.log"
+16:37:19,009 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+16:37:19,031 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - setting totalSizeCap to 10 MB
+16:37:19,032 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - Archive files will be limited to [1 MB] each.
+16:37:19,032 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - No compression will be used
+16:37:19,033 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - Will use the pattern triplea-%d{yyyy-MM-dd}.%i.log for the active file
+16:37:19,041 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@43195e57 - The date pattern is 'yyyy-MM-dd' from file name pattern 'triplea-%d{yyyy-MM-dd}.%i.log'.
+16:37:19,041 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@43195e57 - Roll-over at midnight.
+16:37:19,043 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@43195e57 - Setting initial period to 2026-01-27T21:36:37.573Z
+16:37:19,045 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - Active log file name: /home/sanjana/triplea/triplea.log
+16:37:19,046 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - Setting currentFileLength to 3606 for /home/sanjana/triplea/triplea.log
+16:37:19,046 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - File property is set to [/home/sanjana/triplea/triplea.log]
+16:37:19,047 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [console]
+16:37:19,047 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+16:37:19,048 |-WARN in ch.qos.logback.core.ConsoleAppender[console] - This appender no longer admits a layout as a sub-component, set an encoder instead.
+16:37:19,048 |-WARN in ch.qos.logback.core.ConsoleAppender[console] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.
+16:37:19,048 |-WARN in ch.qos.logback.core.ConsoleAppender[console] - See also https://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details
+16:37:19,048 |-INFO in ch.qos.logback.core.ConsoleAppender[console] - BEWARE: Writing to the console can be very slow. Avoid logging to the 
+16:37:19,048 |-INFO in ch.qos.logback.core.ConsoleAppender[console] - console in production environments, especially in high volume systems.
+16:37:19,048 |-INFO in ch.qos.logback.core.ConsoleAppender[console] - See also https://logback.qos.ch/codes.html#slowConsole
+16:37:19,048 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to DEBUG
+16:37:19,048 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [swingMessage] to Logger[ROOT]
+16:37:19,048 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [console] to Logger[ROOT]
+16:37:19,048 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [FILE] to Logger[ROOT]
+16:37:19,048 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.http] to INFO
+16:37:19,048 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@333291e3 - End of configuration.
+16:37:19,049 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@479d31f3 - Registering current configuration as safe fallback point
+16:37:19,049 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 97 milliseconds. ExecutionStatus=DO_NOT_INVOKE_NEXT_IF_ANY
 
-Found the config.json for game details
-file:///home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
-13:32:10.368 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
-13:32:10.489 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+16:37:19.164 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+16:37:19.275 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
 Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "armour", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "ItalianBase"}]
+Received move: [{"delegate": "purchase", "unit": "armour", "from": "", "to": "RussianBase"}]
 Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianStart", "to": "ItalianStartLeft", "unit": "infantry", "count": 1}]
-UnitType{name=infantry}
-Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ItalianBase", "to": "ItalianStart", "unit": "armour"}]
-UnitType{name=armour}
-Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}]
-Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianStart", "to": "ItalianStepTwo", "unit": "armour", "count": 1}]
+Received move: [{"delegate": "combat", "from": "RussianBase", "to": "RussianStartRight", "unit": "armour", "count": 1}]
 UnitType{name=armour}
 Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ItalianBase", "to": "ItalianStart", "unit": "armour"}]
-UnitType{name=armour}
+Received move: [{"delegate": "noncombat", "from": "RussianStart", "to": "RussianStartRight", "unit": "infantry"}]
+UnitType{name=infantry}
 Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}]
+Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "RussianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "RussianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "RussianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "RussianBase"}]
 Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianStart", "to": "TopBar", "unit": "armour", "count": 2}]
+Received move: [{"delegate": "combat", "from": "RussianBase", "to": "RussianStepOne", "unit": "armour", "count": 1}]
 UnitType{name=armour}
 Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ItalianStart", "to": "ItalianStartLeft", "unit": "armour"}]
-UnitType{name=armour}
+Received move: [{"delegate": "noncombat", "from": "RussianStart", "to": "RussianStepOne", "unit": "infantry"}]
+UnitType{name=infantry}
 Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "ItalianBase"}]
+Received move: [{"delegate": "purchase", "unit": "artillery", "from": "", "to": "RussianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "RussianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "RussianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "RussianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "RussianBase"}]
 Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianStart", "to": "ItalianStepOne", "unit": "armour", "count": 1}]
+Received move: [{"delegate": "combat", "from": "RussianStartRight", "to": "LeftBar", "unit": "armour", "count": 1}]
 UnitType{name=armour}
 Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ItalianStart", "to": "ItalianBase", "unit": "infantry"}]
-UnitType{name=infantry}
+Received move: [{"delegate": "noncombat", "from": "LeftBar", "to": "RussianStart", "unit": "armour"}]
+UnitType{name=armour}
 Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "ItalianBase"}]
+Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "RussianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "RussianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "RussianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "RussianBase"}]
 Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianStepOne", "to": "ItalianStepTwo", "unit": "armour", "count": 1}]
+Received move: [{"delegate": "combat", "from": "LeftBar", "to": "ChineseStartLeft", "unit": "armour", "count": 1}]
 UnitType{name=armour}
 Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ItalianStepTwo", "to": "ItalianStepOne", "unit": "armour"}]
-UnitType{name=armour}
+Received move: [{"delegate": "noncombat", "from": "RussianStepOne", "to": "RussianStart", "unit": "infantry"}]
+UnitType{name=infantry}
 Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}]
+Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "RussianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "RussianBase"}]
 Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianBase", "to": "ItalianStartRight", "unit": "armour", "count": 1}]
+Received move: [{"delegate": "combat", "from": "RussianStepOne", "to": "RussianStepTwo", "unit": "armour", "count": 1}]
 UnitType{name=armour}
 Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ItalianBase", "to": "ItalianStartRight", "unit": "armour"}]
+Received move: [{"delegate": "noncombat", "from": "RussianBase", "to": "RussianStartRight", "unit": "armour"}]
 UnitType{name=armour}
 Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}]
+Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "RussianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "RussianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "RussianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "RussianBase"}]
 Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianStartRight", "to": "TopBar", "unit": "armour", "count": 1}]
+Received move: [{"delegate": "combat", "from": "RussianStepTwo", "to": "ChineseStepTwo", "unit": "armour", "count": 1}]
 UnitType{name=armour}
 Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ItalianStartLeft", "to": "ItalianStart", "unit": "armour"}]
-UnitType{name=armour}
-Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}]
-Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianStepTwo", "to": "GermanStepTwo", "unit": "armour", "count": 1}]
-UnitType{name=armour}
-Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ItalianStart", "to": "ItalianStartLeft", "unit": "armour"}]
-UnitType{name=armour}
-Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "ItalianBase"}]
-Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianBase", "to": "ItalianStart", "unit": "armour", "count": 2}, {"delegate": "combat", "from": "ItalianBase", "to": "ItalianStart", "unit": "infantry", "count": 20}, {"delegate": "combat", "from": "ItalianBase", "to": "ItalianStart", "unit": "artillery", "count": 11}]
-UnitType{name=armour}
+Received move: [{"delegate": "noncombat", "from": "RussianStart", "to": "RussianStartRight", "unit": "infantry"}]
 UnitType{name=infantry}
-UnitType{name=artillery}
-Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ItalianStart", "to": "ItalianBase", "unit": "infantry"}]
-UnitType{name=infantry}
-Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}]
-Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianBase", "to": "ItalianStartLeft", "unit": "armour", "count": 1}, {"delegate": "combat", "from": "ItalianStart", "to": "ItalianStartLeft", "unit": "armour", "count": 2}, {"delegate": "combat", "from": "ItalianStart", "to": "ItalianStartLeft", "unit": "infantry", "count": 20}, {"delegate": "combat", "from": "ItalianStart", "to": "ItalianStartLeft", "unit": "artillery", "count": 11}]
-UnitType{name=armour}
-UnitType{name=armour}
-UnitType{name=infantry}
-UnitType{name=artillery}
-Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ItalianStartLeft", "to": "ItalianBase", "unit": "armour"}]
-UnitType{name=armour}
-Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "armour", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "ItalianBase"}]
-Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianBase", "to": "ItalianStart", "unit": "infantry", "count": 3}, {"delegate": "combat", "from": "ItalianBase", "to": "ItalianStart", "unit": "artillery", "count": 5}, {"delegate": "combat", "from": "ItalianStartLeft", "to": "ItalianStart", "unit": "armour", "count": 3}, {"delegate": "combat", "from": "ItalianStartLeft", "to": "ItalianStart", "unit": "infantry", "count": 19}, {"delegate": "combat", "from": "ItalianStartLeft", "to": "ItalianStart", "unit": "artillery", "count": 11}]
-UnitType{name=infantry}
-UnitType{name=artillery}
-UnitType{name=armour}
-UnitType{name=infantry}
-UnitType{name=artillery}
-Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "ItalianBase"}]
-Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianBase", "to": "ItalianStartRight", "unit": "armour", "count": 3}, {"delegate": "combat", "from": "ItalianStart", "to": "ItalianStartRight", "unit": "infantry", "count": 22}, {"delegate": "combat", "from": "ItalianStart", "to": "ItalianStartRight", "unit": "artillery", "count": 16}, {"delegate": "combat", "from": "ItalianStart", "to": "ItalianStartRight", "unit": "armour", "count": 3}]
-UnitType{name=armour}
-UnitType{name=infantry}
-UnitType{name=artillery}
-UnitType{name=armour}
-Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}]
-Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianBase", "to": "ItalianStart", "unit": "artillery", "count": 1}, {"delegate": "combat", "from": "ItalianBase", "to": "ItalianStart", "unit": "armour", "count": 1}, {"delegate": "combat", "from": "ItalianStartRight", "to": "ItalianStart", "unit": "armour", "count": 6}, {"delegate": "combat", "from": "ItalianStartRight", "to": "ItalianStart", "unit": "infantry", "count": 22}, {"delegate": "combat", "from": "ItalianStartRight", "to": "ItalianStart", "unit": "artillery", "count": 16}]
-UnitType{name=artillery}
-UnitType{name=armour}
-UnitType{name=armour}
-UnitType{name=infantry}
-UnitType{name=artillery}
-Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "ItalianBase"}]
-Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianStart", "to": "ItalianStartLeft", "unit": "artillery", "count": 17}, {"delegate": "combat", "from": "ItalianStart", "to": "ItalianStartLeft", "unit": "armour", "count": 7}, {"delegate": "combat", "from": "ItalianStart", "to": "ItalianStartLeft", "unit": "infantry", "count": 22}]
-UnitType{name=artillery}
-UnitType{name=armour}
-UnitType{name=infantry}
-Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ItalianStartLeft", "to": "ItalianStart", "unit": "armour"}]
-UnitType{name=armour}
-Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}]
-Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianBase", "to": "ItalianStart", "unit": "infantry", "count": 2}, {"delegate": "combat", "from": "ItalianBase", "to": "ItalianStart", "unit": "artillery", "count": 4}, {"delegate": "combat", "from": "ItalianBase", "to": "ItalianStart", "unit": "armour", "count": 2}, {"delegate": "combat", "from": "ItalianStartLeft", "to": "ItalianStart", "unit": "artillery", "count": 17}, {"delegate": "combat", "from": "ItalianStartLeft", "to": "ItalianStart", "unit": "armour", "count": 7}, {"delegate": "combat", "from": "ItalianStartLeft", "to": "ItalianStart", "unit": "infantry", "count": 22}]
-UnitType{name=infantry}
-UnitType{name=artillery}
-UnitType{name=armour}
-UnitType{name=artillery}
-UnitType{name=armour}
-UnitType{name=infantry}
-Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}]
-Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianStart", "to": "ItalianStartLeft", "unit": "infantry", "count": 24}, {"delegate": "combat", "from": "ItalianStart", "to": "ItalianStartLeft", "unit": "artillery", "count": 21}, {"delegate": "combat", "from": "ItalianStart", "to": "ItalianStartLeft", "unit": "armour", "count": 9}]
-UnitType{name=infantry}
-UnitType{name=artillery}
-UnitType{name=armour}
-Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ItalianStartLeft", "to": "ItalianStart", "unit": "infantry"}]
-UnitType{name=infantry}
-Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}]
-Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianBase", "to": "ItalianStart", "unit": "infantry", "count": 6}, {"delegate": "combat", "from": "ItalianBase", "to": "ItalianStart", "unit": "artillery", "count": 3}, {"delegate": "combat", "from": "ItalianStartLeft", "to": "ItalianStart", "unit": "infantry", "count": 24}, {"delegate": "combat", "from": "ItalianStartLeft", "to": "ItalianStart", "unit": "artillery", "count": 21}, {"delegate": "combat", "from": "ItalianStartLeft", "to": "ItalianStart", "unit": "armour", "count": 9}]
-UnitType{name=infantry}
-UnitType{name=artillery}
-UnitType{name=infantry}
-UnitType{name=artillery}
-UnitType{name=armour}
-Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}]
-Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianStart", "to": "ItalianStartLeft", "unit": "infantry", "count": 29}, {"delegate": "combat", "from": "ItalianStart", "to": "ItalianStartLeft", "unit": "artillery", "count": 24}, {"delegate": "combat", "from": "ItalianStart", "to": "ItalianStartLeft", "unit": "armour", "count": 9}]
-UnitType{name=infantry}
-UnitType{name=artillery}
-UnitType{name=armour}
-Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ItalianBase", "to": "ItalianStart", "unit": "infantry"}]
-UnitType{name=infantry}
-Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "ItalianBase"}]
-Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianStartLeft", "to": "RightBar", "unit": "infantry", "count": 29}, {"delegate": "combat", "from": "ItalianStartLeft", "to": "RightBar", "unit": "artillery", "count": 24}, {"delegate": "combat", "from": "ItalianStartLeft", "to": "RightBar", "unit": "armour", "count": 9}]
-UnitType{name=infantry}
-UnitType{name=artillery}
-UnitType{name=armour}
-Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ItalianBase", "to": "ItalianStart", "unit": "artillery"}]
-UnitType{name=artillery}
-Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "ItalianBase"}]
-Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "RightBar", "to": "GermanStartRight", "unit": "infantry", "count": 29}, {"delegate": "combat", "from": "RightBar", "to": "GermanStartRight", "unit": "artillery", "count": 24}, {"delegate": "combat", "from": "RightBar", "to": "GermanStartRight", "unit": "armour", "count": 9}]
-UnitType{name=infantry}
-UnitType{name=artillery}
-UnitType{name=armour}
-Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ItalianStart", "to": "ItalianBase", "unit": "artillery"}]
-UnitType{name=artillery}
-Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "armour", "from": "", "to": "ItalianBase"}]
-Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianBase", "to": "ItalianStartRight", "unit": "armour", "count": 1}]
-UnitType{name=armour}
-Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ItalianStartRight", "to": "ItalianBase", "unit": "armour"}]
-UnitType{name=armour}
-Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "infantry", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}, {"delegate": "purchase", "unit": "artillery", "from": "", "to": "ItalianBase"}]
-Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianStartRight", "to": "TopBar", "unit": "armour", "count": 1}]
-UnitType{name=armour}
-Request sent: [MY_MOVE] noncombat
-Received move: [{"delegate": "noncombat", "from": "ItalianBase", "to": "ItalianStartRight", "unit": "armour"}]
-UnitType{name=armour}
-Request sent: [MY_MOVE] purchase
-Received move: [{"delegate": "purchase", "unit": "armour", "from": "", "to": "ItalianBase"}]
-Request sent: [MY_MOVE] combat
-Received move: [{"delegate": "combat", "from": "ItalianBase", "to": "ItalianStart", "unit": "infantry", "count": 14}, {"delegate": "combat", "from": "ItalianBase", "to": "ItalianStart", "unit": "artillery", "count": 7}, {"delegate": "combat", "from": "ItalianBase", "to": "ItalianStart", "unit": "armour", "count": 2}, {"delegate": "combat", "from": "TopBar", "to": "ItalianStart", "unit": "armour", "count": 1}, {"delegate": "combat", "from": "ItalianStartRight", "to": "ItalianStart", "unit": "armour", "count": 1}]
-UnitType{name=infantry}
-UnitType{name=artillery}
-UnitType{name=armour}
-UnitType{name=armour}
-UnitType{name=armour}
 Starting new game...
 Playing round 0
 Playing round 1
@@ -317,25 +156,7 @@ Playing round 2
 Playing round 3
 Playing round 4
 Playing round 5
-Playing round 6
-Playing round 7
-Playing round 8
-Playing round 9
-Playing round 10
-Playing round 11
-Playing round 12
-Playing round 13
-Playing round 14
-Playing round 15
-Playing round 16
-Playing round 17
-Playing round 18
-Playing round 19
-Playing round 20
-Playing round 21
-Playing round 22
-Playing round 23
-Game stopped (winner detected). 1 0
+5 rounds completed. Ending game.
 Stopping current game...
 Completed game 1/1
 All games finished.

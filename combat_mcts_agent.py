@@ -99,7 +99,7 @@ def generate_legal_purchase_moves(ctf, player):
     return legal_moves
     
 
-def find_winning_subsets(ctf, units_that_can_attack, defender_strength):
+def count_exhaustive_moves(units_that_can_attack):
     all_moves = 0
     quantity_ranges = []
     for group in units_that_can_attack:
@@ -107,28 +107,10 @@ def find_winning_subsets(ctf, units_that_can_attack, defender_strength):
         unit = group["unit"]
         quantity_ranges.append(range(0, unit.quantity + 1))
 
-    winning_subsets = []
     for quantities in product(*quantity_ranges):
-        # Skip empty combination
-        if sum(quantities) == 0:
-            continue
-        
-        # Build attack combination and unit list
-        attack_combo = []
-        unit_list = []
-        
-        for i, qty in enumerate(quantities):
-            if qty > 0:
-                group = units_that_can_attack[i]
-                attack_combo.append(Attack(type=group["unit"].unit_type, from_territory=group["from"], quantity=qty))
-                unit_list.extend([group["unit"]] * qty)
-        
-        attack_strength = ctf.calculate_attack_strength(unit_list)
-        if attack_strength > defender_strength:
-            winning_subsets.append((attack_combo, attack_strength))
         all_moves += 1
 
-    return winning_subsets, all_moves
+    return all_moves
 
 
 def generate_legal_noncombat_moves(ctf, player):
@@ -549,6 +531,32 @@ class MCTS:
         unit_costs = {name: data.get("cost", 1) for name, data in game_rules.items()}
         move_generator_cpp.set_unit_costs(unit_costs)
 
+    def form_attacks(self, units):
+        grouped = {}
+        for u in units:
+            key = (u["from"], u["unit_type"])
+            if key not in grouped:
+                grouped[key] = {
+                    "from": u["from"],
+                    "unit_type": u["unit_type"],
+                    "unit": u["unit"],
+                    "count": 0
+                }
+            grouped[key]["count"] += 1
+        
+        # Convert to Attack objects
+        attacks = []
+        for group in grouped.values():
+            attacks.append(
+                Attack(
+                    type=group["unit_type"],
+                    from_territory=group["from"],
+                    quantity=group["count"]
+                )
+            )
+        
+        return attacks
+
     def generate_combat_moves_territory_based(self, ctf, player):
         legal_moves = []
         total_moves = 0
@@ -571,6 +579,11 @@ class MCTS:
             if not units_that_can_attack:
                 continue
 
+            # add the skip move first, to avoid missing it due to time constraints
+            if ctf.round > 5:
+                legal_moves.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=[], strength=0))
+            total_moves += 1
+
             enemy_territory_units = []
             for unit in enemy_territory.units:
                 if unit.owner != player:
@@ -591,29 +604,80 @@ class MCTS:
 
 
                 unit_to_attack = self.select_unit_to_attack_for_undeffended(units_that_can_attack)
-                attack_strength = ctf.calculate_attack_strength([unit_to_attack["unit"]]) 
+                attack_strength = ctf.calculate_attack_strength([unit_to_attack]) 
                 move = Attack(type=unit_to_attack["unit"].unit_type, from_territory=unit_to_attack["from"], quantity=1)
                 legal_moves.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=[move], strength=attack_strength))
             else:
-                # find all winning subsets
-                winning_subsets, all_moves = find_winning_subsets( 
-                    ctf,
-                    units_that_can_attack, 
-                    defender_strength
-                )
-                # generate action for each winning subset
-                for subset in winning_subsets:
-                    legal_moves.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=subset[0], strength=subset[1]))
+                all_moves = count_exhaustive_moves(units_that_can_attack)
+                def attack_efficiency(group):
+                    unit_type = group["unit"].unit_type
+                    attack_power = game_rules.get(unit_type, {}).get("attack", 1)
+                    cost = game_rules.get(unit_type, {}).get("cost", 1)
+                    return attack_power / cost
+
+                sorted_groups = sorted(units_that_can_attack, key=attack_efficiency, reverse=True)
+                
+                # Build up incrementally
+                current_units = []  # List of {"from": ..., "unit": ..., "qty": 1} for each individual unit
+                strength_threshold = 1.1  # Start at 110% of defender strength
+                max_threshold = 2.5  # Stop at 250% of defender strength
+
+                legal_subsets = []
+
+                for group in sorted_groups:
+                    unit_type = group["unit"].unit_type
+                    from_territory = group["from"]
+                    max_qty = group["qty"]
+                    
+                    # Add units from this group one at a time
+                    for _ in range(max_qty):
+                        current_units.append({
+                            "from": from_territory,
+                            "unit": group["unit"],
+                            "unit_type": unit_type,
+                            "qty": 1
+                        })
+                        
+                        # Calculate current attack strength
+                        # unit_list = [u["unit"] for u in current_units]
+                        current_strength = ctf.calculate_attack_strength(current_units)
+                        
+                        # Check if we've crossed a strength threshold
+                        if (current_strength > strength_threshold * defender_strength and 
+                            current_strength < (max_threshold * defender_strength) + 4):
+                            
+                            # Save this combination
+                            attack_combo = self.form_attacks(current_units)
+                            legal_subsets.append((attack_combo, current_strength))
+                            
+                            # Increment threshold for next combination
+                            strength_threshold += 0.1
+                        # Stop if we've exceeded max threshold
+                        if current_strength >= (max_threshold * defender_strength) + 4:
+                            break
+                    if current_strength >= (max_threshold * defender_strength) + 4:
+                        break
+                
+                # Always include the full force as final option (if not already added)
+                if current_units:
+                    # unit_list = [u["unit"] for u in current_units]
+                    final_strength = ctf.calculate_attack_strength(current_units)
+                    attack_combo = self.form_attacks(current_units)
+                    
+                    # Only add if it's different from last combination
+                    if not legal_subsets or legal_subsets[-1][1] != final_strength:
+                        legal_subsets.append((attack_combo, final_strength))
+
+                legal_subsets.reverse()
+
+                for subset, strength in legal_subsets:
+                    legal_moves.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=subset, strength=strength))
+
+                
+
             total_moves += all_moves
 
-            
-            if ctf.round > 5:
-                legal_moves.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=[], strength=0))
-            total_moves += 1
-
         pruned_moves = len(legal_moves)
-        # print("Number of moves before pruning: ", total_moves)
-        # print("Number of moves after pruning: ", pruned_moves)
         self.reduction_metric.log(ctf.game_num, ctf.round, total_moves, pruned_moves)
         legal_moves.sort(key=lambda m: m.strength, reverse=True)
         return legal_moves
