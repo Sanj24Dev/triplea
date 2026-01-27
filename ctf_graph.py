@@ -606,19 +606,19 @@ class CaptureTheFlag:
         
         return total
     
-    def calculate_attack_strength(self, units):
+    def calculate_attack_strength(self, unitInfo):
         total = 0
-        infantry = sum(u.quantity for u in units if u.unit_type == "infantry")
-        artillery = sum(u.quantity for u in units if u.unit_type == "artillery")
+        infantry = sum(u["qty"] for u in unitInfo if u["unit"].unit_type == "infantry")
+        artillery = sum(u["qty"] for u in unitInfo if u["unit"].unit_type == "artillery")
         supported_inf = min(infantry, artillery)   # 1:1 support
         unsupported_inf = infantry - supported_inf
-        for unit in units:
-            unit_type = unit.unit_type
-            qty = unit.quantity
+        for unit in unitInfo:
+            unit_type = unit["unit"].unit_type
+            qty = unit["qty"]
             stats = self.production_rules.get(unit_type, {})
             
             power = stats.get("attack", 1)
-            if unit.unit_type == infantry:
+            if unit_type == "infantry":
                 total += supported_inf * (power+1) # power of infantry gets doubled in the presence of artillery
                 total += unsupported_inf * power
             else:

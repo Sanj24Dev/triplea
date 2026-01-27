@@ -1,371 +1,93 @@
 Data successfully extracted and saved to gameInfo/Capture The Flag.json
 Server listening on 127.0.0.1:5000
-WHOAMI updated: Italians
+WHOAMI updated: Russians
 
 Game  1  Round  1   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'ItalianBase'}]
+Sending: [{'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'RussianBase'}]
 
 Game  1  Round  1   [MY_MOVE] combat
-MCTS ran 231 iterations in 1.0s
-Root node visits: 231
-Best action visits: 78, value: -0.065
-Selected action : combat delegate on ItalianStartLeft
-	Move units: 1xinfantry from ItalianStart
-	strength=2
-Sending: [{'delegate': 'combat', 'from': 'ItalianStart', 'to': 'ItalianStartLeft', 'unit': 'infantry', 'count': 1}]
+MCTS ran 255 iterations in 1.0s
+Root node visits: 255
+Best action visits: 86, value: -0.080
+Selected action : combat delegate on RussianStartRight
+	Move units: 1xarmour from RussianBase
+	strength=3
+Sending: [{'delegate': 'combat', 'from': 'RussianBase', 'to': 'RussianStartRight', 'unit': 'armour', 'count': 1}]
 
 Game  1  Round  1   [MY_MOVE] noncombat
-Sending: [{'delegate': 'noncombat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'armour'}]
+Sending: [{'delegate': 'noncombat', 'from': 'RussianStart', 'to': 'RussianStartRight', 'unit': 'infantry'}]
 
 Game  1  Round  2   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}]
+Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'RussianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'RussianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'RussianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'RussianBase'}]
 
 Game  1  Round  2   [MY_MOVE] combat
-MCTS ran 175 iterations in 1.0s
-Root node visits: 175
-Best action visits: 37, value: 0.202
-Selected action : combat delegate on ItalianStepTwo
-	Move units: 1xarmour from ItalianStart
+MCTS ran 184 iterations in 1.0s
+Root node visits: 184
+Best action visits: 47, value: 0.066
+Selected action : combat delegate on RussianStepOne
+	Move units: 1xarmour from RussianBase
 	strength=3
-Sending: [{'delegate': 'combat', 'from': 'ItalianStart', 'to': 'ItalianStepTwo', 'unit': 'armour', 'count': 1}]
+Sending: [{'delegate': 'combat', 'from': 'RussianBase', 'to': 'RussianStepOne', 'unit': 'armour', 'count': 1}]
 
 Game  1  Round  2   [MY_MOVE] noncombat
-Sending: [{'delegate': 'noncombat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'armour'}]
+Sending: [{'delegate': 'noncombat', 'from': 'RussianStart', 'to': 'RussianStepOne', 'unit': 'infantry'}]
 
 Game  1  Round  3   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}]
+Sending: [{'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'RussianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'RussianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'RussianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'RussianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'RussianBase'}]
 
 Game  1  Round  3   [MY_MOVE] combat
-MCTS ran 156 iterations in 1.0s
-Root node visits: 156
-Best action visits: 26, value: 0.239
-Selected action : combat delegate on TopBar
-	Move units: 2xarmour from ItalianStart
-	strength=12
-Sending: [{'delegate': 'combat', 'from': 'ItalianStart', 'to': 'TopBar', 'unit': 'armour', 'count': 2}]
+MCTS ran 154 iterations in 1.0s
+Root node visits: 154
+Best action visits: 31, value: 0.188
+Selected action : combat delegate on LeftBar
+	Move units: 1xarmour from RussianStartRight
+	strength=3
+Sending: [{'delegate': 'combat', 'from': 'RussianStartRight', 'to': 'LeftBar', 'unit': 'armour', 'count': 1}]
 
 Game  1  Round  3   [MY_MOVE] noncombat
-Sending: [{'delegate': 'noncombat', 'from': 'ItalianStart', 'to': 'ItalianStartLeft', 'unit': 'armour'}]
+Sending: [{'delegate': 'noncombat', 'from': 'LeftBar', 'to': 'RussianStart', 'unit': 'armour'}]
 
 Game  1  Round  4   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'ItalianBase'}]
+Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'RussianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'RussianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'RussianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'RussianBase'}]
 
 Game  1  Round  4   [MY_MOVE] combat
-MCTS ran 155 iterations in 1.0s
-Root node visits: 155
-Best action visits: 26, value: 0.246
-Selected action : combat delegate on ItalianStepOne
-	Move units: 1xarmour from ItalianStart
-	strength=3
-Sending: [{'delegate': 'combat', 'from': 'ItalianStart', 'to': 'ItalianStepOne', 'unit': 'armour', 'count': 1}]
-
-Game  1  Round  4   [MY_MOVE] noncombat
-Sending: [{'delegate': 'noncombat', 'from': 'ItalianStart', 'to': 'ItalianBase', 'unit': 'infantry'}]
-
-Game  1  Round  5   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  5   [MY_MOVE] combat
-MCTS ran 144 iterations in 1.0s
-Root node visits: 144
-Best action visits: 49, value: 0.067
-Selected action : combat delegate on ItalianStepTwo
-	Move units: 1xarmour from ItalianStepOne
-	strength=3
-Sending: [{'delegate': 'combat', 'from': 'ItalianStepOne', 'to': 'ItalianStepTwo', 'unit': 'armour', 'count': 1}]
-
-Game  1  Round  5   [MY_MOVE] noncombat
-Sending: [{'delegate': 'noncombat', 'from': 'ItalianStepTwo', 'to': 'ItalianStepOne', 'unit': 'armour'}]
-
-Game  1  Round  6   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  6   [MY_MOVE] combat
 MCTS ran 138 iterations in 1.0s
 Root node visits: 138
-Best action visits: 12, value: 0.237
-Selected action : combat delegate on ItalianStartRight
-	Move units: 1xarmour from ItalianBase
-	strength=12
-Sending: [{'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStartRight', 'unit': 'armour', 'count': 1}]
+Best action visits: 35, value: 0.135
+Selected action : combat delegate on ChineseStartLeft
+	Move units: 1xarmour from LeftBar
+	strength=3
+Sending: [{'delegate': 'combat', 'from': 'LeftBar', 'to': 'ChineseStartLeft', 'unit': 'armour', 'count': 1}]
+
+Game  1  Round  4   [MY_MOVE] noncombat
+Sending: [{'delegate': 'noncombat', 'from': 'RussianStepOne', 'to': 'RussianStart', 'unit': 'infantry'}]
+
+Game  1  Round  5   [MY_MOVE] purchase
+Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'RussianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'RussianBase'}]
+
+Game  1  Round  5   [MY_MOVE] combat
+MCTS ran 133 iterations in 1.0s
+Root node visits: 133
+Best action visits: 34, value: 0.189
+Selected action : combat delegate on RussianStepTwo
+	Move units: 1xarmour from RussianStepOne
+	strength=3
+Sending: [{'delegate': 'combat', 'from': 'RussianStepOne', 'to': 'RussianStepTwo', 'unit': 'armour', 'count': 1}]
+
+Game  1  Round  5   [MY_MOVE] noncombat
+Sending: [{'delegate': 'noncombat', 'from': 'RussianBase', 'to': 'RussianStartRight', 'unit': 'armour'}]
+
+Game  1  Round  6   [MY_MOVE] purchase
+Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'RussianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'RussianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'RussianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'RussianBase'}]
+
+Game  1  Round  6   [MY_MOVE] combat
+MCTS ran 133 iterations in 1.0s
+Root node visits: 133
+Best action visits: 12, value: 0.229
+Selected action : combat delegate on ChineseStepTwo
+	Move units: 1xarmour from RussianStepTwo
+	strength=3
+Sending: [{'delegate': 'combat', 'from': 'RussianStepTwo', 'to': 'ChineseStepTwo', 'unit': 'armour', 'count': 1}]
 
 Game  1  Round  6   [MY_MOVE] noncombat
-Sending: [{'delegate': 'noncombat', 'from': 'ItalianBase', 'to': 'ItalianStartRight', 'unit': 'armour'}]
-
-Game  1  Round  7   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  7   [MY_MOVE] combat
-MCTS ran 140 iterations in 1.0s
-Root node visits: 140
-Best action visits: 11, value: 0.235
-Selected action : combat delegate on TopBar
-	Move units: 1xarmour from ItalianStartRight
-	strength=6
-Sending: [{'delegate': 'combat', 'from': 'ItalianStartRight', 'to': 'TopBar', 'unit': 'armour', 'count': 1}]
-
-Game  1  Round  7   [MY_MOVE] noncombat
-Sending: [{'delegate': 'noncombat', 'from': 'ItalianStartLeft', 'to': 'ItalianStart', 'unit': 'armour'}]
-
-Game  1  Round  8   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  8   [MY_MOVE] combat
-MCTS ran 133 iterations in 1.0s
-Root node visits: 133
-Best action visits: 14, value: 0.250
-Selected action : combat delegate on GermanStepTwo
-	Move units: 1xarmour from ItalianStepTwo
-	strength=3
-Sending: [{'delegate': 'combat', 'from': 'ItalianStepTwo', 'to': 'GermanStepTwo', 'unit': 'armour', 'count': 1}]
-
-Game  1  Round  8   [MY_MOVE] noncombat
-Sending: [{'delegate': 'noncombat', 'from': 'ItalianStart', 'to': 'ItalianStartLeft', 'unit': 'armour'}]
-
-Game  1  Round  9   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  9   [MY_MOVE] combat
-MCTS ran 141 iterations in 1.0s
-Root node visits: 141
-Best action visits: 1, value: -0.250
-Selected action : combat delegate on ItalianStart
-	Move units: 2xarmour from ItalianBase
-	Move units: 20xinfantry from ItalianBase
-	Move units: 11xartillery from ItalianBase
-	strength=654
-Sending: [{'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'armour', 'count': 2}, {'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'infantry', 'count': 20}, {'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'artillery', 'count': 11}]
-
-Game  1  Round  9   [MY_MOVE] noncombat
-Sending: [{'delegate': 'noncombat', 'from': 'ItalianStart', 'to': 'ItalianBase', 'unit': 'infantry'}]
-
-Game  1  Round  10   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  10   [MY_MOVE] combat
-MCTS ran 139 iterations in 1.0s
-Root node visits: 139
-Best action visits: 1, value: -0.268
-Selected action : combat delegate on ItalianStartLeft
-	Move units: 1xarmour from ItalianBase
-	Move units: 2xarmour from ItalianStart
-	Move units: 20xinfantry from ItalianStart
-	Move units: 11xartillery from ItalianStart
-	strength=657
-Sending: [{'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStartLeft', 'unit': 'armour', 'count': 1}, {'delegate': 'combat', 'from': 'ItalianStart', 'to': 'ItalianStartLeft', 'unit': 'armour', 'count': 2}, {'delegate': 'combat', 'from': 'ItalianStart', 'to': 'ItalianStartLeft', 'unit': 'infantry', 'count': 20}, {'delegate': 'combat', 'from': 'ItalianStart', 'to': 'ItalianStartLeft', 'unit': 'artillery', 'count': 11}]
-
-Game  1  Round  10   [MY_MOVE] noncombat
-Sending: [{'delegate': 'noncombat', 'from': 'ItalianStartLeft', 'to': 'ItalianBase', 'unit': 'armour'}]
-
-Game  1  Round  11   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  11   [MY_MOVE] combat
-MCTS ran 131 iterations in 1.0s
-Root node visits: 131
-Best action visits: 1, value: -0.257
-Selected action : combat delegate on ItalianStart
-	Move units: 3xinfantry from ItalianBase
-	Move units: 5xartillery from ItalianBase
-	Move units: 3xarmour from ItalianStartLeft
-	Move units: 19xinfantry from ItalianStartLeft
-	Move units: 11xartillery from ItalianStartLeft
-	strength=689
-Sending: [{'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'infantry', 'count': 3}, {'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'artillery', 'count': 5}, {'delegate': 'combat', 'from': 'ItalianStartLeft', 'to': 'ItalianStart', 'unit': 'armour', 'count': 3}, {'delegate': 'combat', 'from': 'ItalianStartLeft', 'to': 'ItalianStart', 'unit': 'infantry', 'count': 19}, {'delegate': 'combat', 'from': 'ItalianStartLeft', 'to': 'ItalianStart', 'unit': 'artillery', 'count': 11}]
-
-Game  1  Round  12   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  12   [MY_MOVE] combat
-MCTS ran 135 iterations in 1.0s
-Root node visits: 135
-Best action visits: 1, value: -0.272
-Selected action : combat delegate on ItalianStartRight
-	Move units: 3xarmour from ItalianBase
-	Move units: 22xinfantry from ItalianStart
-	Move units: 16xartillery from ItalianStart
-	Move units: 3xarmour from ItalianStart
-	strength=1050
-Sending: [{'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStartRight', 'unit': 'armour', 'count': 3}, {'delegate': 'combat', 'from': 'ItalianStart', 'to': 'ItalianStartRight', 'unit': 'infantry', 'count': 22}, {'delegate': 'combat', 'from': 'ItalianStart', 'to': 'ItalianStartRight', 'unit': 'artillery', 'count': 16}, {'delegate': 'combat', 'from': 'ItalianStart', 'to': 'ItalianStartRight', 'unit': 'armour', 'count': 3}]
-
-Game  1  Round  13   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  13   [MY_MOVE] combat
-MCTS ran 123 iterations in 1.0s
-Root node visits: 123
-Best action visits: 1, value: -0.259
-Selected action : combat delegate on ItalianStart
-	Move units: 1xartillery from ItalianBase
-	Move units: 1xarmour from ItalianBase
-	Move units: 6xarmour from ItalianStartRight
-	Move units: 22xinfantry from ItalianStartRight
-	Move units: 16xartillery from ItalianStartRight
-	strength=1109
-Sending: [{'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'artillery', 'count': 1}, {'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'armour', 'count': 1}, {'delegate': 'combat', 'from': 'ItalianStartRight', 'to': 'ItalianStart', 'unit': 'armour', 'count': 6}, {'delegate': 'combat', 'from': 'ItalianStartRight', 'to': 'ItalianStart', 'unit': 'infantry', 'count': 22}, {'delegate': 'combat', 'from': 'ItalianStartRight', 'to': 'ItalianStart', 'unit': 'artillery', 'count': 16}]
-
-Game  1  Round  14   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  14   [MY_MOVE] combat
-MCTS ran 123 iterations in 1.0s
-Root node visits: 123
-Best action visits: 1, value: -0.278
-Selected action : combat delegate on ItalianStartLeft
-	Move units: 17xartillery from ItalianStart
-	Move units: 7xarmour from ItalianStart
-	Move units: 22xinfantry from ItalianStart
-	strength=1209
-Sending: [{'delegate': 'combat', 'from': 'ItalianStart', 'to': 'ItalianStartLeft', 'unit': 'artillery', 'count': 17}, {'delegate': 'combat', 'from': 'ItalianStart', 'to': 'ItalianStartLeft', 'unit': 'armour', 'count': 7}, {'delegate': 'combat', 'from': 'ItalianStart', 'to': 'ItalianStartLeft', 'unit': 'infantry', 'count': 22}]
-
-Game  1  Round  14   [MY_MOVE] noncombat
-Sending: [{'delegate': 'noncombat', 'from': 'ItalianStartLeft', 'to': 'ItalianStart', 'unit': 'armour'}]
-
-Game  1  Round  15   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  15   [MY_MOVE] combat
-MCTS ran 133 iterations in 1.0s
-Root node visits: 133
-Best action visits: 1, value: -0.313
-Selected action : combat delegate on ItalianStart
-	Move units: 2xinfantry from ItalianBase
-	Move units: 4xartillery from ItalianBase
-	Move units: 2xarmour from ItalianBase
-	Move units: 17xartillery from ItalianStartLeft
-	Move units: 7xarmour from ItalianStartLeft
-	Move units: 22xinfantry from ItalianStartLeft
-	strength=1257
-Sending: [{'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'infantry', 'count': 2}, {'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'artillery', 'count': 4}, {'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'armour', 'count': 2}, {'delegate': 'combat', 'from': 'ItalianStartLeft', 'to': 'ItalianStart', 'unit': 'artillery', 'count': 17}, {'delegate': 'combat', 'from': 'ItalianStartLeft', 'to': 'ItalianStart', 'unit': 'armour', 'count': 7}, {'delegate': 'combat', 'from': 'ItalianStartLeft', 'to': 'ItalianStart', 'unit': 'infantry', 'count': 22}]
-
-Game  1  Round  16   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  16   [MY_MOVE] combat
-MCTS ran 99 iterations in 1.0s
-Root node visits: 99
-Best action visits: 1, value: -0.283
-Selected action : combat delegate on ItalianStartLeft
-	Move units: 24xinfantry from ItalianStart
-	Move units: 21xartillery from ItalianStart
-	Move units: 9xarmour from ItalianStart
-	strength=1701
-Sending: [{'delegate': 'combat', 'from': 'ItalianStart', 'to': 'ItalianStartLeft', 'unit': 'infantry', 'count': 24}, {'delegate': 'combat', 'from': 'ItalianStart', 'to': 'ItalianStartLeft', 'unit': 'artillery', 'count': 21}, {'delegate': 'combat', 'from': 'ItalianStart', 'to': 'ItalianStartLeft', 'unit': 'armour', 'count': 9}]
-
-Game  1  Round  16   [MY_MOVE] noncombat
-Sending: [{'delegate': 'noncombat', 'from': 'ItalianStartLeft', 'to': 'ItalianStart', 'unit': 'infantry'}]
-
-Game  1  Round  17   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  17   [MY_MOVE] combat
-MCTS ran 131 iterations in 1.0s
-Root node visits: 131
-Best action visits: 1, value: -0.283
-Selected action : combat delegate on ItalianStart
-	Move units: 6xinfantry from ItalianBase
-	Move units: 3xartillery from ItalianBase
-	Move units: 24xinfantry from ItalianStartLeft
-	Move units: 21xartillery from ItalianStartLeft
-	Move units: 9xarmour from ItalianStartLeft
-	strength=1755
-Sending: [{'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'infantry', 'count': 6}, {'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'artillery', 'count': 3}, {'delegate': 'combat', 'from': 'ItalianStartLeft', 'to': 'ItalianStart', 'unit': 'infantry', 'count': 24}, {'delegate': 'combat', 'from': 'ItalianStartLeft', 'to': 'ItalianStart', 'unit': 'artillery', 'count': 21}, {'delegate': 'combat', 'from': 'ItalianStartLeft', 'to': 'ItalianStart', 'unit': 'armour', 'count': 9}]
-
-Game  1  Round  18   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  18   [MY_MOVE] combat
-MCTS ran 133 iterations in 1.0s
-Root node visits: 133
-Best action visits: 1, value: -0.271
-Selected action : combat delegate on ItalianStartLeft
-	Move units: 29xinfantry from ItalianStart
-	Move units: 24xartillery from ItalianStart
-	Move units: 9xarmour from ItalianStart
-	strength=2236
-Sending: [{'delegate': 'combat', 'from': 'ItalianStart', 'to': 'ItalianStartLeft', 'unit': 'infantry', 'count': 29}, {'delegate': 'combat', 'from': 'ItalianStart', 'to': 'ItalianStartLeft', 'unit': 'artillery', 'count': 24}, {'delegate': 'combat', 'from': 'ItalianStart', 'to': 'ItalianStartLeft', 'unit': 'armour', 'count': 9}]
-
-Game  1  Round  18   [MY_MOVE] noncombat
-Sending: [{'delegate': 'noncombat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'infantry'}]
-
-Game  1  Round  19   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  19   [MY_MOVE] combat
-MCTS ran 135 iterations in 1.0s
-Root node visits: 135
-Best action visits: 1, value: -0.246
-Selected action : combat delegate on RightBar
-	Move units: 29xinfantry from ItalianStartLeft
-	Move units: 24xartillery from ItalianStartLeft
-	Move units: 9xarmour from ItalianStartLeft
-	strength=2236
-Sending: [{'delegate': 'combat', 'from': 'ItalianStartLeft', 'to': 'RightBar', 'unit': 'infantry', 'count': 29}, {'delegate': 'combat', 'from': 'ItalianStartLeft', 'to': 'RightBar', 'unit': 'artillery', 'count': 24}, {'delegate': 'combat', 'from': 'ItalianStartLeft', 'to': 'RightBar', 'unit': 'armour', 'count': 9}]
-
-Game  1  Round  19   [MY_MOVE] noncombat
-Sending: [{'delegate': 'noncombat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'artillery'}]
-
-Game  1  Round  20   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  20   [MY_MOVE] combat
-MCTS ran 131 iterations in 1.0s
-Root node visits: 131
-Best action visits: 1, value: -0.276
-Selected action : combat delegate on GermanStartRight
-	Move units: 29xinfantry from RightBar
-	Move units: 24xartillery from RightBar
-	Move units: 9xarmour from RightBar
-	strength=2236
-Sending: [{'delegate': 'combat', 'from': 'RightBar', 'to': 'GermanStartRight', 'unit': 'infantry', 'count': 29}, {'delegate': 'combat', 'from': 'RightBar', 'to': 'GermanStartRight', 'unit': 'artillery', 'count': 24}, {'delegate': 'combat', 'from': 'RightBar', 'to': 'GermanStartRight', 'unit': 'armour', 'count': 9}]
-
-Game  1  Round  20   [MY_MOVE] noncombat
-Sending: [{'delegate': 'noncombat', 'from': 'ItalianStart', 'to': 'ItalianBase', 'unit': 'artillery'}]
-
-Game  1  Round  21   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  21   [MY_MOVE] combat
-MCTS ran 140 iterations in 1.0s
-Root node visits: 140
-Best action visits: 35, value: 0.116
-Selected action : combat delegate on ItalianStartRight
-	Move units: 1xarmour from ItalianBase
-	strength=9
-Sending: [{'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStartRight', 'unit': 'armour', 'count': 1}]
-
-Game  1  Round  21   [MY_MOVE] noncombat
-Sending: [{'delegate': 'noncombat', 'from': 'ItalianStartRight', 'to': 'ItalianBase', 'unit': 'armour'}]
-
-Game  1  Round  22   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'infantry', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}, {'delegate': 'purchase', 'unit': 'artillery', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  22   [MY_MOVE] combat
-MCTS ran 140 iterations in 1.0s
-Root node visits: 140
-Best action visits: 28, value: 0.204
-Selected action : combat delegate on TopBar
-	Move units: 1xarmour from ItalianStartRight
-	strength=3
-Sending: [{'delegate': 'combat', 'from': 'ItalianStartRight', 'to': 'TopBar', 'unit': 'armour', 'count': 1}]
-
-Game  1  Round  22   [MY_MOVE] noncombat
-Sending: [{'delegate': 'noncombat', 'from': 'ItalianBase', 'to': 'ItalianStartRight', 'unit': 'armour'}]
-
-Game  1  Round  23   [MY_MOVE] purchase
-Sending: [{'delegate': 'purchase', 'unit': 'armour', 'from': '', 'to': 'ItalianBase'}]
-
-Game  1  Round  23   [MY_MOVE] combat
-MCTS ran 135 iterations in 1.0s
-Root node visits: 135
-Best action visits: 1, value: -0.210
-Selected action : combat delegate on ItalianStart
-	Move units: 14xinfantry from ItalianBase
-	Move units: 7xartillery from ItalianBase
-	Move units: 2xarmour from ItalianBase
-	Move units: 1xarmour from TopBar
-	Move units: 1xarmour from ItalianStartRight
-	strength=312
-Sending: [{'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'infantry', 'count': 14}, {'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'artillery', 'count': 7}, {'delegate': 'combat', 'from': 'ItalianBase', 'to': 'ItalianStart', 'unit': 'armour', 'count': 2}, {'delegate': 'combat', 'from': 'TopBar', 'to': 'ItalianStart', 'unit': 'armour', 'count': 1}, {'delegate': 'combat', 'from': 'ItalianStartRight', 'to': 'ItalianStart', 'unit': 'armour', 'count': 1}]
-Graph reset complete.
-Starting next game in 5s.
+Sending: [{'delegate': 'noncombat', 'from': 'RussianStart', 'to': 'RussianStartRight', 'unit': 'infantry'}]
