@@ -5,8 +5,8 @@ import json
 import os
 
 # --- CONFIG ---
-PLAY_ROUNDS = 100   # max rounds per game
-PLAY_GAMES = 5      # number of games to play
+PLAY_ROUNDS = 200   # max rounds per game
+PLAY_GAMES = 1      # number of games to play
 CHECK_INTERVAL = 2  # seconds between log checks
 
 
@@ -62,7 +62,7 @@ def main():
     with open("config.json", 'r') as f:
         data = json.load(f)
 
-    root_log_folder = "/storage/home/hcoda1/6/snayak89/tripleMind/logs/"
+    root_log_folder = "/home/sanjana/tripleMind/logs/"
     log_file = os.path.join(root_log_folder, data["PLAYER_NAME"], f"{data['DEFAULT_GAME_NAME_PREF']}.log")
 
     games_played = 0

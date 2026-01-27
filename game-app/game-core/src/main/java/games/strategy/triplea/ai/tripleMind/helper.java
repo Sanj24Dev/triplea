@@ -19,7 +19,7 @@ class Action {
 }
 
 public class helper {
-    static String log_folder = "/storage/home/hcoda1/6/snayak89/tripleMind/logs/";       // update with your log file name
+    static String log_folder = "/home/sanjana/tripleMind/logs/";       // update with your log file name
     static String me;
     public static int getAIRoleId(int n) {
         Random rand = new Random();

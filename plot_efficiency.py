@@ -119,7 +119,7 @@ value_data = [
     df[df["round"] == late]["best_node_value"],
 ]
 
-axs[2].boxplot(value_data, tick_labels=[
+axs[2].boxplot(value_data, labels=[
     f"Early (r={early})",
     f"Mid (r={mid})",
     f"Late (r={late})"
