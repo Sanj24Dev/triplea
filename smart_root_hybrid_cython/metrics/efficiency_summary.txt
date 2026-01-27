@@ -5,89 +5,29 @@ Game 1
 --------------------
 Total rounds: 23
 Iterations per round:
-  Mean: 25.17
-  Min : 22
-  Max : 41
+  Mean: 140.91
+  Min : 99
+  Max : 231
 Exploration_coverage (actions_explored / total_actions):
-  Mean: 0.3440
-  Min : 0.0004
+  Mean: 0.4532
+  Min : 0.0008
   Max : 1.0000
 Avg Tree depth per round:
-  Mean: 9.7948
-  Min : 9.6250
-  Max : 10.0000
-Game 2
---------------------
-Total rounds: 72
-Iterations per round:
-  Mean: 26.29
-  Min : 15
-  Max : 46
-Exploration_coverage (actions_explored / total_actions):
-  Mean: 0.2821
-  Min : 0.0000
-  Max : 1.0000
-Avg Tree depth per round:
-  Mean: 9.8578
-  Min : 9.4667
-  Max : 10.0000
-Game 3
---------------------
-Total rounds: 59
-Iterations per round:
-  Mean: 21.59
-  Min : 8
-  Max : 54
-Exploration_coverage (actions_explored / total_actions):
-  Mean: 0.1701
-  Min : 0.0000
-  Max : 1.0000
-Avg Tree depth per round:
-  Mean: 9.8091
-  Min : 9.5714
-  Max : 10.0000
-Game 4
---------------------
-Total rounds: 35
-Iterations per round:
-  Mean: 26.77
-  Min : 23
-  Max : 48
-Exploration_coverage (actions_explored / total_actions):
-  Mean: 0.4609
-  Min : 0.0018
-  Max : 1.0000
-Avg Tree depth per round:
-  Mean: 9.8524
-  Min : 9.6400
-  Max : 10.0000
-Game 5
---------------------
-Total rounds: 45
-Iterations per round:
-  Mean: 25.71
-  Min : 21
-  Max : 41
-Exploration_coverage (actions_explored / total_actions):
-  Mean: 0.2849
-  Min : 0.0000
-  Max : 1.0000
-Avg Tree depth per round:
-  Mean: 9.8318
-  Min : 9.6250
+  Mean: 9.9699
+  Min : 9.9268
   Max : 10.0000
 
 OVERALL AVERAGES (Across Games)
 ==============================
 Iterations per round (game-averaged):
-  Mean: 25.11
-  Min: 8
-  Max: 54
+  Mean: 140.91
+  Min: 99
+  Max: 231
 Exploration coverage (game-averaged):
-  Mean: 0.31
+  Mean: 0.45
   Min: 0.00
   Max: 1.0
 Avg tree depth per round (game-averaged):
-  Mean: 9.83
-  Min: 9.466666666666669
+  Mean: 9.97
+  Min: 9.926829268292684
   Max: 10.0

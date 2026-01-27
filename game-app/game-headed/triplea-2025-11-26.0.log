@@ -1,0 +1,2 @@
+20008 14:40:14.638 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+63627 14:40:58.257 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml

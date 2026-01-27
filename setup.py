@@ -3,15 +3,15 @@ from Cython.Build import cythonize
 
 extensions = [
     Extension(
-        "check_reachability_cpp",
-        ["check_reachability.pyx"],
+        "move_generator_cpp",
+        ["move_generator.pyx"],
         language="c++",
         extra_compile_args=["-O3", "-std=c++11"],
     )
 ]
 
 setup(
-    name="check_reachability_cpp",
+    name="move_generator_cpp",
     ext_modules=cythonize(
         extensions,
         compiler_directives={

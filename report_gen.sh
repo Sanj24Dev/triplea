@@ -12,7 +12,7 @@ python3 plot_game_outcome.py --folder "$REPORT_FOLDER"
 python3 plot_combat_quality.py --folder "$REPORT_FOLDER"
 python3 plot_profile.py --folder "$REPORT_FOLDER"
 
-REPORT_PDF="sim_model4_cython.pdf"
+REPORT_PDF="sim_model5_cython.pdf"
 GAME_SUMMARY=$(cat << 'EOF'
 <b>Smart-Root–Dumb-Tree Model</b><br/>
 <b>Search scope :</b> Combat move selection only - attacks only 1 territory in a round <br />
@@ -33,10 +33,10 @@ GAME_SUMMARY=$(cat << 'EOF'
 EOF
 )
 
-rm "$REPORT_PDF"
-python3 summary_script.py --file_name="$REPORT_PDF" --report_folder="$REPORT_FOLDER" --game_summary="$GAME_SUMMARY"
-rm sim_model4_cython.zip
-zip -r sim_model4_cython.zip $REPORT_PDF $REPORT_FOLDER combat_mcts_agent.py check_reachability.pyx 
+# rm "$REPORT_PDF"
+# python3 summary_script.py --file_name="$REPORT_PDF" --report_folder="$REPORT_FOLDER" --game_summary="$GAME_SUMMARY"
+# rm sim_model5_cython.zip
+# zip -r sim_model5_cython.zip $REPORT_PDF $REPORT_FOLDER combat_mcts_agent.py check_reachability.pyx 
 
 
 # <b>Legal Combat Move Generation</b><br/>

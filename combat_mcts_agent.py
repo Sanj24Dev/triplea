@@ -11,7 +11,7 @@ import re
 from ctf_graph import Territory, Player, MetricLogger
 from itertools import product
 import copy
-import check_reachability_cpp
+import move_generator_cpp
 
 # for non combat??
 # _reachability_cache = {}
@@ -27,6 +27,10 @@ FACTORY_MAP = {
     "Germans": "GermanBase",
     "Chinese": "ChineseBase"
 }
+
+unit_move_ranges = None
+unit_attack_points = None
+unit_costs = None
 
 class Attack:
     def __init__(self, type, from_territory, quantity):
@@ -217,6 +221,12 @@ class MCTSGameState:
         self.round = ctf.round
         self.game_num = ctf.game_num
 
+        cpp_adjacency = {
+            name: list(adjacency.neighbors(name))
+            for name in self.territories
+        }
+        move_generator_cpp.set_adjacency(cpp_adjacency)
+
 
     def __repr__(self):
         # Summaries
@@ -300,7 +310,7 @@ class MCTSGameState:
         my_territories = set()
 
         for name, terr in self.territories.items():
-            t = check_reachability_cpp.Territory()
+            t = move_generator_cpp.Territory()
             t.owner = terr.owner
             territories_cpp[name] = t
 
@@ -309,285 +319,77 @@ class MCTSGameState:
 
         return territories_cpp, my_territories
 
-    def check_reachability(self, unit, from_territory, to_territory, territories_cpp, my_territories):
-        unit_type = unit.unit_type
-        move_range = game_rules.get(unit_type, {}).get("move", 1)
-
-        if move_range <= 0 or unit_type == "factory":
-            return False
-        
-        cache_key = (unit_type, from_territory, to_territory)
-        if cache_key in self._reachability_cache:
-            return self._reachability_cache[cache_key]
-
-
-        cpp_unit = check_reachability_cpp.Unit()
-        cpp_unit.owner = unit.owner
-        cpp_unit.unit_type = unit_type
-        
-        result = check_reachability_cpp.can_reach(from_territory, to_territory, move_range, cpp_unit, territories_cpp, my_territories)
-        
-        
-        # queue = deque([(from_territory, 0)])
-        # visited = set([from_territory])
-        # result = False
-        # my_territories = []
-        # for my_territory_name, my_territory in self.territories.items():
-        #     if my_territory.owner == self.current_player:
-        #         my_territories.append(my_territory.name)
-
-        # while queue:
-        #     current, steps = queue.popleft()
-        #     if steps >= move_range:
-        #         continue
-
-        #     for neighbor in adjacency.neighbors(current):
-        #         if neighbor in visited:
-        #             continue
-        #         # Can't move through enemy-occupied territory (unless blitzing and empty)
-        #         terr_owner = self.territories[neighbor].owner
-        #         if unit_type == "armour":
-        #             # CASE 1: neighbor is friendly → always allowed
-        #             if terr_owner == unit.owner:
-        #                 pass
-        #             # CASE 2: neighbor is neutral → allowed (just like friendly)
-        #             elif terr_owner == "Neutral":
-        #                 pass  # allowed
-        #             # CASE 3: neighbor is ENEMY
-        #             elif terr_owner != unit.owner:
-
-        #                 # If NEIGHBOR == target → always allowed as final combat
-        #                 if neighbor == to_territory:
-        #                     pass  # can always attack enemy
-        #                 else:
-        #                     continue
-        #         else:
-        #             if neighbor != to_territory:  # Not our target
-        #                 if neighbor not in my_territories:  # Enemy territory
-        #                     continue
-        #         visited.add(neighbor)
-                
-        #         if neighbor == to_territory:
-        #             result = True
-        #             break
-        #         queue.append((neighbor, steps + 1))
-                
-        
-        self._reachability_cache[cache_key] = result
-        return result
-
-    def calculate_attack_strength(self, units):
-        attacker_strength = 0
-        infantry = sum(u.quantity for u in units if u.unit_type == "infantry")
-        artillery = sum(u.quantity for u in units if u.unit_type == "artillery")
-        supported_inf = min(infantry, artillery)   # 1:1 support
-        unsupported_inf = infantry - supported_inf
-
-        for u in units:
-            unit_type = u.unit_type
-            quantity = u.quantity
-            # calculate strength
-            stats = game_rules.get(unit_type, {})
-            power = stats.get("attack", 1)
-            if unit_type == infantry:
-                attacker_strength += supported_inf * (power+1) 
-                attacker_strength += unsupported_inf * power
-            else:
-                attacker_strength += quantity * power
-        return attacker_strength
-    
-    def form_attacks(self, units):
-        grouped = {}
-        for u in units:
-            key = (u["from"], u["unit_type"])
-            if key not in grouped:
-                grouped[key] = {
-                    "from": u["from"],
-                    "unit_type": u["unit_type"],
-                    "unit": u["unit"],
-                    "count": 0
-                }
-            grouped[key]["count"] += 1
-        
-        # Convert to Attack objects
-        attacks = []
-        for group in grouped.values():
-            attacks.append(
-                Attack(
-                    type=group["unit_type"],
-                    from_territory=group["from"],
-                    quantity=group["count"]
-                )
-            )
-        
-        return attacks
 
     # initial representation
     def heuristic_combat_legal_moves(self, time_budget):
         player = self.current_player
-        legal_moves = []
         start = time.time()
-        self._reachability_cache = {}
+        
+        all_units = []
+        territories = {}
+        my_territories = set()
+        for territory_name, territory in self.territories.items():
+            terr_cpp = move_generator_cpp.Territory()
+            terr_cpp.owner = territory.owner
+            terr_cpp.units = []
 
-        territories_cpp, my_territory_names = self._build_reachability_context(self.current_player)
-        my_territories = [t for t in self.territories.values() if t.owner == player]
-        enemy_territories = [t for t in self.territories.values() if t.owner != player]
+            for unit in territory.units:
+                if unit.unit_type != "factory":
+                    cython_unit = move_generator_cpp.Unit()
+                    cython_unit.unit_type = unit.unit_type
+                    cython_unit.owner = unit.owner
+                    unit_info = move_generator_cpp.UnitInfo()
+                    unit_info.from_territory = territory_name
+                    unit_info.unit = cython_unit
+                    unit_info.quantity = unit.quantity
 
+                    if unit.owner == player:
+                        all_units.append(unit_info)
+                    else:
+                        terr_cpp.units.append(cython_unit)
 
+            if territory.owner == player:
+                my_territories.add(territory_name)
 
-        for enemy_territory in enemy_territories:
-            enemy_territory_name = enemy_territory.name
-            
-            # Always include option to skip attack on this territory
-            legal_moves.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=[]))
-
-            # Find all units that can reach this destination
-            units_that_can_attack = [
-                {"from": from_terr.name, "unit": unit, "qty": unit.quantity}
-                for from_terr in my_territories
-                for unit in from_terr.units
-                if unit.owner == player
-                if unit.unit_type != "aaGun"
-                if self.check_reachability(unit, from_terr.name, enemy_territory_name, territories_cpp, my_territory_names)
-            ]                
-            
-            if time.time() - start > time_budget:
-                return legal_moves
-            # If no units can reach the territory, skip
-            if not units_that_can_attack:
-                continue
-   
-            defender_strength = 0
-            units_at_target = [u for u in enemy_territory.units if u.owner != player]
-            # assuming all the units at target belong to the terr owner = all previous battles resolved
-            for unit in units_at_target:
-                unit_type = unit.unit_type
-                stats = game_rules.get(unit_type, {})
-                power = stats.get("defense", 1)
-                defender_strength += unit.quantity * power
-
-            legal_subsets = []
-            # print(enemy_territory_name)
-            # Find legal attack subsets upto defender strength
-            if defender_strength == 0:
-                cheapest = min(units_that_can_attack, key=lambda g: game_rules.get(g["unit"].unit_type, {}).get("cost", 999))
-                # cheapest = random.choice(units_that_can_attack)
-                attack = Attack(type=cheapest["unit"].unit_type, from_territory=cheapest["from"], quantity=1)
-                stats = game_rules.get(cheapest["unit"].unit_type, {})
-                strength = stats.get("attack", 1)
-                legal_subsets = [([attack], strength)]
-                # print(legal_subsets)
-            else:
-                def attack_efficiency(group):
-                    unit_type = group["unit"].unit_type
-                    attack_power = game_rules.get(unit_type, {}).get("attack", 1)
-                    cost = game_rules.get(unit_type, {}).get("cost", 1)
-                    return attack_power / cost
-                
-                sorted_groups = sorted(units_that_can_attack, key=attack_efficiency, reverse=True)
-                
-                # Build up incrementally
-                current_units = []  # List of {"from": ..., "unit": ..., "qty": 1} for each individual unit
-                strength_threshold = 1.1  # Start at 110% of defender strength
-                max_threshold = 2.5  # Stop at 250% of defender strength
-
-                for group in sorted_groups:
-                    unit_type = group["unit"].unit_type
-                    from_territory = group["from"]
-                    max_qty = group["qty"]
+            territories[territory_name] = terr_cpp
                     
-                    # Add units from this group one at a time
-                    for _ in range(max_qty):
-                        current_units.append({
-                            "from": from_territory,
-                            "unit": group["unit"],
-                            "unit_type": unit_type
-                        })
-                        
-                        # Calculate current attack strength
-                        unit_list = [u["unit"] for u in current_units]
-                        current_strength = self.calculate_attack_strength(unit_list)
-                        
-                        # Check if we've crossed a strength threshold
-                        if (current_strength > strength_threshold * defender_strength and 
-                            current_strength < (max_threshold * defender_strength) + 4):
-                            
-                            # Save this combination
-                            attack_combo = self.form_attacks(current_units)
-                            legal_subsets.append((attack_combo, current_strength))
-                            
-                            # Increment threshold for next combination
-                            strength_threshold += 0.1
-                        # Stop if we've exceeded max threshold
-                        if current_strength >= (max_threshold * defender_strength) + 4:
-                            break
-                    if current_strength >= (max_threshold * defender_strength) + 4:
-                        break
-                
-                # Always include the full force as final option (if not already added)
-                if current_units:
-                    unit_list = [u["unit"] for u in current_units]
-                    final_strength = self.calculate_attack_strength(unit_list)
-                    attack_combo = self.form_attacks(current_units)
                     
-                    # Only add if it's different from last combination
-                    if not legal_subsets or legal_subsets[-1][1] != final_strength:
-                        legal_subsets.append((attack_combo, final_strength))
 
-                legal_subsets.reverse()
-
-            if time.time() - start > time_budget:
-                return legal_moves
-
-            for subset, strength in legal_subsets:
-                legal_moves.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=subset, strength=strength))
-            
-        legal_moves.append(Move(delegate="combat", end_phase=True))
-
-        del self._reachability_cache
+        time_left = time_budget - (time.time() - start)
+        legal_moves = move_generator_cpp.combat_legal_moves(player, territories, my_territories, all_units, time_left)
         
         return legal_moves
 
     def heuristic_non_combat_legal_moves(self, time_budget):
         player = self.current_player
-        legal_moves = []
         start = time.time()
-        self._reachability_cache = {}
+        
+        all_units = []
+        territories = {}
+        my_territories = set()
+        for territory_name, territory in self.territories.items():
+            terr_cpp = move_generator_cpp.Territory()
+            terr_cpp.owner = territory.owner
 
-        territories_cpp, my_territory_names = self._build_reachability_context(self.current_player)
-        my_territories = [t for t in self.territories.values() if t.owner == player]
-    
-        for to_territory in my_territories:
-            to_territory_name = to_territory.name
-            # Always include option to skip attack on this territory
-            legal_moves.append(Move(delegate="noncombat", to_terr=to_territory_name, moves=[]))
+            if territory.owner == player:
+                my_territories.add(territory_name)
+            territories[territory_name] = terr_cpp
 
-            units_that_can_attack  = [
-                {"from": from_terr.name, "unit": unit, "qty": unit.quantity}
-                for from_terr in my_territories
-                if from_terr.name != to_territory_name
-                for unit in from_terr.units
-                if unit.owner == player
-                if self.check_reachability(unit, from_terr.name, to_territory_name, territories_cpp, my_territory_names)
-            ]
-            if time.time() - start > time_budget:
-                return legal_moves
-            
-            # If no units can reach the territory, skip
-            if not units_that_can_attack:
-                continue
-            # print(f"Units that can attack {units_that_can_attack}")
-            
-            # Pick one random move from reachable set
-            choice = random.choice(units_that_can_attack)
-            move = Attack(type=choice["unit"].unit_type, from_territory=choice["from"], quantity=choice["qty"])
-            legal_moves.append(Move("noncombat", to_terr=to_territory_name, moves=[move]))
+            for unit in territory.units:
+                if unit.unit_type != "factory" and unit.owner == player:
+                    cython_unit = move_generator_cpp.Unit()
+                    cython_unit.unit_type = unit.unit_type
+                    cython_unit.owner = unit.owner
+                    unit_info = move_generator_cpp.UnitInfo()
+                    unit_info.from_territory = territory_name
+                    unit_info.unit = cython_unit
+                    unit_info.quantity = unit.quantity
+                    all_units.append(unit_info)
+                    
 
-            if time.time() - start > time_budget:
-                return legal_moves
-            
-            
-        del self._reachability_cache
+        time_left = time_budget - (time.time() - start)
+        legal_moves = move_generator_cpp.non_combat_legal_moves(player, territories, my_territories, all_units, time_left)
+        
         return legal_moves
 
     def apply_purchase_move(self, move):
@@ -733,6 +535,19 @@ class MCTS:
         victory_cities = vic_cities
         adjacency = adj
         turn_order = order
+
+        global unit_move_ranges, unit_attack_points, unit_costs
+        # cpp_adjacency = {
+        #     name: list(adjacency.neighbors(name))
+        #     for name in self.territories
+        # }
+        # move_generator_cpp.set_adjacency(cpp_adjacency)
+        unit_move_ranges = {name: data.get("move", 1) for name, data in game_rules.items()}
+        move_generator_cpp.set_unit_move_ranges(unit_move_ranges)
+        unit_attack_points = {name: data.get("attack", 0) for name, data in game_rules.items()}
+        move_generator_cpp.set_unit_attack_values(unit_attack_points)
+        unit_costs = {name: data.get("cost", 1) for name, data in game_rules.items()}
+        move_generator_cpp.set_unit_costs(unit_costs)
 
     def generate_combat_moves_territory_based(self, ctf, player):
         legal_moves = []
