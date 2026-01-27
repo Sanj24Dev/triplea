@@ -1,6 +1,6 @@
 to run this program
 - make sure java is jdk17
-- clone the maps_tested repository and copy the downloadedMaps folder next to logs folder 
+- clone the maps_tested repository and copy the downloadedMaps folder named triplea which is placed in the root
 - create a folder called 'logs' outside this repository and update the following lines
     1. in 'game-app/game-core/src/main/java/games/strategy/triplea/ai/tripleMind/helper.java'
     static String log_folder = "/home/sanjana/triplea/logs/";

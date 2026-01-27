@@ -161,7 +161,7 @@ data = [
     for f in top_funcs
 ]
 
-plt.boxplot(data, tick_labels=top_funcs, showfliers=True)
+plt.boxplot(data, labels=top_funcs, showfliers=True)
 plt.ylabel("Cumulative time per game (seconds)")
 plt.title("Distribution of Time Spent per Function Across Games")
 plt.xticks(rotation=30)

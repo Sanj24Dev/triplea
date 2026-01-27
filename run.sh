@@ -1,17 +1,17 @@
 #!/bin/bash
 start_time=$(date +%s)
 # load modules needed to run pybind 
-module purge
-module load python
-module load gcc
-module load cmake
+# module purge
+# module load python
+# module load gcc
+# module load cmake
 
 # compile the pybind cpp functions
 # g++ -O3 -Wall -shared -std=c++11 -fPIC $(python3 -m pybind11 --includes) reachability.cpp -o reachability_cpp$(python3 -m pybind11 --extension-suffix)
 # g++ -O3 -Wall -shared -std=c++11 -fPIC $(python3 -m pybind11 --includes) check_reachability.cpp -o check_reachability_cpp$(python3 -m pybind11 --extension-suffix)
 
 # compile cython file
-python setup.py build_ext --inplace
+# python setup.py build_ext --inplace
 
 # pip install --user pandas
 
