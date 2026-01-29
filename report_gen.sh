@@ -3,7 +3,7 @@ module load python
 module load gcc
 module load cmake
 
-REPORT_FOLDER="smart_root_hybrid_cython"
+REPORT_FOLDER="smart_root_heuristic_playout"
 
 # use the following for profiling and analysis
 python3 plot_efficiency.py --folder "$REPORT_FOLDER"
@@ -12,7 +12,7 @@ python3 plot_game_outcome.py --folder "$REPORT_FOLDER"
 python3 plot_combat_quality.py --folder "$REPORT_FOLDER"
 python3 plot_profile.py --folder "$REPORT_FOLDER"
 
-REPORT_PDF="sim_model5_cython.pdf"
+REPORT_PDF="sim_modelx_heuristic.pdf"
 GAME_SUMMARY=$(cat << 'EOF'
 <b>Smart-Root–Dumb-Tree Model</b><br/>
 <b>Search scope :</b> Combat move selection only - attacks only 1 territory in a round <br />
