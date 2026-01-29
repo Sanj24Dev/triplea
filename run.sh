@@ -15,19 +15,19 @@ start_time=$(date +%s)
 
 # pip install --user pandas
 
-MODEL_NAME="smart_root_hybrid_cython"
+MODEL_NAME="smart_root_heuristic_playout"
 
-rm -f smart_root_hybrid_cython/metrics/*
-rm -f smart_root_hybrid_cython/profiling/*
-rm -f smart_root_hybrid_cython/combat_moves/*
-rm -f smart_root_hybrid_cython/profiles/*
+rm -f smart_root_heuristic_playout/metrics/*
+rm -f smart_root_heuristic_playout/profiling/*
+rm -f smart_root_heuristic_playout/combat_moves/*
+rm -f smart_root_heuristic_playout/profiles/*
 rm "../logs/RL_BOT_3/Capture The Flag.log"
 
 # 1. Start the first program in the background and get its PID
-REDUCTION_REC="smart_root_hybrid_cython/metrics/reduction.csv"
-EFFICIENCY_REC="smart_root_hybrid_cython/metrics/mcts_efficiency.csv"
-OUTCOME_REC="smart_root_hybrid_cython/metrics/game_outcome.csv"
-QUALITY_REC="smart_root_hybrid_cython/metrics/combat_quality.csv"
+REDUCTION_REC="smart_root_heuristic_playout/metrics/reduction.csv"
+EFFICIENCY_REC="smart_root_heuristic_playout/metrics/mcts_efficiency.csv"
+OUTCOME_REC="smart_root_heuristic_playout/metrics/game_outcome.csv"
+QUALITY_REC="smart_root_heuristic_playout/metrics/combat_quality.csv"
 
 python3 -u game_mcts.py --model_name "$MODEL_NAME" --reduction_file "$REDUCTION_REC" --efficiency_file "$EFFICIENCY_REC" --outcome_file "$OUTCOME_REC" --quality_file "$QUALITY_REC"> output.log &
 MCTS_PID=$!

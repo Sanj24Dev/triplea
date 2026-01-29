@@ -33,6 +33,7 @@ class Unit:
         self.unit_type = unit_type
         self.owner = owner
         self.quantity = quantity
+        self.available = True
         self.properties = properties if properties is not None else {}
     
     def __repr__(self):
