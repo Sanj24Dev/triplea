@@ -195,21 +195,22 @@ public class HeadedLaunchAction implements LaunchAction {
 
   @Override
   public boolean promptGameStop(String status, String title, @Nullable Path mapLocation) {
+    return false;
     // now tell the HOST, and see if they want to continue the game.
-    String displayMessage =
-        mapLocation == null ? status : LocalizeHtml.localizeImgLinksInHtml(status, mapLocation);
-    if (displayMessage.endsWith("</body>")) {
-      displayMessage =
-          displayMessage.substring(0, displayMessage.length() - "</body>".length())
-              + "</br><p>Do you want to continue?</p></body>";
-    } else {
-      displayMessage = displayMessage + "</br><p>Do you want to continue?</p>";
-    }
-    return !EventThreadJOptionPane.showConfirmDialog(
-        null,
-        "<html>" + displayMessage + "</html>",
-        "Continue Game?  (" + title + ")",
-        EventThreadJOptionPane.ConfirmDialogType.YES_NO);
+    // String displayMessage =
+    //     mapLocation == null ? status : LocalizeHtml.localizeImgLinksInHtml(status, mapLocation);
+    // if (displayMessage.endsWith("</body>")) {
+    //   displayMessage =
+    //       displayMessage.substring(0, displayMessage.length() - "</body>".length())
+    //           + "</br><p>Do you want to continue?</p></body>";
+    // } else {
+    //   displayMessage = displayMessage + "</br><p>Do you want to continue?</p>";
+    // }
+    // return !EventThreadJOptionPane.showConfirmDialog(
+    //     null,
+    //     "<html>" + displayMessage + "</html>",
+    //     "Continue Game?  (" + title + ")",
+    //     EventThreadJOptionPane.ConfirmDialogType.YES_NO);
   }
 
   @Override

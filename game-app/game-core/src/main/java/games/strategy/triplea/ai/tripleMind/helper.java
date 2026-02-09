@@ -19,12 +19,13 @@ class Action {
 }
 
 public class helper {
-    static String log_folder = "/home/sanjana/tripleMind/logs/";       // update with your log file name
+    static final String root_folder = System.getenv().getOrDefault("PROJECT_ROOT", "/storage/home/hcoda1/6/snayak89/tripleMind");
+    static String log_folder = root_folder + "/logs/";       // update with your log file name
     static String me;
     public static int getAIRoleId(int n) {
         Random rand = new Random();
-        return rand.nextInt(n);
-//        return 0;
+        // return rand.nextInt(n);
+       return 2;
     }
 
     public static void saveWhoAmI(String player) {
