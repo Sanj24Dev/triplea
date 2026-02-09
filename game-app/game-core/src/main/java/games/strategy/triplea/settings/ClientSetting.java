@@ -206,6 +206,8 @@ public abstract class ClientSetting<T> implements GameSetting<T> {
   private final @Nullable T defaultValue;
   private final Collection<Consumer<GameSetting<T>>> listeners = new CopyOnWriteArrayList<>();
 
+  static final String root_folder = System.getenv().getOrDefault("PROJECT_ROOT", "/storage/home/hcoda1/6/snayak89/tripleMind");
+
   /** Initializes a new instance of {@code ClientSetting} with no default value. */
   protected ClientSetting(final Class<T> type, final String name) {
     this(type, name, null);
@@ -235,17 +237,16 @@ public abstract class ClientSetting<T> implements GameSetting<T> {
       setPreferences(Preferences.userNodeForPackage(ClientSetting.class));
 
 
-
-      // do i need to check if it is headed???
       // default values
       String gameName = "Capture The Flag";
-      String gameUri  = "file:///home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml";
+      String gameUri  = "file:///storage/home/hcoda1/6/snayak89/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml";
       String player_name = "RL_BOT_3";
 //    String iteration = "";
 
       try {
           StringBuilder json = new StringBuilder();
-          try (BufferedReader reader = new BufferedReader(new FileReader("/home/sanjana/tripleMind/triplea/config.json"))) {
+          
+          try (BufferedReader reader = new BufferedReader(new FileReader(root_folder + "/config.json"))) {
               String line;
               while ((line = reader.readLine()) != null) {
                   json.append(line.trim());

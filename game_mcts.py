@@ -2,12 +2,15 @@ import socket
 import json
 # import networkx as nx
 import time
+import os
 
-from ctf_graph import CaptureTheFlag
+from ctf_graph import CaptureTheFlag, MetricLogger
 from helper import parse_triplea_map, convert_action_to_json
 from combat_mcts_agent import MCTS
 
 import argparse
+
+START_GAME_NUM = 1
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--reduction_file", type=str, required=True)
@@ -35,6 +38,9 @@ def agent_loop(host="127.0.0.1", port=5000):
     # ctf.draw()
     r = "0"
     my_player = ""
+    empty_combat_counter = 0
+    prevCombat_empty = False
+    FORFEIT_FLAG = f"forfeit.flag"
 
     try:
         # print("Waiting for accept()")
@@ -62,7 +68,19 @@ def agent_loop(host="127.0.0.1", port=5000):
                         # if msg.startswith("[INFO]"):
                         #     print(parts)
                         if msg.startswith("[MY_MOVE]"):
-                            response = agent.get_move(msg, ctf, r)
+                            response, isCombat = agent.get_move(msg, ctf, r)
+                            if isCombat:
+                                if response == []:
+                                    if prevCombat_empty == True:
+                                        # write to the file
+                                        with open(FORFEIT_FLAG, "a") as f:
+                                            f.write(f"empty combat in round={ctf.round} game={ctf.game_num}\n")
+                                    prevCombat_empty = True
+                                else:
+                                    prevCombat_empty = False
+                                    if os.path.exists(FORFEIT_FLAG):
+                                        os.remove(FORFEIT_FLAG)
+
                             # response = []
                         elif msg.startswith("[INFO]") and "stopped" in msg: 
                             if "lost" in msg:
@@ -75,20 +93,31 @@ def agent_loop(host="127.0.0.1", port=5000):
                             agent.latest_legal_moves = []   # reset agent memory
                             r = "0"
                             ctf.game_num += 1
+                            agent.terr_before_combat = 2
+                            if os.path.exists(FORFEIT_FLAG):
+                                os.remove(FORFEIT_FLAG)
                             print("Starting next game in 5s.")
                             time.sleep(5)
                         elif msg.startswith("[INFO]") and "Round" in msg:
                             r = parts[3]
+                            if ctf.round != 0:
+                                agent.pu_after_combat = ctf.players[ctf.whoAmI].PU
+                                agent.terr_after_combat = sum(1 for t in ctf.territories.values() if t.owner == ctf.whoAmI)
+                                agent.combat_quality.log(ctf.game_num, ctf.round, agent.pu_after_combat, agent.terr_before_combat, agent.terr_after_combat)
+                            ctf.round = int(r)
                         elif msg.startswith("[INFO]") and "Role:" in msg:
                             ctf.apply_change_line(msg, 0)
                             my_player = parts[2]
+                            agent.update_whoAmI(my_player)
+                            player_info.log(ctf.game_num, my_player)
                         else:
                             ctf.apply_change_line(msg, 0)
                             response = "ACK"
-
+                        
                         if response != "ACK":
                             print("Sending:", response)
-                        conn.send((json.dumps(response) + "\n").encode("utf-8"))
+                        conn.sendall((json.dumps(response) + "\n").encode("utf-8"))
+
                         # ctf.draw()
 
 
@@ -117,8 +146,12 @@ with open(output_file, "r") as f:
     game_data = json.load(f)
 
 ctf = CaptureTheFlag("gameInfo/Capture The Flag.json", outcome_file)
-ctf.game_num = 1
+ctf.game_num = START_GAME_NUM
 
+player_info = MetricLogger(
+            "multi_front_attack/metrics/player_info.csv",
+            header=["game", "player"]
+        )
 
 agent_loop()
 

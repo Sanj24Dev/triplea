@@ -16,7 +16,8 @@ OUTCOME_CSV = f"{FOLDER}/game_outcome.csv"  # Adjust filename
 df_combat = pd.read_csv(COMBAT_CSV)
 df_outcome = pd.read_csv(OUTCOME_CSV)
 
-df_combat["pu_gain"] = df_combat["pu_after"] - df_combat["pu_before"]
+df_combat["pu_gain"] = df_combat.groupby("game")["pu_after"].diff()
+df_combat["pu_gain"] = df_combat["pu_gain"].fillna(0) 
 df_combat["terr_gain"] = df_combat["territories_after"] - df_combat["territories_before"]
 
 # Merge with outcomes
@@ -29,7 +30,7 @@ fig, axes = plt.subplots(2, 2, figsize=(15, 10))
 for game_num in df["game"].unique():
     game_data = df[df["game"] == game_num]
     outcome = game_data["outcome"].iloc[0]  # 'win' or 'loss'
-    color = 'green' if outcome == 'win' else 'red'
+    color = 'green' if outcome == 'won' else 'red'
     alpha = 0.6
     
     axes[0, 0].plot(game_data["round"], game_data["terr_gain"], 
@@ -45,7 +46,7 @@ axes[0, 0].grid(True, alpha=0.3)
 for game_num in df["game"].unique():
     game_data = df[df["game"] == game_num]
     outcome = game_data["outcome"].iloc[0]
-    color = 'green' if outcome == 'win' else 'red'
+    color = 'green' if outcome == 'won' else 'red'
     
     axes[0, 1].plot(game_data["round"], game_data["pu_gain"], 
                     color=color, alpha=0.6, linewidth=1)
@@ -60,7 +61,7 @@ axes[0, 1].grid(True, alpha=0.3)
 for game_num in df["game"].unique():
     game_data = df[df["game"] == game_num].sort_values("round")
     outcome = game_data["outcome"].iloc[0]
-    color = 'green' if outcome == 'win' else 'red'
+    color = 'green' if outcome == 'won' else 'red'
     
     axes[1, 0].plot(game_data["round"], game_data["territories_after"], 
                     color=color, alpha=0.6, linewidth=1.5)
@@ -74,7 +75,7 @@ axes[1, 0].grid(True, alpha=0.3)
 for game_num in df["game"].unique():
     game_data = df[df["game"] == game_num].sort_values("round")
     outcome = game_data["outcome"].iloc[0]
-    color = 'green' if outcome == 'win' else 'red'
+    color = 'green' if outcome == 'won' else 'red'
     
     axes[1, 1].plot(game_data["round"], game_data["pu_after"], 
                     color=color, alpha=0.6, linewidth=1.5)

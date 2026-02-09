@@ -6,6 +6,15 @@ from collections import deque
 import csv
 import os
 
+game_rules = None
+
+FACTORY_MAP = {
+    "Russians": "RussianBase",
+    "Italians": "ItalianBase",
+    "Germans": "GermanBase",
+    "Chinese": "ChineseBase"
+}
+
 class MetricLogger:
     def __init__(self, filename, header=None):
         self.filename = filename
@@ -33,7 +42,8 @@ class Unit:
         self.unit_type = unit_type
         self.owner = owner
         self.quantity = quantity
-        self.available = True
+        self.range = game_rules.get(unit_type, {}).get("move", 1)
+        self.moves_left = self.range
         self.properties = properties if properties is not None else {}
     
     def __repr__(self):
@@ -109,8 +119,11 @@ class CaptureTheFlag:
         )
 
         # build graph
-        self._build_graph()
         self._load_metadata()
+        global game_rules
+        game_rules = self.production_rules
+        self._build_graph()
+        
 
         # Display setup
         self.pos = nx.spring_layout(self.G, seed=42)
@@ -541,17 +554,10 @@ class CaptureTheFlag:
         if unit_type in ("fighter", "bomber"):
             move_range -= 1 # to account for the landing after it reaches the enemy terr: so it can reach the enemy terr/neutral only by going through terr owned by me, and once it reaches that terr, it attacks and falls back by 1
         
-        # cache_key = (unit_type, from_territory, to_territory)
-        # if cache_key in self._reachability_cache:
-        #     return self._reachability_cache[cache_key]
-        
-
         queue = deque([(from_territory, 0)])
         visited = set([from_territory])
         result = False
         my_territories = self.get_my_territories()
-        # if unit_type == "armour":
-        #     print(from_territory, to_territory)
         while queue:
             current, steps = queue.popleft()
             if steps >= move_range:
@@ -560,40 +566,18 @@ class CaptureTheFlag:
             for neighbor in self.G.neighbors(current):
                 if neighbor in visited:
                     continue
-                terr_owner = self.territories[neighbor].owner
-                if unit_type == "armour":
-                    # CASE 1: neighbor is friendly → always allowed
-                    if terr_owner == unit.owner:
-                        pass
-                    # CASE 2: neighbor is neutral → allowed (just like friendly)
-                    elif terr_owner == "Neutral":
-                        pass  # allowed
-                    # CASE 3: neighbor is ENEMY
-                    elif terr_owner != unit.owner:
-
-                        # If NEIGHBOR == target → always allowed as final combat
-                        if neighbor == to_territory:
-                            pass  # can always attack enemy
-                        else:
-                            continue
-                        
-                else:
-                    # Can't move through enemy-occupied territory (unless blitzing and empty)
-                    if neighbor != to_territory:  # Not our target
-                        if neighbor not in my_territories:  # Enemy territory                   
-                            continue
-                visited.add(neighbor)
-                # if unit_type == "armour":
-                #     print(neighbor)
                 if neighbor == to_territory:
                     result = True
                     break
-    
-                queue.append((neighbor, steps + 1))
-        
-        # self._reachability_cache[cache_key] = result
-        # if unit_type == "armour":
-        #     print()
+                
+                if neighbor != to_territory:  # Not our target
+                    if neighbor not in my_territories:  # Enemy territory                   
+                        continue
+
+                visited.add(neighbor)
+                if steps + 1 < move_range:
+                    queue.append((neighbor, steps + 1))
+
         return result
 
     def calculate_defense_strength(self, units):

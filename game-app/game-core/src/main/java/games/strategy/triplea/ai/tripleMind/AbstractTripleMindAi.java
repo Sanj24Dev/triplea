@@ -153,14 +153,23 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
                 System.out.println("No available unit of type " + a.unit + " in " + from.getName());
                 return;
             }
-
-            Unit selectedUnit = availableUnits.get(0); // assuming 1 unit per action
+            int count;
+            try {
+                count = Integer.parseInt(a.count);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid count: " + a.count);
+                return;
+            }
+            List<Unit> selectedUnits = availableUnits.subList(0, count);
 
             // Get or create ProTerritory for the target
             ProTerritory proTo = nonCombatMap.computeIfAbsent(to, t -> new ProTerritory(t, proData));
 
             // Add attacking unit from source
-            proTo.addUnit(selectedUnit);
+            // proTo.addUnit(selectedUnit);
+            for (Unit u : selectedUnits) {
+                proTo.addUnit(u);
+            }
 
             // Store it back
             nonCombatMap.put(to, proTo);
