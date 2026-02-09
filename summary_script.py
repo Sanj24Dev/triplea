@@ -26,60 +26,27 @@ def generate_pdf(output_pdf, summary, text_files, image_files):
         for line in f:
             elements.append(Paragraph(line.strip(), styles["Normal"]))
     elements.append(Image(image_files[0], width=400, height=300))
-    elements.append(Image(image_files[1], width=400, height=300))
     elements.append(Spacer(1, 20))
-    
-
-    # Reduction summary
-    elements.append(Paragraph(f"<b>Action space reduction summary</b>", styles["Heading2"]))
-    summary_lines = []
-    capture = False
-    with open(text_files[1], "r") as f:
-        for line in f:
-            line = line.strip()
-            if line == "=== Game-wise Summary (Avg of Round-wise Reduction) ===":
-                capture = True
-                continue
-            if capture:
-                if line == "" or line.startswith("==="):
-                    continue
-                summary_lines.append(line)
-    table_data = [line.split() for line in summary_lines]
-    table = Table(table_data, hAlign="LEFT")
-    table.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
-        ("GRID", (0, 0), (-1, -1), 0.5, colors.black),
-        ("ALIGN", (1, 1), (-1, -1), "RIGHT"),
-        ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-        ("BOTTOMPADDING", (0, 0), (-1, 0), 8),
-    ]))
-
-    elements.append(table)
-
-    elements.append(Image(image_files[2], width=400, height=300))
-    elements.append(Image(image_files[3], width=400, height=300))
-    elements.append(Spacer(1, 20))
-    # elements.append(PageBreak())
 
     # Game outcome summary
     elements.append(Paragraph(f"<b>Game outcomes</b>", styles["Heading2"]))
-    elements.append(Image(image_files[4], width=400, height=300))
-    elements.append(Image(image_files[5], width=400, height=300))
+    elements.append(Image(image_files[1], width=400, height=300))
+    elements.append(Image(image_files[2], width=400, height=300))
     elements.append(Spacer(1, 20))
 
     # Combat quality summary
     elements.append(Paragraph(f"<b>Combat move quality throughout the games</b>", styles["Heading2"]))
-    with open(text_files[2], "r") as f:
+    with open(text_files[1], "r") as f:
         for line in f:
             elements.append(Paragraph(line.strip(), styles["Normal"]))
-    elements.append(Image(image_files[6], width=400, height=300))
-    elements.append(Image(image_files[7], width=400, height=300))
+    elements.append(Image(image_files[3], width=400, height=300))
+    elements.append(Image(image_files[4], width=400, height=300))
     elements.append(Spacer(1, 20))
 
     # Profiling summary
     elements.append(Paragraph(f"<b>Profiling of MCTS algorithm</b>", styles["Heading2"]))
-    elements.append(Image(image_files[8], width=400, height=300))
-    elements.append(Image(image_files[9], width=400, height=300))
+    elements.append(Image(image_files[5], width=400, height=300))
+    elements.append(Image(image_files[6], width=400, height=300))
     elements.append(Spacer(1, 20))
     # elements.append(PageBreak())
 
@@ -100,14 +67,14 @@ generate_pdf(
     summary,
     text_files=[
         f"{report_folder}/metrics/efficiency_summary.txt",
-        f"{report_folder}/metrics/reduction_summary.txt",
+        # f"{report_folder}/metrics/reduction_summary.txt",
         f"{report_folder}/metrics/combat_quality_averages.txt",
     ],
     image_files=[
-        f"{report_folder}/metrics/efficiency_plot.png",
+        # f"{report_folder}/metrics/efficiency_plot.png",
         f"{report_folder}/metrics/aggregate_game_summary.png",
-        f"{report_folder}/metrics/total_vs_pruned.png",
-        f"{report_folder}/metrics/reduction_per_round.png",
+        # f"{report_folder}/metrics/total_vs_pruned.png",
+        # f"{report_folder}/metrics/reduction_per_round.png",
         f"{report_folder}/metrics/win_vs_lost.png",
         f"{report_folder}/metrics/outcome_vs_rounds.png",
         f"{report_folder}/metrics/combat_quality_trajectories.png",

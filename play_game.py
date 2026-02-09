@@ -3,11 +3,24 @@ import time
 import signal
 import json
 import os
+import socket  
 
 # --- CONFIG ---
-PLAY_ROUNDS = 3   # max rounds per game
-PLAY_GAMES = 1      # number of games to play
+PLAY_ROUNDS = 200   # max rounds per game
+PLAY_GAMES = 3     # number of games to play
 CHECK_INTERVAL = 2  # seconds between log checks
+FORFEIT_CHECK = 20
+
+def notify_agent_game_end(host="127.0.0.1", port=5000):
+    # send a line that game_mcts.py can interpret as a stop
+    # keep it simple: include "stopped" and "lost" so it goes down the existing branch
+    msg = f"[INFO] game stopped lost\n"
+    try:
+        with socket.create_connection((host, port), timeout=2) as s:
+            s.sendall(msg.encode("utf-8"))
+            _ = s.recv(1024)  # read ACK/json, optional
+    except Exception as e:
+        print("Could not notify agent:", e)
 
 
 def count_rounds(filename):
@@ -28,7 +41,7 @@ def count_stopped(filename):
     return False
 
 def start_game():
-    print("Starting new game...")
+    print("Starting new game...\n")
     return subprocess.Popen(["./gradlew", ":game-app:game-headed:run"])
 
 def clean_up_logfile(filename):
@@ -58,12 +71,21 @@ def terminate_game(process):
         print("Error stopping process:", e)
     process.wait(timeout=10)
 
+
+def consec_no_combat():
+    try:
+        with open(f"forfeit.flag", 'r') as f:
+            return sum(1 for line in f)
+    except FileNotFoundError:
+        return 0
+
 def main():
     with open("config.json", 'r') as f:
         data = json.load(f)
 
-    root_log_folder = "/home/sanjana/tripleMind/logs/"
-    log_file = os.path.join(root_log_folder, data["PLAYER_NAME"], f"{data['DEFAULT_GAME_NAME_PREF']}.log")
+    root_folder = os.environ["PROJECT_ROOT"]
+    log_folder = root_folder + "/logs/"
+    log_file = os.path.join(log_folder, data["PLAYER_NAME"], f"{data['DEFAULT_GAME_NAME_PREF']}.log")
 
     games_played = 0
     rounds_till_last = 0
@@ -85,13 +107,15 @@ def main():
                 rounds = count_rounds(log_file)
                 curr_stopped = count_stopped(log_file)
 
-                if rounds > PLAY_ROUNDS:
+                if rounds > PLAY_ROUNDS or consec_no_combat() >= FORFEIT_CHECK:
                     print(f"{PLAY_ROUNDS} rounds completed. Ending game.")
                     rounds_till_last += rounds
+                    notify_agent_game_end()
                     terminate_game(process)
                     clean_up_logfile(log_file)
                     # prev_stopped = curr_stopped
                     break
+
 
                 if prev_stopped < curr_stopped:
                     print(f"Game stopped (winner detected). {curr_stopped} {prev_stopped}")
@@ -109,6 +133,7 @@ def main():
 
         except KeyboardInterrupt:
             print("Keyboard interrupt detected. Stopping current game.")
+            notify_agent_game_end()
             terminate_game(process)
             break
 

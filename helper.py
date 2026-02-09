@@ -37,6 +37,41 @@ def convert_combat_to_json(move):
         actions.append(action)
     return actions
 
+def convert_multi_front_combat_to_json(moves):
+    actions = []
+    # attacking one territory
+    for move in moves:
+        for attack in move.moves:
+            qty = attack.quantity
+            action = {
+                "delegate": "combat",
+                "from": attack.from_territory,
+                "to": move.to_terr,
+                "unit": attack.unit.unit_type,
+                "count": qty,
+            }
+            actions.append(action)
+    return actions
+
+def convert_multi_front_noncombat_to_json(moves):
+    actions = []
+    grouped_moves = {}
+    for move in moves:
+        key = (move.get("from"), move.get("to"), move.get("units"))
+        if key not in grouped_moves:
+            grouped_moves[key] = {
+                "delegate": "noncombat",
+                "from": move.get("from"),
+                "to": move.get("to"),
+                "unit": move.get("units"),
+                "count": 0,
+            }
+        grouped_moves[key]["count"] += 1
+    # attacking one territory
+    for move in grouped_moves.values():
+        actions.append(move)
+    return actions
+
 
 def convert_action_to_json(move, move_type):
     actions = []

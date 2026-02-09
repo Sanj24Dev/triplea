@@ -15,19 +15,21 @@ start_time=$(date +%s)
 
 # pip install --user pandas
 
-MODEL_NAME="smart_root_heuristic_playout"
+export PROJECT_ROOT="/storage/home/hcoda1/6/snayak89/tripleMind"
 
-rm -f smart_root_heuristic_playout/metrics/*
-rm -f smart_root_heuristic_playout/profiling/*
-rm -f smart_root_heuristic_playout/combat_moves/*
-rm -f smart_root_heuristic_playout/profiles/*
+MODEL_NAME="multi_front_attack"
+
+# rm -f multi_front_attack/metrics/*
+# rm -f multi_front_attack/profiling/*
+# rm -f multi_front_attack/combat_moves/*
+# rm -f multi_front_attack/profiles/*
 rm "../logs/RL_BOT_3/Capture The Flag.log"
 
 # 1. Start the first program in the background and get its PID
-REDUCTION_REC="smart_root_heuristic_playout/metrics/reduction.csv"
-EFFICIENCY_REC="smart_root_heuristic_playout/metrics/mcts_efficiency.csv"
-OUTCOME_REC="smart_root_heuristic_playout/metrics/game_outcome.csv"
-QUALITY_REC="smart_root_heuristic_playout/metrics/combat_quality.csv"
+REDUCTION_REC="multi_front_attack/metrics/reduction.csv"
+EFFICIENCY_REC="multi_front_attack/metrics/mcts_efficiency.csv"
+OUTCOME_REC="multi_front_attack/metrics/game_outcome.csv"
+QUALITY_REC="multi_front_attack/metrics/combat_quality.csv"
 
 python3 -u game_mcts.py --model_name "$MODEL_NAME" --reduction_file "$REDUCTION_REC" --efficiency_file "$EFFICIENCY_REC" --outcome_file "$OUTCOME_REC" --quality_file "$QUALITY_REC"> output.log &
 MCTS_PID=$!

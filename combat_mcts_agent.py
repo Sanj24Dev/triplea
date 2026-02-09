@@ -1,40 +1,30 @@
-# sim model 2
-
+# multi front attack
 
 import math
 import random
-from helper import convert_action_to_json, convert_combat_to_json
+from helper import convert_action_to_json, convert_combat_to_json, convert_multi_front_combat_to_json, convert_multi_front_noncombat_to_json
 from collections import deque
 import itertools
 import time
 import re
-from ctf_graph import Territory, Player, MetricLogger
+from ctf_graph import Territory, Player, MetricLogger, FACTORY_MAP
 from itertools import product
 import copy
 
-# for non combat??
-# _reachability_cache = {}
 game_rules = None
 territory_production = None
 victory_cities = None
 adjacency = None
 turn_order = None
 
-FACTORY_MAP = {
-    "Russians": "RussianBase",
-    "Italians": "ItalianBase",
-    "Germans": "GermanBase",
-    "Chinese": "ChineseBase"
-}
-
 class Attack:
-    def __init__(self, type, from_territory, quantity):
-        self.unit_type = type
+    def __init__(self, unit, from_territory, quantity):
+        self.unit = unit
         self.from_territory = from_territory
         self.quantity = quantity
 
     def __repr__(self):
-        return f"Move units: {self.quantity}x{self.unit_type} from {self.from_territory}"
+        return f"Move units: {self.quantity}x{self.unit.unit_type} from {self.from_territory}"
 
 
 class Move:
@@ -94,93 +84,250 @@ def generate_legal_purchase_moves(ctf, player):
     return legal_moves
     
 
-def find_winning_subsets(ctf, units_that_can_attack, defender_strength):
-    all_moves = 0
-    quantity_ranges = []
-    for group in units_that_can_attack:
-        # Range from 0 to max_quantity (inclusive)
-        unit = group["unit"]
-        quantity_ranges.append(range(0, unit.quantity + 1))
-
-    winning_subsets = []
-    for quantities in product(*quantity_ranges):
-        # Skip empty combination
-        if sum(quantities) == 0:
-            continue
-        
-        # Build attack combination and unit list
-        attack_combo = []
-        unit_list = []
-        
-        for i, qty in enumerate(quantities):
-            if qty > 0:
-                group = units_that_can_attack[i]
-                attack_combo.append(Attack(type=group["unit"].unit_type, from_territory=group["from"], quantity=qty))
-                unit_list.extend([group["unit"]] * qty)
-        
-        attack_strength = ctf.calculate_attack_strength(unit_list)
-        if attack_strength > defender_strength:
-            winning_subsets.append((attack_combo, attack_strength))
-        all_moves += 1
-
-    return winning_subsets, all_moves
-
-
 def generate_legal_noncombat_moves(ctf, player):
-    legal_moves = []
+    """
+    Greedy noncombat:
+      0) Evacuate home factory to make room for placement (keep small garrison if threatened)
+      1) Fill empty frontier
+      2) Reinforce frontier up to quota
+      3) Reinforce staging (borders multiple frontiers)
+      4) Reinforce factory-adjacent / victory-city ring
+    Fallback: if target not reachable, move units toward frontier by reducing dist_to_frontier.
+    """
 
-    for terr_name, territory in ctf.territories.items():
-        if territory.owner != player:
+    territories = copy.deepcopy(ctf.territories)
+    move_seq = []
+
+    # ---------- basics ----------
+    my_territories = [t for t in territories.values() if t.owner == player]
+
+    # frontier = my territory adjacent to non-owned (excluding factories as "enemy targets")
+    my_frontier = set()
+    for terr in my_territories:
+        for n in ctf.G.neighbors(terr.name):
+            if territories[n].owner != player and n not in FACTORY_MAP.values():
+                my_frontier.add(terr.name)
+                break
+
+    home_factory = FACTORY_MAP[player]
+
+    def count_defense_units(terr):
+        return sum(u.quantity for u in terr.units if u.unit_type != "factory")
+
+    def has_enemy_neighbor(name: str) -> bool:
+        for n in ctf.G.neighbors(name):
+            if territories[n].owner != player and n not in FACTORY_MAP.values():
+                return True
+        return False
+
+    # staging score: how many frontier neighbors this tile borders
+    staging_score = {}
+    for terr in my_territories:
+        staging_score[terr.name] = sum(1 for nb in ctf.G.neighbors(terr.name) if nb in my_frontier)
+
+    # factory-adjacent score: how many victory cities adjacent (your code uses victory_cities as "factories/vc")
+    factory_adj_score = {}
+    for terr in my_territories:
+        factory_adj_score[terr.name] = sum(1 for nb in ctf.G.neighbors(terr.name) if nb in victory_cities)
+
+    # ---------- distance-to-frontier (multi-source BFS) ----------
+    dist_to_frontier = {name: float("inf") for name in territories.keys()}
+    q = deque()
+    for f in my_frontier:
+        dist_to_frontier[f] = 0
+        q.append(f)
+
+    while q:
+        cur = q.popleft()
+        for nb in ctf.G.neighbors(cur):
+            if dist_to_frontier[nb] > dist_to_frontier[cur] + 1:
+                dist_to_frontier[nb] = dist_to_frontier[cur] + 1
+                q.append(nb)
+
+    # ---------- target priority ----------
+    def territory_priority(territory):
+        name = territory.name
+        score = 0
+
+        # frontier first
+        if name in my_frontier:
+            score += 1000
+
+            # empty frontier gets a big bump
+            if count_defense_units(territories[name]) == 0:
+                score += 500
+
+        # staging next
+        score += staging_score.get(name, 0) * 200
+
+        # factory/victory-city ring next
+        score += factory_adj_score.get(name, 0) * 100
+
+        return score
+
+    targets = list(my_territories)
+    targets.sort(key=territory_priority, reverse=True)
+
+
+    def best_step_toward_frontier(unit, from_name: str):
+        """
+        Pick a reachable MY-OWNED destination that reduces dist_to_frontier.
+        Higher score = better step.
+        """
+        best = None
+        best_score = -10**9
+
+        from_d = dist_to_frontier.get(from_name, float("inf"))
+
+        for dest in targets:
+            dest_name = dest.name
+            if dest_name == from_name:
+                continue
+            if not ctf.can_reach(unit, from_name, dest_name):
+                continue
+
+            to_d = dist_to_frontier.get(dest_name, float("inf"))
+            improvement = from_d - to_d  # want positive
+
+            # prefer real progress; ignore non-improving unless nothing else exists
+            score = improvement * 100
+            if dest_name in my_frontier:
+                score += 50
+            score += staging_score.get(dest_name, 0) * 10
+            score += factory_adj_score.get(dest_name, 0) * 5
+
+            if score > best_score:
+                best_score = score
+                best = dest_name
+        return best, best_score
+
+    
+
+    def quota(territory):
+        name = territory.name
+        qv = 1
+        if name in my_frontier:
+            qv = 5
+        # staging / factory-adj tiles get medium quota (but frontier still dominates)
+        if staging_score.get(name, 0) > 0 or factory_adj_score.get(name, 0) > 0:
+            qv = max(qv, 3)
+        return qv
+
+    # ---------- donors ----------
+    # Don't drain frontier tiles, except allow draining home_factory (evacuation) specially below.
+    donor_territories = []
+    for t in my_territories:
+        if count_defense_units(t) <= 0:
+            continue
+        if t.name in my_frontier and t.name != home_factory:
+            continue
+        donor_territories.append(t)
+
+    # ---------- PASS 0: evacuate home factory before placement ----------
+    # Keep a small garrison only if threatened.
+    keep_min = 2 if has_enemy_neighbor(home_factory) else 0
+    factory_terr = territories[home_factory]
+
+    movable_from_factory = []
+    for u in factory_terr.units:
+        move_range = game_rules.get(u.unit_type, {}).get("move", 1)
+        if u.owner == player and u.unit_type != "factory" and move_range > 0 and u.quantity > 0:
+            movable_from_factory.append(u)
+
+    excess = max(0, count_defense_units(factory_terr) - keep_min)
+    sent = 0
+
+    for unit in movable_from_factory:
+        while unit.quantity > 0 and sent < excess:
+            # try best high-priority targets first
+            dest = None
+            # for t in targets:
+            #     if t.name == home_factory:
+            #         continue
+            #     if ctf.can_reach(unit, home_factory, t.name):
+            #         dest = t.name
+            #         break
+
+            # fallback: step toward frontier
+            # if dest is None:
+            dest, score = best_step_toward_frontier(unit, home_factory)
+            if dest is None or score <= 0:
+                break
+
+            move_seq.append({
+                "delegate": "nonCombat",
+                "from": home_factory,
+                "to": dest,
+                "units": unit.unit_type
+            })
+            unit.quantity -= 1  # safe: operates on deepcopy
+            sent += 1
+
+    # ---------- PASS 1: fill targets to quota (with step-to-frontier fallback) ----------
+
+    for terr in targets:
+        terr_name = terr.name
+
+        # if already at/above quota, skip
+        if count_defense_units(territories[terr_name]) >= quota(terr):
             continue
 
-        for u in territory.units:
-            if u.owner != player or u.quantity <= 0:
-                continue
+        # keep pushing units until target reaches quota or donors run out
+        while count_defense_units(territories[terr_name]) < quota(terr):
+            moved_one = False
 
-            move_range = game_rules.get(u.unit_type, {}).get("move", 1)
-            if move_range <= 0 or u.unit_type == "factory":
-                continue
-
-            # BFS: explore up to move_range steps through friendly territories
-            queue = deque([(terr_name, 0, [terr_name])])
-            visited = set([terr_name])
-
-            while queue:
-                current, steps, path = queue.popleft()
-                if steps >= move_range:
+            for donor in donor_territories:
+                if count_defense_units(donor) <= 0:
                     continue
 
-                for neighbor in ctf.G.neighbors(current):
-                    if neighbor in visited:
+                # optional: don't drain donor to 0 (keeps map from hollowing out)
+                # you can tune this; leaving it minimal:
+                if donor.name != home_factory and count_defense_units(donor) <= 0:
+                    continue
+
+                # pick one unit from donor
+                picked = None
+                for u in donor.units:
+                    move_range = game_rules.get(u.unit_type, {}).get("move", 1)
+                    if u.owner != player or u.quantity <= 0:
                         continue
-                    visited.add(neighbor)
+                    if u.unit_type == "factory" or move_range <= 0:
+                        continue
+                    picked = u
+                    break
 
-                    neighbor_territory = ctf.territories[neighbor]
-                    neighbor_owner = neighbor_territory.owner
+                if picked is None:
+                    continue
 
-                    # For non-combat, must stay within friendly territories
-                    if neighbor_owner != player:
-                        continue  # can't move into or through enemy/neutral
+                # try direct move to target
+                dest = None
+                if ctf.can_reach(picked, donor.name, terr_name):
+                    dest = terr_name
+                else:
+                    # fallback: step toward frontier (prefer improving moves)
+                    step, score = best_step_toward_frontier(picked, donor.name)
+                    if step is not None and score > 0:
+                        dest = step
 
-                    # Valid non-combat move (repositioning)
-                    move = {
-                        "delegate": "nonCombat",
-                        "from": terr_name,
-                        "to": neighbor,
-                        # "steps": steps + 1,
-                        "units": u.unit_type
-                        # "max_quantity": u.quantity,
-                        # "target_owner": neighbor_owner,
-                        # "path": path + [neighbor]
-                    }
-                    legal_moves.append(move)
+                if dest is None:
+                    continue
 
-                    # Continue exploring friendly chain up to move_range
-                    if steps + 1 < move_range:
-                        queue.append((neighbor, steps + 1, path + [neighbor]))
+                move_seq.append({
+                    "delegate": "nonCombat",
+                    "from": donor.name,
+                    "to": dest,
+                    "units": picked.unit_type
+                })
 
-    return legal_moves
+                # update deepcopy counts
+                picked.quantity -= 1
+                moved_one = True
+                break  # re-check quota after each move
 
+            if not moved_one:
+                break  # no donors can contribute further
+                
+    return move_seq
 
 
 class MCTSGameState:
@@ -221,9 +368,8 @@ class MCTSGameState:
         self.excluded = set()          # Territories already processed
 
         # Territory lists (computed once, reused)
-        self.my_territories = [t for t_name, t in self.territories.items() if t.owner == self.current_player]
-        self.enemy_territories = [t for t_name, t in self.territories.items() if t.owner != self.current_player]
-
+        self.set_terr_lists()
+        
 
     def __repr__(self):
         # Summaries
@@ -260,14 +406,52 @@ class MCTSGameState:
             victory_count[owner] = victory_count.get(owner, 0) + 1
         return any(count == len(victory_cities) for count in victory_count.values()) 
     
-    def am_i_winner(self):
+    def am_i_winner(self, whoAmI):
         for territory_name in victory_cities:
             territory = self.territories[territory_name]
             owner = territory.owner
-            if owner != self.current_player:
+            if owner != whoAmI:
                 return False
         return True
     
+
+    def set_terr_lists(self):
+        self.my_territories = [t for t_name, t in self.territories.items() if t.owner == self.current_player]
+        self.enemy_territories = [t for t_name, t in self.territories.items() if t.owner != self.current_player]
+        def territory_priority(territory):
+            terr_name = territory.name 
+            priority_score = 0
+            
+            # Victory city = highest priority, victory city are those with a factory, in this map
+            if terr_name in victory_cities:
+                priority_score += 1000
+
+            next_to_factory = sum(
+                1 for neighbor in adjacency.neighbors(terr_name)
+                if neighbor in victory_cities
+            )
+            priority_score += next_to_factory * 500
+            
+            # Production value
+            priority_score += territory_production[terr_name] * 10
+                        
+            # Number of bordering friendly territories (easier to attack/hold)
+            surrounded_by_me = sum(
+                1 for neighbor in adjacency.neighbors(terr_name)
+                if self.territories[neighbor].owner == self.current_player
+            )
+            priority_score += surrounded_by_me * 5
+
+            # distance to the victory cities? closer => better to attack
+
+            enemy_neighbors = sum(1 for n in adjacency.neighbors(terr_name) 
+                         if self.territories[n].owner == territory.owner)
+            priority_score -= enemy_neighbors * 3
+
+            return priority_score
+        
+        self.enemy_territories.sort(key=territory_priority, reverse=True)
+
 
     # functions for simulation
     def purchase_legal_moves(self):
@@ -308,18 +492,14 @@ class MCTSGameState:
         if move_range <= 0 or unit_type == "factory":
             return False
         
-        cache_key = (unit_type, from_territory, to_territory)
-        if cache_key in self._reachability_cache:
-            return self._reachability_cache[cache_key]
+        # cache_key = (unit_type, from_territory, to_territory)
+        # if cache_key in self._reachability_cache:
+        #     return self._reachability_cache[cache_key]
         
 
         queue = deque([(from_territory, 0)])
         visited = set([from_territory])
         result = False
-        my_territories = []
-        for my_territory_name, my_territory in self.territories.items():
-            if my_territory.owner == self.current_player:
-                my_territories.append(my_territory.name)
 
         while queue:
             current, steps = queue.popleft()
@@ -329,47 +509,31 @@ class MCTSGameState:
             for neighbor in adjacency.neighbors(current):
                 if neighbor in visited:
                     continue
-                # Can't move through enemy-occupied territory (unless blitzing and empty)
-                terr_owner = self.territories[neighbor].owner
-                if unit_type == "armour":
-                    # CASE 1: neighbor is friendly → always allowed
-                    if terr_owner == unit.owner:
-                        pass
-                    # CASE 2: neighbor is neutral → allowed (just like friendly)
-                    elif terr_owner == "Neutral":
-                        pass  # allowed
-                    # CASE 3: neighbor is ENEMY
-                    elif terr_owner != unit.owner:
 
-                        # If NEIGHBOR == target → always allowed as final combat
-                        if neighbor == to_territory:
-                            pass  # can always attack enemy
-                        else:
-                            continue
-                else:
-                    if neighbor != to_territory:  # Not our target
-                        if neighbor not in my_territories:  # Enemy territory
-                            continue
-                visited.add(neighbor)
-                
+                terr_owner = self.territories[neighbor].owner
                 if neighbor == to_territory:
                     result = True
                     break
-                queue.append((neighbor, steps + 1))
+                if neighbor != to_territory:  # Not our target
+                    if self.territories[neighbor].owner != self.current_player:
+                        continue  # Can't pass through enemy territory
+                visited.add(neighbor)
                 
-        
-        self._reachability_cache[cache_key] = result
+                if steps + 1 < move_range:
+                    queue.append((neighbor, steps + 1))
+            
+        # self._reachability_cache[cache_key] = result
         return result
 
     def calculate_attack_strength(self, units):
         attacker_strength = 0
-        infantry = sum(u["qty"] for u in units if u["unit_type"] == "infantry")
-        artillery = sum(u["qty"] for u in units if u["unit_type"] == "artillery")
+        infantry = sum(u["qty"] for u in units if u["unit"].unit_type == "infantry")
+        artillery = sum(u["qty"] for u in units if u["unit"].unit_type == "artillery")
         supported_inf = min(infantry, artillery)   # 1:1 support
         unsupported_inf = infantry - supported_inf
 
         for u in units:
-            unit_type = u["unit_type"]
+            unit_type = u["unit"].unit_type
             quantity = u["qty"]
             # calculate strength
             stats = game_rules.get(unit_type, {})
@@ -384,21 +548,21 @@ class MCTSGameState:
     def form_attacks(self, units):
         grouped = {}
         for u in units:
-            key = (u["from"], u["unit_type"])
+            key = (u["from"], u["unit"].unit_type)
             if key not in grouped:
                 grouped[key] = {
                     "from": u["from"],
-                    "unit_type": u["unit_type"],
+                    "unit": u["unit"],
                     "count": 0
                 }
-            grouped[key]["count"] += 1
+            grouped[key]["count"] += u["qty"]
         
         # Convert to Attack objects
         attacks = []
         for group in grouped.values():
             attacks.append(
                 Attack(
-                    type=group["unit_type"],
+                    unit=group["unit"],
                     from_territory=group["from"],
                     quantity=group["count"]
                 )
@@ -409,7 +573,6 @@ class MCTSGameState:
 
     def heuristic_combat_legal_moves(self, time_budget):
         player = self.current_player
-        legal_moves = []
         self.actions = []
         self.actionIndex = 0
         start = time.time()
@@ -418,8 +581,6 @@ class MCTSGameState:
         strengthThreshold = 1.1  # Start at 110% of defender
         maxThreshold = 3.5       # Stop at 350% of defend
 
-        # enemy_territories.sort()
-
         for enemy_territory in self.enemy_territories:
             enemy_territory_name = enemy_territory.name
 
@@ -427,16 +588,37 @@ class MCTSGameState:
                 # the territory isnt considered yet
                 # Find all units that can reach this destination
                 units_that_can_attack = [
-                    {"from": from_terr.name, "unit_type": unit.unit_type, "qty": unit.quantity}
+                    {"from": from_terr.name, "unit": unit, "qty": unit.quantity}
                     for from_terr in self.my_territories
                     for unit in from_terr.units
                     if unit.owner == player
                     if unit.unit_type != "aaGun"
                     if self.check_reachability(unit, from_terr.name, enemy_territory_name)
-                ]                
+                ]
+                # sort units based on (adjacent_to_target desc, attack_power desc, donor_is_border asc) - NEED TO FIX
+                def attack_power(unit):
+                    stats = game_rules.get(unit.unit_type, {})
+                    return stats.get("attack", 1)
+
+                def is_border_territory(terr_name: str) -> bool:
+                    return any(self.territories[n].owner != player for n in adjacency.neighbors(terr_name))
+
+                def adjacent_to_target(from_name: str, target_name: str) -> bool:
+                    return target_name in adjacency.neighbors(from_name)
+
+                def donor_score(x):
+                    score = 0.0
+                    if adjacent_to_target(x["from"], enemy_territory_name):
+                        score += 100.0
+                    score += 10.0 * attack_power(x["unit"])
+                    if is_border_territory(x["from"]):
+                        score -= 30.0
+                    return score
+
+                units_that_can_attack.sort(key=donor_score, reverse=True)
                 
                 if time.time() - start > time_budget:
-                    return legal_moves
+                    return
                 # If no units can reach the territory, skip
                 if not units_that_can_attack:
                     self.excluded.add(enemy_territory_name)
@@ -444,10 +626,10 @@ class MCTSGameState:
 
                 # the territory is reachable 
                 # Always include option to skip attack on this territory
-                legal_moves.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=[]))
+                # self.actions.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=[]))
 
                 defender_strength = 0
-                units_at_target = [u for u in enemy_territory.units if u.owner != player]
+                units_at_target = [u for u in enemy_territory.units if u.owner != player and u.unit_type != "factory"]
                 # assuming all the units at target belong to the terr owner = all previous battles resolved
                 for unit in units_at_target:
                     unit_type = unit.unit_type
@@ -473,60 +655,165 @@ class MCTSGameState:
                         break
 
                 # Always include final full force
-                if unitsUpToStrength:
+                if unitsUpToStrength and currentStrength>defender_strength:
                     attacks = self.form_attacks(unitsUpToStrength) 
                     sets.append((attacks, currentStrength))
+
+                if not sets:
+                    weak_sets = []
+                    unitsUpToStrength = []
+                    strengthThreshold_weak = 0.35  # start chipping at ~35% of defense
+                    for unit in units_that_can_attack:
+                        unitsUpToStrength.append(unit)
+                        currentStrength = self.calculate_attack_strength(unitsUpToStrength)
+
+                        if currentStrength > strengthThreshold_weak * defender_strength and currentStrength <= defender_strength:
+                            attacks = self.form_attacks(unitsUpToStrength)
+                            weak_sets.append((attacks, currentStrength))
+                            strengthThreshold_weak += 0.15
+                            if len(weak_sets) >= 3:
+                                break
+
+                    # only add if we actually built chip candidates
+                    sets.extend(weak_sets)
+
+                if not sets:
+                    if defender_strength == 0:
+                        # pick the "cheapest" single-unit capture from the sorted donors
+                        best = units_that_can_attack[0]
+
+                        attacks = self.form_attacks([{"from": best["from"], "unit": best["unit"], "qty": 1}])
+                        strength = self.calculate_attack_strength([{"from": best["from"], "unit": best["unit"], "qty": 1}])
+
+                        self.actions.append(Move(delegate="combat",
+                                                to_terr=enemy_territory_name,
+                                                moves=attacks,
+                                                strength=strength))
+
+                        self.excluded.add(enemy_territory_name)
+                        return
 
                 sets.reverse()
                 for unitSet, strength in sets:
                     self.actions.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=unitSet, strength=strength))
 
+                # Always include option to skip attack on this territory
+                # self.actions.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=[]))
+
                 self.excluded.add(enemy_territory_name)
+                
                 return 
 
-        legal_moves.append(Move(delegate="combat", end_phase=True, strength=0))
+        self.actions.append(Move(delegate="combat", end_phase=True, strength=0))
 
                
     def heuristic_non_combat_legal_moves(self, time_budget):
-        player = self.current_player
-        legal_moves = []
-        start = time.time()
-        self._reachability_cache = {}
+        my_territories = copy.deepcopy(self.my_territories)
+        my_frontier_territories = set()
+        for terr in my_territories:
+            for n in adjacency.neighbors(terr.name):
+                if self.territories[n].owner != self.current_player and n not in FACTORY_MAP.values():
+                    my_frontier_territories.add(terr.name)
+                    break
 
-        my_territories = [t for t in self.territories.values() if t.owner == player]
-    
-        for to_territory in my_territories:
-            to_territory_name = to_territory.name
-            # Always include option to skip attack on this territory
-            legal_moves.append(Move(delegate="noncombat", to_terr=to_territory_name, moves=[]))
+        def count_units(terr):
+            cnt = 0
+            for u in terr.units:
+                if u.unit_type == "factory":
+                    continue
+                cnt += u.quantity
+            return cnt
+        
+        donor_territories = [t for t in my_territories if count_units(t) >= 1 and t.name not in my_frontier_territories]
+        staging_territories = {}
+        for terr in my_territories:
+            num_of_frontiers_as_borders = sum(
+                1 for neighbor in adjacency.neighbors(terr.name)
+                if neighbor in my_frontier_territories
+            )
+            staging_territories[terr.name] = num_of_frontiers_as_borders
+        territories_next_to_factories = {}
+        for terr in my_territories:
+            next_to_factories = sum(
+                1 for neighbor in adjacency.neighbors(terr.name)
+                if neighbor in victory_cities
+            )
+            territories_next_to_factories[terr.name] = next_to_factories
 
-            units_that_can_attack  = [
-                {"from": from_terr.name, "unit": unit, "qty": unit.quantity}
-                for from_terr in my_territories
-                if from_terr.name != to_territory_name
-                for unit in from_terr.units
-                if unit.owner == player
-                if self.check_reachability(unit, from_terr.name, to_territory_name)
-            ]
-            if time.time() - start > time_budget:
-                return legal_moves
-            
-            # If no units can reach the territory, skip
-            if not units_that_can_attack:
-                continue
-            # print(f"Units that can attack {units_that_can_attack}")
-            
-            # Pick one random move from reachable set
-            choice = random.choice(units_that_can_attack)
-            move = Attack(type=choice["unit"].unit_type, from_territory=choice["from"], quantity=choice["qty"])
-            legal_moves.append(Move("noncombat", to_terr=to_territory_name, moves=[move]))
+        targets = my_territories
+        def territory_priority_noncombat_playout(territory):
+            terr_name = territory.name 
+            # frontiers must be secured
+            priority_score = 1000 if terr_name in my_frontier_territories else 0
+            # empty frontiers must be given more importance
+            empty_frontier = 1 if terr_name in my_frontier_territories and count_units(self.territories[terr_name]) == 0 else 0
+            priority_score += empty_frontier * 500
+            # then the staging territories
+            staging_terr = staging_territories[terr_name] if terr_name in staging_territories.keys() else 0
+            priority_score += staging_terr * 200
+            # then the territories around the factory - owned and captured
+            # owned factoy territory is where the purchased units are placed at the end of the turn - so it remains secured 
+            next_to_factories = territories_next_to_factories[terr_name] if terr_name in territories_next_to_factories.keys() else 0
+            priority_score += next_to_factories * 100
+            return priority_score
+        
+        targets.sort(key=territory_priority_noncombat_playout, reverse=True)
 
-            if time.time() - start > time_budget:
-                return legal_moves
-            
-            
-        del self._reachability_cache
-        return legal_moves
+        def bias(territory):
+            q = 1
+            if territory.name in my_frontier_territories:
+                q = 5
+            if territory.name in staging_territories.keys() or territory.name in territories_next_to_factories.keys():
+                q = 3
+            return q
+
+        move_seq = []
+        for terr in targets:
+            terr_name = terr.name
+            init_count = count_units(terr)
+            if init_count >= bias(terr):
+                continue    # already secured
+
+            units_to_move = []
+            for donor in donor_territories:
+                if count_units(donor) == 0:
+                    continue   
+                for u in donor.units:
+                    move_range = game_rules.get(u.unit_type, {}).get("move", 1)
+                    if u.owner != self.current_player or u.quantity <= 0 or u.unit_type == "factory" or move_range <= 0:    # can't use the unit
+                        continue
+                    # check if unit is reachable to target from donor
+                    if self.check_reachability(u, donor.name, terr_name):
+                        units_to_move.append((u, donor.name))
+                        u.quantity -= 1
+                        # break
+                    if count_units(terr) >= bias(terr) + init_count:
+                        break
+                if units_to_move:
+                    break
+            if units_to_move:
+                grouped = {}
+                for u, from_terr_name in units_to_move:
+                    key = (from_terr_name, u.unit_type)
+                    if key not in grouped:
+                        grouped[key] = {
+                            "from": from_terr_name,
+                            "unit": u,
+                            "count": 0
+                        }
+                    grouped[key]["count"] += 1
+                attacks = []
+                for group in grouped.values():
+                    attacks.append(
+                        Attack(
+                            unit=group["unit"],
+                            from_territory=group["from"],
+                            quantity=group["count"]
+                        )
+                    )
+                move_seq.append(Move("noncombat", to_terr=terr_name, moves=attacks))
+
+        return move_seq
 
     def apply_purchase_move(self, move):
         player = self.current_player
@@ -544,45 +831,68 @@ class MCTSGameState:
         for unit_type, quantity in purchase_dict.items():
             self.players[player].unplaced[unit_type] = self.players[player].unplaced.get(unit_type, 0) + quantity
 
-    def apply_combat_move(self, move):
-        if move.end_phase:
-            # Don't change state, just signal to stop attacking
-            # The game state stays the same
-            return
-        player = self.current_player
-        if not move or not move.moves:
-            return
+    def apply_combat_move(self, moves):
+        for move in moves:
+            if move.end_phase:
+                # Don't change state, just signal to stop attacking
+                # The game state stays the same
+                return
+            player = self.current_player
+            if not move or not move.moves:
+                continue
 
-        to = move.to_terr
-        to_territory = self.territories[to]
-        attacks = move.moves
-        if not attacks:  
-            return
-        
-        defender_strength = 0
-        units_at_target = to_territory.units
-        # assuming all the units at target belong to the terr owner = all previous battles resolved
-        for unit in units_at_target:
-            unit_type = unit.unit_type
-            stats = game_rules.get(unit_type, {})
-            power = stats.get("defense", 1)
-            defender_strength += unit.quantity * power
+            to = move.to_terr
+            to_territory = self.territories[to]
+            attacks = move.moves
+            if not attacks:  
+                continue
+            
+            defender_strength = 0
+            units_at_target = [u for u in to_territory.units if u.owner != player and u.unit_type != "factory"]
+            # assuming all the units at target belong to the terr owner = all previous battles resolved
+            for unit in units_at_target:
+                unit_type = unit.unit_type
+                stats = game_rules.get(unit_type, {})
+                power = stats.get("defense", 1)
+                defender_strength += unit.quantity * power
 
-        attacker_strength = move.strength
-        
-        for attack in attacks:
-            frm = attack.from_territory
-            unit_type = attack.unit_type
-            quantity = attack.quantity
-            from_territory = self.territories[frm]
-            from_territory.remove_unit(unit_type, player, quantity)
+            attacker_strength = move.strength
+            
+            for attack in attacks:
+                frm = attack.from_territory
+                unit_type = attack.unit.unit_type
+                quantity = attack.quantity
+                from_territory = self.territories[frm]
+                from_territory.remove_unit(unit_type, player, quantity)
+                if attacker_strength > defender_strength:
+                    to_territory.add_unit(unit_type, player, quantity)
+
             if attacker_strength > defender_strength:
-                to_territory.add_unit(unit_type, player, quantity)
+                # win: move attackers in and clear defenders, then flip owner
+                defender_owner = to_territory.owner
                 for u in units_at_target:
-                    to_territory.remove_unit(u.unit_type, to_territory.owner, u.quantity)
+                    to_territory.remove_unit(u.unit_type, defender_owner, u.quantity)
+                to_territory.owner = player
+            else:
+                # lose/weak: attrition - spend attacker_strength to remove defender units
+                remaining = attacker_strength
+                defender_owner = to_territory.owner
 
-        if attacker_strength > defender_strength:
-            self.territories[to_territory.name].owner = player
+                # sort defenders by defense power (cheapest to kill first)
+                defenders = []
+                for u in units_at_target:
+                    d = game_rules.get(u.unit_type, {}).get("defense", 1)
+                    defenders.append((d, u))
+                defenders.sort(key=lambda x: x[0])
+
+                for d_power, u in defenders:
+                    if remaining <= 0:
+                        break
+                    # each unit costs d_power to remove
+                    kill = min(u.quantity, int(remaining // max(1, d_power)))
+                    if kill > 0:
+                        to_territory.remove_unit(u.unit_type, defender_owner, kill)
+                        remaining -= kill * d_power
 
     def apply_noncombat_move(self, move):
         player = self.current_player
@@ -598,7 +908,7 @@ class MCTSGameState:
 
         for attack in attacks:
             frm = attack.from_territory
-            unit_type = attack.unit_type
+            unit_type = attack.unit.unit_type
             quantity = attack.quantity
             from_territory = self.territories[frm]
             from_territory.remove_unit(unit_type, player, quantity)
@@ -637,11 +947,14 @@ class MCTSNode:
         return self.state.is_terminal()
     
     def best_child(self, c_param=1.414):
+        bestNode = None
         choices_weights = [
             (child.value / child.visits) + c_param * math.sqrt(2 * math.log(self.visits) / child.visits)
             for child in self.children
         ]
-        return self.children[choices_weights.index(max(choices_weights))]
+        if choices_weights is not None:
+            bestNode = self.children[choices_weights.index(max(choices_weights))]
+        return bestNode
 
 
 class MCTS:
@@ -651,10 +964,11 @@ class MCTS:
         self.epsilon = epsilon
         self.epsilon_decay = epsilon_decay
         self.latest_legal_moves = []
+        self.whoAmI = None
         
         # MCTS parameters
         self.time_budget = 1.0  # seconds per move
-        self.max_depth = 10  # Maximum playout depth
+        self.max_depth = 5  # Maximum playout depth
         self.exploration_constant = 1.414  # UCB1 exploration parameter
 
         self.model_name = model_name
@@ -665,12 +979,12 @@ class MCTS:
         )
         self.efficiency_metric = MetricLogger(
             efficiency_file,
-            header=["game", "round", "num_iterations", "root_node_visits", "best_node_visits", "best_node_value", "avg_depth", "explored", "total_actions"]
+            header=["game", "round", "num_iterations"]
         )
 
         self.combat_quality = MetricLogger(
             quality_file,
-            header=["game", "round", "pu_before", "pu_after", "territories_before", "territories_after"]
+            header=["game", "round", "pu_after", "territories_before", "territories_after"]
         )
 
         global game_rules, territory_production, victory_cities, adjacency, turn_order
@@ -680,6 +994,14 @@ class MCTS:
         adjacency = adj
         turn_order = order
 
+        # for logging purposes
+        self.combat_done_flag = False
+        self.terr_before_combat = 0
+        self.terr_after_combat = 0
+        self.pu_after_combat = 0
+
+    def update_whoAmI(self, whoAmI):
+        self.whoAmI = whoAmI
 
     def count_exhaustive_moves(self, units_that_can_attack):
         all_moves = 0
@@ -699,54 +1021,45 @@ class MCTS:
         line = line.strip()
         # print("\n")
         # print(line)
-        print("\nGame ", ctf.game_num, " Round ", round, " " ,line)
+        print("\nGame ", ctf.game_num, " Round ", ctf.round, " " ,line)
+        isCombat = False
         try:
             m = re.search(r"\[MY_MOVE\] (\w+)", line)
             if m:
                 move_type = m.group(1)
                 if move_type == "purchase":
-                    ctf.round = int(round)
+                    # ctf.round = int(round)
                     legal_moves = generate_legal_purchase_moves(ctf, ctf.whoAmI)
 
                     if legal_moves:
-                        move = random.choice(legal_moves)
+                        max_cost = max(move["cost"] for move in legal_moves)
+                        best_moves = [move for move in legal_moves if move["cost"] == max_cost]
+                        move = random.choice(best_moves)
                         response = convert_action_to_json(move, "purchase")
                     else:
                         # print("No legal purchase moves available.")
                         response = []
                     # response = []
                 elif move_type == "combat":
-                    # print("\n")
-                    
-                    # legal_moves = self.generate_combat_moves_territory_based(ctf, ctf.whoAmI)
-                    # save in a file, then save the graph image with the same number - run for 10 rounds
-                    # img_file = f"smart_root_dumb_tree/combat_moves/graph_{ctf.game_num}_{round}.png"
-                    # ctf.fig.savefig(img_file, dpi=300, bbox_inches="tight")
-                    # with open(f"smart_root_dumb_tree/combat_moves/MOVES_{ctf.game_num}_{round}.txt", "w") as f:
-                    #     for sub in legal_moves:
-                    #         f.write("Attack: \n\t")
-                    #         f.write(sub.__repr__())
-                    #         f.write("\n")
-        
-                    # select a random attack and try playout
+                    self.terr_before_combat = sum(1 for t in ctf.territories.values() if t.owner == ctf.whoAmI)
                     current_state = MCTSGameState(ctf)
                     # action = self.mcts_search(current_state, legal_moves)
+                    # img_file = f"multi_front_attack/combat_moves/graph_{ctf.game_num}_{round}.png"
+                    # ctf.fig.savefig(img_file, dpi=300, bbox_inches="tight")
                     profile_name = f"{self.model_name}/profiles/mcts_{ctf.game_num}_"
                     if ctf.round < 10:
                         profile_name += "0"
                     profile_name += round + ".prof"
                     action = self.profile_mcts(current_state, profile_name)
-                    response = convert_combat_to_json(action)
-                    # print("Sending:", response)
-
+                    response = convert_multi_front_combat_to_json(action)
+                    isCombat = True
                 elif move_type == "noncombat":
-                    # img_file = f"after_combat_{round}.png"
+                    # img_file = f"multi_front_attack/noncombat_moves/graph_{ctf.game_num}_{round}.png"
                     # ctf.fig.savefig(img_file, dpi=300, bbox_inches="tight")
-                    # print(f"Graph exported as {img_file}")
-                    legal_moves = generate_legal_noncombat_moves(ctf, ctf.whoAmI)
-                    if legal_moves:
-                        moves = random.choice(legal_moves)
-                        response = convert_action_to_json(moves, "noncombat")
+                    legal_move = generate_legal_noncombat_moves(ctf, ctf.whoAmI)
+                    if legal_move:
+                        # moves = random.choice(legal_moves)
+                        response = convert_multi_front_noncombat_to_json(legal_move)
                     else:
                         # print("No legal noncombat moves available.")
                         response = []  
@@ -754,35 +1067,38 @@ class MCTS:
                     # print("Unsupported move type:", move_type)
                     response = []
 
-            return response    
+            return response, isCombat    
         except Exception as e:
             print(e)
             time.sleep(4)
-            return []
+            return [], isCombat
 
 
-    def select(self, node):
+    def select(self, init_node):
+        node = init_node
         while not node.is_terminal():
             nextAction = node.state.getNextAction()
-            print(f"Action selected {nextAction}\n")
+            # print(f"Action selected {nextAction}\n")
             if nextAction is not None:
+                # print("\tselected")
                 return self.expand(node, nextAction)
-            else:
+            elif node.children != []:
                 # All actions tried, select best child using UCB1
+                # print(len(node.children))
                 bestChild = node.best_child(self.exploration_constant)
                 if bestChild is None:
                     return node
                 node = bestChild
-        
+            else:
+                return node
+        # print("\tselected")
         return node
     
     def expand(self, parent, action):
         new_state = parent.state.clone()
         
         try:
-            new_state.apply_combat_move(action)
-            player = new_state.players[new_state.current_player]
-            new_state.update_income(player)
+            new_state.apply_combat_move([action])
             new_state.heuristic_combat_legal_moves(self.time_budget)
             
         except Exception as e:
@@ -792,13 +1108,13 @@ class MCTS:
         # Create child node
         child = MCTSNode(new_state, parent=parent, action=action)
         parent.children.append(child)
-        
+        # print("\texpanded")
         return child
 
     def simulate(self, state, time_done):
         current_state = state.clone()
-        depth = 0
-
+        depth = 0  
+    
         try:
             idx = turn_order.index(current_state.current_player)
             
@@ -807,25 +1123,24 @@ class MCTS:
                 for i in range(idx + 1, len(turn_order)):
                     # print(f"\nSimulation for {turn_order[i]}\n")
                     current_state.current_player = turn_order[i]
+                    current_state.excluded = set()
+                    current_state.set_terr_lists()
+                    while True:
+                        current_state.heuristic_combat_legal_moves(self.time_budget)
+                        # actions successfully generated for the most important enemy territory
+                        if current_state.actions:
+                            # do the best move since that would be the strongest if the territories and units are ordered correctly
+                            best_move = current_state.actions[0]
+                            # best_move = random.choice(current_state.actions)
+                            if best_move.end_phase == True:
+                                break
+                            current_state.apply_combat_move([best_move])
                     
-                    # Random purchase
-                    # purchase_moves = current_state.purchase_legal_moves()
-                    # if purchase_moves:
-                    #     current_state.apply_purchase_move(random.choice(purchase_moves))
-                    
-                    # Random combat
-                    combat_moves = current_state.heuristic_combat_legal_moves(self.time_budget)
-                    if combat_moves:
-                        current_state.apply_combat_move(random.choice(combat_moves))
-                    
-                    # Random non-combat
                     noncombat_moves = current_state.heuristic_non_combat_legal_moves(self.time_budget)
-                    if noncombat_moves:
-                        current_state.apply_noncombat_move(random.choice(noncombat_moves))
-                    
-                    # Place units
+                    for mv in noncombat_moves:
+                        current_state.apply_noncombat_move(mv)
+
                     player = current_state.players[current_state.current_player]
-                    # player.place_units()
                     current_state.update_income(player)
             
             current_state.round += 1
@@ -837,18 +1152,24 @@ class MCTS:
             while depth < self.max_depth and not current_state.is_terminal() and time.time() - start < time_left:
                 for player_name in turn_order:
                     current_state.current_player = player_name
+                    current_state.excluded = set()
+                    current_state.set_terr_lists()
+                    while True:
+                        current_state.heuristic_combat_legal_moves(self.time_budget)
+                        # actions successfully generated for the most important enemy territory
+                        if current_state.actions:
+                            # do the best move since that would be the strongest if the territories and units are ordered correctly
+                            best_move = current_state.actions[0]
+                            # best_move = random.choice(current_state.actions)
+                            if best_move.end_phase == True:
+                                break
+                            current_state.apply_combat_move([best_move])
                     
-                    # purchase_moves = current_state.purchase_legal_moves()
-                    # if purchase_moves:
-                    #     current_state.apply_purchase_move(random.choice(purchase_moves))
-                    combat_moves = current_state.heuristic_combat_legal_moves(self.time_budget)
-                    if combat_moves:
-                        current_state.apply_combat_move(random.choice(combat_moves))
                     noncombat_moves = current_state.heuristic_non_combat_legal_moves(self.time_budget)
-                    if noncombat_moves:
-                        current_state.apply_noncombat_move(random.choice(noncombat_moves))
+                    for mv in noncombat_moves:
+                        current_state.apply_noncombat_move(mv)
+
                     player = current_state.players[current_state.current_player]
-                    # player.place_units()
                     current_state.update_income(player)
                     
                     if current_state.is_terminal():
@@ -856,10 +1177,10 @@ class MCTS:
                 
                 current_state.round += 1
                 depth += 1
-            
+
         except Exception as e:
             print(f"Error in simulation: {e}")
-            return -0.5
+            return -0.5, depth
         
         # Evaluate final state
         return self.evaluate_state(current_state, depth), depth
@@ -867,109 +1188,116 @@ class MCTS:
     def backpropagate(self, node, reward):
         while node is not None:
             node.visits += 1
-            node.value += reward
             
             # Flip reward for opponent's nodes (minimax)
-            reward = -reward
+            if node.state.current_player == self.whoAmI:
+                node.value += reward
+            else:
+                node.value -= reward
             
             node = node.parent
 
 
     def mcts_search(self, initial_state):
-        print("Generating moves")
+        # print("Generating moves")
         initial_state.heuristic_combat_legal_moves(self.time_budget)
-        print(f"Moves generated {initial_state.actions}\n")
+        # print(f"Moves generated {initial_state.actions}\n")
         root = MCTSNode(initial_state)
                 
         start_time = time.time()
         iterations = 0
         # avg_depth = 0
         
-        # while time.time() - start_time < self.time_budget:
+        while time.time() - start_time < self.time_budget:
+            iterations += 1
+            # print(f"Iter: {iterations}")
             # 1. Selection and expansion
-        selected_node = self.select(root)
-        print(f"Moves generated after expansion {selected_node.state.actions}\n")
-            
-        #     # 3. Simulation (Playout)
-        #     reward, depth = self.simulate(node.state, time.time() - start_time)
-        #     avg_depth += depth
-        #     # 4. Backpropagation
-        #     self.backpropagate(node, reward)
-            
-        #     iterations += 1
+            selected_node = self.select(root)
+            # print(f"Moves generated after expansion {selected_node.state.actions}\n")
+            reward, depth = self.simulate(selected_node.state, time.time() - start_time)
         
-        # print(f"MCTS ran {iterations} iterations in {self.time_budget}s")
-        # print(f"Root node visits: {root.visits}")
-
-        # if not root.children:
-        #     print("Warning: No children expanded, returning random action")
-        #     selected_action = random.choice(legal_actions)
-        # else:
-        #     best_child = max(root.children, key=lambda c: c.visits)
-        #     selected_action = best_child.action
-        #     print(f"Best action visits: {best_child.visits}, value: {best_child.value/best_child.visits:.3f}")
-        #     print(f"Selected action : {selected_action}")
-        #     best_child_value = best_child.value/best_child.visits
-        #     avg_depth /= iterations
-        #     actions_explored = len(root.children)
-        #     total_actions = len(legal_actions)
-
-        #     self.efficiency_metric.log(root.state.game_num, root.state.round, iterations, root.visits, best_child.visits, best_child_value, avg_depth, actions_explored, total_actions)
-        
-        # pu_before = initial_state.players[initial_state.current_player].PU
-        # my_territories_before = sum(1 for t in initial_state.territories.values() if t.owner == initial_state.current_player)
-        # initial_state.apply_combat_move(selected_action)
-        # initial_state.update_income(initial_state.players[initial_state.current_player])
-        # pu_after = initial_state.players[initial_state.current_player].PU
-        # my_territories_after = sum(1 for t in initial_state.territories.values() if t.owner == initial_state.current_player)
-        # self.combat_quality.log(initial_state.game_num, initial_state.round, pu_before, pu_after, my_territories_before, my_territories_after)
-
-        # # how do i selected actions on multiple territories
+            self.backpropagate(selected_node, reward)
             
-        selected_action = []
-        return selected_action
+            
+            # print(f"Action: {selected_node.state.actions}")
+        
+        print(f"MCTS ran {iterations} iterations in {self.time_budget}s")
+        print(f"Root node visits: {root.visits}")
+
+
+        action_seq = []
+        node = root
+        while node.children != []:
+            best_child = max(node.children, key=lambda c: c.visits)
+            if best_child is None:
+                break
+            if best_child.action.moves is not None and best_child.action.end_phase == False and best_child.action.strength != 0:
+                action_seq.append(best_child.action)
+            if best_child.action.end_phase == True:
+                break
+            node = best_child
+
+        self.efficiency_metric.log(root.state.game_num, root.state.round, iterations)
+        return action_seq
+
     
     def profile_mcts(self, initial_state, file):
-        import cProfile
-        with cProfile.Profile() as pr:
-            result = self.mcts_search(initial_state)
-        pr.dump_stats(file)
+        # import cProfile
+        # with cProfile.Profile() as pr:
+        result = self.mcts_search(initial_state)
+        # pr.dump_stats(file)
         return result
+
+    # def evaluate_state(self, state, depth):
+    #     # Thesis: max playout depth = 10
+    #     max_d = self.max_depth
+
+    #     if state.is_terminal():
+    #         if state.am_i_winner():
+    #             return 0.6 + 0.4 * (max_d - depth) / max_d
+    #         else:
+    #             return -0.6 - 0.4 * (max_d - depth) / max_d
+
+    #     # 4-player adaptation: "allied" = me, "enemy" = everyone else
+    #     allied = 0
+    #     enemy = 0
+    #     me = state.current_player  # in your state, this is "whoAmI"
+
+    #     for terr in state.territories.values():
+    #         for u in terr.units:
+    #             if u.unit_type == "factory":
+    #                 continue
+    #             if u.owner == me:
+    #                 allied += u.quantity
+    #             else:
+    #                 enemy += u.quantity
+
+    #     total = allied + enemy
+    #     if total == 0:
+    #         return 0.0
+
+    #     return (allied - enemy) / (total * 2)
+
 
     def evaluate_state(self, state, depth):
         if state.is_terminal():
-            if state.am_i_winner():
+            if state.am_i_winner(self.whoAmI):
                 return 0.6 + 0.4 * (10 - depth) / 10
             else:
                 return -0.6 - 0.4 * (10 - depth) / 10
         else:
-            # Count units, don't calculate strength
-            my_units = sum(
-                u.quantity
-                for terr in state.territories.values()
-                if terr.owner == state.current_player
-                for u in terr.units
-                if u.owner == state.current_player
-            )
-           
+            me = self.whoAmI
+            my_terrs = [t for t in state.territories.values() if t.owner == me]
+            enemy_terrs = [t for t in state.territories.values() if t.owner != me]
+            my_count = len(my_terrs)
+            enemy_count = len(enemy_terrs)
+            my_vc_count = sum(1 for t in my_terrs if t.name in victory_cities)
+            enemy_vc_count = sum(1 for t in enemy_terrs if t.name in victory_cities)
             
-            total_enemy_units = sum(
-                u.quantity
-                for terr in state.territories.values()
-                if terr.owner != state.current_player
-                for u in terr.units
-                if u.owner != state.current_player
-            )
-            
-            total_size = my_units + total_enemy_units
-            
-            if total_size == 0:
-                return 0.0
-            
-            # Paper's formula: divide by (total_size * 2)
-            return (my_units - total_enemy_units) / (total_size * 2)
-            
-        
+            score = 0.0
+            score += 0.45 * (my_count - enemy_count) / max(1, (my_count + enemy_count))
+            score += 0.35 * (my_vc_count - enemy_vc_count) / max(1, (my_vc_count + enemy_vc_count + 1))
 
+            return max(-0.5, min(0.5, score))
 
     
