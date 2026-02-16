@@ -25,7 +25,7 @@ public class helper {
     public static int getAIRoleId(int n) {
         Random rand = new Random();
         // return rand.nextInt(n);
-       return 2;
+       return Integer.parseInt(System.getenv().getOrDefault("PLAYER_ID", "0"));
     }
 
     public static void saveWhoAmI(String player) {
