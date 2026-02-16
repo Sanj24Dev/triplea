@@ -6,8 +6,8 @@ import os
 import socket  
 
 # --- CONFIG ---
-PLAY_ROUNDS = 200   # max rounds per game
-PLAY_GAMES = 3     # number of games to play
+PLAY_ROUNDS = 100   # max rounds per game
+PLAY_GAMES = int(os.environ["GAMES_TO_PLAY"])     # number of games to play
 CHECK_INTERVAL = 2  # seconds between log checks
 FORFEIT_CHECK = 20
 

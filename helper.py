@@ -6,36 +6,6 @@ import os
 import ast
 
 
-# def convert_combat_to_json(move):
-#     actions = []
-#     # attacking one territory
-#     for attack in move.moves:
-#         qty = attack.get("quantity")
-#         action = {
-#             "delegate": "combat",
-#             "from": attack.get("from"),
-#             "to": move.to_terr,
-#             "unit": attack.get("unit").unit_type,
-#             "count": qty,
-#         }
-#         actions.append(action)
-#     return actions
-
-
-def convert_combat_to_json(move):
-    actions = []
-    # attacking one territory
-    for attack in move.moves:
-        qty = attack.quantity
-        action = {
-            "delegate": "combat",
-            "from": attack.from_territory,
-            "to": move.to_terr,
-            "unit": attack.unit_type,
-            "count": qty,
-        }
-        actions.append(action)
-    return actions
 
 def convert_multi_front_combat_to_json(moves):
     actions = []
@@ -70,6 +40,20 @@ def convert_multi_front_noncombat_to_json(moves):
     # attacking one territory
     for move in grouped_moves.values():
         actions.append(move)
+    return actions
+
+
+def convert_purchase_to_json(purchase):
+    actions = []
+    for unit, qty in purchase.get("purchase", {}).items():
+        key = (unit, qty)
+        if key not in actions:
+            actions.append({
+                "delegate": "purchase",
+                "unit": unit,
+                "to": purchase.get("place_in", [""])[0],  # Assuming one placement location
+                "count": qty
+            })
     return actions
 
 

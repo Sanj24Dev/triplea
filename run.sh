@@ -19,10 +19,11 @@ export PROJECT_ROOT="/storage/home/hcoda1/6/snayak89/tripleMind"
 
 MODEL_NAME="multi_front_attack"
 
-# rm -f multi_front_attack/metrics/*
-# rm -f multi_front_attack/profiling/*
-# rm -f multi_front_attack/combat_moves/*
-# rm -f multi_front_attack/profiles/*
+rm -f multi_front_attack/metrics/*
+rm -f multi_front_attack/profiling/*
+rm -f multi_front_attack/combat_moves/*
+rm -f multi_front_attack/trees/*
+rm -f multi_front_attack/profiles/*
 rm "../logs/RL_BOT_3/Capture The Flag.log"
 
 # 1. Start the first program in the background and get its PID
@@ -30,21 +31,35 @@ REDUCTION_REC="multi_front_attack/metrics/reduction.csv"
 EFFICIENCY_REC="multi_front_attack/metrics/mcts_efficiency.csv"
 OUTCOME_REC="multi_front_attack/metrics/game_outcome.csv"
 QUALITY_REC="multi_front_attack/metrics/combat_quality.csv"
+ROLLOUT_REC="multi_front_attack/metrics/rollout_efficiency.csv"
 
-python3 -u game_mcts.py --model_name "$MODEL_NAME" --reduction_file "$REDUCTION_REC" --efficiency_file "$EFFICIENCY_REC" --outcome_file "$OUTCOME_REC" --quality_file "$QUALITY_REC"> output.log &
+export GAMES_TO_PLAY=1
+
+# Play 25 games as Chinese
+export PLAYER_ID=0
+export START_GAME_NUM=1
+python3 -u game_mcts.py --model_name "$MODEL_NAME" --reduction_file "$REDUCTION_REC" --efficiency_file "$EFFICIENCY_REC" --outcome_file "$OUTCOME_REC" --quality_file "$QUALITY_REC" --rollout_file "$ROLLOUT_REC"> output.log &
 MCTS_PID=$!
-
 echo "Started MCTS with PID $MCTS_PID"
-
-# 2. Wait 5 seconds for the socket server to come online
 sleep 5
-
-# 3. Run the second program in the foreground (blocks until finished)
 python3 play_game.py > output_play.log 
-
-# 4. After second program exits, terminate the first program
 echo "Game finished. Killing MCTS process $MCTS_PID"
 kill $MCTS_PID
+
+# export START_GAME_NUM=$((START_GAME_NUM + GAMES_TO_PLAY))
+# python3 -u game_mcts.py --model_name "$MODEL_NAME" --reduction_file "$REDUCTION_REC" --efficiency_file "$EFFICIENCY_REC" --outcome_file "$OUTCOME_REC" --quality_file "$QUALITY_REC" --rollout_file "$ROLLOUT_REC"> output.log &
+# MCTS_PID=$!
+# echo "Started MCTS with PID $MCTS_PID"
+# sleep 5
+# python3 play_game.py > output_play.log 
+# echo "Game finished. Killing MCTS process $MCTS_PID"
+# kill $MCTS_PID
+
+
+
+
+
+
 
 # Optional: Wait for clean exit
 wait $MCTS_PID 2>/dev/null
@@ -52,7 +67,3 @@ wait $MCTS_PID 2>/dev/null
 end_time=$(date +%s)
 elapsed=$((end_time - start_time))
 echo "Time taken: ${elapsed} seconds"
-
-
-
-# lsof -i :5000

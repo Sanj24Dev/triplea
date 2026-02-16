@@ -10,7 +10,8 @@ python3 plot_efficiency.py --folder "$REPORT_FOLDER"
 # python3 plot_reduction.py --folder "$REPORT_FOLDER"
 python3 plot_game_outcome.py --folder "$REPORT_FOLDER"
 python3 plot_combat_quality.py --folder "$REPORT_FOLDER"
-python3 plot_profile.py --folder "$REPORT_FOLDER"
+# python3 plot_profile.py --folder "$REPORT_FOLDER"
+python3 rollout_eff_plot.py --folder "$REPORT_FOLDER"
 
 REPORT_PDF="multi_front_model3.pdf"
 # GAME_SUMMARY=$(cat << 'EOF'
@@ -37,8 +38,8 @@ GAME_SUMMARY="multi-front-attack with sequence of non combat move in a turn"
 
 # rm "$REPORT_PDF"
 # python3 summary_script.py --file_name="$REPORT_PDF" --report_folder="$REPORT_FOLDER" --game_summary="$GAME_SUMMARY"
-rm multi_front_model5_100.zip
-zip -r multi_front_model5_100.zip $REPORT_FOLDER combat_mcts_agent.py 
+# rm multi_front_attack_rusVSchi.zip
+# zip -r multi_front_attack_rusVSchi.zip $REPORT_FOLDER combat_mcts_agent.py 
 
 
 # <b>Legal Combat Move Generation</b><br/>

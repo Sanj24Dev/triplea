@@ -2,14 +2,16 @@
 
 import math
 import random
-from helper import convert_action_to_json, convert_combat_to_json, convert_multi_front_combat_to_json, convert_multi_front_noncombat_to_json
-from collections import deque
+from helper import convert_action_to_json, convert_purchase_to_json, convert_multi_front_combat_to_json, convert_multi_front_noncombat_to_json
+from collections import deque, defaultdict
 import itertools
 import time
 import re
 from ctf_graph import Territory, Player, MetricLogger, FACTORY_MAP
 from itertools import product
 import copy
+import os
+import subprocess
 
 game_rules = None
 territory_production = None
@@ -45,6 +47,78 @@ class Move:
         lines.append(f"\tstrength={self.strength}")
 
         return "\n".join(lines)
+
+def _safe(s: str, maxlen=60):
+    s = s.replace('"', "'").replace("\n", " ")
+    return s[:maxlen] + ("…" if len(s) > maxlen else "")
+
+def attack_summary(move):
+    """
+    Returns string like: '2x inf, 1x arm'
+    """
+    if not getattr(move, "moves", None):
+        return ""
+    counts = defaultdict(int)
+    for atk in move.moves:
+        counts[atk.unit.unit_type] += atk.quantity
+    return ", ".join(f"{qty}x {ut}" for ut, qty in counts.items())
+
+def save_mcts_tree_png(root, out_prefix, max_nodes=500):
+    """
+    Saves:
+      - out_prefix + ".dot"
+      - out_prefix + ".png" (if graphviz 'dot' is available)
+    """
+    # BFS traversal
+    q = deque([root])
+    node_id = {id(root): 0}
+    nodes = [root]
+    edges = []
+
+    while q and len(nodes) < max_nodes:
+        n = q.popleft()
+        for ch in n.children:
+            if id(ch) not in node_id:
+                node_id[id(ch)] = len(nodes)
+                nodes.append(ch)
+                q.append(ch)
+            edges.append((node_id[id(n)], node_id[id(ch)], ch.action))
+
+    dot_path = out_prefix + ".dot"
+    png_path = out_prefix + ".png"
+
+    with open(dot_path, "w") as f:
+        f.write("digraph MCTS {\n")
+        f.write('  rankdir=TB;\n')
+        f.write('  node [shape=box, fontsize=10];\n')
+
+        for n in nodes:
+            nid = node_id[id(n)]
+            avg = (n.value / n.visits) if n.visits else 0.0
+            label = f"#{nid}\\nvis={n.visits}\\navg={avg:.3f}\\npld={getattr(n, 'avg_playout_depth', 0):.1f}"
+            f.write(f'  n{nid} [label="{label}"];\n')
+
+        for a, b, act in edges:
+            if act is None:
+                el = ""
+            else:
+                if getattr(act, "end_phase", False):
+                    el = "END"
+                else:
+                    summary = attack_summary(act)
+                    el = f"{act.to_terr} | {summary}"
+                el = _safe(el, 60)
+
+            f.write(f'  n{a} -> n{b} [label="{el}"];\n')
+
+        f.write("}\n")
+
+    # Try render to PNG
+    try:
+        subprocess.run(["dot", "-Tpng", dot_path, "-o", png_path], check=True)
+        return dot_path, png_path
+    except Exception:
+        return dot_path, None
 
 
 def generate_legal_purchase_moves(ctf, player):
@@ -578,11 +652,10 @@ class MCTSGameState:
         start = time.time()
         self._reachability_cache = {}
 
-        strengthThreshold = 1.1  # Start at 110% of defender
-        maxThreshold = 3.5       # Stop at 350% of defend
-
         for enemy_territory in self.enemy_territories:
             enemy_territory_name = enemy_territory.name
+            strengthThreshold = 1.1  # Start at 110% of defender
+            maxThreshold = 4.0       # Stop at 350% of defend
 
             if enemy_territory_name not in self.excluded:
                 # the territory isnt considered yet
@@ -657,7 +730,8 @@ class MCTSGameState:
                 # Always include final full force
                 if unitsUpToStrength and currentStrength>defender_strength:
                     attacks = self.form_attacks(unitsUpToStrength) 
-                    sets.append((attacks, currentStrength))
+                    if not sets or sets[-1][1] != currentStrength:
+                        sets.append((attacks, currentStrength))
 
                 if not sets:
                     weak_sets = []
@@ -698,7 +772,7 @@ class MCTSGameState:
                     self.actions.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=unitSet, strength=strength))
 
                 # Always include option to skip attack on this territory
-                # self.actions.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=[]))
+                self.actions.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=[]))
 
                 self.excluded.add(enemy_territory_name)
                 
@@ -929,6 +1003,15 @@ class MCTSGameState:
         else:
             return None
 
+    def count_combat_units(self, whoAmI):
+        count = 0
+        for territory in self.territories.values():
+            if territory.owner == whoAmI:
+                for unit in territory.units:
+                    if unit.unit_type != "factory" and unit.owner == whoAmI:
+                        count += unit.quantity
+        return count
+
 
 class MCTSNode:
     def __init__(self, state, parent=None, action=None):
@@ -939,6 +1022,7 @@ class MCTSNode:
         self.untried_actions = None  # Lazy initialization
         self.visits = 0
         self.value = 0.0
+        self.avg_playout_depth = 0
 
     def is_fully_expanded(self):
         return self.untried_actions is not None and len(self.untried_actions) == 0
@@ -958,7 +1042,7 @@ class MCTSNode:
 
 
 class MCTS:
-    def __init__(self, model_name, reduction_file, efficiency_file, quality_file, production_rules, terr_production, vic_cities, adj, order, gamma=0.99, alpha=1e-3, epsilon=0.2, epsilon_decay=0.99995):
+    def __init__(self, model_name, reduction_file, efficiency_file, quality_file, rollout_file, production_rules, terr_production, vic_cities, adj, order, gamma=0.99, alpha=1e-3, epsilon=0.2, epsilon_decay=0.99995):
         self.gamma = gamma
         self.alpha = alpha
         self.epsilon = epsilon
@@ -979,13 +1063,17 @@ class MCTS:
         )
         self.efficiency_metric = MetricLogger(
             efficiency_file,
-            header=["game", "round", "num_iterations"]
+            header=["game", "round", "num_iterations", "value"]
         )
 
         self.combat_quality = MetricLogger(
             quality_file,
             header=["game", "round", "pu_after", "territories_before", "territories_after"]
         )
+
+        self.rollout_efficiency = MetricLogger(
+            rollout_file,
+            header=["game", "round", "iteration", "depth", "current_player", "terr_attacked_in_round (actions taken)"])
 
         global game_rules, territory_production, victory_cities, adjacency, turn_order
         game_rules = production_rules
@@ -995,6 +1083,7 @@ class MCTS:
         turn_order = order
 
         # for logging purposes
+        self.iteration = 0
         self.combat_done_flag = False
         self.terr_before_combat = 0
         self.terr_after_combat = 0
@@ -1021,7 +1110,7 @@ class MCTS:
         line = line.strip()
         # print("\n")
         # print(line)
-        print("\nGame ", ctf.game_num, " Round ", ctf.round, " " ,line)
+        print("\nGame ", ctf.game_num, " Round ", ctf.round, " [", ctf.whoAmI, "] ", line)
         isCombat = False
         try:
             m = re.search(r"\[MY_MOVE\] (\w+)", line)
@@ -1035,7 +1124,7 @@ class MCTS:
                         max_cost = max(move["cost"] for move in legal_moves)
                         best_moves = [move for move in legal_moves if move["cost"] == max_cost]
                         move = random.choice(best_moves)
-                        response = convert_action_to_json(move, "purchase")
+                        response = convert_purchase_to_json(move)
                     else:
                         # print("No legal purchase moves available.")
                         response = []
@@ -1043,8 +1132,7 @@ class MCTS:
                 elif move_type == "combat":
                     self.terr_before_combat = sum(1 for t in ctf.territories.values() if t.owner == ctf.whoAmI)
                     current_state = MCTSGameState(ctf)
-                    # action = self.mcts_search(current_state, legal_moves)
-                    # img_file = f"multi_front_attack/combat_moves/graph_{ctf.game_num}_{round}.png"
+                    # img_file = f"{self.model_name}/combat_moves/graph_{ctf.game_num}_{round}.png"
                     # ctf.fig.savefig(img_file, dpi=300, bbox_inches="tight")
                     profile_name = f"{self.model_name}/profiles/mcts_{ctf.game_num}_"
                     if ctf.round < 10:
@@ -1079,8 +1167,7 @@ class MCTS:
         while not node.is_terminal():
             nextAction = node.state.getNextAction()
             # print(f"Action selected {nextAction}\n")
-            if nextAction is not None:
-                # print("\tselected")
+            if nextAction is not None and nextAction.end_phase != True:
                 return self.expand(node, nextAction)
             elif node.children != []:
                 # All actions tried, select best child using UCB1
@@ -1110,73 +1197,98 @@ class MCTS:
         parent.children.append(child)
         # print("\texpanded")
         return child
+    
+    def pick_rollout_move(self, actions, whoAmI, cur_player, min_attacks_done, topk=3):
+        # Separate actions
+        real = [a for a in actions if (not getattr(a, "end_phase", False)) and getattr(a, "moves", None)]
+        empties = [a for a in actions if (not getattr(a, "end_phase", False)) and not getattr(a, "moves", None)]
+        endp = [a for a in actions if getattr(a, "end_phase", False)]
+
+        # If I'm the player, force some pressure early
+        if cur_player == whoAmI and min_attacks_done < 2:
+            if real:
+                k = min(topk, len(real))
+                # depth, player, attacks_done, n_actions_total, n_actions_real, picked_type
+                # print(f"\tRollout move selection - player: {cur_player}, attacks_done: {min_attacks_done}, actions_total: {len(actions)}, actions_real: {len(real)}, picked_type: real")
+                return random.choice(real[:k])
+            # print(f"\tRollout move selection - player: {cur_player}, attacks_done: {min_attacks_done}, actions_total: {len(actions)}, actions_real: {len(real)}, picked_type: empty/end")
+            # if no real attacks exist, allow empty or end
+            return empties[0] if empties else (endp[0] if endp else actions[0])
+
+        # For others: normal rollout behavior (top-k real if exists, else anything)
+        if real:
+            # print(f"\tRollout move selection - player: {cur_player}, attacks_done: {min_attacks_done}, actions_total: {len(actions)}, actions_real: {len(real)}, picked_type: real")
+            k = min(topk, len(real))
+            return random.choice(real[:k])
+        # print(f"\tRollout move selection - player: {cur_player}, attacks_done: {min_attacks_done}, actions_total: {len(actions)}, actions_real: {len(real)}, picked_type: empty/end")
+        return endp[0] if endp else actions[0]
 
     def simulate(self, state, time_done):
         current_state = state.clone()
         depth = 0  
     
         try:
-            idx = turn_order.index(current_state.current_player)
-            
-            # Complete current round for remaining players
-            if idx < len(turn_order) - 1:
-                for i in range(idx + 1, len(turn_order)):
-                    # print(f"\nSimulation for {turn_order[i]}\n")
-                    current_state.current_player = turn_order[i]
-                    current_state.excluded = set()
-                    current_state.set_terr_lists()
-                    while True:
-                        current_state.heuristic_combat_legal_moves(self.time_budget)
-                        # actions successfully generated for the most important enemy territory
-                        if current_state.actions:
-                            # do the best move since that would be the strongest if the territories and units are ordered correctly
-                            best_move = current_state.actions[0]
-                            # best_move = random.choice(current_state.actions)
-                            if best_move.end_phase == True:
-                                break
-                            current_state.apply_combat_move([best_move])
-                    
-                    noncombat_moves = current_state.heuristic_non_combat_legal_moves(self.time_budget)
-                    for mv in noncombat_moves:
-                        current_state.apply_noncombat_move(mv)
-
-                    player = current_state.players[current_state.current_player]
-                    current_state.update_income(player)
-            
-            current_state.round += 1
-            depth += 1
-            
             # Simulate future rounds
+            first_sim = True
             time_left = self.time_budget - time_done
             start = time.time()
             while depth < self.max_depth and not current_state.is_terminal() and time.time() - start < time_left:
-                for player_name in turn_order:
-                    current_state.current_player = player_name
+                start_idx = turn_order.index(state.current_player)
+                end_of_cycle = (start_idx - 1) % len(turn_order)
+                idx = start_idx
+                while True:
+                    current_state.current_player = turn_order[idx]
+                    # if not first_sim:       # since the first sim would have already have atleast 1 terr in the excluded set, and the action would be execute in the expand phase
                     current_state.excluded = set()
                     current_state.set_terr_lists()
+                    terr_attacked = 0
                     while True:
                         current_state.heuristic_combat_legal_moves(self.time_budget)
                         # actions successfully generated for the most important enemy territory
                         if current_state.actions:
                             # do the best move since that would be the strongest if the territories and units are ordered correctly
-                            best_move = current_state.actions[0]
-                            # best_move = random.choice(current_state.actions)
-                            if best_move.end_phase == True:
+                            # best_move = current_state.actions[0]
+                            # k = min(3, len(current_state.actions))
+                            # best_move = random.choice(current_state.actions[:k])
+                            mv = self.pick_rollout_move(current_state.actions, self.whoAmI, current_state.current_player, terr_attacked, topk=3)
+
+                            if getattr(mv, "end_phase", False):
                                 break
-                            current_state.apply_combat_move([best_move])
+                            if getattr(mv, "moves", None):     # count only real attacks
+                                terr_attacked += 1
+                            
+                            current_state.apply_combat_move([mv])
                     
+                    self.rollout_efficiency.log(state.game_num, state.round, self.iteration, depth, current_state.current_player, terr_attacked)
                     noncombat_moves = current_state.heuristic_non_combat_legal_moves(self.time_budget)
                     for mv in noncombat_moves:
                         current_state.apply_noncombat_move(mv)
 
                     player = current_state.players[current_state.current_player]
                     current_state.update_income(player)
+
+                    # if first_sim:
+                    #     first_sim = False
                     
                     if current_state.is_terminal():
+                        depth += 1
                         break
-                
-                current_state.round += 1
-                depth += 1
+                    
+                    # Round increments only after last player in the order finishes
+                    if idx == end_of_cycle:
+                        depth += 1
+
+                        # if depth cap reached, break out early
+                        if depth >= self.max_depth:
+                            break
+
+                    idx = (idx + 1) % len(turn_order)
+                    if idx == start_idx:
+                        break
+
+                    if idx == 0:
+                        current_state.round += 1
+
 
         except Exception as e:
             print(f"Error in simulation: {e}")
@@ -1188,13 +1300,7 @@ class MCTS:
     def backpropagate(self, node, reward):
         while node is not None:
             node.visits += 1
-            
-            # Flip reward for opponent's nodes (minimax)
-            if node.state.current_player == self.whoAmI:
-                node.value += reward
-            else:
-                node.value -= reward
-            
+            node.value += reward            
             node = node.parent
 
 
@@ -1205,25 +1311,30 @@ class MCTS:
         root = MCTSNode(initial_state)
                 
         start_time = time.time()
-        iterations = 0
+        self.iteration = 0
         # avg_depth = 0
         
         while time.time() - start_time < self.time_budget:
-            iterations += 1
-            # print(f"Iter: {iterations}")
+            self.iteration += 1
+            # print(f"Iter: {self.iteration}")
             # 1. Selection and expansion
             selected_node = self.select(root)
             # print(f"Moves generated after expansion {selected_node.state.actions}\n")
             reward, depth = self.simulate(selected_node.state, time.time() - start_time)
         
+            selected_node.avg_playout_depth = (selected_node.avg_playout_depth * (selected_node.visits) + depth) / (selected_node.visits + 1) if selected_node.visits + 1 > 0 else 0
             self.backpropagate(selected_node, reward)
             
             
             # print(f"Action: {selected_node.state.actions}")
         
-        print(f"MCTS ran {iterations} iterations in {self.time_budget}s")
+        print(f"MCTS ran {self.iteration} iterations in {self.time_budget}s")
         print(f"Root node visits: {root.visits}")
 
+        # tree_prefix = f"{self.model_name}/trees/tree_g{root.state.game_num}_r{root.state.round}"
+        # os.makedirs(os.path.dirname(tree_prefix), exist_ok=True)
+        # dot_file, png_file = save_mcts_tree_png(root, tree_prefix, max_nodes=500)
+        # print("Saved tree:", dot_file, png_file)
 
         action_seq = []
         node = root
@@ -1237,7 +1348,8 @@ class MCTS:
                 break
             node = best_child
 
-        self.efficiency_metric.log(root.state.game_num, root.state.round, iterations)
+        avg_value = root.value / root.visits
+        self.efficiency_metric.log(root.state.game_num, root.state.round, self.iteration, avg_value)
         return action_seq
 
     
@@ -1282,13 +1394,13 @@ class MCTS:
     def evaluate_state(self, state, depth):
         if state.is_terminal():
             if state.am_i_winner(self.whoAmI):
-                return 0.6 + 0.4 * (10 - depth) / 10
+                return 0.6 + 0.4 * (self.max_depth - depth) / self.max_depth
             else:
-                return -0.6 - 0.4 * (10 - depth) / 10
+                return -0.6 - 0.4 * (self.max_depth - depth) / self.max_depth
         else:
             me = self.whoAmI
             my_terrs = [t for t in state.territories.values() if t.owner == me]
-            enemy_terrs = [t for t in state.territories.values() if t.owner != me]
+            enemy_terrs = [t for t in state.territories.values() if t.owner != me and t.owner != "Neutral"]
             my_count = len(my_terrs)
             enemy_count = len(enemy_terrs)
             my_vc_count = sum(1 for t in my_terrs if t.name in victory_cities)
