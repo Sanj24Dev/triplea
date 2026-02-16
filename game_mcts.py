@@ -10,13 +10,14 @@ from combat_mcts_agent import MCTS
 
 import argparse
 
-START_GAME_NUM = 1
+START_GAME_NUM = int(os.environ["START_GAME_NUM"]) 
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--reduction_file", type=str, required=True)
 parser.add_argument("--efficiency_file", type=str, required=True)
 parser.add_argument("--outcome_file", type=str, required=True)
 parser.add_argument("--quality_file", type=str, required=True)
+parser.add_argument("--rollout_file", type=str, required=True)
 parser.add_argument("--model_name", type=str, required=True)
 args = parser.parse_args()
 
@@ -24,21 +25,21 @@ reduction_file = args.reduction_file
 efficiency_file = args.efficiency_file
 outcome_file = args.outcome_file
 quality_file = args.quality_file
+rollout_file = args.rollout_file
 model_name = args.model_name
 
 
 def agent_loop(host="127.0.0.1", port=5000):
-    turn_order = ["Russians", "Italians", "Germans", "Chinese"]
-    agent = MCTS(model_name, reduction_file, efficiency_file, quality_file, ctf.production_rules, ctf.territory_production, ctf.victory_cities, ctf.G, turn_order)
+    turn_order = ["Italians", "Germans", "Chinese", "Russians"]
+    agent = MCTS(model_name, reduction_file, efficiency_file, quality_file, rollout_file, ctf.production_rules, ctf.territory_production, ctf.victory_cities, ctf.G, turn_order)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind((host, port))
     sock.listen(1)
     print(f"Server listening on {host}:{port}")
 
-    # ctf.draw()
+    ctf.draw()
     r = "0"
     my_player = ""
-    empty_combat_counter = 0
     prevCombat_empty = False
     FORFEIT_FLAG = f"forfeit.flag"
 
@@ -118,7 +119,7 @@ def agent_loop(host="127.0.0.1", port=5000):
                             print("Sending:", response)
                         conn.sendall((json.dumps(response) + "\n").encode("utf-8"))
 
-                        # ctf.draw()
+                        ctf.draw()
 
 
     except KeyboardInterrupt:

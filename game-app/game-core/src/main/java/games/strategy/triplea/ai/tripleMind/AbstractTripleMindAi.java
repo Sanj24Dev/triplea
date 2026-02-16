@@ -293,12 +293,15 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
             }
             ProPurchaseTerritory ppt = purchaseTerritories.get(t);
             Optional<UnitType> unitType = data.getUnitTypeList().getUnitType(a.unit);
-            Unit unit = unitType.get().create(player);
+            
             if (ppt.getCanPlaceTerritories().isEmpty()) {
 //                ppt.getCanPlaceTerritories().add(new ProPlaceTerritory(t, data, player));
                 ppt.getCanPlaceTerritories().add(new ProPlaceTerritory(t));
             }
-            ppt.getCanPlaceTerritories().get(0).getPlaceUnits().add(unit);
+            for (int i = 0; i < Integer.parseInt(a.count); i++) {
+              Unit unit = unitType.get().create(player);
+              ppt.getCanPlaceTerritories().get(0).getPlaceUnits().add(unit);
+            }
         }
 
         final IntegerMap<ProductionRule> purchaseMap =
