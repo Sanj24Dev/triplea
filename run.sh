@@ -33,10 +33,9 @@ OUTCOME_REC="multi_front_attack/metrics/game_outcome.csv"
 QUALITY_REC="multi_front_attack/metrics/combat_quality.csv"
 ROLLOUT_REC="multi_front_attack/metrics/rollout_efficiency.csv"
 
-export GAMES_TO_PLAY=1
+export GAMES_TO_PLAY=5
 
-# Play 25 games as Chinese
-export PLAYER_ID=0
+export PLAYER_ID=2
 export START_GAME_NUM=1
 python3 -u game_mcts.py --model_name "$MODEL_NAME" --reduction_file "$REDUCTION_REC" --efficiency_file "$EFFICIENCY_REC" --outcome_file "$OUTCOME_REC" --quality_file "$QUALITY_REC" --rollout_file "$ROLLOUT_REC"> output.log &
 MCTS_PID=$!
@@ -46,19 +45,33 @@ python3 play_game.py > output_play.log
 echo "Game finished. Killing MCTS process $MCTS_PID"
 kill $MCTS_PID
 
-# export START_GAME_NUM=$((START_GAME_NUM + GAMES_TO_PLAY))
-# python3 -u game_mcts.py --model_name "$MODEL_NAME" --reduction_file "$REDUCTION_REC" --efficiency_file "$EFFICIENCY_REC" --outcome_file "$OUTCOME_REC" --quality_file "$QUALITY_REC" --rollout_file "$ROLLOUT_REC"> output.log &
-# MCTS_PID=$!
-# echo "Started MCTS with PID $MCTS_PID"
-# sleep 5
-# python3 play_game.py > output_play.log 
-# echo "Game finished. Killing MCTS process $MCTS_PID"
-# kill $MCTS_PID
+export START_GAME_NUM=$((START_GAME_NUM + GAMES_TO_PLAY))
+python3 -u game_mcts.py --model_name "$MODEL_NAME" --reduction_file "$REDUCTION_REC" --efficiency_file "$EFFICIENCY_REC" --outcome_file "$OUTCOME_REC" --quality_file "$QUALITY_REC" --rollout_file "$ROLLOUT_REC"> output.log &
+MCTS_PID=$!
+echo "Started MCTS with PID $MCTS_PID"
+sleep 5
+python3 play_game.py > output_play.log 
+echo "Game finished. Killing MCTS process $MCTS_PID"
+kill $MCTS_PID
 
+export PLAYER_ID=3
+export START_GAME_NUM=$((START_GAME_NUM - GAMES_TO_PLAY))
+python3 -u game_mcts.py --model_name "$MODEL_NAME" --reduction_file "$REDUCTION_REC" --efficiency_file "$EFFICIENCY_REC" --outcome_file "$OUTCOME_REC" --quality_file "$QUALITY_REC" --rollout_file "$ROLLOUT_REC"> output.log &
+MCTS_PID=$!
+echo "Started MCTS with PID $MCTS_PID"
+sleep 5
+python3 play_game.py > output_play.log 
+echo "Game finished. Killing MCTS process $MCTS_PID"
+kill $MCTS_PID
 
-
-
-
+export START_GAME_NUM=$((START_GAME_NUM + GAMES_TO_PLAY))
+python3 -u game_mcts.py --model_name "$MODEL_NAME" --reduction_file "$REDUCTION_REC" --efficiency_file "$EFFICIENCY_REC" --outcome_file "$OUTCOME_REC" --quality_file "$QUALITY_REC" --rollout_file "$ROLLOUT_REC"> output.log &
+MCTS_PID=$!
+echo "Started MCTS with PID $MCTS_PID"
+sleep 5
+python3 play_game.py > output_play.log 
+echo "Game finished. Killing MCTS process $MCTS_PID"
+kill $MCTS_PID
 
 
 # Optional: Wait for clean exit
