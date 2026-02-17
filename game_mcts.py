@@ -30,7 +30,7 @@ model_name = args.model_name
 
 
 def agent_loop(host="127.0.0.1", port=5000):
-    turn_order = ["Italians", "Germans", "Chinese", "Russians"]
+    turn_order = ["Russians", "Italians", "Germans", "Chinese"]
     agent = MCTS(model_name, reduction_file, efficiency_file, quality_file, rollout_file, ctf.production_rules, ctf.territory_production, ctf.victory_cities, ctf.G, turn_order)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind((host, port))
