@@ -15,6 +15,10 @@ FACTORY_MAP = {
     "Chinese": "ChineseBase"
 }
 
+# pre compute distance between all pairs of territories for quick lookup during reachability checks in MCTS
+distance_cache = {}
+
+
 class MetricLogger:
     def __init__(self, filename, header=None):
         self.filename = filename
@@ -43,7 +47,7 @@ class Unit:
         self.owner = owner
         self.quantity = quantity
         self.range = game_rules.get(unit_type, {}).get("move", 1)
-        self.moves_left = self.range
+        self.moved = False  # Track if unit has moved this turn
         self.properties = properties if properties is not None else {}
     
     def __repr__(self):
@@ -57,10 +61,11 @@ class Territory:
         self.properties = {} # battle props?
         # self.units_counts = {}
 
-    def add_unit(self, unit_type, owner, qty=1, props=None):
+    def add_unit(self, unit_type, owner, qty=1, props=None, moved=False):
         for u in self.units:
             if u.unit_type == unit_type and u.owner == owner:
                 u.quantity += qty
+                u.moved = moved
                 break
         else:
             self.units.append(Unit(unit_type, owner, qty, props))
@@ -172,6 +177,7 @@ class CaptureTheFlag:
             elif owner == "Chinese":
                 factory = self.territories["ChineseBase"]
             self.players[owner] = Player(owner, int(pu), factory)
+
 
     def _load_metadata(self):
         # Load Production Rules with Unit Stats 

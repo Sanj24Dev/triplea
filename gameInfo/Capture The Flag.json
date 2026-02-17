@@ -399,10 +399,10 @@
     }
   ],
   "initial_resources": {
-    "Russians": 21,
-    "Italians": 12,
-    "Germans": 15,
-    "Chinese": 18
+    "Russians": 12,
+    "Italians": 15,
+    "Germans": 18,
+    "Chinese": 21
   },
   "victory_cities": [
     "RussianBase",
