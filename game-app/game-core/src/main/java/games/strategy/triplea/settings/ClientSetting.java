@@ -246,7 +246,7 @@ public abstract class ClientSetting<T> implements GameSetting<T> {
       try {
           StringBuilder json = new StringBuilder();
           
-          try (BufferedReader reader = new BufferedReader(new FileReader(root_folder + "/config.json"))) {
+          try (BufferedReader reader = new BufferedReader(new FileReader(root_folder + "/triplea/config.json"))) {
               String line;
               while ((line = reader.readLine()) != null) {
                   json.append(line.trim());

@@ -117,6 +117,7 @@ class CaptureTheFlag:
         # self._reachability_cache = {}
         self.round = 0
         self.game_num = 0
+        self.whoAmI = None
 
         self.game_outcome_metric = MetricLogger(
             outcome_file,

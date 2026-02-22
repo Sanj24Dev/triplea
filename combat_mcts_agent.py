@@ -7,7 +7,7 @@ from collections import deque, defaultdict
 import itertools
 import time
 import re
-from ctf_graph import Territory, Player, MetricLogger, FACTORY_MAP
+from ctf_graph import Territory, Player, MetricLogger, FACTORY_MAP, Unit
 from itertools import product
 import copy
 import os
@@ -96,7 +96,7 @@ def save_mcts_tree_png(root, out_prefix, max_nodes=500):
         for n in nodes:
             nid = node_id[id(n)]
             avg = (n.value / n.visits) if n.visits else 0.0
-            label = f"#{nid}\\nvis={n.visits}\\navg={avg:.3f}\\npld={getattr(n, 'avg_playout_depth', 0):.1f}"
+            label = f"#{nid}\\nvis={n.visits}\\navg={avg:.3f}"
             f.write(f'  n{nid} [label="{label}"];\n')
 
         for a, b, act in edges:
@@ -534,31 +534,36 @@ class MCTSGameState:
         player = self.current_player
         resources = self.players[player].PU
 
-        factories = []
+        has_factory = False
         for terr_name, territory in self.territories.items():
             if territory.owner == player:
                 for unit in territory.units:
                     if unit.unit_type == "factory" and unit.owner == player:
-                        factories.append(terr_name)
+                        has_factory = True
+                        break
 
-        if not factories:
-            return []  # can't build if no factory
-
+        if has_factory == False:
+            return []
         # Extract unit costs
         units = [(name, data["cost"]) for name, data in game_rules.items() if name not in {"fighter", "bomber", "aaGun"}]
 
-        legal_moves = [{}]
+        legal_moves = []
         min_cost = min(cost for _, cost in units)
         max_units = resources // min_cost
+
+        # for the max_cost we can consider, we generate combinations of units with repetition
+        # generate Moves with Attacks where to_terr is factory, from_terr is None, and attack has unit and quantity, and strength=cost
 
         for r in range(1, max_units + 1):
             for combo in itertools.combinations_with_replacement(units, r):
                 total_cost = sum(cost for _, cost in combo)
                 if total_cost <= resources:
-                    purchase_dict = {}
+                    attacks = []
                     for unit, cost in combo:
-                        purchase_dict[unit] = purchase_dict.get(unit, 0) + 1
-                    legal_moves.append(Move(delegate="purchase",moves=purchase_dict))
+                        unit_to_add = Unit(unit, player, 1)  # quantity=1 since we create separate attack for each unit even if same type
+                        attacks.append(Attack(unit=unit_to_add, from_territory=None, quantity=1))
+                    
+                    legal_moves.append(Move(delegate="purchase", moves=attacks, strength=total_cost))
 
         return legal_moves
 
@@ -984,15 +989,10 @@ class MCTSGameState:
         if not move or not move.moves:
             return 
         
-        purchase_dict = move.moves
-        total = 0
-        for unit_type, qty in purchase_dict.items():
-            stats = game_rules.get(unit_type, {})
-            cost = stats.get("cost", 1)
-            total += qty * cost
-        
-        self.players[player].PU -= total
-        for unit_type, quantity in purchase_dict.items():
+        self.players[player].PU -= move.strength  
+        for attack in move.moves:
+            unit_type = attack.unit.unit_type
+            quantity = attack.quantity
             self.players[player].unplaced[unit_type] = self.players[player].unplaced.get(unit_type, 0) + quantity
 
     def apply_combat_move(self, moves):
@@ -1134,6 +1134,10 @@ class MCTSNode:
         ]
         if choices_weights is not None:
             bestNode = self.children[choices_weights.index(max(choices_weights))]
+
+        # bestNode = max(self.children,
+        #    key=lambda c: (c.value / max(1, c.visits), c.visits))
+
         return bestNode
 
 
@@ -1339,6 +1343,14 @@ class MCTS:
                     current_state.current_player = turn_order[idx]
                     # print(f"Rollout - player: {current_state.current_player}")
                     if not first_sim:       # since the first sim would have already have atleast 1 terr in the excluded set, and the action would be execute in the expand phase
+                        # do purchase
+                        purchase_moves = current_state.purchase_legal_moves()
+                        if purchase_moves:
+                            max_cost = max(move.strength for move in purchase_moves)
+                            best_moves = [move for move in purchase_moves if move.strength == max_cost]
+                            # print(best_moves)
+                            move = random.choice(best_moves)
+                            current_state.apply_purchase_move(move)
                         current_state.excluded = set()
                         current_state.set_terr_lists()
 
@@ -1360,8 +1372,10 @@ class MCTS:
                                 move_seq.append(mv)
 
                             current_state.apply_combat_move([mv])
-                    
-                    self.rollout_efficiency.log(state.game_num, state.round, self.iteration, depth, current_state.current_player, len(move_seq))
+                    if first_sim:
+                        self.rollout_efficiency.log(state.game_num, state.round, self.iteration, depth, current_state.current_player, len(move_seq)+1)
+                    else:
+                        self.rollout_efficiency.log(state.game_num, state.round, self.iteration, depth, current_state.current_player, len(move_seq))
                     # print(f" Combat move: {move_seq}\n")
                     noncombat_moves = current_state.heuristic_non_combat_legal_moves(self.time_budget)
                     # print(f" Non-combat moves: {noncombat_moves}\n\n")
@@ -1370,9 +1384,9 @@ class MCTS:
 
                     player = current_state.players[current_state.current_player]
                     # place the purchased items for whoami at the end of the current round before simulating the next round, since that is when they would actually be placed in the real game
-                    if first_sim and current_state.current_player == self.whoAmI:
+                    if first_sim:
                         first_sim = False
-                        player.place_units()
+                    player.place_units()
                     current_state.update_income(player)
 
                     # if first_sim:
@@ -1505,19 +1519,51 @@ class MCTS:
                 return 0.6 + 0.4 * (self.max_depth - depth) / self.max_depth
             else:
                 return -0.6 - 0.4 * (self.max_depth - depth) / self.max_depth
-        else:
-            me = self.whoAmI
-            my_terrs = [t for t in state.territories.values() if t.owner == me]
-            enemy_terrs = [t for t in state.territories.values() if t.owner != me and t.owner != "Neutral"]
-            my_count = len(my_terrs)
-            enemy_count = len(enemy_terrs)
-            my_vc_count = sum(1 for t in my_terrs if t.name in victory_cities)
-            enemy_vc_count = sum(1 for t in enemy_terrs if t.name in victory_cities)
-            
-            score = 0.0
-            score += 0.45 * (my_count - enemy_count) / max(1, (my_count + enemy_count))
-            score += 0.35 * (my_vc_count - enemy_vc_count) / max(1, (my_vc_count + enemy_vc_count + 1))
 
-            return max(-0.5, min(0.5, score))
+        me = self.whoAmI
+
+        my_terrs = [t for t in state.territories.values() if t.owner == me]
+        enemy_terrs = [t for t in state.territories.values()
+                    if t.owner != me and t.owner != "Neutral"]
+
+        my_count = len(my_terrs)
+        enemy_count = len(enemy_terrs)
+
+        my_vc_count = sum(1 for t in my_terrs if t.name in victory_cities)
+        enemy_vc_count = sum(1 for t in enemy_terrs if t.name in victory_cities)
+
+        # --- TUV evaluation ---
+        def tuv(territories, owner):
+            total = 0.0
+            for terr in territories.values():
+                for u in terr.units:
+                    if u.owner != owner:
+                        continue
+                    if u.unit_type == "factory":
+                        continue
+                    stats = game_rules.get(u.unit_type, {})
+                    cost = stats.get("cost", 1)
+                    total += u.quantity * cost
+            return total
+
+        my_tuv = tuv(state.territories, me)
+        enemy_tuv = 0.0
+        for p in state.players.keys():
+            if p != me and p != "Neutral":
+                enemy_tuv += tuv(state.territories, p)
+
+        tuv_term = (my_tuv - enemy_tuv) / max(1e-9, (my_tuv + enemy_tuv))
+
+        terr_term = (my_count - enemy_count) / max(1, (my_count + enemy_count))
+        vc_term = (my_vc_count - enemy_vc_count) / max(1, (my_vc_count + enemy_vc_count + 1))
+        
+        score = 0.0
+        score += 0.50 * terr_term
+        score += 0.20 * vc_term
+        score += 0.30 * tuv_term
+
+        return max(-0.5, min(0.5, score))
+
+
 
     

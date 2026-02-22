@@ -39,7 +39,7 @@ GAME_SUMMARY="multi-front-attack with sequence of non combat move in a turn"
 # rm "$REPORT_PDF"
 # python3 summary_script.py --file_name="$REPORT_PDF" --report_folder="$REPORT_FOLDER" --game_summary="$GAME_SUMMARY"
 # rm multi_front_attack_rusVSchi.zip
-# zip -r multi_front_attack_rusVSchi.zip $REPORT_FOLDER combat_mcts_agent.py 
+zip -r multi_front_attack_chi100.zip $REPORT_FOLDER combat_mcts_agent.py 
 
 
 # <b>Legal Combat Move Generation</b><br/>
