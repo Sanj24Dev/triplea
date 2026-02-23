@@ -1,0 +1,204 @@
+MCTS Efficiency Summary
+============================================================
+
+Overall (all players combined)
+------------------------------------------------------------
+Game 1 | total rows=130 | rounds=39
+  Iterations: mean=37.41, min=6, max=98
+Game 2 | total rows=94 | rounds=28
+  Iterations: mean=40.60, min=7, max=116
+Game 3 | total rows=91 | rounds=30
+  Iterations: mean=39.48, min=5, max=149
+Game 4 | total rows=74 | rounds=31
+  Iterations: mean=22.11, min=1, max=213
+Game 5 | total rows=97 | rounds=31
+  Iterations: mean=36.69, min=6, max=109
+Game 6 | total rows=98 | rounds=32
+  Iterations: mean=36.54, min=7, max=100
+Game 7 | total rows=164 | rounds=51
+  Iterations: mean=37.90, min=7, max=213
+Game 8 | total rows=99 | rounds=30
+  Iterations: mean=38.35, min=7, max=137
+Game 9 | total rows=179 | rounds=52
+  Iterations: mean=39.23, min=6, max=144
+Game 10 | total rows=105 | rounds=30
+  Iterations: mean=41.77, min=7, max=102
+Game 11 | total rows=175 | rounds=48
+  Iterations: mean=40.25, min=7, max=109
+Game 12 | total rows=159 | rounds=46
+  Iterations: mean=38.77, min=7, max=100
+Game 13 | total rows=106 | rounds=32
+  Iterations: mean=43.08, min=6, max=417
+Game 14 | total rows=142 | rounds=42
+  Iterations: mean=38.87, min=6, max=103
+Game 15 | total rows=100 | rounds=29
+  Iterations: mean=39.95, min=10, max=148
+Game 16 | total rows=176 | rounds=48
+  Iterations: mean=39.85, min=6, max=96
+Game 17 | total rows=114 | rounds=35
+  Iterations: mean=43.36, min=8, max=423
+Game 18 | total rows=55 | rounds=21
+  Iterations: mean=25.60, min=3, max=95
+Game 19 | total rows=76 | rounds=24
+  Iterations: mean=40.46, min=7, max=157
+Game 20 | total rows=73 | rounds=21
+  Iterations: mean=40.10, min=6, max=234
+
+Per player, per game
+------------------------------------------------------------
+Game 1 | Chinese | rounds=38 | decisions=38
+  Iterations: mean=32.47, min=6, max=80
+Game 1 | Germans | rounds=24 | decisions=24
+  Iterations: mean=45.00, min=26, max=83
+Game 1 | Italians | rounds=39 | decisions=39
+  Iterations: mean=34.95, min=7, max=97
+Game 1 | Russians | rounds=29 | decisions=29
+  Iterations: mean=40.90, min=13, max=98
+Game 2 | Chinese | rounds=28 | decisions=28
+  Iterations: mean=39.07, min=11, max=116
+Game 2 | Germans | rounds=18 | decisions=18
+  Iterations: mean=45.89, min=21, max=86
+Game 2 | Italians | rounds=27 | decisions=27
+  Iterations: mean=36.41, min=7, max=91
+Game 2 | Russians | rounds=21 | decisions=21
+  Iterations: mean=43.48, min=14, max=98
+Game 3 | Chinese | rounds=30 | decisions=30
+  Iterations: mean=36.77, min=10, max=149
+Game 3 | Germans | rounds=14 | decisions=14
+  Iterations: mean=50.71, min=24, max=91
+Game 3 | Italians | rounds=29 | decisions=29
+  Iterations: mean=32.69, min=5, max=98
+Game 3 | Russians | rounds=18 | decisions=18
+  Iterations: mean=46.22, min=13, max=102
+Game 4 | Chinese | rounds=30 | decisions=30
+  Iterations: mean=16.90, min=2, max=78
+Game 4 | Germans | rounds=13 | decisions=13
+  Iterations: mean=27.62, min=3, max=92
+Game 4 | Italians | rounds=31 | decisions=31
+  Iterations: mean=24.84, min=1, max=213
+Game 5 | Chinese | rounds=14 | decisions=14
+  Iterations: mean=47.71, min=26, max=85
+Game 5 | Germans | rounds=31 | decisions=31
+  Iterations: mean=34.16, min=8, max=109
+Game 5 | Italians | rounds=21 | decisions=21
+  Iterations: mean=40.19, min=11, max=96
+Game 5 | Russians | rounds=31 | decisions=31
+  Iterations: mean=31.87, min=6, max=103
+Game 6 | Chinese | rounds=15 | decisions=15
+  Iterations: mean=47.27, min=23, max=89
+Game 6 | Germans | rounds=31 | decisions=31
+  Iterations: mean=30.74, min=7, max=90
+Game 6 | Italians | rounds=20 | decisions=20
+  Iterations: mean=41.25, min=15, max=94
+Game 6 | Russians | rounds=32 | decisions=32
+  Iterations: mean=34.19, min=10, max=100
+Game 7 | Chinese | rounds=50 | decisions=50
+  Iterations: mean=32.00, min=7, max=74
+Game 7 | Germans | rounds=34 | decisions=34
+  Iterations: mean=41.12, min=20, max=87
+Game 7 | Italians | rounds=51 | decisions=51
+  Iterations: mean=37.31, min=9, max=213
+Game 7 | Russians | rounds=29 | decisions=29
+  Iterations: mean=45.34, min=29, max=97
+Game 8 | Chinese | rounds=17 | decisions=17
+  Iterations: mean=45.35, min=24, max=80
+Game 8 | Germans | rounds=29 | decisions=29
+  Iterations: mean=33.28, min=7, max=83
+Game 8 | Italians | rounds=23 | decisions=23
+  Iterations: mean=39.00, min=8, max=90
+Game 8 | Russians | rounds=30 | decisions=30
+  Iterations: mean=38.80, min=7, max=137
+Game 9 | Chinese | rounds=52 | decisions=52
+  Iterations: mean=37.21, min=8, max=144
+Game 9 | Germans | rounds=37 | decisions=37
+  Iterations: mean=42.70, min=18, max=89
+Game 9 | Italians | rounds=52 | decisions=52
+  Iterations: mean=35.25, min=6, max=96
+Game 9 | Russians | rounds=38 | decisions=38
+  Iterations: mean=44.05, min=17, max=102
+Game 10 | Chinese | rounds=25 | decisions=25
+  Iterations: mean=41.60, min=8, max=76
+Game 10 | Germans | rounds=20 | decisions=20
+  Iterations: mean=48.10, min=21, max=85
+Game 10 | Italians | rounds=30 | decisions=30
+  Iterations: mean=40.87, min=8, max=96
+Game 10 | Russians | rounds=30 | decisions=30
+  Iterations: mean=38.60, min=7, max=102
+Game 11 | Chinese | rounds=40 | decisions=40
+  Iterations: mean=40.55, min=10, max=76
+Game 11 | Germans | rounds=48 | decisions=48
+  Iterations: mean=39.81, min=8, max=109
+Game 11 | Italians | rounds=39 | decisions=39
+  Iterations: mean=43.36, min=19, max=94
+Game 11 | Russians | rounds=48 | decisions=48
+  Iterations: mean=37.90, min=7, max=99
+Game 12 | Chinese | rounds=45 | decisions=45
+  Iterations: mean=33.96, min=7, max=82
+Game 12 | Germans | rounds=35 | decisions=35
+  Iterations: mean=40.46, min=14, max=84
+Game 12 | Italians | rounds=46 | decisions=46
+  Iterations: mean=37.46, min=9, max=95
+Game 12 | Russians | rounds=33 | decisions=33
+  Iterations: mean=45.39, min=27, max=100
+Game 13 | Chinese | rounds=17 | decisions=17
+  Iterations: mean=44.29, min=34, max=79
+Game 13 | Germans | rounds=32 | decisions=32
+  Iterations: mean=48.12, min=14, max=417
+Game 13 | Italians | rounds=32 | decisions=32
+  Iterations: mean=37.28, min=6, max=90
+Game 13 | Russians | rounds=25 | decisions=25
+  Iterations: mean=43.24, min=16, max=96
+Game 14 | Chinese | rounds=29 | decisions=29
+  Iterations: mean=42.38, min=17, max=81
+Game 14 | Germans | rounds=41 | decisions=41
+  Iterations: mean=34.68, min=6, max=86
+Game 14 | Italians | rounds=30 | decisions=30
+  Iterations: mean=43.27, min=17, max=95
+Game 14 | Russians | rounds=42 | decisions=42
+  Iterations: mean=37.40, min=7, max=103
+Game 15 | Chinese | rounds=22 | decisions=22
+  Iterations: mean=39.50, min=10, max=82
+Game 15 | Germans | rounds=29 | decisions=29
+  Iterations: mean=37.10, min=12, max=87
+Game 15 | Italians | rounds=20 | decisions=20
+  Iterations: mean=44.60, min=16, max=89
+Game 15 | Russians | rounds=29 | decisions=29
+  Iterations: mean=39.93, min=10, max=148
+Game 16 | Chinese | rounds=44 | decisions=44
+  Iterations: mean=38.66, min=7, max=87
+Game 16 | Germans | rounds=47 | decisions=47
+  Iterations: mean=38.30, min=6, max=89
+Game 16 | Italians | rounds=37 | decisions=37
+  Iterations: mean=43.78, min=29, max=91
+Game 16 | Russians | rounds=48 | decisions=48
+  Iterations: mean=39.42, min=9, max=96
+Game 17 | Chinese | rounds=19 | decisions=19
+  Iterations: mean=46.11, min=28, max=77
+Game 17 | Germans | rounds=35 | decisions=35
+  Iterations: mean=46.11, min=12, max=423
+Game 17 | Italians | rounds=25 | decisions=25
+  Iterations: mean=42.80, min=14, max=95
+Game 17 | Russians | rounds=35 | decisions=35
+  Iterations: mean=39.51, min=8, max=158
+Game 18 | Chinese | rounds=21 | decisions=21
+  Iterations: mean=24.95, min=8, max=85
+Game 18 | Germans | rounds=13 | decisions=13
+  Iterations: mean=29.62, min=3, max=90
+Game 18 | Italians | rounds=21 | decisions=21
+  Iterations: mean=23.76, min=3, max=95
+Game 19 | Chinese | rounds=15 | decisions=15
+  Iterations: mean=42.73, min=16, max=78
+Game 19 | Germans | rounds=24 | decisions=24
+  Iterations: mean=39.83, min=8, max=157
+Game 19 | Italians | rounds=13 | decisions=13
+  Iterations: mean=50.69, min=23, max=91
+Game 19 | Russians | rounds=24 | decisions=24
+  Iterations: mean=34.12, min=7, max=97
+Game 20 | Chinese | rounds=16 | decisions=16
+  Iterations: mean=36.88, min=8, max=77
+Game 20 | Germans | rounds=21 | decisions=21
+  Iterations: mean=45.24, min=8, max=234
+Game 20 | Italians | rounds=15 | decisions=15
+  Iterations: mean=42.87, min=16, max=91
+Game 20 | Russians | rounds=21 | decisions=21
+  Iterations: mean=35.43, min=6, max=97

@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import argparse
+import numpy as np
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--folder", type=str, required=True)
@@ -9,212 +10,89 @@ args = parser.parse_args()
 main_folder = args.folder
 FOLDER = f"{main_folder}/metrics"
 
-# Load data
-df = pd.read_csv(f"{FOLDER}/mcts_efficiency.csv")
+# -----------------------------
+# Load data (one CSV per player/port)
+# -----------------------------
+ports = [5000, 5001, 5002, 5003]
+players = ["Russians", "Italians", "Germans", "Chinese"]
+
+dfs = []
+for port, player in zip(ports, players):
+    df_iter = pd.read_csv(f"{FOLDER}/mcts_efficiency_port{port}.csv")
+    df_iter["player"] = player
+    dfs.append(df_iter)
+
+df = pd.concat(dfs, ignore_index=True)
+
+# Ensure correct dtypes + sorting
+df["game"] = df["game"].astype(int)
+df["round"] = df["round"].astype(int)
+df["num_iterations"] = pd.to_numeric(df["num_iterations"], errors="coerce")
+df = df.dropna(subset=["num_iterations"])
+df = df.sort_values(["player", "game", "round"])
 
 # -----------------------------
-# Select game with max iterations
+# Aggregate by (player, round) across games
 # -----------------------------
-# game_iterations = df.groupby("game")["num_iterations"].max()
-# selected_game = game_iterations.idxmax()
-
-# df_game = df[df["game"] == selected_game].copy()
-
-# -----------------------------
-# Plot ONLY selected game
-# -----------------------------
-# fig, axs = plt.subplots(2, 2, figsize=(10, 8))
-
-# axs[0, 0].plot(df_game["round"], df_game["num_iterations"], marker='o')
-# axs[0, 0].set_title(f"Iterations per Round (Game {selected_game})")
-
-# axs[0, 1].plot(df_game["round"], df_game["root_node_visits"], label="Root")
-# axs[0, 1].plot(df_game["round"], df_game["best_node_visits"], label="Best")
-# axs[0, 1].set_title("Visits")
-# axs[0, 1].legend()
-
-# axs[1, 0].plot(df_game["round"], df_game["best_node_value"], marker='o')
-# axs[1, 0].set_title("Best Node Value")
-
-# df_game["exploration"] = df_game["explored"] / df_game["total_actions"]
-# axs[1, 1].plot(df_game["round"], df_game["exploration"], marker='o')
-# axs[1, 1].set_title("Exploration coverage")
-
-# plt.tight_layout()
-# plt.savefig(f"{FOLDER}/efficiency_plot.png")
-# plt.close()
-
-
-import numpy as np
-
-# =============================
-# Aggregate analysis across games
-# =============================
-
-# Ensure efficiency exists
-# df["efficiency"] = df["best_node_visits"] / df["num_iterations"]
-
-# Aggregate by round position across games
-agg = df.groupby("round")
-
-mean_iters = agg["num_iterations"].mean()
-p25_iters = agg["num_iterations"].quantile(0.25)
-p75_iters = agg["num_iterations"].quantile(0.75)
-
-# mean_best_visits = agg["best_node_visits"].mean()
-# std_best_visits = agg["best_node_visits"].std()
-# median_best_visits = agg["best_node_visits"].median()
+agg = (
+    df.groupby(["player", "round"])["num_iterations"]
+      .agg(
+          mean="mean",
+          p25=lambda s: s.quantile(0.25),
+          p75=lambda s: s.quantile(0.75),
+          n="count"
+      )
+      .reset_index()
+)
 
 # -----------------------------
-# Aggregate summary figure
+# Plot: Iterations per Round (mean + IQR), one line per player
 # -----------------------------
 fig, ax = plt.subplots(figsize=(10, 6))
 
-# --- 1. Iterations per round (mean + IQR) ---
-ax.plot(mean_iters.index, mean_iters.values, label="Mean", marker='o')
-ax.fill_between(
-    mean_iters.index,
-    p25_iters.values,
-    p75_iters.values,
-    alpha=0.3,
-    label="25–75 percentile"
-)
-ax.set_title("Iterations per Round (Across Games)")
+for player in players:
+    sub = agg[agg["player"] == player].sort_values("round")
+    ax.plot(sub["round"], sub["mean"], marker="o", label=f"{player} mean")
+    ax.fill_between(sub["round"], sub["p25"], sub["p75"], alpha=0.2, label=f"{player} IQR")
+
+ax.set_title("MCTS Iterations per Round (Across Games)")
+ax.set_xlabel("Round")
 ax.set_ylabel("Iterations")
-ax.legend()
-
-# --- 2. Best node visits (mean ± std, median) ---
-# axs[1].plot(
-#     mean_best_visits.index,
-#     mean_best_visits.values,
-#     label="Mean",
-#     marker='o'
-# )
-# axs[1].fill_between(
-#     mean_best_visits.index,
-#     mean_best_visits - std_best_visits,
-#     mean_best_visits + std_best_visits,
-#     alpha=0.3,
-#     label="±1 Std Dev"
-# )
-# axs[1].plot(
-#     median_best_visits.index,
-#     median_best_visits.values,
-#     linestyle="--",
-#     label="Median"
-# )
-# axs[1].set_title("Best Node Visits per Round (Across Games)")
-# axs[1].set_ylabel("Visits")
-# axs[1].legend()
-
-# --- 3. Decision value distributions (early / mid / late) ---
-# rounds = sorted(df["round"].unique())
-# early = rounds[len(rounds) // 10]
-# mid = rounds[len(rounds) // 2]
-# late = rounds[-len(rounds) // 10 - 1]
-
-# value_data = [
-#     df[df["round"] == early]["best_node_value"],
-#     df[df["round"] == mid]["best_node_value"],
-#     df[df["round"] == late]["best_node_value"],
-# ]
-
-# axs[2].boxplot(value_data, labels=[
-#     f"Early (r={early})",
-#     f"Mid (r={mid})",
-#     f"Late (r={late})"
-# ])
-# axs[2].set_title("Best Node Value Distribution (Across Games)")
-# axs[2].set_ylabel("Decision Value")
-
-# axs[2].set_xlabel("Game Phase")
-
+ax.legend(ncols=2, fontsize=9)
 plt.tight_layout()
 plt.savefig(f"{FOLDER}/aggregate_game_summary.png")
 plt.close()
 
-# print(f"Aggregate summary plot saved to {FOLDER}/aggregate_game_summary.png")
+print(f"Plot saved to {FOLDER}/aggregate_game_summary.png")
 
 # -----------------------------
-# Game-wise summary generation
+# Game-wise summary generation (overall + per player)
 # -----------------------------
 summary_lines = []
-summary_lines.append("MCTS Efficiency Summary (Game-wise)\n")
-summary_lines.append("=" * 40 + "\n\n")
+summary_lines.append("MCTS Efficiency Summary\n")
+summary_lines.append("=" * 60 + "\n\n")
 
-per_game_stats = []
+# Overall per game
+summary_lines.append("Overall (all players combined)\n")
+summary_lines.append("-" * 60 + "\n")
 for game_id, gdf in df.groupby("game"):
-    gdf = gdf.copy()
-#     gdf["exploration_coverage"] = gdf["explored"] / gdf["total_actions"]
-
-    summary_lines.append(f"Game {game_id}\n")
-    summary_lines.append("-" * 20 + "\n")
-
-    summary_lines.append(f"Total rounds: {gdf['round'].nunique()}\n")
-
+    summary_lines.append(f"Game {game_id} | total rows={len(gdf)} | rounds={gdf['round'].nunique()}\n")
     summary_lines.append(
-        f"Iterations per round:\n"
-        f"  Mean: {gdf['num_iterations'].mean():.2f}\n"
-        f"  Min : {gdf['num_iterations'].min()}\n"
-        f"  Max : {gdf['num_iterations'].max()}\n"
+        f"  Iterations: mean={gdf['num_iterations'].mean():.2f}, "
+        f"min={int(gdf['num_iterations'].min())}, max={int(gdf['num_iterations'].max())}\n"
+    )
+summary_lines.append("\n")
+
+# Per player per game
+summary_lines.append("Per player, per game\n")
+summary_lines.append("-" * 60 + "\n")
+for (game_id, player), gdf in df.groupby(["game", "player"]):
+    summary_lines.append(f"Game {game_id} | {player} | rounds={gdf['round'].nunique()} | decisions={len(gdf)}\n")
+    summary_lines.append(
+        f"  Iterations: mean={gdf['num_iterations'].mean():.2f}, "
+        f"min={int(gdf['num_iterations'].min())}, max={int(gdf['num_iterations'].max())}\n"
     )
 
-#     summary_lines.append(
-#         f"Exploration_coverage (actions_explored / total_actions):\n"
-#         f"  Mean: {gdf['exploration_coverage'].mean():.4f}\n"
-#         f"  Min : {gdf['exploration_coverage'].min():.4f}\n"
-#         f"  Max : {gdf['exploration_coverage'].max():.4f}\n"
-#     )
-
-#     summary_lines.append(
-#         f"Avg Tree depth per round:\n"
-#         f"  Mean: {gdf['avg_depth'].mean():.4f}\n"
-#         f"  Min : {gdf['avg_depth'].min():.4f}\n"
-#         f"  Max : {gdf['avg_depth'].max():.4f}\n"
-#     )
-
-#     per_game_stats.append({
-#         "game": game_id,
-#         "avg_iterations": gdf["num_iterations"].mean(),
-#         "avg_exploration_coverage": gdf["exploration_coverage"].mean(),
-#         "avg_depth": gdf["avg_depth"].mean()
-#     })
-
-# overall_df = pd.DataFrame(per_game_stats)
-
-# overall_avg_iter = overall_df["avg_iterations"].mean()
-# overall_avg_exp = overall_df["avg_exploration_coverage"].mean()
-# overall_avg_depth = overall_df["avg_depth"].mean()
-
-# summary_lines.append("\nOVERALL AVERAGES (Across Games)\n")
-# summary_lines.append("=" * 30 + "\n")
-
-# summary_lines.append(
-#     f"Iterations per round (game-averaged):\n"
-#     f"  Mean: {overall_avg_iter:.2f}\n"
-#     f"  Min: {df["num_iterations"].min()}\n"
-#     f"  Max: {df["num_iterations"].max()}\n"
-# )
-
-# df["exploration_coverage"] = (df["explored"] / df["total_actions"])
-# summary_lines.append(
-#     f"Exploration coverage (game-averaged):\n"
-#     f"  Mean: {overall_avg_exp:.2f}\n"
-#     f"  Min: {df["exploration_coverage"].min():.2f}\n"
-#     f"  Max: {df["exploration_coverage"].max()}\n"
-# )
-
-# summary_lines.append(
-#     f"Avg tree depth per round (game-averaged):\n"
-#     f"  Mean: {overall_avg_depth:.2f}\n"
-#     f"  Min: {df["avg_depth"].min()}\n"
-#     f"  Max: {df["avg_depth"].max()}\n"
-# )
-
-
-# -----------------------------
-# Write summary
-# -----------------------------
 summary_path = f"{FOLDER}/efficiency_summary.txt"
 with open(summary_path, "w") as f:
     f.writelines(summary_lines)
