@@ -34,8 +34,14 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.*;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import static games.strategy.triplea.ai.tripleMind.ProPurchaseAi.doPlace;
-import static games.strategy.triplea.ai.tripleMind.helper.requestMove;
+import static games.strategy.triplea.ai.tripleMind.helper.logResponse;
+import static games.strategy.triplea.ai.tripleMind.helper.getLogFileName;
 import static games.strategy.triplea.ai.tripleMind.util.ProMoveUtils.doMove;
 import static games.strategy.triplea.ai.tripleMind.util.ProPurchaseUtils.getUnitProduction;
 
@@ -60,13 +66,17 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
   private List<PoliticalActionAttachment> storedPoliticalActions;
   private List<Territory> storedStrafingTerritories;
 
+  private static String my_name;
+
   public AbstractTripleMindAi(
       final String name,
       final IBattleCalculator battleCalculator,
       final ProData proData,
       final String playerLabel) {
     super(name, playerLabel);
+    my_name = name;
     this.proData = proData;
+    
     calc = new ProOddsCalculator(battleCalculator);
     combatMoveAi = new ProCombatMoveAi(this);
     nonCombatMoveAi = new ProNonCombatMoveAi(this);
@@ -80,6 +90,96 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
     storedPoliticalActions = null;
     storedStrafingTerritories = new ArrayList<>();
   }
+
+  public static void logAI (String type, String msg) {
+    // System.out.println("Logging");
+    // send to all active ports
+    // make an empty list, check for PLAYER_1_PORT, PLAYER_2_PORT, PLAYER_3_PORT, PLAYER_4_PORT env vars and add to list if they env var exists
+    List<Integer> ports = new ArrayList<>();
+    // checking for env vars for ports and adding to list
+    if (System.getenv().get("PLAYER_1_PORT") != null) {
+        ports.add(Integer.parseInt(System.getenv().get("PLAYER_1_PORT")));
+    }
+    if (System.getenv().get("PLAYER_2_PORT") != null) {
+        ports.add(Integer.parseInt(System.getenv().get("PLAYER_2_PORT")));
+    }
+    if (System.getenv().get("PLAYER_3_PORT") != null) {
+        ports.add(Integer.parseInt(System.getenv().get("PLAYER_3_PORT")));
+    }
+    if (System.getenv().get("PLAYER_4_PORT") != null) {
+        ports.add(Integer.parseInt(System.getenv().get("PLAYER_4_PORT")));
+    }
+    if (ports.isEmpty()) {
+        System.out.println("No ports found for logging");
+        return;
+    }
+    for (int port : ports) {
+      String filename = getLogFileName(port);
+      File logFile = new File(filename);
+      try {
+          File parentDir = logFile.getParentFile();
+          if (parentDir != null && !parentDir.exists()) {
+              parentDir.mkdirs();
+          }
+          if (!logFile.exists()) {
+              logFile.createNewFile();
+          }
+          try {
+              PrintWriter writer = new PrintWriter(new FileWriter(logFile, true));
+              writer.println("[" + type + "] " + java.time.LocalDateTime.now() + " - " + msg);
+              writer.close();
+          } catch (IOException e) {
+              System.err.println(("Failed to write log: " + e.getMessage()));
+          }
+      } catch (Exception e) {
+          System.err.println(("Failed to write log: " + e.getMessage()));
+      }
+
+  //        TripleASocket.sendState("[" + type + "] " + msg);
+      System.out.println("logging on port " + port);
+      String response = TripleASocket.sendAndRead("[" + type + "] " + msg, port);
+    }
+  }
+
+  public static String requestMove(String move, String playerName) {
+      int port = 5000; // default port
+      if (playerName.equals("Russians"))
+          port = Integer.parseInt(System.getenv().getOrDefault("PLAYER_1_PORT", "5000"));
+      else if (playerName.equals("Italians"))
+          port = Integer.parseInt(System.getenv().getOrDefault("PLAYER_2_PORT", "5001"));
+      else if (playerName.equals("Germans"))
+          port = Integer.parseInt(System.getenv().getOrDefault("PLAYER_3_PORT", "5002"));
+      else if (playerName.equals("Chinese"))
+          port = Integer.parseInt(System.getenv().getOrDefault("PLAYER_4_PORT", "5003"));
+      String filename = getLogFileName(port);
+      File logFile = new File(filename);
+      try {
+          File parentDir = logFile.getParentFile();
+          if (parentDir != null && !parentDir.exists()) {
+              parentDir.mkdirs();
+          }
+          if (!logFile.exists()) {
+              logFile.createNewFile();
+          }
+          try {
+              PrintWriter writer = new PrintWriter(new FileWriter(logFile, true));
+              writer.println("[MY_MOVE] " + java.time.LocalDateTime.now() + " - " + move);
+              writer.close();
+          } catch (IOException e) {
+              System.err.println(("Failed to write log: " + e.getMessage()));
+          }
+      } catch (Exception e) {
+          System.err.println(("Failed to write log: " + e.getMessage()));
+      }
+//        TripleASocket.sendState("[MY_MOVE] " + move);
+//        return "";
+      System.out.println("Request sent: [MY_MOVE] " + move + " on port " + port);
+      String response = TripleASocket.sendAndRead("[MY_MOVE] " + move, port);
+      System.out.println("Received move: " + response);
+      logResponse(response, port);
+      return response;
+  }
+
 
   @Override
   public void stopGame() {
@@ -110,9 +210,9 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
 
     String actions = "";
     if (nonCombat)
-        actions = requestMove("noncombat");
+        actions = requestMove("noncombat", player.getName());
     else
-        actions = requestMove("combat");
+        actions = requestMove("combat", player.getName());
 
     if (actions == null)
         return;
@@ -256,7 +356,7 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
       final GamePlayer player) {
 
 
-    String actions = requestMove("purchase");
+    String actions = requestMove("purchase", player.getName());
     if (actions == null)
         return;
 
@@ -317,32 +417,32 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
     ProLogger.info(player.getName() + " time for purchase=" + (System.currentTimeMillis() - start));
   }
 
-    public IntegerMap<ProductionRule> productionRuleMap(
-            final Map<Territory, ProPurchaseTerritory> purchaseTerritories,
-            final ProPurchaseOptionMap purchaseOptions, GamePlayer player) {
+  public IntegerMap<ProductionRule> productionRuleMap(
+          final Map<Territory, ProPurchaseTerritory> purchaseTerritories,
+          final ProPurchaseOptionMap purchaseOptions, GamePlayer player) {
 
-        ProLogger.info("Populate production rule map");
-        final List<Unit> unplacedUnits = player.getMatches(Matches.unitIsNotSea());
-        final IntegerMap<ProductionRule> purchaseMap = new IntegerMap<>();
-        for (final ProPurchaseOption ppo : purchaseOptions.getAllOptions()) {
-            final int numUnits =
-                    (int)
-                            purchaseTerritories.values().stream()
-                                    .map(ProPurchaseTerritory::getCanPlaceTerritories)
-                                    .flatMap(Collection::stream)
-                                    .map(ProPlaceTerritory::getPlaceUnits)
-                                    .flatMap(Collection::stream)
-                                    .filter(u -> u.getType().equals(ppo.getUnitType()))
-                                    .filter(u -> !unplacedUnits.contains(u))
-                                    .count();
-            if (numUnits > 0) {
-                final int numProductionRule = numUnits / ppo.getQuantity();
-                purchaseMap.put(ppo.getProductionRule(), numProductionRule);
-                ProLogger.info(numProductionRule + " " + ppo.getProductionRule());
-            }
-        }
-        return purchaseMap;
-    }
+      ProLogger.info("Populate production rule map");
+      final List<Unit> unplacedUnits = player.getMatches(Matches.unitIsNotSea());
+      final IntegerMap<ProductionRule> purchaseMap = new IntegerMap<>();
+      for (final ProPurchaseOption ppo : purchaseOptions.getAllOptions()) {
+          final int numUnits =
+                  (int)
+                          purchaseTerritories.values().stream()
+                                  .map(ProPurchaseTerritory::getCanPlaceTerritories)
+                                  .flatMap(Collection::stream)
+                                  .map(ProPlaceTerritory::getPlaceUnits)
+                                  .flatMap(Collection::stream)
+                                  .filter(u -> u.getType().equals(ppo.getUnitType()))
+                                  .filter(u -> !unplacedUnits.contains(u))
+                                  .count();
+          if (numUnits > 0) {
+              final int numProductionRule = numUnits / ppo.getQuantity();
+              purchaseMap.put(ppo.getProductionRule(), numProductionRule);
+              ProLogger.info(numProductionRule + " " + ppo.getProductionRule());
+          }
+      }
+      return purchaseMap;
+  }
 
   private GameData copyData(GameData data) {
     GameDataManager.Options options = GameDataManager.Options.builder().withDelegates(true).build();
@@ -617,6 +717,5 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
       storedPoliticalActions = null;
     }
   }
-
 
 }

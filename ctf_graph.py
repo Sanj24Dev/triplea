@@ -117,10 +117,12 @@ class CaptureTheFlag:
         # self._reachability_cache = {}
         self.round = 0
         self.game_num = 0
+        self.whoAmI = None
+        self.port = None
 
         self.game_outcome_metric = MetricLogger(
             outcome_file,
-            header=["game", "rounds_played", "outcome"]
+            header=["game", "rounds_played", "winner"]
         )
 
         # build graph
@@ -257,7 +259,7 @@ class CaptureTheFlag:
         self.node_collection.set_edgecolor(border_colors)
         self.node_collection.set_linewidth(2.0)
 
-        self.fig.set_size_inches(16, 16)
+        self.fig.set_size_inches(10, 10)
 
         # Remove previous labels
         if hasattr(self, "label_texts"):
@@ -288,12 +290,13 @@ class CaptureTheFlag:
             bbox=dict(boxstyle="round,pad=0.5", facecolor="lightyellow", edgecolor="black")
         )
 
+        self.fig.canvas.manager.set_window_title(f"Player - {self.port}")
         self.fig.canvas.draw_idle()
         self.fig.canvas.flush_events()
 
     def update_my_role(self, role):
         self.whoAmI = role
-        print(f"WHOAMI updated: {role}")
+        # print(f"WHOAMI updated: {role}")
         # print(self.get_my_territories())
 
     def update_ownership(self, territory_name, new_owner):

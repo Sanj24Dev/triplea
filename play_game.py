@@ -4,12 +4,35 @@ import signal
 import json
 import os
 import socket  
+from typing import List, Dict
 
 # --- CONFIG ---
 PLAY_ROUNDS = 100   # max rounds per game
 PLAY_GAMES = int(os.environ["GAMES_TO_PLAY"])     # number of games to play
 CHECK_INTERVAL = 2  # seconds between log checks
 FORFEIT_CHECK = 20
+
+PORT_ENV_VARS = ("PLAYER_1_PORT", "PLAYER_2_PORT", "PLAYER_3_PORT", "PLAYER_4_PORT")
+
+def _get_active_ports() -> List[int]:
+    """Collect active AI ports from environment variables."""
+    ports: List[int] = []
+    for k in PORT_ENV_VARS:
+        v = os.getenv(k)
+        if not v:
+            continue
+        try:
+            ports.append(int(v))
+        except ValueError:
+            print(f"[WARN] Ignoring invalid port in {k}={v!r}")
+    # de-dup, stable order
+    seen = set()
+    out = []
+    for p in ports:
+        if p not in seen:
+            out.append(p)
+            seen.add(p)
+    return out
 
 def notify_agent_game_end(host="127.0.0.1", port=5000):
     # send a line that game_mcts.py can interpret as a stop
@@ -72,29 +95,49 @@ def terminate_game(process):
     process.wait(timeout=10)
 
 
-def consec_no_combat():
+def consec_no_combat(port):
     try:
-        with open(f"forfeit.flag", 'r') as f:
+        with open(f"forfeit_{port}.flag", 'r') as f:
             return sum(1 for line in f)
     except FileNotFoundError:
         return 0
+
+def _build_log_files(root_folder: str, data: Dict, ports: List[int]) -> Dict[int, str]:
+    """Map each port to its expected log file path."""
+    log_folder = os.path.join(root_folder, "logs")
+    game_name = data["DEFAULT_GAME_NAME_PREF"]
+
+    log_files: Dict[int, str] = {}
+    for port in ports:
+        # Your logs look like: logs/player_5001/Capture The Flag.log
+        player_dir = f"player_{port}"
+        log_files[port] = os.path.join(log_folder, player_dir, f"{game_name}.log")
+    return log_files
 
 def main():
     with open("config.json", 'r') as f:
         data = json.load(f)
 
     root_folder = os.environ["PROJECT_ROOT"]
-    log_folder = root_folder + "/logs/"
-    log_file = os.path.join(log_folder, data["PLAYER_NAME"], f"{data['DEFAULT_GAME_NAME_PREF']}.log")
+    
+    ports = _get_active_ports()
+    if not ports:
+        # Fallback: old behavior via config.json
+        log_folder = os.path.join(root_folder, "logs")
+        log_file = os.path.join(log_folder, data["PLAYER_NAME"], f"{data['DEFAULT_GAME_NAME_PREF']}.log")
+        ports = [5000]
+        log_files = {5000: log_file}
+        print(f"[WARN] No PLAYER_*_PORT env vars found; falling back to {log_file}")
+    else:
+        log_files = _build_log_files(root_folder, data, ports)
+    
 
     games_played = 0
-    rounds_till_last = 0
-    prev_stopped = 0
+    prev_stopped: Dict[int, int] = {p: 0 for p in ports}
 
     while games_played < PLAY_GAMES:
         process = start_game()
         prev_round = -1
-        start_time = time.time()
 
         try:
             while True:
@@ -104,25 +147,34 @@ def main():
                     break
 
                 # Check log status
-                rounds = count_rounds(log_file)
-                curr_stopped = count_stopped(log_file)
+                rounds = 0
+                for p in ports:
+                    rounds = max(rounds, count_rounds(log_files[p]))
+                stopped_now: Dict[int, int] = {p: count_stopped(log_files[p]) for p in ports}
+                forfeit_score = 0
+                for p in ports:
+                    forfeit_score = max(forfeit_score, consec_no_combat(p))
 
-                if rounds > PLAY_ROUNDS or consec_no_combat() >= FORFEIT_CHECK:
+                if rounds > PLAY_ROUNDS or forfeit_score >= FORFEIT_CHECK:
                     print(f"{PLAY_ROUNDS} rounds completed. Ending game.")
-                    rounds_till_last += rounds
-                    notify_agent_game_end()
+                    # for p in ports:
+                    #     notify_agent_game_end(host="127.0.0.1", port=p)
                     terminate_game(process)
-                    clean_up_logfile(log_file)
-                    # prev_stopped = curr_stopped
+                    for p in ports:
+                        clean_up_logfile(log_files[p])
+                        prev_stopped[p] = stopped_now[p]
                     break
 
 
-                if prev_stopped < curr_stopped:
-                    print(f"Game stopped (winner detected). {curr_stopped} {prev_stopped}")
-                    rounds_till_last += rounds
+                if any(prev_stopped[p] < stopped_now[p] for p in ports):
+                    inc_ports = [p for p in ports if prev_stopped[p] < stopped_now[p]]
+                    print(f"Game stopped (winner detected) via ports: {inc_ports}")
+                    # for p in ports:
+                    #     notify_agent_game_end(host="127.0.0.1", port=p)
                     terminate_game(process)
-                    clean_up_logfile(log_file)
-                    # prev_stopped = curr_stopped
+                    for p in ports:
+                        clean_up_logfile(log_files[p])
+                        prev_stopped[p] = stopped_now[p]
                     break
 
                 if prev_round != rounds:
@@ -133,7 +185,8 @@ def main():
 
         except KeyboardInterrupt:
             print("Keyboard interrupt detected. Stopping current game.")
-            notify_agent_game_end()
+            for p in ports:
+                notify_agent_game_end(host="127.0.0.1", port=p)
             terminate_game(process)
             break
 
