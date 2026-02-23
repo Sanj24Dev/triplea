@@ -22,7 +22,6 @@ import org.triplea.swing.SwingAction;
 import org.triplea.swing.SwingComponents;
 
 import static games.strategy.triplea.ai.tripleMind.helper.getAIRoleId;
-import static games.strategy.triplea.ai.tripleMind.helper.logAI;
 import static games.strategy.triplea.ai.tripleMind.helper.saveWhoAmI;
 
 /**
@@ -275,11 +274,16 @@ public abstract class SetupPanel extends JPanel implements SetupModel {
       SwingUtilities.invokeLater(
               () -> {
                   setAllTypes.setSelectedItem(I18nEngineFramework.get().getText("startup.PlayerTypes.PLAYER_TYPE_AI_EASY_LABEL"));
-                  final PlayerSelectorRow row = playerRows.get(getAIRoleId(playerRows.size()));
-                  row.setPlayerType(I18nEngineFramework.get().getText("startup.PlayerTypes.PLAYER_TYPE_AI_TRIPLE_MIND_LABEL"));
+                  for (int i = 0; i < playerRows.size(); i++) {
+                      PlayerSelectorRow row = playerRows.get(i);
+                      String envPlayerType = System.getenv().get("PLAYER_" + (i + 1));
+                      if (envPlayerType != null) 
+                          row.setPlayerType(I18nEngineFramework.get().getText(envPlayerType));
+                  }
+                  // final PlayerSelectorRow row = playerRows.get(getAIRoleId(playerRows.size()));
+                  // row.setPlayerType(I18nEngineFramework.get().getText("startup.PlayerTypes.PLAYER_TYPE_AI_TRIPLE_MIND_LABEL"));
                   playButton.doClick();
-                  saveWhoAmI(row.getPlayerName());
-                  logAI("INFO", "Role: " + row.getPlayerName());
+                  // saveWhoAmI(row.getPlayerName());
 //                  canClickStart = 1;
 
               }

@@ -2,7 +2,7 @@ package games.strategy.engine.framework;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static games.strategy.triplea.Constants.EDIT_MODE;
-import static games.strategy.triplea.ai.tripleMind.helper.logAI;
+import static games.strategy.triplea.ai.tripleMind.AbstractTripleMindAi.logAI;
 import static games.strategy.triplea.ai.tripleMind.helper.getWhoAmI;
 // import static games.strategy.triplea.ai.tripleMind.TripleASocket.startSocket;
 // import static games.strategy.triplea.ai.tripleMind.TripleASocket.connectSocket;
@@ -618,14 +618,14 @@ public class ServerGame extends AbstractGame {
                 sentStoppedMsg = true;
             }
         }
-        String me = getWhoAmI();
-        boolean ownsTerritory = gameData.getMap().getTerritories().stream().anyMatch(t -> me.equals(t.getOwner().getName()));
-        if (!ownsTerritory) {
-            if(!sentStoppedMsg) {
-                logAI("INFO", "Game stopped lost");
-                sentStoppedMsg = true;
-            }
-        }
+        // String me = getWhoAmI();
+        // boolean ownsTerritory = gameData.getMap().getTerritories().stream().anyMatch(t -> me.equals(t.getOwner().getName()));
+        // if (!ownsTerritory) {
+        //     if(!sentStoppedMsg) {
+        //         logAI("INFO", "Game stopped lost");
+        //         sentStoppedMsg = true;
+        //     }
+        // }
 
 
     } finally {

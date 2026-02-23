@@ -24,8 +24,8 @@ public class helper {
     static String me;
     public static int getAIRoleId(int n) {
         Random rand = new Random();
-        // return rand.nextInt(n);
-       return Integer.parseInt(System.getenv().getOrDefault("PLAYER_ID", "0"));
+        return rand.nextInt(n);
+    //    return Integer.parseInt(System.getenv().getOrDefault("PLAYER_ID", "0"));
     }
 
     public static void saveWhoAmI(String player) {
@@ -57,75 +57,76 @@ public class helper {
         return json.substring(startQuote + 1, endQuote);
     }
 
-    public static String getLogFileName() {
+    public static String getLogFileName(int port) {
         String log_file = log_folder;
-        String player_name = getPreferences().get("PLAYER_NAME", null);
+        // String player_name = getPreferences().get("PLAYER_NAME", null);
         String gameName = getPreferences().get("DEFAULT_GAME_NAME_PREF", null);
-        log_file += player_name + "/" + gameName + ".log";
+        log_file += "player_" + port + "/" + gameName + ".log";
+        // System.out.println("Log file: " + log_file);
         return log_file;
     }
 
     
 
-    public static void logAI (String type, String msg) {
-        // System.out.println("Logging");
-        String filename = getLogFileName();
-        File logFile = new File(filename);
-        try {
-            File parentDir = logFile.getParentFile();
-            if (parentDir != null && !parentDir.exists()) {
-                parentDir.mkdirs();
-            }
-            if (!logFile.exists()) {
-                logFile.createNewFile();
-            }
-            try {
-                PrintWriter writer = new PrintWriter(new FileWriter(logFile, true));
-                writer.println("[" + type + "] " + java.time.LocalDateTime.now() + " - " + msg);
-                writer.close();
-            } catch (IOException e) {
-                System.err.println(("Failed to write log: " + e.getMessage()));
-            }
-        } catch (Exception e) {
-            System.err.println(("Failed to write log: " + e.getMessage()));
-        }
+//     public static void logAI (String type, String msg) {
+//         // System.out.println("Logging");
+//         String filename = getLogFileName();
+//         File logFile = new File(filename);
+//         try {
+//             File parentDir = logFile.getParentFile();
+//             if (parentDir != null && !parentDir.exists()) {
+//                 parentDir.mkdirs();
+//             }
+//             if (!logFile.exists()) {
+//                 logFile.createNewFile();
+//             }
+//             try {
+//                 PrintWriter writer = new PrintWriter(new FileWriter(logFile, true));
+//                 writer.println("[" + type + "] " + java.time.LocalDateTime.now() + " - " + msg);
+//                 writer.close();
+//             } catch (IOException e) {
+//                 System.err.println(("Failed to write log: " + e.getMessage()));
+//             }
+//         } catch (Exception e) {
+//             System.err.println(("Failed to write log: " + e.getMessage()));
+//         }
 
-//        TripleASocket.sendState("[" + type + "] " + msg);
-        String response = TripleASocket.sendAndRead("[" + type + "] " + msg);
-    }
+// //        TripleASocket.sendState("[" + type + "] " + msg);
+//         String response = TripleASocket.sendAndRead("[" + type + "] " + msg);
+//     }
 
-    public static String requestMove(String move) {
-        String filename = getLogFileName();
-        File logFile = new File(filename);
-        try {
-            File parentDir = logFile.getParentFile();
-            if (parentDir != null && !parentDir.exists()) {
-                parentDir.mkdirs();
-            }
-            if (!logFile.exists()) {
-                logFile.createNewFile();
-            }
-            try {
-                PrintWriter writer = new PrintWriter(new FileWriter(logFile, true));
-                writer.println("[MY_MOVE] " + java.time.LocalDateTime.now() + " - " + move);
-                writer.close();
-            } catch (IOException e) {
-                System.err.println(("Failed to write log: " + e.getMessage()));
-            }
-        } catch (Exception e) {
-            System.err.println(("Failed to write log: " + e.getMessage()));
-        }
-//        TripleASocket.sendState("[MY_MOVE] " + move);
-//        return "";
-        System.out.println("Request sent: [MY_MOVE] " + move);
-        String response = TripleASocket.sendAndRead("[MY_MOVE] " + move);
-        System.out.println("Received move: " + response);
-        logResponse(response);
-        return response;
-    }
+//     public static String requestMove(String move) {
+//         String filename = getLogFileName();
+//         File logFile = new File(filename);
+//         try {
+//             File parentDir = logFile.getParentFile();
+//             if (parentDir != null && !parentDir.exists()) {
+//                 parentDir.mkdirs();
+//             }
+//             if (!logFile.exists()) {
+//                 logFile.createNewFile();
+//             }
+//             try {
+//                 PrintWriter writer = new PrintWriter(new FileWriter(logFile, true));
+//                 writer.println("[MY_MOVE] " + java.time.LocalDateTime.now() + " - " + move);
+//                 writer.close();
+//             } catch (IOException e) {
+//                 System.err.println(("Failed to write log: " + e.getMessage()));
+//             }
+//         } catch (Exception e) {
+//             System.err.println(("Failed to write log: " + e.getMessage()));
+//         }
+// //        TripleASocket.sendState("[MY_MOVE] " + move);
+// //        return "";
+//         System.out.println("Request sent: [MY_MOVE] " + move);
+//         String response = TripleASocket.sendAndRead("[MY_MOVE] " + move);
+//         System.out.println("Received move: " + response);
+//         logResponse(response);
+//         return response;
+//     }
 
-    public static void logResponse(String response) {
-        String filename = getLogFileName();
+    public static void logResponse(String response, int port) {
+        String filename = getLogFileName(port);
         File logFile = new File(filename);
         try {
             File parentDir = logFile.getParentFile();

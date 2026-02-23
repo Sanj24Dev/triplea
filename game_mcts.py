@@ -13,35 +13,47 @@ import argparse
 START_GAME_NUM = int(os.environ["START_GAME_NUM"]) 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--reduction_file", type=str, required=True)
 parser.add_argument("--efficiency_file", type=str, required=True)
 parser.add_argument("--outcome_file", type=str, required=True)
 parser.add_argument("--quality_file", type=str, required=True)
 parser.add_argument("--rollout_file", type=str, required=True)
 parser.add_argument("--model_name", type=str, required=True)
+parser.add_argument("--player_name", type=str, required=True)
+parser.add_argument("--port", type=int, default=5000)
 args = parser.parse_args()
 
-reduction_file = args.reduction_file
-efficiency_file = args.efficiency_file
-outcome_file = args.outcome_file
-quality_file = args.quality_file
-rollout_file = args.rollout_file
-model_name = args.model_name
+port = args.port
+efficiency_file = args.efficiency_file + f"_port{port}.csv"
+outcome_file = args.outcome_file + f".csv"
+quality_file = args.quality_file + f"_port{port}.csv"
+rollout_file = args.rollout_file + f"_port{port}.csv"
+model_name = args.model_name + f"_port{port}.csv"
 
+def log_message(port, message):
+    filename = f"{args.model_name}/player_logs/port{port}.log"
+    with open(filename, "a") as f:
+        f.write(message + "\n")
 
 def agent_loop(host="127.0.0.1", port=5000):
     turn_order = ["Russians", "Italians", "Germans", "Chinese"]
-    agent = MCTS(model_name, reduction_file, efficiency_file, quality_file, rollout_file, ctf.production_rules, ctf.territory_production, ctf.victory_cities, ctf.G, turn_order)
+    agent = MCTS(model_name, efficiency_file, quality_file, rollout_file, ctf.production_rules, ctf.territory_production, ctf.victory_cities, ctf.G, turn_order)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind((host, port))
     sock.listen(1)
-    print(f"Server listening on {host}:{port}")
+    # print(f"Server listening on {host}:{port}")
+    log_message(port, f"Server started on {host}:{port}")
 
     ctf.draw()
     r = "0"
     my_player = ""
     prevCombat_empty = False
-    FORFEIT_FLAG = f"forfeit.flag"
+    FORFEIT_FLAG = f"forfeit_{port}.flag"
+
+    my_player = args.player_name
+    ctf.update_my_role(my_player)
+    agent.update_whoAmI(my_player)
+    player_info.log(ctf.game_num, port, my_player)
+    log_message(port, f"Game {ctf.game_num} Player {my_player} Role assigned")
 
     try:
         # print("Waiting for accept()")
@@ -84,12 +96,14 @@ def agent_loop(host="127.0.0.1", port=5000):
 
                             # response = []
                         elif msg.startswith("[INFO]") and "stopped" in msg: 
-                            if "lost" in msg:
-                                ctf.game_outcome_metric.log(ctf.game_num, ctf.round, "lost")
-                            elif parts[3] == my_player:
-                                ctf.game_outcome_metric.log(ctf.game_num, ctf.round, "won")
-                            else:
-                                ctf.game_outcome_metric.log(ctf.game_num, ctf.round, "lost")
+                            print(msg)
+                            # if "lost" in msg:
+                            #     ctf.game_outcome_metric.log(ctf.game_num, ctf.round, "lost")
+                            # elif parts[3] == my_player:
+                            #     ctf.game_outcome_metric.log(ctf.game_num, ctf.round, "won")
+                            # else:
+                            #     ctf.game_outcome_metric.log(ctf.game_num, ctf.round, "lost")
+                            ctf.game_outcome_metric.log(ctf.game_num, ctf.round, parts[3])
                             ctf.reset()
                             agent.latest_legal_moves = []   # reset agent memory
                             r = "0"
@@ -97,7 +111,8 @@ def agent_loop(host="127.0.0.1", port=5000):
                             agent.terr_before_combat = 2
                             if os.path.exists(FORFEIT_FLAG):
                                 os.remove(FORFEIT_FLAG)
-                            print("Starting next game in 5s.")
+                            # print("Starting next game in 5s.")
+                            log_message(port, f"Game {ctf.game_num-1} ended. Starting next game in 5s.")
                             time.sleep(5)
                         elif msg.startswith("[INFO]") and "Round" in msg:
                             r = parts[3]
@@ -106,17 +121,19 @@ def agent_loop(host="127.0.0.1", port=5000):
                                 agent.terr_after_combat = sum(1 for t in ctf.territories.values() if t.owner == ctf.whoAmI)
                                 agent.combat_quality.log(ctf.game_num, ctf.round, agent.pu_after_combat, agent.terr_before_combat, agent.terr_after_combat)
                             ctf.round = int(r)
-                        elif msg.startswith("[INFO]") and "Role:" in msg:
-                            ctf.apply_change_line(msg, 0)
-                            my_player = parts[2]
-                            agent.update_whoAmI(my_player)
-                            player_info.log(ctf.game_num, my_player)
+                        # elif msg.startswith("[INFO]") and "Role:" in msg:
+                        #     ctf.apply_change_line(msg, 0)
+                        #     my_player = parts[2]
+                        #     agent.update_whoAmI(my_player)
+                        #     player_info.log(ctf.game_num, port, my_player)
+                        #     log_message(port, f"Game {ctf.game_num} Round {ctf.round} Player {my_player} Role assigned")
                         else:
                             ctf.apply_change_line(msg, 0)
                             response = "ACK"
                         
                         if response != "ACK":
-                            print("Sending:", response)
+                            # print("Sending:", response)
+                            log_message(port, f"Game {ctf.game_num} Round {ctf.round} Player {my_player} Action: {response}")
                         conn.sendall((json.dumps(response) + "\n").encode("utf-8"))
 
                         ctf.draw()
@@ -148,13 +165,14 @@ with open(output_file, "r") as f:
 
 ctf = CaptureTheFlag("gameInfo/Capture The Flag.json", outcome_file)
 ctf.game_num = START_GAME_NUM
+ctf.port = port
 
 player_info = MetricLogger(
-            "multi_front_attack/metrics/player_info.csv",
-            header=["game", "player"]
+            f"{args.model_name}/metrics/player_info.csv",
+            header=["game", "port", "player"]
         )
 
-agent_loop()
+agent_loop(port=args.port)
 
 ts = time.strftime("%Y%m%d_%H%M%S")
 
@@ -162,11 +180,11 @@ ts = time.strftime("%Y%m%d_%H%M%S")
 json_file = f"final_graph_{ts}.json"
 # with open(json_file, "w") as f:
 #     json.dump(nx.node_link_data(ctf.G), f, indent=2)
-print(f"Graph structure saved as {json_file}")
+# print(f"Graph structure saved as {json_file}")
 
 # Save figure as PNG
 # img_file = f"final_graph_{ts}.png"
 # ctf.fig.savefig(img_file, dpi=300, bbox_inches="tight")
 # print(f"Graph exported as {img_file}")
-print("\nShutting down...")
+# print("\nShutting down...")
 

@@ -3,8 +3,6 @@ package games.strategy.triplea.ai.tripleMind;
 import java.io.*;
 import java.net.*;
 
-import static games.strategy.triplea.ai.tripleMind.helper.logAI;
-
 public class TripleASocket {
 
     // send game state (as JSON string) to the agent
@@ -27,9 +25,8 @@ public class TripleASocket {
         }
     }
 
-    public static String sendAndRead(String stateJson) {
+    public static String sendAndRead(String stateJson, int port) {
         String host = "127.0.0.1";
-        int port = 5000;
         String response = "";
 
         try (Socket socket = new Socket(host, port);
