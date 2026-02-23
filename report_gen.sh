@@ -3,7 +3,7 @@ module load python
 module load gcc
 module load cmake
 
-REPORT_FOLDER="multi_front_attack"
+REPORT_FOLDER="self_play_model"
 
 # use the following for profiling and analysis
 python3 plot_efficiency.py --folder "$REPORT_FOLDER"

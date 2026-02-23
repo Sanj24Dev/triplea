@@ -1,109 +1,109 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-
 import argparse
+import numpy as np
+import os
 
+# -----------------------------
+# Args
+# -----------------------------
 parser = argparse.ArgumentParser()
 parser.add_argument("--folder", type=str, required=True)
 args = parser.parse_args()
 
 main_folder = args.folder
-
 FOLDER = f"{main_folder}/metrics"
-COMBAT_CSV = f"{FOLDER}/combat_quality.csv"
-OUTCOME_CSV = f"{FOLDER}/game_outcome.csv"  # Adjust filename
 
-df_combat = pd.read_csv(COMBAT_CSV)
-df_outcome = pd.read_csv(OUTCOME_CSV)
+os.makedirs(FOLDER, exist_ok=True)
 
-df_combat["pu_gain"] = df_combat.groupby("game")["pu_after"].diff()
-df_combat["pu_gain"] = df_combat["pu_gain"].fillna(0) 
-df_combat["terr_gain"] = df_combat["territories_after"] - df_combat["territories_before"]
+# -----------------------------
+# Load Combat Logs
+# -----------------------------
+ports = [5000, 5001, 5002, 5003]
+players = ["Russians", "Italians", "Germans", "Chinese"]
 
-# Merge with outcomes
-df = df_combat.merge(df_outcome, on="game", how="left")
+dfs = []
+for port, player in zip(ports, players):
+    df_iter = pd.read_csv(f"{FOLDER}/combat_quality_port{port}.csv")
+    df_iter["player"] = player
+    dfs.append(df_iter)
 
-# Plot 1: Separate line per game
-fig, axes = plt.subplots(2, 2, figsize=(15, 10))
+df = pd.concat(dfs, ignore_index=True)
 
-# Territory gains over time, colored by outcome
-for game_num in df["game"].unique():
-    game_data = df[df["game"] == game_num]
-    outcome = game_data["outcome"].iloc[0]  # 'win' or 'loss'
-    color = 'green' if outcome == 'won' else 'red'
-    alpha = 0.6
-    
-    axes[0, 0].plot(game_data["round"], game_data["terr_gain"], 
-                    color=color, alpha=alpha, linewidth=1)
+# -----------------------------
+# Preprocessing
+# -----------------------------
+df["game"] = df["game"].astype(int)
+df["round"] = df["round"].astype(int)
 
-axes[0, 0].set_xlabel("Round")
-axes[0, 0].set_ylabel("Territories Gained")
-axes[0, 0].set_title("Territory Gains per Combat (Green=Win, Red=Loss)")
-axes[0, 0].axhline(y=0, color='black', linestyle='--', linewidth=0.5)
-axes[0, 0].grid(True, alpha=0.3)
+df = df.sort_values(["player", "game", "round"])
 
-# PU gains over time
-for game_num in df["game"].unique():
-    game_data = df[df["game"] == game_num]
-    outcome = game_data["outcome"].iloc[0]
-    color = 'green' if outcome == 'won' else 'red'
-    
-    axes[0, 1].plot(game_data["round"], game_data["pu_gain"], 
-                    color=color, alpha=0.6, linewidth=1)
+df["pu_gain"] = (
+    df.groupby(["game", "player"])["pu_after"]
+      .diff()
+      .fillna(0)
+)
 
-axes[0, 1].set_xlabel("Round")
-axes[0, 1].set_ylabel("PU Gained")
-axes[0, 1].set_title("PU Gains per Combat")
-axes[0, 1].axhline(y=0, color='black', linestyle='--', linewidth=0.5)
-axes[0, 1].grid(True, alpha=0.3)
+df["terr_gain"] = df["territories_after"] - df["territories_before"]
 
-# Cumulative territories over time
-for game_num in df["game"].unique():
-    game_data = df[df["game"] == game_num].sort_values("round")
-    outcome = game_data["outcome"].iloc[0]
-    color = 'green' if outcome == 'won' else 'red'
-    
-    axes[1, 0].plot(game_data["round"], game_data["territories_after"], 
-                    color=color, alpha=0.6, linewidth=1.5)
+# ============================================================
+# 1️⃣ Single Trajectory Figure (All Players Together)
+# ============================================================
 
-axes[1, 0].set_xlabel("Round")
-axes[1, 0].set_ylabel("Total Territories Controlled")
-axes[1, 0].set_title("Territory Control Trajectory")
-axes[1, 0].grid(True, alpha=0.3)
+fig, axes = plt.subplots(1, 2, figsize=(10, 5))
 
-# Cumulative PU over time
-for game_num in df["game"].unique():
-    game_data = df[df["game"] == game_num].sort_values("round")
-    outcome = game_data["outcome"].iloc[0]
-    color = 'green' if outcome == 'won' else 'red'
-    
-    axes[1, 1].plot(game_data["round"], game_data["pu_after"], 
-                    color=color, alpha=0.6, linewidth=1.5)
+colors = {
+    "Russians": "blue",
+    "Italians": "orange",
+    "Germans": "green",
+    "Chinese": "red"
+}
 
-axes[1, 1].set_xlabel("Round")
-axes[1, 1].set_ylabel("Total PUs")
-axes[1, 1].set_title("PU Balance Trajectory")
-axes[1, 1].grid(True, alpha=0.3)
+for player in players:
+    df_p = df[df["player"] == player]
 
-# Add legend
-from matplotlib.lines import Line2D
-legend_elements = [
-    Line2D([0], [0], color='green', lw=2, label='Won Games'),
-    Line2D([0], [0], color='red', lw=2, label='Lost Games')
-]
-fig.legend(handles=legend_elements, loc='upper right', bbox_to_anchor=(0.98, 0.98))
+    # Average per round across games
+    agg = df_p.groupby("round").agg({
+        "terr_gain": "mean",
+        "pu_gain": "mean",
+        "territories_after": "mean",
+        "pu_after": "mean"
+    }).reset_index()
 
+    # axes[0, 0].plot(agg["round"], agg["terr_gain"], label=player, color=colors[player])
+    # axes[0, 1].plot(agg["round"], agg["pu_gain"], label=player, color=colors[player])
+    axes[0].plot(agg["round"], agg["territories_after"], label=player, color=colors[player])
+    axes[1].plot(agg["round"], agg["pu_after"], label=player, color=colors[player])
+
+# axes[0, 0].set_title("Avg Territory Gain per Round")
+# axes[0, 1].set_title("Avg PU Gain per Round")
+axes[0].set_title("Avg Territory Control")
+axes[1].set_title("Avg PU Balance")
+
+for ax in axes.flatten():
+    ax.set_xlabel("Round")
+    ax.grid(True, alpha=0.3)
+
+# axes[0, 0].set_ylabel("Territory Gain")
+# axes[0, 1].set_ylabel("PU Gain")
+axes[0].set_ylabel("Territories")
+axes[1].set_ylabel("PUs")
+
+fig.legend(players, loc="upper right")
 plt.tight_layout()
-plt.savefig(f"{FOLDER}/combat_quality_trajectories.png", dpi=300, bbox_inches='tight')
+plt.savefig(f"{FOLDER}/combat_quality_trajectories.png", dpi=300)
 plt.close()
-print(f"Plot saved {FOLDER}/combat_quality_trajectories.png")
 
-import numpy as np
+print("Saved combat_quality_trajectories.png")
+
+# ============================================================
+# 2️⃣ Single Metrics Comparison Figure
+# ============================================================
 
 EPS = 1e-6
 metrics = []
 
-for game, gdf in df.groupby("game"):
+for (game, player), gdf in df.groupby(["game", "player"]):
     gdf = gdf.sort_values("round")
 
     terr_gains = gdf["terr_gain"]
@@ -111,16 +111,23 @@ for game, gdf in df.groupby("game"):
 
     avg_terr_gain = terr_gains.mean()
     avg_pu_gain = pu_gains.mean()
+    max_gain = terr_gains.max()
+    tgc = 1 - (terr_gains.std() / (max_gain + EPS)) if max_gain > 0 else 0
 
-    tgc = terr_gains.std() / (abs(avg_terr_gain) + EPS)
+    # total_positive_gain = terr_gains.clip(lower=0).sum()
+    # net_gain = (
+    #     gdf["territories_after"].iloc[-1]
+    #     - gdf["territories_before"].iloc[0]
+    # )
+    # srr = net_gain / total_positive_gain if total_positive_gain > 0 else 0.0
 
-    total_positive_gain = terr_gains.clip(lower=0).sum()
-    net_gain = gdf["territories_after"].iloc[-1] - gdf["territories_before"].iloc[0]
-    srr = net_gain / total_positive_gain if total_positive_gain > 0 else 0.0
+    max_territories = gdf["territories_after"].max()
+    end_territories = gdf["territories_after"].iloc[-1]
+    srr = end_territories / (max_territories + EPS)
 
     metrics.append({
         "game": game,
-        "outcome": gdf["outcome"].iloc[0] if not pd.isna(gdf["outcome"].iloc[0]) else "lost",
+        "player": player,
         "avg_territory_gain": avg_terr_gain,
         "avg_pu_gain": avg_pu_gain,
         "territory_gain_consistency": tgc,
@@ -128,6 +135,7 @@ for game, gdf in df.groupby("game"):
     })
 
 df_metrics = pd.DataFrame(metrics)
+
 fig, axes = plt.subplots(2, 2, figsize=(14, 10))
 
 metrics_to_plot = [
@@ -138,34 +146,32 @@ metrics_to_plot = [
 ]
 
 for ax, (col, title) in zip(axes.flatten(), metrics_to_plot):
-    df_metrics.boxplot(
-        column=col,
-        by="outcome",
-        ax=ax,
-        grid=False
-    )
+    df_metrics.boxplot(column=col, by="player", ax=ax, grid=False)
     ax.set_title(title)
-    ax.set_xlabel("Outcome")
+    ax.set_xlabel("Player")
     ax.set_ylabel(col)
-    
-plt.suptitle("Combat Quality Metrics by Game Outcome", fontsize=16)
-plt.tight_layout()
-plt.savefig(f"{FOLDER}/combat_quality_metrics.png", dpi=300, bbox_inches='tight')
-plt.close()
-print(f"Plot saved {FOLDER}/combat_quality_metrics.png")
 
+plt.suptitle("Combat Quality Metrics Comparison", fontsize=16)
+plt.tight_layout()
+plt.savefig(f"{FOLDER}/combat_quality_metrics.png", dpi=300)
+plt.close()
+
+print("Saved combat_quality_metrics.png")
+
+# ============================================================
+# 3️⃣ Single Summary File
+# ============================================================
 
 TXT_OUT = f"{FOLDER}/combat_quality_averages.txt"
 
 with open(TXT_OUT, "w") as f:
-    f.write("=== Combat Quality Metric Averages ===\n\n")
+    f.write("=== Combat Quality Averages By Player ===\n\n")
+    for player in players:
+        pdf = df_metrics[df_metrics["player"] == player]
+        f.write(f"{player}\n")
+        f.write(f"  Avg Territory Gain: {pdf['avg_territory_gain'].mean():.3f}\n")
+        f.write(f"  Avg PU Gain: {pdf['avg_pu_gain'].mean():.3f}\n")
+        f.write(f"  Territory Gain Consistency: {pdf['territory_gain_consistency'].mean():.3f}\n")
+        f.write(f"  Strategic Retention Ratio: {pdf['strategic_retention_ratio'].mean():.3f}\n\n")
 
-    for outcome, odf in df_metrics.groupby("outcome"):
-        f.write(f"Outcome: {outcome.upper()}\n")
-        f.write(f"  Avg Territory Gain: {odf['avg_territory_gain'].mean():.3f}\n")
-        f.write(f"  Avg PU Gain: {odf['avg_pu_gain'].mean():.3f}\n")
-        f.write(f"  Territory Gain Consistency: {odf['territory_gain_consistency'].mean():.3f}\n")
-        f.write(f"  Strategic Retention Ratio: {odf['strategic_retention_ratio'].mean():.3f}\n")
-        f.write("\n")
-
-print(f"Averages written to {TXT_OUT}")
+print("Saved combat_quality_averages.txt")
