@@ -44,7 +44,7 @@ df["pu_gain"] = (
       .fillna(0)
 )
 
-df["terr_gain"] = df["territories_after"] - df["territories_before"]
+df["terr_gain"] = df["territories_after"]
 
 # ============================================================
 # 1️⃣ Single Trajectory Figure (All Players Together)

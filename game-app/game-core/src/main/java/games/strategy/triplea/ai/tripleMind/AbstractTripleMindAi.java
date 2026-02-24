@@ -92,7 +92,7 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
   }
 
   public static void logAI (String type, String msg) {
-    // System.out.println("Logging");
+    // System.out.println("Logging: " + type + " - " + msg + " for " + my_name);
     // send to all active ports
     // make an empty list, check for PLAYER_1_PORT, PLAYER_2_PORT, PLAYER_3_PORT, PLAYER_4_PORT env vars and add to list if they env var exists
     List<Integer> ports = new ArrayList<>();
@@ -136,7 +136,7 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
       }
 
   //        TripleASocket.sendState("[" + type + "] " + msg);
-      System.out.println("logging on port " + port);
+      // System.out.println("logging on port " + port);
       String response = TripleASocket.sendAndRead("[" + type + "] " + msg, port);
     }
   }

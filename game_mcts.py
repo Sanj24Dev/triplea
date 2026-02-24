@@ -96,14 +96,17 @@ def agent_loop(host="127.0.0.1", port=5000):
 
                             # response = []
                         elif msg.startswith("[INFO]") and "stopped" in msg: 
-                            print(msg)
-                            # if "lost" in msg:
-                            #     ctf.game_outcome_metric.log(ctf.game_num, ctf.round, "lost")
-                            # elif parts[3] == my_player:
-                            #     ctf.game_outcome_metric.log(ctf.game_num, ctf.round, "won")
-                            # else:
-                            #     ctf.game_outcome_metric.log(ctf.game_num, ctf.round, "lost")
-                            ctf.game_outcome_metric.log(ctf.game_num, ctf.round, parts[3])
+                            if "lost" not in msg:
+                                ctf.game_outcome_metric.log(ctf.game_num, ctf.round, parts[3])
+                                log_message(port, f"Game {ctf.game_num} Round {ctf.round} Outcome: lost")
+                            elif my_player in msg:
+                                agent.pu_after_combat = ctf.players[ctf.whoAmI].PU
+                                agent.terr_after_combat = sum(1 for t in ctf.territories.values() if t.owner == ctf.whoAmI)
+                                agent.combat_quality.log(ctf.game_num, ctf.round, agent.pu_after_combat, agent.terr_after_combat)
+                                log_message(port, f"Game {ctf.game_num} Round {ctf.round} Outcome: Won")
+                            log_message(port, f"Game {ctf.game_num} ended. Starting next game in 5s.")
+
+                            # reset everything for next game
                             ctf.reset()
                             agent.latest_legal_moves = []   # reset agent memory
                             r = "0"
@@ -111,15 +114,14 @@ def agent_loop(host="127.0.0.1", port=5000):
                             agent.terr_before_combat = 2
                             if os.path.exists(FORFEIT_FLAG):
                                 os.remove(FORFEIT_FLAG)
-                            # print("Starting next game in 5s.")
-                            log_message(port, f"Game {ctf.game_num-1} ended. Starting next game in 5s.")
+                            
                             time.sleep(5)
                         elif msg.startswith("[INFO]") and "Round" in msg:
                             r = parts[3]
                             if ctf.round != 0:
                                 agent.pu_after_combat = ctf.players[ctf.whoAmI].PU
                                 agent.terr_after_combat = sum(1 for t in ctf.territories.values() if t.owner == ctf.whoAmI)
-                                agent.combat_quality.log(ctf.game_num, ctf.round, agent.pu_after_combat, agent.terr_before_combat, agent.terr_after_combat)
+                                agent.combat_quality.log(ctf.game_num, ctf.round, agent.pu_after_combat, agent.terr_after_combat)
                             ctf.round = int(r)
                         # elif msg.startswith("[INFO]") and "Role:" in msg:
                         #     ctf.apply_change_line(msg, 0)

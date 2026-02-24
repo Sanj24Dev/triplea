@@ -1164,7 +1164,7 @@ class MCTS:
 
         self.combat_quality = MetricLogger(
             quality_file,
-            header=["game", "round", "pu_after", "territories_before", "territories_after"]
+            header=["game", "round", "pu_after", "territories_after"]
         )
 
         self.rollout_efficiency = MetricLogger(
@@ -1226,7 +1226,7 @@ class MCTS:
                         response = []
                     # response = []
                 elif move_type == "combat":
-                    self.terr_before_combat = sum(1 for t in ctf.territories.values() if t.owner == ctf.whoAmI)
+                    # self.terr_before_combat = sum(1 for t in ctf.territories.values() if t.owner == ctf.whoAmI)
                     current_state = MCTSGameState(ctf)
                     # img_file = f"{self.model_name}/combat_moves/graph_{ctf.game_num}_{round}.png"
                     # ctf.fig.savefig(img_file, dpi=300, bbox_inches="tight")
