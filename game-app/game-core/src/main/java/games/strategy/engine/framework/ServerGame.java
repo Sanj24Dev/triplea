@@ -100,6 +100,7 @@ public class ServerGame extends AbstractGame {
   @Setter private boolean stopGameOnDelegateExecutionStop = false;
 
   private boolean sentStoppedMsg = false;
+  private boolean isGameOver = false;
 
   public ServerGame(
       final GameData data,
@@ -613,17 +614,24 @@ public class ServerGame extends AbstractGame {
         Collection<GamePlayer> winner = endDelegate.getWinners();
         // check if i am still in the game, if not then send end game
         if (winner != null) {
-            if(!sentStoppedMsg) {
+            if(!isGameOver) {
                 logAI("INFO", "Game stopped " + winner.iterator().next().getName());
                 sentStoppedMsg = true;
+                isGameOver = true;
             }
         }
         // String me = getWhoAmI();
-        // boolean ownsTerritory = gameData.getMap().getTerritories().stream().anyMatch(t -> me.equals(t.getOwner().getName()));
-        // if (!ownsTerritory) {
-        //     if(!sentStoppedMsg) {
-        //         logAI("INFO", "Game stopped lost");
-        //         sentStoppedMsg = true;
+        // i need sentStopMsg but do it separately for each player
+        // check every player, if they do not have any terr, then send game stopped lost
+        // for (GamePlayer player : gameData.getPlayerList().getPlayers()) {
+        //     System.out.println("Checking player " + player.getName());
+        //     boolean ownsTerritory = gameData.getMap().getTerritories().stream().anyMatch(t -> player.getName().equals(t.getOwner().getName()));
+        //     if (!ownsTerritory) {
+        //         // check if they have any units, if not then send game stopped lost for that player, but the game isn't over
+        //         if(!sentStoppedMsg) {
+        //             logAI("INFO", "Game stopped lost");
+        //             sentStoppedMsg = true;
+        //         }
         //     }
         // }
 

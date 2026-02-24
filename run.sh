@@ -15,7 +15,8 @@ start_time=$(date +%s)
 
 # pip install --user pandas
 
-export PROJECT_ROOT="/home/sanjana/tripleMind"
+# export PROJECT_ROOT="/home/sanjana/tripleMind"
+export PROJECT_ROOT="/storage/home/hcoda1/6/snayak89/tripleMind"
 
 MODEL_NAME="self_play_model"
 
@@ -45,7 +46,7 @@ export PLAYER_2_PORT=5001
 export PLAYER_3_PORT=5002
 export PLAYER_4_PORT=5003
 
-NUM_GAMES=20
+NUM_GAMES=1
 
 for ((i=1; i<=NUM_GAMES; i++)); do
     export START_GAME_NUM=$i
