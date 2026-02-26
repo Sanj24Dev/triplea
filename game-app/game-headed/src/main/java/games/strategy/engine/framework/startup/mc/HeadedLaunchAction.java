@@ -104,8 +104,8 @@ public class HeadedLaunchAction implements LaunchAction {
       }
     }
     game.setDisplay(new TripleADisplay(frame));
-    game.setSoundChannel(
-        new DefaultSoundChannel(localPlayers, frame.getUiContext().getClipPlayer()));
+    // game.setSoundChannel(
+    //     new DefaultSoundChannel(localPlayers, frame.getUiContext().getClipPlayer()));
   }
 
   @Override
