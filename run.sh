@@ -28,4 +28,4 @@ rm ../logs/player_5002/Capture\ The\ Flag.log
 rm ../logs/player_5003/Capture\ The\ Flag.log
 
 # run the self play training
-python self_play_training.py > training_log.txt 2>&1
+python self_play_training.py > training_log.txt 

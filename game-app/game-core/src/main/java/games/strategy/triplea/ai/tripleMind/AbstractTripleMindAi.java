@@ -228,6 +228,7 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
     Type actionListType = new TypeToken<List<Action>>(){}.getType();
     // skip if null
     List<Action> actionsList = gson.fromJson(actions, actionListType);
+    System.out.println(actionsList);
 
 
 
@@ -291,7 +292,7 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
 
             UnitType unitType = unitTypeOpt.get();
             assert from != null;
-            System.out.println(unitType.toString());
+            // System.out.println(unitType.toString());
             List<Unit> availableUnits = from.getMatches(Matches.unitIsOfType(unitType));
             if (availableUnits.isEmpty()) {
                 System.out.println("No available unit of type " + a.unit + " in " + from.getName());
@@ -323,18 +324,6 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
         }
 
         didCombatMove = true;
-//        if (storedCombatMoveMap == null) {
-//            combatMoveAi.doCombatMove(moveDel);
-//        } else {
-//            combatMoveAi.doMove(storedCombatMoveMap, moveDel, data, player);
-//            storedCombatMoveMap = null;
-//        }
-//        didCombatMove = true;
-//        if (!hasNonCombatMove(getGameStepsForPlayer(data, player, 0))) {
-//            nonCombatMoveAi.doNonCombatMove(storedFactoryMoveMap, storedPurchaseTerritories, moveDel);
-//            storedFactoryMoveMap = null;
-//            didNonCombatMove = true;
-//        }
     }
   }
 
@@ -398,7 +387,14 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
 //                ppt.getCanPlaceTerritories().add(new ProPlaceTerritory(t, data, player));
                 ppt.getCanPlaceTerritories().add(new ProPlaceTerritory(t));
             }
-            for (int i = 0; i < Integer.parseInt(a.count); i++) {
+            int count;
+            try {
+                count = Integer.parseInt(a.count);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid count: " + a.count);
+                return;
+            }
+            for (int i = 0; i < count; i++) {
               Unit unit = unitType.get().create(player);
               ppt.getCanPlaceTerritories().get(0).getPlaceUnits().add(unit);
             }

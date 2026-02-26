@@ -3,12 +3,15 @@ import json
 # import networkx as nx
 import time
 import os
+import argparse
 
 from ctf_graph import CaptureTheFlag, MetricLogger
 from helper import parse_triplea_map, convert_action_to_json
 from combat_mcts_agent import MCTS
 
-import argparse
+from nn_models.utils.move_db import get_dict_len
+
+
 
 START_GAME_NUM = int(os.environ["START_GAME_NUM"]) 
 
@@ -122,7 +125,9 @@ def agent_loop(host="127.0.0.1", port=5000):
                                 agent.pu_after_combat = ctf.players[ctf.whoAmI].PU
                                 agent.terr_after_combat = sum(1 for t in ctf.territories.values() if t.owner == ctf.whoAmI)
                                 agent.combat_quality.log(ctf.game_num, ctf.round, agent.pu_after_combat, agent.terr_after_combat)
+                                log_message("_dict", get_dict_len())
                             ctf.round = int(r)
+
                         # elif msg.startswith("[INFO]") and "Role:" in msg:
                         #     ctf.apply_change_line(msg, 0)
                         #     my_player = parts[2]

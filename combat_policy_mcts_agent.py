@@ -13,7 +13,7 @@ import copy
 import os
 import subprocess
 
-from nn_models.utils.move_db import update_combat_dict
+from nn_models.utils.encoding import get_encoded_state
 
 game_rules = None
 territory_production = None
@@ -1111,16 +1111,18 @@ class MCTSGameState:
                 unit.moved = False
 
 
-class MCTSNode:
-    def __init__(self, state, parent=None, action=None):
+class PUCTNode:
+    # __slots__ = ["state", "parent", "action", "action_id", "children", "visits", "value", "prior"]
+    def __init__(self, state, parent=None, action=None, prior=0.0, action_id=0):
         self.state = state
         self.parent = parent
         self.action = action
+        self.action_id = action_id
         self.children = []
-        self.untried_actions = None  # Lazy initialization
+        self.untried_actions = None 
         self.visits = 0
         self.value = 0.0
-        self.avg_playout_depth = 0
+        self.prior = prior
 
     def is_fully_expanded(self):
         return self.untried_actions is not None and len(self.untried_actions) == 0
@@ -1128,32 +1130,44 @@ class MCTSNode:
     def is_terminal(self):
         return self.state.is_terminal()
     
-    def best_child(self, c_param=1.414):
-        bestNode = None
-        choices_weights = [
-            (child.value / child.visits) + c_param * math.sqrt(2 * math.log(self.visits) / child.visits)
-            for child in self.children
-        ]
-        if choices_weights is not None:
-            bestNode = self.children[choices_weights.index(max(choices_weights))]
-
-        # bestNode = max(self.children,
-        #    key=lambda c: (c.value / max(1, c.visits), c.visits))
-
-        return bestNode
+    def puct_score(self, c_puct=1.5):
+        if self.visits == 0:
+            return float("inf")
+        q = self.value / self.visits
+        u = c_puct * self.prior * math.sqrt(self.parent.visits) / (1 + self.visits)
+        return q + u
+    
+    def best_child_puct(self, c_puct=1.5):
+        return max(self.children, key=lambda c: c.puct_score(c_puct))
 
 
-class MCTS:
-    def __init__(self, model_name, efficiency_file, quality_file, rollout_file, production_rules, terr_production, vic_cities, adj, order):
+class PolicyGuidedMCTS:
+    def __init__(
+            self, 
+            model_name, net,
+            efficiency_file, quality_file, rollout_file, 
+            production_rules, terr_production, vic_cities, adj, order, 
+            # move_to_id, id_to_move,
+            grid_index, grid_shape,
+            device="cpu",
+            ):
+
         self.latest_legal_moves = []
         self.whoAmI = None
         
         # MCTS parameters
         self.time_budget = 1.0  # seconds per move
         self.max_depth = 5  # Maximum playout depth
-        self.exploration_constant = 0.5  # UCB1 exploration parameter
+        self.c_puct = 1.5 
+        self.dirchlet_alpha = 0.3
+        self.dirichlet_eps = 0.25
 
         self.model_name = model_name
+        self.net = net.to(device)
+        self.device = device
+        self.grid_index = grid_index
+        self.grid_shape = grid_shape
+
         # file paths to store metrics
         self.efficiency_metric = MetricLogger(
             efficiency_file,
@@ -1185,20 +1199,6 @@ class MCTS:
 
     def update_whoAmI(self, whoAmI):
         self.whoAmI = whoAmI
-
-    def count_exhaustive_moves(self, units_that_can_attack):
-        all_moves = 0
-        quantity_ranges = []
-        for group in units_that_can_attack:
-            # Range from 0 to max_quantity (inclusive)
-            unit = group["unit"]
-            quantity_ranges.append(range(0, unit.quantity + 1))
-
-        for quantities in product(*quantity_ranges):
-            all_moves += 1
-
-        return all_moves
-
 
     def get_move(self, line, ctf, round):
         line = line.strip()
@@ -1256,6 +1256,23 @@ class MCTS:
             return [], isCombat
 
 
+    def encode(self, state):
+        return get_encoded_state(
+            state, 
+            self.grid_index, self.grid_shape, 
+            victory_cities, territory_production, turn_order
+            )
+    
+    def get_priors(self, state, legal_actions):
+        tensor = self.encode(state)
+        probs, _ = self.net.predict(tensor, self.device)
+
+
+
+
+
+        
+
     def select(self, init_node):
         node = init_node
         while not node.is_terminal():
@@ -1281,7 +1298,6 @@ class MCTS:
         try:
             new_state.apply_combat_move([action])
             new_state.heuristic_combat_legal_moves(self.time_budget)
-            # update_combat_dict(new_state.actions)
             
         except Exception as e:
             print(f"Error in expansion: {e}")
