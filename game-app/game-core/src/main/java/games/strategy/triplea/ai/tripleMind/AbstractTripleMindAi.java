@@ -247,7 +247,7 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
 
             UnitType unitType = unitTypeOpt.get();
             assert from != null;
-            System.out.println(unitType.toString());
+            // System.out.println(unitType.toString());
             List<Unit> availableUnits = from.getMatches(Matches.unitIsOfType(unitType));
             if (availableUnits.isEmpty()) {
                 System.out.println("No available unit of type " + a.unit + " in " + from.getName());

@@ -156,11 +156,11 @@ def agent_loop(host="127.0.0.1", port=5000):
 with open("config.json", 'r') as f:
     data = json.load(f)
 
-xml_file = data["DEFAULT_GAME_URI_PREF"] # Path to your TripleA XML file
-xml_file = xml_file.split("//")[1]
+# xml_file = data["DEFAULT_GAME_URI_PREF"] # Path to your TripleA XML file
+# xml_file = xml_file.split("//")[1]
 output_file = "gameInfo/" + data["DEFAULT_GAME_NAME_PREF"]+".json"  # Output JSON file
 
-parse_triplea_map(xml_file, output_file)
+# parse_triplea_map(xml_file, output_file)
 
 with open(output_file, "r") as f:
     game_data = json.load(f)
