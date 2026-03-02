@@ -1,0 +1,10 @@
+libEGL warning: DRI3: Screen seems not DRI3 capable
+libEGL warning: DRI3: Screen seems not DRI3 capable
+MESA: error: ZINK: failed to choose pdev
+libEGL warning: egl: failed to create dri2 screen
+Traceback (most recent call last):
+  File "/storage/home/hcoda1/6/snayak89/tripleMind/triplea/game_mcts.py", line 195, in <module>
+    agent_loop(port=args.port)
+  File "/storage/home/hcoda1/6/snayak89/tripleMind/triplea/game_mcts.py", line 48, in agent_loop
+    sock.bind((host, port))
+OSError: [Errno 98] Address already in use

@@ -228,7 +228,7 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
     Type actionListType = new TypeToken<List<Action>>(){}.getType();
     // skip if null
     List<Action> actionsList = gson.fromJson(actions, actionListType);
-    System.out.println(actionsList);
+    // System.out.println(actionsList);
 
 
 

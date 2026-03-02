@@ -40,3 +40,23 @@ class SelfPlayDataset(Dataset):
             torch.tensor(ex.pi, dtype=torch.float32),
             torch.tensor(ex.z, dtype=torch.float32),
         )
+
+    def collate_fn(batch):
+        states, move_feats, probs, zs = zip(*batch)
+        
+        # Pad move_feats and probs to max number of moves in this batch
+        max_moves = max(mf.shape[0] for mf in move_feats)
+        
+        padded_feats = torch.zeros(len(batch), max_moves, move_feats[0].shape[1])
+        padded_probs = torch.zeros(len(batch), max_moves)
+        mask         = torch.zeros(len(batch), max_moves, dtype=torch.bool)
+        
+        for i, (mf, pr) in enumerate(zip(move_feats, probs)):
+            n = mf.shape[0]
+            padded_feats[i, :n] = mf
+            padded_probs[i, :n] = pr
+            mask[i, :n]         = True
+        
+        return torch.stack(states), padded_feats, padded_probs, torch.tensor(zs), mask
+
+

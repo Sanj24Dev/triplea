@@ -6,22 +6,33 @@ import os
 import ast
 
 
+from nn_models.utils.move_db import move_to_id
+
 
 def convert_multi_front_combat_to_json(moves):
     actions = []
     # attacking one territory
     for move in moves:
-        for attack in move.moves:
-            qty = attack.quantity
-            action = {
-                "delegate": "combat",
-                "from": attack.from_territory,
-                "to": move.to_terr,
-                "unit": attack.unit.unit_type,
-                "count": qty,
-            }
-            actions.append(action)
+        if move.end_phase == False:
+            for attack in move.moves:
+                qty = attack.quantity
+                action = {
+                    "delegate": "combat",
+                    "from": attack.from_territory,
+                    "to": move.to_terr,
+                    "unit": attack.unit.unit_type,
+                    "count": qty,
+                }
+                actions.append(action)
     return actions
+
+def get_combat_action_ids(moves):
+    action_ids = []
+    # attacking one territory
+    for move in moves:
+        id = move_to_id(move)
+        action_ids.append(id)
+    return action_ids
 
 def convert_multi_front_noncombat_to_json(moves):
     actions = []

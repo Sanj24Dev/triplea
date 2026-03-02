@@ -2,7 +2,7 @@
 
 import math
 import random
-from helper import convert_purchase_to_json, convert_multi_front_combat_to_json, convert_multi_front_noncombat_to_json
+from helper import convert_purchase_to_json, convert_multi_front_combat_to_json, convert_multi_front_noncombat_to_json, get_combat_action_ids
 from collections import deque, defaultdict
 import itertools
 import time
@@ -14,6 +14,7 @@ import os
 import subprocess
 
 from nn_models.utils.move_db import update_combat_dict
+
 
 game_rules = None
 territory_production = None
@@ -1144,9 +1145,12 @@ class MCTSNode:
 
 
 class MCTS:
-    def __init__(self, model_name, efficiency_file, quality_file, rollout_file, production_rules, terr_production, vic_cities, adj, order):
+    def __init__(self, 
+                 model_name, port,
+                 efficiency_file, quality_file, rollout_file, production_rules, terr_production, vic_cities, adj, order):
         self.latest_legal_moves = []
         self.whoAmI = None
+        self.port = port
         
         # MCTS parameters
         self.time_budget = 1.0  # seconds per move
@@ -1186,25 +1190,8 @@ class MCTS:
     def update_whoAmI(self, whoAmI):
         self.whoAmI = whoAmI
 
-    def count_exhaustive_moves(self, units_that_can_attack):
-        all_moves = 0
-        quantity_ranges = []
-        for group in units_that_can_attack:
-            # Range from 0 to max_quantity (inclusive)
-            unit = group["unit"]
-            quantity_ranges.append(range(0, unit.quantity + 1))
-
-        for quantities in product(*quantity_ranges):
-            all_moves += 1
-
-        return all_moves
-
-
     def get_move(self, line, ctf, round):
         line = line.strip()
-        # print("\n")
-        # print(line)
-        # print("\nGame ", ctf.game_num, " Round ", ctf.round, " [", ctf.whoAmI, "] ", line)
         isCombat = False
         try:
             m = re.search(r"\[MY_MOVE\] (\w+)", line)
@@ -1233,6 +1220,8 @@ class MCTS:
                         profile_name += "0"
                     profile_name += round + ".prof"
                     action = self.profile_mcts(current_state, profile_name)
+                    action_ids = get_combat_action_ids(action)
+                    print(f"Actions selected: {action_ids}")
                     response = convert_multi_front_combat_to_json(action)
                     isCombat = True
                 elif move_type == "noncombat":
@@ -1281,7 +1270,7 @@ class MCTS:
         try:
             new_state.apply_combat_move([action])
             new_state.heuristic_combat_legal_moves(self.time_budget)
-            # update_combat_dict(new_state.actions)
+            update_combat_dict(new_state.actions)
             
         except Exception as e:
             print(f"Error in expansion: {e}")
@@ -1424,6 +1413,7 @@ class MCTS:
     def mcts_search(self, initial_state):
         # print("Generating moves")
         initial_state.heuristic_combat_legal_moves(self.time_budget)
+        update_combat_dict(initial_state.actions)
         # print(f"Moves generated {initial_state.actions}\n")
         root = MCTSNode(initial_state)
                 
@@ -1448,7 +1438,7 @@ class MCTS:
         # print(f"MCTS ran {self.iteration} iterations in {self.time_budget}s")
         # print(f"Root node visits: {root.visits}")
 
-        # tree_prefix = f"{self.model_name}/trees/tree_g{root.state.game_num}_r{root.state.round}"
+        # tree_prefix = f"{self.model_name}/trees/tree_g{root.state.game_num}_r{root.state.round}_{self.port}"
         # os.makedirs(os.path.dirname(tree_prefix), exist_ok=True)
         # dot_file, png_file = save_mcts_tree_png(root, tree_prefix, max_nodes=500)
         # print("Saved tree:", dot_file, png_file)

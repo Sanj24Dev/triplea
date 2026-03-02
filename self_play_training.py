@@ -13,6 +13,7 @@ os.environ["PLAYER_1"] = "startup.PlayerTypes.PLAYER_TYPE_AI_TRIPLE_MIND_LABEL"
 os.environ["PLAYER_2"] = "startup.PlayerTypes.PLAYER_TYPE_AI_TRIPLE_MIND_LABEL"
 os.environ["PLAYER_3"] = "startup.PlayerTypes.PLAYER_TYPE_AI_TRIPLE_MIND_LABEL"
 os.environ["PLAYER_4"] = "startup.PlayerTypes.PLAYER_TYPE_AI_TRIPLE_MIND_LABEL"
+# PLAYER_TYPE_AI_EASY_LABEL
 
 os.environ["PLAYER_1_PORT"] = "5000"
 os.environ["PLAYER_2_PORT"] = "5001"
@@ -26,10 +27,11 @@ OUTCOME_REC = f"{MODEL_NAME}/metrics/game_outcome"
 QUALITY_REC = f"{MODEL_NAME}/metrics/combat_quality"
 ROLLOUT_REC = f"{MODEL_NAME}/metrics/rollout_efficiency"
 
-NUM_GAMES = 1
+NUM_GAMES = 5
 
 
 def start_agent(player_name, port):
+    log = open(f"{MODEL_NAME}/player_logs/debug_{port}.log", "w")
     return subprocess.Popen(
         [
             "python3", "-u", "game_mcts.py",
@@ -41,7 +43,9 @@ def start_agent(player_name, port):
             "--quality_file", QUALITY_REC,
             "--rollout_file", ROLLOUT_REC,
         ],
-        env=os.environ.copy()
+        env=os.environ.copy(),
+        stdout=log,
+        stderr=log,
     )
 
 
@@ -53,6 +57,24 @@ def kill_process(proc):
         except subprocess.TimeoutExpired:
             proc.kill()
 
+
+def stop_process(proc, timeout=5):
+    try:
+        # First wait politely
+        proc.wait(timeout=timeout)
+        print(f"Process {proc.pid} exited cleanly.")
+    except subprocess.TimeoutExpired:
+        print(f"Process {proc.pid} did not exit in {timeout}s. Terminating...")
+        proc.terminate()  # sends SIGTERM
+
+        try:
+            proc.wait(timeout=5)
+            print(f"Process {proc.pid} terminated gracefully.")
+        except subprocess.TimeoutExpired:
+            print(f"Process {proc.pid} still alive. Killing...")
+            proc.kill()  # sends SIGKILL
+            proc.wait()
+            print(f"Process {proc.pid} killed.")
 
 start_time = time.time()
 
@@ -66,7 +88,9 @@ output_file = "gameInfo/" + data["DEFAULT_GAME_NAME_PREF"]+".json"  # Output JSO
 parse_triplea_map(xml_file, output_file)
 
 # run the trainer/learner process
-# subprocess.Popen(["python3", "trainer_learner.py"])
+pt = None
+with open("trainer.log", "w") as log:
+    pt = subprocess.Popen(["python3", "-u", "trainer.py"], stdout=log, stderr=log)
 
 for i in range(1, NUM_GAMES + 1):
     os.environ["START_GAME_NUM"] = str(i)
@@ -79,14 +103,23 @@ for i in range(1, NUM_GAMES + 1):
     print("Started MCTS agents")
     time.sleep(5)
 
-    subprocess.run(["python3", "play_game.py"])
+    log = open(f"{MODEL_NAME}/player_logs/game.log", "w")
+    subprocess.run(["python3", "play_game.py"], stdout=log, stderr=log)
 
-    print("Game finished.")
+    print(f"Game {i} finished.")
 
-    kill_process(p1)
-    kill_process(p2)
-    kill_process(p3)
-    kill_process(p4)
+
+    stop_process(p1)
+    stop_process(p2)
+    stop_process(p3)
+    stop_process(p4)
+
+    time.sleep(5)
+    # kill_process(p1)
+    # kill_process(p2)
+    # kill_process(p3)
+    # kill_process(p4)
 
 elapsed = time.time() - start_time
 print(f"Time taken: {int(elapsed)} seconds")
+kill_process(pt)

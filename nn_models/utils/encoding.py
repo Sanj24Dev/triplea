@@ -1,4 +1,4 @@
-from ast import Dict, Tuple
+from typing import Dict, Tuple, List
 import torch
 
 NUM_CHANNELS = 12
@@ -19,7 +19,7 @@ def build_grid_index_ctf():
 
 def get_encoded_state(
         state,
-        grid_index: Dict[str, [Tuple[int, int]]],
+        grid_index: Dict[str, List[Tuple[int, int]]],
         grid_shape: Tuple[int, int],
         victory_cities: set,
         territory_production: Dict[str, float],
@@ -62,11 +62,11 @@ def get_encoded_state(
                 if unit.unit_type == "Factory":
                     continue
                 total += unit.quantity
-                if unit.type == "infantry":
+                if unit.unit_type == "infantry":
                     infantry += unit.quantity
-                elif unit.type == "artillery":
+                elif unit.unit_type == "artillery":
                     artillery += unit.quantity
-                elif unit.type == "armour":
+                elif unit.unit_type == "armour":
                     armour += unit.quantity
 
             tensor[7, r, c] = total / 10.0
