@@ -1,5 +1,5 @@
 #!/bin/bash
-start_time=$(date +%s)
+
 # load modules needed to run pybind 
 # module purge
 # module load python
@@ -15,8 +15,8 @@ start_time=$(date +%s)
 
 # pip install --user pandas
 
-# export PROJECT_ROOT="/home/sanjana/tripleMind"
-export PROJECT_ROOT="/storage/home/hcoda1/6/snayak89/tripleMind"
+export PROJECT_ROOT="/home/sanjana/tripleMind"
+# export PROJECT_ROOT="/storage/home/hcoda1/6/snayak89/tripleMind"
 
 MODEL_NAME="self_play_model"
 
@@ -28,4 +28,4 @@ rm ../logs/player_5002/Capture\ The\ Flag.log
 rm ../logs/player_5003/Capture\ The\ Flag.log
 
 # run the self play training
-python self_play_training.py > training_log.txt 2>&1
+python3 self_play_training.py > training.log

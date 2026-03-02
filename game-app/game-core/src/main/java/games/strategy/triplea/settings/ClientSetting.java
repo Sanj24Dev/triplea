@@ -257,7 +257,7 @@ public abstract class ClientSetting<T> implements GameSetting<T> {
 
           gameName = extractValue(jsonStr, "DEFAULT_GAME_NAME_PREF", gameName);
           gameUri  = extractValue(jsonStr, "DEFAULT_GAME_URI_PREF", gameUri);
-        //   System.out.println(gameUri);
+          System.out.println(gameUri);
           player_name  = extractValue(jsonStr, "PLAYER_NAME", player_name);
 //      iteration  = extractValue(jsonStr, "ITERATION", iteration);
 

@@ -6,7 +6,7 @@ import time
 from helper import parse_triplea_map
 
 # ---------- GLOBAL ENV VARS ----------
-os.environ["PROJECT_ROOT"] = "/storage/home/hcoda1/6/snayak89/tripleMind"
+os.environ["PROJECT_ROOT"] = "/home/sanjana/tripleMind"
 os.environ["GAMES_TO_PLAY"] = "1"
 
 os.environ["PLAYER_1"] = "startup.PlayerTypes.PLAYER_TYPE_AI_TRIPLE_MIND_LABEL"
@@ -26,7 +26,7 @@ OUTCOME_REC = f"{MODEL_NAME}/metrics/game_outcome"
 QUALITY_REC = f"{MODEL_NAME}/metrics/combat_quality"
 ROLLOUT_REC = f"{MODEL_NAME}/metrics/rollout_efficiency"
 
-NUM_GAMES = 1
+NUM_GAMES = 20
 
 
 def start_agent(player_name, port):
