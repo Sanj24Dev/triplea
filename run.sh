@@ -16,16 +16,20 @@ start_time=$(date +%s)
 # pip install --user pandas
 
 # export PROJECT_ROOT="/home/sanjana/tripleMind"
-export PROJECT_ROOT="/storage/home/hcoda1/6/snayak89/tripleMind"
+# export PROJECT_ROOT="/storage/home/hcoda1/6/snayak89/tripleMind"
+
+# source torch_env/bin/activate
 
 MODEL_NAME="self_play_model"
 
 rm -f $MODEL_NAME/metrics/*
 rm -f $MODEL_NAME/player_logs/*
+rm -f $MODEL_NAME/profiles/*
+rm -f $MODEL_NAME/profiling/*
 rm ../logs/player_5000/Capture\ The\ Flag.log
 rm ../logs/player_5001/Capture\ The\ Flag.log
 rm ../logs/player_5002/Capture\ The\ Flag.log
 rm ../logs/player_5003/Capture\ The\ Flag.log
 
 # run the self play training
-python self_play_training.py > training_log.txt 
+python -u self_play_training.py > training_log.txt 

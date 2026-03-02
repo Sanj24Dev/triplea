@@ -108,6 +108,37 @@ class PolicyValueNet(nn.Module):
             v = self.value_fc(self.value_conv(x))
         return v.item()
     
+    def forward(self, state_tensors, move_features_batch, mask=None):
+        # Shared tower
+        x = self.input_conv(state_tensors)       # (B, filters, H, W)
+        x = self.res_blocks(x)                   # (B, filters, H, W)
+
+        # State embedding — (B, 128)
+        emb = self.state_embedding_fc(self.policy_conv(x))  # (B, 128)
+
+        # Expand embedding to match number of moves
+        N = move_features_batch.shape[1]
+        emb_expanded = emb.unsqueeze(1).expand(-1, N, -1)   # (B, N, 128)
+
+        # Concatenate state embedding with move features
+        combined = torch.cat([emb_expanded, move_features_batch], dim=-1)  # (B, N, 128+move_feat_dim)
+
+        # Score each move
+        scores = self.move_scorer(combined).squeeze(-1)      # (B, N)
+
+        # Mask padding before softmax
+        if mask is not None:
+            scores = scores.masked_fill(~mask, float("-inf"))
+
+        log_p = F.log_softmax(scores, dim=-1)               # (B, N)
+
+        # Value head
+        v = self.value_fc(self.value_conv(x)).squeeze(-1)    # (B,)
+
+        return log_p, v
+
+
+
     # def forward(self, x):
     #     x = self.input_conv(x)
     #     x = self.res_blocks(x)

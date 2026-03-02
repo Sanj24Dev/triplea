@@ -93,14 +93,14 @@ def move_to_id(move):
 
     return id
 
-# def id_to_move(id):
-#     global COMBAT_MOVE_DICT
-#     move = None
-#     k = None
-#     for key, val in COMBAT_MOVE_DICT.items():
-#         if val == id:
-#             k = key
-#             break
-#     # if k is not None:
-#     #     move = Move()
-#     return k
+def id_to_move(id):
+    global COMBAT_MOVE_DICT
+    move = None
+    k = None
+    for key, val in COMBAT_MOVE_DICT.items():
+        if val == id:
+            k = key
+            break
+    # if k is not None:
+    #     move = Move()
+    return k

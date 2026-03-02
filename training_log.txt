@@ -1,10 +1,15 @@
 Data successfully extracted and saved to gameInfo/Capture The Flag.json
-Started MCTS agents
+
+Starting Game 1
 Game 1 finished.
-Process 1865883 exited cleanly.
-Process 1865884 exited cleanly.
-Process 1865885 did not exit in 5s. Terminating...
-Process 1865885 terminated gracefully.
-Process 1865886 did not exit in 5s. Terminating...
-Process 1865886 terminated gracefully.
-Started MCTS agents
+Process 1177701 exited cleanly.
+lsof -i:5000 => 
+Process 1177702 exited cleanly.
+lsof -i:5001 => 
+Process 1177703 exited cleanly.
+lsof -i:5002 => 
+Process 1177704 did not exit in 5s. Terminating...
+Process 1177704 terminated gracefully.
+lsof -i:5003 => 
+Time taken: 1159 seconds
+<Popen: returncode: -15 args: ['python3', '-u', 'trainer.py']> ended

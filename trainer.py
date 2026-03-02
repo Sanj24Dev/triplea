@@ -13,7 +13,7 @@ class SelfPlayTrainer():
     def __init__(self, net,
                 #  mcts_factory, state_factory,
                 buffer, save_dir="self_play_model/checkpoints/cnn", device="cpu", 
-                lr=1e-3, weight_decay=1e-4, batch_size=64, 
+                lr=1e-3, weight_decay=1e-4, batch_size=32, 
                 epochs_per_iter=5, self_play_games=20, num_iterations=100,
                 temp_threshold=15
                 ):
@@ -51,7 +51,7 @@ class SelfPlayTrainer():
 
     def load_checkpoint(self, path):
         ckpt = torch.load(path, map_location=self.device)
-        self.net.load_state_dict(ckpt["model_state_dict"])
+        self.net.load_state_dict(ckpt["model_state_dict"], strict=False)
         self.optimizer.load_state_dict(ckpt["optimizer_state_dict"])
         self.history = ckpt.get("history", [])
         print(f"  [Checkpoint] loaded ← {path}")
@@ -59,8 +59,14 @@ class SelfPlayTrainer():
  
     def self_play_iteration(self, iteration):
         ckpt_path = os.path.join(self.save_dir, "latest.pt")
-        torch.save(self.net.state_dict(), ckpt_path)
-        print(f"Iter {iteration} weights pushed")
+        torch.save({
+            "iteration": iteration,
+            "model_state_dict": self.net.state_dict(),
+            "optimizer_state_dict": self.optimizer.state_dict(),
+            "history": self.history,
+        }, ckpt_path)
+        print(f"Iter {iteration} weights pushed → {ckpt_path}")
+
 
     def train_epoch(self):
         self.net.train()
@@ -89,7 +95,7 @@ class SelfPlayTrainer():
         total_value_loss = 0.0
         n_batches = 0
 
-        for state_tensors, move_features_batch, probs, zs in loader:
+        for state_tensors, move_features_batch, probs, zs, mask in loader:
             state_tensors = state_tensors.to(self.device)
             move_features_batch = move_features_batch.to(self.device)
             probs = probs.to(self.device)

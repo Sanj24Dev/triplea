@@ -12,3 +12,11 @@ elif isinstance(data, list):
     print("Length:", len(data))
 
 pprint(data)
+
+
+# import torch
+
+# ckpt = torch.load("self_play_model/checkpoints/cnn/latest.pt", map_location="cpu")
+
+# print(type(ckpt))
+# print(ckpt.keys())

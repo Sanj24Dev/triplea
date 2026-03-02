@@ -9,6 +9,7 @@ import torch
 @dataclass
 class SelfPlayExample:
     state_tensor: np.ndarray
+    move_feats: np.ndarray
     pi: np.ndarray
     z: float
 
@@ -37,6 +38,7 @@ class SelfPlayDataset(Dataset):
         ex = self.examples[idx]
         return (
             torch.tensor(ex.state_tensor, dtype=torch.float32),
+            torch.tensor(np.array(ex.move_feats), dtype=torch.float32),
             torch.tensor(ex.pi, dtype=torch.float32),
             torch.tensor(ex.z, dtype=torch.float32),
         )

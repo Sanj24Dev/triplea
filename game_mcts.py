@@ -45,7 +45,11 @@ def agent_loop(host="127.0.0.1", port=5000):
     grid_shape = (9,9)
     agent = PolicyGuidedMCTS(model_name, port, net, efficiency_file, quality_file, ctf.production_rules, ctf.territory_production, ctf.victory_cities, ctf.G, turn_order, grid_index, grid_shape)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    # try:
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     sock.bind((host, port))
+    # except Exception as e:
+    #     print(f"for {port}: {e}")
     sock.listen(1)
     # print(f"Server listening on {host}:{port}")
     log_message(port, f"Server started on {host}:{port}")
@@ -62,6 +66,7 @@ def agent_loop(host="127.0.0.1", port=5000):
     player_info.log(ctf.game_num, port, my_player)
     log_message(port, f"Game {ctf.game_num} Player {my_player} Role assigned")
     print(f"Game {ctf.game_num} Player {my_player} Role assigned")
+    agent._sync_weights()
 
     try:
         # print("Waiting for accept()")
@@ -106,6 +111,7 @@ def agent_loop(host="127.0.0.1", port=5000):
                             # response = []
                         elif msg.startswith("[INFO]") and "stopped" in msg: 
                             if my_player in msg:
+                                print("I Won!")
                                 agent.pu_after_combat = ctf.players[ctf.whoAmI].PU
                                 agent.terr_after_combat = sum(1 for t in ctf.territories.values() if t.owner == ctf.whoAmI)
                                 agent.combat_quality.log(ctf.game_num, ctf.round, agent.pu_after_combat, agent.terr_after_combat)
@@ -127,7 +133,6 @@ def agent_loop(host="127.0.0.1", port=5000):
                                 os.remove(FORFEIT_FLAG)
                             
                             # time.sleep(5)
-                            print("Game ended")
                             sock.close()
                             time.sleep(1)
                             exit(0)

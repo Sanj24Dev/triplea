@@ -17,7 +17,7 @@ import torch
 from helper import convert_purchase_to_json, convert_multi_front_combat_to_json, convert_multi_front_noncombat_to_json, get_combat_action_ids
 from ctf_graph import Territory, Player, MetricLogger, FACTORY_MAP, Unit
 from nn_models.utils.encoding import get_encoded_state
-from nn_models.utils.move_db import update_combat_dict, move_to_id
+from nn_models.utils.move_db import update_combat_dict, move_to_id, id_to_move
 from nn_models.data.self_play_data import SelfPlayExample
 
 game_rules = None
@@ -1161,7 +1161,7 @@ class PolicyGuidedMCTS:
         self.episode_examples = []   # current game examples
         self.last_pi = []            # set after each mcts_search
         self.shared_buffer_path = f"{model_name}/checkpoints/cnn/shared_buffer.pkl"
-        self.weight_path = "{model_name}/checkpoints/cnn/latest.pt"
+        self.weight_path = f"{model_name}/checkpoints/cnn/latest.pt"
         self.games_played = 0
         self.whoAmI = None
         
@@ -1233,7 +1233,7 @@ class PolicyGuidedMCTS:
                     # img_file = f"{self.model_name}/combat_moves/graph_{ctf.game_num}_{round}.png"
                     # ctf.fig.savefig(img_file, dpi=300, bbox_inches="tight")
 
-                    profile_name = f"{self.model_name}/profiles/mcts_{ctf.game_num}_"
+                    profile_name = f"{self.model_name}/profiles/mcts_{self.port}_{ctf.game_num}_"
                     if ctf.round < 10:
                         profile_name += "0"
                     profile_name += round + ".prof"
@@ -1241,9 +1241,15 @@ class PolicyGuidedMCTS:
 
                     # action_ids = get_combat_action_ids(action)
                     pi = self.last_pi
+                    move_feats = []
+                    move_pi = []
+                    for move, prob in self.last_pi:
+                        move_feats.append(self.encode_move_features(move, current_state))
+                        move_pi.append(prob)
                     self.episode_examples.append({
                         "state": state_tensor.numpy(),
-                        "pi": pi,
+                        "move_feats": move_feats,
+                        "pi": move_pi,
                         "player": self.whoAmI,
                         "z": None
                     })
@@ -1308,6 +1314,11 @@ class PolicyGuidedMCTS:
                 new_state.heuristic_combat_legal_moves(self.time_budget)
                 update_combat_dict(new_state.actions)
                 aid = move_to_id(nextAction)
+                existing = next((c for c in node.children if c.action_id == aid), None)
+                if existing:
+                    node = existing
+                    continue
+
                 prior = 1.0
                 child = P_MCTSNode(state=new_state, parent=node, 
                                  action=nextAction, prior=prior, action_id=aid)
@@ -1399,7 +1410,7 @@ class PolicyGuidedMCTS:
         
         total_visits = sum(c.visits for c in root.children)
         self.last_pi = [
-            (c.action_id, c.visits / total_visits)
+            (c.action, c.visits / total_visits)
             for c in root.children
             if total_visits > 0
         ]
@@ -1408,10 +1419,10 @@ class PolicyGuidedMCTS:
 
     
     def profile_mcts(self, initial_state, file):
-        # import cProfile
-        # with cProfile.Profile() as pr:
-        result = self.mcts_search(initial_state)
-        # pr.dump_stats(file)
+        import cProfile
+        with cProfile.Profile() as pr:
+            result = self.mcts_search(initial_state)
+        pr.dump_stats(file)
         return result
 
 
@@ -1473,6 +1484,7 @@ class PolicyGuidedMCTS:
         completed = [
             SelfPlayExample(
                 state_tensor=ex["state"],
+                move_feats=ex["move_feats"],
                 pi=ex["pi"],
                 z=z if ex["player"] == self.whoAmI else -z
             )
@@ -1508,7 +1520,7 @@ class PolicyGuidedMCTS:
     def _sync_weights(self):
         if os.path.exists(self.weight_path):
             self.net.load_state_dict(
-                torch.load(self.weight_path, map_location=self.device)
+                torch.load(self.weight_path, map_location=self.device), strict=False
             )
             print(f"[{self.whoAmI}] Synced weights")
     

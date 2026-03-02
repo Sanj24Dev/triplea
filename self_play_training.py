@@ -6,7 +6,7 @@ import time
 from helper import parse_triplea_map
 
 # ---------- GLOBAL ENV VARS ----------
-os.environ["PROJECT_ROOT"] = "/storage/home/hcoda1/6/snayak89/tripleMind"
+os.environ["PROJECT_ROOT"] = "/home/sanjana/tripleMind"
 os.environ["GAMES_TO_PLAY"] = "1"
 
 os.environ["PLAYER_1"] = "startup.PlayerTypes.PLAYER_TYPE_AI_TRIPLE_MIND_LABEL"
@@ -27,7 +27,7 @@ OUTCOME_REC = f"{MODEL_NAME}/metrics/game_outcome"
 QUALITY_REC = f"{MODEL_NAME}/metrics/combat_quality"
 ROLLOUT_REC = f"{MODEL_NAME}/metrics/rollout_efficiency"
 
-NUM_GAMES = 5
+NUM_GAMES = 50
 
 
 def start_agent(player_name, port):
@@ -48,7 +48,6 @@ def start_agent(player_name, port):
         stderr=log,
     )
 
-
 def kill_process(proc):
     if proc and proc.poll() is None:
         proc.terminate()
@@ -56,9 +55,17 @@ def kill_process(proc):
             proc.wait(timeout=5)
         except subprocess.TimeoutExpired:
             proc.kill()
+    print(f"{proc} ended")
 
+def who_is_using_port(port):
+    result = subprocess.run(
+        ["lsof", "-i", f":{port}"],
+        capture_output=True,
+        text=True
+    )
+    print(f"lsof -i:{port} => {result.stdout}")
 
-def stop_process(proc, timeout=5):
+def stop_process(proc, port, timeout=5):
     try:
         # First wait politely
         proc.wait(timeout=timeout)
@@ -75,6 +82,87 @@ def stop_process(proc, timeout=5):
             proc.kill()  # sends SIGKILL
             proc.wait()
             print(f"Process {proc.pid} killed.")
+    
+    who_is_using_port(port)
+
+
+import pstats
+import csv
+import glob
+import pandas as pd
+
+main_folder = "self_play_model"
+PROF_GLOB = f"{main_folder}/profiles/mcts_*.prof"
+TARGET_FILE = "combat_policy_mcts_agent.py"
+CSV_OUTPUT = f"{main_folder}/profiling/profile_data.csv"
+
+per_profile = {}
+
+def analyze_prof_file(fname):
+    p = pstats.Stats(fname)
+    p.strip_dirs()
+
+    profile_name = fname
+    per_profile[profile_name] = {}
+
+    for func, stat in p.stats.items():
+        file, line, name = func
+        if TARGET_FILE in file:
+            cc, nc, tt, ct, callers = stat
+
+            key = f"{name}:{line}"
+            # NEW: per profile stats
+            per_profile[profile_name][key] = {
+                "tottime": tt,
+                "cumtime": ct
+            }
+    per_profile[profile_name]["__total_time__"] = p.total_tt
+
+
+def save_profile():
+    global per_profile
+    per_profile = {}
+    records = []
+    profiles = sorted(glob.glob(PROF_GLOB))
+    for prof in profiles:
+        analyze_prof_file(prof)
+        total_time = per_profile[prof].get("__total_time__", None)
+        for func_key, t_dict in per_profile[prof].items():
+            # Skip metadata entries
+            if not isinstance(t_dict, dict):
+                continue
+            
+            # Extract function name without line number
+            func_name = func_key.split(":")[0]
+
+            records.append({
+                "profile": prof,
+                "func_name": func_name,
+                "time": t_dict["tottime"],   # Use cumtime for plotting total cost
+                "total_time": total_time
+            })
+        try:
+            os.remove(prof)
+        except Exception as e:
+            print(e)
+
+    if not records:
+        return
+
+    df = pd.DataFrame(records)
+    # df.sort_values("time", ascending=False, inplace=True)
+    file_exists = os.path.isfile(CSV_OUTPUT)
+
+    df.to_csv(
+        CSV_OUTPUT,
+        mode="a",
+        header=not file_exists,   # only write header if file doesn't exist
+        index=False
+    )
+
+    print("Profile records saved")
+
+
 
 start_time = time.time()
 
@@ -100,26 +188,28 @@ for i in range(1, NUM_GAMES + 1):
     p3 = start_agent("Germans", 5002)
     p4 = start_agent("Chinese", 5003)
 
-    print("Started MCTS agents")
+    print(f"\nStarting Game {i}")
     time.sleep(5)
 
     log = open(f"{MODEL_NAME}/player_logs/game.log", "w")
     subprocess.run(["python3", "play_game.py"], stdout=log, stderr=log)
 
     print(f"Game {i} finished.")
+    time.sleep(5)
 
 
-    stop_process(p1)
-    stop_process(p2)
-    stop_process(p3)
-    stop_process(p4)
+    stop_process(p1, 5000)
+    stop_process(p2, 5001)
+    stop_process(p3, 5002)
+    stop_process(p4, 5003)
 
     time.sleep(5)
+    save_profile()
     # kill_process(p1)
     # kill_process(p2)
     # kill_process(p3)
     # kill_process(p4)
 
 elapsed = time.time() - start_time
-print(f"Time taken: {int(elapsed)} seconds")
+print(f"\nTime taken: {int(elapsed)} seconds")
 kill_process(pt)
