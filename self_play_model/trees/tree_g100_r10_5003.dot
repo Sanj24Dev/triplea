@@ -1,0 +1,31 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=508\navg=0.059\np=1.000"];
+  n1 [label="#1\nvis=508\navg=0.059\np=1.000"];
+  n2 [label="#2\nvis=151\navg=0.053\np=0.326"];
+  n3 [label="#3\nvis=170\navg=0.058\np=0.340"];
+  n4 [label="#4\nvis=187\navg=0.065\np=0.335"];
+  n5 [label="#5\nvis=50\navg=0.052\np=0.333"];
+  n6 [label="#6\nvis=50\navg=0.052\np=0.338"];
+  n7 [label="#7\nvis=50\navg=0.054\np=0.329"];
+  n8 [label="#8\nvis=56\navg=0.057\np=0.333"];
+  n9 [label="#9\nvis=57\navg=0.058\np=0.338"];
+  n10 [label="#10\nvis=57\navg=0.059\np=0.329"];
+  n11 [label="#11\nvis=62\navg=0.065\np=0.333"];
+  n12 [label="#12\nvis=63\navg=0.065\np=0.338"];
+  n13 [label="#13\nvis=62\navg=0.066\np=0.329"];
+  n0 -> n1 [label="RussianStartRight | "];
+  n1 -> n2 [label="ChineseStepTwo | 4x armour, 7x artillery"];
+  n1 -> n3 [label="ChineseStepTwo | 4x armour"];
+  n1 -> n4 [label="ChineseStepTwo | "];
+  n2 -> n5 [label="BottomBar | 1x armour, 4x artillery"];
+  n2 -> n6 [label="BottomBar | 1x armour"];
+  n2 -> n7 [label="BottomBar | "];
+  n3 -> n8 [label="BottomBar | 1x armour, 4x artillery"];
+  n3 -> n9 [label="BottomBar | 1x armour"];
+  n3 -> n10 [label="BottomBar | "];
+  n4 -> n11 [label="BottomBar | 1x armour, 4x artillery"];
+  n4 -> n12 [label="BottomBar | 1x armour"];
+  n4 -> n13 [label="BottomBar | "];
+}

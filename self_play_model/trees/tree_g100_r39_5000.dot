@@ -1,0 +1,25 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=8\navg=0.101\np=1.000"];
+  n1 [label="#1\nvis=8\navg=0.101\np=1.000"];
+  n2 [label="#2\nvis=2\navg=0.108\np=0.326"];
+  n3 [label="#3\nvis=3\navg=0.095\np=0.342"];
+  n4 [label="#4\nvis=3\navg=0.104\np=0.332"];
+  n5 [label="#5\nvis=1\navg=0.105\np=0.475"];
+  n6 [label="#6\nvis=0\navg=0.000\np=0.525"];
+  n7 [label="#7\nvis=1\navg=0.091\np=0.475"];
+  n8 [label="#8\nvis=2\navg=0.096\np=0.525"];
+  n9 [label="#9\nvis=1\navg=0.100\np=0.475"];
+  n10 [label="#10\nvis=2\navg=0.106\np=0.525"];
+  n0 -> n1 [label="ChineseStepOne | "];
+  n1 -> n2 [label="RightBar | 4x armour, 4x artillery, 20x infantry"];
+  n1 -> n3 [label="RightBar | 4x armour, 4x artillery"];
+  n1 -> n4 [label="RightBar | "];
+  n2 -> n5 [label="LeftBar | 41x armour"];
+  n2 -> n6 [label="LeftBar | "];
+  n3 -> n7 [label="LeftBar | 41x armour"];
+  n3 -> n8 [label="LeftBar | "];
+  n4 -> n9 [label="LeftBar | 41x armour"];
+  n4 -> n10 [label="LeftBar | "];
+}

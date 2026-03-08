@@ -76,6 +76,8 @@ def move_to_id(move):
     global COMBAT_MOVE_DICT
     id = -1
     atks = []
+    if move.end_phase == True:
+        return id
     for attack in move.moves:
         atks.append({
             "from": str(attack.from_territory),

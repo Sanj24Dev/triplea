@@ -103,7 +103,7 @@ def save_mcts_tree_png(root, out_prefix, max_nodes=500):
         for n in nodes:
             nid = node_id[id(n)]
             avg = (n.value / n.visits) if n.visits else 0.0
-            label = f"#{nid}\\nvis={n.visits}\\navg={avg:.3f}"
+            label = f"#{nid}\\nvis={n.visits}\\navg={avg:.3f}\\np={n.prior:.3f}"
             f.write(f'  n{nid} [label="{label}"];\n')
 
         for a, b, act in edges:
@@ -787,6 +787,7 @@ class MCTSGameState:
                     self.actions.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=unitSet, strength=strength))
 
                 # Always include option to skip attack on this territory
+                # control comes here when the terr is reachable but strength of all attack combo is < 35% of the defender
                 self.actions.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=[]))
 
                 self.excluded.add(enemy_territory_name)
@@ -1118,7 +1119,7 @@ class MCTSGameState:
 
 class P_MCTSNode:
     # __slots__ = ["state", "parent", "action", "action_id", "children", "visits", "value", "prior"]
-    def __init__(self, state, parent=None, action=None, prior=0.0, action_id=0):
+    def __init__(self, state, parent=None, action=None, prior=1.0, action_id=0):
         self.state = state
         self.parent = parent
         self.action = action
@@ -1160,7 +1161,7 @@ class PolicyGuidedMCTS:
         self.latest_legal_moves = []
         self.episode_examples = []   # current game examples
         self.last_pi = []            # set after each mcts_search
-        self.shared_buffer_path = f"{model_name}/checkpoints/cnn/shared_buffer.pkl"
+        self.shared_buffer_path = f"{model_name}/checkpoints/cnn/shared_buffer_{port}.pkl"
         self.weight_path = f"{model_name}/checkpoints/cnn/latest.pt"
         self.games_played = 0
         self.whoAmI = None
@@ -1307,30 +1308,40 @@ class PolicyGuidedMCTS:
     def select(self, init_node):
         node = init_node
         while not node.is_terminal():
-            nextAction = node.state.getNextAction()
-            if nextAction is not None and nextAction.end_phase != True:
-                new_state = node.state.clone()
-                new_state.apply_combat_move([nextAction])
-                new_state.heuristic_combat_legal_moves(self.time_budget)
-                update_combat_dict(new_state.actions)
-                aid = move_to_id(nextAction)
-                existing = next((c for c in node.children if c.action_id == aid), None)
-                if existing:
-                    node = existing
-                    continue
-
-                prior = 1.0
-                child = P_MCTSNode(state=new_state, parent=node, 
-                                 action=nextAction, prior=prior, action_id=aid)
-                node.children.append(child)
-                return child
-            elif node.children != []: # All actions tried, select best child using UCB1
+            if not node.is_fully_expanded():
+                return node
+            elif node.children != []:
                 bestChild = node.best_child_puct(self.c_puct)
                 if bestChild is None:
                     return node
                 node = bestChild
             else:
                 return node
+            # nextAction = node.state.getNextAction()
+            # if nextAction is not None and nextAction.end_phase != True:
+            #     new_state = node.state.clone()
+            #     new_state.apply_combat_move([nextAction])
+            #     new_state.heuristic_combat_legal_moves(self.time_budget)
+            #     update_combat_dict(new_state.actions)
+            #     aid = move_to_id(nextAction)
+            #     existing = next((c for c in node.children if c.action_id == aid), None)
+            #     if existing:
+            #         node = existing
+            #         continue
+
+            #     priors = self.get_priors(new_state, new_state.actions)
+            #     prior = priors.get(aid, 1e-6)
+            #     child = P_MCTSNode(state=new_state, parent=node, 
+            #                      action=nextAction, prior=prior, action_id=aid)
+            #     node.children.append(child)
+            #     return child
+            # elif node.children != []: # All actions tried, select best child using UCB1
+            #     bestChild = node.best_child_puct(self.c_puct)
+            #     if bestChild is None:
+            #         return node
+            #     node = bestChild
+            # else:
+            #     return node
         return node
     
     def expand(self, node, actions):
@@ -1343,15 +1354,16 @@ class PolicyGuidedMCTS:
                 priors[aid] = (1 - self.dirichlet_eps) * priors[aid] + self.dirichlet_eps * noise[i]
 
         for i, action in enumerate(actions):
-            aid = move_to_id(action)
-            prior = priors.get(aid, 1e-6)
-            new_state = node.state.clone()
-            new_state.apply_combat_move([action])
-            new_state.heuristic_combat_legal_moves(self.time_budget)
-            update_combat_dict(new_state.actions)
-            child = P_MCTSNode(state=new_state, parent=node, 
-                                 action=action, prior=prior, action_id=aid)
-            node.children.append(child)
+            if action.end_phase != True:
+                aid = move_to_id(action)
+                prior = priors.get(aid, 1e-6)
+                new_state = node.state.clone()
+                new_state.apply_combat_move([action])
+                new_state.heuristic_combat_legal_moves(self.time_budget)
+                update_combat_dict(new_state.actions)
+                child = P_MCTSNode(state=new_state, parent=node, 
+                                    action=action, prior=prior, action_id=aid)
+                node.children.append(child)
 
         node.untried_actions = []
 
@@ -1381,22 +1393,50 @@ class PolicyGuidedMCTS:
         self.iteration = 0
         while time.time() - start_time < self.time_budget:
             self.iteration += 1
+
             selected_node = self.select(root)
+
+            if not selected_node.is_terminal():
+                # selected_node.state.heuristic_combat_legal_moves(self.time_budget)
+                # update_combat_move_dict(selected_node.state.actions)
+                if selected_node.state.actions and not selected_node.is_fully_expanded():
+                    # print(f"Iter {self.iteration} Actions: {selected_node.state.actions}")
+                    self.expand(selected_node, selected_node.state.actions)
+                    if selected_node.children:
+                        selected_node = selected_node.children[0]
+
             reward = self.simulate(selected_node.state)
+
             self.backpropagate(selected_node, reward)
         
         # print(f"MCTS ran {self.iteration} iterations in {self.time_budget}s")
         # print(f"Root node visits: {root.visits}")
 
-        # tree_prefix = f"{self.model_name}/trees/tree_g{root.state.game_num}_r{root.state.round}_{self.port}"
-        # os.makedirs(os.path.dirname(tree_prefix), exist_ok=True)
-        # dot_file, png_file = save_mcts_tree_png(root, tree_prefix, max_nodes=500)
+        tree_prefix = f"{self.model_name}/trees/tree_g{root.state.game_num}_r{root.state.round}_{self.port}"
+        os.makedirs(os.path.dirname(tree_prefix), exist_ok=True)
+        dot_file, png_file = save_mcts_tree_png(root, tree_prefix, max_nodes=500)
         # print("Saved tree:", dot_file, png_file)
 
         action_seq = []
         node = root
         while node.children != []:
-            best_child = max(node.children, key=lambda c: c.visits)
+            # best_child = max(node.children, key=lambda c: c.visits)
+            max_visits = max(c.visits for c in node.children)
+            best_children = [c for c in node.children if c.visits == max_visits]
+            
+            if len(best_children) == 1:
+                best_child = best_children[0]
+            else:
+                # Tiebreak 1: Q value (avg value = value/visits)
+                max_q = max(c.value / max(c.visits, 1) for c in best_children)
+                best_q = [c for c in best_children if c.value / max(c.visits, 1) == max_q]
+                
+                if len(best_q) == 1:
+                    best_child = best_q[0]
+                else:
+                    # Tiebreak 2: prior
+                    best_child = max(best_q, key=lambda c: c.prior)
+
             if best_child is None:
                 break
             if best_child.action.moves is not None and best_child.action.end_phase == False and best_child.action.strength != 0:
@@ -1486,7 +1526,7 @@ class PolicyGuidedMCTS:
                 state_tensor=ex["state"],
                 move_feats=ex["move_feats"],
                 pi=ex["pi"],
-                z=z if ex["player"] == self.whoAmI else -z
+                z=z
             )
             for ex in self.episode_examples
             if ex["pi"]  # skip if no pi recorded

@@ -40,7 +40,7 @@ def log_message(port, message):
 
 def agent_loop(host="127.0.0.1", port=5000):
     turn_order = ["Russians", "Italians", "Germans", "Chinese"]
-    net = PolicyValueNet(in_channels=12, grid_shape=(9,9), num_filters=64, num_res_blocks=5)
+    net = PolicyValueNet(in_channels=11, grid_shape=(9,9), num_filters=64, num_res_blocks=5)
     grid_index = build_grid_index_ctf()
     grid_shape = (9,9)
     agent = PolicyGuidedMCTS(model_name, port, net, efficiency_file, quality_file, ctf.production_rules, ctf.territory_production, ctf.victory_cities, ctf.G, turn_order, grid_index, grid_shape)
@@ -66,6 +66,7 @@ def agent_loop(host="127.0.0.1", port=5000):
     player_info.log(ctf.game_num, port, my_player)
     log_message(port, f"Game {ctf.game_num} Player {my_player} Role assigned")
     print(f"Game {ctf.game_num} Player {my_player} Role assigned")
+    # always plays with the latest
     agent._sync_weights()
 
     try:
@@ -111,17 +112,20 @@ def agent_loop(host="127.0.0.1", port=5000):
                             # response = []
                         elif msg.startswith("[INFO]") and "stopped" in msg: 
                             if my_player in msg:
-                                print("I Won!")
-                                agent.pu_after_combat = ctf.players[ctf.whoAmI].PU
-                                agent.terr_after_combat = sum(1 for t in ctf.territories.values() if t.owner == ctf.whoAmI)
-                                agent.combat_quality.log(ctf.game_num, ctf.round, agent.pu_after_combat, agent.terr_after_combat)
                                 ctf.game_outcome_metric.log(ctf.game_num, ctf.round, my_player)
                                 log_message(port, f"Game {ctf.game_num} Round {ctf.round} Outcome: Won")
                             else:
                                 log_message(port, f"Game {ctf.game_num} Round {ctf.round} Outcome: lost")
+                            
+                            agent.pu_after_combat = ctf.players[ctf.whoAmI].PU
+                            agent.terr_after_combat = sum(1 for t in ctf.territories.values() if t.owner == ctf.whoAmI)
+                            agent.combat_quality.log(ctf.game_num, ctf.round, agent.pu_after_combat, agent.terr_after_combat)
                             log_message(port, f"Game {ctf.game_num} ended. Starting next game in 5s.")
                             won = my_player in msg and "lost" not in msg
+                            before = time.time()
                             agent.on_game_end(won)
+                            time_taken_to_save = time.time() - before
+                            log_message(port, f"Time taken to save: {time_taken_to_save}")
                             # reset everything for next game
                             ctf.reset()
                             agent.latest_legal_moves = []   # reset agent memory

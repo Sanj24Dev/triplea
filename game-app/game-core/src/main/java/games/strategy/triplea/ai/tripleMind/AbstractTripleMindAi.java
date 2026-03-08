@@ -113,9 +113,10 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
         System.out.println("No ports found for logging");
         return;
     }
-    for (int port : ports) {
+    ports.parallelStream().forEach(port -> {
       String filename = getLogFileName(port);
       File logFile = new File(filename);
+
       try {
           File parentDir = logFile.getParentFile();
           if (parentDir != null && !parentDir.exists()) {
@@ -124,21 +125,31 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
           if (!logFile.exists()) {
               logFile.createNewFile();
           }
-          try {
-              PrintWriter writer = new PrintWriter(new FileWriter(logFile, true));
-              writer.println("[" + type + "] " + java.time.LocalDateTime.now() + " - " + msg);
-              writer.close();
-          } catch (IOException e) {
-              System.err.println(("Failed to write log: " + e.getMessage()));
+
+          try (PrintWriter writer =
+                  new PrintWriter(new FileWriter(logFile, true))) {
+              writer.println("[" + type + "] " 
+                  + java.time.LocalDateTime.now() 
+                  + " - " + msg);
           }
+
       } catch (Exception e) {
-          System.err.println(("Failed to write log: " + e.getMessage()));
+          System.err.println("Failed to write log: " + e.getMessage());
       }
 
-  //        TripleASocket.sendState("[" + type + "] " + msg);
-      // System.out.println("logging on port " + port);
-      String response = TripleASocket.sendAndRead("[" + type + "] " + msg, port);
-    }
+      if (msg.contains("stopped")) {
+          System.out.println("Winner sent to " + port);
+      }
+
+      try {
+          String response = TripleASocket.sendAndRead(
+              "[" + type + "] " + msg, port);
+      } catch (Exception e) {
+          System.err.println("Socket error on port "
+              + port + ": " + e.getMessage());
+      }
+    });
+
   }
 
   public static String requestMove(String move, String playerName) {
@@ -173,9 +184,9 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
       }
 //        TripleASocket.sendState("[MY_MOVE] " + move);
 //        return "";
-      System.out.println("Request sent: [MY_MOVE] " + move + " on port " + port);
+      // System.out.println("Request sent: [MY_MOVE] " + move + " on port " + port);
       String response = TripleASocket.sendAndRead("[MY_MOVE] " + move, port);
-      System.out.println("Received move: " + response);
+      // System.out.println("Received move: " + response);
       logResponse(response, port);
       return response;
   }

@@ -64,7 +64,7 @@ def count_stopped(filename):
     return False
 
 def start_game():
-    print("Starting new game...\n")
+    print("Starting new game...")
     return subprocess.Popen(["./gradlew", ":game-app:game-headed:run"])
 
 def clean_up_logfile(filename):
@@ -155,8 +155,9 @@ def main():
                 for p in ports:
                     forfeit_score = max(forfeit_score, consec_no_combat(p))
 
-                if rounds > PLAY_ROUNDS or forfeit_score >= FORFEIT_CHECK:
-                    print(f"{PLAY_ROUNDS} rounds completed. Ending game.")
+                # if rounds > PLAY_ROUNDS or forfeit_score >= FORFEIT_CHECK:
+                if rounds > PLAY_ROUNDS:
+                    print(f"{rounds} rounds completed. Ending game.")
                     # for p in ports:
                     #     notify_agent_game_end(host="127.0.0.1", port=p)
                     terminate_game(process)
@@ -191,12 +192,12 @@ def main():
             break
 
         games_played += 1
-        print(f"Completed game {games_played}/{PLAY_GAMES}")
+        print(f"Completed game {games_played}/{PLAY_GAMES}\n")
 
         # Optional cooldown to let ports or files reset
         time.sleep(5)
 
-    print("All games finished.")
+    # print("All games finished.")
 
 if __name__ == "__main__":
     main()

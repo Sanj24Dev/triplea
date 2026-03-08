@@ -1,0 +1,9 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=791\navg=-0.141\np=1.000"];
+  n1 [label="#1\nvis=482\navg=-0.141\np=0.618"];
+  n2 [label="#2\nvis=309\navg=-0.139\np=0.382"];
+  n0 -> n1 [label="ItalianStart | 4x armour, 2x artillery, 2x infantry"];
+  n0 -> n2 [label="ItalianStart | "];
+}

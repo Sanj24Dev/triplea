@@ -9,6 +9,28 @@ import torch.nn.functional as F
 from combat_policy_mcts_agent import P_MCTSNode
 from nn_models.data.self_play_data import SelfPlayExample, SelfPlayDataset
 
+PORT_ENV_VARS = ("PLAYER_1_PORT", "PLAYER_2_PORT", "PLAYER_3_PORT", "PLAYER_4_PORT")
+
+def active_ports():
+    """Collect active AI ports from environment variables."""
+    ports: List[int] = []
+    for k in PORT_ENV_VARS:
+        v = os.getenv(k)
+        if not v:
+            continue
+        try:
+            ports.append(int(v))
+        except ValueError:
+            print(f"[WARN] Ignoring invalid port in {k}={v!r}")
+    # de-dup, stable order
+    seen = set()
+    out = []
+    for p in ports:
+        if p not in seen:
+            out.append(p)
+            seen.add(p)
+    return out
+
 class SelfPlayTrainer():
     def __init__(self, net,
                 #  mcts_factory, state_factory,
@@ -70,23 +92,29 @@ class SelfPlayTrainer():
 
     def train_epoch(self):
         self.net.train()
-        buffer_path = os.path.join(self.save_dir, "shared_buffer.pkl")
-        lock_path = buffer_path + ".lock"
+        ports_active = active_ports()
+        examples = []
+        for p in ports_active:
+            buffer_path = os.path.join(self.save_dir, f"shared_buffer_{p}.pkl")
+            # lock_path = buffer_path + ".lock"
 
-        while os.path.exists(lock_path):
-            time.sleep(0.05)
+            # while os.path.exists(lock_path):
+            #     time.sleep(0.05)
         
-        if not os.path.exists(buffer_path):
-            return 0.0, 0.0
+            if not os.path.exists(buffer_path):
+                continue
 
-        open(lock_path, "w").close()    # lock
-        with open(buffer_path, "rb") as f:
-            examples = pickle.load(f)
-        os.remove(lock_path)            # unlock
+            # open(lock_path, "w").close()    # lock
+            with open(buffer_path, "rb") as f:
+                ex = pickle.load(f)
+            # os.remove(lock_path)            # unlock
+
+            examples.extend(ex)
 
         if len(examples) < self.batch_size:
+            # print(f"  len={len(examples)}")
             return 0.0, 0.0
-        
+                
         self.buffer.add(examples)
         samples = self.buffer.sample(self.batch_size * 10)
         loader = DataLoader(SelfPlayDataset(samples), batch_size=self.batch_size, shuffle=True, num_workers=0, collate_fn=SelfPlayDataset.collate_fn)
@@ -168,7 +196,7 @@ GRID_SHAPE  = (9, 9)
 
 if __name__ == "__main__":
     net = PolicyValueNet(
-        in_channels   = 12,
+        in_channels   = 11,
         grid_shape    = GRID_SHAPE,
         num_filters   = 64,
         num_res_blocks= 5,

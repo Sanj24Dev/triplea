@@ -1,0 +1,13 @@
+Game 2 Player Russians Role assigned
+[Russians] Synced weights
+Exception ignored in atexit callback: <bound method Gcf.destroy_all of <class 'matplotlib._pylab_helpers.Gcf'>>
+Traceback (most recent call last):
+  File "/home/sanjana/tripleMind/triplea/torch_env/lib/python3.12/site-packages/matplotlib/_pylab_helpers.py", line 81, in destroy_all
+    manager.destroy()
+  File "/home/sanjana/tripleMind/triplea/torch_env/lib/python3.12/site-packages/matplotlib/backends/_backend_tk.py", line 636, in destroy
+    delayed_destroy()
+  File "/home/sanjana/tripleMind/triplea/torch_env/lib/python3.12/site-packages/matplotlib/backends/_backend_tk.py", line 626, in delayed_destroy
+    self.window.destroy()
+  File "/usr/lib/python3.12/tkinter/__init__.py", line 2387, in destroy
+    self.tk.call('destroy', self._w)
+_tkinter.TclError: can't invoke "destroy" command: application has been destroyed

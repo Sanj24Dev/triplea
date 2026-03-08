@@ -1,7 +1,7 @@
 from typing import Dict, Tuple, List
 import torch
 
-NUM_CHANNELS = 12
+NUM_CHANNELS = 11
 
 def build_grid_index_ctf():
     grid_index = {
@@ -29,7 +29,7 @@ def get_encoded_state(
     tensor = torch.zeros((NUM_CHANNELS, H, W), dtype=torch.float32)
     
     me = state.current_player
-    my_pu = state.players[me].PU if me in state.players else 0
+    my_pu = state.players[me].PU 
 
     for terr_name, terr in state.territories.items():
         if terr_name not in grid_index:
@@ -74,6 +74,4 @@ def get_encoded_state(
             tensor[9, r, c] = artillery / 10.0
             tensor[10, r, c] = armour / 10.0
 
-    # Ch 11: my PU (broadcasted)
-    tensor[11, :, :] = my_pu / 50.0
     return tensor

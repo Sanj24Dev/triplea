@@ -1,0 +1,15 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=671\navg=0.100\np=1.000"];
+  n1 [label="#1\nvis=671\navg=0.100\np=1.000"];
+  n2 [label="#2\nvis=328\navg=0.103\np=0.461"];
+  n3 [label="#3\nvis=343\navg=0.097\np=0.539"];
+  n4 [label="#4\nvis=153\navg=0.094\np=0.461"];
+  n5 [label="#5\nvis=190\navg=0.099\np=0.539"];
+  n0 -> n1 [label="RussianStart | "];
+  n1 -> n2 [label="ChineseStartRight | 85x infantry"];
+  n1 -> n3 [label="ChineseStartRight | "];
+  n3 -> n4 [label="ChineseStepOne | 85x infantry"];
+  n3 -> n5 [label="ChineseStepOne | "];
+}

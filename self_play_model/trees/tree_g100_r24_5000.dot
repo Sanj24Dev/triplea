@@ -1,0 +1,35 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=489\navg=0.103\np=1.000"];
+  n1 [label="#1\nvis=130\navg=0.104\np=0.264"];
+  n2 [label="#2\nvis=187\navg=0.104\np=0.377"];
+  n3 [label="#3\nvis=172\navg=0.102\np=0.360"];
+  n4 [label="#4\nvis=65\navg=0.103\np=0.500"];
+  n5 [label="#5\nvis=65\navg=0.104\np=0.500"];
+  n6 [label="#6\nvis=61\navg=0.103\np=0.330"];
+  n7 [label="#7\nvis=64\navg=0.104\np=0.340"];
+  n8 [label="#8\nvis=62\navg=0.105\np=0.330"];
+  n9 [label="#9\nvis=56\navg=0.101\np=0.330"];
+  n10 [label="#10\nvis=59\navg=0.102\np=0.341"];
+  n11 [label="#11\nvis=57\navg=0.102\np=0.329"];
+  n12 [label="#12\nvis=32\navg=0.105\np=0.508"];
+  n13 [label="#13\nvis=30\navg=0.104\np=0.492"];
+  n14 [label="#14\nvis=29\navg=0.102\np=0.509"];
+  n15 [label="#15\nvis=28\navg=0.102\np=0.491"];
+  n0 -> n1 [label="ItalianStepOne | 2x armour"];
+  n0 -> n2 [label="ItalianStepOne | 1x armour"];
+  n0 -> n3 [label="ItalianStepOne | "];
+  n1 -> n4 [label="GermanStepTwo | 12x artillery"];
+  n1 -> n5 [label="GermanStepTwo | "];
+  n2 -> n6 [label="GermanStepTwo | 1x armour, 12x artillery"];
+  n2 -> n7 [label="GermanStepTwo | 1x armour"];
+  n2 -> n8 [label="GermanStepTwo | "];
+  n3 -> n9 [label="GermanStepTwo | 1x armour, 12x artillery"];
+  n3 -> n10 [label="GermanStepTwo | 1x armour"];
+  n3 -> n11 [label="GermanStepTwo | "];
+  n8 -> n12 [label="ChineseStepOne | 1x armour"];
+  n8 -> n13 [label="ChineseStepOne | "];
+  n11 -> n14 [label="ChineseStepOne | 1x armour"];
+  n11 -> n15 [label="ChineseStepOne | "];
+}

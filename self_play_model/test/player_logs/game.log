@@ -1,0 +1,124 @@
+Starting a Gradle Daemon (subsequent builds will be faster)
+> Task :game-app:domain-data:compileJava UP-TO-DATE
+> Task :lib:java-extras:compileJava UP-TO-DATE
+> Task :lib:websocket-client:compileJava UP-TO-DATE
+> Task :lib:feign-common:compileJava UP-TO-DATE
+> Task :lib:websocket-server:compileJava UP-TO-DATE
+> Task :lib:websocket-server:processResources NO-SOURCE
+> Task :lib:websocket-server:classes UP-TO-DATE
+> Task :lib:websocket-server:jar UP-TO-DATE
+> Task :game-app:game-relay-server:compileJava UP-TO-DATE
+> Task :game-app:game-relay-server:processResources NO-SOURCE
+> Task :game-app:game-relay-server:classes UP-TO-DATE
+> Task :game-app:game-relay-server:jar UP-TO-DATE
+> Task :lib:xml-reader:compileJava UP-TO-DATE
+> Task :lib:xml-reader:processResources NO-SOURCE
+> Task :lib:xml-reader:classes UP-TO-DATE
+> Task :lib:xml-reader:jar UP-TO-DATE
+> Task :game-app:map-data:compileJava UP-TO-DATE
+> Task :game-app:map-data:processResources NO-SOURCE
+> Task :game-app:map-data:classes UP-TO-DATE
+> Task :game-app:map-data:jar UP-TO-DATE
+> Task :http-clients:lobby-client:compileJava UP-TO-DATE
+> Task :lib:swing-lib:compileJava UP-TO-DATE
+> Task :lib:swing-lib:processResources NO-SOURCE
+> Task :lib:swing-lib:classes UP-TO-DATE
+> Task :lib:swing-lib:jar UP-TO-DATE
+> Task :game-app:game-core:compileJava UP-TO-DATE
+> Task :game-app:game-core:processResources UP-TO-DATE
+> Task :game-app:game-core:classes UP-TO-DATE
+> Task :game-app:game-core:jar UP-TO-DATE
+> Task :game-app:ai:compileJava UP-TO-DATE
+> Task :game-app:ai:processResources NO-SOURCE
+> Task :game-app:ai:classes UP-TO-DATE
+> Task :game-app:ai:jar UP-TO-DATE
+> Task :game-app:domain-data:processResources NO-SOURCE
+> Task :game-app:domain-data:classes UP-TO-DATE
+> Task :game-app:domain-data:jar UP-TO-DATE
+> Task :game-app:game-headed:compileJava UP-TO-DATE
+> Task :game-app:game-headed:processResources UP-TO-DATE
+> Task :game-app:game-headed:classes UP-TO-DATE
+
+> Task :game-app:game-headed:downloadAssets
+Download https://github.com/triplea-game/assets/releases/download/47/game_headed_assets.zip
+
+> Task :http-clients:lobby-client:processResources NO-SOURCE
+> Task :http-clients:lobby-client:classes UP-TO-DATE
+> Task :http-clients:lobby-client:jar UP-TO-DATE
+> Task :lib:feign-common:processResources NO-SOURCE
+> Task :lib:feign-common:classes UP-TO-DATE
+> Task :lib:feign-common:jar UP-TO-DATE
+> Task :lib:java-extras:processResources NO-SOURCE
+> Task :lib:java-extras:classes UP-TO-DATE
+> Task :lib:java-extras:jar UP-TO-DATE
+> Task :lib:websocket-client:processResources NO-SOURCE
+> Task :lib:websocket-client:classes UP-TO-DATE
+> Task :lib:websocket-client:jar UP-TO-DATE
+
+> Task :game-app:game-headed:run
+16:07:38,441 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.5.18
+16:07:38,441 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - No custom configurators were discovered as a service.
+16:07:38,441 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
+16:07:38,442 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
+16:07:38,446 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
+16:07:38,446 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
+16:07:38,452 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 4 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+16:07:38,452 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
+16:07:38,452 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
+16:07:38,452 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+16:07:38,454 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/home/sanjana/tripleMind/triplea/game-app/game-headed/build/resources/main/logback.xml]
+16:07:38,499 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [swingMessage]
+16:07:38,499 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.triplea.debug.Slf4jLogMessageUploader]
+16:07:38,499 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [FILE]
+16:07:38,499 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+16:07:38,502 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@6973b51b - value "/home/sanjana/triplea/triplea.log" substituted for "${user.home}/triplea/triplea.log"
+16:07:38,505 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+16:07:38,525 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - setting totalSizeCap to 10 MB
+16:07:38,526 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - Archive files will be limited to [1 MB] each.
+16:07:38,526 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - No compression will be used
+16:07:38,527 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@447981768 - Will use the pattern triplea-%d{yyyy-MM-dd}.%i.log for the active file
+16:07:38,536 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@43195e57 - The date pattern is 'yyyy-MM-dd' from file name pattern 'triplea-%d{yyyy-MM-dd}.%i.log'.
+16:07:38,536 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@43195e57 - Roll-over at midnight.
+16:07:38,538 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@43195e57 - Setting initial period to 2026-03-06T08:15:38.807Z
+16:07:38,540 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - Active log file name: /home/sanjana/triplea/triplea.log
+16:07:38,541 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - Setting currentFileLength to 4906 for /home/sanjana/triplea/triplea.log
+16:07:38,542 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - File property is set to [/home/sanjana/triplea/triplea.log]
+16:07:38,542 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [console]
+16:07:38,542 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+16:07:38,543 |-WARN in ch.qos.logback.core.ConsoleAppender[console] - This appender no longer admits a layout as a sub-component, set an encoder instead.
+16:07:38,543 |-WARN in ch.qos.logback.core.ConsoleAppender[console] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.
+16:07:38,543 |-WARN in ch.qos.logback.core.ConsoleAppender[console] - See also https://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details
+16:07:38,543 |-INFO in ch.qos.logback.core.ConsoleAppender[console] - BEWARE: Writing to the console can be very slow. Avoid logging to the 
+16:07:38,543 |-INFO in ch.qos.logback.core.ConsoleAppender[console] - console in production environments, especially in high volume systems.
+16:07:38,543 |-INFO in ch.qos.logback.core.ConsoleAppender[console] - See also https://logback.qos.ch/codes.html#slowConsole
+16:07:38,543 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to DEBUG
+16:07:38,543 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [swingMessage] to Logger[ROOT]
+16:07:38,543 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [console] to Logger[ROOT]
+16:07:38,543 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [FILE] to Logger[ROOT]
+16:07:38,544 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.http] to INFO
+16:07:38,544 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@333291e3 - End of configuration.
+16:07:38,544 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@479d31f3 - Registering current configuration as safe fallback point
+16:07:38,544 |-INFO in ch.qos.logback.classic.util.ContextInitializer@1afd44cb - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 92 milliseconds. ExecutionStatus=DO_NOT_INVOKE_NEXT_IF_ANY
+
+16:07:38.670 [main] INFO  o.t.game.client.HeadedGameRunner - Launching game, version: 2.7+00000 
+16:07:38.804 [Thread-5] DEBUG g.s.e.data.gameparser.GameParser - Parsing game XML: /home/sanjana/triplea/downloadedMaps/capture_the_flag/map/games/capture_the_flag.xml
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.4/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 1m 16s
+29 actionable tasks: 2 executed, 27 up-to-date
+Starting new game...
+
+Playing round 0
+Playing round 1
+Playing round 2
+Playing round 3
+Playing round 4
+Playing round 5
+Process ended unexpectedly.
+Completed game 1/1
+All games finished.

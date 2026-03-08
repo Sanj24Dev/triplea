@@ -27,11 +27,11 @@ OUTCOME_REC = f"{MODEL_NAME}/metrics/game_outcome"
 QUALITY_REC = f"{MODEL_NAME}/metrics/combat_quality"
 ROLLOUT_REC = f"{MODEL_NAME}/metrics/rollout_efficiency"
 
-NUM_GAMES = 50
+NUM_GAMES = 100
 
 
 def start_agent(player_name, port):
-    log = open(f"{MODEL_NAME}/player_logs/debug_{port}.log", "w")
+    log = open(f"{MODEL_NAME}/player_logs/debug_{port}.log", "a")
     return subprocess.Popen(
         [
             "python3", "-u", "game_mcts.py",
@@ -65,7 +65,7 @@ def who_is_using_port(port):
     )
     print(f"lsof -i:{port} => {result.stdout}")
 
-def stop_process(proc, port, timeout=5):
+def stop_process(proc, port, timeout=10):
     try:
         # First wait politely
         proc.wait(timeout=timeout)
@@ -90,11 +90,11 @@ import pstats
 import csv
 import glob
 import pandas as pd
+import zipfile
 
-main_folder = "self_play_model"
-PROF_GLOB = f"{main_folder}/profiles/mcts_*.prof"
+PROF_GLOB = f"{MODEL_NAME}/profiles/mcts_*.prof"
 TARGET_FILE = "combat_policy_mcts_agent.py"
-CSV_OUTPUT = f"{main_folder}/profiling/profile_data.csv"
+CSV_OUTPUT = f"{MODEL_NAME}/profiling/profile_data.csv"
 
 per_profile = {}
 
@@ -163,6 +163,35 @@ def save_profile():
     print("Profile records saved")
 
 
+def cleanup():
+    for f in glob.glob(f"{MODEL_NAME}/trees/*"):
+        os.remove(f)
+
+    for f in glob.glob(f"forfeit_*"):
+        os.remove(f)
+
+    print("Cleanup completed")
+
+
+def save_zip(folder_path, zip_path):
+    folder_path = os.path.abspath(folder_path)
+    # zip_path = folder_path.rstrip("/") + ".zip"
+
+    with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as z:
+        for root, dirs, files in os.walk(folder_path):
+            for file in files:
+                if not file.endswith(".png"):
+                    continue
+                full_path = os.path.join(root, file)
+
+                # keeps relative structure inside the zip
+                arcname = os.path.relpath(full_path, folder_path)
+
+                z.write(full_path, arcname)
+    return zip_path
+
+
+
 
 start_time = time.time()
 
@@ -179,10 +208,17 @@ parse_triplea_map(xml_file, output_file)
 pt = None
 with open("trainer.log", "w") as log:
     pt = subprocess.Popen(["python3", "-u", "trainer.py"], stdout=log, stderr=log)
+print(f"Trianer at {pt.pid}")
 
 for i in range(1, NUM_GAMES + 1):
     os.environ["START_GAME_NUM"] = str(i)
 
+    # clear the previously saved trees and flags before starting new game
+    cleanup()
+
+    # doSync = False
+    # if i % 5 == 0:
+    #     doSync = True
     p1 = start_agent("Russians", 5000)
     p2 = start_agent("Italians", 5001)
     p3 = start_agent("Germans", 5002)
@@ -191,7 +227,7 @@ for i in range(1, NUM_GAMES + 1):
     print(f"\nStarting Game {i}")
     time.sleep(5)
 
-    log = open(f"{MODEL_NAME}/player_logs/game.log", "w")
+    log = open(f"{MODEL_NAME}/player_logs/game.log", "a")
     subprocess.run(["python3", "play_game.py"], stdout=log, stderr=log)
 
     print(f"Game {i} finished.")
@@ -205,6 +241,8 @@ for i in range(1, NUM_GAMES + 1):
 
     time.sleep(5)
     save_profile()
+    if i == 1 or i == NUM_GAMES:
+        save_zip(f"{MODEL_NAME}/trees", f"{MODEL_NAME}/trees_g{i}.zip")
     # kill_process(p1)
     # kill_process(p2)
     # kill_process(p3)
@@ -213,3 +251,5 @@ for i in range(1, NUM_GAMES + 1):
 elapsed = time.time() - start_time
 print(f"\nTime taken: {int(elapsed)} seconds")
 kill_process(pt)
+
+# ps aux | grep trainer.py

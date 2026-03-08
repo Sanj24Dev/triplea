@@ -1,0 +1,13 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=699\navg=0.119\np=1.000"];
+  n1 [label="#1\nvis=314\navg=0.119\np=0.445"];
+  n2 [label="#2\nvis=385\navg=0.118\np=0.555"];
+  n3 [label="#3\nvis=204\navg=0.116\np=0.549"];
+  n4 [label="#4\nvis=181\navg=0.121\np=0.451"];
+  n0 -> n1 [label="ChineseBase | 40x armour"];
+  n0 -> n2 [label="ChineseBase | "];
+  n2 -> n3 [label="ChineseStartRight | 1x artillery, 18x infantry, 40x armour"];
+  n2 -> n4 [label="ChineseStartRight | "];
+}

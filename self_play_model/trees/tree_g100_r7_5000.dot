@@ -1,0 +1,23 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=657\navg=0.096\np=1.000"];
+  n1 [label="#1\nvis=170\navg=0.097\np=0.253"];
+  n2 [label="#2\nvis=258\navg=0.098\np=0.380"];
+  n3 [label="#3\nvis=229\navg=0.093\np=0.367"];
+  n4 [label="#4\nvis=84\navg=0.095\np=0.507"];
+  n5 [label="#5\nvis=86\navg=0.100\np=0.493"];
+  n6 [label="#6\nvis=127\navg=0.095\np=0.507"];
+  n7 [label="#7\nvis=131\navg=0.101\np=0.493"];
+  n8 [label="#8\nvis=113\navg=0.090\np=0.507"];
+  n9 [label="#9\nvis=116\navg=0.096\np=0.493"];
+  n0 -> n1 [label="LeftBar | 1x armour, 1x artillery"];
+  n0 -> n2 [label="LeftBar | 1x armour"];
+  n0 -> n3 [label="LeftBar | "];
+  n1 -> n4 [label="RussianStepOne | 3x armour"];
+  n1 -> n5 [label="RussianStepOne | "];
+  n2 -> n6 [label="RussianStepOne | 3x armour"];
+  n2 -> n7 [label="RussianStepOne | "];
+  n3 -> n8 [label="RussianStepOne | 3x armour"];
+  n3 -> n9 [label="RussianStepOne | "];
+}

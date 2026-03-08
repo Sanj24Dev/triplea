@@ -1,0 +1,10 @@
+Data successfully extracted and saved to gameInfo/Capture The Flag.json
+
+Starting Game 1
+Game 1 finished.
+Process 103281 did not exit in 5s. Terminating...
+Process 103281 terminated gracefully.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 2

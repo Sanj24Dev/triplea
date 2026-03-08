@@ -195,6 +195,12 @@ public class HeadedLaunchAction implements LaunchAction {
 
   @Override
   public boolean promptGameStop(String status, String title, @Nullable Path mapLocation) {
+    try {
+        System.out.println("Waiting before shutdown to flush winner messages...");
+        Thread.sleep(5000); // 5000ms grace window
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+    }
     return false;
     // now tell the HOST, and see if they want to continue the game.
     // String displayMessage =

@@ -1,0 +1,23 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=142\navg=0.094\np=1.000"];
+  n1 [label="#1\nvis=142\navg=0.094\np=1.000"];
+  n2 [label="#2\nvis=69\navg=0.093\np=0.493"];
+  n3 [label="#3\nvis=73\navg=0.096\np=0.507"];
+  n4 [label="#4\nvis=23\navg=0.093\np=0.335"];
+  n5 [label="#5\nvis=23\navg=0.093\np=0.335"];
+  n6 [label="#6\nvis=22\navg=0.093\np=0.330"];
+  n7 [label="#7\nvis=25\navg=0.096\np=0.336"];
+  n8 [label="#8\nvis=24\navg=0.096\np=0.335"];
+  n9 [label="#9\nvis=24\navg=0.096\np=0.329"];
+  n0 -> n1 [label="ChineseStepOne | "];
+  n1 -> n2 [label="ChineseStartLeft | 3x armour, 23x infantry"];
+  n1 -> n3 [label="ChineseStartLeft | "];
+  n2 -> n4 [label="ItalianStartRight | 4x armour, 4x artillery, 1x infantry"];
+  n2 -> n5 [label="ItalianStartRight | 4x armour, 4x artillery"];
+  n2 -> n6 [label="ItalianStartRight | "];
+  n3 -> n7 [label="ItalianStartRight | 4x armour, 4x artillery, 1x infantry"];
+  n3 -> n8 [label="ItalianStartRight | 4x armour, 4x artillery"];
+  n3 -> n9 [label="ItalianStartRight | "];
+}

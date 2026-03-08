@@ -1,0 +1,33 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=385\navg=0.116\np=1.000"];
+  n1 [label="#1\nvis=232\navg=0.116\np=0.607"];
+  n2 [label="#2\nvis=153\navg=0.117\np=0.393"];
+  n3 [label="#3\nvis=116\navg=0.114\np=0.512"];
+  n4 [label="#4\nvis=116\navg=0.118\np=0.488"];
+  n5 [label="#5\nvis=77\navg=0.115\np=0.511"];
+  n6 [label="#6\nvis=76\navg=0.119\np=0.489"];
+  n7 [label="#7\nvis=58\navg=0.122\np=0.475"];
+  n8 [label="#8\nvis=57\navg=0.105\np=0.525"];
+  n9 [label="#9\nvis=59\navg=0.126\np=0.475"];
+  n10 [label="#10\nvis=57\navg=0.109\np=0.525"];
+  n11 [label="#11\nvis=38\navg=0.125\np=0.473"];
+  n12 [label="#12\nvis=38\navg=0.106\np=0.527"];
+  n13 [label="#13\nvis=38\navg=0.128\np=0.473"];
+  n14 [label="#14\nvis=38\navg=0.109\np=0.527"];
+  n0 -> n1 [label="Flag | 28x armour"];
+  n0 -> n2 [label="Flag | "];
+  n1 -> n3 [label="TopBar | 2x armour, 1x artillery, 4x infantry"];
+  n1 -> n4 [label="TopBar | "];
+  n2 -> n5 [label="TopBar | 2x armour, 1x artillery, 4x infantry"];
+  n2 -> n6 [label="TopBar | "];
+  n3 -> n7 [label="ChineseStartLeft | 51x artillery"];
+  n3 -> n8 [label="ChineseStartLeft | "];
+  n4 -> n9 [label="ChineseStartLeft | 51x artillery"];
+  n4 -> n10 [label="ChineseStartLeft | "];
+  n5 -> n11 [label="ChineseStartLeft | 51x artillery"];
+  n5 -> n12 [label="ChineseStartLeft | "];
+  n6 -> n13 [label="ChineseStartLeft | 51x artillery"];
+  n6 -> n14 [label="ChineseStartLeft | "];
+}

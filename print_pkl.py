@@ -1,8 +1,23 @@
 import pickle
 from pprint import pprint
 
-with open("self_play_model/checkpoints/cnn/shared_buffer.pkl", "rb") as f:
-    data = pickle.load(f)
+data = []
+
+with open("self_play_model/checkpoints/cnn/shared_buffer_5000.pkl", "rb") as f:
+    d = pickle.load(f)
+data.extend(d)
+
+with open("self_play_model/checkpoints/cnn/shared_buffer_5001.pkl", "rb") as f:
+    d = pickle.load(f)
+data.extend(d)
+
+with open("self_play_model/checkpoints/cnn/shared_buffer_5002.pkl", "rb") as f:
+    d = pickle.load(f)
+data.extend(d)
+
+with open("self_play_model/checkpoints/cnn/shared_buffer_5003.pkl", "rb") as f:
+    d = pickle.load(f)
+data.extend(d)
 
 print("Type:", type(data))
 

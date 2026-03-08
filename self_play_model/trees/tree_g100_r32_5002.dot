@@ -1,0 +1,19 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=606\navg=0.110\np=1.000"];
+  n1 [label="#1\nvis=606\navg=0.110\np=1.000"];
+  n2 [label="#2\nvis=303\navg=0.110\np=0.502"];
+  n3 [label="#3\nvis=303\navg=0.110\np=0.498"];
+  n4 [label="#4\nvis=150\navg=0.106\np=0.516"];
+  n5 [label="#5\nvis=152\navg=0.113\np=0.484"];
+  n6 [label="#6\nvis=151\navg=0.107\np=0.516"];
+  n7 [label="#7\nvis=152\navg=0.113\np=0.484"];
+  n0 -> n1 [label="RussianStartRight | "];
+  n1 -> n2 [label="ItalianStartLeft | 3x armour"];
+  n1 -> n3 [label="ItalianStartLeft | "];
+  n2 -> n4 [label="ChineseStepTwo | 17x armour"];
+  n2 -> n5 [label="ChineseStepTwo | "];
+  n3 -> n6 [label="ChineseStepTwo | 17x armour"];
+  n3 -> n7 [label="ChineseStepTwo | "];
+}

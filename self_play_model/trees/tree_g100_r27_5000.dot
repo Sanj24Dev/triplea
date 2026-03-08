@@ -1,0 +1,35 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=455\navg=0.099\np=1.000"];
+  n1 [label="#1\nvis=112\navg=0.099\np=0.247"];
+  n2 [label="#2\nvis=129\navg=0.098\np=0.288"];
+  n3 [label="#3\nvis=214\navg=0.100\np=0.465"];
+  n4 [label="#4\nvis=28\navg=0.099\np=0.248"];
+  n5 [label="#5\nvis=28\navg=0.099\np=0.250"];
+  n6 [label="#6\nvis=28\navg=0.098\np=0.254"];
+  n7 [label="#7\nvis=28\navg=0.099\np=0.249"];
+  n8 [label="#8\nvis=32\navg=0.098\np=0.248"];
+  n9 [label="#9\nvis=32\navg=0.098\np=0.250"];
+  n10 [label="#10\nvis=33\navg=0.097\np=0.254"];
+  n11 [label="#11\nvis=32\navg=0.098\np=0.249"];
+  n12 [label="#12\nvis=53\navg=0.100\np=0.247"];
+  n13 [label="#13\nvis=53\navg=0.100\np=0.250"];
+  n14 [label="#14\nvis=54\navg=0.099\np=0.254"];
+  n15 [label="#15\nvis=54\navg=0.101\np=0.249"];
+  n0 -> n1 [label="ChineseStepOne | 12x artillery, 7x infantry"];
+  n0 -> n2 [label="ChineseStepOne | 12x artillery"];
+  n0 -> n3 [label="ChineseStepOne | "];
+  n1 -> n4 [label="ItalianStartRight | 6x artillery, 6x infantry, 4x armour"];
+  n1 -> n5 [label="ItalianStartRight | 6x artillery, 6x infantry"];
+  n1 -> n6 [label="ItalianStartRight | 6x artillery"];
+  n1 -> n7 [label="ItalianStartRight | "];
+  n2 -> n8 [label="ItalianStartRight | 6x artillery, 6x infantry, 4x armour"];
+  n2 -> n9 [label="ItalianStartRight | 6x artillery, 6x infantry"];
+  n2 -> n10 [label="ItalianStartRight | 6x artillery"];
+  n2 -> n11 [label="ItalianStartRight | "];
+  n3 -> n12 [label="ItalianStartRight | 6x artillery, 6x infantry, 4x armour"];
+  n3 -> n13 [label="ItalianStartRight | 6x artillery, 6x infantry"];
+  n3 -> n14 [label="ItalianStartRight | 6x artillery"];
+  n3 -> n15 [label="ItalianStartRight | "];
+}
