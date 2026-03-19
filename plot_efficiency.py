@@ -98,3 +98,32 @@ with open(summary_path, "w") as f:
     f.writelines(summary_lines)
 
 print(f"Summary written to {summary_path}")
+
+
+print(len(df))
+grouped = df.groupby("player")["time_taken"].apply(list)
+data = [grouped[player] for player in grouped.index]
+labels = list(grouped.index)
+plt.figure()
+plt.boxplot(data, labels=labels)
+
+plt.xlabel("Player")
+plt.ylabel("Time Taken")
+plt.title("MCTS Time Taken Distribution per Player")
+
+plt.savefig(f"{FOLDER}/time_taken.png")
+plt.close()
+
+df = df[df["num_iterations"] == 1000]
+print(len(df))
+grouped = df.groupby("player")["time_taken"].apply(list)
+data = [grouped[player] for player in grouped.index]
+plt.figure()
+plt.boxplot(data, labels=labels)
+
+plt.xlabel("Player")
+plt.ylabel("Time Taken")
+plt.title("MCTS Time Taken Distribution per Player")
+
+plt.savefig(f"{FOLDER}/time_taken_for_full_iter_budget.png")
+plt.close()

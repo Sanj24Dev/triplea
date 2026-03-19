@@ -1,0 +1,23 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=100\navg=-0.075\np=1.000"];
+  n1 [label="#1\nvis=99\navg=-0.075\np=1.000"];
+  n2 [label="#2\nvis=13\navg=-0.075\np=0.129"];
+  n3 [label="#3\nvis=12\navg=-0.075\np=0.127"];
+  n4 [label="#4\nvis=12\navg=-0.075\np=0.126"];
+  n5 [label="#5\nvis=12\navg=-0.075\np=0.125"];
+  n6 [label="#6\nvis=12\navg=-0.075\np=0.125"];
+  n7 [label="#7\nvis=12\navg=-0.075\np=0.124"];
+  n8 [label="#8\nvis=12\navg=-0.075\np=0.124"];
+  n9 [label="#9\nvis=12\navg=-0.075\np=0.121"];
+  n0 -> n1 [label="Flag | "];
+  n1 -> n2 [label="TopBar | 3x armour, 6x artillery, 2x infantry"];
+  n1 -> n3 [label="TopBar | 3x armour, 6x artillery, 1x infantry"];
+  n1 -> n4 [label="TopBar | 3x armour, 6x artillery"];
+  n1 -> n5 [label="TopBar | 3x armour, 5x artillery"];
+  n1 -> n6 [label="TopBar | 3x armour, 4x artillery"];
+  n1 -> n7 [label="TopBar | 3x armour, 3x artillery"];
+  n1 -> n8 [label="TopBar | 3x armour, 2x artillery"];
+  n1 -> n9 [label="TopBar | "];
+}

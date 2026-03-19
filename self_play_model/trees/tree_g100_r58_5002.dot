@@ -1,5 +1,0 @@
-digraph MCTS {
-  rankdir=TB;
-  node [shape=box, fontsize=10];
-  n0 [label="#0\nvis=782\navg=0.123\np=1.000"];
-}

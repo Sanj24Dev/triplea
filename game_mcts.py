@@ -22,6 +22,7 @@ parser.add_argument("--outcome_file", type=str, required=True)
 parser.add_argument("--quality_file", type=str, required=True)
 parser.add_argument("--rollout_file", type=str, required=True)
 parser.add_argument("--model_name", type=str, required=True)
+# parser.add_argument("--sync", type=lambda x: x == "True")
 parser.add_argument("--player_name", type=str, required=True)
 parser.add_argument("--port", type=int, default=5000)
 args = parser.parse_args()
@@ -32,6 +33,7 @@ outcome_file = args.outcome_file + f".csv"
 quality_file = args.quality_file + f"_port{port}.csv"
 rollout_file = args.rollout_file + f"_port{port}.csv"
 model_name = args.model_name
+# sync = args.sync
 
 def log_message(port, message):
     filename = f"{args.model_name}/player_logs/port{port}.log"
@@ -40,7 +42,7 @@ def log_message(port, message):
 
 def agent_loop(host="127.0.0.1", port=5000):
     turn_order = ["Russians", "Italians", "Germans", "Chinese"]
-    net = PolicyValueNet(in_channels=11, grid_shape=(9,9), num_filters=64, num_res_blocks=5)
+    net = PolicyValueNet(in_channels=12, grid_shape=(9,9), num_filters=64, num_res_blocks=5)
     grid_index = build_grid_index_ctf()
     grid_shape = (9,9)
     agent = PolicyGuidedMCTS(model_name, port, net, efficiency_file, quality_file, ctf.production_rules, ctf.territory_production, ctf.victory_cities, ctf.G, turn_order, grid_index, grid_shape)
@@ -54,7 +56,7 @@ def agent_loop(host="127.0.0.1", port=5000):
     # print(f"Server listening on {host}:{port}")
     log_message(port, f"Server started on {host}:{port}")
 
-    ctf.draw()
+    # ctf.draw()
     r = "0"
     my_player = ""
     prevCombat_empty = False
@@ -66,8 +68,11 @@ def agent_loop(host="127.0.0.1", port=5000):
     player_info.log(ctf.game_num, port, my_player)
     log_message(port, f"Game {ctf.game_num} Player {my_player} Role assigned")
     print(f"Game {ctf.game_num} Player {my_player} Role assigned")
+
     # always plays with the latest
-    agent._sync_weights()
+    # print(sync)
+    if ctf.game_num % 5 == 0:
+        agent._sync_weights()
 
     try:
         # print("Waiting for accept()")
@@ -111,35 +116,67 @@ def agent_loop(host="127.0.0.1", port=5000):
 
                             # response = []
                         elif msg.startswith("[INFO]") and "stopped" in msg: 
-                            if my_player in msg:
-                                ctf.game_outcome_metric.log(ctf.game_num, ctf.round, my_player)
-                                log_message(port, f"Game {ctf.game_num} Round {ctf.round} Outcome: Won")
-                            else:
-                                log_message(port, f"Game {ctf.game_num} Round {ctf.round} Outcome: lost")
+                            # if my_player in msg:
+                            #     ctf.game_outcome_metric.log(ctf.game_num, ctf.round, my_player)
+                            #     log_message(port, f"Game {ctf.game_num} Round {ctf.round} Outcome: Won")
+                            # else:
+                            #     log_message(port, f"Game {ctf.game_num} Round {ctf.round} Outcome: lost")
                             
+                            start = msg.index("[", msg.index("Game stopped"))
+                            end   = msg.index("]", start)
+                            inner = msg[start+1 : end]
+                            players_in_order = [p.strip() for p in inner.split(",")]
+                            # players_in_order = [first_elim, ..., winner] — winner is last
+                            log_message(port, f"Player in order of elimination: {players_in_order}")
+                            winner = players_in_order[-1]
+                            eliminated = players_in_order[:-1]  # in elimination order
+                            z = 0.0
+                            for rank, player in enumerate(players_in_order):
+                                if player == my_player:
+                                    if rank == len(players_in_order) - 1:
+                                        # i am the winner
+                                        agent.curr_game_len = ctf.round
+                                        z = 1.0
+                                        ctf.game_outcome_metric.log(ctf.game_num, ctf.round, my_player)
+                                        log_message(port, f"Game {ctf.game_num} Round {agent.curr_game_len}/{ctf.round} Outcome: Won Z: {z}")
+                                        
+                                    else:
+                                        # i was eliminated, rank 0 = first out
+                                        if agent.curr_game_len == 0:
+                                            agent.curr_game_len = ctf.round
+                                        z = 1.0 - (2.0 * (len(players_in_order) - 1 - rank) / (len(players_in_order) - 1))
+                                        log_message(port, f"Game {ctf.game_num} Round {agent.curr_game_len}/{ctf.round} Outcome: lost Z: {z}")
+                                        
+
                             agent.pu_after_combat = ctf.players[ctf.whoAmI].PU
                             agent.terr_after_combat = sum(1 for t in ctf.territories.values() if t.owner == ctf.whoAmI)
                             agent.combat_quality.log(ctf.game_num, ctf.round, agent.pu_after_combat, agent.terr_after_combat)
                             log_message(port, f"Game {ctf.game_num} ended. Starting next game in 5s.")
-                            won = my_player in msg and "lost" not in msg
-                            before = time.time()
-                            agent.on_game_end(won)
-                            time_taken_to_save = time.time() - before
-                            log_message(port, f"Time taken to save: {time_taken_to_save}")
+                            # won = my_player in msg and "lost" not in msg
+                            # before = time.time()
+                            # print(f"Weighted the samples with {agent.curr_game_len}")
+                            agent.on_game_end(z, agent.curr_game_len, ctf.round)
+                            # time_taken_to_save = time.time() - before
+                            # log_message(port, f"Time taken to save: {time_taken_to_save}")
                             # reset everything for next game
                             ctf.reset()
                             agent.latest_legal_moves = []   # reset agent memory
                             agent.episode_examples = []
                             r = "0"
+                            agent.curr_game_len = 0
                             # ctf.game_num += 1
-                            agent.terr_before_combat = 2
+                            # agent.terr_before_combat = 2
                             if os.path.exists(FORFEIT_FLAG):
                                 os.remove(FORFEIT_FLAG)
-                            
+                            # print("\n")
                             # time.sleep(5)
                             sock.close()
                             time.sleep(1)
                             exit(0)
+
+                        elif msg.startswith("[INFO]") and "eliminated" in msg and my_player in msg:
+                            agent.curr_game_len = ctf.round
+                            log_message(port, f"{msg} in Round {agent.curr_game_len}")
 
                         elif msg.startswith("[INFO]") and "Round" in msg:
                             r = parts[3]
@@ -165,7 +202,7 @@ def agent_loop(host="127.0.0.1", port=5000):
                             log_message(port, f"Game {ctf.game_num} Round {ctf.round} Player {my_player} Action: {response}")
                         conn.sendall((json.dumps(response) + "\n").encode("utf-8"))
 
-                        ctf.draw()
+                        # ctf.draw()
 
 
     except KeyboardInterrupt:
@@ -217,3 +254,50 @@ json_file = f"final_graph_{ts}.json"
 # print(f"Graph exported as {img_file}")
 # print("\nShutting down...")
 
+
+
+# elif msg.startswith("[INFO]") and "Game stopped" in msg:
+#                             start = msg.index("[", msg.index("Game stopped"))
+#                             end   = msg.index("]", start)
+#                             inner = msg[start+1 : end]
+#                             players_in_order = [p.strip() for p in inner.split(",")]
+#                             # players_in_order = [first_elim, ..., winner] — winner is last
+                            
+#                             winner = players_in_order[-1]
+#                             eliminated = players_in_order[:-1]  # in elimination order
+#                             z =
+#                             for rank, player in enumerate(players_in_order):
+#                                 if player == my_player:
+#                                     if rank == len(players_in_order) - 1:
+#                                         # i am the winner
+#                                         z = 1.0
+#                                         ctf.game_outcome_metric.log(ctf.game_num, ctf.round, my_player)
+#                                         log_message(port, f"Game {ctf.game_num} Round {ctf.round} Outcome: Won Z: {z}")
+#                                     else:
+#                                         # i was eliminated, rank 0 = first out
+#                                         z = 1.0 - (2.0 * (len(players_in_order) - 1 - rank) / (len(players_in_order) - 1))
+#                                         log_message(port, f"Game {ctf.game_num} Round {ctf.round} Outcome: lost Z: {z}")
+                            
+#                             agent.pu_after_combat = ctf.players[ctf.whoAmI].PU
+#                             agent.terr_after_combat = sum(1 for t in ctf.territories.values() if t.owner == ctf.whoAmI)
+#                             agent.combat_quality.log(ctf.game_num, ctf.round, agent.pu_after_combat, agent.terr_after_combat)
+#                             log_message(port, f"Game {ctf.game_num} ended. Starting next game in 5s.")
+#                             # won = my_player in msg and "lost" not in msg
+#                             # before = time.time()
+#                             agent.on_game_end(z)
+#                             # time_taken_to_save = time.time() - before
+#                             # log_message(port, f"Time taken to save: {time_taken_to_save}")
+#                             # reset everything for next game
+#                             ctf.reset()
+#                             agent.latest_legal_moves = []   # reset agent memory
+#                             agent.episode_examples = []
+#                             r = "0"
+#                             # ctf.game_num += 1
+#                             agent.terr_before_combat = 2
+#                             if os.path.exists(FORFEIT_FLAG):
+#                                 os.remove(FORFEIT_FLAG)
+                            
+#                             # time.sleep(5)
+#                             sock.close()
+#                             time.sleep(1)
+#                             exit(0)

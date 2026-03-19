@@ -182,11 +182,10 @@ public abstract class AbstractTripleMindAi extends AbstractAi {
       } catch (Exception e) {
           System.err.println(("Failed to write log: " + e.getMessage()));
       }
-//        TripleASocket.sendState("[MY_MOVE] " + move);
-//        return "";
-      // System.out.println("Request sent: [MY_MOVE] " + move + " on port " + port);
+
+      System.out.println("Request sent: [MY_MOVE] " + move + " on port " + port);
       String response = TripleASocket.sendAndRead("[MY_MOVE] " + move, port);
-      // System.out.println("Received move: " + response);
+      System.out.println("Received move: " + response);
       logResponse(response, port);
       return response;
   }

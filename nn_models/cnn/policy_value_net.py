@@ -17,7 +17,7 @@ class ResidualBlock(nn.Module):
         x = self.bn2(self.conv2(x))
         return F.relu(x + residual)
 
-MOVE_FEAT_DIM = 6  # matches your encode_move_features output size
+MOVE_FEAT_DIM = 7  # matches your encode_move_features output size
 
 class PolicyValueNet(nn.Module):
     def __init__(self, in_channels, grid_shape, num_filters, num_res_blocks, move_feat_dim=MOVE_FEAT_DIM):
@@ -36,13 +36,13 @@ class PolicyValueNet(nn.Module):
 
         # Policy head — produces state embedding instead of fixed logits
         self.policy_conv = nn.Sequential(
-            nn.Conv2d(num_filters, 2, kernel_size=1, bias=False),
-            nn.BatchNorm2d(2),
+            nn.Conv2d(num_filters, 32, kernel_size=1, bias=False),
+            nn.BatchNorm2d(32),
             nn.ReLU(),
             nn.Flatten(),
         )
         self.state_embedding_fc = nn.Sequential(
-            nn.Linear(2 * H * W, 128),
+            nn.Linear(32 * H * W, 128),
             nn.ReLU(),
         )
 
@@ -107,6 +107,25 @@ class PolicyValueNet(nn.Module):
             x = self.res_blocks(x)
             v = self.value_fc(self.value_conv(x))
         return v.item()
+
+    # def score_moves_and_value(self, state_tensor, move_feats_list, device="cpu"):
+    #     self.eval()
+    #     with torch.no_grad():
+    #         x = state_tensor.unsqueeze(0).to(device)
+    #         x = self.input_conv(x)
+    #         x = self.res_blocks(x)
+            
+    #         # policy
+    #         emb = self.state_embedding_fc(self.policy_conv(x))
+    #         emb_exp = emb.expand(len(move_feats_list), -1)
+    #         mf = torch.tensor(np.stack(move_feats_list), dtype=torch.float32).to(device)
+    #         scores = self.move_scorer(torch.cat([emb_exp, mf], dim=-1))
+    #         probs = torch.softmax(scores.squeeze(-1), dim=0).cpu().numpy()
+            
+    #         # value — reuse x from shared tower
+    #         v = self.value_fc(self.value_conv(x)).squeeze(-1).item()
+        
+    # return probs, v
     
     def forward(self, state_tensors, move_features_batch, mask=None):
         # Shared tower

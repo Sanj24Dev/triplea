@@ -6,50 +6,59 @@
   [Iter 3] Buffer too small, waiting...
   [Iter 4] Buffer too small, waiting...
   [Iter 5] Buffer too small, waiting...
-  [Iter 6] Buffer too small, waiting...
+  [Iter 6] policy_loss=1.0156  value_loss=0.1169  buffer=347
+Iter 6 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 7] Buffer too small, waiting...
   [Iter 8] Buffer too small, waiting...
   [Iter 9] Buffer too small, waiting...
   [Iter 10] Buffer too small, waiting...
   [Iter 11] Buffer too small, waiting...
-  [Iter 12] Buffer too small, waiting...
+  [Iter 12] policy_loss=1.0439  value_loss=0.0257  buffer=762
+Iter 12 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 13] Buffer too small, waiting...
   [Iter 14] Buffer too small, waiting...
   [Iter 15] Buffer too small, waiting...
   [Iter 16] Buffer too small, waiting...
-  [Iter 17] Buffer too small, waiting...
+  [Iter 17] policy_loss=1.0295  value_loss=0.0240  buffer=1059
+Iter 17 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 18] Buffer too small, waiting...
   [Iter 19] Buffer too small, waiting...
   [Iter 20] Buffer too small, waiting...
   [Iter 21] Buffer too small, waiting...
-  [Iter 22] Buffer too small, waiting...
+  [Iter 22] policy_loss=1.0281  value_loss=0.0143  buffer=1295
+Iter 22 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 23] Buffer too small, waiting...
   [Iter 24] Buffer too small, waiting...
   [Iter 25] Buffer too small, waiting...
   [Iter 26] Buffer too small, waiting...
   [Iter 27] Buffer too small, waiting...
-  [Iter 28] Buffer too small, waiting...
+  [Iter 28] policy_loss=1.0439  value_loss=0.0112  buffer=1666
+Iter 28 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 29] Buffer too small, waiting...
   [Iter 30] Buffer too small, waiting...
   [Iter 31] Buffer too small, waiting...
   [Iter 32] Buffer too small, waiting...
-  [Iter 33] Buffer too small, waiting...
+  [Iter 33] policy_loss=1.0339  value_loss=0.0116  buffer=2023
+Iter 33 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 34] Buffer too small, waiting...
   [Iter 35] Buffer too small, waiting...
   [Iter 36] Buffer too small, waiting...
   [Iter 37] Buffer too small, waiting...
   [Iter 38] Buffer too small, waiting...
-  [Iter 39] Buffer too small, waiting...
+  [Iter 39] policy_loss=1.0714  value_loss=0.0078  buffer=2414
+Iter 39 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 40] Buffer too small, waiting...
   [Iter 41] Buffer too small, waiting...
   [Iter 42] Buffer too small, waiting...
-  [Iter 43] Buffer too small, waiting...
+  [Iter 43] policy_loss=1.0718  value_loss=0.0055  buffer=2664
+Iter 43 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 44] Buffer too small, waiting...
   [Iter 45] Buffer too small, waiting...
   [Iter 46] Buffer too small, waiting...
   [Iter 47] Buffer too small, waiting...
   [Iter 48] Buffer too small, waiting...
-  [Iter 49] Buffer too small, waiting...
+  [Iter 49] policy_loss=1.0699  value_loss=0.0099  buffer=3032
+Iter 49 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 50] Buffer too small, waiting...
   [Iter 51] Buffer too small, waiting...
   [Iter 52] Buffer too small, waiting...
@@ -59,33 +68,40 @@
   [Iter 56] Buffer too small, waiting...
   [Iter 57] Buffer too small, waiting...
   [Iter 58] Buffer too small, waiting...
-  [Iter 59] Buffer too small, waiting...
+  [Iter 59] policy_loss=1.0692  value_loss=0.0117  buffer=3821
+Iter 59 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 60] Buffer too small, waiting...
   [Iter 61] Buffer too small, waiting...
   [Iter 62] Buffer too small, waiting...
   [Iter 63] Buffer too small, waiting...
-  [Iter 64] Buffer too small, waiting...
+  [Iter 64] policy_loss=1.0463  value_loss=0.0086  buffer=4119
+Iter 64 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 65] Buffer too small, waiting...
   [Iter 66] Buffer too small, waiting...
   [Iter 67] Buffer too small, waiting...
   [Iter 68] Buffer too small, waiting...
   [Iter 69] Buffer too small, waiting...
   [Iter 70] Buffer too small, waiting...
-  [Iter 71] Buffer too small, waiting...
+  [Iter 71] policy_loss=1.0594  value_loss=0.0093  buffer=4582
+Iter 71 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 72] Buffer too small, waiting...
   [Iter 73] Buffer too small, waiting...
   [Iter 74] Buffer too small, waiting...
   [Iter 75] Buffer too small, waiting...
-  [Iter 76] Buffer too small, waiting...
+  [Iter 76] policy_loss=1.0148  value_loss=0.0100  buffer=4873
+Iter 76 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 77] Buffer too small, waiting...
   [Iter 78] Buffer too small, waiting...
   [Iter 79] Buffer too small, waiting...
-  [Iter 80] Buffer too small, waiting...
+  [Iter 80] policy_loss=1.1005  value_loss=0.0082  buffer=5114
+Iter 80 weights pushed → self_play_model/checkpoints/cnn/latest.pt
+  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0080.pt
   [Iter 81] Buffer too small, waiting...
   [Iter 82] Buffer too small, waiting...
   [Iter 83] Buffer too small, waiting...
   [Iter 84] Buffer too small, waiting...
-  [Iter 85] Buffer too small, waiting...
+  [Iter 85] policy_loss=1.0234  value_loss=0.0070  buffer=5403
+Iter 85 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 86] Buffer too small, waiting...
   [Iter 87] Buffer too small, waiting...
   [Iter 88] Buffer too small, waiting...
@@ -93,7 +109,8 @@
   [Iter 90] Buffer too small, waiting...
   [Iter 91] Buffer too small, waiting...
   [Iter 92] Buffer too small, waiting...
-  [Iter 93] Buffer too small, waiting...
+  [Iter 93] policy_loss=1.0600  value_loss=0.0058  buffer=6009
+Iter 93 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 94] Buffer too small, waiting...
   [Iter 95] Buffer too small, waiting...
   [Iter 96] Buffer too small, waiting...
@@ -101,25 +118,29 @@
   [Iter 98] Buffer too small, waiting...
   [Iter 99] Buffer too small, waiting...
   [Iter 100] Buffer too small, waiting...
-  [Iter 101] Buffer too small, waiting...
+  [Iter 101] policy_loss=1.0069  value_loss=0.0069  buffer=6462
+Iter 101 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 102] Buffer too small, waiting...
   [Iter 103] Buffer too small, waiting...
   [Iter 104] Buffer too small, waiting...
   [Iter 105] Buffer too small, waiting...
-  [Iter 106] Buffer too small, waiting...
+  [Iter 106] policy_loss=1.0398  value_loss=0.0066  buffer=6819
+Iter 106 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 107] Buffer too small, waiting...
   [Iter 108] Buffer too small, waiting...
   [Iter 109] Buffer too small, waiting...
   [Iter 110] Buffer too small, waiting...
   [Iter 111] Buffer too small, waiting...
-  [Iter 112] Buffer too small, waiting...
+  [Iter 112] policy_loss=1.0667  value_loss=0.0078  buffer=7192
+Iter 112 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 113] Buffer too small, waiting...
   [Iter 114] Buffer too small, waiting...
   [Iter 115] Buffer too small, waiting...
   [Iter 116] Buffer too small, waiting...
   [Iter 117] Buffer too small, waiting...
   [Iter 118] Buffer too small, waiting...
-  [Iter 119] Buffer too small, waiting...
+  [Iter 119] policy_loss=1.0061  value_loss=0.0074  buffer=7664
+Iter 119 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 120] Buffer too small, waiting...
   [Iter 121] Buffer too small, waiting...
   [Iter 122] Buffer too small, waiting...
@@ -128,7 +149,8 @@
   [Iter 125] Buffer too small, waiting...
   [Iter 126] Buffer too small, waiting...
   [Iter 127] Buffer too small, waiting...
-  [Iter 128] Buffer too small, waiting...
+  [Iter 128] policy_loss=1.0379  value_loss=0.0050  buffer=8220
+Iter 128 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 129] Buffer too small, waiting...
   [Iter 130] Buffer too small, waiting...
   [Iter 131] Buffer too small, waiting...
@@ -138,13 +160,15 @@
   [Iter 135] Buffer too small, waiting...
   [Iter 136] Buffer too small, waiting...
   [Iter 137] Buffer too small, waiting...
-  [Iter 138] Buffer too small, waiting...
+  [Iter 138] policy_loss=1.0322  value_loss=0.0047  buffer=8769
+Iter 138 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 139] Buffer too small, waiting...
   [Iter 140] Buffer too small, waiting...
   [Iter 141] Buffer too small, waiting...
   [Iter 142] Buffer too small, waiting...
   [Iter 143] Buffer too small, waiting...
-  [Iter 144] Buffer too small, waiting...
+  [Iter 144] policy_loss=1.0347  value_loss=0.0062  buffer=9136
+Iter 144 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 145] Buffer too small, waiting...
   [Iter 146] Buffer too small, waiting...
   [Iter 147] Buffer too small, waiting...
@@ -153,1054 +177,507 @@
   [Iter 150] Buffer too small, waiting...
   [Iter 151] Buffer too small, waiting...
   [Iter 152] Buffer too small, waiting...
-  [Iter 153] Buffer too small, waiting...
+  [Iter 153] policy_loss=1.0344  value_loss=0.0079  buffer=9678
+Iter 153 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 154] Buffer too small, waiting...
   [Iter 155] Buffer too small, waiting...
   [Iter 156] Buffer too small, waiting...
   [Iter 157] Buffer too small, waiting...
   [Iter 158] Buffer too small, waiting...
   [Iter 159] Buffer too small, waiting...
-  [Iter 160] Buffer too small, waiting...
+  [Iter 160] policy_loss=1.0838  value_loss=0.0065  buffer=10110
+Iter 160 weights pushed → self_play_model/checkpoints/cnn/latest.pt
+  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0160.pt
   [Iter 161] Buffer too small, waiting...
   [Iter 162] Buffer too small, waiting...
   [Iter 163] Buffer too small, waiting...
-  [Iter 164] Buffer too small, waiting...
+  [Iter 164] policy_loss=1.0679  value_loss=0.0075  buffer=10396
+Iter 164 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   [Iter 165] Buffer too small, waiting...
   [Iter 166] Buffer too small, waiting...
   [Iter 167] Buffer too small, waiting...
-  [Iter 168] policy_loss=1.3905  value_loss=0.0458  buffer=1610
-Iter 168 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 169] policy_loss=1.1779  value_loss=0.0094  buffer=3220
-Iter 169 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 170] policy_loss=0.8972  value_loss=0.0069  buffer=4830
-Iter 170 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0170.pt
-  [Iter 171] policy_loss=0.8189  value_loss=0.0105  buffer=6440
+  [Iter 168] Buffer too small, waiting...
+  [Iter 169] Buffer too small, waiting...
+  [Iter 170] Buffer too small, waiting...
+  [Iter 171] policy_loss=1.0121  value_loss=0.0067  buffer=10781
 Iter 171 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 172] policy_loss=0.7805  value_loss=0.0118  buffer=8050
-Iter 172 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 173] policy_loss=0.7592  value_loss=0.0122  buffer=9660
-Iter 173 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 174] policy_loss=0.7388  value_loss=0.0069  buffer=11270
-Iter 174 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 175] policy_loss=0.7201  value_loss=0.0094  buffer=12880
-Iter 175 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 176] policy_loss=0.7133  value_loss=0.0106  buffer=14490
-Iter 176 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 177] policy_loss=0.7172  value_loss=0.0096  buffer=16100
-Iter 177 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 178] policy_loss=0.7125  value_loss=0.0092  buffer=17710
-Iter 178 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 179] policy_loss=0.7146  value_loss=0.0077  buffer=19320
+  [Iter 172] Buffer too small, waiting...
+  [Iter 173] Buffer too small, waiting...
+  [Iter 174] Buffer too small, waiting...
+  [Iter 175] Buffer too small, waiting...
+  [Iter 176] Buffer too small, waiting...
+  [Iter 177] Buffer too small, waiting...
+  [Iter 178] Buffer too small, waiting...
+  [Iter 179] policy_loss=1.0282  value_loss=0.0053  buffer=11354
 Iter 179 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 180] policy_loss=0.7151  value_loss=0.0069  buffer=20930
-Iter 180 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0180.pt
-  [Iter 181] policy_loss=0.7128  value_loss=0.0068  buffer=22540
-Iter 181 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 182] policy_loss=0.6972  value_loss=0.0094  buffer=24150
-Iter 182 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 183] policy_loss=0.7082  value_loss=0.0086  buffer=25760
-Iter 183 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 184] policy_loss=0.7014  value_loss=0.0129  buffer=27370
-Iter 184 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 185] policy_loss=0.7031  value_loss=0.0115  buffer=28980
+  [Iter 180] Buffer too small, waiting...
+  [Iter 181] Buffer too small, waiting...
+  [Iter 182] Buffer too small, waiting...
+  [Iter 183] Buffer too small, waiting...
+  [Iter 184] Buffer too small, waiting...
+  [Iter 185] policy_loss=1.0452  value_loss=0.0075  buffer=11746
 Iter 185 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 186] policy_loss=0.7058  value_loss=0.0110  buffer=30590
-Iter 186 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 187] policy_loss=0.7007  value_loss=0.0103  buffer=32200
-Iter 187 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 188] policy_loss=0.6862  value_loss=0.0106  buffer=33810
-Iter 188 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 189] policy_loss=0.7007  value_loss=0.0090  buffer=35420
-Iter 189 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 190] policy_loss=0.6943  value_loss=0.0089  buffer=37030
-Iter 190 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0190.pt
-  [Iter 191] policy_loss=0.6983  value_loss=0.0076  buffer=38640
-Iter 191 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 192] policy_loss=0.6928  value_loss=0.0079  buffer=40250
+  [Iter 186] Buffer too small, waiting...
+  [Iter 187] Buffer too small, waiting...
+  [Iter 188] Buffer too small, waiting...
+  [Iter 189] Buffer too small, waiting...
+  [Iter 190] Buffer too small, waiting...
+  [Iter 191] Buffer too small, waiting...
+  [Iter 192] policy_loss=1.0168  value_loss=0.0102  buffer=12157
 Iter 192 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 193] policy_loss=0.6974  value_loss=0.0103  buffer=41860
-Iter 193 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 194] policy_loss=0.6922  value_loss=0.0073  buffer=43470
-Iter 194 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 195] policy_loss=0.7028  value_loss=0.0086  buffer=45080
-Iter 195 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 196] policy_loss=0.6953  value_loss=0.0085  buffer=46690
-Iter 196 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 197] policy_loss=0.6931  value_loss=0.0055  buffer=48300
-Iter 197 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 198] policy_loss=0.6854  value_loss=0.0078  buffer=49910
-Iter 198 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 199] policy_loss=0.6973  value_loss=0.0113  buffer=51520
-Iter 199 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 200] policy_loss=0.6968  value_loss=0.0080  buffer=53130
-Iter 200 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0200.pt
-  [Iter 201] policy_loss=0.7050  value_loss=0.0117  buffer=54740
-Iter 201 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 202] policy_loss=0.6909  value_loss=0.0080  buffer=56350
-Iter 202 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 203] policy_loss=0.7044  value_loss=0.0190  buffer=58505
-Iter 203 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 204] policy_loss=0.6831  value_loss=0.0116  buffer=60660
-Iter 204 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 205] policy_loss=0.6985  value_loss=0.0132  buffer=62815
-Iter 205 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 206] policy_loss=0.6890  value_loss=0.0087  buffer=64970
+  [Iter 193] Buffer too small, waiting...
+  [Iter 194] Buffer too small, waiting...
+  [Iter 195] Buffer too small, waiting...
+  [Iter 196] Buffer too small, waiting...
+  [Iter 197] Buffer too small, waiting...
+  [Iter 198] Buffer too small, waiting...
+  [Iter 199] Buffer too small, waiting...
+  [Iter 200] Buffer too small, waiting...
+  [Iter 201] Buffer too small, waiting...
+  [Iter 202] Buffer too small, waiting...
+  [Iter 203] Buffer too small, waiting...
+  [Iter 204] Buffer too small, waiting...
+  [Iter 205] Buffer too small, waiting...
+  [Iter 206] policy_loss=1.0701  value_loss=0.0078  buffer=12957
 Iter 206 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 207] policy_loss=0.6989  value_loss=0.0165  buffer=67125
-Iter 207 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 208] policy_loss=0.6952  value_loss=0.0127  buffer=69280
-Iter 208 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 209] policy_loss=0.7013  value_loss=0.0094  buffer=71435
-Iter 209 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 210] policy_loss=0.6998  value_loss=0.0109  buffer=73590
-Iter 210 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0210.pt
-  [Iter 211] policy_loss=0.6940  value_loss=0.0177  buffer=75745
-Iter 211 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 212] policy_loss=0.6951  value_loss=0.0050  buffer=77900
-Iter 212 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 213] policy_loss=0.6858  value_loss=0.0071  buffer=80055
-Iter 213 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 214] policy_loss=0.6963  value_loss=0.0130  buffer=82210
+  [Iter 207] Buffer too small, waiting...
+  [Iter 208] Buffer too small, waiting...
+  [Iter 209] Buffer too small, waiting...
+  [Iter 210] Buffer too small, waiting...
+  [Iter 211] Buffer too small, waiting...
+  [Iter 212] Buffer too small, waiting...
+  [Iter 213] Buffer too small, waiting...
+  [Iter 214] policy_loss=1.0528  value_loss=0.0075  buffer=13440
 Iter 214 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 215] policy_loss=0.6921  value_loss=0.0116  buffer=84365
-Iter 215 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 216] policy_loss=0.6859  value_loss=0.0088  buffer=86520
-Iter 216 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 217] policy_loss=0.6850  value_loss=0.0092  buffer=88675
-Iter 217 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 218] policy_loss=0.6871  value_loss=0.0115  buffer=90830
+  [Iter 215] Buffer too small, waiting...
+  [Iter 216] Buffer too small, waiting...
+  [Iter 217] Buffer too small, waiting...
+  [Iter 218] policy_loss=1.0070  value_loss=0.0072  buffer=13703
 Iter 218 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 219] policy_loss=0.6853  value_loss=0.0106  buffer=92985
-Iter 219 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 220] policy_loss=0.6843  value_loss=0.0115  buffer=95140
-Iter 220 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0220.pt
-  [Iter 221] policy_loss=0.6915  value_loss=0.0053  buffer=97295
-Iter 221 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 222] policy_loss=0.6977  value_loss=0.0133  buffer=99450
-Iter 222 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 223] policy_loss=0.6826  value_loss=0.0093  buffer=100000
-Iter 223 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 224] policy_loss=0.6985  value_loss=0.0092  buffer=100000
-Iter 224 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 225] policy_loss=0.6807  value_loss=0.0076  buffer=100000
-Iter 225 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 226] policy_loss=0.6841  value_loss=0.0092  buffer=100000
+  [Iter 219] Buffer too small, waiting...
+  [Iter 220] Buffer too small, waiting...
+  [Iter 221] Buffer too small, waiting...
+  [Iter 222] Buffer too small, waiting...
+  [Iter 223] Buffer too small, waiting...
+  [Iter 224] Buffer too small, waiting...
+  [Iter 225] Buffer too small, waiting...
+  [Iter 226] policy_loss=1.0240  value_loss=0.0063  buffer=14184
 Iter 226 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 227] policy_loss=0.6793  value_loss=0.0078  buffer=100000
-Iter 227 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 228] policy_loss=0.6847  value_loss=0.0073  buffer=100000
-Iter 228 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 229] policy_loss=0.6741  value_loss=0.0065  buffer=100000
-Iter 229 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 230] policy_loss=0.6825  value_loss=0.0086  buffer=100000
+  [Iter 227] Buffer too small, waiting...
+  [Iter 228] Buffer too small, waiting...
+  [Iter 229] Buffer too small, waiting...
+  [Iter 230] policy_loss=1.0187  value_loss=0.0120  buffer=14433
 Iter 230 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0230.pt
-  [Iter 231] policy_loss=0.6694  value_loss=0.0066  buffer=100000
-Iter 231 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 232] policy_loss=0.6675  value_loss=0.0097  buffer=100000
-Iter 232 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 233] policy_loss=0.6879  value_loss=0.0072  buffer=100000
-Iter 233 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 234] policy_loss=0.6893  value_loss=0.0117  buffer=100000
-Iter 234 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 235] policy_loss=0.6910  value_loss=0.0072  buffer=100000
-Iter 235 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 236] policy_loss=0.6840  value_loss=0.0076  buffer=100000
+  [Iter 231] Buffer too small, waiting...
+  [Iter 232] Buffer too small, waiting...
+  [Iter 233] Buffer too small, waiting...
+  [Iter 234] Buffer too small, waiting...
+  [Iter 235] Buffer too small, waiting...
+  [Iter 236] policy_loss=1.0561  value_loss=0.0089  buffer=14798
 Iter 236 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 237] policy_loss=0.6912  value_loss=0.0110  buffer=100000
-Iter 237 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 238] policy_loss=0.6722  value_loss=0.0120  buffer=100000
-Iter 238 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 239] policy_loss=0.6878  value_loss=0.0109  buffer=100000
-Iter 239 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 240] policy_loss=0.6838  value_loss=0.0083  buffer=100000
-Iter 240 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0240.pt
-  [Iter 241] policy_loss=0.6830  value_loss=0.0087  buffer=100000
-Iter 241 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 242] policy_loss=0.6854  value_loss=0.0109  buffer=100000
+  [Iter 237] Buffer too small, waiting...
+  [Iter 238] Buffer too small, waiting...
+  [Iter 239] Buffer too small, waiting...
+  [Iter 240] Buffer too small, waiting...
+  [Iter 241] Buffer too small, waiting...
+  [Iter 242] policy_loss=1.0276  value_loss=0.0111  buffer=15116
 Iter 242 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 243] policy_loss=0.7027  value_loss=0.0168  buffer=100000
-Iter 243 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 244] policy_loss=0.7016  value_loss=0.0168  buffer=100000
-Iter 244 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 245] policy_loss=0.6895  value_loss=0.0237  buffer=100000
-Iter 245 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 246] policy_loss=0.6940  value_loss=0.0200  buffer=100000
-Iter 246 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 247] policy_loss=0.6924  value_loss=0.0214  buffer=100000
-Iter 247 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 248] policy_loss=0.6856  value_loss=0.0131  buffer=100000
-Iter 248 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 249] policy_loss=0.6924  value_loss=0.0097  buffer=100000
-Iter 249 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 250] policy_loss=0.6947  value_loss=0.0125  buffer=100000
-Iter 250 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0250.pt
-  [Iter 251] policy_loss=0.6731  value_loss=0.0119  buffer=100000
+  [Iter 243] Buffer too small, waiting...
+  [Iter 244] Buffer too small, waiting...
+  [Iter 245] Buffer too small, waiting...
+  [Iter 246] Buffer too small, waiting...
+  [Iter 247] Buffer too small, waiting...
+  [Iter 248] Buffer too small, waiting...
+  [Iter 249] Buffer too small, waiting...
+  [Iter 250] Buffer too small, waiting...
+  [Iter 251] policy_loss=1.0125  value_loss=0.0065  buffer=15574
 Iter 251 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 252] policy_loss=0.7022  value_loss=0.0098  buffer=100000
-Iter 252 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 253] policy_loss=0.6826  value_loss=0.0117  buffer=100000
-Iter 253 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 254] policy_loss=0.6955  value_loss=0.0089  buffer=100000
-Iter 254 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 255] policy_loss=0.6709  value_loss=0.0136  buffer=100000
+  [Iter 252] Buffer too small, waiting...
+  [Iter 253] Buffer too small, waiting...
+  [Iter 254] Buffer too small, waiting...
+  [Iter 255] policy_loss=1.0334  value_loss=0.0072  buffer=15855
 Iter 255 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 256] policy_loss=0.6835  value_loss=0.0137  buffer=100000
-Iter 256 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 257] policy_loss=0.6843  value_loss=0.0179  buffer=100000
-Iter 257 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 258] policy_loss=0.6727  value_loss=0.0083  buffer=100000
-Iter 258 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 259] policy_loss=0.6857  value_loss=0.0078  buffer=100000
-Iter 259 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 260] policy_loss=0.6877  value_loss=0.0129  buffer=100000
-Iter 260 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0260.pt
-  [Iter 261] policy_loss=0.6910  value_loss=0.0157  buffer=100000
-Iter 261 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 262] policy_loss=0.6931  value_loss=0.0132  buffer=100000
+  [Iter 256] Buffer too small, waiting...
+  [Iter 257] Buffer too small, waiting...
+  [Iter 258] Buffer too small, waiting...
+  [Iter 259] Buffer too small, waiting...
+  [Iter 260] Buffer too small, waiting...
+  [Iter 261] Buffer too small, waiting...
+  [Iter 262] policy_loss=1.0455  value_loss=0.0065  buffer=16251
 Iter 262 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 263] policy_loss=0.6935  value_loss=0.0123  buffer=100000
-Iter 263 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 264] policy_loss=0.6754  value_loss=0.0054  buffer=100000
-Iter 264 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 265] policy_loss=0.6859  value_loss=0.0114  buffer=100000
+  [Iter 263] Buffer too small, waiting...
+  [Iter 264] Buffer too small, waiting...
+  [Iter 265] policy_loss=1.0177  value_loss=0.0078  buffer=16504
 Iter 265 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 266] policy_loss=0.7013  value_loss=0.0129  buffer=100000
-Iter 266 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 267] policy_loss=0.6748  value_loss=0.0166  buffer=100000
-Iter 267 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 268] policy_loss=0.6896  value_loss=0.0177  buffer=100000
-Iter 268 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 269] policy_loss=0.6920  value_loss=0.0074  buffer=100000
-Iter 269 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 270] policy_loss=0.6880  value_loss=0.0146  buffer=100000
+  [Iter 266] Buffer too small, waiting...
+  [Iter 267] Buffer too small, waiting...
+  [Iter 268] Buffer too small, waiting...
+  [Iter 269] Buffer too small, waiting...
+  [Iter 270] policy_loss=1.0590  value_loss=0.0107  buffer=16793
 Iter 270 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0270.pt
-  [Iter 271] policy_loss=0.6852  value_loss=0.0211  buffer=100000
-Iter 271 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 272] policy_loss=0.6761  value_loss=0.0355  buffer=100000
-Iter 272 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 273] policy_loss=0.6984  value_loss=0.0119  buffer=100000
-Iter 273 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 274] policy_loss=0.6816  value_loss=0.0051  buffer=100000
-Iter 274 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 275] policy_loss=0.6747  value_loss=0.0057  buffer=100000
-Iter 275 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 276] policy_loss=0.6844  value_loss=0.0074  buffer=100000
+  [Iter 271] Buffer too small, waiting...
+  [Iter 272] Buffer too small, waiting...
+  [Iter 273] Buffer too small, waiting...
+  [Iter 274] Buffer too small, waiting...
+  [Iter 275] Buffer too small, waiting...
+  [Iter 276] policy_loss=1.0139  value_loss=0.0065  buffer=17183
 Iter 276 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 277] policy_loss=0.6827  value_loss=0.0142  buffer=100000
-Iter 277 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 278] policy_loss=0.6795  value_loss=0.0116  buffer=100000
-Iter 278 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 279] policy_loss=0.6799  value_loss=0.0095  buffer=100000
-Iter 279 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 280] policy_loss=0.6791  value_loss=0.0066  buffer=100000
-Iter 280 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0280.pt
-  [Iter 281] policy_loss=0.6859  value_loss=0.0115  buffer=100000
-Iter 281 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 282] policy_loss=0.6856  value_loss=0.0086  buffer=100000
+  [Iter 277] Buffer too small, waiting...
+  [Iter 278] Buffer too small, waiting...
+  [Iter 279] Buffer too small, waiting...
+  [Iter 280] Buffer too small, waiting...
+  [Iter 281] Buffer too small, waiting...
+  [Iter 282] policy_loss=1.0430  value_loss=0.0050  buffer=17546
 Iter 282 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 283] policy_loss=0.6740  value_loss=0.0125  buffer=100000
-Iter 283 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 284] policy_loss=0.6669  value_loss=0.0111  buffer=100000
-Iter 284 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 285] policy_loss=0.6864  value_loss=0.0097  buffer=100000
+  [Iter 283] Buffer too small, waiting...
+  [Iter 284] Buffer too small, waiting...
+  [Iter 285] policy_loss=1.0212  value_loss=0.0052  buffer=17744
 Iter 285 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 286] policy_loss=0.6826  value_loss=0.0049  buffer=100000
-Iter 286 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 287] policy_loss=0.7026  value_loss=0.0099  buffer=100000
-Iter 287 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 288] policy_loss=0.6818  value_loss=0.0093  buffer=100000
-Iter 288 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 289] policy_loss=0.7062  value_loss=0.0097  buffer=100000
-Iter 289 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 290] policy_loss=0.6844  value_loss=0.0087  buffer=100000
-Iter 290 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0290.pt
-  [Iter 291] policy_loss=0.6719  value_loss=0.0080  buffer=100000
-Iter 291 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 292] policy_loss=0.6777  value_loss=0.0089  buffer=100000
-Iter 292 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 293] policy_loss=0.6796  value_loss=0.0062  buffer=100000
-Iter 293 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 294] policy_loss=0.6898  value_loss=0.0341  buffer=100000
-Iter 294 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 295] policy_loss=0.7092  value_loss=0.0196  buffer=100000
+  [Iter 286] Buffer too small, waiting...
+  [Iter 287] Buffer too small, waiting...
+  [Iter 288] Buffer too small, waiting...
+  [Iter 289] Buffer too small, waiting...
+  [Iter 290] Buffer too small, waiting...
+  [Iter 291] Buffer too small, waiting...
+  [Iter 292] Buffer too small, waiting...
+  [Iter 293] Buffer too small, waiting...
+  [Iter 294] Buffer too small, waiting...
+  [Iter 295] policy_loss=0.9708  value_loss=0.0070  buffer=18305
 Iter 295 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 296] policy_loss=0.6883  value_loss=0.0148  buffer=100000
-Iter 296 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 297] policy_loss=0.6984  value_loss=0.0173  buffer=100000
-Iter 297 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 298] policy_loss=0.6897  value_loss=0.0169  buffer=100000
-Iter 298 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 299] policy_loss=0.6938  value_loss=0.0110  buffer=100000
+  [Iter 296] Buffer too small, waiting...
+  [Iter 297] Buffer too small, waiting...
+  [Iter 298] Buffer too small, waiting...
+  [Iter 299] policy_loss=1.0140  value_loss=0.0076  buffer=18610
 Iter 299 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 300] policy_loss=0.6782  value_loss=0.0182  buffer=100000
-Iter 300 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0300.pt
-  [Iter 301] policy_loss=0.7085  value_loss=0.0110  buffer=100000
-Iter 301 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 302] policy_loss=0.6929  value_loss=0.0103  buffer=100000
-Iter 302 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 303] policy_loss=0.6863  value_loss=0.0062  buffer=100000
-Iter 303 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 304] policy_loss=0.6871  value_loss=0.0075  buffer=100000
-Iter 304 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 305] policy_loss=0.6809  value_loss=0.0070  buffer=100000
-Iter 305 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 306] policy_loss=0.6860  value_loss=0.0078  buffer=100000
+  [Iter 300] Buffer too small, waiting...
+  [Iter 301] Buffer too small, waiting...
+  [Iter 302] Buffer too small, waiting...
+  [Iter 303] Buffer too small, waiting...
+  [Iter 304] Buffer too small, waiting...
+  [Iter 305] Buffer too small, waiting...
+  [Iter 306] policy_loss=1.0541  value_loss=0.0085  buffer=19027
 Iter 306 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 307] policy_loss=0.6829  value_loss=0.0048  buffer=100000
-Iter 307 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 308] policy_loss=0.6852  value_loss=0.0063  buffer=100000
-Iter 308 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 309] policy_loss=0.6965  value_loss=0.0076  buffer=100000
-Iter 309 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 310] policy_loss=0.6837  value_loss=0.0079  buffer=100000
-Iter 310 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0310.pt
-  [Iter 311] policy_loss=0.6740  value_loss=0.0074  buffer=100000
-Iter 311 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 312] policy_loss=0.6864  value_loss=0.0099  buffer=100000
-Iter 312 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 313] policy_loss=0.6897  value_loss=0.0059  buffer=100000
-Iter 313 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 314] policy_loss=0.6752  value_loss=0.0059  buffer=100000
-Iter 314 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 315] policy_loss=0.6879  value_loss=0.0103  buffer=100000
-Iter 315 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 316] policy_loss=0.6910  value_loss=0.0069  buffer=100000
-Iter 316 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 317] policy_loss=0.6901  value_loss=0.0126  buffer=100000
-Iter 317 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 318] policy_loss=0.6839  value_loss=0.0196  buffer=100000
+  [Iter 307] Buffer too small, waiting...
+  [Iter 308] Buffer too small, waiting...
+  [Iter 309] Buffer too small, waiting...
+  [Iter 310] Buffer too small, waiting...
+  [Iter 311] Buffer too small, waiting...
+  [Iter 312] Buffer too small, waiting...
+  [Iter 313] Buffer too small, waiting...
+  [Iter 314] Buffer too small, waiting...
+  [Iter 315] Buffer too small, waiting...
+  [Iter 316] Buffer too small, waiting...
+  [Iter 317] Buffer too small, waiting...
+  [Iter 318] policy_loss=1.0564  value_loss=0.0052  buffer=19695
 Iter 318 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 319] policy_loss=0.6968  value_loss=0.0149  buffer=100000
-Iter 319 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 320] policy_loss=0.6840  value_loss=0.0161  buffer=100000
-Iter 320 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0320.pt
-  [Iter 321] policy_loss=0.6790  value_loss=0.0107  buffer=100000
-Iter 321 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 322] policy_loss=0.6886  value_loss=0.0103  buffer=100000
-Iter 322 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 323] policy_loss=0.6769  value_loss=0.0132  buffer=100000
-Iter 323 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 324] policy_loss=0.6662  value_loss=0.0121  buffer=100000
-Iter 324 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 325] policy_loss=0.6901  value_loss=0.0128  buffer=100000
+  [Iter 319] Buffer too small, waiting...
+  [Iter 320] Buffer too small, waiting...
+  [Iter 321] Buffer too small, waiting...
+  [Iter 322] Buffer too small, waiting...
+  [Iter 323] Buffer too small, waiting...
+  [Iter 324] Buffer too small, waiting...
+  [Iter 325] policy_loss=1.0094  value_loss=0.0056  buffer=20169
 Iter 325 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 326] policy_loss=0.6789  value_loss=0.0066  buffer=100000
-Iter 326 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 327] policy_loss=0.6741  value_loss=0.0158  buffer=100000
-Iter 327 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 328] policy_loss=0.6873  value_loss=0.0111  buffer=100000
-Iter 328 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 329] policy_loss=0.6830  value_loss=0.0141  buffer=100000
-Iter 329 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 330] policy_loss=0.6796  value_loss=0.0221  buffer=100000
-Iter 330 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0330.pt
-  [Iter 331] policy_loss=0.6684  value_loss=0.0137  buffer=100000
-Iter 331 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 332] policy_loss=0.6712  value_loss=0.0220  buffer=100000
+  [Iter 326] Buffer too small, waiting...
+  [Iter 327] Buffer too small, waiting...
+  [Iter 328] Buffer too small, waiting...
+  [Iter 329] Buffer too small, waiting...
+  [Iter 330] Buffer too small, waiting...
+  [Iter 331] Buffer too small, waiting...
+  [Iter 332] policy_loss=1.0020  value_loss=0.0072  buffer=20586
 Iter 332 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 333] policy_loss=0.6777  value_loss=0.0155  buffer=100000
-Iter 333 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 334] policy_loss=0.6929  value_loss=0.0182  buffer=100000
-Iter 334 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 335] policy_loss=0.6875  value_loss=0.0281  buffer=100000
-Iter 335 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 336] policy_loss=0.6890  value_loss=0.0225  buffer=100000
-Iter 336 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 337] policy_loss=0.6704  value_loss=0.0165  buffer=100000
-Iter 337 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 338] policy_loss=0.6937  value_loss=0.0247  buffer=100000
+  [Iter 333] Buffer too small, waiting...
+  [Iter 334] Buffer too small, waiting...
+  [Iter 335] Buffer too small, waiting...
+  [Iter 336] Buffer too small, waiting...
+  [Iter 337] Buffer too small, waiting...
+  [Iter 338] policy_loss=1.0551  value_loss=0.0069  buffer=20964
 Iter 338 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 339] policy_loss=0.6824  value_loss=0.0257  buffer=100000
-Iter 339 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 340] policy_loss=0.6833  value_loss=0.0212  buffer=100000
-Iter 340 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0340.pt
-  [Iter 341] policy_loss=0.6840  value_loss=0.0177  buffer=100000
-Iter 341 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 342] policy_loss=0.6990  value_loss=0.0176  buffer=100000
-Iter 342 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 343] policy_loss=0.6745  value_loss=0.0169  buffer=100000
-Iter 343 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 344] policy_loss=0.6739  value_loss=0.0134  buffer=100000
-Iter 344 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 345] policy_loss=0.6903  value_loss=0.0167  buffer=100000
+  [Iter 339] Buffer too small, waiting...
+  [Iter 340] Buffer too small, waiting...
+  [Iter 341] Buffer too small, waiting...
+  [Iter 342] Buffer too small, waiting...
+  [Iter 343] Buffer too small, waiting...
+  [Iter 344] Buffer too small, waiting...
+  [Iter 345] policy_loss=1.0343  value_loss=0.0087  buffer=21435
 Iter 345 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 346] policy_loss=0.6839  value_loss=0.0171  buffer=100000
-Iter 346 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 347] policy_loss=0.6736  value_loss=0.0110  buffer=100000
-Iter 347 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 348] policy_loss=0.6913  value_loss=0.0261  buffer=100000
-Iter 348 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 349] policy_loss=0.6795  value_loss=0.0171  buffer=100000
-Iter 349 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 350] policy_loss=0.6783  value_loss=0.0183  buffer=100000
+  [Iter 346] Buffer too small, waiting...
+  [Iter 347] Buffer too small, waiting...
+  [Iter 348] Buffer too small, waiting...
+  [Iter 349] Buffer too small, waiting...
+  [Iter 350] policy_loss=1.0907  value_loss=0.0057  buffer=21752
 Iter 350 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0350.pt
-  [Iter 351] policy_loss=0.6815  value_loss=0.0233  buffer=100000
-Iter 351 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 352] policy_loss=0.6847  value_loss=0.0155  buffer=100000
-Iter 352 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 353] policy_loss=0.6879  value_loss=0.0198  buffer=100000
-Iter 353 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 354] policy_loss=0.6767  value_loss=0.0201  buffer=100000
-Iter 354 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 355] policy_loss=0.7087  value_loss=0.0351  buffer=100000
-Iter 355 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 356] policy_loss=0.6711  value_loss=0.0197  buffer=100000
-Iter 356 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 357] policy_loss=0.6949  value_loss=0.0304  buffer=100000
-Iter 357 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 358] policy_loss=0.6852  value_loss=0.0263  buffer=100000
+  [Iter 351] Buffer too small, waiting...
+  [Iter 352] Buffer too small, waiting...
+  [Iter 353] Buffer too small, waiting...
+  [Iter 354] Buffer too small, waiting...
+  [Iter 355] Buffer too small, waiting...
+  [Iter 356] Buffer too small, waiting...
+  [Iter 357] Buffer too small, waiting...
+  [Iter 358] policy_loss=1.0473  value_loss=0.0057  buffer=22213
 Iter 358 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 359] policy_loss=0.6759  value_loss=0.0251  buffer=100000
-Iter 359 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 360] policy_loss=0.6927  value_loss=0.0244  buffer=100000
-Iter 360 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0360.pt
-  [Iter 361] policy_loss=0.6974  value_loss=0.0186  buffer=100000
-Iter 361 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 362] policy_loss=0.6843  value_loss=0.0329  buffer=100000
-Iter 362 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 363] policy_loss=0.6874  value_loss=0.0427  buffer=100000
-Iter 363 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 364] policy_loss=0.6844  value_loss=0.0342  buffer=100000
+  [Iter 359] Buffer too small, waiting...
+  [Iter 360] Buffer too small, waiting...
+  [Iter 361] Buffer too small, waiting...
+  [Iter 362] Buffer too small, waiting...
+  [Iter 363] Buffer too small, waiting...
+  [Iter 364] policy_loss=1.0256  value_loss=0.0050  buffer=22575
 Iter 364 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 365] policy_loss=0.6861  value_loss=0.0362  buffer=100000
-Iter 365 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 366] policy_loss=0.6914  value_loss=0.0413  buffer=100000
-Iter 366 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 367] policy_loss=0.6909  value_loss=0.0195  buffer=100000
-Iter 367 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 368] policy_loss=0.6921  value_loss=0.0142  buffer=100000
-Iter 368 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 369] policy_loss=0.6869  value_loss=0.0250  buffer=100000
+  [Iter 365] Buffer too small, waiting...
+  [Iter 366] Buffer too small, waiting...
+  [Iter 367] Buffer too small, waiting...
+  [Iter 368] Buffer too small, waiting...
+  [Iter 369] policy_loss=1.0301  value_loss=0.0068  buffer=22872
 Iter 369 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 370] policy_loss=0.6876  value_loss=0.0188  buffer=100000
-Iter 370 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0370.pt
-  [Iter 371] policy_loss=0.6860  value_loss=0.0205  buffer=100000
-Iter 371 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 372] policy_loss=0.6852  value_loss=0.0135  buffer=100000
-Iter 372 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 373] policy_loss=0.6897  value_loss=0.0294  buffer=100000
-Iter 373 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 374] policy_loss=0.6841  value_loss=0.0112  buffer=100000
-Iter 374 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 375] policy_loss=0.6984  value_loss=0.0141  buffer=100000
-Iter 375 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 376] policy_loss=0.6681  value_loss=0.0149  buffer=100000
-Iter 376 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 377] policy_loss=0.6915  value_loss=0.0249  buffer=100000
+  [Iter 370] Buffer too small, waiting...
+  [Iter 371] Buffer too small, waiting...
+  [Iter 372] Buffer too small, waiting...
+  [Iter 373] Buffer too small, waiting...
+  [Iter 374] Buffer too small, waiting...
+  [Iter 375] Buffer too small, waiting...
+  [Iter 376] Buffer too small, waiting...
+  [Iter 377] policy_loss=1.0396  value_loss=0.0065  buffer=23359
 Iter 377 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 378] policy_loss=0.6835  value_loss=0.0258  buffer=100000
-Iter 378 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 379] policy_loss=0.6897  value_loss=0.0309  buffer=100000
-Iter 379 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 380] policy_loss=0.6948  value_loss=0.0412  buffer=100000
-Iter 380 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0380.pt
-  [Iter 381] policy_loss=0.6962  value_loss=0.0555  buffer=100000
-Iter 381 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 382] policy_loss=0.6976  value_loss=0.0295  buffer=100000
-Iter 382 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 383] policy_loss=0.6787  value_loss=0.0410  buffer=100000
-Iter 383 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 384] policy_loss=0.6943  value_loss=0.0410  buffer=100000
-Iter 384 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 385] policy_loss=0.7119  value_loss=0.0421  buffer=100000
-Iter 385 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 386] policy_loss=0.6894  value_loss=0.0483  buffer=100000
-Iter 386 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 387] policy_loss=0.6802  value_loss=0.0378  buffer=100000
-Iter 387 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 388] policy_loss=0.6857  value_loss=0.0399  buffer=100000
+  [Iter 378] Buffer too small, waiting...
+  [Iter 379] Buffer too small, waiting...
+  [Iter 380] Buffer too small, waiting...
+  [Iter 381] Buffer too small, waiting...
+  [Iter 382] Buffer too small, waiting...
+  [Iter 383] Buffer too small, waiting...
+  [Iter 384] Buffer too small, waiting...
+  [Iter 385] Buffer too small, waiting...
+  [Iter 386] Buffer too small, waiting...
+  [Iter 387] Buffer too small, waiting...
+  [Iter 388] policy_loss=1.0235  value_loss=0.0053  buffer=23978
 Iter 388 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 389] policy_loss=0.6941  value_loss=0.0275  buffer=100000
-Iter 389 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 390] policy_loss=0.6901  value_loss=0.0355  buffer=100000
-Iter 390 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0390.pt
-  [Iter 391] policy_loss=0.6889  value_loss=0.0474  buffer=100000
-Iter 391 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 392] policy_loss=0.6866  value_loss=0.0395  buffer=100000
-Iter 392 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 393] policy_loss=0.6905  value_loss=0.0322  buffer=100000
-Iter 393 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 394] policy_loss=0.6867  value_loss=0.0467  buffer=100000
+  [Iter 389] Buffer too small, waiting...
+  [Iter 390] Buffer too small, waiting...
+  [Iter 391] Buffer too small, waiting...
+  [Iter 392] Buffer too small, waiting...
+  [Iter 393] Buffer too small, waiting...
+  [Iter 394] policy_loss=1.0199  value_loss=0.0079  buffer=24351
 Iter 394 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 395] policy_loss=0.7015  value_loss=0.0365  buffer=100000
-Iter 395 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 396] policy_loss=0.6975  value_loss=0.0412  buffer=100000
-Iter 396 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 397] policy_loss=0.6761  value_loss=0.0318  buffer=100000
-Iter 397 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 398] policy_loss=0.6905  value_loss=0.0322  buffer=100000
-Iter 398 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 399] policy_loss=0.6818  value_loss=0.0465  buffer=100000
-Iter 399 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 400] policy_loss=0.6915  value_loss=0.0569  buffer=100000
+  [Iter 395] Buffer too small, waiting...
+  [Iter 396] Buffer too small, waiting...
+  [Iter 397] Buffer too small, waiting...
+  [Iter 398] Buffer too small, waiting...
+  [Iter 399] Buffer too small, waiting...
+  [Iter 400] policy_loss=0.9856  value_loss=0.0070  buffer=24706
 Iter 400 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0400.pt
-  [Iter 401] policy_loss=0.6950  value_loss=0.0413  buffer=100000
-Iter 401 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 402] policy_loss=0.6860  value_loss=0.0344  buffer=100000
-Iter 402 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 403] policy_loss=0.7030  value_loss=0.0376  buffer=100000
-Iter 403 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 404] policy_loss=0.6961  value_loss=0.0379  buffer=100000
-Iter 404 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 405] policy_loss=0.6802  value_loss=0.0181  buffer=100000
-Iter 405 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 406] policy_loss=0.6966  value_loss=0.0328  buffer=100000
+  [Iter 401] Buffer too small, waiting...
+  [Iter 402] Buffer too small, waiting...
+  [Iter 403] Buffer too small, waiting...
+  [Iter 404] Buffer too small, waiting...
+  [Iter 405] Buffer too small, waiting...
+  [Iter 406] policy_loss=1.0310  value_loss=0.0068  buffer=25068
 Iter 406 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 407] policy_loss=0.6850  value_loss=0.0261  buffer=100000
-Iter 407 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 408] policy_loss=0.7003  value_loss=0.0158  buffer=100000
-Iter 408 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 409] policy_loss=0.6708  value_loss=0.0226  buffer=100000
-Iter 409 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 410] policy_loss=0.6760  value_loss=0.0179  buffer=100000
+  [Iter 407] Buffer too small, waiting...
+  [Iter 408] Buffer too small, waiting...
+  [Iter 409] Buffer too small, waiting...
+  [Iter 410] policy_loss=0.9865  value_loss=0.0072  buffer=25372
 Iter 410 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0410.pt
-  [Iter 411] policy_loss=0.6905  value_loss=0.0190  buffer=100000
-Iter 411 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 412] policy_loss=0.6969  value_loss=0.0322  buffer=100000
-Iter 412 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 413] policy_loss=0.6815  value_loss=0.0304  buffer=100000
-Iter 413 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 414] policy_loss=0.6831  value_loss=0.0242  buffer=100000
-Iter 414 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 415] policy_loss=0.6955  value_loss=0.0280  buffer=100000
+  [Iter 411] Buffer too small, waiting...
+  [Iter 412] Buffer too small, waiting...
+  [Iter 413] Buffer too small, waiting...
+  [Iter 414] Buffer too small, waiting...
+  [Iter 415] policy_loss=1.0142  value_loss=0.0067  buffer=25644
 Iter 415 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 416] policy_loss=0.6888  value_loss=0.0245  buffer=100000
-Iter 416 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 417] policy_loss=0.6905  value_loss=0.0165  buffer=100000
-Iter 417 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 418] policy_loss=0.6886  value_loss=0.0281  buffer=100000
-Iter 418 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 419] policy_loss=0.6819  value_loss=0.0239  buffer=100000
-Iter 419 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 420] policy_loss=0.6894  value_loss=0.0249  buffer=100000
+  [Iter 416] Buffer too small, waiting...
+  [Iter 417] Buffer too small, waiting...
+  [Iter 418] Buffer too small, waiting...
+  [Iter 419] Buffer too small, waiting...
+  [Iter 420] policy_loss=1.0639  value_loss=0.0060  buffer=25988
 Iter 420 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0420.pt
-  [Iter 421] policy_loss=0.6873  value_loss=0.0213  buffer=100000
-Iter 421 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 422] policy_loss=0.6835  value_loss=0.0195  buffer=100000
-Iter 422 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 423] policy_loss=0.6892  value_loss=0.0159  buffer=100000
-Iter 423 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 424] policy_loss=0.6858  value_loss=0.0280  buffer=100000
-Iter 424 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 425] policy_loss=0.6882  value_loss=0.0286  buffer=100000
-Iter 425 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 426] policy_loss=0.7015  value_loss=0.0359  buffer=100000
+  [Iter 421] Buffer too small, waiting...
+  [Iter 422] Buffer too small, waiting...
+  [Iter 423] Buffer too small, waiting...
+  [Iter 424] Buffer too small, waiting...
+  [Iter 425] Buffer too small, waiting...
+  [Iter 426] policy_loss=1.0371  value_loss=0.0062  buffer=26321
 Iter 426 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 427] policy_loss=0.6865  value_loss=0.0409  buffer=100000
-Iter 427 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 428] policy_loss=0.6807  value_loss=0.0545  buffer=100000
-Iter 428 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 429] policy_loss=0.6914  value_loss=0.0214  buffer=100000
-Iter 429 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 430] policy_loss=0.6707  value_loss=0.0377  buffer=100000
-Iter 430 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0430.pt
-  [Iter 431] policy_loss=0.6898  value_loss=0.0325  buffer=100000
-Iter 431 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 432] policy_loss=0.6751  value_loss=0.0206  buffer=100000
+  [Iter 427] Buffer too small, waiting...
+  [Iter 428] Buffer too small, waiting...
+  [Iter 429] Buffer too small, waiting...
+  [Iter 430] Buffer too small, waiting...
+  [Iter 431] Buffer too small, waiting...
+  [Iter 432] policy_loss=1.0128  value_loss=0.0092  buffer=26683
 Iter 432 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 433] policy_loss=0.6745  value_loss=0.0390  buffer=100000
-Iter 433 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 434] policy_loss=0.6757  value_loss=0.0152  buffer=100000
-Iter 434 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 435] policy_loss=0.6813  value_loss=0.0114  buffer=100000
-Iter 435 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 436] policy_loss=0.6921  value_loss=0.0192  buffer=100000
-Iter 436 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 437] policy_loss=0.6841  value_loss=0.0190  buffer=100000
-Iter 437 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 438] policy_loss=0.6879  value_loss=0.0216  buffer=100000
+  [Iter 433] Buffer too small, waiting...
+  [Iter 434] Buffer too small, waiting...
+  [Iter 435] Buffer too small, waiting...
+  [Iter 436] Buffer too small, waiting...
+  [Iter 437] Buffer too small, waiting...
+  [Iter 438] policy_loss=1.0534  value_loss=0.0058  buffer=27009
 Iter 438 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 439] policy_loss=0.7009  value_loss=0.0258  buffer=100000
-Iter 439 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 440] policy_loss=0.6723  value_loss=0.0398  buffer=100000
-Iter 440 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0440.pt
-  [Iter 441] policy_loss=0.6989  value_loss=0.0499  buffer=100000
-Iter 441 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 442] policy_loss=0.6841  value_loss=0.0263  buffer=100000
-Iter 442 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 443] policy_loss=0.6713  value_loss=0.0221  buffer=100000
+  [Iter 439] Buffer too small, waiting...
+  [Iter 440] Buffer too small, waiting...
+  [Iter 441] Buffer too small, waiting...
+  [Iter 442] Buffer too small, waiting...
+  [Iter 443] policy_loss=0.9865  value_loss=0.0071  buffer=27367
 Iter 443 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 444] policy_loss=0.6906  value_loss=0.0227  buffer=100000
-Iter 444 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 445] policy_loss=0.6935  value_loss=0.0155  buffer=100000
-Iter 445 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 446] policy_loss=0.6941  value_loss=0.0214  buffer=100000
-Iter 446 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 447] policy_loss=0.6835  value_loss=0.0183  buffer=100000
-Iter 447 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 448] policy_loss=0.6723  value_loss=0.0283  buffer=100000
-Iter 448 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 449] policy_loss=0.6804  value_loss=0.0276  buffer=100000
-Iter 449 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 450] policy_loss=0.6697  value_loss=0.0230  buffer=100000
+  [Iter 444] Buffer too small, waiting...
+  [Iter 445] Buffer too small, waiting...
+  [Iter 446] Buffer too small, waiting...
+  [Iter 447] Buffer too small, waiting...
+  [Iter 448] Buffer too small, waiting...
+  [Iter 449] Buffer too small, waiting...
+  [Iter 450] policy_loss=1.0397  value_loss=0.0062  buffer=27806
 Iter 450 weights pushed → self_play_model/checkpoints/cnn/latest.pt
   Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0450.pt
-  [Iter 451] policy_loss=0.6771  value_loss=0.0421  buffer=100000
-Iter 451 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 452] policy_loss=0.6720  value_loss=0.0369  buffer=100000
-Iter 452 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 453] policy_loss=0.6712  value_loss=0.0170  buffer=100000
-Iter 453 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 454] policy_loss=0.6667  value_loss=0.0385  buffer=100000
-Iter 454 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 455] policy_loss=0.6892  value_loss=0.0433  buffer=100000
+  [Iter 451] Buffer too small, waiting...
+  [Iter 452] Buffer too small, waiting...
+  [Iter 453] Buffer too small, waiting...
+  [Iter 454] Buffer too small, waiting...
+  [Iter 455] policy_loss=1.0240  value_loss=0.0070  buffer=28079
 Iter 455 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 456] policy_loss=0.6808  value_loss=0.0386  buffer=100000
-Iter 456 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 457] policy_loss=0.6851  value_loss=0.0291  buffer=100000
-Iter 457 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 458] policy_loss=0.6690  value_loss=0.0261  buffer=100000
-Iter 458 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 459] policy_loss=0.6885  value_loss=0.0287  buffer=100000
-Iter 459 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 460] policy_loss=0.6696  value_loss=0.0177  buffer=100000
-Iter 460 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0460.pt
-  [Iter 461] policy_loss=0.6790  value_loss=0.0264  buffer=100000
-Iter 461 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 462] policy_loss=0.6819  value_loss=0.0330  buffer=100000
+  [Iter 456] Buffer too small, waiting...
+  [Iter 457] Buffer too small, waiting...
+  [Iter 458] Buffer too small, waiting...
+  [Iter 459] Buffer too small, waiting...
+  [Iter 460] Buffer too small, waiting...
+  [Iter 461] Buffer too small, waiting...
+  [Iter 462] policy_loss=1.0234  value_loss=0.0078  buffer=28459
 Iter 462 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 463] policy_loss=0.6747  value_loss=0.0469  buffer=100000
-Iter 463 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 464] policy_loss=0.6801  value_loss=0.0328  buffer=100000
-Iter 464 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 465] policy_loss=0.6815  value_loss=0.0174  buffer=100000
-Iter 465 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 466] policy_loss=0.6842  value_loss=0.0192  buffer=100000
-Iter 466 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 467] policy_loss=0.6723  value_loss=0.0496  buffer=100000
-Iter 467 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 468] policy_loss=0.6796  value_loss=0.0456  buffer=100000
+  [Iter 463] Buffer too small, waiting...
+  [Iter 464] Buffer too small, waiting...
+  [Iter 465] Buffer too small, waiting...
+  [Iter 466] Buffer too small, waiting...
+  [Iter 467] Buffer too small, waiting...
+  [Iter 468] policy_loss=0.9795  value_loss=0.0068  buffer=28821
 Iter 468 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 469] policy_loss=0.6881  value_loss=0.0601  buffer=100000
-Iter 469 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 470] policy_loss=0.6937  value_loss=0.0625  buffer=100000
-Iter 470 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0470.pt
-  [Iter 471] policy_loss=0.6655  value_loss=0.0401  buffer=100000
-Iter 471 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 472] policy_loss=0.6713  value_loss=0.0354  buffer=100000
-Iter 472 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 473] policy_loss=0.6724  value_loss=0.0278  buffer=100000
-Iter 473 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 474] policy_loss=0.6867  value_loss=0.0284  buffer=100000
-Iter 474 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 475] policy_loss=0.6648  value_loss=0.0408  buffer=100000
+  [Iter 469] Buffer too small, waiting...
+  [Iter 470] Buffer too small, waiting...
+  [Iter 471] Buffer too small, waiting...
+  [Iter 472] Buffer too small, waiting...
+  [Iter 473] Buffer too small, waiting...
+  [Iter 474] Buffer too small, waiting...
+  [Iter 475] policy_loss=1.0323  value_loss=0.0050  buffer=29209
 Iter 475 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 476] policy_loss=0.6742  value_loss=0.0260  buffer=100000
-Iter 476 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 477] policy_loss=0.6646  value_loss=0.0246  buffer=100000
-Iter 477 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 478] policy_loss=0.6690  value_loss=0.0237  buffer=100000
+  [Iter 476] Buffer too small, waiting...
+  [Iter 477] Buffer too small, waiting...
+  [Iter 478] policy_loss=1.0432  value_loss=0.0060  buffer=29444
 Iter 478 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 479] policy_loss=0.6752  value_loss=0.0344  buffer=100000
-Iter 479 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 480] policy_loss=0.6697  value_loss=0.0145  buffer=100000
-Iter 480 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0480.pt
-  [Iter 481] policy_loss=0.6816  value_loss=0.0209  buffer=100000
-Iter 481 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 482] policy_loss=0.6850  value_loss=0.0310  buffer=100000
-Iter 482 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 483] policy_loss=0.6884  value_loss=0.0329  buffer=100000
-Iter 483 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 484] policy_loss=0.6758  value_loss=0.0415  buffer=100000
+  [Iter 479] Buffer too small, waiting...
+  [Iter 480] Buffer too small, waiting...
+  [Iter 481] Buffer too small, waiting...
+  [Iter 482] Buffer too small, waiting...
+  [Iter 483] Buffer too small, waiting...
+  [Iter 484] policy_loss=1.0082  value_loss=0.0054  buffer=29746
 Iter 484 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 485] policy_loss=0.6805  value_loss=0.0441  buffer=100000
-Iter 485 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 486] policy_loss=0.6844  value_loss=0.0253  buffer=100000
-Iter 486 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 487] policy_loss=0.6811  value_loss=0.0387  buffer=100000
-Iter 487 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 488] policy_loss=0.6754  value_loss=0.0312  buffer=100000
-Iter 488 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 489] policy_loss=0.6678  value_loss=0.0227  buffer=100000
+  [Iter 485] Buffer too small, waiting...
+  [Iter 486] Buffer too small, waiting...
+  [Iter 487] Buffer too small, waiting...
+  [Iter 488] Buffer too small, waiting...
+  [Iter 489] policy_loss=1.0293  value_loss=0.0047  buffer=30015
 Iter 489 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 490] policy_loss=0.6774  value_loss=0.0458  buffer=100000
-Iter 490 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0490.pt
-  [Iter 491] policy_loss=0.6684  value_loss=0.0318  buffer=100000
-Iter 491 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 492] policy_loss=0.6742  value_loss=0.0323  buffer=100000
-Iter 492 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 493] policy_loss=0.6700  value_loss=0.0293  buffer=100000
-Iter 493 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 494] policy_loss=0.6585  value_loss=0.0252  buffer=100000
-Iter 494 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 495] policy_loss=0.6655  value_loss=0.0321  buffer=100000
-Iter 495 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 496] policy_loss=0.6748  value_loss=0.0263  buffer=100000
-Iter 496 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 497] policy_loss=0.6582  value_loss=0.0431  buffer=100000
+  [Iter 490] Buffer too small, waiting...
+  [Iter 491] Buffer too small, waiting...
+  [Iter 492] Buffer too small, waiting...
+  [Iter 493] Buffer too small, waiting...
+  [Iter 494] Buffer too small, waiting...
+  [Iter 495] Buffer too small, waiting...
+  [Iter 496] Buffer too small, waiting...
+  [Iter 497] policy_loss=1.0138  value_loss=0.0063  buffer=30543
 Iter 497 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 498] policy_loss=0.6773  value_loss=0.0333  buffer=100000
-Iter 498 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 499] policy_loss=0.6791  value_loss=0.0517  buffer=100000
-Iter 499 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 500] policy_loss=0.6860  value_loss=0.0424  buffer=100000
-Iter 500 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0500.pt
-  [Iter 501] policy_loss=0.6817  value_loss=0.0366  buffer=100000
+  [Iter 498] Buffer too small, waiting...
+  [Iter 499] Buffer too small, waiting...
+  [Iter 500] Buffer too small, waiting...
+  [Iter 501] policy_loss=1.0269  value_loss=0.0079  buffer=30869
 Iter 501 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 502] policy_loss=0.6682  value_loss=0.0366  buffer=100000
-Iter 502 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 503] policy_loss=0.6768  value_loss=0.0439  buffer=100000
-Iter 503 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 504] policy_loss=0.6825  value_loss=0.0313  buffer=100000
+  [Iter 502] Buffer too small, waiting...
+  [Iter 503] Buffer too small, waiting...
+  [Iter 504] policy_loss=1.0325  value_loss=0.0072  buffer=31056
 Iter 504 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 505] policy_loss=0.6725  value_loss=0.0321  buffer=100000
-Iter 505 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 506] policy_loss=0.6709  value_loss=0.0214  buffer=100000
-Iter 506 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 507] policy_loss=0.6799  value_loss=0.0256  buffer=100000
-Iter 507 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 508] policy_loss=0.6784  value_loss=0.0297  buffer=100000
+  [Iter 505] Buffer too small, waiting...
+  [Iter 506] Buffer too small, waiting...
+  [Iter 507] Buffer too small, waiting...
+  [Iter 508] policy_loss=1.0500  value_loss=0.0060  buffer=31355
 Iter 508 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 509] policy_loss=0.6790  value_loss=0.0272  buffer=100000
-Iter 509 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 510] policy_loss=0.6690  value_loss=0.0204  buffer=100000
-Iter 510 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0510.pt
-  [Iter 511] policy_loss=0.6708  value_loss=0.0222  buffer=100000
-Iter 511 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 512] policy_loss=0.6692  value_loss=0.0261  buffer=100000
-Iter 512 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 513] policy_loss=0.6699  value_loss=0.0251  buffer=100000
-Iter 513 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 514] policy_loss=0.6825  value_loss=0.0306  buffer=100000
-Iter 514 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 515] policy_loss=0.6787  value_loss=0.0337  buffer=100000
-Iter 515 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 516] policy_loss=0.6769  value_loss=0.0398  buffer=100000
+  [Iter 509] Buffer too small, waiting...
+  [Iter 510] Buffer too small, waiting...
+  [Iter 511] Buffer too small, waiting...
+  [Iter 512] Buffer too small, waiting...
+  [Iter 513] Buffer too small, waiting...
+  [Iter 514] Buffer too small, waiting...
+  [Iter 515] Buffer too small, waiting...
+  [Iter 516] policy_loss=1.0108  value_loss=0.0057  buffer=31899
 Iter 516 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 517] policy_loss=0.6767  value_loss=0.0421  buffer=100000
-Iter 517 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 518] policy_loss=0.6717  value_loss=0.0290  buffer=100000
-Iter 518 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 519] policy_loss=0.6794  value_loss=0.0202  buffer=100000
-Iter 519 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 520] policy_loss=0.6831  value_loss=0.0285  buffer=100000
-Iter 520 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0520.pt
-  [Iter 521] policy_loss=0.6681  value_loss=0.0253  buffer=100000
+  [Iter 517] Buffer too small, waiting...
+  [Iter 518] Buffer too small, waiting...
+  [Iter 519] Buffer too small, waiting...
+  [Iter 520] Buffer too small, waiting...
+  [Iter 521] policy_loss=0.9912  value_loss=0.0047  buffer=32215
 Iter 521 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 522] policy_loss=0.6827  value_loss=0.0298  buffer=100000
-Iter 522 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 523] policy_loss=0.6708  value_loss=0.0194  buffer=100000
-Iter 523 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 524] policy_loss=0.6767  value_loss=0.0444  buffer=100000
-Iter 524 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 525] policy_loss=0.6851  value_loss=0.0447  buffer=100000
+  [Iter 522] Buffer too small, waiting...
+  [Iter 523] Buffer too small, waiting...
+  [Iter 524] Buffer too small, waiting...
+  [Iter 525] policy_loss=1.0525  value_loss=0.0056  buffer=32491
 Iter 525 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 526] policy_loss=0.6913  value_loss=0.0381  buffer=100000
-Iter 526 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 527] policy_loss=0.6687  value_loss=0.0340  buffer=100000
-Iter 527 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 528] policy_loss=0.6711  value_loss=0.0371  buffer=100000
-Iter 528 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 529] policy_loss=0.6728  value_loss=0.0238  buffer=100000
-Iter 529 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 530] policy_loss=0.6707  value_loss=0.0247  buffer=100000
-Iter 530 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0530.pt
-  [Iter 531] policy_loss=0.6712  value_loss=0.0141  buffer=100000
-Iter 531 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 532] policy_loss=0.6765  value_loss=0.0312  buffer=100000
+  [Iter 526] Buffer too small, waiting...
+  [Iter 527] Buffer too small, waiting...
+  [Iter 528] Buffer too small, waiting...
+  [Iter 529] Buffer too small, waiting...
+  [Iter 530] Buffer too small, waiting...
+  [Iter 531] Buffer too small, waiting...
+  [Iter 532] policy_loss=1.0590  value_loss=0.0072  buffer=32988
 Iter 532 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 533] policy_loss=0.6649  value_loss=0.0329  buffer=100000
-Iter 533 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 534] policy_loss=0.6695  value_loss=0.0214  buffer=100000
-Iter 534 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 535] policy_loss=0.6835  value_loss=0.0240  buffer=100000
-Iter 535 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 536] policy_loss=0.6794  value_loss=0.0216  buffer=100000
-Iter 536 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 537] policy_loss=0.6753  value_loss=0.0397  buffer=100000
-Iter 537 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 538] policy_loss=0.6804  value_loss=0.0423  buffer=100000
+  [Iter 533] Buffer too small, waiting...
+  [Iter 534] Buffer too small, waiting...
+  [Iter 535] Buffer too small, waiting...
+  [Iter 536] Buffer too small, waiting...
+  [Iter 537] Buffer too small, waiting...
+  [Iter 538] policy_loss=1.0677  value_loss=0.0066  buffer=33401
 Iter 538 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 539] policy_loss=0.6891  value_loss=0.0402  buffer=100000
-Iter 539 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 540] policy_loss=0.6744  value_loss=0.0295  buffer=100000
-Iter 540 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0540.pt
-  [Iter 541] policy_loss=0.6853  value_loss=0.0431  buffer=100000
-Iter 541 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 542] policy_loss=0.6823  value_loss=0.0264  buffer=100000
-Iter 542 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 543] policy_loss=0.6753  value_loss=0.0331  buffer=100000
+  [Iter 539] Buffer too small, waiting...
+  [Iter 540] Buffer too small, waiting...
+  [Iter 541] Buffer too small, waiting...
+  [Iter 542] Buffer too small, waiting...
+  [Iter 543] policy_loss=1.0228  value_loss=0.0053  buffer=33718
 Iter 543 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 544] policy_loss=0.6666  value_loss=0.0269  buffer=100000
-Iter 544 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 545] policy_loss=0.6778  value_loss=0.0307  buffer=100000
-Iter 545 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 546] policy_loss=0.6782  value_loss=0.0268  buffer=100000
-Iter 546 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 547] policy_loss=0.6593  value_loss=0.0352  buffer=100000
-Iter 547 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 548] policy_loss=0.6667  value_loss=0.0139  buffer=100000
-Iter 548 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 549] policy_loss=0.6764  value_loss=0.0333  buffer=100000
+  [Iter 544] Buffer too small, waiting...
+  [Iter 545] Buffer too small, waiting...
+  [Iter 546] Buffer too small, waiting...
+  [Iter 547] Buffer too small, waiting...
+  [Iter 548] Buffer too small, waiting...
+  [Iter 549] policy_loss=1.0394  value_loss=0.0066  buffer=34092
 Iter 549 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 550] policy_loss=0.6717  value_loss=0.0351  buffer=100000
-Iter 550 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0550.pt
-  [Iter 551] policy_loss=0.6826  value_loss=0.0493  buffer=100000
-Iter 551 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 552] policy_loss=0.6719  value_loss=0.0366  buffer=100000
-Iter 552 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 553] policy_loss=0.6722  value_loss=0.0420  buffer=100000
+  [Iter 550] Buffer too small, waiting...
+  [Iter 551] Buffer too small, waiting...
+  [Iter 552] Buffer too small, waiting...
+  [Iter 553] policy_loss=1.0721  value_loss=0.0088  buffer=34437
 Iter 553 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 554] policy_loss=0.6756  value_loss=0.0448  buffer=100000
-Iter 554 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 555] policy_loss=0.6727  value_loss=0.0375  buffer=100000
-Iter 555 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 556] policy_loss=0.6707  value_loss=0.0355  buffer=100000
-Iter 556 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 557] policy_loss=0.6760  value_loss=0.0294  buffer=100000
+  [Iter 554] Buffer too small, waiting...
+  [Iter 555] Buffer too small, waiting...
+  [Iter 556] Buffer too small, waiting...
+  [Iter 557] policy_loss=0.9843  value_loss=0.0056  buffer=34714
 Iter 557 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 558] policy_loss=0.6696  value_loss=0.0269  buffer=100000
-Iter 558 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 559] policy_loss=0.6631  value_loss=0.0372  buffer=100000
-Iter 559 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 560] policy_loss=0.6721  value_loss=0.0234  buffer=100000
-Iter 560 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0560.pt
-  [Iter 561] policy_loss=0.6630  value_loss=0.0323  buffer=100000
+  [Iter 558] Buffer too small, waiting...
+  [Iter 559] Buffer too small, waiting...
+  [Iter 560] Buffer too small, waiting...
+  [Iter 561] policy_loss=1.0445  value_loss=0.0061  buffer=35007
 Iter 561 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 562] policy_loss=0.6674  value_loss=0.0376  buffer=100000
-Iter 562 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 563] policy_loss=0.6606  value_loss=0.0300  buffer=100000
-Iter 563 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 564] policy_loss=0.6698  value_loss=0.0344  buffer=100000
+  [Iter 562] Buffer too small, waiting...
+  [Iter 563] Buffer too small, waiting...
+  [Iter 564] policy_loss=1.0187  value_loss=0.0060  buffer=35225
 Iter 564 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 565] policy_loss=0.6686  value_loss=0.0317  buffer=100000
-Iter 565 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 566] policy_loss=0.6732  value_loss=0.0207  buffer=100000
-Iter 566 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 567] policy_loss=0.6655  value_loss=0.0184  buffer=100000
+  [Iter 565] Buffer too small, waiting...
+  [Iter 566] Buffer too small, waiting...
+  [Iter 567] policy_loss=1.0400  value_loss=0.0092  buffer=35447
 Iter 567 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 568] policy_loss=0.6625  value_loss=0.0226  buffer=100000
-Iter 568 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 569] policy_loss=0.6730  value_loss=0.0173  buffer=100000
-Iter 569 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 570] policy_loss=0.6644  value_loss=0.0222  buffer=100000
-Iter 570 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0570.pt
-  [Iter 571] policy_loss=0.6722  value_loss=0.0231  buffer=100000
-Iter 571 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 572] policy_loss=0.6668  value_loss=0.0225  buffer=100000
-Iter 572 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 573] policy_loss=0.6593  value_loss=0.0118  buffer=100000
-Iter 573 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 574] policy_loss=0.6719  value_loss=0.0286  buffer=100000
-Iter 574 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 575] policy_loss=0.6662  value_loss=0.0340  buffer=100000
-Iter 575 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 576] policy_loss=0.6704  value_loss=0.0410  buffer=100000
-Iter 576 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 577] policy_loss=0.6678  value_loss=0.0482  buffer=100000
-Iter 577 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 578] policy_loss=0.6698  value_loss=0.0407  buffer=100000
-Iter 578 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 579] policy_loss=0.6783  value_loss=0.0356  buffer=100000
-Iter 579 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 580] policy_loss=0.6812  value_loss=0.0318  buffer=100000
-Iter 580 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0580.pt
-  [Iter 581] policy_loss=0.6677  value_loss=0.0391  buffer=100000
-Iter 581 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 582] policy_loss=0.6589  value_loss=0.0377  buffer=100000
-Iter 582 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 583] policy_loss=0.6656  value_loss=0.0405  buffer=100000
-Iter 583 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 584] policy_loss=0.6656  value_loss=0.0333  buffer=100000
-Iter 584 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 585] policy_loss=0.6611  value_loss=0.0480  buffer=100000
-Iter 585 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 586] policy_loss=0.6535  value_loss=0.0343  buffer=100000
-Iter 586 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 587] policy_loss=0.6650  value_loss=0.0316  buffer=100000
-Iter 587 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 588] policy_loss=0.6556  value_loss=0.0460  buffer=100000
-Iter 588 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 589] policy_loss=0.6652  value_loss=0.0322  buffer=100000
-Iter 589 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 590] policy_loss=0.6578  value_loss=0.0411  buffer=100000
-Iter 590 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0590.pt
-  [Iter 591] policy_loss=0.6601  value_loss=0.0329  buffer=100000
-Iter 591 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 592] policy_loss=0.6769  value_loss=0.0401  buffer=100000
-Iter 592 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 593] policy_loss=0.6659  value_loss=0.0351  buffer=100000
-Iter 593 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 594] policy_loss=0.6524  value_loss=0.0312  buffer=100000
-Iter 594 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 595] policy_loss=0.6724  value_loss=0.0321  buffer=100000
-Iter 595 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 596] policy_loss=0.6477  value_loss=0.0399  buffer=100000
-Iter 596 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 597] policy_loss=0.6482  value_loss=0.0293  buffer=100000
-Iter 597 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 598] policy_loss=0.6518  value_loss=0.0425  buffer=100000
-Iter 598 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 599] policy_loss=0.6669  value_loss=0.0316  buffer=100000
-Iter 599 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 600] policy_loss=0.6577  value_loss=0.0326  buffer=100000
-Iter 600 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0600.pt
-  [Iter 601] policy_loss=0.6741  value_loss=0.0344  buffer=100000
-Iter 601 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 602] policy_loss=0.6800  value_loss=0.0436  buffer=100000
-Iter 602 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 603] policy_loss=0.6721  value_loss=0.0590  buffer=100000
-Iter 603 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 604] policy_loss=0.6647  value_loss=0.0311  buffer=100000
-Iter 604 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 605] policy_loss=0.6719  value_loss=0.0477  buffer=100000
-Iter 605 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 606] policy_loss=0.6681  value_loss=0.0616  buffer=100000
-Iter 606 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 607] policy_loss=0.6808  value_loss=0.0366  buffer=100000
-Iter 607 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 608] policy_loss=0.6648  value_loss=0.0352  buffer=100000
-Iter 608 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 609] policy_loss=0.6666  value_loss=0.0406  buffer=100000
-Iter 609 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 610] policy_loss=0.6665  value_loss=0.0439  buffer=100000
-Iter 610 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0610.pt
-  [Iter 611] policy_loss=0.6649  value_loss=0.0234  buffer=100000
-Iter 611 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 612] policy_loss=0.6619  value_loss=0.0376  buffer=100000
-Iter 612 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 613] policy_loss=0.6597  value_loss=0.0212  buffer=100000
-Iter 613 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 614] policy_loss=0.6717  value_loss=0.0292  buffer=100000
-Iter 614 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 615] policy_loss=0.6524  value_loss=0.0357  buffer=100000
-Iter 615 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 616] policy_loss=0.6539  value_loss=0.0369  buffer=100000
-Iter 616 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 617] policy_loss=0.6637  value_loss=0.0407  buffer=100000
-Iter 617 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 618] policy_loss=0.6784  value_loss=0.0321  buffer=100000
-Iter 618 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 619] policy_loss=0.6677  value_loss=0.0390  buffer=100000
-Iter 619 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 620] policy_loss=0.6700  value_loss=0.0314  buffer=100000
-Iter 620 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0620.pt
-  [Iter 621] policy_loss=0.6645  value_loss=0.0368  buffer=100000
-Iter 621 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 622] policy_loss=0.6681  value_loss=0.0374  buffer=100000
-Iter 622 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 623] policy_loss=0.6885  value_loss=0.0512  buffer=100000
-Iter 623 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 624] policy_loss=0.6626  value_loss=0.0451  buffer=100000
-Iter 624 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 625] policy_loss=0.6667  value_loss=0.0422  buffer=100000
-Iter 625 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 626] policy_loss=0.6664  value_loss=0.0422  buffer=100000
-Iter 626 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 627] policy_loss=0.6586  value_loss=0.0415  buffer=100000
-Iter 627 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 628] policy_loss=0.6660  value_loss=0.0383  buffer=100000
-Iter 628 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 629] policy_loss=0.6673  value_loss=0.0422  buffer=100000
-Iter 629 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 630] policy_loss=0.6575  value_loss=0.0279  buffer=100000
-Iter 630 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0630.pt
-  [Iter 631] policy_loss=0.6566  value_loss=0.0351  buffer=100000
-Iter 631 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 632] policy_loss=0.6644  value_loss=0.0383  buffer=100000
-Iter 632 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 633] policy_loss=0.6504  value_loss=0.0323  buffer=100000
-Iter 633 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 634] policy_loss=0.6615  value_loss=0.0315  buffer=100000
-Iter 634 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 635] policy_loss=0.6592  value_loss=0.0371  buffer=100000
-Iter 635 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 636] policy_loss=0.6489  value_loss=0.0204  buffer=100000
-Iter 636 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 637] policy_loss=0.6547  value_loss=0.0298  buffer=100000
-Iter 637 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 638] policy_loss=0.6554  value_loss=0.0306  buffer=100000
-Iter 638 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 639] policy_loss=0.6688  value_loss=0.0242  buffer=100000
-Iter 639 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 640] policy_loss=0.6422  value_loss=0.0380  buffer=100000
-Iter 640 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0640.pt
-  [Iter 641] policy_loss=0.6503  value_loss=0.0281  buffer=100000
-Iter 641 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 642] policy_loss=0.6665  value_loss=0.0347  buffer=100000
-Iter 642 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 643] policy_loss=0.6529  value_loss=0.0247  buffer=100000
-Iter 643 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 644] policy_loss=0.6572  value_loss=0.0259  buffer=100000
-Iter 644 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 645] policy_loss=0.6701  value_loss=0.0382  buffer=100000
-Iter 645 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 646] policy_loss=0.6623  value_loss=0.0518  buffer=100000
-Iter 646 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 647] policy_loss=0.6652  value_loss=0.0423  buffer=100000
-Iter 647 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 648] policy_loss=0.6677  value_loss=0.0437  buffer=100000
-Iter 648 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 649] policy_loss=0.6546  value_loss=0.0394  buffer=100000
-Iter 649 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 650] policy_loss=0.6601  value_loss=0.0478  buffer=100000
-Iter 650 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  Checkoint saved -> self_play_model/checkpoints/cnn/model_iter0650.pt
-  [Iter 651] policy_loss=0.6551  value_loss=0.0313  buffer=100000
-Iter 651 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 652] policy_loss=0.6560  value_loss=0.0261  buffer=100000
-Iter 652 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 653] policy_loss=0.6540  value_loss=0.0293  buffer=100000
-Iter 653 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 654] policy_loss=0.6472  value_loss=0.0350  buffer=100000
-Iter 654 weights pushed → self_play_model/checkpoints/cnn/latest.pt
-  [Iter 655] policy_loss=0.6521  value_loss=0.0338  buffer=100000
-Iter 655 weights pushed → self_play_model/checkpoints/cnn/latest.pt
+  [Iter 568] Buffer too small, waiting...
+  [Iter 569] Buffer too small, waiting...
+  [Iter 570] Buffer too small, waiting...
+  [Iter 571] Buffer too small, waiting...
 Traceback (most recent call last):
-  File "/home/sanjana/tripleMind/triplea/trainer.py", line 219, in <module>
+  File "/home/sanjana/tripleMind/triplea/trainer.py", line 264, in <module>
     trainer.run()  # blocks forever, polling for examples
     ^^^^^^^^^^^^^
-  File "/home/sanjana/tripleMind/triplea/trainer.py", line 167, in run
-    pl, vl = self.train_epoch()
-             ^^^^^^^^^^^^^^^^^^
-  File "/home/sanjana/tripleMind/triplea/trainer.py", line 109, in train_epoch
-    ex = pickle.load(f)
-         ^^^^^^^^^^^^^^
-EOFError: Ran out of input
+  File "/home/sanjana/tripleMind/triplea/trainer.py", line 162, in run
+    time.sleep(poll_interval)
+KeyboardInterrupt

@@ -11,7 +11,7 @@ start_time=$(date +%s)
 # g++ -O3 -Wall -shared -std=c++11 -fPIC $(python3 -m pybind11 --includes) check_reachability.cpp -o check_reachability_cpp$(python3 -m pybind11 --extension-suffix)
 
 # compile cython file
-# python setup.py build_ext --inplace
+python setup.py build_ext --inplace
 
 # pip install --user pandas
 
@@ -26,8 +26,9 @@ rm -f $MODEL_NAME/metrics/*
 rm -f $MODEL_NAME/player_logs/*
 rm -f $MODEL_NAME/profiles/*
 rm -f $MODEL_NAME/profiling/*
+rm -f $MODEL_NAME/combat_moves/*
 # rm forfeit_*
-# rm -f $MODEL_NAME/trees/*
+rm -f $MODEL_NAME/trees/*
 rm ../logs/player_5000/Capture\ The\ Flag.log
 rm ../logs/player_5001/Capture\ The\ Flag.log
 rm ../logs/player_5002/Capture\ The\ Flag.log

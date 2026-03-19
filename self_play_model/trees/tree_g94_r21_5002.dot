@@ -1,0 +1,35 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=100\navg=0.102\np=1.000"];
+  n1 [label="#1\nvis=25\navg=0.101\np=0.256"];
+  n2 [label="#2\nvis=50\navg=0.101\np=0.505"];
+  n3 [label="#3\nvis=24\navg=0.104\np=0.239"];
+  n4 [label="#4\nvis=6\navg=0.102\np=0.264"];
+  n5 [label="#5\nvis=6\navg=0.102\np=0.254"];
+  n6 [label="#6\nvis=6\navg=0.101\np=0.245"];
+  n7 [label="#7\nvis=5\navg=0.100\np=0.237"];
+  n8 [label="#8\nvis=13\navg=0.102\np=0.264"];
+  n9 [label="#9\nvis=12\navg=0.101\np=0.254"];
+  n10 [label="#10\nvis=12\navg=0.101\np=0.245"];
+  n11 [label="#11\nvis=11\navg=0.100\np=0.237"];
+  n12 [label="#12\nvis=6\navg=0.105\np=0.264"];
+  n13 [label="#13\nvis=6\navg=0.104\np=0.254"];
+  n14 [label="#14\nvis=5\navg=0.104\np=0.245"];
+  n15 [label="#15\nvis=5\navg=0.103\np=0.238"];
+  n0 -> n1 [label="Flag | 3x armour, 1x infantry"];
+  n0 -> n2 [label="Flag | 3x armour"];
+  n0 -> n3 [label="Flag | "];
+  n1 -> n4 [label="ChineseStart | 1x armour, 6x infantry"];
+  n1 -> n5 [label="ChineseStart | 1x armour, 5x infantry"];
+  n1 -> n6 [label="ChineseStart | 1x armour, 4x infantry"];
+  n1 -> n7 [label="ChineseStart | "];
+  n2 -> n8 [label="ChineseStart | 1x armour, 6x infantry"];
+  n2 -> n9 [label="ChineseStart | 1x armour, 5x infantry"];
+  n2 -> n10 [label="ChineseStart | 1x armour, 4x infantry"];
+  n2 -> n11 [label="ChineseStart | "];
+  n3 -> n12 [label="ChineseStart | 1x armour, 6x infantry"];
+  n3 -> n13 [label="ChineseStart | 1x armour, 5x infantry"];
+  n3 -> n14 [label="ChineseStart | 1x armour, 4x infantry"];
+  n3 -> n15 [label="ChineseStart | "];
+}

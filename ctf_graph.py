@@ -42,16 +42,16 @@ class MetricLogger:
             csv.writer(f).writerow(values)
 
 class Unit:
-    def __init__(self, unit_type, owner, quantity=1, properties=None):
+    def __init__(self, unit_type, owner, quantity=1, properties=None, moved=False):
         self.unit_type = unit_type
         self.owner = owner
         self.quantity = quantity
         self.range = game_rules.get(unit_type, {}).get("move", 1)
-        self.moved = False  # Track if unit has moved this turn
+        self.moved = moved  # Track if unit has moved this turn
         self.properties = properties if properties is not None else {}
     
     def __repr__(self):
-        return f"Unit({self.unit_type}, {self.owner}, qty={self.quantity})"
+        return f"Unit({self.unit_type}, {self.owner}, qty={self.quantity} {'moved' if self.moved else ''})"
     
 class Territory:
     def __init__(self, name, owner="Neutral"):
@@ -68,7 +68,7 @@ class Territory:
                 u.moved = moved
                 break
         else:
-            self.units.append(Unit(unit_type, owner, qty, props))
+            self.units.append(Unit(unit_type, owner, qty, props, moved))
         
     def remove_unit(self, unit_type, owner, qty=1):
         for u in self.units:
@@ -80,7 +80,8 @@ class Territory:
 
 
     def __repr__(self):
-        return f"Territory({self.name}, owner={self.owner}, units={len(self.units)})"
+        return f"Territory({self.name}, owner={self.owner}, \n\tunits={self.units})\n"
+        # return f"Territory({self.name}, owner={self.owner}, units={len(self.units)})"
 
 
 class Player:
@@ -314,7 +315,7 @@ class CaptureTheFlag:
         # Case 1: Territory placement 
         if territory_name in self.territories:
             territory = self.territories[territory_name]
-            territory.add_unit(unit, owner, quantity, properties)
+            territory.add_unit(unit, owner, quantity, properties, False)
             # print(f"Added {quantity} x {unit} for {owner} in {territory_name}")
 
         # Case 2: Purchase (unplaced pool)

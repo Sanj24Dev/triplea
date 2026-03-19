@@ -11,6 +11,9 @@ class SelfPlayExample:
     state_tensor: np.ndarray
     move_feats: np.ndarray
     pi: np.ndarray
+    round_num: int
+    game_length: int
+    num_iterations: int
     z: float
 
 class SelfPlayBuffer:
@@ -20,12 +23,50 @@ class SelfPlayBuffer:
 
     def add(self, examples):
         self.buffer.extend(examples)
+        # evict oldest if over capacity
+        if len(self.buffer) > self.max_size:
+            self.buffer = self.buffer[-self.max_size:]  # keep newest
 
     def __len__(self):
         return len(self.buffer)
-    
+
     def sample(self, n):
-        return random.sample(self.buffer, min(n, len(self.buffer)))
+        examples = list(self.buffer)
+        
+        weights = []
+        for ex in examples:
+            # quality weight — more iterations = more reliable policy target
+            quality = min(1.0, ex.num_iterations / 1000)
+            
+            # representation weight — short game players underrepresented
+            representation = 1.0 / ex.game_length
+            
+            w = quality * representation
+            weights.append(w)
+        
+        total = sum(weights)
+        weights = [w / total for w in weights]
+        n = min(n, len(examples))
+        replace = n > len(examples)
+        
+        indices = np.random.choice(len(examples), size=n, replace=replace, p=weights)
+        return [examples[i] for i in indices]
+    
+    # def sample(self, n):
+    #     examples = list(self.buffer)
+        
+    #     # Short games weighted more — their examples are underrepresented
+    #     weights = [1.0 / ex.game_length for ex in examples]
+    #     total   = sum(weights)
+    #     weights = [w / total for w in weights]
+
+    #     n = min(n, len(examples))  # cap n
+    #     replace = n > len(examples)  # only replace if we have to
+    
+    #     indices = np.random.choice(len(examples), size=n, 
+    #                            replace=replace, p=weights)
+
+    #     return [examples[i] for i in indices]
     
 class SelfPlayDataset(Dataset):
     def __init__(self, examples):

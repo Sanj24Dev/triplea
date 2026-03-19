@@ -1,9 +1,0 @@
-digraph MCTS {
-  rankdir=TB;
-  node [shape=box, fontsize=10];
-  n0 [label="#0\nvis=782\navg=0.109\np=1.000"];
-  n1 [label="#1\nvis=298\navg=0.107\np=0.392"];
-  n2 [label="#2\nvis=484\navg=0.110\np=0.608"];
-  n0 -> n1 [label="ChineseBase | 17x armour"];
-  n0 -> n2 [label="ChineseBase | "];
-}

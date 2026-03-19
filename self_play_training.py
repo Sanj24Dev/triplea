@@ -27,15 +27,18 @@ OUTCOME_REC = f"{MODEL_NAME}/metrics/game_outcome"
 QUALITY_REC = f"{MODEL_NAME}/metrics/combat_quality"
 ROLLOUT_REC = f"{MODEL_NAME}/metrics/rollout_efficiency"
 
-NUM_GAMES = 100
+NUM_GAMES = 500
+# doSync = False
 
 
 def start_agent(player_name, port):
+    # global doSync
     log = open(f"{MODEL_NAME}/player_logs/debug_{port}.log", "a")
     return subprocess.Popen(
         [
             "python3", "-u", "game_mcts.py",
             "--model_name", MODEL_NAME,
+            # "--sync", str(doSync),
             "--player_name", player_name,
             "--port", str(port),
             "--efficiency_file", EFFICIENCY_REC,
@@ -139,6 +142,7 @@ def save_profile():
                 "profile": prof,
                 "func_name": func_name,
                 "time": t_dict["tottime"],   # Use cumtime for plotting total cost
+                "cumtime": t_dict["cumtime"],
                 "total_time": total_time
             })
         try:
@@ -180,8 +184,8 @@ def save_zip(folder_path, zip_path):
     with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as z:
         for root, dirs, files in os.walk(folder_path):
             for file in files:
-                if not file.endswith(".png"):
-                    continue
+                # if not file.endswith(".png"):
+                #     continue
                 full_path = os.path.join(root, file)
 
                 # keeps relative structure inside the zip
@@ -194,6 +198,7 @@ def save_zip(folder_path, zip_path):
 
 
 start_time = time.time()
+print(f"Training started at {time.strftime("%H:%M:%S")}")
 
 with open("config.json", 'r') as f:
     data = json.load(f)
@@ -210,43 +215,44 @@ with open("trainer.log", "w") as log:
     pt = subprocess.Popen(["python3", "-u", "trainer.py"], stdout=log, stderr=log)
 print(f"Trianer at {pt.pid}")
 
-for i in range(1, NUM_GAMES + 1):
-    os.environ["START_GAME_NUM"] = str(i)
+try:
+    for i in range(1, NUM_GAMES + 1):
+        os.environ["START_GAME_NUM"] = str(i)
 
-    # clear the previously saved trees and flags before starting new game
-    cleanup()
+        # clear the previously saved trees and flags before starting new game
+        cleanup()
 
-    # doSync = False
-    # if i % 5 == 0:
-    #     doSync = True
-    p1 = start_agent("Russians", 5000)
-    p2 = start_agent("Italians", 5001)
-    p3 = start_agent("Germans", 5002)
-    p4 = start_agent("Chinese", 5003)
+        game_start_time = time.time()
 
-    print(f"\nStarting Game {i}")
-    time.sleep(5)
+        p1 = start_agent("Russians", 5000)
+        p2 = start_agent("Italians", 5001)
+        p3 = start_agent("Germans", 5002)
+        p4 = start_agent("Chinese", 5003)
 
-    log = open(f"{MODEL_NAME}/player_logs/game.log", "a")
-    subprocess.run(["python3", "play_game.py"], stdout=log, stderr=log)
+        print(f"\nStarting Game {i}")
+        time.sleep(5)
 
-    print(f"Game {i} finished.")
-    time.sleep(5)
+        log = open(f"{MODEL_NAME}/player_logs/game.log", "a")
+        subprocess.run(["python3", "play_game.py"], stdout=log, stderr=log)
+
+        time_taken = time.time() - game_start_time
+        print(f"Game {i} finished in {int(time_taken)} seconds")
+        time.sleep(5)
 
 
-    stop_process(p1, 5000)
-    stop_process(p2, 5001)
-    stop_process(p3, 5002)
-    stop_process(p4, 5003)
+        stop_process(p1, 5000)
+        stop_process(p2, 5001)
+        stop_process(p3, 5002)
+        stop_process(p4, 5003)
 
-    time.sleep(5)
+        time.sleep(5)
+        save_profile()
+        if i == 1 or i == NUM_GAMES:
+            save_zip(f"{MODEL_NAME}/trees", f"{MODEL_NAME}/trees_g{i}.zip")
+        
+except KeyboardInterrupt:
     save_profile()
-    if i == 1 or i == NUM_GAMES:
-        save_zip(f"{MODEL_NAME}/trees", f"{MODEL_NAME}/trees_g{i}.zip")
-    # kill_process(p1)
-    # kill_process(p2)
-    # kill_process(p3)
-    # kill_process(p4)
+
 
 elapsed = time.time() - start_time
 print(f"\nTime taken: {int(elapsed)} seconds")

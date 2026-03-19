@@ -55,6 +55,10 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
@@ -101,6 +105,7 @@ public class ServerGame extends AbstractGame {
 
   private boolean sentStoppedMsg = false;
   private boolean isGameOver = false;
+  List<String> eliminationOrder = new ArrayList<>();
 
   public ServerGame(
       final GameData data,
@@ -615,25 +620,36 @@ public class ServerGame extends AbstractGame {
         // check if i am still in the game, if not then send end game
         if (winner != null) {
             if(!isGameOver) {
-                logAI("INFO", "Game stopped " + winner.iterator().next().getName());
-                sentStoppedMsg = true;
+                String winnerName = winner.iterator().next().getName();
+                // Get remaining players (not yet eliminated, not the winner)
+                List<GamePlayer> remaining = gameData.getPlayerList().getPlayers().stream()
+                    .filter(p -> !eliminationOrder.contains(p.getName()) 
+                              && !p.getName().equals(winnerName))
+                    .sorted(Comparator.comparingInt(p -> (int) gameData.getMap().getTerritories().stream()
+                              .filter(t -> p.getName().equals(t.getOwner().getName()))
+                              .count()))  // ascending — fewest terr first
+                    .collect(Collectors.toList());
+                remaining.forEach(p -> eliminationOrder.add(p.getName()));
+                eliminationOrder.add(winnerName);
+                logAI("INFO", "Game stopped " + eliminationOrder);
+
                 isGameOver = true;
             }
         }
         // String me = getWhoAmI();
         // i need sentStopMsg but do it separately for each player
         // check every player, if they do not have any terr, then send game stopped lost
-        // for (GamePlayer player : gameData.getPlayerList().getPlayers()) {
-        //     System.out.println("Checking player " + player.getName());
-        //     boolean ownsTerritory = gameData.getMap().getTerritories().stream().anyMatch(t -> player.getName().equals(t.getOwner().getName()));
-        //     if (!ownsTerritory) {
-        //         // check if they have any units, if not then send game stopped lost for that player, but the game isn't over
-        //         if(!sentStoppedMsg) {
-        //             logAI("INFO", "Game stopped lost");
-        //             sentStoppedMsg = true;
-        //         }
-        //     }
-        // }
+        for (GamePlayer player : gameData.getPlayerList().getPlayers()) {
+            boolean ownsTerritory = gameData.getMap().getTerritories().stream()
+                .anyMatch(t -> player.getName().equals(t.getOwner().getName()));
+            
+            // only add once — check if not already in eliminationOrder and not the winner
+            if (!ownsTerritory && !eliminationOrder.contains(player.getName()) 
+                    && (winner == null || !winner.iterator().next().getName().equals(player.getName()))) {
+                eliminationOrder.add(player.getName());
+                logAI("INFO", "Player eliminated " + player.getName() + " order=" + eliminationOrder.size());
+            }
+        }
 
 
     } finally {

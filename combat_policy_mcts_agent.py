@@ -20,11 +20,20 @@ from nn_models.utils.encoding import get_encoded_state
 from nn_models.utils.move_db import update_combat_dict, move_to_id, id_to_move
 from nn_models.data.self_play_data import SelfPlayExample
 
+from filelock import FileLock
+
+import move_generator_cpp
+
 game_rules = None
 territory_production = None
 victory_cities = None
 adjacency = None
 turn_order = None
+
+unit_move_ranges = None
+unit_attack_points = None
+unit_defense_points = None
+unit_costs = None
 
 class Attack:
     def __init__(self, unit, from_territory, quantity):
@@ -71,7 +80,7 @@ def attack_summary(move):
         counts[atk.unit.unit_type] += atk.quantity
     return ", ".join(f"{qty}x {ut}" for ut, qty in counts.items())
 
-def save_mcts_tree_png(root, out_prefix, max_nodes=500):
+def save_mcts_tree_png(root, out_prefix, max_nodes=500, render_img=False):
     """
     Saves:
       - out_prefix + ".dot"
@@ -122,10 +131,13 @@ def save_mcts_tree_png(root, out_prefix, max_nodes=500):
         f.write("}\n")
 
     # Try render to PNG
-    try:
-        subprocess.run(["dot", "-Tpng", dot_path, "-o", png_path], check=True)
-        return dot_path, png_path
-    except Exception:
+    if render_img:
+        try:
+            subprocess.run(["dot", "-Tpng", dot_path, "-o", png_path], check=True)
+            return dot_path, png_path
+        except Exception:
+            return dot_path, None
+    else:
         return dot_path, None
 
 def generate_legal_purchase_moves(ctf, player):
@@ -418,17 +430,33 @@ class MCTSGameState:
         self.territories = {}
         for name, territory in ctf.territories.items():
             # Create new Territory instance with copied data
-            new_territory = Territory(name, territory.owner)
-            new_territory.properties = territory.properties.copy()
+            # new_territory = Territory(name, territory.owner)
+            # new_territory.properties = territory.properties.copy()
+            new_territory = move_generator_cpp.Territory()
+            new_territory.name = territory.name
+            new_territory.owner = territory.owner
+            new_territory.units = []
+
+            for unit in territory.units:
+                if unit.unit_type != "factory":
+                    cython_unit = move_generator_cpp.Unit()
+                    cython_unit.unit_type = unit.unit_type
+                    cython_unit.owner = unit.owner
+                    cython_unit.moved = unit.moved
+                    cython_unit.quantity = unit.quantity
+
+                    new_territory.add_unit(unit.unit_type, unit.owner, unit.quantity, unit.moved)
+            
             
             # Copy units
-            for unit in territory.units:
-                new_territory.add_unit(
-                    unit.unit_type,
-                    unit.owner,
-                    unit.quantity,
-                    unit.properties.copy()
-                )
+            # for unit in territory.units:
+            #     new_territory.add_unit(
+            #         unit.unit_type,
+            #         unit.owner,
+            #         unit.quantity,
+            #         unit.properties.copy(),
+            #         unit.moved
+            #     )
             
             self.territories[name] = new_territory
         
@@ -450,6 +478,12 @@ class MCTSGameState:
 
         # Territory lists (computed once, reused)
         self.set_terr_lists()
+        cpp_adjacency = {
+            name: list(adjacency.neighbors(name))
+            for name, _ in self.territories.items()
+        }
+        move_generator_cpp.set_adjacency(cpp_adjacency)
+
     def __repr__(self):
         # Summaries
         terr_summary = []
@@ -493,6 +527,18 @@ class MCTSGameState:
                 return False
         return True
     
+    def get_reachable_enemy_territories(self):
+        reachable = []
+        my_terr_names = {t.name for t in self.my_territories}
+        
+        for enemy_terr in self.enemy_territories:
+            # an enemy terr is reachable if any of its neighbors is mine
+            for neighbor in adjacency.neighbors(enemy_terr.name):
+                if neighbor in my_terr_names:
+                    reachable.append(enemy_terr)
+                    break
+        
+        return reachable
 
     def set_terr_lists(self):
         self.my_territories = [t for t_name, t in self.territories.items() if t.owner == self.current_player]
@@ -500,7 +546,7 @@ class MCTSGameState:
         def territory_priority(territory):
             terr_name = territory.name 
             priority_score = 0
-            
+
             # Victory city = highest priority, victory city are those with a factory, in this map
             if terr_name in victory_cities:
                 priority_score += 1000
@@ -519,22 +565,25 @@ class MCTSGameState:
                 1 for neighbor in adjacency.neighbors(terr_name)
                 if self.territories[neighbor].owner == self.current_player
             )
-            priority_score += surrounded_by_me * 5
+            priority_score += surrounded_by_me * 50
 
             # distance to the victory cities? closer => better to attack
 
             enemy_neighbors = sum(1 for n in adjacency.neighbors(terr_name) 
                          if self.territories[n].owner == territory.owner)
-            priority_score -= enemy_neighbors * 3
+            priority_score -= enemy_neighbors * 30
 
             unit_count = sum(u.quantity for u in territory.units if u.unit_type != "factory")
             # more the units, less priority (more costly to attack)
-            priority_score += unit_count * 2
+            priority_score -= unit_count * 2
 
             return priority_score
         
+        self.enemy_territories = self.get_reachable_enemy_territories()
         self.enemy_territories.sort(key=territory_priority, reverse=True)
+        
 
+    
 
     # functions for simulation
     def purchase_legal_moves(self):
@@ -613,384 +662,38 @@ class MCTSGameState:
         # self._reachability_cache[cache_key] = result
         return result
 
-    def calculate_attack_strength(self, units):
-        attacker_strength = 0
-        infantry = sum(u["qty"] for u in units if u["unit"].unit_type == "infantry")
-        artillery = sum(u["qty"] for u in units if u["unit"].unit_type == "artillery")
-        supported_inf = min(infantry, artillery)   # 1:1 support
-        unsupported_inf = infantry - supported_inf
-
-        for u in units:
-            unit_type = u["unit"].unit_type
-            quantity = u["qty"]
-            # calculate strength
-            stats = game_rules.get(unit_type, {})
-            power = stats.get("attack", 1)
-            if unit_type == "infantry":
-                attacker_strength += supported_inf * (power+1) 
-                attacker_strength += unsupported_inf * power
-            else:
-                attacker_strength += quantity * power
-        return attacker_strength
-    
-    def form_attacks(self, units):
-        grouped = {}
-        for u in units:
-            key = (u["from"], u["unit"].unit_type)
-            if key not in grouped:
-                grouped[key] = {
-                    "from": u["from"],
-                    "unit": u["unit"],
-                    "count": 0
-                }
-            grouped[key]["count"] += u["qty"]
-        
-        # Convert to Attack objects
-        attacks = []
-        for group in grouped.values():
-            attacks.append(
-                Attack(
-                    unit=group["unit"],
-                    from_territory=group["from"],
-                    quantity=group["count"]
-                )
-            )
-        
-        return attacks
-
 
     def heuristic_combat_legal_moves(self, time_budget):
         player = self.current_player
         self.actions = []
         self.actionIndex = 0
         start = time.time()
-        self._reachability_cache = {}
 
-        for enemy_territory in self.enemy_territories:
-            enemy_territory_name = enemy_territory.name
-            strengthThreshold = 1.1  # Start at 110% of defender
-            maxThreshold = 3.5       # Stop at 350% of defend
+        # territories = {}
+        my_territories = set()
+        enemy_territories = set()
+        for territory_name, territory in self.territories.items():
+            if territory.owner == player:
+                my_territories.add(territory_name)
+            else:
+                enemy_territories.add(territory_name)
 
-            if enemy_territory_name not in self.excluded:
-                # the territory isnt considered yet
-                # Find all units that can reach this destination
-                units_that_can_attack = [
-                    {"from": from_terr.name, "unit": unit, "qty": unit.quantity}
-                    for from_terr in self.my_territories
-                    for unit in from_terr.units
-                    if unit.owner == player
-                    if unit.unit_type != "aaGun"
-                    if unit.moved == False
-                    if self.check_reachability(unit, from_terr.name, enemy_territory_name)
-                ]
-                # sort units based on (adjacent_to_target desc, attack_power desc, donor_is_border asc) - NEED TO FIX
-                def attack_power(unit):
-                    stats = game_rules.get(unit.unit_type, {})
-                    return stats.get("attack", 1)
+        # time_left = time_budget - (time.time() - start)
+        # print(f"In round {self.round}")
+        results = move_generator_cpp.heuristic_combat_legal_moves(
+            player = self.current_player,
+            territories = self.territories,
+            my_territory_names = my_territories,
+            enemy_territory_names = enemy_territories,
+            excluded = self.excluded,
+            time_budget = time_budget
+        )
+        actions, self.excluded = results
+        if actions != None and actions != []:
+            self.actions = actions
+        else:
+            self.actions.append(Move(delegate="combat", end_phase=True, strength=0))
 
-                def is_border_territory(terr_name: str) -> bool:
-                    return any(self.territories[n].owner != player for n in adjacency.neighbors(terr_name))
-
-                def adjacent_to_target(from_name: str, target_name: str) -> bool:
-                    return target_name in adjacency.neighbors(from_name)
-
-                def donor_score(x):
-                    score = 0.0
-                    if adjacent_to_target(x["from"], enemy_territory_name):
-                        score += 100.0
-                    score += 10.0 * attack_power(x["unit"])
-                    if is_border_territory(x["from"]):
-                        score -= 30.0
-                    return score
-
-                units_that_can_attack.sort(key=donor_score, reverse=True)
-                
-                if time.time() - start > time_budget:
-                    return
-                # If no units can reach the territory, skip
-                if not units_that_can_attack:
-                    self.excluded.add(enemy_territory_name)
-                    continue
-
-                # the territory is reachable 
-                # Always include option to skip attack on this territory
-                # self.actions.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=[]))
-
-                defender_strength = 0
-                units_at_target = [u for u in enemy_territory.units if u.owner != player and u.unit_type != "factory"]
-                # assuming all the units at target belong to the terr owner = all previous battles resolved
-                for unit in units_at_target:
-                    unit_type = unit.unit_type
-                    stats = game_rules.get(unit_type, {})
-                    power = stats.get("defense", 1)
-                    defender_strength += unit.quantity * power
-
-
-                sets = []
-                unitsUpToStrength = []
-                for unit in units_that_can_attack:
-                    unitsUpToStrength.append(unit)
-                    
-                    currentStrength = self.calculate_attack_strength(unitsUpToStrength)
-                     # Save when crossing threshold
-                    if (currentStrength > strengthThreshold * defender_strength and currentStrength < (maxThreshold * defender_strength) + 4):  
-                        attacks = self.form_attacks(unitsUpToStrength)                     
-                        sets.append((attacks, currentStrength))
-                        strengthThreshold += 0.1  # Increment by 10%
-                    
-                    # Stop if exceeded max
-                    if currentStrength >= (maxThreshold * defender_strength) + 4:
-                        break
-
-                # Always include final full force
-                if unitsUpToStrength and currentStrength>defender_strength:
-                    attacks = self.form_attacks(unitsUpToStrength) 
-                    if not sets or sets[-1][1] != currentStrength:
-                        sets.append((attacks, currentStrength))
-
-                if not sets:
-                    weak_sets = []
-                    unitsUpToStrength = []
-                    strengthThreshold_weak = 0.35  # start chipping at ~35% of defense
-                    for unit in units_that_can_attack:
-                        unitsUpToStrength.append(unit)
-                        currentStrength = self.calculate_attack_strength(unitsUpToStrength)
-
-                        if currentStrength > strengthThreshold_weak * defender_strength and currentStrength <= defender_strength:
-                            attacks = self.form_attacks(unitsUpToStrength)
-                            weak_sets.append((attacks, currentStrength))
-                            strengthThreshold_weak += 0.15
-                            if len(weak_sets) >= 3:
-                                break
-
-                    # only add if we actually built chip candidates
-                    sets.extend(weak_sets)
-
-                if not sets:
-                    if defender_strength == 0:
-                        # pick the "cheapest" single-unit capture from the sorted donors
-                        best = units_that_can_attack[0]
-
-                        attacks = self.form_attacks([{"from": best["from"], "unit": best["unit"], "qty": 1}])
-                        strength = self.calculate_attack_strength([{"from": best["from"], "unit": best["unit"], "qty": 1}])
-
-                        self.actions.append(Move(delegate="combat",
-                                                to_terr=enemy_territory_name,
-                                                moves=attacks,
-                                                strength=strength))
-
-                        self.excluded.add(enemy_territory_name)
-                        return
-
-                sets.reverse()
-                for unitSet, strength in sets:
-                    self.actions.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=unitSet, strength=strength))
-
-                # Always include option to skip attack on this territory
-                # control comes here when the terr is reachable but strength of all attack combo is < 35% of the defender
-                self.actions.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=[]))
-
-                self.excluded.add(enemy_territory_name)
-                
-                return 
-
-        self.actions.append(Move(delegate="combat", end_phase=True, strength=0))
-
-               
-    def heuristic_non_combat_legal_moves(self, time_budget):
-        territories = copy.deepcopy(self.territories)
-        my_territories = copy.deepcopy(self.my_territories)
-        player = self.current_player
-        move_seq = []
-
-        my_frontier_territories = set()
-        for terr in my_territories:
-            for n in adjacency.neighbors(terr.name):
-                if self.territories[n].owner != self.current_player and n not in FACTORY_MAP.values():
-                    my_frontier_territories.add(terr.name)
-                    break
-        
-        home_factory = FACTORY_MAP[player]
-
-        def count_defense_units(terr):
-            return sum(u.quantity for u in terr.units if u.unit_type != "factory")
-
-        def has_enemy_neighbor(name: str) -> bool:
-            for n in adjacency.neighbors(name):
-                if territories[n].owner != player and n not in FACTORY_MAP.values():
-                    return True
-            return False
-
-        # staging score: how many frontier neighbors this tile borders
-        staging_score = {}
-        for terr in my_territories:
-            staging_score[terr.name] = sum(1 for nb in adjacency.neighbors(terr.name) if nb in my_frontier_territories)
-
-        # factory-adjacent score: how many victory cities adjacent (your code uses victory_cities as "factories/vc")
-        factory_adj_score = {}
-        for terr in my_territories:
-            factory_adj_score[terr.name] = sum(1 for nb in adjacency.neighbors(terr.name) if nb in victory_cities)
-
-        # ---------- distance-to-frontier (multi-source BFS) ----------
-        dist_to_frontier = {name: float("inf") for name in territories.keys()}
-        q = deque()
-        for f in my_frontier_territories:
-            dist_to_frontier[f] = 0
-            q.append(f)
-
-        while q:
-            cur = q.popleft()
-            for nb in adjacency.neighbors(cur):
-                if dist_to_frontier[nb] > dist_to_frontier[cur] + 1:
-                    dist_to_frontier[nb] = dist_to_frontier[cur] + 1
-                    q.append(nb)
-
-        # ---------- target priority ----------
-        def territory_priority(territory):
-            name = territory.name
-            score = 0
-            if name in my_frontier_territories:
-                score += 1000
-                if count_defense_units(territories[name]) == 0:
-                    score += 500
-            score += staging_score.get(name, 0) * 200
-            score += factory_adj_score.get(name, 0) * 100
-            return score
-
-        targets = list(my_territories)
-        targets.sort(key=territory_priority, reverse=True)    
-
-        
-        def best_step_toward_frontier(unit, from_name: str):
-            best = None
-            best_score = -10**9
-
-            from_d = dist_to_frontier.get(from_name, float("inf"))
-
-            for dest in targets:
-                dest_name = dest.name
-                if dest_name == from_name:
-                    continue
-                if not self.check_reachability(unit, from_name, dest_name):
-                    continue
-
-                to_d = dist_to_frontier.get(dest_name, float("inf"))
-                improvement = from_d - to_d  # want positive
-
-                # prefer real progress; ignore non-improving unless nothing else exists
-                score = improvement * 100
-                if dest_name in my_frontier_territories:
-                    score += 50
-                score += staging_score.get(dest_name, 0) * 10
-                score += factory_adj_score.get(dest_name, 0) * 5
-
-                if score > best_score:
-                    best_score = score
-                    best = dest_name
-            return best, best_score
-
-        def quota(territory):
-            name = territory.name
-            qv = 1
-            if name in my_frontier_territories:
-                qv = 5
-            # staging / factory-adj tiles get medium quota (but frontier still dominates)
-            if staging_score.get(name, 0) > 0 or factory_adj_score.get(name, 0) > 0:
-                qv = max(qv, 3)
-            return qv
-
-        # ---------- donors ----------
-        # Don't drain frontier tiles, except allow draining home_factory (evacuation) specially below.
-        donor_territories = []
-        for t in my_territories:
-            if count_defense_units(t) <= 0:
-                continue
-            if t.name in my_frontier_territories and t.name != home_factory:
-                continue
-            donor_territories.append(t)
-        # print(donor_territories)
-        # ---------- PASS 0: evacuate home factory before placement ----------
-        # Keep a small garrison only if threatened.
-        # keep_min = 2 if has_enemy_neighbor(home_factory) else 0
-        # factory_terr = territories[home_factory]
-
-        # movable_from_factory = []
-        # for u in factory_terr.units:
-        #     move_range = game_rules.get(u.unit_type, {}).get("move", 1)
-        #     if u.owner == player and u.unit_type != "factory" and move_range > 0 and u.quantity > 0:
-        #         movable_from_factory.append(u)
-        
-        # excess = max(0, count_defense_units(factory_terr) - keep_min)
-        # sent = 0
-
-        # for unit in movable_from_factory:
-        #     while unit.quantity > 0 and sent < excess:
-        #         # try best high-priority targets first
-        #         dest = None
-        #         dest, score = best_step_toward_frontier(unit, home_factory)
-        #         if dest is None or score <= 0:
-        #             break
-                
-        #         attack = Attack(unit=unit, from_territory=home_factory, quantity=1)
-        #         mv = Move("noncombat", to_terr=dest, moves=[attack])
-        #         print(f"noncombat gen from factory: {mv}")
-        #         move_seq.append(mv)
-        #         unit.quantity -= 1  # safe: operates on deepcopy
-        #         sent += 1
-        # ---------- PASS 1: fill targets to quota (with step-to-frontier fallback) ----------
-
-        for terr in targets:
-            terr_name = terr.name
-            if count_defense_units(territories[terr_name]) >= quota(terr):
-                continue
-
-            while count_defense_units(territories[terr_name]) < quota(terr):
-                moved_one = False
-
-                for donor in donor_territories:
-                    if count_defense_units(donor) <= 0:
-                        continue
-                    if donor.name != home_factory and count_defense_units(donor) <= 0:
-                        continue
-
-                    # pick one unit from donor
-                    picked = None
-                    for u in donor.units:
-                        move_range = game_rules.get(u.unit_type, {}).get("move", 1)
-                        if u.owner != player or u.quantity <= 0:
-                            continue
-                        if u.unit_type == "factory" or move_range <= 0:
-                            continue
-                        picked = u
-                        break
-
-                    if picked is None:
-                        continue
-
-                    dest = None
-                    if self.check_reachability(picked, donor.name, terr_name):
-                        dest = terr_name
-                    else:
-                        # fallback: step toward frontier (prefer improving moves)
-                        step, score = best_step_toward_frontier(picked, donor.name)
-                        if step is not None and score > 0:
-                            dest = step
-
-                    if dest is None:
-                        continue
-                    mv = Move("noncombat", to_terr=dest, moves=[Attack(unit=picked, from_territory=donor.name, quantity=1)])
-                    # print(f"noncombat gen: {mv}")
-                    move_seq.append(mv)
-
-                    # update deepcopy counts
-                    picked.quantity -= 1
-                    moved_one = True
-                    break  # re-check quota after each move
-
-                if not moved_one:
-                    break  # no donors can contribute further
-
-        return move_seq
 
     def apply_purchase_move(self, move):
         player = self.current_player
@@ -1037,7 +740,7 @@ class MCTSGameState:
                 from_territory = self.territories[frm]
                 from_territory.remove_unit(unit_type, me, quantity)
                 if attacker_strength > defender_strength:
-                    to_territory.add_unit(unit_type, me, quantity, moved=True)  # move all attacking units in if we win
+                    to_territory.add_unit(unit_type, me, quantity, True, quantity)  # move all attacking units in if we win
 
 
             if attacker_strength > defender_strength:
@@ -1067,25 +770,11 @@ class MCTSGameState:
                         to_territory.remove_unit(u.unit_type, defender_owner, kill)
                         remaining -= kill * d_power
 
-    def apply_noncombat_move(self, move):
-        player = self.current_player
-        if not move or not move.moves:
-            return
-        
-        to = move.to_terr
-        to_territory = self.territories[to]
-        attacks = move.moves
-        
-        if not attacks:  
-            return
-
-        for attack in attacks:
-            frm = attack.from_territory
-            unit_type = attack.unit.unit_type
-            quantity = attack.quantity
-            from_territory = self.territories[frm]
-            from_territory.remove_unit(unit_type, player, quantity)
-            to_territory.add_unit(unit_type, player, quantity)
+    def how_many_moved(self):
+        m = 0
+        for t, terr in self.territories.items():
+            m += sum(u.qty_moved for u in terr.units)
+        return m
 
     def update_income(self, player):
         pus = player.PU
@@ -1129,22 +818,44 @@ class P_MCTSNode:
         self.visits = 0
         self.value = 0.0
         self.prior = prior
+        self.p_prior = 1.5 * prior  # to reduce multiplication in best_child function
+        self.node_priors = None
+
+        self.is_state_terminal = None
 
     def is_fully_expanded(self):
         return self.untried_actions is not None and len(self.untried_actions) == 0
     
     def is_terminal(self):
-        return self.state.is_terminal()
+        if self.is_state_terminal is None:
+            self.is_state_terminal = self.state.is_terminal()
+        return self.is_state_terminal
+
+    def is_leaf(self):
+        return len(self.children) == 0
     
-    def puct_score(self, c_puct=1.5):
-        if self.visits == 0:
-            return float("inf")
-        q = self.value / self.visits
-        u = c_puct * self.prior * math.sqrt(self.parent.visits) / (1 + self.visits)
-        return q + u
+    # def puct_score(self, c_puct=1.5):
+    #     if self.visits == 0:
+    #         return float("inf")
+    #     q = self.value / self.visits
+    #     u = c_puct * self.prior * math.sqrt(self.parent.visits) / (1 + self.visits)
+    #     return q + u
     
     def best_child_puct(self, c_puct=1.5):
-        return max(self.children, key=lambda c: c.puct_score(c_puct))
+        parent_visits_sqrt = math.sqrt(self.visits)
+        best = None
+        best_score = -float("inf")
+        for child in self.children:
+            v = child.visits
+            if v == 0:
+                return child  # inf score, no need to check others
+            q = child.value / v
+            u = child.p_prior * parent_visits_sqrt / (1 + v)
+            score = q + u
+            if score > best_score:
+                best_score = score
+                best = child
+        return best
 
 
 class PolicyGuidedMCTS:
@@ -1155,7 +866,7 @@ class PolicyGuidedMCTS:
             production_rules, terr_production, vic_cities, adj, order, 
             # move_to_id, id_to_move,
             grid_index, grid_shape,
-            device="cpu",
+            device="cuda",
             ):
 
         self.latest_legal_moves = []
@@ -1165,9 +876,11 @@ class PolicyGuidedMCTS:
         self.weight_path = f"{model_name}/checkpoints/cnn/latest.pt"
         self.games_played = 0
         self.whoAmI = None
+        self.curr_game_len = 0
         
         # MCTS parameters
-        self.time_budget = 1.0  # seconds per move
+        self.time_budget = 2.0  # seconds per move
+        self.iteration_budget = 1000
         self.max_depth = 5  # Maximum playout depth
         self.c_puct = 1.5 
         self.dirchlet_alpha = 0.3
@@ -1183,12 +896,22 @@ class PolicyGuidedMCTS:
         # file paths to store metrics
         self.efficiency_metric = MetricLogger(
             efficiency_file,
-            header=["game", "round", "num_iterations", "value"]
+            header=["game", "round", "num_iterations", "max_depth", "time_taken", "value"]
         )
 
         self.combat_quality = MetricLogger(
             quality_file,
             header=["game", "round", "pu_after", "territories_after"]
+        )
+
+        self.entropy_logger = MetricLogger(
+            f"{model_name}/metrics/entropy.csv",
+            header=["port", "game", "round", "depth", "num_children", "entropy_ratio"]
+        )
+
+        self.value_logger = MetricLogger(
+            f"{model_name}/metrics/values.csv",
+            header=["player", "game", "round", "value"]
         )
 
         global game_rules, territory_production, victory_cities, adjacency, turn_order
@@ -1198,8 +921,24 @@ class PolicyGuidedMCTS:
         adjacency = adj
         turn_order = order
 
+        global unit_move_ranges, unit_attack_points, unit_defense_points, unit_costs
+        # cpp_adjacency = {
+        #     name: list(adjacency.neighbors(name))
+        #     for name in self.territories
+        # }
+        # move_generator_cpp.set_adjacency(cpp_adjacency)
+        unit_move_ranges = {name: data.get("move", 1) for name, data in game_rules.items()}
+        move_generator_cpp.set_unit_move_ranges(unit_move_ranges)
+        unit_attack_points = {name: data.get("attack", 0) for name, data in game_rules.items()}
+        move_generator_cpp.set_unit_attack_values(unit_attack_points)
+        unit_defense_points = {name: data.get("defense", 0) for name, data in game_rules.items()}
+        move_generator_cpp.set_unit_defense_values(unit_defense_points)
+        unit_costs = {name: data.get("cost", 1) for name, data in game_rules.items()}
+        move_generator_cpp.set_unit_costs(unit_costs)
+
         # for logging purposes
         self.iteration = 0
+        self.max_depth = 0
         self.combat_done_flag = False
         self.terr_before_combat = 0
         self.terr_after_combat = 0
@@ -1229,9 +968,8 @@ class PolicyGuidedMCTS:
                     # response = []
                 elif move_type == "combat":
                     current_state = MCTSGameState(ctf)
-                    state_tensor = self.encode(current_state)
 
-                    # img_file = f"{self.model_name}/combat_moves/graph_{ctf.game_num}_{round}.png"
+                    # img_file = f"{self.model_name}/combat_moves/graph_{ctf.game_num}_{round}_{self.port}.png"
                     # ctf.fig.savefig(img_file, dpi=300, bbox_inches="tight")
 
                     profile_name = f"{self.model_name}/profiles/mcts_{self.port}_{ctf.game_num}_"
@@ -1240,20 +978,6 @@ class PolicyGuidedMCTS:
                     profile_name += round + ".prof"
                     action = self.profile_mcts(current_state, profile_name)
 
-                    # action_ids = get_combat_action_ids(action)
-                    pi = self.last_pi
-                    move_feats = []
-                    move_pi = []
-                    for move, prob in self.last_pi:
-                        move_feats.append(self.encode_move_features(move, current_state))
-                        move_pi.append(prob)
-                    self.episode_examples.append({
-                        "state": state_tensor.numpy(),
-                        "move_feats": move_feats,
-                        "pi": move_pi,
-                        "player": self.whoAmI,
-                        "z": None
-                    })
                     # print(f"Actions selected: {action_ids}")
                     # print(action)
                     response = convert_multi_front_combat_to_json(action)
@@ -1290,8 +1014,18 @@ class PolicyGuidedMCTS:
             sum(a.quantity for a in action.moves) / 10.0,
             1.0 if action.to_terr in victory_cities else 0.0,
             territory_production.get(action.to_terr, 0) / 5.0,
-            len(action.moves) / 5.0,          # number of attack groups
-            1.0 if not action.moves else 0.0, # is skip move
+            # atack breadth => how many terr are attacking this terr
+            len(action.moves) / 5.0,
+            1.0 if not action.moves else 0.0,
+
+            action.strength / max(1.0, sum(
+                u.quantity * game_rules.get(u.unit_type, {}).get("defense", 1)
+                for u in state.territories[action.to_terr].units
+                if u.unit_type != "factory"
+            )),
+
+
+
         ], dtype=np.float32)
     
     def get_priors(self, state, legal_actions):
@@ -1304,68 +1038,42 @@ class PolicyGuidedMCTS:
 
         return {aid: float(p) for (aid, _), p in zip(valid, probs)}
 
-             
-    def select(self, init_node):
-        node = init_node
-        while not node.is_terminal():
-            if not node.is_fully_expanded():
-                return node
-            elif node.children != []:
-                bestChild = node.best_child_puct(self.c_puct)
-                if bestChild is None:
-                    return node
-                node = bestChild
-            else:
-                return node
-            # nextAction = node.state.getNextAction()
-            # if nextAction is not None and nextAction.end_phase != True:
-            #     new_state = node.state.clone()
-            #     new_state.apply_combat_move([nextAction])
-            #     new_state.heuristic_combat_legal_moves(self.time_budget)
-            #     update_combat_dict(new_state.actions)
-            #     aid = move_to_id(nextAction)
-            #     existing = next((c for c in node.children if c.action_id == aid), None)
-            #     if existing:
-            #         node = existing
-            #         continue
-
-            #     priors = self.get_priors(new_state, new_state.actions)
-            #     prior = priors.get(aid, 1e-6)
-            #     child = P_MCTSNode(state=new_state, parent=node, 
-            #                      action=nextAction, prior=prior, action_id=aid)
-            #     node.children.append(child)
-            #     return child
-            # elif node.children != []: # All actions tried, select best child using UCB1
-            #     bestChild = node.best_child_puct(self.c_puct)
-            #     if bestChild is None:
-            #         return node
-            #     node = bestChild
-            # else:
-            #     return node
-        return node
     
-    def expand(self, node, actions):
-        priors = self.get_priors(node.state, actions)
-        is_root = node.parent is None
-        if is_root and self.dirichlet_eps > 0:
-            noise = np.random.dirichlet([self.dirchlet_alpha] * len(actions))
-            aids = list(priors.keys())
-            for i, aid in enumerate(aids):
-                priors[aid] = (1 - self.dirichlet_eps) * priors[aid] + self.dirichlet_eps * noise[i]
+    def expand(self, node):
+        if node.node_priors is None:
+            actions = node.state.actions
+            priors = self.get_priors(node.state, actions)
+            is_root = node.parent is None
+            if is_root and self.dirichlet_eps > 0:
+                aids = list(priors.keys())
+                noise = np.random.dirichlet([self.dirchlet_alpha] * len(aids))
+                
+                for i, aid in enumerate(aids):
+                    priors[aid] = (1 - self.dirichlet_eps) * priors[aid] + self.dirichlet_eps * noise[i]
+            node.node_priors = priors
 
-        for i, action in enumerate(actions):
-            if action.end_phase != True:
-                aid = move_to_id(action)
-                prior = priors.get(aid, 1e-6)
-                new_state = node.state.clone()
-                new_state.apply_combat_move([action])
-                new_state.heuristic_combat_legal_moves(self.time_budget)
-                update_combat_dict(new_state.actions)
-                child = P_MCTSNode(state=new_state, parent=node, 
-                                    action=action, prior=prior, action_id=aid)
-                node.children.append(child)
-
-        node.untried_actions = []
+        # print(node.state.actions)
+        action = node.state.getNextAction()
+        # print(f"\tSelected: {action}")
+        if action == None or action.end_phase == True:
+            node.untried_actions = []
+            value = self.simulate(node.state)
+            return node, value
+        else:
+            aid = move_to_id(action)
+            prior = node.node_priors.get(aid, 1e-6)
+            new_state = node.state.clone()
+            new_state.apply_combat_move([action])
+            # time_left = self.time_budget - (time.time() - start_time)
+            # prit(time_left)
+            time_left = 0.01
+            new_state.heuristic_combat_legal_moves(time_left)
+            update_combat_dict(new_state.actions)
+            child = P_MCTSNode(state=new_state, parent=node, 
+                            action=action, prior=prior, action_id=aid)
+            node.children.append(child)
+            value = self.simulate(child.state)
+            return child, value
 
 
     def simulate(self, state):
@@ -1375,50 +1083,67 @@ class PolicyGuidedMCTS:
         
     
     def backpropagate(self, node, reward):
+        depth = 0
         while node is not None:
             node.visits += 1
             node.value += reward
             node = node.parent
+            depth += 1
+        self.max_depth = max(getattr(self, 'max_depth', 0), depth - 1)
 
-
-    def mcts_search(self, initial_state):
-        initial_state.heuristic_combat_legal_moves(self.time_budget)
+    def mcts_search(self, initial_state, file):
+        initial_state.heuristic_combat_legal_moves(0.01)
         update_combat_dict(initial_state.actions)
+        # print("updated dict")
 
         root = P_MCTSNode(initial_state)
-        if initial_state.actions:
-            self.expand(root, initial_state.actions)
+        # if initial_state.actions:
+        #     self.expand(root, initial_state.actions)
                 
-        start_time = time.time()
-        self.iteration = 0
-        while time.time() - start_time < self.time_budget:
-            self.iteration += 1
+        start_time = 0
+        end_time = 0
+        import cProfile
+        with cProfile.Profile() as pr:
+            self.iteration = 0
+            self.max_depth = 0
+            start_time = time.time()
+            # while time.time() - start_time < self.time_budget:
+            # ideally want to get iteration budget, but if it takes too long then stop 
+            while self.iteration < self.iteration_budget and time.time() - start_time < 10.0:
+                self.iteration += 1
+                # print(self.iteration)
+                # --- Selection: walk down until leaf or terminal ---
+                node = root
+                while node.is_fully_expanded() and not node.is_leaf() and not node.is_terminal():
+                    best = node.best_child_puct(self.c_puct)
+                    if best is None:
+                        break
+                    node = best
 
-            selected_node = self.select(root)
+                # --- Expand or evaluate terminal ---
+                if node.is_terminal():
+                    value = self.simulate(node.state)  # or use known outcome
+                else:
+                    node, value = self.expand(node)   # expand leaf
 
-            if not selected_node.is_terminal():
-                # selected_node.state.heuristic_combat_legal_moves(self.time_budget)
-                # update_combat_move_dict(selected_node.state.actions)
-                if selected_node.state.actions and not selected_node.is_fully_expanded():
-                    # print(f"Iter {self.iteration} Actions: {selected_node.state.actions}")
-                    self.expand(selected_node, selected_node.state.actions)
-                    if selected_node.children:
-                        selected_node = selected_node.children[0]
+                # --- Backprop always ---
+                self.backpropagate(node, value)
 
-            reward = self.simulate(selected_node.state)
+            end_time = time.time()
+        pr.dump_stats(file)
 
-            self.backpropagate(selected_node, reward)
         
-        # print(f"MCTS ran {self.iteration} iterations in {self.time_budget}s")
-        # print(f"Root node visits: {root.visits}")
-
         tree_prefix = f"{self.model_name}/trees/tree_g{root.state.game_num}_r{root.state.round}_{self.port}"
         os.makedirs(os.path.dirname(tree_prefix), exist_ok=True)
-        dot_file, png_file = save_mcts_tree_png(root, tree_prefix, max_nodes=500)
+        dot_file, png_file = save_mcts_tree_png(root, tree_prefix, max_nodes=500, render_img=False)
         # print("Saved tree:", dot_file, png_file)
 
         action_seq = []
         node = root
+        game_num = root.state.game_num
+        game_round = root.state.round
+        depth = 0
+        # print(f"Round {root.state.round}")
         while node.children != []:
             # best_child = max(node.children, key=lambda c: c.visits)
             max_visits = max(c.visits for c in node.children)
@@ -1439,94 +1164,71 @@ class PolicyGuidedMCTS:
 
             if best_child is None:
                 break
+
+            
+            total_visits = sum(c.visits for c in node.children)
+            move_pi = [(c.action, c.visits/total_visits) for c in node.children]
+            state_tensor = self.encode(node.state)
+
+            # if depth >= 1 and len(node.children) >= 2:
+            visit_counts = np.array([c.visits for c in node.children])
+            visited = visit_counts[visit_counts > 0]
+            if len(visited) >= 2:
+                probs = visited / visited.sum()
+                entropy_ratio = -(probs * np.log(probs + 1e-8)).sum() / np.log(len(probs))
+                entropy_ratio = round(entropy_ratio, 4)
+                self.entropy_logger.log(self.port, game_num, game_round, depth, len(node.children), entropy_ratio)
+            
+            move_feats = [self.encode_move_features(m, node.state) for m, _ in move_pi]
+            pi = [p for _, p in move_pi]
+            self.episode_examples.append({
+                "state": state_tensor.numpy(),
+                "move_feats": move_feats,
+                "pi": pi,
+                "player": self.whoAmI,
+                "round_num": game_round,
+                "num_iterations": self.iteration, 
+                "z": None
+            })
+
+            
             if best_child.action.moves is not None and best_child.action.end_phase == False and best_child.action.strength != 0:
                 action_seq.append(best_child.action)
             if best_child.action.end_phase == True:
                 break
             node = best_child
+            depth += 1
+            # print(f"Moved = {node.state.how_many_moved()}")
 
         avg_value = root.value / root.visits
-        self.efficiency_metric.log(root.state.game_num, root.state.round, self.iteration, avg_value)
-        
-        total_visits = sum(c.visits for c in root.children)
-        self.last_pi = [
-            (c.action, c.visits / total_visits)
-            for c in root.children
-            if total_visits > 0
-        ]
+        time_taken = round(end_time - start_time, 2)
+        self.efficiency_metric.log(game_num, game_round, self.iteration, self.max_depth, time_taken, avg_value)
+        self.value_logger.log(self.port, game_num, game_round, root.value)
+
         
         return action_seq
 
     
     def profile_mcts(self, initial_state, file):
-        import cProfile
-        with cProfile.Profile() as pr:
-            result = self.mcts_search(initial_state)
-        pr.dump_stats(file)
+        # import cProfile
+        # with cProfile.Profile() as pr:
+        result = self.mcts_search(initial_state, file)
+        # pr.dump_stats(file)
         return result
 
-
-    def evaluate_state(self, state, depth):
-        if state.is_terminal():
-            if state.am_i_winner(self.whoAmI):
-                return 0.6 + 0.4 * (self.max_depth - depth) / self.max_depth
-            else:
-                return -0.6 - 0.4 * (self.max_depth - depth) / self.max_depth
-
-        me = self.whoAmI
-
-        my_terrs = [t for t in state.territories.values() if t.owner == me]
-        enemy_terrs = [t for t in state.territories.values()
-                    if t.owner != me and t.owner != "Neutral"]
-
-        my_count = len(my_terrs)
-        enemy_count = len(enemy_terrs)
-
-        my_vc_count = sum(1 for t in my_terrs if t.name in victory_cities)
-        enemy_vc_count = sum(1 for t in enemy_terrs if t.name in victory_cities)
-
-        # --- TUV evaluation ---
-        def tuv(territories, owner):
-            total = 0.0
-            for terr in territories.values():
-                for u in terr.units:
-                    if u.owner != owner:
-                        continue
-                    if u.unit_type == "factory":
-                        continue
-                    stats = game_rules.get(u.unit_type, {})
-                    cost = stats.get("cost", 1)
-                    total += u.quantity * cost
-            return total
-
-        my_tuv = tuv(state.territories, me)
-        enemy_tuv = 0.0
-        for p in state.players.keys():
-            if p != me and p != "Neutral":
-                enemy_tuv += tuv(state.territories, p)
-
-        tuv_term = (my_tuv - enemy_tuv) / max(1e-9, (my_tuv + enemy_tuv))
-
-        terr_term = (my_count - enemy_count) / max(1, (my_count + enemy_count))
-        vc_term = (my_vc_count - enemy_vc_count) / max(1, (my_vc_count + enemy_vc_count + 1))
-        
-        score = 0.0
-        score += 0.50 * terr_term
-        score += 0.20 * vc_term
-        score += 0.30 * tuv_term
-
-        return max(-0.5, min(0.5, score))
-
-
-    def on_game_end(self, won: bool):
-        z = 1.0 if won else -1.0
+ 
+    def on_game_end(self, z_raw, my_game_length, final_round):
         
         completed = [
             SelfPlayExample(
                 state_tensor=ex["state"],
                 move_feats=ex["move_feats"],
                 pi=ex["pi"],
-                z=z
+                round_num=ex["round_num"],
+                game_length=my_game_length,
+                num_iterations=ex["num_iterations"],
+                z = z_raw,
+                # z=z_raw * (ex["round_num"] / final_round),
             )
             for ex in self.episode_examples
             if ex["pi"]  # skip if no pi recorded
@@ -1540,22 +1242,19 @@ class PolicyGuidedMCTS:
         
         # Sync weights every 5 games
         # if self.games_played % 5 == 0:
-        self._sync_weights()
+        # self._sync_weights()
 
     def _dump_to_shared_buffer(self, examples):
-        lock = self.shared_buffer_path + ".lock"
-        while os.path.exists(lock):
-            time.sleep(0.05)
-        open(lock, "w").close()
+        lock_path = self.shared_buffer_path + ".lock"
         
-        existing = []
-        if os.path.exists(self.shared_buffer_path):
-            with open(self.shared_buffer_path, "rb") as f:
-                existing = pickle.load(f)
-        existing.extend(examples)
-        with open(self.shared_buffer_path, "wb") as f:
-            pickle.dump(existing, f)
-        os.remove(lock)
+        with FileLock(lock_path):
+            existing = []
+            if os.path.exists(self.shared_buffer_path):
+                with open(self.shared_buffer_path, "rb") as f:
+                    existing = pickle.load(f)
+            existing.extend(examples)
+            with open(self.shared_buffer_path, "wb") as f:
+                pickle.dump(existing, f)
 
     def _sync_weights(self):
         if os.path.exists(self.weight_path):

@@ -5,11 +5,14 @@ import torch
 import pickle
 from torch.utils.data import DataLoader
 import torch.nn.functional as F
+from filelock import FileLock
 
 from combat_policy_mcts_agent import P_MCTSNode
 from nn_models.data.self_play_data import SelfPlayExample, SelfPlayDataset
 
 PORT_ENV_VARS = ("PLAYER_1_PORT", "PLAYER_2_PORT", "PLAYER_3_PORT", "PLAYER_4_PORT")
+MIN_EXAMPLES_TO_TRAIN = 32
+
 
 def active_ports():
     """Collect active AI ports from environment variables."""
@@ -36,7 +39,7 @@ class SelfPlayTrainer():
                 #  mcts_factory, state_factory,
                 buffer, save_dir="self_play_model/checkpoints/cnn", device="cpu", 
                 lr=1e-3, weight_decay=1e-4, batch_size=32, 
-                epochs_per_iter=5, self_play_games=20, num_iterations=100,
+                epochs_per_iter=1, self_play_games=20, num_iterations=100,
                 temp_threshold=15
                 ):
         self.net = net
@@ -89,64 +92,61 @@ class SelfPlayTrainer():
         }, ckpt_path)
         print(f"Iter {iteration} weights pushed → {ckpt_path}")
 
-
-    def train_epoch(self):
+    def _train_on_loader(self, loader):
         self.net.train()
-        ports_active = active_ports()
-        examples = []
-        for p in ports_active:
-            buffer_path = os.path.join(self.save_dir, f"shared_buffer_{p}.pkl")
-            # lock_path = buffer_path + ".lock"
-
-            # while os.path.exists(lock_path):
-            #     time.sleep(0.05)
-        
-            if not os.path.exists(buffer_path):
-                continue
-
-            # open(lock_path, "w").close()    # lock
-            with open(buffer_path, "rb") as f:
-                ex = pickle.load(f)
-            # os.remove(lock_path)            # unlock
-
-            examples.extend(ex)
-
-        if len(examples) < self.batch_size:
-            # print(f"  len={len(examples)}")
-            return 0.0, 0.0
-                
-        self.buffer.add(examples)
-        samples = self.buffer.sample(self.batch_size * 10)
-        loader = DataLoader(SelfPlayDataset(samples), batch_size=self.batch_size, shuffle=True, num_workers=0, collate_fn=SelfPlayDataset.collate_fn)
-
         total_policy_loss = 0.0
-        total_value_loss = 0.0
-        n_batches = 0
+        total_value_loss  = 0.0
+        n_batches         = 0
 
         for state_tensors, move_features_batch, probs, zs, mask in loader:
-            state_tensors = state_tensors.to(self.device)
+            state_tensors       = state_tensors.to(self.device)
             move_features_batch = move_features_batch.to(self.device)
-            probs = probs.to(self.device)
-            zs = zs.to(self.device)
+            probs               = probs.to(self.device)
+            zs                  = zs.to(self.device)
+            mask                = mask.to(self.device)
 
-            log_p, v = self.net(state_tensors, move_features_batch)
-            policy_loss = -(probs * log_p).sum(dim=-1).mean()
-            value_loss = F.mse_loss(v, zs)
-            loss = policy_loss + value_loss
+            log_p, v = self.net(state_tensors, move_features_batch, mask)
+            
+            # if torch.isnan(probs).any():
+            #     print(f"NAN in probs! shape={probs.shape}")
+            #     print(probs[torch.isnan(probs).any(dim=-1)])
+            # if torch.isnan(zs).any():
+            #     print(f"NAN in zs! {zs}")
+            # prob_sums = probs.sum(dim=-1)
+            # if not torch.allclose(prob_sums, torch.ones_like(prob_sums), atol=1e-3):
+            #     print(f"probs don't sum to 1: {prob_sums}")
+
+            # print(f"log_p nan: {torch.isnan(log_p).any()}, inf: {torch.isinf(log_p).any()}")
+            # print(f"probs nan: {torch.isnan(probs).any()}, sum: {probs.sum(dim=-1).min():.4f}")
+            # print(f"probs*log_p sample: {(probs * log_p)[0][:5]}")
+
+            # policy_loss = -(probs * log_p).sum(dim=-1).mean()
+            # print(f"policy_loss: {policy_loss}")
+
+            # value_loss = F.mse_loss(v, zs)
+            # print(f"value_loss: {value_loss}")
+
+            # policy_loss = -(probs * log_p).sum(dim=-1).mean()
+            policy_loss = -(torch.where(probs > 0, probs * log_p, torch.zeros_like(log_p))).sum(dim=-1).mean()
+            value_loss  = F.mse_loss(v, zs)
+            loss        = policy_loss + value_loss
 
             self.optimizer.zero_grad()
             loss.backward()
-            torch.nn.utils.clip_grad_norm_(self.net.parameters(), 1.0)
+            grad_norm = torch.nn.utils.clip_grad_norm_(self.net.parameters(), 1.0)
+            last_grad_norm = grad_norm.item()
             self.optimizer.step()
 
             total_policy_loss += policy_loss.item()
-            total_value_loss += value_loss.item()
-            n_batches += 1
+            total_value_loss  += value_loss.item()
+            n_batches         += 1
+            last_probs, last_v = probs.detach(), v.detach()
 
-        return total_policy_loss / max(1, n_batches), total_value_loss / max(1, n_batches)
+        return total_policy_loss / max(1, n_batches), total_value_loss / max(1, n_batches), last_probs, last_v, last_grad_norm
+
 
     def run(self):
-        poll_interval = 15
+        poll_interval = 300
         print("=" * 50)
         print("  Trainer process started — waiting for examples")
         print("=" * 50)
@@ -161,46 +161,91 @@ class SelfPlayTrainer():
         while True:
             time.sleep(poll_interval)
             iteration += 1
+            
+
+            # read buffer once per iteration
+            ports_active = active_ports()
+            examples = []
+            for p in ports_active:
+                buffer_path = os.path.join(self.save_dir, f"shared_buffer_{p}.pkl")
+                lock_path   = buffer_path + ".lock"
+
+                with FileLock(lock_path):
+                    if not os.path.exists(buffer_path):
+                        continue
+                    with open(buffer_path, "rb") as f:
+                        ex = pickle.load(f)
+                    os.remove(buffer_path)
+                examples.extend(ex)
+
+            
+            if len(examples) == 0:
+                print(f"  [Iter {iteration}] Buffer too small, waiting...")
+                continue
+            self.buffer.add(examples)
+            if len(self.buffer) < 1000:
+                n_samples = min(len(self.buffer), 256)
+                self.epochs_per_iter = 1
+            elif len(self.buffer) < 5000:
+                n_samples = min(len(self.buffer), 512)
+                self.epochs_per_iter = 2
+            else:
+                n_samples = self.batch_size * 8
+                self.epochs_per_iter = 3
+
+            # train epochs_per_iter times on same sampled batch
+            # n_samples = min(self.batch_size * 4, len(self.buffer))
+            samples = self.buffer.sample(n_samples)
+            loader  = DataLoader(
+                SelfPlayDataset(samples),
+                batch_size  = self.batch_size,
+                shuffle     = True,
+                num_workers = 0,
+                collate_fn  = SelfPlayDataset.collate_fn,
+            )
 
             pl, vl = 0.0, 0.0
             for epoch in range(self.epochs_per_iter):
-                pl, vl = self.train_epoch()
-            
-            if pl == 0.0:
-                print(f"  [Iter {iteration}] Buffer too small, waiting...")
-                continue
-
-            self.scheduler.step()
+                pl, vl, last_probs, last_v, grad_norm = self._train_on_loader(loader)
+                self.scheduler.step()
             print(f"  [Iter {iteration}] policy_loss={pl:.4f}  value_loss={vl:.4f}  buffer={len(self.buffer)}")
-
+            
+            pi_entropy = -(last_probs * torch.log(last_probs + 1e-8)).sum(dim=-1).mean()
+            v_std = last_v.std()
+            v_mean = last_v.mean()
+            current_lr = self.optimizer.param_groups[0]['lr']
             self.history.append({
                 "iter": iteration,
                 "policy_loss": pl,
                 "value_loss": vl,
+                "pi_entropy": pi_entropy.item(),
+                "v_std": v_std.item(),
+                "v_mean": v_mean.item(),
+                "grad_norm": grad_norm,
+                "lr": current_lr,
             })
 
-            # Push weights for agents to sync
             self.self_play_iteration(iteration)
 
-            # Full checkpoint every 10 iters
             if iteration % 10 == 0:
                 self.save_checkpoint(iteration, tag="")
+
 
 
 from nn_models.cnn.policy_value_net import PolicyValueNet
 from nn_models.data.self_play_data import SelfPlayBuffer
 
 SAVE_DIR    = "self_play_model/checkpoints/cnn"
-DEVICE      = "cpu"
+DEVICE      = "cuda"
 GRID_SHAPE  = (9, 9)
 
 if __name__ == "__main__":
     net = PolicyValueNet(
-        in_channels   = 11,
+        in_channels   = 12,
         grid_shape    = GRID_SHAPE,
         num_filters   = 64,
         num_res_blocks= 5,
-        move_feat_dim = 6,
+        move_feat_dim = 7,
     ).to(DEVICE)
 
     buffer  = SelfPlayBuffer(max_size=100_000)
@@ -211,8 +256,8 @@ if __name__ == "__main__":
         device          = DEVICE,
         lr              = 1e-3,
         weight_decay    = 1e-4,
-        batch_size      = 256,
-        epochs_per_iter = 5,
+        batch_size      = 64,
+        epochs_per_iter = 1,
         num_iterations  = 1000,
     )
 
