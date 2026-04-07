@@ -37,3 +37,9 @@ __pycache__/
 venv/
 __pycache__/
 *.pyc
+
+# large files
+*.log
+self_play_model/player_logs/
+self_play_model/profiling/profile_data.csv
+moves/ctf_dict_combat_move.json
