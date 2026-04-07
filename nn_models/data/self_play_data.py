@@ -39,9 +39,9 @@ class SelfPlayBuffer:
             quality = min(1.0, ex.num_iterations / 1000)
             
             # representation weight — short game players underrepresented
-            representation = 1.0 / ex.game_length
-            
-            w = quality * representation
+            # representation = 1.0 / np.log(ex.game_length + 1)
+            z_bonus = 1.2 if ex.z > 0 else 1.0
+            w = quality * z_bonus
             weights.append(w)
         
         total = sum(weights)

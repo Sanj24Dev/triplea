@@ -129,11 +129,11 @@ class SelfPlayTrainer():
             # policy_loss = -(probs * log_p).sum(dim=-1).mean()
             policy_loss = -(torch.where(probs > 0, probs * log_p, torch.zeros_like(log_p))).sum(dim=-1).mean()
             value_loss  = F.mse_loss(v, zs)
-            loss        = policy_loss + value_loss
+            loss        = policy_loss + 0.5 * value_loss
 
             self.optimizer.zero_grad()
             loss.backward()
-            grad_norm = torch.nn.utils.clip_grad_norm_(self.net.parameters(), 1.0)
+            grad_norm = torch.nn.utils.clip_grad_norm_(self.net.parameters(), 0.5)
             last_grad_norm = grad_norm.item()
             self.optimizer.step()
 
@@ -151,7 +151,7 @@ class SelfPlayTrainer():
         print("  Trainer process started — waiting for examples")
         print("=" * 50)
 
-        iteration = 0
+        iteration = 1
 
         latest = os.path.join(self.save_dir, "latest.pt")
         if os.path.exists(latest):
@@ -160,7 +160,7 @@ class SelfPlayTrainer():
 
         while True:
             time.sleep(poll_interval)
-            iteration += 1
+            
             
 
             # read buffer once per iteration
@@ -180,7 +180,7 @@ class SelfPlayTrainer():
 
             
             if len(examples) == 0:
-                print(f"  [Iter {iteration}] Buffer too small, waiting...")
+                print(f"  [Iter {iteration}] No new data, waiting...")
                 continue
             self.buffer.add(examples)
             if len(self.buffer) < 1000:
@@ -210,7 +210,16 @@ class SelfPlayTrainer():
                 self.scheduler.step()
             print(f"  [Iter {iteration}] policy_loss={pl:.4f}  value_loss={vl:.4f}  buffer={len(self.buffer)}")
             
-            pi_entropy = -(last_probs * torch.log(last_probs + 1e-8)).sum(dim=-1).mean()
+            mask = last_probs > 0
+            entropy_vals = []
+            for i in range(last_probs.shape[0]):
+                p = last_probs[i][mask[i]]
+                if len(p) > 1:
+                    h = -(p * torch.log(p + 1e-8)).sum()
+                    h_norm = h / torch.log(torch.tensor(len(p), dtype=torch.float))
+                    entropy_vals.append(h_norm.item())
+
+            pi_entropy = np.mean(entropy_vals) if entropy_vals else 0.0
             v_std = last_v.std()
             v_mean = last_v.mean()
             current_lr = self.optimizer.param_groups[0]['lr']
@@ -226,9 +235,11 @@ class SelfPlayTrainer():
             })
 
             self.self_play_iteration(iteration)
-
             if iteration % 10 == 0:
                 self.save_checkpoint(iteration, tag="")
+            iteration += 1
+
+            
 
 
 
@@ -248,14 +259,14 @@ if __name__ == "__main__":
         move_feat_dim = 7,
     ).to(DEVICE)
 
-    buffer  = SelfPlayBuffer(max_size=100_000)
+    buffer  = SelfPlayBuffer(max_size=20_000)
     trainer = SelfPlayTrainer(
         net             = net,
         buffer          = buffer,
         save_dir        = SAVE_DIR,
         device          = DEVICE,
         lr              = 1e-3,
-        weight_decay    = 1e-4,
+        weight_decay    = 1e-3,
         batch_size      = 64,
         epochs_per_iter = 1,
         num_iterations  = 1000,

@@ -1,0 +1,25 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=1000\navg=-0.112\np=1.000"];
+  n1 [label="#1\nvis=145\navg=-0.112\np=0.143"];
+  n2 [label="#2\nvis=222\navg=-0.112\np=0.220"];
+  n3 [label="#3\nvis=278\navg=-0.112\np=0.278"];
+  n4 [label="#4\nvis=156\navg=-0.113\np=0.157"];
+  n5 [label="#5\nvis=198\navg=-0.113\np=0.202"];
+  n6 [label="#6\nvis=143\navg=-0.112\np=1.000"];
+  n7 [label="#7\nvis=220\navg=-0.112\np=1.000"];
+  n8 [label="#8\nvis=276\navg=-0.112\np=1.000"];
+  n9 [label="#9\nvis=154\navg=-0.113\np=1.000"];
+  n10 [label="#10\nvis=196\navg=-0.113\np=1.000"];
+  n0 -> n1 [label="ItalianStepTwo | 2x armour, 2x artillery, 6x infantry"];
+  n0 -> n2 [label="ItalianStepTwo | 2x armour, 2x artillery, 5x infantry"];
+  n0 -> n3 [label="ItalianStepTwo | 2x armour, 2x artillery, 4x infantry"];
+  n0 -> n4 [label="ItalianStepTwo | 2x armour, 2x artillery, 3x infantry"];
+  n0 -> n5 [label="ItalianStepTwo | "];
+  n1 -> n6 [label="GermanStart | "];
+  n2 -> n7 [label="GermanStart | "];
+  n3 -> n8 [label="GermanStart | "];
+  n4 -> n9 [label="GermanStart | "];
+  n5 -> n10 [label="GermanStart | "];
+}

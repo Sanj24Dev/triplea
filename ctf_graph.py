@@ -123,7 +123,7 @@ class CaptureTheFlag:
 
         self.game_outcome_metric = MetricLogger(
             outcome_file,
-            header=["game", "rounds_played", "winner"]
+            header=["game", "rounds_played", "winner", "time_taken"]
         )
 
         # build graph

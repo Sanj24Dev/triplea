@@ -27,7 +27,7 @@ OUTCOME_REC = f"{MODEL_NAME}/metrics/game_outcome"
 QUALITY_REC = f"{MODEL_NAME}/metrics/combat_quality"
 ROLLOUT_REC = f"{MODEL_NAME}/metrics/rollout_efficiency"
 
-NUM_GAMES = 500
+NUM_GAMES = 1000
 # doSync = False
 
 
@@ -184,8 +184,8 @@ def save_zip(folder_path, zip_path):
     with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as z:
         for root, dirs, files in os.walk(folder_path):
             for file in files:
-                # if not file.endswith(".png"):
-                #     continue
+                if not file.endswith(".png"):
+                    continue
                 full_path = os.path.join(root, file)
 
                 # keeps relative structure inside the zip
@@ -247,7 +247,7 @@ try:
 
         time.sleep(5)
         save_profile()
-        if i == 1 or i == NUM_GAMES:
+        if i == 1 or i % 10 == 0:
             save_zip(f"{MODEL_NAME}/trees", f"{MODEL_NAME}/trees_g{i}.zip")
         
 except KeyboardInterrupt:

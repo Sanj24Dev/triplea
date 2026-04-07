@@ -73,6 +73,7 @@ def agent_loop(host="127.0.0.1", port=5000):
     # print(sync)
     if ctf.game_num % 5 == 0:
         agent._sync_weights()
+    start_time = time.time()
 
     try:
         # print("Waiting for accept()")
@@ -131,13 +132,15 @@ def agent_loop(host="127.0.0.1", port=5000):
                             winner = players_in_order[-1]
                             eliminated = players_in_order[:-1]  # in elimination order
                             z = 0.0
+                            time_taken = int(time.time() - start_time)
+                            start_time = time.time() # need to move this when i run more than 1 game in 1 call of this function
                             for rank, player in enumerate(players_in_order):
                                 if player == my_player:
                                     if rank == len(players_in_order) - 1:
                                         # i am the winner
                                         agent.curr_game_len = ctf.round
                                         z = 1.0
-                                        ctf.game_outcome_metric.log(ctf.game_num, ctf.round, my_player)
+                                        ctf.game_outcome_metric.log(ctf.game_num, ctf.round, my_player, time_taken)
                                         log_message(port, f"Game {ctf.game_num} Round {agent.curr_game_len}/{ctf.round} Outcome: Won Z: {z}")
                                         
                                     else:
@@ -155,7 +158,7 @@ def agent_loop(host="127.0.0.1", port=5000):
                             # won = my_player in msg and "lost" not in msg
                             # before = time.time()
                             # print(f"Weighted the samples with {agent.curr_game_len}")
-                            agent.on_game_end(z, agent.curr_game_len, ctf.round)
+                            agent.on_game_end(z, agent.curr_game_len, ctf.round, ctf.game_num)
                             # time_taken_to_save = time.time() - before
                             # log_message(port, f"Time taken to save: {time_taken_to_save}")
                             # reset everything for next game

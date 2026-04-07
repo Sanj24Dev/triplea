@@ -817,8 +817,9 @@ class P_MCTSNode:
         self.untried_actions = None 
         self.visits = 0
         self.value = 0.0
+        self.value_output = 0.0
         self.prior = prior
-        self.p_prior = 1.5 * prior  # to reduce multiplication in best_child function
+        self.p_prior = 0.5 * prior  # to reduce multiplication in best_child function
         self.node_priors = None
 
         self.is_state_terminal = None
@@ -896,7 +897,7 @@ class PolicyGuidedMCTS:
         # file paths to store metrics
         self.efficiency_metric = MetricLogger(
             efficiency_file,
-            header=["game", "round", "num_iterations", "max_depth", "time_taken", "value"]
+            header=["game", "round", "num_iterations", "max_depth", "time_taken", "num_children", "value"]
         )
 
         self.combat_quality = MetricLogger(
@@ -906,12 +907,12 @@ class PolicyGuidedMCTS:
 
         self.entropy_logger = MetricLogger(
             f"{model_name}/metrics/entropy.csv",
-            header=["port", "game", "round", "depth", "num_children", "entropy_ratio"]
+            header=["port", "game", "round", "depth", "num_children", "entropy_ratio", "q_spread", "concentration"]
         )
 
-        self.value_logger = MetricLogger(
-            f"{model_name}/metrics/values.csv",
-            header=["player", "game", "round", "value"]
+        self.value_metrics = MetricLogger(
+            f"{model_name}/metrics/value_metrics.csv",
+            header=["game", "player", "z", "num_examples", "value_mean", "value_std", "percent_full_iter"]
         )
 
         global game_rules, territory_production, victory_cities, adjacency, turn_order
@@ -1073,6 +1074,7 @@ class PolicyGuidedMCTS:
                             action=action, prior=prior, action_id=aid)
             node.children.append(child)
             value = self.simulate(child.state)
+            child.value_output = value
             return child, value
 
 
@@ -1132,16 +1134,18 @@ class PolicyGuidedMCTS:
             end_time = time.time()
         pr.dump_stats(file)
 
+
         
-        tree_prefix = f"{self.model_name}/trees/tree_g{root.state.game_num}_r{root.state.round}_{self.port}"
-        os.makedirs(os.path.dirname(tree_prefix), exist_ok=True)
-        dot_file, png_file = save_mcts_tree_png(root, tree_prefix, max_nodes=500, render_img=False)
+        game_num = root.state.game_num
+        game_round = root.state.round
+        if game_num == 1 or game_num % 10 == 0:
+            tree_prefix = f"{self.model_name}/trees/tree_g{root.state.game_num}_r{root.state.round}_{self.port}"
+            os.makedirs(os.path.dirname(tree_prefix), exist_ok=True)
+            dot_file, png_file = save_mcts_tree_png(root, tree_prefix, max_nodes=500, render_img=True)
         # print("Saved tree:", dot_file, png_file)
 
         action_seq = []
         node = root
-        game_num = root.state.game_num
-        game_round = root.state.round
         depth = 0
         # print(f"Round {root.state.round}")
         while node.children != []:
@@ -1173,12 +1177,17 @@ class PolicyGuidedMCTS:
             # if depth >= 1 and len(node.children) >= 2:
             visit_counts = np.array([c.visits for c in node.children])
             visited = visit_counts[visit_counts > 0]
-            if len(visited) >= 2:
-                probs = visited / visited.sum()
-                entropy_ratio = -(probs * np.log(probs + 1e-8)).sum() / np.log(len(probs))
-                entropy_ratio = round(entropy_ratio, 4)
-                self.entropy_logger.log(self.port, game_num, game_round, depth, len(node.children), entropy_ratio)
+            if depth > 0:
+                if len(visited) >= 2:
+                    probs = visited / visited.sum()
+                    entropy_ratio = -(probs * np.log(probs + 1e-8)).sum() / np.log(len(probs))
+                    entropy_ratio = round(entropy_ratio, 4)
+                    q_values = [child.value/child.visits for child in node.children if child.visits > 0]
+                    q_spread = round(max(q_values) - min(q_values), 4)
+                    concentration = round(visit_counts.max() / visit_counts.sum(), 4)
+                    self.entropy_logger.log(self.port, game_num, game_round, depth, len(node.children), entropy_ratio, q_spread, concentration)
             
+
             move_feats = [self.encode_move_features(m, node.state) for m, _ in move_pi]
             pi = [p for _, p in move_pi]
             self.episode_examples.append({
@@ -1188,6 +1197,7 @@ class PolicyGuidedMCTS:
                 "player": self.whoAmI,
                 "round_num": game_round,
                 "num_iterations": self.iteration, 
+                "value_output": node.value_output,
                 "z": None
             })
 
@@ -1202,8 +1212,7 @@ class PolicyGuidedMCTS:
 
         avg_value = root.value / root.visits
         time_taken = round(end_time - start_time, 2)
-        self.efficiency_metric.log(game_num, game_round, self.iteration, self.max_depth, time_taken, avg_value)
-        self.value_logger.log(self.port, game_num, game_round, root.value)
+        self.efficiency_metric.log(game_num, game_round, self.iteration, self.max_depth, time_taken, len(root.children), avg_value)
 
         
         return action_seq
@@ -1217,7 +1226,7 @@ class PolicyGuidedMCTS:
         return result
 
  
-    def on_game_end(self, z_raw, my_game_length, final_round):
+    def on_game_end(self, z_raw, my_game_length, final_round, game_num):
         
         completed = [
             SelfPlayExample(
@@ -1236,7 +1245,11 @@ class PolicyGuidedMCTS:
         
         if completed:
             self._dump_to_shared_buffer(completed)
-        
+            
+        value_mean_per_game = round(np.mean([ex["value_output"] for ex in self.episode_examples]), 4)
+        value_std_per_game  = round(np.std([ex["value_output"]  for ex in self.episode_examples]), 4)
+        percent_full_iter = 100 * round(sum([1 for ex in self.episode_examples if ex["num_iterations"] == 1000]) / len(self.episode_examples), 4)
+        self.value_metrics.log(game_num, self.port, z_raw, len(completed), value_mean_per_game, value_std_per_game, percent_full_iter)
         self.episode_examples = []
         # self.games_played += 1
         

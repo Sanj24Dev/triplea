@@ -1,6 +1,14 @@
 import torch
 import pandas as pd
 import matplotlib.pyplot as plt
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--folder", type=str, required=True)
+args = parser.parse_args()
+
+main_folder = args.folder
+FOLDER = f"{main_folder}/metrics"
 
 # ---- Load checkpoint ----
 ckpt = torch.load("self_play_model/checkpoints/cnn/latest.pt", map_location="cpu")
@@ -18,7 +26,7 @@ df = pd.DataFrame(history)
 print("Loaded iterations:", len(df))
 
 # Optional smoothing
-df_smooth = df.rolling(10).mean()
+df_smooth = df.rolling(20).mean()
 # df_smooth = df
 
 # ---- Plot ----
@@ -49,4 +57,6 @@ for ax in axes.flat:
     ax.grid(True)
 
 plt.tight_layout()
-plt.show()
+plt.savefig(f"{FOLDER}/training.png", dpi=150, bbox_inches="tight")
+print(f"Saved {FOLDER}/training.png")
+plt.close()

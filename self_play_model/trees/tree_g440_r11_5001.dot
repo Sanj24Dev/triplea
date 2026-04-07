@@ -1,0 +1,25 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=1000\navg=-0.115\np=1.000"];
+  n1 [label="#1\nvis=88\navg=-0.115\np=0.089"];
+  n2 [label="#2\nvis=103\navg=-0.115\np=0.104"];
+  n3 [label="#3\nvis=92\navg=-0.115\np=0.094"];
+  n4 [label="#4\nvis=91\navg=-0.115\np=0.094"];
+  n5 [label="#5\nvis=94\navg=-0.115\np=0.095"];
+  n6 [label="#6\nvis=97\navg=-0.114\np=0.096"];
+  n7 [label="#7\nvis=316\navg=-0.114\np=0.314"];
+  n8 [label="#8\nvis=118\navg=-0.114\np=0.114"];
+  n9 [label="#9\nvis=59\navg=-0.114\np=0.504"];
+  n10 [label="#10\nvis=57\navg=-0.114\np=0.496"];
+  n0 -> n1 [label="ItalianStartRight | 5x armour, 5x artillery, 2x infantry"];
+  n0 -> n2 [label="ItalianStartRight | 4x armour, 5x artillery, 2x infantry"];
+  n0 -> n3 [label="ItalianStartRight | 3x armour, 5x artillery, 2x infantry"];
+  n0 -> n4 [label="ItalianStartRight | 2x armour, 5x artillery, 2x infantry"];
+  n0 -> n5 [label="ItalianStartRight | 2x armour, 5x artillery, 1x infantry"];
+  n0 -> n6 [label="ItalianStartRight | 2x armour, 5x artillery"];
+  n0 -> n7 [label="ItalianStartRight | 2x armour, 4x artillery"];
+  n0 -> n8 [label="ItalianStartRight | "];
+  n8 -> n9 [label="RightBar | 1x armour"];
+  n8 -> n10 [label="RightBar | "];
+}
