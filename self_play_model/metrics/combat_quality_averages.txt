@@ -1,0 +1,8 @@
+=== Combat Quality Averages By Player ===
+
+Chinese
+  Avg Territory Gain: 8.371
+  Avg PU Gain: 0.718
+  Territory Gain Consistency: 0.778
+  Strategic Retention Ratio: 0.437
+

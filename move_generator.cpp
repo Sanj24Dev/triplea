@@ -2526,6 +2526,15 @@ static int __Pyx_VectorcallBuilder_AddArgStr(const char *key, PyObject *value, P
   #define PyRange_Check(obj)  __Pyx_TypeCheck((obj), &PyRange_Type)
 #endif
 
+/* SliceTupleAndList.proto */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyList_GetSlice(PyObject* src, Py_ssize_t start, Py_ssize_t stop);
+static CYTHON_INLINE PyObject* __Pyx_PyTuple_GetSlice(PyObject* src, Py_ssize_t start, Py_ssize_t stop);
+#else
+#define __Pyx_PyList_GetSlice(seq, start, stop)   PySequence_GetSlice(seq, start, stop)
+#define __Pyx_PyTuple_GetSlice(seq, start, stop)  PySequence_GetSlice(seq, start, stop)
+#endif
+
 /* PyLongBinop.proto */
 #if !CYTHON_COMPILING_IN_PYPY
 static CYTHON_INLINE PyObject* __Pyx_PyLong_SubtractObjC(PyObject *op1, PyObject *op2, long intval, int inplace, int zerodivision_check);
@@ -3079,7 +3088,7 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_values;
   PyObject *__pyx_tuple[2];
   PyObject *__pyx_codeobj_tab[28];
-  PyObject *__pyx_string_tab[181];
+  PyObject *__pyx_string_tab[183];
   PyObject *__pyx_number_tab[9];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
@@ -3196,145 +3205,147 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_actions __pyx_string_tab[39]
 #define __pyx_n_u_add_unit __pyx_string_tab[40]
 #define __pyx_n_u_adj __pyx_string_tab[41]
-#define __pyx_n_u_artillery __pyx_string_tab[42]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[43]
-#define __pyx_n_u_atk_list __pyx_string_tab[44]
-#define __pyx_n_u_attacks __pyx_string_tab[45]
-#define __pyx_n_u_best __pyx_string_tab[46]
-#define __pyx_n_u_build_reachability_locals_genexp __pyx_string_tab[47]
-#define __pyx_n_u_cities __pyx_string_tab[48]
-#define __pyx_n_u_class_getitem __pyx_string_tab[49]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[50]
-#define __pyx_n_u_close __pyx_string_tab[51]
-#define __pyx_n_u_collections __pyx_string_tab[52]
-#define __pyx_n_u_combat __pyx_string_tab[53]
-#define __pyx_n_u_costs __pyx_string_tab[54]
-#define __pyx_n_u_currentStrength __pyx_string_tab[55]
-#define __pyx_n_u_def_strength __pyx_string_tab[56]
-#define __pyx_n_u_delegate __pyx_string_tab[57]
-#define __pyx_n_u_deque __pyx_string_tab[58]
-#define __pyx_n_u_dict __pyx_string_tab[59]
-#define __pyx_n_u_dict_2 __pyx_string_tab[60]
-#define __pyx_n_u_end_phase __pyx_string_tab[61]
-#define __pyx_n_u_enemy_territory_name __pyx_string_tab[62]
-#define __pyx_n_u_enemy_territory_names __pyx_string_tab[63]
-#define __pyx_n_u_excluded __pyx_string_tab[64]
-#define __pyx_n_u_factory __pyx_string_tab[65]
-#define __pyx_n_u_from_territory __pyx_string_tab[66]
-#define __pyx_n_u_func __pyx_string_tab[67]
-#define __pyx_n_u_genexpr __pyx_string_tab[68]
-#define __pyx_n_u_get __pyx_string_tab[69]
-#define __pyx_n_u_get_reachable_units_locals_genex __pyx_string_tab[70]
-#define __pyx_n_u_getstate __pyx_string_tab[71]
-#define __pyx_n_u_heuristic_combat_legal_moves __pyx_string_tab[72]
-#define __pyx_n_u_heuristic_combat_legal_moves_loc __pyx_string_tab[73]
-#define __pyx_n_u_infantry __pyx_string_tab[74]
-#define __pyx_n_u_info __pyx_string_tab[75]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[76]
-#define __pyx_n_u_items __pyx_string_tab[77]
-#define __pyx_n_u_key __pyx_string_tab[78]
-#define __pyx_n_u_l __pyx_string_tab[79]
-#define __pyx_n_u_lambda __pyx_string_tab[80]
-#define __pyx_n_u_main __pyx_string_tab[81]
-#define __pyx_n_u_maxThreshold __pyx_string_tab[82]
-#define __pyx_n_u_min __pyx_string_tab[83]
-#define __pyx_n_u_module __pyx_string_tab[84]
-#define __pyx_n_u_move_generator_cpp __pyx_string_tab[85]
-#define __pyx_n_u_moved __pyx_string_tab[86]
-#define __pyx_n_u_moves __pyx_string_tab[87]
-#define __pyx_n_u_my_territory_names __pyx_string_tab[88]
-#define __pyx_n_u_name __pyx_string_tab[89]
-#define __pyx_n_u_name_2 __pyx_string_tab[90]
-#define __pyx_n_u_new __pyx_string_tab[91]
-#define __pyx_n_u_next __pyx_string_tab[92]
-#define __pyx_n_u_owner __pyx_string_tab[93]
-#define __pyx_n_u_player __pyx_string_tab[94]
-#define __pyx_n_u_pop __pyx_string_tab[95]
-#define __pyx_n_u_pyx_checksum __pyx_string_tab[96]
-#define __pyx_n_u_pyx_result __pyx_string_tab[97]
-#define __pyx_n_u_pyx_state __pyx_string_tab[98]
-#define __pyx_n_u_pyx_type __pyx_string_tab[99]
-#define __pyx_n_u_pyx_unpickle_Attack __pyx_string_tab[100]
-#define __pyx_n_u_pyx_unpickle_Move __pyx_string_tab[101]
-#define __pyx_n_u_pyx_unpickle_Territory __pyx_string_tab[102]
-#define __pyx_n_u_pyx_unpickle_Unit __pyx_string_tab[103]
-#define __pyx_n_u_pyx_unpickle_UnitInfo __pyx_string_tab[104]
-#define __pyx_n_u_qty_moved __pyx_string_tab[105]
-#define __pyx_n_u_qualname __pyx_string_tab[106]
-#define __pyx_n_u_quantity __pyx_string_tab[107]
-#define __pyx_n_u_ranges __pyx_string_tab[108]
-#define __pyx_n_u_reachable __pyx_string_tab[109]
-#define __pyx_n_u_reduce __pyx_string_tab[110]
-#define __pyx_n_u_reduce_cython __pyx_string_tab[111]
-#define __pyx_n_u_reduce_ex __pyx_string_tab[112]
-#define __pyx_n_u_remove __pyx_string_tab[113]
-#define __pyx_n_u_remove_unit __pyx_string_tab[114]
-#define __pyx_n_u_reverse __pyx_string_tab[115]
-#define __pyx_n_u_s __pyx_string_tab[116]
-#define __pyx_n_u_self __pyx_string_tab[117]
-#define __pyx_n_u_send __pyx_string_tab[118]
-#define __pyx_n_u_set_adjacency __pyx_string_tab[119]
-#define __pyx_n_u_set_name __pyx_string_tab[120]
-#define __pyx_n_u_set_unit_attack_values __pyx_string_tab[121]
-#define __pyx_n_u_set_unit_costs __pyx_string_tab[122]
-#define __pyx_n_u_set_unit_defense_values __pyx_string_tab[123]
-#define __pyx_n_u_set_unit_move_ranges __pyx_string_tab[124]
-#define __pyx_n_u_set_victory_cities __pyx_string_tab[125]
-#define __pyx_n_u_setdefault __pyx_string_tab[126]
-#define __pyx_n_u_sets __pyx_string_tab[127]
-#define __pyx_n_u_setstate __pyx_string_tab[128]
-#define __pyx_n_u_setstate_cython __pyx_string_tab[129]
-#define __pyx_n_u_sorted __pyx_string_tab[130]
-#define __pyx_n_u_sorted_reachable __pyx_string_tab[131]
-#define __pyx_n_u_start __pyx_string_tab[132]
-#define __pyx_n_u_state __pyx_string_tab[133]
-#define __pyx_n_u_strength __pyx_string_tab[134]
-#define __pyx_n_u_strengthThreshold __pyx_string_tab[135]
-#define __pyx_n_u_strengthThreshold_weak __pyx_string_tab[136]
-#define __pyx_n_u_t __pyx_string_tab[137]
-#define __pyx_n_u_target __pyx_string_tab[138]
-#define __pyx_n_u_territories __pyx_string_tab[139]
-#define __pyx_n_u_test __pyx_string_tab[140]
-#define __pyx_n_u_throw __pyx_string_tab[141]
-#define __pyx_n_u_time __pyx_string_tab[142]
-#define __pyx_n_u_time_budget __pyx_string_tab[143]
-#define __pyx_n_u_to_terr __pyx_string_tab[144]
-#define __pyx_n_u_u __pyx_string_tab[145]
-#define __pyx_n_u_unit __pyx_string_tab[146]
-#define __pyx_n_u_unit_type __pyx_string_tab[147]
-#define __pyx_n_u_units __pyx_string_tab[148]
-#define __pyx_n_u_unitsUpToStrength __pyx_string_tab[149]
-#define __pyx_n_u_update __pyx_string_tab[150]
-#define __pyx_n_u_use_setstate __pyx_string_tab[151]
-#define __pyx_n_u_value __pyx_string_tab[152]
-#define __pyx_n_u_values __pyx_string_tab[153]
-#define __pyx_n_u_weak_sets __pyx_string_tab[154]
-#define __pyx_n_u_x_2 __pyx_string_tab[155]
-#define __pyx_kp_b_iso88591_3DNRggh_E_Q_q_3j_AWCq_a_q_gQd_g __pyx_string_tab[156]
-#define __pyx_kp_b_iso88591_6 __pyx_string_tab[157]
-#define __pyx_kp_b_iso88591_6Gq_E_Q_q_3j_AWCq_a_1Jc_gQa __pyx_string_tab[158]
-#define __pyx_kp_b_iso88591_A __pyx_string_tab[159]
-#define __pyx_kp_b_iso88591_AV1 __pyx_string_tab[160]
-#define __pyx_kp_b_iso88591_E_vQ_q_1_B_WX_t5_2V2Q_t1_AQ_vQ __pyx_string_tab[161]
-#define __pyx_kp_b_iso88591_M_AV3I_QR __pyx_string_tab[162]
-#define __pyx_kp_b_iso88591_T_D_D_Kt1_G1F_a_vWE_Q_q_t_WE_D __pyx_string_tab[163]
-#define __pyx_kp_b_iso88591_T_HD_G1F_a_vWE_Q_q_t6_S_G7_s_gU __pyx_string_tab[164]
-#define __pyx_kp_b_iso88591_T_XT_T_D_G1F_a_vWE_Q_q_t7_c_q_q __pyx_string_tab[165]
-#define __pyx_kp_b_iso88591_T_k_Q_G1F_a_vWE_Q_q_t_7_s_fG1_q __pyx_string_tab[166]
-#define __pyx_kp_b_iso88591_T_k_Q_G1F_a_vWE_Q_q_t_7_s_fG1_q_2 __pyx_string_tab[167]
-#define __pyx_kp_b_iso88591_Zz_QauT_a __pyx_string_tab[168]
-#define __pyx_kp_b_iso88591__6 __pyx_string_tab[169]
-#define __pyx_kp_b_iso88591__7 __pyx_string_tab[170]
-#define __pyx_kp_b_iso88591__8 __pyx_string_tab[171]
-#define __pyx_kp_b_iso88591__9 __pyx_string_tab[172]
-#define __pyx_kp_b_iso88591_a __pyx_string_tab[173]
-#define __pyx_kp_b_iso88591_avQ __pyx_string_tab[174]
-#define __pyx_kp_b_iso88591_q __pyx_string_tab[175]
-#define __pyx_kp_b_iso88591_q_0_kQR_4xq_7_awnA_1 __pyx_string_tab[176]
-#define __pyx_kp_b_iso88591_q_0_kQR_6_7_1 __pyx_string_tab[177]
-#define __pyx_kp_b_iso88591_q_0_kQR_881A_7_nA_1 __pyx_string_tab[178]
-#define __pyx_kp_b_iso88591_q_0_kQR_9HAQ_7_1L_a_1 __pyx_string_tab[179]
-#define __pyx_kp_b_iso88591_q_a __pyx_string_tab[180]
+#define __pyx_n_u_all_units __pyx_string_tab[42]
+#define __pyx_n_u_artillery __pyx_string_tab[43]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[44]
+#define __pyx_n_u_atk_list __pyx_string_tab[45]
+#define __pyx_n_u_attacks __pyx_string_tab[46]
+#define __pyx_n_u_best __pyx_string_tab[47]
+#define __pyx_n_u_build_reachability_locals_genexp __pyx_string_tab[48]
+#define __pyx_n_u_cities __pyx_string_tab[49]
+#define __pyx_n_u_class_getitem __pyx_string_tab[50]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[51]
+#define __pyx_n_u_close __pyx_string_tab[52]
+#define __pyx_n_u_collections __pyx_string_tab[53]
+#define __pyx_n_u_combat __pyx_string_tab[54]
+#define __pyx_n_u_costs __pyx_string_tab[55]
+#define __pyx_n_u_currentStrength __pyx_string_tab[56]
+#define __pyx_n_u_def_strength __pyx_string_tab[57]
+#define __pyx_n_u_delegate __pyx_string_tab[58]
+#define __pyx_n_u_deque __pyx_string_tab[59]
+#define __pyx_n_u_dict __pyx_string_tab[60]
+#define __pyx_n_u_dict_2 __pyx_string_tab[61]
+#define __pyx_n_u_end_phase __pyx_string_tab[62]
+#define __pyx_n_u_enemy_territory_name __pyx_string_tab[63]
+#define __pyx_n_u_enemy_territory_names __pyx_string_tab[64]
+#define __pyx_n_u_excluded __pyx_string_tab[65]
+#define __pyx_n_u_factory __pyx_string_tab[66]
+#define __pyx_n_u_from_territory __pyx_string_tab[67]
+#define __pyx_n_u_func __pyx_string_tab[68]
+#define __pyx_n_u_genexpr __pyx_string_tab[69]
+#define __pyx_n_u_get __pyx_string_tab[70]
+#define __pyx_n_u_get_reachable_units_locals_genex __pyx_string_tab[71]
+#define __pyx_n_u_getstate __pyx_string_tab[72]
+#define __pyx_n_u_heuristic_combat_legal_moves __pyx_string_tab[73]
+#define __pyx_n_u_heuristic_combat_legal_moves_loc __pyx_string_tab[74]
+#define __pyx_n_u_infantry __pyx_string_tab[75]
+#define __pyx_n_u_info __pyx_string_tab[76]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[77]
+#define __pyx_n_u_items __pyx_string_tab[78]
+#define __pyx_n_u_key __pyx_string_tab[79]
+#define __pyx_n_u_l __pyx_string_tab[80]
+#define __pyx_n_u_lambda __pyx_string_tab[81]
+#define __pyx_n_u_main __pyx_string_tab[82]
+#define __pyx_n_u_maxThreshold __pyx_string_tab[83]
+#define __pyx_n_u_min __pyx_string_tab[84]
+#define __pyx_n_u_module __pyx_string_tab[85]
+#define __pyx_n_u_move_generator_cpp __pyx_string_tab[86]
+#define __pyx_n_u_moved __pyx_string_tab[87]
+#define __pyx_n_u_moves __pyx_string_tab[88]
+#define __pyx_n_u_my_territory_names __pyx_string_tab[89]
+#define __pyx_n_u_name __pyx_string_tab[90]
+#define __pyx_n_u_name_2 __pyx_string_tab[91]
+#define __pyx_n_u_new __pyx_string_tab[92]
+#define __pyx_n_u_next __pyx_string_tab[93]
+#define __pyx_n_u_owner __pyx_string_tab[94]
+#define __pyx_n_u_player __pyx_string_tab[95]
+#define __pyx_n_u_pop __pyx_string_tab[96]
+#define __pyx_n_u_pyx_checksum __pyx_string_tab[97]
+#define __pyx_n_u_pyx_result __pyx_string_tab[98]
+#define __pyx_n_u_pyx_state __pyx_string_tab[99]
+#define __pyx_n_u_pyx_type __pyx_string_tab[100]
+#define __pyx_n_u_pyx_unpickle_Attack __pyx_string_tab[101]
+#define __pyx_n_u_pyx_unpickle_Move __pyx_string_tab[102]
+#define __pyx_n_u_pyx_unpickle_Territory __pyx_string_tab[103]
+#define __pyx_n_u_pyx_unpickle_Unit __pyx_string_tab[104]
+#define __pyx_n_u_pyx_unpickle_UnitInfo __pyx_string_tab[105]
+#define __pyx_n_u_qty_moved __pyx_string_tab[106]
+#define __pyx_n_u_qualname __pyx_string_tab[107]
+#define __pyx_n_u_quantity __pyx_string_tab[108]
+#define __pyx_n_u_ranges __pyx_string_tab[109]
+#define __pyx_n_u_reachable __pyx_string_tab[110]
+#define __pyx_n_u_reduce __pyx_string_tab[111]
+#define __pyx_n_u_reduce_cython __pyx_string_tab[112]
+#define __pyx_n_u_reduce_ex __pyx_string_tab[113]
+#define __pyx_n_u_remove __pyx_string_tab[114]
+#define __pyx_n_u_remove_unit __pyx_string_tab[115]
+#define __pyx_n_u_reverse __pyx_string_tab[116]
+#define __pyx_n_u_s __pyx_string_tab[117]
+#define __pyx_n_u_self __pyx_string_tab[118]
+#define __pyx_n_u_send __pyx_string_tab[119]
+#define __pyx_n_u_set_adjacency __pyx_string_tab[120]
+#define __pyx_n_u_set_name __pyx_string_tab[121]
+#define __pyx_n_u_set_unit_attack_values __pyx_string_tab[122]
+#define __pyx_n_u_set_unit_costs __pyx_string_tab[123]
+#define __pyx_n_u_set_unit_defense_values __pyx_string_tab[124]
+#define __pyx_n_u_set_unit_move_ranges __pyx_string_tab[125]
+#define __pyx_n_u_set_victory_cities __pyx_string_tab[126]
+#define __pyx_n_u_setdefault __pyx_string_tab[127]
+#define __pyx_n_u_sets __pyx_string_tab[128]
+#define __pyx_n_u_setstate __pyx_string_tab[129]
+#define __pyx_n_u_setstate_cython __pyx_string_tab[130]
+#define __pyx_n_u_sorted __pyx_string_tab[131]
+#define __pyx_n_u_sorted_reachable __pyx_string_tab[132]
+#define __pyx_n_u_start __pyx_string_tab[133]
+#define __pyx_n_u_state __pyx_string_tab[134]
+#define __pyx_n_u_strength __pyx_string_tab[135]
+#define __pyx_n_u_strengthThreshold __pyx_string_tab[136]
+#define __pyx_n_u_strengthThreshold_weak __pyx_string_tab[137]
+#define __pyx_n_u_t __pyx_string_tab[138]
+#define __pyx_n_u_target __pyx_string_tab[139]
+#define __pyx_n_u_territories __pyx_string_tab[140]
+#define __pyx_n_u_test __pyx_string_tab[141]
+#define __pyx_n_u_throw __pyx_string_tab[142]
+#define __pyx_n_u_time __pyx_string_tab[143]
+#define __pyx_n_u_time_budget __pyx_string_tab[144]
+#define __pyx_n_u_to_terr __pyx_string_tab[145]
+#define __pyx_n_u_u __pyx_string_tab[146]
+#define __pyx_n_u_unit __pyx_string_tab[147]
+#define __pyx_n_u_unit_info __pyx_string_tab[148]
+#define __pyx_n_u_unit_type __pyx_string_tab[149]
+#define __pyx_n_u_units __pyx_string_tab[150]
+#define __pyx_n_u_unitsUpToStrength __pyx_string_tab[151]
+#define __pyx_n_u_update __pyx_string_tab[152]
+#define __pyx_n_u_use_setstate __pyx_string_tab[153]
+#define __pyx_n_u_value __pyx_string_tab[154]
+#define __pyx_n_u_values __pyx_string_tab[155]
+#define __pyx_n_u_weak_sets __pyx_string_tab[156]
+#define __pyx_n_u_x_2 __pyx_string_tab[157]
+#define __pyx_kp_b_iso88591_3DNRggh_E_Q_q_3j_AWCq_a_q_gQd_g __pyx_string_tab[158]
+#define __pyx_kp_b_iso88591_6 __pyx_string_tab[159]
+#define __pyx_kp_b_iso88591_6Gq_E_Q_q_3j_AWCq_a_1Jc_gQa __pyx_string_tab[160]
+#define __pyx_kp_b_iso88591_A __pyx_string_tab[161]
+#define __pyx_kp_b_iso88591_AV1 __pyx_string_tab[162]
+#define __pyx_kp_b_iso88591_E_vQ_q_1_B_WX_t5_2V2Q_t1_AQ_vQ __pyx_string_tab[163]
+#define __pyx_kp_b_iso88591_M_AV3I_QR __pyx_string_tab[164]
+#define __pyx_kp_b_iso88591_T_D_D_Kt1_G1F_a_vWE_Q_q_t_WE_D __pyx_string_tab[165]
+#define __pyx_kp_b_iso88591_T_HD_G1F_a_vWE_Q_q_t6_S_G7_s_gU __pyx_string_tab[166]
+#define __pyx_kp_b_iso88591_T_XT_T_D_G1F_a_vWE_Q_q_t7_c_q_q __pyx_string_tab[167]
+#define __pyx_kp_b_iso88591_T_k_Q_G1F_a_vWE_Q_q_t_7_s_fG1_q __pyx_string_tab[168]
+#define __pyx_kp_b_iso88591_T_k_Q_G1F_a_vWE_Q_q_t_7_s_fG1_q_2 __pyx_string_tab[169]
+#define __pyx_kp_b_iso88591_Zz_QauT_a __pyx_string_tab[170]
+#define __pyx_kp_b_iso88591__6 __pyx_string_tab[171]
+#define __pyx_kp_b_iso88591__7 __pyx_string_tab[172]
+#define __pyx_kp_b_iso88591__8 __pyx_string_tab[173]
+#define __pyx_kp_b_iso88591__9 __pyx_string_tab[174]
+#define __pyx_kp_b_iso88591_a __pyx_string_tab[175]
+#define __pyx_kp_b_iso88591_avQ __pyx_string_tab[176]
+#define __pyx_kp_b_iso88591_q __pyx_string_tab[177]
+#define __pyx_kp_b_iso88591_q_0_kQR_4xq_7_awnA_1 __pyx_string_tab[178]
+#define __pyx_kp_b_iso88591_q_0_kQR_6_7_1 __pyx_string_tab[179]
+#define __pyx_kp_b_iso88591_q_0_kQR_881A_7_nA_1 __pyx_string_tab[180]
+#define __pyx_kp_b_iso88591_q_0_kQR_9HAQ_7_1L_a_1 __pyx_string_tab[181]
+#define __pyx_kp_b_iso88591_q_a __pyx_string_tab[182]
 #define __pyx_float_10_0 __pyx_number_tab[0]
 #define __pyx_int_0 __pyx_number_tab[1]
 #define __pyx_int_1 __pyx_number_tab[2]
@@ -3380,7 +3391,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_type_18move_generator_cpp___pyx_scope_struct_4_heuristic_combat_legal_moves);
   for (int i=0; i<2; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<28; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<181; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<183; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   for (int i=0; i<9; ++i) { Py_CLEAR(clear_module_state->__pyx_number_tab[i]); }
 /* #### Code section: module_state_clear_contents ### */
 /* CommonTypesMetaclass.module_state_clear */
@@ -3429,7 +3440,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_type_18move_generator_cpp___pyx_scope_struct_4_heuristic_combat_legal_moves);
   for (int i=0; i<2; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<28; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<181; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<183; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   for (int i=0; i<9; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_number_tab[i]); }
 /* #### Code section: module_state_traverse_contents ### */
 /* CommonTypesMetaclass.module_state_traverse */
@@ -13788,7 +13799,7 @@ static PyObject *__pyx_lambda_funcdef_lambda2(PyObject *__pyx_self, PyObject *__
   return __pyx_r;
 }
 
-/* "move_generator.pyx":484
+/* "move_generator.pyx":486
  *             if not sets:
  *                 if def_strength == 0:
  *                     best = min(sorted_reachable, key=lambda x: unit_costs.get(x.unit.unit_type, 9999))             # <<<<<<<<<<<<<<
@@ -13835,32 +13846,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_x_2,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 484, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 486, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 484, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 486, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "lambda3", 0) < (0)) __PYX_ERR(0, 484, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "lambda3", 0) < (0)) __PYX_ERR(0, 486, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("lambda3", 1, 1, 1, i); __PYX_ERR(0, 484, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("lambda3", 1, 1, 1, i); __PYX_ERR(0, 486, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 484, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 486, __pyx_L3_error)
     }
     __pyx_v_x = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("lambda3", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 484, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("lambda3", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 486, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -13893,14 +13904,14 @@ static PyObject *__pyx_lambda_funcdef_lambda3(CYTHON_UNUSED PyObject *__pyx_self
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(__pyx_v_18move_generator_cpp_unit_costs == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "get");
-    __PYX_ERR(0, 484, __pyx_L1_error)
+    __PYX_ERR(0, 486, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_x, __pyx_mstate_global->__pyx_n_u_unit); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 484, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_x, __pyx_mstate_global->__pyx_n_u_unit); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 486, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_unit_type); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 484, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_unit_type); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 486, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_v_18move_generator_cpp_unit_costs, __pyx_t_2, __pyx_mstate_global->__pyx_int_9999); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 484, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_v_18move_generator_cpp_unit_costs, __pyx_t_2, __pyx_mstate_global->__pyx_int_9999); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 486, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
@@ -13942,8 +13953,10 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
   PyObject *__pyx_v_sets = 0;
   PyObject *__pyx_v_weak_sets = 0;
   PyObject *__pyx_v_attacks = 0;
+  PyObject *__pyx_v_all_units = NULL;
   PyObject *__pyx_v_info = NULL;
   CYTHON_UNUSED PyObject *__pyx_v__ = NULL;
+  PyObject *__pyx_v_unit_info = NULL;
   PyObject *__pyx_v_l = NULL;
   PyObject *__pyx_v_best = NULL;
   PyObject *__pyx_v_atk_list = NULL;
@@ -14336,7 +14349,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
  *             sets              = []
  *             unitsUpToStrength = []             # <<<<<<<<<<<<<<
  * 
- *             for info in sorted_reachable:
+ *             all_units = []
 */
       __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 422, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
@@ -14346,13 +14359,25 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
       /* "move_generator.pyx":424
  *             unitsUpToStrength = []
  * 
- *             for info in sorted_reachable:             # <<<<<<<<<<<<<<
+ *             all_units = []             # <<<<<<<<<<<<<<
+ *             for info in sorted_reachable:
+ *                 for _ in range(info.quantity):
+*/
+      __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 424, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __pyx_v_all_units = ((PyObject*)__pyx_t_2);
+      __pyx_t_2 = 0;
+
+      /* "move_generator.pyx":425
  * 
- *                 # expand each unit one at a time (qty > 1 handled by iterating qty times)
+ *             all_units = []
+ *             for info in sorted_reachable:             # <<<<<<<<<<<<<<
+ *                 for _ in range(info.quantity):
+ *                     all_units.append(UnitInfo(info.from_territory, info.unit, 1))
 */
       if (unlikely(__pyx_v_sorted_reachable == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-        __PYX_ERR(0, 424, __pyx_L1_error)
+        __PYX_ERR(0, 425, __pyx_L1_error)
       }
       __pyx_t_2 = __pyx_v_sorted_reachable; __Pyx_INCREF(__pyx_t_2);
       __pyx_t_15 = 0;
@@ -14360,26 +14385,26 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 424, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 425, __pyx_L1_error)
           #endif
           if (__pyx_t_15 >= __pyx_temp) break;
         }
         __pyx_t_13 = __Pyx_PyList_GetItemRefFast(__pyx_t_2, __pyx_t_15, __Pyx_ReferenceSharing_OwnStrongReference);
         ++__pyx_t_15;
-        if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 424, __pyx_L1_error)
+        if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 425, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_13);
         __Pyx_XDECREF_SET(__pyx_v_info, __pyx_t_13);
         __pyx_t_13 = 0;
 
-        /* "move_generator.pyx":427
- * 
- *                 # expand each unit one at a time (qty > 1 handled by iterating qty times)
+        /* "move_generator.pyx":426
+ *             all_units = []
+ *             for info in sorted_reachable:
  *                 for _ in range(info.quantity):             # <<<<<<<<<<<<<<
- *                     unitsUpToStrength.append(UnitInfo(info.from_territory, info.unit, 1))
- * 
+ *                     all_units.append(UnitInfo(info.from_territory, info.unit, 1))
+ *                     if calculate_attack_strength(all_units) >= (maxThreshold * def_strength) + 4:
 */
         __pyx_t_3 = NULL;
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_info, __pyx_mstate_global->__pyx_n_u_quantity); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 427, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_info, __pyx_mstate_global->__pyx_n_u_quantity); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 426, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_5 = 1;
         {
@@ -14387,12 +14412,12 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
           __pyx_t_13 = __Pyx_PyObject_FastCall((PyObject*)(&PyRange_Type), __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 427, __pyx_L1_error)
+          if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 426, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_13);
         }
-        __pyx_t_4 = PyObject_GetIter(__pyx_t_13); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 427, __pyx_L1_error)
+        __pyx_t_4 = PyObject_GetIter(__pyx_t_13); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 426, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_16 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_4); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 427, __pyx_L1_error)
+        __pyx_t_16 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_4); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 426, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
         for (;;) {
           {
@@ -14400,7 +14425,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
             if (unlikely(!__pyx_t_13)) {
               PyObject* exc_type = PyErr_Occurred();
               if (exc_type) {
-                if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 427, __pyx_L1_error)
+                if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 426, __pyx_L1_error)
                 PyErr_Clear();
               }
               break;
@@ -14410,17 +14435,17 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
           __Pyx_XDECREF_SET(__pyx_v__, __pyx_t_13);
           __pyx_t_13 = 0;
 
-          /* "move_generator.pyx":428
- *                 # expand each unit one at a time (qty > 1 handled by iterating qty times)
+          /* "move_generator.pyx":427
+ *             for info in sorted_reachable:
  *                 for _ in range(info.quantity):
- *                     unitsUpToStrength.append(UnitInfo(info.from_territory, info.unit, 1))             # <<<<<<<<<<<<<<
- * 
- *                     currentStrength = calculate_attack_strength(unitsUpToStrength)
+ *                     all_units.append(UnitInfo(info.from_territory, info.unit, 1))             # <<<<<<<<<<<<<<
+ *                     if calculate_attack_strength(all_units) >= (maxThreshold * def_strength) + 4:
+ *                         break
 */
           __pyx_t_3 = NULL;
-          __pyx_t_17 = __Pyx_PyObject_GetAttrStr(__pyx_v_info, __pyx_mstate_global->__pyx_n_u_from_territory); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 428, __pyx_L1_error)
+          __pyx_t_17 = __Pyx_PyObject_GetAttrStr(__pyx_v_info, __pyx_mstate_global->__pyx_n_u_from_territory); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 427, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_17);
-          __pyx_t_18 = __Pyx_PyObject_GetAttrStr(__pyx_v_info, __pyx_mstate_global->__pyx_n_u_unit); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 428, __pyx_L1_error)
+          __pyx_t_18 = __Pyx_PyObject_GetAttrStr(__pyx_v_info, __pyx_mstate_global->__pyx_n_u_unit); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 427, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_18);
           __pyx_t_5 = 1;
           {
@@ -14429,151 +14454,58 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
             __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
             __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
             __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
-            if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 428, __pyx_L1_error)
+            if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 427, __pyx_L1_error)
             __Pyx_GOTREF((PyObject *)__pyx_t_13);
           }
-          __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_unitsUpToStrength, ((PyObject *)__pyx_t_13)); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 428, __pyx_L1_error)
+          __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_all_units, ((PyObject *)__pyx_t_13)); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 427, __pyx_L1_error)
           __Pyx_DECREF((PyObject *)__pyx_t_13); __pyx_t_13 = 0;
 
-          /* "move_generator.pyx":430
- *                     unitsUpToStrength.append(UnitInfo(info.from_territory, info.unit, 1))
- * 
- *                     currentStrength = calculate_attack_strength(unitsUpToStrength)             # <<<<<<<<<<<<<<
- * 
- *                     if (currentStrength > strengthThreshold * def_strength and
-*/
-          __pyx_t_11 = __pyx_f_18move_generator_cpp_calculate_attack_strength(__pyx_v_unitsUpToStrength); if (unlikely(__pyx_t_11 == ((int)-1) && PyErr_Occurred())) __PYX_ERR(0, 430, __pyx_L1_error)
-          __pyx_v_currentStrength = __pyx_t_11;
-
-          /* "move_generator.pyx":432
- *                     currentStrength = calculate_attack_strength(unitsUpToStrength)
- * 
- *                     if (currentStrength > strengthThreshold * def_strength and             # <<<<<<<<<<<<<<
- *                             currentStrength < (maxThreshold * def_strength) + 4):
- * 
-*/
-          __pyx_t_12 = (__pyx_v_currentStrength > (__pyx_v_strengthThreshold * __pyx_v_def_strength));
-          if (__pyx_t_12) {
-          } else {
-            __pyx_t_14 = __pyx_t_12;
-            goto __pyx_L13_bool_binop_done;
-          }
-
-          /* "move_generator.pyx":433
- * 
- *                     if (currentStrength > strengthThreshold * def_strength and
- *                             currentStrength < (maxThreshold * def_strength) + 4):             # <<<<<<<<<<<<<<
- * 
- *                         attacks = form_attacks(unitsUpToStrength)
-*/
-          __pyx_t_12 = (__pyx_v_currentStrength < ((__pyx_v_maxThreshold * __pyx_v_def_strength) + 4.0));
-          __pyx_t_14 = __pyx_t_12;
-          __pyx_L13_bool_binop_done:;
-
-          /* "move_generator.pyx":432
- *                     currentStrength = calculate_attack_strength(unitsUpToStrength)
- * 
- *                     if (currentStrength > strengthThreshold * def_strength and             # <<<<<<<<<<<<<<
- *                             currentStrength < (maxThreshold * def_strength) + 4):
- * 
-*/
-          if (__pyx_t_14) {
-
-            /* "move_generator.pyx":435
- *                             currentStrength < (maxThreshold * def_strength) + 4):
- * 
- *                         attacks = form_attacks(unitsUpToStrength)             # <<<<<<<<<<<<<<
- *                         sets.append((attacks, currentStrength))
- *                         strengthThreshold += 0.1
-*/
-            __pyx_t_13 = __pyx_f_18move_generator_cpp_form_attacks(__pyx_v_unitsUpToStrength); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 435, __pyx_L1_error)
-            __Pyx_GOTREF(__pyx_t_13);
-            __Pyx_XDECREF_SET(__pyx_v_attacks, ((PyObject*)__pyx_t_13));
-            __pyx_t_13 = 0;
-
-            /* "move_generator.pyx":436
- * 
- *                         attacks = form_attacks(unitsUpToStrength)
- *                         sets.append((attacks, currentStrength))             # <<<<<<<<<<<<<<
- *                         strengthThreshold += 0.1
- * 
-*/
-            __pyx_t_13 = __Pyx_PyLong_From_int(__pyx_v_currentStrength); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 436, __pyx_L1_error)
-            __Pyx_GOTREF(__pyx_t_13);
-            __pyx_t_18 = PyTuple_New(2); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 436, __pyx_L1_error)
-            __Pyx_GOTREF(__pyx_t_18);
-            __Pyx_INCREF(__pyx_v_attacks);
-            __Pyx_GIVEREF(__pyx_v_attacks);
-            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_18, 0, __pyx_v_attacks) != (0)) __PYX_ERR(0, 436, __pyx_L1_error);
-            __Pyx_GIVEREF(__pyx_t_13);
-            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_18, 1, __pyx_t_13) != (0)) __PYX_ERR(0, 436, __pyx_L1_error);
-            __pyx_t_13 = 0;
-            __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_sets, __pyx_t_18); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 436, __pyx_L1_error)
-            __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
-
-            /* "move_generator.pyx":437
- *                         attacks = form_attacks(unitsUpToStrength)
- *                         sets.append((attacks, currentStrength))
- *                         strengthThreshold += 0.1             # <<<<<<<<<<<<<<
- * 
- *                     if currentStrength >= (maxThreshold * def_strength) + 4:
-*/
-            __pyx_v_strengthThreshold = (__pyx_v_strengthThreshold + 0.1);
-
-            /* "move_generator.pyx":432
- *                     currentStrength = calculate_attack_strength(unitsUpToStrength)
- * 
- *                     if (currentStrength > strengthThreshold * def_strength and             # <<<<<<<<<<<<<<
- *                             currentStrength < (maxThreshold * def_strength) + 4):
- * 
-*/
-          }
-
-          /* "move_generator.pyx":439
- *                         strengthThreshold += 0.1
- * 
- *                     if currentStrength >= (maxThreshold * def_strength) + 4:             # <<<<<<<<<<<<<<
+          /* "move_generator.pyx":428
+ *                 for _ in range(info.quantity):
+ *                     all_units.append(UnitInfo(info.from_territory, info.unit, 1))
+ *                     if calculate_attack_strength(all_units) >= (maxThreshold * def_strength) + 4:             # <<<<<<<<<<<<<<
  *                         break
  *                 else:
 */
-          __pyx_t_14 = (__pyx_v_currentStrength >= ((__pyx_v_maxThreshold * __pyx_v_def_strength) + 4.0));
+          __pyx_t_11 = __pyx_f_18move_generator_cpp_calculate_attack_strength(__pyx_v_all_units); if (unlikely(__pyx_t_11 == ((int)-1) && PyErr_Occurred())) __PYX_ERR(0, 428, __pyx_L1_error)
+          __pyx_t_14 = (__pyx_t_11 >= ((__pyx_v_maxThreshold * __pyx_v_def_strength) + 4.0));
           if (__pyx_t_14) {
 
-            /* "move_generator.pyx":440
- * 
- *                     if currentStrength >= (maxThreshold * def_strength) + 4:
+            /* "move_generator.pyx":429
+ *                     all_units.append(UnitInfo(info.from_territory, info.unit, 1))
+ *                     if calculate_attack_strength(all_units) >= (maxThreshold * def_strength) + 4:
  *                         break             # <<<<<<<<<<<<<<
  *                 else:
  *                     continue
 */
             goto __pyx_L11_break;
 
-            /* "move_generator.pyx":439
- *                         strengthThreshold += 0.1
- * 
- *                     if currentStrength >= (maxThreshold * def_strength) + 4:             # <<<<<<<<<<<<<<
+            /* "move_generator.pyx":428
+ *                 for _ in range(info.quantity):
+ *                     all_units.append(UnitInfo(info.from_territory, info.unit, 1))
+ *                     if calculate_attack_strength(all_units) >= (maxThreshold * def_strength) + 4:             # <<<<<<<<<<<<<<
  *                         break
  *                 else:
 */
           }
 
-          /* "move_generator.pyx":427
- * 
- *                 # expand each unit one at a time (qty > 1 handled by iterating qty times)
+          /* "move_generator.pyx":426
+ *             all_units = []
+ *             for info in sorted_reachable:
  *                 for _ in range(info.quantity):             # <<<<<<<<<<<<<<
- *                     unitsUpToStrength.append(UnitInfo(info.from_territory, info.unit, 1))
- * 
+ *                     all_units.append(UnitInfo(info.from_territory, info.unit, 1))
+ *                     if calculate_attack_strength(all_units) >= (maxThreshold * def_strength) + 4:
 */
         }
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        goto __pyx_L16_for_else;
+        goto __pyx_L13_for_else;
         __pyx_L11_break:;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        goto __pyx_L17_for_end;
+        goto __pyx_L14_for_end;
         /*else*/ {
-          __pyx_L16_for_else:;
+          __pyx_L13_for_else:;
 
-          /* "move_generator.pyx":442
+          /* "move_generator.pyx":431
  *                         break
  *                 else:
  *                     continue             # <<<<<<<<<<<<<<
@@ -14582,32 +14514,195 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
           goto __pyx_L8_continue;
         }
-        __pyx_L17_for_end:;
+        __pyx_L14_for_end:;
 
-        /* "move_generator.pyx":443
+        /* "move_generator.pyx":432
  *                 else:
  *                     continue
  *                 break             # <<<<<<<<<<<<<<
  * 
- * 
+ *             sets = []
 */
         goto __pyx_L9_break;
 
-        /* "move_generator.pyx":424
- *             unitsUpToStrength = []
+        /* "move_generator.pyx":425
  * 
+ *             all_units = []
  *             for info in sorted_reachable:             # <<<<<<<<<<<<<<
- * 
- *                 # expand each unit one at a time (qty > 1 handled by iterating qty times)
+ *                 for _ in range(info.quantity):
+ *                     all_units.append(UnitInfo(info.from_territory, info.unit, 1))
 */
         __pyx_L8_continue:;
       }
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      goto __pyx_L18_for_end;
+      goto __pyx_L15_for_end;
       __pyx_L9_break:;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      goto __pyx_L18_for_end;
-      __pyx_L18_for_end:;
+      goto __pyx_L15_for_end;
+      __pyx_L15_for_end:;
+
+      /* "move_generator.pyx":434
+ *                 break
+ * 
+ *             sets = []             # <<<<<<<<<<<<<<
+ *             unitsUpToStrength = []
+ *             strengthThreshold = 1.5
+*/
+      __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 434, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_DECREF_SET(__pyx_v_sets, ((PyObject*)__pyx_t_2));
+      __pyx_t_2 = 0;
+
+      /* "move_generator.pyx":435
+ * 
+ *             sets = []
+ *             unitsUpToStrength = []             # <<<<<<<<<<<<<<
+ *             strengthThreshold = 1.5
+ * 
+*/
+      __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 435, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_DECREF_SET(__pyx_v_unitsUpToStrength, ((PyObject*)__pyx_t_2));
+      __pyx_t_2 = 0;
+
+      /* "move_generator.pyx":436
+ *             sets = []
+ *             unitsUpToStrength = []
+ *             strengthThreshold = 1.5             # <<<<<<<<<<<<<<
+ * 
+ *             for unit_info in all_units:
+*/
+      __pyx_v_strengthThreshold = 1.5;
+
+      /* "move_generator.pyx":438
+ *             strengthThreshold = 1.5
+ * 
+ *             for unit_info in all_units:             # <<<<<<<<<<<<<<
+ *                 unitsUpToStrength.append(unit_info)
+ *                 currentStrength = calculate_attack_strength(unitsUpToStrength)
+*/
+      __pyx_t_2 = __pyx_v_all_units; __Pyx_INCREF(__pyx_t_2);
+      __pyx_t_15 = 0;
+      for (;;) {
+        {
+          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
+          #if !CYTHON_ASSUME_SAFE_SIZE
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 438, __pyx_L1_error)
+          #endif
+          if (__pyx_t_15 >= __pyx_temp) break;
+        }
+        __pyx_t_4 = __Pyx_PyList_GetItemRefFast(__pyx_t_2, __pyx_t_15, __Pyx_ReferenceSharing_OwnStrongReference);
+        ++__pyx_t_15;
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 438, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __Pyx_XDECREF_SET(__pyx_v_unit_info, __pyx_t_4);
+        __pyx_t_4 = 0;
+
+        /* "move_generator.pyx":439
+ * 
+ *             for unit_info in all_units:
+ *                 unitsUpToStrength.append(unit_info)             # <<<<<<<<<<<<<<
+ *                 currentStrength = calculate_attack_strength(unitsUpToStrength)
+ *                 if (currentStrength > strengthThreshold * def_strength and
+*/
+        __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_unitsUpToStrength, __pyx_v_unit_info); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 439, __pyx_L1_error)
+
+        /* "move_generator.pyx":440
+ *             for unit_info in all_units:
+ *                 unitsUpToStrength.append(unit_info)
+ *                 currentStrength = calculate_attack_strength(unitsUpToStrength)             # <<<<<<<<<<<<<<
+ *                 if (currentStrength > strengthThreshold * def_strength and
+ *                         currentStrength < (maxThreshold * def_strength) + 4):
+*/
+        __pyx_t_11 = __pyx_f_18move_generator_cpp_calculate_attack_strength(__pyx_v_unitsUpToStrength); if (unlikely(__pyx_t_11 == ((int)-1) && PyErr_Occurred())) __PYX_ERR(0, 440, __pyx_L1_error)
+        __pyx_v_currentStrength = __pyx_t_11;
+
+        /* "move_generator.pyx":441
+ *                 unitsUpToStrength.append(unit_info)
+ *                 currentStrength = calculate_attack_strength(unitsUpToStrength)
+ *                 if (currentStrength > strengthThreshold * def_strength and             # <<<<<<<<<<<<<<
+ *                         currentStrength < (maxThreshold * def_strength) + 4):
+ *                     sets.append((form_attacks(unitsUpToStrength[:]), currentStrength))
+*/
+        __pyx_t_12 = (__pyx_v_currentStrength > (__pyx_v_strengthThreshold * __pyx_v_def_strength));
+        if (__pyx_t_12) {
+        } else {
+          __pyx_t_14 = __pyx_t_12;
+          goto __pyx_L19_bool_binop_done;
+        }
+
+        /* "move_generator.pyx":442
+ *                 currentStrength = calculate_attack_strength(unitsUpToStrength)
+ *                 if (currentStrength > strengthThreshold * def_strength and
+ *                         currentStrength < (maxThreshold * def_strength) + 4):             # <<<<<<<<<<<<<<
+ *                     sets.append((form_attacks(unitsUpToStrength[:]), currentStrength))
+ *                     strengthThreshold += 0.1
+*/
+        __pyx_t_12 = (__pyx_v_currentStrength < ((__pyx_v_maxThreshold * __pyx_v_def_strength) + 4.0));
+        __pyx_t_14 = __pyx_t_12;
+        __pyx_L19_bool_binop_done:;
+
+        /* "move_generator.pyx":441
+ *                 unitsUpToStrength.append(unit_info)
+ *                 currentStrength = calculate_attack_strength(unitsUpToStrength)
+ *                 if (currentStrength > strengthThreshold * def_strength and             # <<<<<<<<<<<<<<
+ *                         currentStrength < (maxThreshold * def_strength) + 4):
+ *                     sets.append((form_attacks(unitsUpToStrength[:]), currentStrength))
+*/
+        if (__pyx_t_14) {
+
+          /* "move_generator.pyx":443
+ *                 if (currentStrength > strengthThreshold * def_strength and
+ *                         currentStrength < (maxThreshold * def_strength) + 4):
+ *                     sets.append((form_attacks(unitsUpToStrength[:]), currentStrength))             # <<<<<<<<<<<<<<
+ *                     strengthThreshold += 0.1
+ * 
+*/
+          __pyx_t_4 = __Pyx_PyList_GetSlice(__pyx_v_unitsUpToStrength, 0, PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 443, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
+          __pyx_t_13 = __pyx_f_18move_generator_cpp_form_attacks(((PyObject*)__pyx_t_4)); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 443, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_13);
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __pyx_t_4 = __Pyx_PyLong_From_int(__pyx_v_currentStrength); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 443, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
+          __pyx_t_18 = PyTuple_New(2); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 443, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_18);
+          __Pyx_GIVEREF(__pyx_t_13);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_18, 0, __pyx_t_13) != (0)) __PYX_ERR(0, 443, __pyx_L1_error);
+          __Pyx_GIVEREF(__pyx_t_4);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_18, 1, __pyx_t_4) != (0)) __PYX_ERR(0, 443, __pyx_L1_error);
+          __pyx_t_13 = 0;
+          __pyx_t_4 = 0;
+          __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_sets, __pyx_t_18); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 443, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
+
+          /* "move_generator.pyx":444
+ *                         currentStrength < (maxThreshold * def_strength) + 4):
+ *                     sets.append((form_attacks(unitsUpToStrength[:]), currentStrength))
+ *                     strengthThreshold += 0.1             # <<<<<<<<<<<<<<
+ * 
+ *             # always include full force if it beats defender
+*/
+          __pyx_v_strengthThreshold = (__pyx_v_strengthThreshold + 0.1);
+
+          /* "move_generator.pyx":441
+ *                 unitsUpToStrength.append(unit_info)
+ *                 currentStrength = calculate_attack_strength(unitsUpToStrength)
+ *                 if (currentStrength > strengthThreshold * def_strength and             # <<<<<<<<<<<<<<
+ *                         currentStrength < (maxThreshold * def_strength) + 4):
+ *                     sets.append((form_attacks(unitsUpToStrength[:]), currentStrength))
+*/
+        }
+
+        /* "move_generator.pyx":438
+ *             strengthThreshold = 1.5
+ * 
+ *             for unit_info in all_units:             # <<<<<<<<<<<<<<
+ *                 unitsUpToStrength.append(unit_info)
+ *                 currentStrength = calculate_attack_strength(unitsUpToStrength)
+*/
+      }
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
       /* "move_generator.pyx":447
  * 
@@ -14653,7 +14748,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
           __pyx_t_2 = __pyx_f_18move_generator_cpp_form_attacks(__pyx_v_unitsUpToStrength); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 450, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __Pyx_XDECREF_SET(__pyx_v_attacks, ((PyObject*)__pyx_t_2));
+          __pyx_v_attacks = ((PyObject*)__pyx_t_2);
           __pyx_t_2 = 0;
 
           /* "move_generator.pyx":451
@@ -14689,51 +14784,51 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
  *                         l = len(sets)
  *                         if sets[l-1][1] != currentStrength:             # <<<<<<<<<<<<<<
  *                             sets.append((attacks, currentStrength))
- * 
+ *                     else:
 */
             __pyx_t_2 = __Pyx_PyLong_SubtractObjC(__pyx_v_l, __pyx_mstate_global->__pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 453, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
-            __pyx_t_4 = __Pyx_PyObject_GetItem(__pyx_v_sets, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 453, __pyx_L1_error)
-            __Pyx_GOTREF(__pyx_t_4);
+            __pyx_t_18 = __Pyx_PyObject_GetItem(__pyx_v_sets, __pyx_t_2); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 453, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_18);
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-            __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 453, __pyx_L1_error)
+            __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_18, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 453, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
-            __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-            __pyx_t_4 = __Pyx_PyLong_From_int(__pyx_v_currentStrength); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 453, __pyx_L1_error)
-            __Pyx_GOTREF(__pyx_t_4);
-            __pyx_t_18 = PyObject_RichCompare(__pyx_t_2, __pyx_t_4, Py_NE); __Pyx_XGOTREF(__pyx_t_18); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 453, __pyx_L1_error)
-            __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-            __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-            __pyx_t_14 = __Pyx_PyObject_IsTrue(__pyx_t_18); if (unlikely((__pyx_t_14 < 0))) __PYX_ERR(0, 453, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
+            __pyx_t_18 = __Pyx_PyLong_From_int(__pyx_v_currentStrength); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 453, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_18);
+            __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_18, Py_NE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 453, __pyx_L1_error)
+            __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+            __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
+            __pyx_t_14 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_14 < 0))) __PYX_ERR(0, 453, __pyx_L1_error)
+            __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
             if (__pyx_t_14) {
 
               /* "move_generator.pyx":454
  *                         l = len(sets)
  *                         if sets[l-1][1] != currentStrength:
  *                             sets.append((attacks, currentStrength))             # <<<<<<<<<<<<<<
- * 
- * 
+ *                     else:
+ *                         sets.append((attacks, currentStrength))
 */
-              __pyx_t_18 = __Pyx_PyLong_From_int(__pyx_v_currentStrength); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 454, __pyx_L1_error)
-              __Pyx_GOTREF(__pyx_t_18);
-              __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 454, __pyx_L1_error)
+              __pyx_t_4 = __Pyx_PyLong_From_int(__pyx_v_currentStrength); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 454, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_4);
+              __pyx_t_18 = PyTuple_New(2); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 454, __pyx_L1_error)
+              __Pyx_GOTREF(__pyx_t_18);
               __Pyx_INCREF(__pyx_v_attacks);
               __Pyx_GIVEREF(__pyx_v_attacks);
-              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_attacks) != (0)) __PYX_ERR(0, 454, __pyx_L1_error);
-              __Pyx_GIVEREF(__pyx_t_18);
-              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_18) != (0)) __PYX_ERR(0, 454, __pyx_L1_error);
-              __pyx_t_18 = 0;
-              __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_sets, __pyx_t_4); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 454, __pyx_L1_error)
-              __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_18, 0, __pyx_v_attacks) != (0)) __PYX_ERR(0, 454, __pyx_L1_error);
+              __Pyx_GIVEREF(__pyx_t_4);
+              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_18, 1, __pyx_t_4) != (0)) __PYX_ERR(0, 454, __pyx_L1_error);
+              __pyx_t_4 = 0;
+              __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_sets, __pyx_t_18); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 454, __pyx_L1_error)
+              __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
 
               /* "move_generator.pyx":453
  *                     if sets:
  *                         l = len(sets)
  *                         if sets[l-1][1] != currentStrength:             # <<<<<<<<<<<<<<
  *                             sets.append((attacks, currentStrength))
- * 
+ *                     else:
 */
             }
 
@@ -14744,7 +14839,31 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
  *                         l = len(sets)
  *                         if sets[l-1][1] != currentStrength:
 */
+            goto __pyx_L24;
           }
+
+          /* "move_generator.pyx":456
+ *                             sets.append((attacks, currentStrength))
+ *                     else:
+ *                         sets.append((attacks, currentStrength))             # <<<<<<<<<<<<<<
+ * 
+ * 
+*/
+          /*else*/ {
+            __pyx_t_18 = __Pyx_PyLong_From_int(__pyx_v_currentStrength); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 456, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_18);
+            __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 456, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_4);
+            __Pyx_INCREF(__pyx_v_attacks);
+            __Pyx_GIVEREF(__pyx_v_attacks);
+            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_attacks) != (0)) __PYX_ERR(0, 456, __pyx_L1_error);
+            __Pyx_GIVEREF(__pyx_t_18);
+            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_18) != (0)) __PYX_ERR(0, 456, __pyx_L1_error);
+            __pyx_t_18 = 0;
+            __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_sets, __pyx_t_4); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 456, __pyx_L1_error)
+            __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          }
+          __pyx_L24:;
 
           /* "move_generator.pyx":449
  *             if unitsUpToStrength:
@@ -14764,7 +14883,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
       }
 
-      /* "move_generator.pyx":459
+      /* "move_generator.pyx":461
  * 
  *             #  weak sets fallback
  *             if not sets:             # <<<<<<<<<<<<<<
@@ -14773,38 +14892,38 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
       {
         Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_v_sets);
-        if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 459, __pyx_L1_error)
+        if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 461, __pyx_L1_error)
         __pyx_t_14 = (__pyx_temp != 0);
       }
 
       __pyx_t_12 = (!__pyx_t_14);
       if (__pyx_t_12) {
 
-        /* "move_generator.pyx":460
+        /* "move_generator.pyx":462
  *             #  weak sets fallback
  *             if not sets:
  *                 weak_sets             = []             # <<<<<<<<<<<<<<
  *                 unitsUpToStrength     = []
  *                 strengthThreshold_weak = 0.35
 */
-        __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 460, __pyx_L1_error)
+        __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 462, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_v_weak_sets = ((PyObject*)__pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "move_generator.pyx":461
+        /* "move_generator.pyx":463
  *             if not sets:
  *                 weak_sets             = []
  *                 unitsUpToStrength     = []             # <<<<<<<<<<<<<<
  *                 strengthThreshold_weak = 0.35
  * 
 */
-        __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 461, __pyx_L1_error)
+        __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 463, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF_SET(__pyx_v_unitsUpToStrength, ((PyObject*)__pyx_t_4));
         __pyx_t_4 = 0;
 
-        /* "move_generator.pyx":462
+        /* "move_generator.pyx":464
  *                 weak_sets             = []
  *                 unitsUpToStrength     = []
  *                 strengthThreshold_weak = 0.35             # <<<<<<<<<<<<<<
@@ -14813,7 +14932,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
         __pyx_v_strengthThreshold_weak = 0.35;
 
-        /* "move_generator.pyx":464
+        /* "move_generator.pyx":466
  *                 strengthThreshold_weak = 0.35
  * 
  *                 for info in sorted_reachable:             # <<<<<<<<<<<<<<
@@ -14822,7 +14941,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
         if (unlikely(__pyx_v_sorted_reachable == Py_None)) {
           PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-          __PYX_ERR(0, 464, __pyx_L1_error)
+          __PYX_ERR(0, 466, __pyx_L1_error)
         }
         __pyx_t_4 = __pyx_v_sorted_reachable; __Pyx_INCREF(__pyx_t_4);
         __pyx_t_15 = 0;
@@ -14830,18 +14949,18 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
           {
             Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_4);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 464, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 466, __pyx_L1_error)
             #endif
             if (__pyx_t_15 >= __pyx_temp) break;
           }
           __pyx_t_18 = __Pyx_PyList_GetItemRefFast(__pyx_t_4, __pyx_t_15, __Pyx_ReferenceSharing_OwnStrongReference);
           ++__pyx_t_15;
-          if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 464, __pyx_L1_error)
+          if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 466, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_18);
           __Pyx_XDECREF_SET(__pyx_v_info, __pyx_t_18);
           __pyx_t_18 = 0;
 
-          /* "move_generator.pyx":465
+          /* "move_generator.pyx":467
  * 
  *                 for info in sorted_reachable:
  *                     for _ in range(info.quantity):             # <<<<<<<<<<<<<<
@@ -14849,7 +14968,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
  *                         currentStrength = calculate_attack_strength(unitsUpToStrength)
 */
           __pyx_t_2 = NULL;
-          __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_v_info, __pyx_mstate_global->__pyx_n_u_quantity); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 465, __pyx_L1_error)
+          __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_v_info, __pyx_mstate_global->__pyx_n_u_quantity); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 467, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_13);
           __pyx_t_5 = 1;
           {
@@ -14857,12 +14976,12 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
             __pyx_t_18 = __Pyx_PyObject_FastCall((PyObject*)(&PyRange_Type), __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
             __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-            if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 465, __pyx_L1_error)
+            if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 467, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_18);
           }
-          __pyx_t_13 = PyObject_GetIter(__pyx_t_18); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 465, __pyx_L1_error)
+          __pyx_t_13 = PyObject_GetIter(__pyx_t_18); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 467, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_13);
-          __pyx_t_16 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_13); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 465, __pyx_L1_error)
+          __pyx_t_16 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_13); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 467, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
           for (;;) {
             {
@@ -14870,7 +14989,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
               if (unlikely(!__pyx_t_18)) {
                 PyObject* exc_type = PyErr_Occurred();
                 if (exc_type) {
-                  if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 465, __pyx_L1_error)
+                  if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 467, __pyx_L1_error)
                   PyErr_Clear();
                 }
                 break;
@@ -14880,7 +14999,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
             __Pyx_XDECREF_SET(__pyx_v__, __pyx_t_18);
             __pyx_t_18 = 0;
 
-            /* "move_generator.pyx":466
+            /* "move_generator.pyx":468
  *                 for info in sorted_reachable:
  *                     for _ in range(info.quantity):
  *                         unitsUpToStrength.append(UnitInfo(info.from_territory, info.unit, 1))             # <<<<<<<<<<<<<<
@@ -14888,9 +15007,9 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
  * 
 */
             __pyx_t_2 = NULL;
-            __pyx_t_17 = __Pyx_PyObject_GetAttrStr(__pyx_v_info, __pyx_mstate_global->__pyx_n_u_from_territory); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 466, __pyx_L1_error)
+            __pyx_t_17 = __Pyx_PyObject_GetAttrStr(__pyx_v_info, __pyx_mstate_global->__pyx_n_u_from_territory); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 468, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_17);
-            __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_info, __pyx_mstate_global->__pyx_n_u_unit); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 466, __pyx_L1_error)
+            __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_info, __pyx_mstate_global->__pyx_n_u_unit); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 468, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
             __pyx_t_5 = 1;
             {
@@ -14899,23 +15018,23 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
               __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
               __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
               __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-              if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 466, __pyx_L1_error)
+              if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 468, __pyx_L1_error)
               __Pyx_GOTREF((PyObject *)__pyx_t_18);
             }
-            __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_unitsUpToStrength, ((PyObject *)__pyx_t_18)); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 466, __pyx_L1_error)
+            __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_unitsUpToStrength, ((PyObject *)__pyx_t_18)); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 468, __pyx_L1_error)
             __Pyx_DECREF((PyObject *)__pyx_t_18); __pyx_t_18 = 0;
 
-            /* "move_generator.pyx":467
+            /* "move_generator.pyx":469
  *                     for _ in range(info.quantity):
  *                         unitsUpToStrength.append(UnitInfo(info.from_territory, info.unit, 1))
  *                         currentStrength = calculate_attack_strength(unitsUpToStrength)             # <<<<<<<<<<<<<<
  * 
  *                         if (currentStrength > strengthThreshold_weak * def_strength and
 */
-            __pyx_t_11 = __pyx_f_18move_generator_cpp_calculate_attack_strength(__pyx_v_unitsUpToStrength); if (unlikely(__pyx_t_11 == ((int)-1) && PyErr_Occurred())) __PYX_ERR(0, 467, __pyx_L1_error)
+            __pyx_t_11 = __pyx_f_18move_generator_cpp_calculate_attack_strength(__pyx_v_unitsUpToStrength); if (unlikely(__pyx_t_11 == ((int)-1) && PyErr_Occurred())) __PYX_ERR(0, 469, __pyx_L1_error)
             __pyx_v_currentStrength = __pyx_t_11;
 
-            /* "move_generator.pyx":469
+            /* "move_generator.pyx":471
  *                         currentStrength = calculate_attack_strength(unitsUpToStrength)
  * 
  *                         if (currentStrength > strengthThreshold_weak * def_strength and             # <<<<<<<<<<<<<<
@@ -14926,10 +15045,10 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
             if (__pyx_t_14) {
             } else {
               __pyx_t_12 = __pyx_t_14;
-              goto __pyx_L29_bool_binop_done;
+              goto __pyx_L32_bool_binop_done;
             }
 
-            /* "move_generator.pyx":470
+            /* "move_generator.pyx":472
  * 
  *                         if (currentStrength > strengthThreshold_weak * def_strength and
  *                                 currentStrength <= def_strength):             # <<<<<<<<<<<<<<
@@ -14938,9 +15057,9 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
             __pyx_t_14 = (__pyx_v_currentStrength <= __pyx_v_def_strength);
             __pyx_t_12 = __pyx_t_14;
-            __pyx_L29_bool_binop_done:;
+            __pyx_L32_bool_binop_done:;
 
-            /* "move_generator.pyx":469
+            /* "move_generator.pyx":471
  *                         currentStrength = calculate_attack_strength(unitsUpToStrength)
  * 
  *                         if (currentStrength > strengthThreshold_weak * def_strength and             # <<<<<<<<<<<<<<
@@ -14949,39 +15068,39 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
             if (__pyx_t_12) {
 
-              /* "move_generator.pyx":471
+              /* "move_generator.pyx":473
  *                         if (currentStrength > strengthThreshold_weak * def_strength and
  *                                 currentStrength <= def_strength):
  *                             attacks = form_attacks(unitsUpToStrength)             # <<<<<<<<<<<<<<
  *                             weak_sets.append((attacks, currentStrength))
  *                             strengthThreshold_weak += 0.15
 */
-              __pyx_t_18 = __pyx_f_18move_generator_cpp_form_attacks(__pyx_v_unitsUpToStrength); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 471, __pyx_L1_error)
+              __pyx_t_18 = __pyx_f_18move_generator_cpp_form_attacks(__pyx_v_unitsUpToStrength); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 473, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_18);
               __Pyx_XDECREF_SET(__pyx_v_attacks, ((PyObject*)__pyx_t_18));
               __pyx_t_18 = 0;
 
-              /* "move_generator.pyx":472
+              /* "move_generator.pyx":474
  *                                 currentStrength <= def_strength):
  *                             attacks = form_attacks(unitsUpToStrength)
  *                             weak_sets.append((attacks, currentStrength))             # <<<<<<<<<<<<<<
  *                             strengthThreshold_weak += 0.15
  *                             if len(weak_sets) >= 3:
 */
-              __pyx_t_18 = __Pyx_PyLong_From_int(__pyx_v_currentStrength); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 472, __pyx_L1_error)
+              __pyx_t_18 = __Pyx_PyLong_From_int(__pyx_v_currentStrength); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 474, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_18);
-              __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 472, __pyx_L1_error)
+              __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 474, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_3);
               __Pyx_INCREF(__pyx_v_attacks);
               __Pyx_GIVEREF(__pyx_v_attacks);
-              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_attacks) != (0)) __PYX_ERR(0, 472, __pyx_L1_error);
+              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_attacks) != (0)) __PYX_ERR(0, 474, __pyx_L1_error);
               __Pyx_GIVEREF(__pyx_t_18);
-              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_18) != (0)) __PYX_ERR(0, 472, __pyx_L1_error);
+              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_18) != (0)) __PYX_ERR(0, 474, __pyx_L1_error);
               __pyx_t_18 = 0;
-              __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_weak_sets, __pyx_t_3); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 472, __pyx_L1_error)
+              __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_weak_sets, __pyx_t_3); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 474, __pyx_L1_error)
               __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-              /* "move_generator.pyx":473
+              /* "move_generator.pyx":475
  *                             attacks = form_attacks(unitsUpToStrength)
  *                             weak_sets.append((attacks, currentStrength))
  *                             strengthThreshold_weak += 0.15             # <<<<<<<<<<<<<<
@@ -14990,27 +15109,27 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
               __pyx_v_strengthThreshold_weak = (__pyx_v_strengthThreshold_weak + 0.15);
 
-              /* "move_generator.pyx":474
+              /* "move_generator.pyx":476
  *                             weak_sets.append((attacks, currentStrength))
  *                             strengthThreshold_weak += 0.15
  *                             if len(weak_sets) >= 3:             # <<<<<<<<<<<<<<
  *                                 break
  *                     if len(weak_sets) >= 3:
 */
-              __pyx_t_19 = __Pyx_PyList_GET_SIZE(__pyx_v_weak_sets); if (unlikely(__pyx_t_19 == ((Py_ssize_t)-1))) __PYX_ERR(0, 474, __pyx_L1_error)
+              __pyx_t_19 = __Pyx_PyList_GET_SIZE(__pyx_v_weak_sets); if (unlikely(__pyx_t_19 == ((Py_ssize_t)-1))) __PYX_ERR(0, 476, __pyx_L1_error)
               __pyx_t_12 = (__pyx_t_19 >= 3);
               if (__pyx_t_12) {
 
-                /* "move_generator.pyx":475
+                /* "move_generator.pyx":477
  *                             strengthThreshold_weak += 0.15
  *                             if len(weak_sets) >= 3:
  *                                 break             # <<<<<<<<<<<<<<
  *                     if len(weak_sets) >= 3:
  *                         break
 */
-                goto __pyx_L27_break;
+                goto __pyx_L30_break;
 
-                /* "move_generator.pyx":474
+                /* "move_generator.pyx":476
  *                             weak_sets.append((attacks, currentStrength))
  *                             strengthThreshold_weak += 0.15
  *                             if len(weak_sets) >= 3:             # <<<<<<<<<<<<<<
@@ -15019,7 +15138,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
               }
 
-              /* "move_generator.pyx":469
+              /* "move_generator.pyx":471
  *                         currentStrength = calculate_attack_strength(unitsUpToStrength)
  * 
  *                         if (currentStrength > strengthThreshold_weak * def_strength and             # <<<<<<<<<<<<<<
@@ -15028,7 +15147,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
             }
 
-            /* "move_generator.pyx":465
+            /* "move_generator.pyx":467
  * 
  *                 for info in sorted_reachable:
  *                     for _ in range(info.quantity):             # <<<<<<<<<<<<<<
@@ -15037,33 +15156,33 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
           }
           __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-          goto __pyx_L32_for_end;
-          __pyx_L27_break:;
+          goto __pyx_L35_for_end;
+          __pyx_L30_break:;
           __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-          goto __pyx_L32_for_end;
-          __pyx_L32_for_end:;
+          goto __pyx_L35_for_end;
+          __pyx_L35_for_end:;
 
-          /* "move_generator.pyx":476
+          /* "move_generator.pyx":478
  *                             if len(weak_sets) >= 3:
  *                                 break
  *                     if len(weak_sets) >= 3:             # <<<<<<<<<<<<<<
  *                         break
  * 
 */
-          __pyx_t_19 = __Pyx_PyList_GET_SIZE(__pyx_v_weak_sets); if (unlikely(__pyx_t_19 == ((Py_ssize_t)-1))) __PYX_ERR(0, 476, __pyx_L1_error)
+          __pyx_t_19 = __Pyx_PyList_GET_SIZE(__pyx_v_weak_sets); if (unlikely(__pyx_t_19 == ((Py_ssize_t)-1))) __PYX_ERR(0, 478, __pyx_L1_error)
           __pyx_t_12 = (__pyx_t_19 >= 3);
           if (__pyx_t_12) {
 
-            /* "move_generator.pyx":477
+            /* "move_generator.pyx":479
  *                                 break
  *                     if len(weak_sets) >= 3:
  *                         break             # <<<<<<<<<<<<<<
  * 
  *                 sets.extend(weak_sets)
 */
-            goto __pyx_L25_break;
+            goto __pyx_L28_break;
 
-            /* "move_generator.pyx":476
+            /* "move_generator.pyx":478
  *                             if len(weak_sets) >= 3:
  *                                 break
  *                     if len(weak_sets) >= 3:             # <<<<<<<<<<<<<<
@@ -15072,7 +15191,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
           }
 
-          /* "move_generator.pyx":464
+          /* "move_generator.pyx":466
  *                 strengthThreshold_weak = 0.35
  * 
  *                 for info in sorted_reachable:             # <<<<<<<<<<<<<<
@@ -15081,22 +15200,22 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
         }
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        goto __pyx_L34_for_end;
-        __pyx_L25_break:;
+        goto __pyx_L37_for_end;
+        __pyx_L28_break:;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        goto __pyx_L34_for_end;
-        __pyx_L34_for_end:;
+        goto __pyx_L37_for_end;
+        __pyx_L37_for_end:;
 
-        /* "move_generator.pyx":479
+        /* "move_generator.pyx":481
  *                         break
  * 
  *                 sets.extend(weak_sets)             # <<<<<<<<<<<<<<
  * 
  *             # -- fallback
 */
-        __pyx_t_7 = __Pyx_PyList_Extend(__pyx_v_sets, __pyx_v_weak_sets); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 479, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyList_Extend(__pyx_v_sets, __pyx_v_weak_sets); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 481, __pyx_L1_error)
 
-        /* "move_generator.pyx":459
+        /* "move_generator.pyx":461
  * 
  *             #  weak sets fallback
  *             if not sets:             # <<<<<<<<<<<<<<
@@ -15105,7 +15224,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
       }
 
-      /* "move_generator.pyx":482
+      /* "move_generator.pyx":484
  * 
  *             # -- fallback
  *             if not sets:             # <<<<<<<<<<<<<<
@@ -15114,14 +15233,14 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
       {
         Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_v_sets);
-        if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 482, __pyx_L1_error)
+        if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 484, __pyx_L1_error)
         __pyx_t_12 = (__pyx_temp != 0);
       }
 
       __pyx_t_14 = (!__pyx_t_12);
       if (__pyx_t_14) {
 
-        /* "move_generator.pyx":483
+        /* "move_generator.pyx":485
  *             # -- fallback
  *             if not sets:
  *                 if def_strength == 0:             # <<<<<<<<<<<<<<
@@ -15131,7 +15250,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
         __pyx_t_14 = (__pyx_v_def_strength == 0);
         if (__pyx_t_14) {
 
-          /* "move_generator.pyx":484
+          /* "move_generator.pyx":486
  *             if not sets:
  *                 if def_strength == 0:
  *                     best = min(sorted_reachable, key=lambda x: unit_costs.get(x.unit.unit_type, 9999))             # <<<<<<<<<<<<<<
@@ -15139,25 +15258,25 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
  *                     s = calculate_attack_strength([UnitInfo(best.from_territory, best.unit, 1)])
 */
           __pyx_t_13 = NULL;
-          __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_18move_generator_cpp_28heuristic_combat_legal_moves_1lambda3, 0, __pyx_mstate_global->__pyx_n_u_heuristic_combat_legal_moves_loc, NULL, __pyx_mstate_global->__pyx_n_u_move_generator_cpp, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 484, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_18move_generator_cpp_28heuristic_combat_legal_moves_1lambda3, 0, __pyx_mstate_global->__pyx_n_u_heuristic_combat_legal_moves_loc, NULL, __pyx_mstate_global->__pyx_n_u_move_generator_cpp, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 486, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           __pyx_t_5 = 1;
           {
             PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_13, __pyx_v_sorted_reachable};
-            __pyx_t_18 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 484, __pyx_L1_error)
+            __pyx_t_18 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 486, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_18);
-            if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_key, __pyx_t_3, __pyx_t_18, __pyx_callargs+2, 0) < (0)) __PYX_ERR(0, 484, __pyx_L1_error)
+            if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_key, __pyx_t_3, __pyx_t_18, __pyx_callargs+2, 0) < (0)) __PYX_ERR(0, 486, __pyx_L1_error)
             __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder((PyObject*)__pyx_builtin_min, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_18);
             __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
             __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
-            if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 484, __pyx_L1_error)
+            if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 486, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_4);
           }
           __pyx_v_best = __pyx_t_4;
           __pyx_t_4 = 0;
 
-          /* "move_generator.pyx":485
+          /* "move_generator.pyx":487
  *                 if def_strength == 0:
  *                     best = min(sorted_reachable, key=lambda x: unit_costs.get(x.unit.unit_type, 9999))
  *                     atk_list = form_attacks([UnitInfo(best.from_territory, best.unit, 1)])             # <<<<<<<<<<<<<<
@@ -15165,9 +15284,9 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
  *                     actions.append(Move(
 */
           __pyx_t_18 = NULL;
-          __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_best, __pyx_mstate_global->__pyx_n_u_from_territory); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 485, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_best, __pyx_mstate_global->__pyx_n_u_from_territory); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 487, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
-          __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_v_best, __pyx_mstate_global->__pyx_n_u_unit); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 485, __pyx_L1_error)
+          __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_v_best, __pyx_mstate_global->__pyx_n_u_unit); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 487, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_13);
           __pyx_t_5 = 1;
           {
@@ -15176,21 +15295,21 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
             __Pyx_XDECREF(__pyx_t_18); __pyx_t_18 = 0;
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
             __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-            if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 485, __pyx_L1_error)
+            if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 487, __pyx_L1_error)
             __Pyx_GOTREF((PyObject *)__pyx_t_4);
           }
-          __pyx_t_13 = PyList_New(1); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 485, __pyx_L1_error)
+          __pyx_t_13 = PyList_New(1); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 487, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_13);
           __Pyx_GIVEREF((PyObject *)__pyx_t_4);
-          if (__Pyx_PyList_SET_ITEM(__pyx_t_13, 0, ((PyObject *)__pyx_t_4)) != (0)) __PYX_ERR(0, 485, __pyx_L1_error);
+          if (__Pyx_PyList_SET_ITEM(__pyx_t_13, 0, ((PyObject *)__pyx_t_4)) != (0)) __PYX_ERR(0, 487, __pyx_L1_error);
           __pyx_t_4 = 0;
-          __pyx_t_4 = __pyx_f_18move_generator_cpp_form_attacks(((PyObject*)__pyx_t_13)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 485, __pyx_L1_error)
+          __pyx_t_4 = __pyx_f_18move_generator_cpp_form_attacks(((PyObject*)__pyx_t_13)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 487, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
           __pyx_v_atk_list = __pyx_t_4;
           __pyx_t_4 = 0;
 
-          /* "move_generator.pyx":486
+          /* "move_generator.pyx":488
  *                     best = min(sorted_reachable, key=lambda x: unit_costs.get(x.unit.unit_type, 9999))
  *                     atk_list = form_attacks([UnitInfo(best.from_territory, best.unit, 1)])
  *                     s = calculate_attack_strength([UnitInfo(best.from_territory, best.unit, 1)])             # <<<<<<<<<<<<<<
@@ -15198,9 +15317,9 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
  *                         delegate="combat",
 */
           __pyx_t_13 = NULL;
-          __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_best, __pyx_mstate_global->__pyx_n_u_from_territory); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 486, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_best, __pyx_mstate_global->__pyx_n_u_from_territory); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 488, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
-          __pyx_t_18 = __Pyx_PyObject_GetAttrStr(__pyx_v_best, __pyx_mstate_global->__pyx_n_u_unit); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 486, __pyx_L1_error)
+          __pyx_t_18 = __Pyx_PyObject_GetAttrStr(__pyx_v_best, __pyx_mstate_global->__pyx_n_u_unit); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 488, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_18);
           __pyx_t_5 = 1;
           {
@@ -15209,22 +15328,22 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
             __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
             __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
-            if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 486, __pyx_L1_error)
+            if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 488, __pyx_L1_error)
             __Pyx_GOTREF((PyObject *)__pyx_t_4);
           }
-          __pyx_t_18 = PyList_New(1); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 486, __pyx_L1_error)
+          __pyx_t_18 = PyList_New(1); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 488, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_18);
           __Pyx_GIVEREF((PyObject *)__pyx_t_4);
-          if (__Pyx_PyList_SET_ITEM(__pyx_t_18, 0, ((PyObject *)__pyx_t_4)) != (0)) __PYX_ERR(0, 486, __pyx_L1_error);
+          if (__Pyx_PyList_SET_ITEM(__pyx_t_18, 0, ((PyObject *)__pyx_t_4)) != (0)) __PYX_ERR(0, 488, __pyx_L1_error);
           __pyx_t_4 = 0;
-          __pyx_t_11 = __pyx_f_18move_generator_cpp_calculate_attack_strength(((PyObject*)__pyx_t_18)); if (unlikely(__pyx_t_11 == ((int)-1) && PyErr_Occurred())) __PYX_ERR(0, 486, __pyx_L1_error)
+          __pyx_t_11 = __pyx_f_18move_generator_cpp_calculate_attack_strength(((PyObject*)__pyx_t_18)); if (unlikely(__pyx_t_11 == ((int)-1) && PyErr_Occurred())) __PYX_ERR(0, 488, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
-          __pyx_t_18 = __Pyx_PyLong_From_int(__pyx_t_11); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 486, __pyx_L1_error)
+          __pyx_t_18 = __Pyx_PyLong_From_int(__pyx_t_11); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 488, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_18);
           __pyx_v_s = __pyx_t_18;
           __pyx_t_18 = 0;
 
-          /* "move_generator.pyx":487
+          /* "move_generator.pyx":489
  *                     atk_list = form_attacks([UnitInfo(best.from_territory, best.unit, 1)])
  *                     s = calculate_attack_strength([UnitInfo(best.from_territory, best.unit, 1)])
  *                     actions.append(Move(             # <<<<<<<<<<<<<<
@@ -15233,7 +15352,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
           __pyx_t_4 = NULL;
 
-          /* "move_generator.pyx":491
+          /* "move_generator.pyx":493
  *                         to_terr=enemy_territory_name,
  *                         moves=atk_list,
  *                         strength=s,             # <<<<<<<<<<<<<<
@@ -15243,30 +15362,30 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
           __pyx_t_5 = 1;
           {
             PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 4 : 0)] = {__pyx_t_4, NULL};
-            __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 487, __pyx_L1_error)
+            __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 489, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
-            if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_delegate, __pyx_mstate_global->__pyx_n_u_combat, __pyx_t_3, __pyx_callargs+1, 0) < (0)) __PYX_ERR(0, 487, __pyx_L1_error)
-            if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_to_terr, __pyx_cur_scope->__pyx_v_enemy_territory_name, __pyx_t_3, __pyx_callargs+1, 1) < (0)) __PYX_ERR(0, 487, __pyx_L1_error)
-            if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_moves, __pyx_v_atk_list, __pyx_t_3, __pyx_callargs+1, 2) < (0)) __PYX_ERR(0, 487, __pyx_L1_error)
-            if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_strength, __pyx_v_s, __pyx_t_3, __pyx_callargs+1, 3) < (0)) __PYX_ERR(0, 487, __pyx_L1_error)
+            if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_delegate, __pyx_mstate_global->__pyx_n_u_combat, __pyx_t_3, __pyx_callargs+1, 0) < (0)) __PYX_ERR(0, 489, __pyx_L1_error)
+            if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_to_terr, __pyx_cur_scope->__pyx_v_enemy_territory_name, __pyx_t_3, __pyx_callargs+1, 1) < (0)) __PYX_ERR(0, 489, __pyx_L1_error)
+            if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_moves, __pyx_v_atk_list, __pyx_t_3, __pyx_callargs+1, 2) < (0)) __PYX_ERR(0, 489, __pyx_L1_error)
+            if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_strength, __pyx_v_s, __pyx_t_3, __pyx_callargs+1, 3) < (0)) __PYX_ERR(0, 489, __pyx_L1_error)
             __pyx_t_18 = __Pyx_Object_Vectorcall_CallFromBuilder((PyObject*)__pyx_mstate_global->__pyx_ptype_18move_generator_cpp_Move, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
             __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-            if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 487, __pyx_L1_error)
+            if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 489, __pyx_L1_error)
             __Pyx_GOTREF((PyObject *)__pyx_t_18);
           }
 
-          /* "move_generator.pyx":487
+          /* "move_generator.pyx":489
  *                     atk_list = form_attacks([UnitInfo(best.from_territory, best.unit, 1)])
  *                     s = calculate_attack_strength([UnitInfo(best.from_territory, best.unit, 1)])
  *                     actions.append(Move(             # <<<<<<<<<<<<<<
  *                         delegate="combat",
  *                         to_terr=enemy_territory_name,
 */
-          __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_actions, ((PyObject *)__pyx_t_18)); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 487, __pyx_L1_error)
+          __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_actions, ((PyObject *)__pyx_t_18)); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 489, __pyx_L1_error)
           __Pyx_DECREF((PyObject *)__pyx_t_18); __pyx_t_18 = 0;
 
-          /* "move_generator.pyx":483
+          /* "move_generator.pyx":485
  *             # -- fallback
  *             if not sets:
  *                 if def_strength == 0:             # <<<<<<<<<<<<<<
@@ -15275,7 +15394,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
         }
 
-        /* "move_generator.pyx":482
+        /* "move_generator.pyx":484
  * 
  *             # -- fallback
  *             if not sets:             # <<<<<<<<<<<<<<
@@ -15284,16 +15403,16 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
       }
 
-      /* "move_generator.pyx":498
+      /* "move_generator.pyx":500
  * 
  *             #  append moves (strongest first)
  *             sets.reverse()             # <<<<<<<<<<<<<<
  *             for atk_list, s in sets:
  *                 actions.append(Move(
 */
-      __pyx_t_7 = PyList_Reverse(__pyx_v_sets); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 498, __pyx_L1_error)
+      __pyx_t_7 = PyList_Reverse(__pyx_v_sets); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 500, __pyx_L1_error)
 
-      /* "move_generator.pyx":499
+      /* "move_generator.pyx":501
  *             #  append moves (strongest first)
  *             sets.reverse()
  *             for atk_list, s in sets:             # <<<<<<<<<<<<<<
@@ -15306,13 +15425,13 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_18);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 499, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 501, __pyx_L1_error)
           #endif
           if (__pyx_t_15 >= __pyx_temp) break;
         }
         __pyx_t_3 = __Pyx_PyList_GetItemRefFast(__pyx_t_18, __pyx_t_15, __Pyx_ReferenceSharing_OwnStrongReference);
         ++__pyx_t_15;
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 499, __pyx_L1_error)
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 501, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         if ((likely(PyTuple_CheckExact(__pyx_t_3))) || (PyList_CheckExact(__pyx_t_3))) {
           PyObject* sequence = __pyx_t_3;
@@ -15320,7 +15439,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
           if (unlikely(size != 2)) {
             if (size > 2) __Pyx_RaiseTooManyValuesError(2);
             else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-            __PYX_ERR(0, 499, __pyx_L1_error)
+            __PYX_ERR(0, 501, __pyx_L1_error)
           }
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
           if (likely(PyTuple_CheckExact(sequence))) {
@@ -15330,46 +15449,46 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
             __Pyx_INCREF(__pyx_t_13);
           } else {
             __pyx_t_4 = __Pyx_PyList_GetItemRefFast(sequence, 0, __Pyx_ReferenceSharing_SharedReference);
-            if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 499, __pyx_L1_error)
+            if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 501, __pyx_L1_error)
             __Pyx_XGOTREF(__pyx_t_4);
             __pyx_t_13 = __Pyx_PyList_GetItemRefFast(sequence, 1, __Pyx_ReferenceSharing_SharedReference);
-            if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 499, __pyx_L1_error)
+            if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 501, __pyx_L1_error)
             __Pyx_XGOTREF(__pyx_t_13);
           }
           #else
-          __pyx_t_4 = __Pyx_PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 499, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 501, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
-          __pyx_t_13 = __Pyx_PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 499, __pyx_L1_error)
+          __pyx_t_13 = __Pyx_PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 501, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_13);
           #endif
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         } else {
           Py_ssize_t index = -1;
-          __pyx_t_17 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 499, __pyx_L1_error)
+          __pyx_t_17 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 501, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_17);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
           __pyx_t_20 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_17);
-          index = 0; __pyx_t_4 = __pyx_t_20(__pyx_t_17); if (unlikely(!__pyx_t_4)) goto __pyx_L39_unpacking_failed;
+          index = 0; __pyx_t_4 = __pyx_t_20(__pyx_t_17); if (unlikely(!__pyx_t_4)) goto __pyx_L42_unpacking_failed;
           __Pyx_GOTREF(__pyx_t_4);
-          index = 1; __pyx_t_13 = __pyx_t_20(__pyx_t_17); if (unlikely(!__pyx_t_13)) goto __pyx_L39_unpacking_failed;
+          index = 1; __pyx_t_13 = __pyx_t_20(__pyx_t_17); if (unlikely(!__pyx_t_13)) goto __pyx_L42_unpacking_failed;
           __Pyx_GOTREF(__pyx_t_13);
-          if (__Pyx_IternextUnpackEndCheck(__pyx_t_20(__pyx_t_17), 2) < (0)) __PYX_ERR(0, 499, __pyx_L1_error)
+          if (__Pyx_IternextUnpackEndCheck(__pyx_t_20(__pyx_t_17), 2) < (0)) __PYX_ERR(0, 501, __pyx_L1_error)
           __pyx_t_20 = NULL;
           __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
-          goto __pyx_L40_unpacking_done;
-          __pyx_L39_unpacking_failed:;
+          goto __pyx_L43_unpacking_done;
+          __pyx_L42_unpacking_failed:;
           __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
           __pyx_t_20 = NULL;
           if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-          __PYX_ERR(0, 499, __pyx_L1_error)
-          __pyx_L40_unpacking_done:;
+          __PYX_ERR(0, 501, __pyx_L1_error)
+          __pyx_L43_unpacking_done:;
         }
         __Pyx_XDECREF_SET(__pyx_v_atk_list, __pyx_t_4);
         __pyx_t_4 = 0;
         __Pyx_XDECREF_SET(__pyx_v_s, __pyx_t_13);
         __pyx_t_13 = 0;
 
-        /* "move_generator.pyx":500
+        /* "move_generator.pyx":502
  *             sets.reverse()
  *             for atk_list, s in sets:
  *                 actions.append(Move(             # <<<<<<<<<<<<<<
@@ -15378,7 +15497,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
         __pyx_t_13 = NULL;
 
-        /* "move_generator.pyx":504
+        /* "move_generator.pyx":506
  *                     to_terr=enemy_territory_name,
  *                     moves=atk_list,
  *                     strength=s,             # <<<<<<<<<<<<<<
@@ -15388,30 +15507,30 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
         __pyx_t_5 = 1;
         {
           PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 4 : 0)] = {__pyx_t_13, NULL};
-          __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 500, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 502, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
-          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_delegate, __pyx_mstate_global->__pyx_n_u_combat, __pyx_t_4, __pyx_callargs+1, 0) < (0)) __PYX_ERR(0, 500, __pyx_L1_error)
-          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_to_terr, __pyx_cur_scope->__pyx_v_enemy_territory_name, __pyx_t_4, __pyx_callargs+1, 1) < (0)) __PYX_ERR(0, 500, __pyx_L1_error)
-          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_moves, __pyx_v_atk_list, __pyx_t_4, __pyx_callargs+1, 2) < (0)) __PYX_ERR(0, 500, __pyx_L1_error)
-          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_strength, __pyx_v_s, __pyx_t_4, __pyx_callargs+1, 3) < (0)) __PYX_ERR(0, 500, __pyx_L1_error)
+          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_delegate, __pyx_mstate_global->__pyx_n_u_combat, __pyx_t_4, __pyx_callargs+1, 0) < (0)) __PYX_ERR(0, 502, __pyx_L1_error)
+          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_to_terr, __pyx_cur_scope->__pyx_v_enemy_territory_name, __pyx_t_4, __pyx_callargs+1, 1) < (0)) __PYX_ERR(0, 502, __pyx_L1_error)
+          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_moves, __pyx_v_atk_list, __pyx_t_4, __pyx_callargs+1, 2) < (0)) __PYX_ERR(0, 502, __pyx_L1_error)
+          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_strength, __pyx_v_s, __pyx_t_4, __pyx_callargs+1, 3) < (0)) __PYX_ERR(0, 502, __pyx_L1_error)
           __pyx_t_3 = __Pyx_Object_Vectorcall_CallFromBuilder((PyObject*)__pyx_mstate_global->__pyx_ptype_18move_generator_cpp_Move, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
           __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 500, __pyx_L1_error)
+          if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 502, __pyx_L1_error)
           __Pyx_GOTREF((PyObject *)__pyx_t_3);
         }
 
-        /* "move_generator.pyx":500
+        /* "move_generator.pyx":502
  *             sets.reverse()
  *             for atk_list, s in sets:
  *                 actions.append(Move(             # <<<<<<<<<<<<<<
  *                     delegate="combat",
  *                     to_terr=enemy_territory_name,
 */
-        __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_actions, ((PyObject *)__pyx_t_3)); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 500, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_actions, ((PyObject *)__pyx_t_3)); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 502, __pyx_L1_error)
         __Pyx_DECREF((PyObject *)__pyx_t_3); __pyx_t_3 = 0;
 
-        /* "move_generator.pyx":499
+        /* "move_generator.pyx":501
  *             #  append moves (strongest first)
  *             sets.reverse()
  *             for atk_list, s in sets:             # <<<<<<<<<<<<<<
@@ -15421,7 +15540,7 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
       }
       __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
 
-      /* "move_generator.pyx":508
+      /* "move_generator.pyx":510
  * 
  *             # skip move always included
  *             actions.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=[], strength=0))             # <<<<<<<<<<<<<<
@@ -15429,28 +15548,28 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
  *             break
 */
       __pyx_t_3 = NULL;
-      __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 508, __pyx_L1_error)
+      __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 510, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_5 = 1;
       {
         PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 4 : 0)] = {__pyx_t_3, NULL};
-        __pyx_t_13 = __Pyx_MakeVectorcallBuilderKwds(4); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 508, __pyx_L1_error)
+        __pyx_t_13 = __Pyx_MakeVectorcallBuilderKwds(4); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 510, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_13);
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_delegate, __pyx_mstate_global->__pyx_n_u_combat, __pyx_t_13, __pyx_callargs+1, 0) < (0)) __PYX_ERR(0, 508, __pyx_L1_error)
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_to_terr, __pyx_cur_scope->__pyx_v_enemy_territory_name, __pyx_t_13, __pyx_callargs+1, 1) < (0)) __PYX_ERR(0, 508, __pyx_L1_error)
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_moves, __pyx_t_4, __pyx_t_13, __pyx_callargs+1, 2) < (0)) __PYX_ERR(0, 508, __pyx_L1_error)
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_strength, __pyx_mstate_global->__pyx_int_0, __pyx_t_13, __pyx_callargs+1, 3) < (0)) __PYX_ERR(0, 508, __pyx_L1_error)
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_delegate, __pyx_mstate_global->__pyx_n_u_combat, __pyx_t_13, __pyx_callargs+1, 0) < (0)) __PYX_ERR(0, 510, __pyx_L1_error)
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_to_terr, __pyx_cur_scope->__pyx_v_enemy_territory_name, __pyx_t_13, __pyx_callargs+1, 1) < (0)) __PYX_ERR(0, 510, __pyx_L1_error)
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_moves, __pyx_t_4, __pyx_t_13, __pyx_callargs+1, 2) < (0)) __PYX_ERR(0, 510, __pyx_L1_error)
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_strength, __pyx_mstate_global->__pyx_int_0, __pyx_t_13, __pyx_callargs+1, 3) < (0)) __PYX_ERR(0, 510, __pyx_L1_error)
         __pyx_t_18 = __Pyx_Object_Vectorcall_CallFromBuilder((PyObject*)__pyx_mstate_global->__pyx_ptype_18move_generator_cpp_Move, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_13);
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-        if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 508, __pyx_L1_error)
+        if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 510, __pyx_L1_error)
         __Pyx_GOTREF((PyObject *)__pyx_t_18);
       }
-      __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_actions, ((PyObject *)__pyx_t_18)); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 508, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_actions, ((PyObject *)__pyx_t_18)); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 510, __pyx_L1_error)
       __Pyx_DECREF((PyObject *)__pyx_t_18); __pyx_t_18 = 0;
 
-      /* "move_generator.pyx":509
+      /* "move_generator.pyx":511
  *             # skip move always included
  *             actions.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=[], strength=0))
  *             excluded.add(enemy_territory_name)             # <<<<<<<<<<<<<<
@@ -15459,14 +15578,14 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
 */
       if (unlikely(__pyx_v_excluded == Py_None)) {
         PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "add");
-        __PYX_ERR(0, 509, __pyx_L1_error)
+        __PYX_ERR(0, 511, __pyx_L1_error)
       }
       __pyx_t_18 = __pyx_cur_scope->__pyx_v_enemy_territory_name;
       __Pyx_INCREF(__pyx_t_18);
-      __pyx_t_7 = PySet_Add(__pyx_v_excluded, __pyx_t_18); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 509, __pyx_L1_error)
+      __pyx_t_7 = PySet_Add(__pyx_v_excluded, __pyx_t_18); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 511, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
 
-      /* "move_generator.pyx":510
+      /* "move_generator.pyx":512
  *             actions.append(Move(delegate="combat", to_terr=enemy_territory_name, moves=[], strength=0))
  *             excluded.add(enemy_territory_name)
  *             break             # <<<<<<<<<<<<<<
@@ -15488,21 +15607,21 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
   __pyx_L4_break:;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "move_generator.pyx":511
+  /* "move_generator.pyx":513
  *             excluded.add(enemy_territory_name)
  *             break
  *     return actions, excluded             # <<<<<<<<<<<<<<
  * 
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 511, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 513, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_actions);
   __Pyx_GIVEREF(__pyx_v_actions);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_actions) != (0)) __PYX_ERR(0, 511, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_actions) != (0)) __PYX_ERR(0, 513, __pyx_L1_error);
   __Pyx_INCREF(__pyx_v_excluded);
   __Pyx_GIVEREF(__pyx_v_excluded);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_excluded) != (0)) __PYX_ERR(0, 511, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_excluded) != (0)) __PYX_ERR(0, 513, __pyx_L1_error);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
@@ -15534,8 +15653,10 @@ static PyObject *__pyx_pf_18move_generator_cpp_12heuristic_combat_legal_moves(CY
   __Pyx_XDECREF(__pyx_v_sets);
   __Pyx_XDECREF(__pyx_v_weak_sets);
   __Pyx_XDECREF(__pyx_v_attacks);
+  __Pyx_XDECREF(__pyx_v_all_units);
   __Pyx_XDECREF(__pyx_v_info);
   __Pyx_XDECREF(__pyx_v__);
+  __Pyx_XDECREF(__pyx_v_unit_info);
   __Pyx_XDECREF(__pyx_v_l);
   __Pyx_XDECREF(__pyx_v_best);
   __Pyx_XDECREF(__pyx_v_atk_list);
@@ -20118,7 +20239,7 @@ __Pyx_RefNannySetupContext("PyInit_move_generator_cpp", 0);
 static int __Pyx_InitCachedBuiltins(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
   __pyx_builtin_sorted = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_sorted); if (!__pyx_builtin_sorted) __PYX_ERR(0, 406, __pyx_L1_error)
-  __pyx_builtin_min = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_min); if (!__pyx_builtin_min) __PYX_ERR(0, 484, __pyx_L1_error)
+  __pyx_builtin_min = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_min); if (!__pyx_builtin_min) __PYX_ERR(0, 486, __pyx_L1_error)
 
   /* Cached unbound methods */
   __pyx_mstate->__pyx_umethod_PyDict_Type_get.type = (PyObject*)&PyDict_Type;
@@ -20191,31 +20312,31 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
 static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
   {
-    const struct { const unsigned int length: 10; } index[] = {{0},{4},{179},{1},{1},{1},{1},{8},{20},{13},{7},{6},{6},{2},{9},{18},{10},{14},{2},{6},{24},{26},{4},{22},{24},{20},{9},{27},{29},{18},{21},{4},{8},{26},{28},{22},{24},{1},{5},{7},{8},{3},{9},{18},{8},{7},{4},{35},{6},{17},{18},{5},{11},{6},{5},{15},{12},{8},{5},{8},{5},{9},{20},{21},{8},{7},{14},{8},{7},{3},{36},{12},{28},{46},{8},{4},{13},{5},{3},{1},{8},{8},{12},{3},{10},{18},{5},{5},{18},{4},{8},{7},{4},{5},{6},{3},{14},{12},{11},{10},{21},{19},{24},{19},{23},{9},{12},{8},{6},{9},{10},{17},{13},{6},{11},{7},{1},{4},{4},{13},{12},{22},{14},{23},{20},{18},{10},{4},{12},{19},{6},{16},{5},{5},{8},{17},{22},{1},{6},{11},{8},{5},{4},{11},{7},{1},{4},{9},{5},{17},{6},{12},{5},{6},{9},{1},{93},{11},{72},{2},{11},{779},{16},{136},{127},{123},{117},{117},{18},{2},{10},{10},{10},{10},{11},{10},{55},{55},{55},{55},{11}};
-    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (2204 bytes) */
-const char* const cstring = "BZh91AY&SY\216e\204?\000\001\324\177\377\377\377\377\377\377\377\177\377\377\377\377\377\377\377\377\366@@@@@@@@@@@@@\000@\000`\007\327%t\310\022\004B\022T;\357`\017\002T\322$\310\t\246\322z\232c\020\323\r4\312\236S\324\332L&\214\023\320\214\2316\223 \r44i\351\032y\032\232zM\242a\017PJ\020)\262\004\023\320&F\215OM*3\324!\243j\r\250\001\240\r\000\014 24d\320\365\032=OSM\350\220\rA\002A\2104bi\241\240\310\320\032i\241\240\000\000h4d\001\243G\251\204d\000<\243\324\000\022\232\0214\231\032\246jh\324\366\224?Ti\351\033P\r\000\032\000\000\000\032h\000\000\000\0002\r2 \300\0010\000C\023\004\300\000\021\200\023&\t\223\000\002211\030\010`\000\002\nD\310\030@hh`\2324bh\014C&\0104\302\031\032h\320`A\210\030\206L\214\230\023\026\312\244/V\255\356\035j\372Hx|^\357\373\367\273|]\250>0\361\312\001\006Tx\243\201\355\nK\tV\225\232\275\337\360\014s\201\034\344*\265\n[H\023<69\341\242g\240\240\315\211l\213\001\213g\020\222I3\t\214\356\030\031\366\277\314\330\337\310\272\374\3549Pa\032%`\242\2528\212\023\306\006\022+B\374v\010@*\020\214\304J\n\211\314\220I\310\267.X\335\245\013\313C\035\355\212\020r\301\303\224qz\024v Z\254\262\022\022\030XFH\320b6%\203k\244\231\351\261\316\237C\t0\371\263ev9^\205\352\0136\025W\021T\n\251k\256[\263JV\034GE\324Fz\302\351\206[@L\241$\302\224\3068d\014c%@\005\252\nu\025\020\0341\236\263\245\266s{\243Q1\214\231\3277\272(S\334\207\216\007losF5\351\356n5\257\303\325\322\221\201\271\016cp\334\350E\017\226\273\341\315\321\304\235\\>4\034Vp&\264\370\241\325\217\025\247\300\271\334\220\217\203$*>E\327\005X\314\222\261\330\207\330F\010u\335\023\300a\3620\371+\247\241\350\271H\351{\214yu\236&\364\303\314\304X\336\215[\273\214s\303sX\334.\014\006\237\006\306\251\332k3\334\313\002h_F\322;O'\316\276J\224\"\252gK\220q2\235\217}f+\237\203\210*\314\253\320\304L=\357\204\036\227\243\356\331W2Y\341.\253\321\177\255\273\346\354Z^.l\311h\212\375k\010\016X<\374\032\235T\033\0037\360\347\244k\224\277-\226{u\361\330PJO\010\275\r\021A\243\022\271\236\235e%\"|B\327\342\357\024""\327\235!\347\265\357\263\256\025\234\262\371\376\253\221)~v3\032\377W\350\203\310\241\214p\302\272\354O0\236\013\374b\241\373\034\377.u<\333\220\217y\272\276\212\366\363\244\320\306\304\311\025\254\325W\257%\377\316C\247{\211\240\344q\036\371\027\037\326\022\260\340\304\034\235\370\377x\037\330\360\025^&\365\027&\016\034\250\242\241\350\000\230N$\2468>E#s\231\310\236\242\361\316n\355\370I\330'\315\344\301\327\261\224\306R\306\017vH\245\327I\221Z\345p3\320t\205(~\216Ld\036\335\251\021\014\371\304\314I\236\256D\242\200\3713\272.\304\223\201lf\323\233\201\230z\023g\277\r\314vl\237M\024\\m\223\305XV\207j\313/\362\317:G\222\243\352\037oJw\375\360\326Z\211\223\342e>\355Y-\314\262\3334\332\354\022\362(\013F\322\247#\216GW\311N\317/\305\344\035\303bw|\327\275\t3)\017&\033h\232\016\226<yzQ2\345\331\333\315#\212h\254\n\204\252:\240\347\211$\026\327k\027\253\213\334\\\274/b\240\252#3F\270\002a\2379d$mm\216p\3177Q2\363\335fq\313=+\030\017$N\005j\312\006{\365\232\365Yn%7\362(\334\032\270!\261\360\306\263/\246\350\224T\242B\022B\222\345dU\367C\214W\t\2457\266m\230\333\254E@\302m\217[f\226)Xj\253\210e&\031\253\215\036\rl\\\315\274\257\256\254\306\205\305\235\366\022A:14\306\262\3331\213'\321v\320\367f\315\235\357\255\315r\031Y8\220\nS!(\254\253\331\211\223\317]\375\314\273|\031\307E\205Cv|\325\365\020\212\021y\300W\227\336\341g\276\000u\357\340\225\357\335D\334\013\251A\227E\252\214\202s\242\247.f$\207\342\306d\335\006]\234\354\312\235[\255\243\316\316['\216\tf\272\231\365D\322\001.X\017D\036\204 h\221-& \205\314`\250\215\326u\233\203\033\317p\212d\341\322\2327\241\245\214\252p\215\226\210r\371\265\226\0305\034/\225\020\027l\360-\025{\304\325\032\311\226\231H\250\264;\220\355\263\256\353\023gf\020\222r\373]\223\204lR\310\272\333j\003\214\374\210k\343\212\311+\nY\270\343`\222L\304\352\272\030\300\251CV\346\306\243|\307\210\344imzw\333V\2614C\r~\3725f\314\327\033\203\203a\006\321m\312\342r\303C1S\264a~z\223Eh4\257[{\023\310\222\004\324\325\360{\247@tk`\340z\250m\034F\\\330\210I""\350:\252^\270d\266\t\232.\322\246\305\023\240\321\233\023\346\211\237\231\034\351\356kV\302L\306\262K^Q0\320\\U\331\210Wp4Ld\354\372\331:S+v:w\245p\213\360\276\374\356c\261\275\260K\030\270\332Q\223\032\321X\352c\021!\\\230D\240+r\237jY\243\n\370\3360\354\323e\246\235\274\247+\343p\233\263\262t\032\233<Y$+\n\230\304gR\r\222)Ht\2066\322U,]\2624\265\334&\331\020\216\211\204\203\212\025\023\227\0339JXB\346u\205\254L\007\252-\366\330\235\325\026\014U\027\023}j\300Z\257_\222\0243\270y\357\327r\216\336\032SI\2714\270\3635L\274\332\006O%\354\0149\370\327\303\276\3615*?.\267!\272\307\232U\2157\304y\204\001\031Q\334P\313\206\021\2622#\016'YC\243\312\344j*\002\211\212\2323c\016\362\246Ur\247\024Y\251b\372\025\202\212\317\201M\331\"\202\336\000@\177\017n\226W\254\270\214\225b\242\230g\021\363\014\321\024\257r\215\241\031B\014\204;\202\030\021\021\3430H\017\001\234a\272\006\021\017\240\206\230\204\214\321\")\026\300\014\023\232\310\rB\016\226\304\007\005\2500\235\320\251\010N\035\t\352\216e\212\022(B\266\244\200\345\337\353^\350\240&z^e\027\233\373\261\304n\032\322\2121\365\371Q\202\217Y]\362\365!(\207\301))VyB.\345\201\370\345\303\220\360fF\276J\351\203<K\234f.p\273\324\026\205$\027.S\231\257]Gv]\331\2473c\2700<IN\270n\325\231l\242[\356)\2148\343\222\205\337\007B\326Seu\n\212\033\337\265\031\373\264h\013SG\034dV\336\361\223%\234\360\216\325eY\246\304\252/}\034*\222\021\264d\034\204y+\026\306fP\326\216\002!\252\266\024\326YW5\261Y61\316\226\263Q\263\232|\225e\310\346nR\302\346G{\3540\304y!\032.\237tH\221SO\034\300(E\3050U\245\217v\214$\330D\022\034#s\030\341\317\326\277\350\320\303\316 \363\332\347]\320\t\3058\374\025\326\311\n\307\264$\263\217\222z]U\236\262`\343\350o\313\213{z\205\356\014\330\233Ir\017\354\322'O\302\313\022\005z\327\3614m\017\006\366\365\251u/\263{\354\301\376\315\325=\256\352;\270(\230b\336MWX\304-\035\017>\274\032\016@\257\254\334\377Q\215x\325'\363\202\370{\313\003\037\365\205\263\204yg\344d\034\347?%\265\224\005\032\227\360J\361\024<\322\344\360\345\345s""\\\272\207+\273\004r\250\342c\231\210\325c\006\016;\224\355\323g\251W\241\013\325\214t_W\207V\025\246\233o<\014\317W\036\261u\205\017z\341\271P\211\325P\222\324\204\305<\365\021\351B\244\347\317\232^\264\031C\342\360G\376.\344\212p\241!\034\313\010~";
-    PyObject *data = __Pyx_DecompressString(cstring, 2204, 2);
+    const struct { const unsigned int length: 10; } index[] = {{0},{4},{179},{1},{1},{1},{1},{8},{20},{13},{7},{6},{6},{2},{9},{18},{10},{14},{2},{6},{24},{26},{4},{22},{24},{20},{9},{27},{29},{18},{21},{4},{8},{26},{28},{22},{24},{1},{5},{7},{8},{3},{9},{9},{18},{8},{7},{4},{35},{6},{17},{18},{5},{11},{6},{5},{15},{12},{8},{5},{8},{5},{9},{20},{21},{8},{7},{14},{8},{7},{3},{36},{12},{28},{46},{8},{4},{13},{5},{3},{1},{8},{8},{12},{3},{10},{18},{5},{5},{18},{4},{8},{7},{4},{5},{6},{3},{14},{12},{11},{10},{21},{19},{24},{19},{23},{9},{12},{8},{6},{9},{10},{17},{13},{6},{11},{7},{1},{4},{4},{13},{12},{22},{14},{23},{20},{18},{10},{4},{12},{19},{6},{16},{5},{5},{8},{17},{22},{1},{6},{11},{8},{5},{4},{11},{7},{1},{4},{9},{9},{5},{17},{6},{12},{5},{6},{9},{1},{93},{11},{72},{2},{11},{827},{16},{136},{127},{123},{117},{117},{18},{2},{10},{10},{10},{10},{11},{10},{55},{55},{55},{55},{11}};
+    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (2230 bytes) */
+const char* const cstring = "BZh91AY&SY\3148\000t\000\001\340\377\377\377\377\377\377\377\377\177\377\377\377\377\377\377\377\377\367@@@@@@@@@@@@@\000@\000`\007\3770{m\260Yb\264\266\261j\326\224\334\000s\tSH\243SG\242z\215\224bze<Si\264\310\021\244\314\221\3524m4\021\247\251\232\206A\243!\246C4\233MM\250z\230M=&\200\224@F \215LL\247\242zM\r\032L'\244\320h\321\240\000\3204h\000\000\000\032\00046\246\200\203&\000L\002bd\311\200\0010&\002b`\230\000\000\000\00120\023\002\030@\r4)\2112\n~\2422z\004i\351\250\000\000\006@\006\200\006\200\000\000\000\000\320\320\000\203&\000L\002bd\311\200\0010&\002b`\230\000\000\000\00120\023\002\030@\tA4S&\246\236\251\352cO%OL\365)\355(\362\200h\320\r\000\000\000\007\250\000\006\206@hh4\303P\311\222\225!k\026JC\344\367\320\347\360\364:=#\246p\364\320\224\343\374\244\0040\240\262\030p\223\014\204\226d\236PS\376\001\016\240)\324Qf\220F.(\022\226d:\241k\235\235\342#hUqR%\022\301EUUTAP\261\2012\314\233\362\262\276\204k\265\006\025\206XM(\212(\252*\r \204\261\001U\271+,B\374v\210<&!\n\"%\202\210pQ\341\002xQ\367gB\362\300\305s*{\036\252\366\243Eir\023m+\006Em\264\002\013GER\322\202P\2542=\316\341\322j\313\020UA\220\256\3227\306\320\270TI\026\326J\t*[\007[\2161\260\343\r\203f\214r\276\315d\025X\002&\021\020\225L\3518UX\326\003L\363\372\014\300_\346d\345\340e\345p=\234\352s71\177\351\2721,\177\264p\301\322\235\256\323\235\227h\3013\251\307\277\255I\301\271\264\206\321\2666\010Q\017\013\210\307\3526\371\305R;gq\034P\342\223Y\366\241\212\253\r\333[\221\377\246'TY`F\363\010M\255HMLX2\234p\366P-\217\006j\254\034.\211\031\375\245\003\353\007\305\270\354\256\354\322\027\033\002\237\007:\035P\317\264&\256\303\206o\036\244\330\226\262b\006\242-\204\032\225\3020\311Oo\324\252D\310\301\321W\277CPi\"|\247;\245a]\357\327l\025fK\306*&\037\3174=\177\336\225jJ~\305\265\r\370v\273\335++E\307\214,A]\256\243\3365_\350A\225;\003\251\351\374\374)\302\272\352\247\253c>\2737t\223\022r\311\007!\232\0102\020)#\330\2418\304\226\350Z\352\2723\321\231\037\3362\367Y\310}\r1\360\275\246\242N\374\314Mm""\306{\336\343\336A\014CF\"\266\341\246Ye_\251\364`|\016~\364\255q\263\214\207E\233\236\032\365\365$\220\306\302DJ,\225W\217\205\375X\266W\264\255\tH\221>l\245/\321\251\244n\261\016\234\331\363\240\375E\376\n\255\023qE\313\254\343\252\020Pd\200\n\002\240\222\355{\304\231\255\346d>\212p\243\365\203=\0165\305kqXj\320Yv\262\350(X\325iD%'\026\204aj \"\314\024\220\\\205lB+\270\013-\220\356\350\331\005D(\322WD\306\240J\214\373v\342J\340\323\235m]n\014\3068Bm{\372\327\360\244\343\227\262\336\035\212.6a\277`X\207]c\223\253\257)\3035gH\237OB}\375\200\320\\\211\217\235\201\324\257\013\261,x2N\013r\246\"\010\0136gR\266\231\033<\223\346oo\362N)\260s\371\256r\021c\025\253\312\206\314\3231\266\303\372\303m\023\0144\357\354\304\343\246\275\000\254J\341\242\036BQ\005\310\371\305\353\367\244\346\232\356\332\305AT\306f\235\220\t\253\233T\322\212\034f\330kF8\332\232a\252\3533\rYgX<q\022O(\254P3_v\216\006\213n\255M\274\331\013\214\265\346A\204\363T]\326\366,\344@LH \222\013\210\231\021\005\301\003HBn{\3670\252Fx5\260\002n\252\234\312\221\310>\rH,F\242\270\234\241G\261\246\244\"\211\304Z\341\246E\253\305v\352\n\252\016\266\206\r\324U\215\264Ee\261\31022\225\214\236\021H\220\206EA \002(\250F\0064\341\311S \334\306\274\304\313\276\r\005\004&-\366\245\235q\023Br7E\221m\256-z \r\355\032\022\315\3141\246\000\267\2502\353\344Tb\t\251\0254\3530\212\036\246#\036\323\330\273\032\230\305M\315\253f\343\227\245\326K\024\022\316\004\030\352\340\\\200S\254\202H\204\204\2105\350R\343\020F\233\032\312\210\333\306\361\200q$Y\316\021J\256\350\022\376\342\014\352\211\021\234\025#2\211\336TN\253BL\240N\345\230\010\325jM\005\234\024\200I\0247\216H\2006\025C*U\010\206\212\242\002\t*%\030XP\032\324\322\"2\276,\006\215q\331'k\250I\022\005\3215\241($\224\010\366\342\310c&A}\327\233\346=\266\037*l\345\337K\366EGt\022\255\365/\256\264\241p\300\223i\254U\2361\241\374\005\250\204\233\233%\371d\231\254A\221\275n\345'e\024\t)\237\221\3176\203\005\r\007\310\206\300\344NsXgA\351VE\324\266\310L\263|\312gQ05\262\342t\2212""l#[-L\265l\"\210i\034UX\365A\032D\203\021\006\254rb\271\356\275Qp\320\251.\346\333\275\326hR\325\251\236{\n+\325r\240\350)P\227\244YA\206D\033\272\332\n\242\305PQ\312\005\032\247N9 \372n^0n\264\230\263\321\233I\245\320\270M\234\314\233E\355\232l\024\025\205T,\021\226@\232jD;*\210k\252\254\312\210\343\021\311\034\251\214QM\224\021\355&VJ;\226i'`\373\230\333\013XH\007*-\366\330\234\365\025\354+\203I+\250\255\002\325r\364\002ff\216;\024\271F\355\205\311q\201s\235\255\365\226\234`2\3662`a\345\304^~\345\250^\265\252B\361s\262\030=\306ua\236\370\0162\274\021\212\215\334C\014\271w\243lj#\016I\023^\234.^VQP\024J\351\237&0\350\252k+U8\310\262R\272\266`\207Z\240ND\225\003\026`\315\206\037\027\253w\326\025]?,b\214\37393\371\002'i\007m\023\304\203l\203\256; \223]i\"\270+\306(\013DUU\022Tk\220\024\210\236\376`Z\255\364Y)\250G\252\020G\3137j\353\251J\325\315\255\360\331\023\201\013tS0z\212\030MJ\3742\320\0351[IE\365}\270\242G\200\264\332F*\354\355_\243\246W\005t\340(\203\271\276\342V\371.\336\246\377\315\222\307\0363V\303-iw\227\\\031\263\216\3061Es\205\300E-\025Y\005\341I\225\224\352Z\022\365\263&koM\323\307\030-\245L\226U\374M\350\250\303\270\263C\021l\314\231.P\270\201ik\256\266X\260XQ'\352\354gu\301\261cfG\003Hl'\320e\3063\201\247\034\341\007h\333;N\275?u6\0309\355\034Df\326-yY#P\243\245E\260\246\232\357\224\250\266\243\"1\313\036\213\213C\222\223dnA\267\026\027q\250U\030c\0068\210E\300\247\332\022$D\247\216B*`C\206\250s\357Q\204\231~\374\201\226|g\22622\374\220\355fb\322 ~\313\243\237}P1\n\330\"\321\007\356\245\211g\207%\037}\220{ k\t\377HG\217\036o\027\023\241\314\205\252\217B\356\347\215p\355f\373\256g^spB\211\235tQ\333\271\225\353\224\373\325\027\371\206\371\366\244\214\371\033\002\211d\347\235l!\361\214]h\006\221'\307\"\361\217?6\213t\231\236\375\255\316\236(;\035q=\376\331\233\354\213\207\225B\201h\377~mq<wx\243B\024\023\226\"\213o\026\235\353+e&\261H88\340\247\0040\250t,\022hc@\355\330\203\274Z\3254\250Q\246?\003<\362U\211\250\262\233\303\300\270\251H{\336-\251\241Y'""\253Uj\355Z\2275\021\345\2610q)\230\240\233\224X\226\312cEx\272\230 cYX7\374]\311\024\341BC0\340\001\320";
+    PyObject *data = __Pyx_DecompressString(cstring, 2230, 2);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #elif (CYTHON_COMPRESS_STRINGS) != 0 /* compression: zlib (2029 bytes) */
-const char* const cstring = "x\332\265UKw\323H\026\216\301\t\001\022\210'fb:i\2203\t\001:\370\214\233\014\257\000=\206\244\003\323\335L\014\taH\317T\227\245\262-\"K\266\036\211=\247\373\234,\263\324\262\226Z\326RK-\265\364\262\226Z\372'\344'\314-\331\316\003\323\034z1\347\304\245\252[u\337\337w\363\312\320\311+\303&\222]\305\266\364\274eW\r]R-I!\232Z\"&\266\211\326\222,\333Te\233\230\342\221.\255\257\256\337Yz\260$a]\221L\362\201\310\266%YNI\326\260e\021K2\312R\311Q5[\325%\273U'VNzY\226Z\206#\351\204(\222mHuxwR\301\256\022]\262\210-6\322\002\326u\303\306\266j\350\010\324U\275\262 )\252\tN\324]\"\264\277\307\232Er\027\316\347\276\303\212\202t\021:\304J*\020\351#i\365\325\212\264\376\242\360f\365H&A:\212j\341\222F\210.V\251l\0325\251\"\253V\367\254\324\214]\202*D\027\311\032f\256\336j\236\207|\211^\261\253O\036\213\314\365\212e8\246L\2366\245\202mcy\247\273\346\0202\211\342\310\004\311q\325\020:\222C2\026\344p|\363\023\370\020\277A\235\236t@\003\241\365V\023~+Px\364\2124\355\327\244\274ALS\205\030[G\233A{'\257\006\214\036_\212\3329\272j\037KL\022\027B\0107{\277\227z\331\350\177\007=\235\270\031p$\356>\255\361\311\\1^st,\213\246[\375\310\260\362\001\233\266\252i\304la\253\245\313\252\221\223\r\323p\000X\304\302\366\016\322TaF\224\334*\021\313\026\240S\300%\226\253\270\244j\252\335\312=\326\014\031\340\3624'\332\333\254\233\262j\253\304B(F\036\364\334VmR\023G0\211T\000\234\211eR\002\203\262fXD6\300y7(\331\250\225\260-\033\226m\311\216\t\340\260\337\364 \242\2202\262\216\366]\314)\244\341\020\204\024\321\272\356\207\350\n\252W\261\005\030$\265\026\262\373UG:\256}Rf\221\246\2549\nQ\312P\026\020\n\320\236x\202\312\216.#\324K\013\022\201\277~\352Z\267\211\326@\366\342}\257\362\250J\034\023\312\247\312\250\233\032\022\221kH@\300\372\334\335\261\321\307\032\256\225\024\374T\325\313X\267\315\026|\r\244Z\350\250G\242\266\326\016ii\375\227\010\3250\024\031\326\346F\325\004?\206\246\324b\201\2418\0205:\315D$\327\353B\022\023\324\032\254\220X\020\352\256\360%{bi\332\306\036\350\3275\334\202\325\250#\004|Fr""\225\000H\234Z\367\004\256\035\315\356\356{\345\020[1\254\272;G\257\253\362\016D\324%\364GB\301\330\217D\033\307\2159%\027\200\377\204H\260\246a\267\342|\025\204\032\016\326\272i\300N\007L\266L\254W\210u\334\317>\221\320\000\245\216\004\244)\266\302\342\t\"\233\004\2160b-\242\225a\334)\300<$x%\023]n\305D\354\325O\354\204\002\352\362\t\355b\315\021j=i\014\374\243\023@\236\350\026\371\370Q\354\265\033\271\220\355\2521pQ\227s \0015\014u\027\354?1\003\320'\346\201e\230@\242\356z\214jxcv\037\366\371\326\377\036\241i@\200\366\010\336\201\224\004E\372\360\211'\2000\002k\3254\366l\265F\304\017\225\034E<3b\2409\"\2478/\201\213\230P\361\262Y\3370\372\334w\352\nD\343@)\372)\304%\351\326Ex\216\345M\236\234\367\376\303\357\256\204\257\370\353\n\257T\243\321\261\203U7\355\026\243\261\313\007\r\367\"\275K?\260$+\260-\377\271\337\210&R\356\327\024\213\317U\232\025\237kT\010;c\023\356\210[\241E\252xYo\231U\374\367\301^\210\367\023Qr\026\004\367X\212'o\262K\374\336Z\330\370B\017\223n\336\375\007\225\275T\224\316\320\021Z\361\212^\354\267 \214\316y\005\357-\313\357'\016'\206\206\257R\220dh\222\256z\251\303KC\303#Qr\312\335\245\305\303\221\241\341\363|T\362\022\321\350E~Q\362\316y\215\316X\206g\276ay\276\370,\274\331\276\303\267\336u \n\333\375\033=K\277\245o\275o\275b\234\216\220\345\243\ta\265@\205\010\214\215Kt7\276\216&\322nA\\&\016G\207\306g\370\364\"D\277\035$\370\303u\276^<\034\033\032\317\202\3171\351\344\"*4\n\n#C\251+\356*\275B1\265\275|\224\236\367\266@\371\235_\364\025\376\350\207\366R{\217\277\335\352\244o\360\033\337\005\2150\321IC\2747\331\031~\373q\360,\250\265\363\321\314\"{\316~\203\203\336~\326\306\235\314\254\267\3100kD\231\031\272\006\341\377\213\341(s\207\025;\351)>\265\340\331\354Ip&\310\265\317\264\263Q\346j'}E\244\002AO\034@\245g\371\354r\220\017 \225I>\371\2278\367\3645\252\261,\203\300\246\334\330\346s\332\200\0142\323tIl\274\2247\013\245\177\303\316\302\223\031QQ\223]\365\263\207\027\204\305\270b7Y\242\267\334b\251\016\024\352\005-\210\016\016\323M\000\302""\222\007Fo\261)?\341g\202T0\307\237\376\263m\3637\357\371\373\355(s\233\337~\036\346\303B'3\303!\313g<\267\032\276\016\177\343\033\233\221\364W\377\254\017\036ox\232\237\025\033Q\266gL\005\274\314\334\363q4s\235Z1\360d?\025IY\021\275E\263t\331\223YJ\344\rq\254\321<-\210.\366\002\235t\237xgE\007\246\001\200\230_\317\373i\037\362\277N\177e\371\301\216D\242\017y?\005\336\037@\311V\370\337\213\274\270\3117\177\346?\377[\230\270\337O.\013\200\315\210\246g\256\001\212\305\021 9\236\022\275\217\000\002\027\350\274 \314\224\273\327\007\300\327\000\257\364\214(\322W\300(q\024\375I\273\367!~Q\363\363\354+\377\001_\006w[|k\233o+\\!\321X\332]\241\t\232\212\306\306\243\344\305\203\207n\301\375\311\233\206\260\337\362\273/\333\031^|\275/\2609|\351`\303\235\246+\336\030[\361G\203d\360Ch\003\204\222c\007k\300\256\357\351\"P*yn\177\367`\013 \231\206@F\377\344f\243Qh}\007\026\233>\202*\257\372\223\376Jp\016\350L\332w\333\n\177\r1\224xI\026\212\300\345\313\374\362\274\267\301Rl\301\237\016\326\302|\347\264\244p\034\307\024p\351\205\267\002\320\370b\377\367\274)6\314\336\370I\177-\270\037\316\207V{\256]\351\025\375\310\375m6\007\004\330\363w\302\251v\242sZ\222:v\237\001\007\357 \256\031\177#\230\016W\332\177 \214\373\336\002\273\002\320J\373\333\3419\030`\1770s\236\232\365\346\274\235\030__\352\223O\177\303\356\373\363\276\025\314\005\345pM4\255\357\364\026K\263\"L\3308\226\316iI\342\377\345TL\222<[\363\227\203JX\354\234\226`\030\366\377m\247\333\3056n;|\343\027\376\013v\023bJ\017G\311\224\233\352\355\256\322\376\016p\336\333\375\331\215\377E\334\360\260\267\313\212=!D\263\237\350$\257\323\006\007\332_\014\226\303\035\300s\224\234t\227\334f<\215 \252_\005?\242Q\241\271\307t\030a\300\202\374\357\250\335\243\031\230[\331\023j0\237`l\345\302\304\347\324\036\320\007^\336+\234P\273\r\223q\331\327\303\317z{\010 /\300$=V\203\1777\354\307\340R\210{jQr\301k\260\021\206\377\007\330\251\363\316";
-    PyObject *data = __Pyx_DecompressString(cstring, 2029, 1);
+    #elif (CYTHON_COMPRESS_STRINGS) != 0 /* compression: zlib (2065 bytes) */
+const char* const cstring = "x\332\265U\317w\323H\022\306\203\003\001\022\2107fc&\231Af\023\002\014\370\215!\013\201\000\263\006g\002;;l\034\022\302\302\3146m\251m\213\310\222\255\037\211\275ov\037\307\034u\354\243\216}\324\321G\035}\354\243\216\376\023\362'l\265d\307\016ay\314a\337\213[\255RW\325W_\177Uya\350\344\205a\023\311\256a[z\332\266k\206.\251\226\244\020M-\023\023\333DkK\226m\252\262MLqH\227\326W\327o--/IXW$\223\274'\262mI\226S\2265lY\304\222\214\212TvT\315Vu\311n7\210\225\223\236W\244\266\341H:!\212d\033R\003\316\215:\3305\242K\026\261\305FZ\304\272n\330\330V\r\035\201\273\252W\027%E5!\211\272K\204\367\217X\263H\356\354\231\334\017XQ\220.\240\003VR\005\244\017\244\325\027Ei\375Y\341\345\352\241M\202r\024\325\302e\215\020]\254R\3054\352RUV\255\370]\251\033\273\004U\211.\2125\314\\\243\335:\003\365\022\275j\327\036=\024\225\353U\313pL\231<nI\005\333\306\362N\274\346\0202\211\342\310\004\311\021k\010\035\332\241\030\013j\030~\371\031r\210\337q\237\276\365\230\007B\353\355\026\374\212@<zAZ\366\006\251l\022\323T\001c\373ps<\336\350\247cA\207\037\005w\216\256\332C\213I\"\"\204q\253\377{\256W\214\301\363x\246\221/\307\022\211o\237\366\370d\255\030\2579:\226\305\245[\003dXy\2175-\332Z\330\264UM#f\033[m]V\215\234l\230\206\003\n#\026\266w\220\246\212x\202{\253L,[\250O\201\334X\256\341\262\252\251v;\367P3d\320\315\343\234\270\347V\303\224U[%\026B\221\004\341\362m\325&u\361\n!\221\n\3123\261L\312\020P\326\014\213\310\006$\217\321\311F\275\214m\331\260lKvLP\211\375\262\257\025\205T\220u\270\217\305\247\220\246C\020R\304\035\306\017\242+\250Q\303\026\210\221\324\333\310\036\320\217t\\\377\244\315\"-Ys\024\242T\200\0370\n\365\216\034A\025G\227\021\352\227\005\205\300\337\240t-\276M\353X\365\342|\377\nP\2158&\320\247\312(.\r\t\344\032\022Z\260>\367m\030\364\241\206\353e\005?V\365\n\326m\263\rO\003\251\026:\274#\301\255\265C\332\332\340$Bu\014$\303\332\332\254\231\220\307\320\224zd0\024\007P\243\243-\211\344FCX\242N\265\2163$\026\204\342\025\236dO,-\333\330\003\377\206\206\333\260\032\r\204\240\261""\221\\# \022\247\036\277AjG\263\343}\237\016\261\025S+\3369zC\225w\000Q\334\331\037\031E\353~d\332\034^\314\021\273P\376'L\242}\232v;\252WA\250\351`-.\003v:h\262mb\275J\254\341}\016:\n\035\353\255C\003i\211\255\2108\322\321&\201W\230\265\026\321*0\367\024hA$\032L&\272\334\216:\262\317\237\330\t\007\024\367\023\332\305\232#\334\372\326H\370\207o y\242[\344\343CQ\326\030\271\260\355\252\221pQ\334s`\0017\014\274\213102\014\320'\006\203e\230\320D\361:T5\2341\343\203\203~\033<\017\325t\314\200\366\010\336\201\222D\213\014\344\023M\000\021\004\326\232i\354\331j\235\210\037*;\2128fDBsDMQ]B\330\321F\010$\352\254h\331jl\032\203!\3404\024\200\345\000'\203Z\"nb\202\004\204\310\336\342\311\005\357\237\374N1x\3017\252\274Z\013\307'\366W\335\264[\n'.\3547\335s\364\016}\317\222\254\300\266\375\247~3\234J\271\337P,\036\227hV<\276\245\302\330\233\230rO\271UZ\242\212\227\365VX\325\177\323\331\013\360\207D\230\274\002\206\273,\305\223\327\330y~w-h~a\206i7\357\376\225\312^*Lg\350)Z\365J^\224\267 \202\316{\005\357\025\313\177H\034L\235\030\273D\301\222\241I\272\352\245\016\316\237\030;\025&g\334]Z:8ub\354\014\037\227\274D8~\216\237\223\274\323^\2637\221\341\231\357X\236\337|\022\\\353\336\342\333\257{\200\302v\377LO\322\333\364\225w\333+E\345\010[>\234\022Q\013T\230 \330\244Dw\243\317\341T\332-\210\217\211\203\361\023\223s|\366&\240\177\333I\360\373\353|\275t0qb2\0139'\244\321\005\022\003L\240i\034\036\340\277J/RLm/\037\246\277\241\333P\316kVb\n\277\3754X\n\366\2728L\317\360\231\357\375\204?\333)\006\223\335\215\356\177\370\257\210\243wa\346R/}1\202\010\004\215\206\237r'\005\320\2547\303\022\014 ^\341WV:\371\016\340L\363\364\274\367\204_]\356|\325\271\005\374g\256\261\223\354\021\274\344\272_u\263\202\336\323\324\364\346X\211\347~\350\354\006\2450}\235E\365N\3557G\343L\363\351?E\004\245\277\245\032\3132\200>\343B\2709\372\2246\001Gf\226.\211\215\227\362\256@A/!K>\234\023\264\233\354\222\237\355\301\3015\360\377\007\303\007gE\360\210\341k,\321_ i\017\210yF\013\002\322\030\335\002\341,y""\020\377:\233\001\"2\235Tg\236?\376{\327\346/\337\3607o\303\314\r~\343i\220\017\n\020\230\317\335dOxn5\330\010\376\3157\267B\351{\377\244\017\311\257z\232\237\025\233\005o\233=a*\350k\356\256\217\303\271\313\324\212\204*\373\251P\312\212B,\232\245+\236\014\324\001\305\200c\215\346i!f!\002:\355>\362N\212\353\232\005\301b~9\357\247}\240\3422\375\215\345\341\372_\373%_\341\017~\352.u\367\370\253m(\201g\362~\n\262/\003{E\376\227\022/m\361\255_\370/\277\212\020\367\006\305eA\340\031q\213\231oA\365\342\025$<\231\212d\002wz\226.\210\006\233q\367\206j\201\254s\202\244\257\241\003\305\253\020a\332\275\007\370\005\375g\330\327\3762_\201t\333|\373-\177\253p\205\204\023i\267H\0234\025NL\206\311s\373\367\335\202\373\2637\013\260_\361;\317\273\031^\332\370 \264<v~\177\323\235\245Eo\202\025\375\361N\262\363S`w\363arb\177\r\272\361Gz\023Z0y\372\303\356\3766\3507\r@\306\377\340f\303qPA\017\026\233>\000\226W\375i\277\3309\r\355O\272w\272\n\337\000\014e^\226\205#\364\376\005~a\301\333d)\266\010\322^\013\362\275\243\226\302\020\307\014\364\3363\257\010\322\370\342\374wA\374c\354\245\237\364\327:\367\202\205\300\352\316w\253}\322\017\323\337`\363\014\263=\177'\230\351&zG-\251a\372\014$x\r\270\346\374\315\316lP\354\376\016\030\367\274Ev\021\244\225\366\337\006\247\241\341~g\345<u\305\233\367v\"}}iN>\373\035\273\347/\370Vg\276S\t\326\304\245\r\222^gi\030-\325\030K\357\250%\361\377J\272\350\331\320\026k\376J\247\032\224zG-\030\3769\374\253\233\356\226\272\270\353\360\315w\374\035v\023b\252\217\205\311\224\233\352\357.\321\301\016t\336\337\375\321\215\376\245\\\365\260\267\313J}#\240\371\220\350%/\323&\207\266?\327Y\tv@\317ar\332]r[\321`\002T\277\211\376\010\307\205\347\036\323a\232A\027\344\377\207\333]\232\201\021\226\035q\203\371\004\023,\027$>\347\266L\227\275\274W\030q\273\001Cr\305\327\203\317f\273\017\"/\300P\035\272\301\277'\366\267\316\371\000\367\335\302\344\242\327d\247\030\376/\226\257\014#";
+    PyObject *data = __Pyx_DecompressString(cstring, 2065, 1);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #else /* compression: none (3807 bytes) */
-const char* const bytes = "NoneNote that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.\n\t.?add_note delegate: END PHASE delegate on disableenable from gcisenabledmove_generator.pyx\tstrength=<stringsource>x AttackAttack.__reduce_cython__Attack.__setstate_cython__MoveMove.__reduce_cython__Move.__setstate_cython____Pyx_PyDict_NextRefTerritoryTerritory.__reduce_cython__Territory.__setstate_cython__Territory.add_unitTerritory.remove_unitUnitUnitInfoUnitInfo.__reduce_cython__UnitInfo.__setstate_cython__Unit.__reduce_cython__Unit.__setstate_cython___aaGunactionsadd_unitadjartilleryasyncio.coroutinesatk_listattacksbestbuild_reachability.<locals>.genexprcities__class_getitem__cline_in_tracebackclosecollectionscombatcostscurrentStrengthdef_strengthdelegatedeque__dict___dictend_phaseenemy_territory_nameenemy_territory_namesexcludedfactoryfrom_territory__func__genexprgetget_reachable_units.<locals>.genexpr__getstate__heuristic_combat_legal_movesheuristic_combat_legal_moves.<locals>.<lambda>infantryinfo_is_coroutineitemskeyl<lambda>__main__maxThresholdmin__module__move_generator_cppmovedmovesmy_territory_namesname__name____new__nextownerplayerpop__pyx_checksum__pyx_result__pyx_state__pyx_type__pyx_unpickle_Attack__pyx_unpickle_Move__pyx_unpickle_Territory__pyx_unpickle_Unit__pyx_unpickle_UnitInfoqty_moved__qualname__quantityrangesreachable__reduce____reduce_cython____reduce_ex__removeremove_unitreversesselfsendset_adjacency__set_name__set_unit_attack_valuesset_unit_costsset_unit_defense_valuesset_unit_move_rangesset_victory_citiessetdefaultsets__setstate____setstate_cython__sortedsorted_reachablestartstatestrengthstrengthThresholdstrengthThreshold_weakttargetterritories__test__throwtimetime_budgetto_terruunitunit_typeunitsunitsUpToStrengthupdateuse_setstatevaluevaluesweak_setsx\320\004%\240^\3203D\300N\320Rg\320gh\330\010\014\210E\220\024\220Q\330\014\017\210q\220\013\2303\230j""\250\004\250A\250W\260C\260q\330\020\021\220\035\230a\330\020\021\220\031\230!\330\020\021\220\036\230q\330\020\021\340\014\020\220\006\220g\230Q\230d\240!\240;\250g\260Z\270w\300a\200\001\330\004\"\240!\2406\250\021\320\004(\250\016\3206G\300q\330\010\014\210E\220\024\220Q\330\014\017\210q\220\013\2303\230j\250\004\250A\250W\260C\260q\330\020\021\220\035\230a\330\020\023\2201\220J\230c\240\021\330\024\030\230\006\230g\240Q\240a\330\020\021\220A\200\001\330\004$\240A\240V\2501\200\001\360\020\000\005\031\230\001\330\004\030\230\004\230E\240\021\360\016\000\005\006\330\004\027\220v\230Q\360\006\000\005\t\320\010 \240\001\330\010\013\320\013 \240\007\240q\340\014\030\320\030+\2501\320,B\300(\310-\320WX\340\014\017\210t\2205\230\003\2302\230V\2402\240Q\330\020\021\340\014\017\210t\2201\330\020\030\230\004\230A\230Q\330\020\021\360\006\000\r \230v\240Q\330\020\021\330\020\024\220A\330\020\030\230\001\360\010\000\r\034\320\033,\250A\250[\270\001\3209P\320PQ\360\014\000\r!\240\001\330\014 \240\001\330\014 \240\001\330\014 \240\001\340\014\020\220\010\230\001\360\006\000\021\025\220E\230\025\230a\230t\2401\330\024%\240W\250A\250X\260Q\260d\320:K\3104\310w\320VW\340\024&\320&?\270q\300\001\340\024\030\320\030(\250\002\320*<\270B\270m\3101\330\034,\250C\250}\270B\270n\310B\310a\340\030\"\240,\250a\250q\330\030\034\230G\2402\240Y\250a\330\030-\250Q\340\024\027\320\027'\240t\250=\270\002\270.\310\002\310!\330\030\031\340\024\025\330\020\021\360\010\000\r\020\210q\330\020\"\320\";\2701\270A\330\020\023\320\023#\2402\240Q\330\024\036\230l\250!\2501\330\024\027\220q\330\030\034\230C\230q\240\001\330\030\033\2304\230q\240\001\240\021\240\"\240A\240S\250\003\2501\330\034 \240\007\240r\250\031\260!\360\n\000\r\020\210t\2201\330\020(\250\001\330\020(\250\001\330\020)\250\021\340\020\024\220H\230A\330\024\030\230\005\230U\240!\2404\240q\330\030)\250\027\260\001\260\030\270\021\270$\320>O\310t\320SZ\320Z[\330\030*\320*C\3001\300A\340\030\034\320\034,\250B\320.E\300R\300}\320TU\330 0""\260\003\2601\330\034&\240l\260!\2601\330\034%\240W\250B\250i\260q\330\0346\260a\330\034\037\230s\240!\240;\250c\260\021\330 !\330\024\027\220s\230!\230;\240c\250\021\330\030\031\340\020\024\220G\2301\230A\360\006\000\r\020\210t\2201\330\020\023\220=\240\003\2401\330\024\033\2303\230a\320\0371\260\024\260Q\330\024\037\230|\2501\250A\250X\260Q\260d\320:K\3104\310w\320VW\330\024\030\320\0301\260\021\260!\2608\2701\270D\320@Q\320QU\320U\\\320\\]\330\024\033\2307\240!\2404\240q\330\030!\240\021\330\030 \240\001\330\030\036\230a\330\030!\240\021\360\016\000\r\021\220\010\230\001\330\014\020\220\n\230%\230q\330\020\027\220w\230a\230t\2401\330\024\035\230Q\330\024\034\230A\330\024\032\230!\330\024\035\230Q\360\010\000\r\024\2207\230!\2304\230q\240\t\250\032\2608\320;Q\320QW\320W[\320[d\320de\330\014\024\220D\230\001\230\021\330\014\r\330\004\013\2109\220A\220M\240\033\250A\250V\3203I\310\030\320QR\200\001\360\010\000\005\016\210T\220\033\230D\240\014\250D\260\010\270\004\270K\300t\3101\330\004\014\210G\2201\220F\230,\240a\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\027\220t\230:\240W\250E\260\023\260D\270\007\270w\300e\3103\310d\320R[\320[b\320bc\330\004\007\200q\330\010\017\320\017%\240T\250\021\250'\260\033\270G\3001\340\010\017\320\017%\240T\250\021\250'\260\033\270A\200\001\360\010\000\005\016\210T\220\027\230\004\230H\240D\250\001\330\004\014\210G\2201\220F\230,\240a\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\027\220t\2306\240\027\250\005\250S\260\004\260G\2707\300%\300s\310$\310g\320U\\\320\\]\330\004\007\200q\330\010\017\320\017*\250$\250a\250w\260k\300\027\310\001\340\010\017\320\017*\250$\250a\250w\260k\300\021\200\001\360\010\000\005\016\210T\220\030\230\024\230X\240T\250\034\260T\270\033\300D\310\001\330\004\014\210G\2201\220F\230,\240a\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\027\220t\2307\240'\250\025\250c\260\024\260[\300\007\300q\330\004\007""\200q\330\010\017\320\017%\240T\250\021\250'\260\033\270G\3001\340\010\017\320\017%\240T\250\021\250'\260\033\270A\200\001\360\010\000\005\016\210T\320\021\"\240$\240k\260\024\260Q\330\004\014\210G\2201\220F\230,\240a\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\027\220t\320\033+\2507\260%\260s\270$\270f\300G\3101\330\004\007\200q\330\010\017\320\017)\250\024\250Q\250g\260[\300\007\300q\340\010\017\320\017)\250\024\250Q\250g\260[\300\001\200\001\360\010\000\005\016\210T\320\021\"\240$\240k\260\024\260Q\330\004\014\210G\2201\220F\230,\240a\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\027\220t\320\033+\2507\260%\260s\270$\270f\300G\3101\330\004\007\200q\330\010\017\320\017'\240t\2501\250G\260;\270g\300Q\340\010\017\320\017'\240t\2501\250G\260;\270a\260Z\270z\310\024\310Q\310a\310u\320T`\320`a\220\001\200\001\330\004\005\330\004\021\220\021\200\001\330\004\005\330\004\031\230\021\200\001\330\004\005\330\004\032\230!\200\001\330\004\005\330\004\026\220a\200\001\330\004&\240a\240v\250Q\200\001\330\004\005\330\004\027\220q\200\001\340\004\037\230q\320 0\260\013\270;\300k\320QR\330\004\023\2204\220x\230q\240\001\330\004\007\200|\2207\230!\330\010&\240a\240w\250n\270A\330\004\013\2101\200\001\340\004\037\230q\320 0\260\013\270;\300k\320QR\330\004\023\2206\230\030\240\021\240!\330\004\007\200|\2207\230!\330\010(\250\001\250\031\260.\300\001\330\004\013\2101\200\001\340\004\037\230q\320 0\260\013\270;\300k\320QR\330\004\023\2208\2308\2401\240A\330\004\007\200|\2207\230!\330\010*\250!\250;\260n\300A\330\004\013\2101\200\001\340\004\037\230q\320 0\260\013\270;\300k\320QR\330\004\023\2209\230H\240A\240Q\330\004\007\200|\2207\230!\330\010+\2501\250L\270\016\300a\330\004\013\2101\200\001\330\004'\240q\250\006\250a";
+    #else /* compression: none (3873 bytes) */
+const char* const bytes = "NoneNote that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.\n\t.?add_note delegate: END PHASE delegate on disableenable from gcisenabledmove_generator.pyx\tstrength=<stringsource>x AttackAttack.__reduce_cython__Attack.__setstate_cython__MoveMove.__reduce_cython__Move.__setstate_cython____Pyx_PyDict_NextRefTerritoryTerritory.__reduce_cython__Territory.__setstate_cython__Territory.add_unitTerritory.remove_unitUnitUnitInfoUnitInfo.__reduce_cython__UnitInfo.__setstate_cython__Unit.__reduce_cython__Unit.__setstate_cython___aaGunactionsadd_unitadjall_unitsartilleryasyncio.coroutinesatk_listattacksbestbuild_reachability.<locals>.genexprcities__class_getitem__cline_in_tracebackclosecollectionscombatcostscurrentStrengthdef_strengthdelegatedeque__dict___dictend_phaseenemy_territory_nameenemy_territory_namesexcludedfactoryfrom_territory__func__genexprgetget_reachable_units.<locals>.genexpr__getstate__heuristic_combat_legal_movesheuristic_combat_legal_moves.<locals>.<lambda>infantryinfo_is_coroutineitemskeyl<lambda>__main__maxThresholdmin__module__move_generator_cppmovedmovesmy_territory_namesname__name____new__nextownerplayerpop__pyx_checksum__pyx_result__pyx_state__pyx_type__pyx_unpickle_Attack__pyx_unpickle_Move__pyx_unpickle_Territory__pyx_unpickle_Unit__pyx_unpickle_UnitInfoqty_moved__qualname__quantityrangesreachable__reduce____reduce_cython____reduce_ex__removeremove_unitreversesselfsendset_adjacency__set_name__set_unit_attack_valuesset_unit_costsset_unit_defense_valuesset_unit_move_rangesset_victory_citiessetdefaultsets__setstate____setstate_cython__sortedsorted_reachablestartstatestrengthstrengthThresholdstrengthThreshold_weakttargetterritories__test__throwtimetime_budgetto_terruunitunit_infounit_typeunitsunitsUpToStrengthupdateuse_setstatevaluevaluesweak_setsx\320\004%\240^\3203D\300N\320Rg\320gh\330\010\014\210E\220\024\220Q\330\014\017\210q""\220\013\2303\230j\250\004\250A\250W\260C\260q\330\020\021\220\035\230a\330\020\021\220\031\230!\330\020\021\220\036\230q\330\020\021\340\014\020\220\006\220g\230Q\230d\240!\240;\250g\260Z\270w\300a\200\001\330\004\"\240!\2406\250\021\320\004(\250\016\3206G\300q\330\010\014\210E\220\024\220Q\330\014\017\210q\220\013\2303\230j\250\004\250A\250W\260C\260q\330\020\021\220\035\230a\330\020\023\2201\220J\230c\240\021\330\024\030\230\006\230g\240Q\240a\330\020\021\220A\200\001\330\004$\240A\240V\2501\200\001\360\020\000\005\031\230\001\330\004\030\230\004\230E\240\021\360\016\000\005\006\330\004\027\220v\230Q\360\006\000\005\t\320\010 \240\001\330\010\013\320\013 \240\007\240q\340\014\030\320\030+\2501\320,B\300(\310-\320WX\340\014\017\210t\2205\230\003\2302\230V\2402\240Q\330\020\021\340\014\017\210t\2201\330\020\030\230\004\230A\230Q\330\020\021\360\006\000\r \230v\240Q\330\020\021\330\020\024\220A\330\020\030\230\001\360\010\000\r\034\320\033,\250A\250[\270\001\3209P\320PQ\360\014\000\r!\240\001\330\014 \240\001\330\014 \240\001\330\014 \240\001\340\014\030\230\001\330\014\020\220\010\230\001\330\020\024\220E\230\025\230a\230t\2401\330\024\035\230W\240A\240X\250Q\250d\3202C\3004\300w\310a\330\024\027\320\0270\260\001\260\033\270D\300\r\310R\310~\320]_\320_`\330\030\031\340\024\025\330\020\021\340\014\023\2201\330\014 \240\001\330\014 \240\001\340\014\020\220\r\230Q\330\020!\240\027\250\001\250\021\330\020\"\320\";\2701\270A\330\020\024\320\024$\240B\320&8\270\002\270-\300q\330\030(\250\003\250=\270\002\270.\310\002\310!\330\024\030\230\007\230r\240\034\250Q\320.?\270v\300Q\330\024)\250\021\360\006\000\r\020\210q\330\020\"\320\";\2701\270A\330\020\023\320\023#\2402\240Q\330\024\036\230l\250!\2501\330\024\027\220q\330\030\034\230C\230q\240\001\330\030\033\2304\230q\240\001\240\021\240\"\240A\240S\250\003\2501\330\034 \240\007\240r\250\031\260!\340\030\034\230G\2402\240Y\250a\360\n\000\r\020\210t\2201\330\020(\250\001\330\020(\250\001\330\020)\250\021\340\020\024\220H""\230A\330\024\030\230\005\230U\240!\2404\240q\330\030)\250\027\260\001\260\030\270\021\270$\320>O\310t\320SZ\320Z[\330\030*\320*C\3001\300A\340\030\034\320\034,\250B\320.E\300R\300}\320TU\330 0\260\003\2601\330\034&\240l\260!\2601\330\034%\240W\250B\250i\260q\330\0346\260a\330\034\037\230s\240!\240;\250c\260\021\330 !\330\024\027\220s\230!\230;\240c\250\021\330\030\031\340\020\024\220G\2301\230A\360\006\000\r\020\210t\2201\330\020\023\220=\240\003\2401\330\024\033\2303\230a\320\0371\260\024\260Q\330\024\037\230|\2501\250A\250X\260Q\260d\320:K\3104\310w\320VW\330\024\030\320\0301\260\021\260!\2608\2701\270D\320@Q\320QU\320U\\\320\\]\330\024\033\2307\240!\2404\240q\330\030!\240\021\330\030 \240\001\330\030\036\230a\330\030!\240\021\360\016\000\r\021\220\010\230\001\330\014\020\220\n\230%\230q\330\020\027\220w\230a\230t\2401\330\024\035\230Q\330\024\034\230A\330\024\032\230!\330\024\035\230Q\360\010\000\r\024\2207\230!\2304\230q\240\t\250\032\2608\320;Q\320QW\320W[\320[d\320de\330\014\024\220D\230\001\230\021\330\014\r\330\004\013\2109\220A\220M\240\033\250A\250V\3203I\310\030\320QR\200\001\360\010\000\005\016\210T\220\033\230D\240\014\250D\260\010\270\004\270K\300t\3101\330\004\014\210G\2201\220F\230,\240a\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\027\220t\230:\240W\250E\260\023\260D\270\007\270w\300e\3103\310d\320R[\320[b\320bc\330\004\007\200q\330\010\017\320\017%\240T\250\021\250'\260\033\270G\3001\340\010\017\320\017%\240T\250\021\250'\260\033\270A\200\001\360\010\000\005\016\210T\220\027\230\004\230H\240D\250\001\330\004\014\210G\2201\220F\230,\240a\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\027\220t\2306\240\027\250\005\250S\260\004\260G\2707\300%\300s\310$\310g\320U\\\320\\]\330\004\007\200q\330\010\017\320\017*\250$\250a\250w\260k\300\027\310\001\340\010\017\320\017*\250$\250a\250w\260k\300\021\200\001\360\010\000\005\016\210T\220\030\230\024\230X\240T\250\034\260T\270\033\300D\310""\001\330\004\014\210G\2201\220F\230,\240a\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\027\220t\2307\240'\250\025\250c\260\024\260[\300\007\300q\330\004\007\200q\330\010\017\320\017%\240T\250\021\250'\260\033\270G\3001\340\010\017\320\017%\240T\250\021\250'\260\033\270A\200\001\360\010\000\005\016\210T\320\021\"\240$\240k\260\024\260Q\330\004\014\210G\2201\220F\230,\240a\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\027\220t\320\033+\2507\260%\260s\270$\270f\300G\3101\330\004\007\200q\330\010\017\320\017)\250\024\250Q\250g\260[\300\007\300q\340\010\017\320\017)\250\024\250Q\250g\260[\300\001\200\001\360\010\000\005\016\210T\320\021\"\240$\240k\260\024\260Q\330\004\014\210G\2201\220F\230,\240a\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\027\220t\320\033+\2507\260%\260s\270$\270f\300G\3101\330\004\007\200q\330\010\017\320\017'\240t\2501\250G\260;\270g\300Q\340\010\017\320\017'\240t\2501\250G\260;\270a\260Z\270z\310\024\310Q\310a\310u\320T`\320`a\220\001\200\001\330\004\005\330\004\021\220\021\200\001\330\004\005\330\004\031\230\021\200\001\330\004\005\330\004\032\230!\200\001\330\004\005\330\004\026\220a\200\001\330\004&\240a\240v\250Q\200\001\330\004\005\330\004\027\220q\200\001\340\004\037\230q\320 0\260\013\270;\300k\320QR\330\004\023\2204\220x\230q\240\001\330\004\007\200|\2207\230!\330\010&\240a\240w\250n\270A\330\004\013\2101\200\001\340\004\037\230q\320 0\260\013\270;\300k\320QR\330\004\023\2206\230\030\240\021\240!\330\004\007\200|\2207\230!\330\010(\250\001\250\031\260.\300\001\330\004\013\2101\200\001\340\004\037\230q\320 0\260\013\270;\300k\320QR\330\004\023\2208\2308\2401\240A\330\004\007\200|\2207\230!\330\010*\250!\250;\260n\300A\330\004\013\2101\200\001\340\004\037\230q\320 0\260\013\270;\300k\320QR\330\004\023\2209\230H\240A\240Q\330\004\007\200|\2207\230!\330\010+\2501\250L\270\016\300a\330\004\013\2101\200\001\330\004'\240q\250\006\250a";
     PyObject *data = NULL;
     CYTHON_UNUSED_VAR(__Pyx_DecompressString);
     #endif
     PyObject **stringtab = __pyx_mstate->__pyx_string_tab;
     Py_ssize_t pos = 0;
-    for (int i = 0; i < 156; i++) {
+    for (int i = 0; i < 158; i++) {
       Py_ssize_t bytes_length = index[i].length;
       PyObject *string = PyUnicode_DecodeUTF8(bytes + pos, bytes_length, NULL);
       if (likely(string) && i >= 19) PyUnicode_InternInPlace(&string);
@@ -20226,7 +20347,7 @@ const char* const bytes = "NoneNote that Cython is deliberately stricter than PE
       stringtab[i] = string;
       pos += bytes_length;
     }
-    for (int i = 156; i < 181; i++) {
+    for (int i = 158; i < 183; i++) {
       Py_ssize_t bytes_length = index[i].length;
       PyObject *string = PyBytes_FromStringAndSize(bytes + pos, bytes_length);
       stringtab[i] = string;
@@ -20237,14 +20358,14 @@ const char* const bytes = "NoneNote that Cython is deliberately stricter than PE
       }
     }
     Py_XDECREF(data);
-    for (Py_ssize_t i = 0; i < 181; i++) {
+    for (Py_ssize_t i = 0; i < 183; i++) {
       if (unlikely(PyObject_Hash(stringtab[i]) == -1)) {
         __PYX_ERR(0, 1, __pyx_L1_error)
       }
     }
     #if CYTHON_IMMORTAL_CONSTANTS
     {
-      PyObject **table = stringtab + 156;
+      PyObject **table = stringtab + 158;
       for (Py_ssize_t i=0; i<25; ++i) {
         #if CYTHON_COMPILING_IN_CPYTHON_FREETHREADING
         #if PY_VERSION_HEX < 0x030E0000
@@ -20342,7 +20463,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_move_generator_pyx, __pyx_mstate->__pyx_n_u_lambda, __pyx_mstate->__pyx_kp_b_iso88591_M_AV3I_QR, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 484};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 486};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_x_2};
     __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_move_generator_pyx, __pyx_mstate->__pyx_n_u_lambda, __pyx_mstate->__pyx_kp_b_iso88591_Zz_QauT_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
   }
@@ -20437,8 +20558,8 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[21] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_move_generator_pyx, __pyx_mstate->__pyx_n_u_set_victory_cities, __pyx_mstate->__pyx_kp_b_iso88591_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[21])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {6, 0, 0, 26, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 373};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_player, __pyx_mstate->__pyx_n_u_territories, __pyx_mstate->__pyx_n_u_my_territory_names, __pyx_mstate->__pyx_n_u_enemy_territory_names, __pyx_mstate->__pyx_n_u_excluded, __pyx_mstate->__pyx_n_u_time_budget, __pyx_mstate->__pyx_n_u_actions, __pyx_mstate->__pyx_n_u_start, __pyx_mstate->__pyx_n_u_strengthThreshold, __pyx_mstate->__pyx_n_u_maxThreshold, __pyx_mstate->__pyx_n_u_strengthThreshold_weak, __pyx_mstate->__pyx_n_u_def_strength, __pyx_mstate->__pyx_n_u_currentStrength, __pyx_mstate->__pyx_n_u_reachable, __pyx_mstate->__pyx_n_u_sorted_reachable, __pyx_mstate->__pyx_n_u_unitsUpToStrength, __pyx_mstate->__pyx_n_u_sets, __pyx_mstate->__pyx_n_u_weak_sets, __pyx_mstate->__pyx_n_u_attacks, __pyx_mstate->__pyx_n_u_enemy_territory_name, __pyx_mstate->__pyx_n_u_info, __pyx_mstate->__pyx_n_u__10, __pyx_mstate->__pyx_n_u_l, __pyx_mstate->__pyx_n_u_best, __pyx_mstate->__pyx_n_u_atk_list, __pyx_mstate->__pyx_n_u_s};
+    const __Pyx_PyCode_New_function_description descr = {6, 0, 0, 28, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 373};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_player, __pyx_mstate->__pyx_n_u_territories, __pyx_mstate->__pyx_n_u_my_territory_names, __pyx_mstate->__pyx_n_u_enemy_territory_names, __pyx_mstate->__pyx_n_u_excluded, __pyx_mstate->__pyx_n_u_time_budget, __pyx_mstate->__pyx_n_u_actions, __pyx_mstate->__pyx_n_u_start, __pyx_mstate->__pyx_n_u_strengthThreshold, __pyx_mstate->__pyx_n_u_maxThreshold, __pyx_mstate->__pyx_n_u_strengthThreshold_weak, __pyx_mstate->__pyx_n_u_def_strength, __pyx_mstate->__pyx_n_u_currentStrength, __pyx_mstate->__pyx_n_u_reachable, __pyx_mstate->__pyx_n_u_sorted_reachable, __pyx_mstate->__pyx_n_u_unitsUpToStrength, __pyx_mstate->__pyx_n_u_sets, __pyx_mstate->__pyx_n_u_weak_sets, __pyx_mstate->__pyx_n_u_attacks, __pyx_mstate->__pyx_n_u_enemy_territory_name, __pyx_mstate->__pyx_n_u_all_units, __pyx_mstate->__pyx_n_u_info, __pyx_mstate->__pyx_n_u__10, __pyx_mstate->__pyx_n_u_unit_info, __pyx_mstate->__pyx_n_u_l, __pyx_mstate->__pyx_n_u_best, __pyx_mstate->__pyx_n_u_atk_list, __pyx_mstate->__pyx_n_u_s};
     __pyx_mstate_global->__pyx_codeobj_tab[22] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_move_generator_pyx, __pyx_mstate->__pyx_n_u_heuristic_combat_legal_moves, __pyx_mstate->__pyx_kp_b_iso88591_E_vQ_q_1_B_WX_t5_2V2Q_t1_AQ_vQ, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[22])) goto bad;
   }
   {
@@ -24784,6 +24905,48 @@ CYTHON_UNUSED static int __Pyx_VectorcallBuilder_AddArg_Check(PyObject *key, PyO
     return PyDict_SetItem(builder, key, value);
 }
 #endif
+
+/* SliceTupleAndList */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE void __Pyx_crop_slice(Py_ssize_t* _start, Py_ssize_t* _stop, Py_ssize_t* _length) {
+    Py_ssize_t start = *_start, stop = *_stop, length = *_length;
+    if (start < 0) {
+        start += length;
+        if (start < 0)
+            start = 0;
+    }
+    if (stop < 0)
+        stop += length;
+    else if (stop > length)
+        stop = length;
+    *_length = stop - start;
+    *_start = start;
+    *_stop = stop;
+}
+static CYTHON_INLINE PyObject* __Pyx_PyTuple_GetSlice(
+            PyObject* src, Py_ssize_t start, Py_ssize_t stop) {
+    Py_ssize_t length = PyTuple_GET_SIZE(src);
+    __Pyx_crop_slice(&start, &stop, &length);
+    return __Pyx_PyTuple_FromArray(((PyTupleObject*)src)->ob_item + start, length);
+}
+static CYTHON_INLINE PyObject* __Pyx_PyList_GetSlice_locked(
+            PyObject* src, Py_ssize_t start, Py_ssize_t stop) {
+    Py_ssize_t length = PyList_GET_SIZE(src);
+    __Pyx_crop_slice(&start, &stop, &length);
+    if (length <= 0) {
+        return PyList_New(0);
+    }
+    return __Pyx_PyList_FromArray(((PyListObject*)src)->ob_item + start, length);
+}
+static CYTHON_INLINE PyObject* __Pyx_PyList_GetSlice(
+            PyObject* src, Py_ssize_t start, Py_ssize_t stop) {
+    PyObject *result;
+    __Pyx_BEGIN_CRITICAL_SECTION(src);
+    result = __Pyx_PyList_GetSlice_locked(src, start, stop);
+    __Pyx_END_CRITICAL_SECTION();
+    return result;
+}
+#endif // CYTHON_COMPILING_IN_CPYTHON
 
 /* PyLongBinop */
 #if !CYTHON_COMPILING_IN_PYPY

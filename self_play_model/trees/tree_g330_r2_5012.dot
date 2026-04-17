@@ -1,0 +1,35 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=1000\navg=-0.012\np=1.000"];
+  n1 [label="#1\nvis=268\navg=-0.012\np=0.268"];
+  n2 [label="#2\nvis=384\navg=-0.012\np=0.385"];
+  n3 [label="#3\nvis=347\navg=-0.012\np=0.347"];
+  n4 [label="#4\nvis=138\navg=-0.012\np=0.520"];
+  n5 [label="#5\nvis=128\navg=-0.012\np=0.480"];
+  n6 [label="#6\nvis=199\navg=-0.012\np=0.520"];
+  n7 [label="#7\nvis=183\navg=-0.012\np=0.480"];
+  n8 [label="#8\nvis=179\navg=-0.012\np=0.520"];
+  n9 [label="#9\nvis=166\navg=-0.012\np=0.480"];
+  n10 [label="#10\nvis=66\navg=-0.012\np=0.520"];
+  n11 [label="#11\nvis=60\navg=-0.012\np=0.480"];
+  n12 [label="#12\nvis=94\navg=-0.012\np=0.520"];
+  n13 [label="#13\nvis=87\navg=-0.012\np=0.480"];
+  n14 [label="#14\nvis=85\navg=-0.012\np=0.520"];
+  n15 [label="#15\nvis=79\navg=-0.012\np=0.480"];
+  n0 -> n1 [label="GermanStepTwo | 2x infantry"];
+  n0 -> n2 [label="GermanStepTwo | 1x infantry"];
+  n0 -> n3 [label="GermanStepTwo | "];
+  n1 -> n4 [label="GermanStartRight | 1x armour"];
+  n1 -> n5 [label="GermanStartRight | "];
+  n2 -> n6 [label="GermanStartRight | 1x armour"];
+  n2 -> n7 [label="GermanStartRight | "];
+  n3 -> n8 [label="GermanStartRight | 1x armour"];
+  n3 -> n9 [label="GermanStartRight | "];
+  n5 -> n10 [label="BottomBar | 1x armour"];
+  n5 -> n11 [label="BottomBar | "];
+  n7 -> n12 [label="BottomBar | 1x armour"];
+  n7 -> n13 [label="BottomBar | "];
+  n9 -> n14 [label="BottomBar | 1x armour"];
+  n9 -> n15 [label="BottomBar | "];
+}

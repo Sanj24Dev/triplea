@@ -866,15 +866,14 @@ class PolicyGuidedMCTS:
             efficiency_file, quality_file, 
             production_rules, terr_production, vic_cities, adj, order, 
             # move_to_id, id_to_move,
-            grid_index, grid_shape,
             device="cuda",
             ):
 
         self.latest_legal_moves = []
         self.episode_examples = []   # current game examples
         self.last_pi = []            # set after each mcts_search
-        self.shared_buffer_path = f"{model_name}/checkpoints/cnn/shared_buffer_{port}.pkl"
-        self.weight_path = f"{model_name}/checkpoints/cnn/latest.pt"
+        self.shared_buffer_path = f"{model_name}/checkpoints/gnn/shared_buffer_{port}.pkl"
+        self.weight_path = f"{model_name}/checkpoints/gnn/latest.pt"
         self.games_played = 0
         self.whoAmI = None
         self.curr_game_len = 0
@@ -891,8 +890,6 @@ class PolicyGuidedMCTS:
         self.port = port
         self.net = net.to(device)
         self.device = device
-        self.grid_index = grid_index
-        self.grid_shape = grid_shape
 
         # file paths to store metrics
         self.efficiency_metric = MetricLogger(
@@ -1004,9 +1001,8 @@ class PolicyGuidedMCTS:
 
     def encode(self, state):
         return get_encoded_state(
-            state, 
-            self.grid_index, self.grid_shape, 
-            victory_cities, territory_production, turn_order
+            state, adjacency, turn_order,
+            victory_cities, territory_production
             )
     
     def encode_move_features(self, action, state) -> np.ndarray:
@@ -1035,7 +1031,10 @@ class PolicyGuidedMCTS:
             return {}
 
         move_feats = [self.encode_move_features(a, state) for _, a in valid]
-        probs = self.net.score_moves_batch(self.encode(state), move_feats, self.device)
+        data = self.encode(state)
+        node_feats = data.x
+        edge_index = data.edge_index
+        probs = self.net.score_moves_batch(node_feats, edge_index, move_feats, self.device)
 
         return {aid: float(p) for (aid, _), p in zip(valid, probs)}
 
@@ -1080,7 +1079,7 @@ class PolicyGuidedMCTS:
 
     def simulate(self, state):
         tensor = self.encode(state)
-        value = self.net.predict_value(tensor, self.device)
+        value = self.net.predict_value(tensor.x, tensor.edge_index, self.device)
         return float(value)
         
     
@@ -1144,6 +1143,8 @@ class PolicyGuidedMCTS:
             dot_file, png_file = save_mcts_tree_png(root, tree_prefix, max_nodes=500, render_img=True)
         # print("Saved tree:", dot_file, png_file)
 
+        # print(f"MCTS completed {self.iteration} iterations in {round(end_time - start_time, 2)} seconds. Max depth reached: {self.max_depth}")
+
         action_seq = []
         node = root
         depth = 0
@@ -1172,7 +1173,7 @@ class PolicyGuidedMCTS:
             
             total_visits = sum(c.visits for c in node.children)
             move_pi = [(c.action, c.visits/total_visits) for c in node.children]
-            state_tensor = self.encode(node.state)
+            data = self.encode(node.state)
 
             # if depth >= 1 and len(node.children) >= 2:
             visit_counts = np.array([c.visits for c in node.children])
@@ -1191,7 +1192,8 @@ class PolicyGuidedMCTS:
             move_feats = [self.encode_move_features(m, node.state) for m, _ in move_pi]
             pi = [p for _, p in move_pi]
             self.episode_examples.append({
-                "state": state_tensor.numpy(),
+                "node_feats": data.x,           # tensor (N, F)
+                "edge_index": data.edge_index,  # tensor (2, E)
                 "move_feats": move_feats,
                 "pi": pi,
                 "player": self.whoAmI,
@@ -1230,7 +1232,8 @@ class PolicyGuidedMCTS:
         
         completed = [
             SelfPlayExample(
-                state_tensor=ex["state"],
+                node_feats  = ex["node_feats"],
+                edge_index  = ex["edge_index"],
                 move_feats=ex["move_feats"],
                 pi=ex["pi"],
                 round_num=ex["round_num"],

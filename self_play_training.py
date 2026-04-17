@@ -6,7 +6,7 @@ import time
 from helper import parse_triplea_map
 
 # ---------- GLOBAL ENV VARS ----------
-os.environ["PROJECT_ROOT"] = "/home/sanjana/tripleMind"
+os.environ["PROJECT_ROOT"] = "/home/sanjana/tripleMindGNN"
 os.environ["GAMES_TO_PLAY"] = "1"
 
 os.environ["PLAYER_1"] = "startup.PlayerTypes.PLAYER_TYPE_AI_TRIPLE_MIND_LABEL"
@@ -15,10 +15,10 @@ os.environ["PLAYER_3"] = "startup.PlayerTypes.PLAYER_TYPE_AI_TRIPLE_MIND_LABEL"
 os.environ["PLAYER_4"] = "startup.PlayerTypes.PLAYER_TYPE_AI_TRIPLE_MIND_LABEL"
 # PLAYER_TYPE_AI_EASY_LABEL
 
-os.environ["PLAYER_1_PORT"] = "5000"
-os.environ["PLAYER_2_PORT"] = "5001"
-os.environ["PLAYER_3_PORT"] = "5002"
-os.environ["PLAYER_4_PORT"] = "5003"
+os.environ["PLAYER_1_PORT"] = "5010"
+os.environ["PLAYER_2_PORT"] = "5011"
+os.environ["PLAYER_3_PORT"] = "5012"
+os.environ["PLAYER_4_PORT"] = "5013"
 
 MODEL_NAME = "self_play_model"
 
@@ -198,7 +198,7 @@ def save_zip(folder_path, zip_path):
 
 
 start_time = time.time()
-print(f"Training started at {time.strftime("%H:%M:%S")}")
+print(f"Training started at {time.strftime('%Y-%m-%d %H:%M:%S')}")
 
 with open("config.json", 'r') as f:
     data = json.load(f)
@@ -224,10 +224,10 @@ try:
 
         game_start_time = time.time()
 
-        p1 = start_agent("Russians", 5000)
-        p2 = start_agent("Italians", 5001)
-        p3 = start_agent("Germans", 5002)
-        p4 = start_agent("Chinese", 5003)
+        p1 = start_agent("Russians", 5010)
+        p2 = start_agent("Italians", 5011)
+        p3 = start_agent("Germans", 5012)
+        p4 = start_agent("Chinese", 5013)
 
         print(f"\nStarting Game {i}")
         time.sleep(5)
@@ -240,10 +240,10 @@ try:
         time.sleep(5)
 
 
-        stop_process(p1, 5000)
-        stop_process(p2, 5001)
-        stop_process(p3, 5002)
-        stop_process(p4, 5003)
+        stop_process(p1, 5010)
+        stop_process(p2, 5011)
+        stop_process(p3, 5012)
+        stop_process(p4, 5013)
 
         time.sleep(5)
         save_profile()

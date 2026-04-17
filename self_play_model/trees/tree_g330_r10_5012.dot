@@ -1,0 +1,23 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=1000\navg=-0.012\np=1.000"];
+  n1 [label="#1\nvis=999\navg=-0.012\np=1.000"];
+  n2 [label="#2\nvis=997\navg=-0.012\np=1.000"];
+  n3 [label="#3\nvis=149\navg=-0.012\np=0.150"];
+  n4 [label="#4\nvis=147\navg=-0.012\np=0.148"];
+  n5 [label="#5\nvis=145\navg=-0.012\np=0.146"];
+  n6 [label="#6\nvis=143\navg=-0.012\np=0.143"];
+  n7 [label="#7\nvis=141\navg=-0.012\np=0.141"];
+  n8 [label="#8\nvis=138\navg=-0.012\np=0.139"];
+  n9 [label="#9\nvis=132\navg=-0.012\np=0.132"];
+  n0 -> n1 [label="ChineseStartRight | "];
+  n1 -> n2 [label="Flag | "];
+  n2 -> n3 [label="GermanStartRight | 2x armour, 5x artillery, 1x infantry"];
+  n2 -> n4 [label="GermanStartRight | 2x armour, 5x artillery"];
+  n2 -> n5 [label="GermanStartRight | 2x armour, 4x artillery"];
+  n2 -> n6 [label="GermanStartRight | 2x armour, 3x artillery"];
+  n2 -> n7 [label="GermanStartRight | 2x armour, 2x artillery"];
+  n2 -> n8 [label="GermanStartRight | 2x armour, 1x artillery"];
+  n2 -> n9 [label="GermanStartRight | "];
+}

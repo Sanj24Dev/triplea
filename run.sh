@@ -26,10 +26,9 @@ rm -f $MODEL_NAME/test/metrics/*
 rm -f $MODEL_NAME/test/player_logs/*
 rm -f $MODEL_NAME/test/profiles/*
 rm -f $MODEL_NAME/test/profiling/*
-rm ../logs/player_5000/Capture\ The\ Flag.log
-rm ../logs/player_5001/Capture\ The\ Flag.log
-rm ../logs/player_5002/Capture\ The\ Flag.log
-rm ../logs/player_5003/Capture\ The\ Flag.log
-
+rm ../logs/player_5010/Capture\ The\ Flag.log
+rm ../logs/player_5011/Capture\ The\ Flag.log
+rm ../logs/player_5012/Capture\ The\ Flag.log
+rm ../logs/player_5013/Capture\ The\ Flag.log
 # run the self play training
 python -u self_play_testing.py > testing_log.txt 

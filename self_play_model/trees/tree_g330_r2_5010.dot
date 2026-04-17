@@ -1,0 +1,35 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=1000\navg=0.040\np=1.000"];
+  n1 [label="#1\nvis=239\navg=0.040\np=0.239"];
+  n2 [label="#2\nvis=261\navg=0.040\np=0.262"];
+  n3 [label="#3\nvis=499\navg=0.040\np=0.499"];
+  n4 [label="#4\nvis=116\navg=0.040\np=0.489"];
+  n5 [label="#5\nvis=121\navg=0.040\np=0.511"];
+  n6 [label="#6\nvis=127\navg=0.040\np=0.489"];
+  n7 [label="#7\nvis=132\navg=0.040\np=0.511"];
+  n8 [label="#8\nvis=243\navg=0.040\np=0.489"];
+  n9 [label="#9\nvis=254\navg=0.040\np=0.511"];
+  n10 [label="#10\nvis=58\navg=0.040\np=0.489"];
+  n11 [label="#11\nvis=61\navg=0.040\np=0.511"];
+  n12 [label="#12\nvis=64\navg=0.040\np=0.489"];
+  n13 [label="#13\nvis=66\navg=0.040\np=0.511"];
+  n14 [label="#14\nvis=123\navg=0.040\np=0.489"];
+  n15 [label="#15\nvis=129\navg=0.040\np=0.511"];
+  n0 -> n1 [label="LeftBar | 2x infantry"];
+  n0 -> n2 [label="LeftBar | 1x infantry"];
+  n0 -> n3 [label="LeftBar | "];
+  n1 -> n4 [label="RussianStepOne | 1x armour"];
+  n1 -> n5 [label="RussianStepOne | "];
+  n2 -> n6 [label="RussianStepOne | 1x armour"];
+  n2 -> n7 [label="RussianStepOne | "];
+  n3 -> n8 [label="RussianStepOne | 1x armour"];
+  n3 -> n9 [label="RussianStepOne | "];
+  n5 -> n10 [label="RussianStartLeft | 1x armour"];
+  n5 -> n11 [label="RussianStartLeft | "];
+  n7 -> n12 [label="RussianStartLeft | 1x armour"];
+  n7 -> n13 [label="RussianStartLeft | "];
+  n9 -> n14 [label="RussianStartLeft | 1x armour"];
+  n9 -> n15 [label="RussianStartLeft | "];
+}

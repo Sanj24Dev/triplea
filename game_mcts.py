@@ -8,9 +8,8 @@ import argparse
 from ctf_graph import CaptureTheFlag, MetricLogger
 from helper import parse_triplea_map, convert_action_to_json
 from combat_policy_mcts_agent import PolicyGuidedMCTS
-from nn_models.cnn.policy_value_net import PolicyValueNet
+from nn_models.gnn.policy_value_net import GNNPolicyValueNet
 from nn_models.utils.move_db import get_dict_len
-from nn_models.utils.encoding import build_grid_index_ctf
 
 
 
@@ -42,10 +41,8 @@ def log_message(port, message):
 
 def agent_loop(host="127.0.0.1", port=5000):
     turn_order = ["Russians", "Italians", "Germans", "Chinese"]
-    net = PolicyValueNet(in_channels=12, grid_shape=(9,9), num_filters=64, num_res_blocks=5)
-    grid_index = build_grid_index_ctf()
-    grid_shape = (9,9)
-    agent = PolicyGuidedMCTS(model_name, port, net, efficiency_file, quality_file, ctf.production_rules, ctf.territory_production, ctf.victory_cities, ctf.G, turn_order, grid_index, grid_shape)
+    net = GNNPolicyValueNet(node_feat_dim=13, edge_feat_dim=0, hidden_dim=64, num_layers=5, move_feat_dim=7)
+    agent = PolicyGuidedMCTS(model_name, port, net, efficiency_file, quality_file, ctf.production_rules, ctf.territory_production, ctf.victory_cities, ctf.G, turn_order)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # try:
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -157,7 +154,7 @@ def agent_loop(host="127.0.0.1", port=5000):
                             log_message(port, f"Game {ctf.game_num} ended. Starting next game in 5s.")
                             # won = my_player in msg and "lost" not in msg
                             # before = time.time()
-                            # print(f"Weighted the samples with {agent.curr_game_len}")
+                            print(f"Weighted the samples with {agent.curr_game_len}")
                             agent.on_game_end(z, agent.curr_game_len, ctf.round, ctf.game_num)
                             # time_taken_to_save = time.time() - before
                             # log_message(port, f"Time taken to save: {time_taken_to_save}")

@@ -421,27 +421,27 @@ def heuristic_combat_legal_moves(
             sets              = []
             unitsUpToStrength = []
             
+            all_units = []
             for info in sorted_reachable:
-                
-                # expand each unit one at a time (qty > 1 handled by iterating qty times)
                 for _ in range(info.quantity):
-                    unitsUpToStrength.append(UnitInfo(info.from_territory, info.unit, 1))
-                    
-                    currentStrength = calculate_attack_strength(unitsUpToStrength)
-                    
-                    if (currentStrength > strengthThreshold * def_strength and
-                            currentStrength < (maxThreshold * def_strength) + 4):
-
-                        attacks = form_attacks(unitsUpToStrength)
-                        sets.append((attacks, currentStrength))
-                        strengthThreshold += 0.1
-
-                    if currentStrength >= (maxThreshold * def_strength) + 4:
+                    all_units.append(UnitInfo(info.from_territory, info.unit, 1))
+                    if calculate_attack_strength(all_units) >= (maxThreshold * def_strength) + 4:
                         break
                 else:
                     continue
-                break 
+                break
 
+            sets = []
+            unitsUpToStrength = []
+            strengthThreshold = 1.5
+
+            for unit_info in all_units:
+                unitsUpToStrength.append(unit_info)
+                currentStrength = calculate_attack_strength(unitsUpToStrength)
+                if (currentStrength > strengthThreshold * def_strength and
+                        currentStrength < (maxThreshold * def_strength) + 4):
+                    sets.append((form_attacks(unitsUpToStrength[:]), currentStrength))
+                    strengthThreshold += 0.1
 
             # always include full force if it beats defender
             if unitsUpToStrength:
@@ -452,6 +452,8 @@ def heuristic_combat_legal_moves(
                         l = len(sets)
                         if sets[l-1][1] != currentStrength:
                             sets.append((attacks, currentStrength))
+                    else:
+                        sets.append((attacks, currentStrength))
 
 
 

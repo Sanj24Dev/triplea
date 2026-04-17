@@ -25,7 +25,6 @@ def active_ports():
             ports.append(int(v))
         except ValueError:
             print(f"[WARN] Ignoring invalid port in {k}={v!r}")
-    # de-dup, stable order
     seen = set()
     out = []
     for p in ports:
@@ -34,17 +33,15 @@ def active_ports():
             seen.add(p)
     return out
 
+
 class SelfPlayTrainer():
     def __init__(self, net,
-                #  mcts_factory, state_factory,
-                buffer, save_dir="self_play_model/checkpoints/cnn", device="cpu", 
-                lr=1e-3, weight_decay=1e-4, batch_size=32, 
-                epochs_per_iter=1, self_play_games=20, num_iterations=100,
-                temp_threshold=15
-                ):
+                 buffer, save_dir="self_play_model/checkpoints/gnn", device="cpu",
+                 lr=1e-3, weight_decay=1e-4, batch_size=32,
+                 epochs_per_iter=1, self_play_games=20, num_iterations=100,
+                 temp_threshold=15
+                 ):
         self.net = net
-        # self.mcts_factory = self.mcts_factory
-        # self.state_factory = self.state_factory
         self.buffer = buffer
         self.save_dir = save_dir
         self.device = device
@@ -71,7 +68,7 @@ class SelfPlayTrainer():
             "optimizer_state_dict": self.optimizer.state_dict(),
             "history": self.history,
         }, fname)
-        print(f"  Checkoint saved -> {fname}")
+        print(f"  Checkpoint saved -> {fname}")
         return fname
 
     def load_checkpoint(self, path):
@@ -81,7 +78,7 @@ class SelfPlayTrainer():
         self.history = ckpt.get("history", [])
         print(f"  [Checkpoint] loaded ← {path}")
         return ckpt["iteration"]
- 
+
     def self_play_iteration(self, iteration):
         ckpt_path = os.path.join(self.save_dir, "latest.pt")
         torch.save({
@@ -98,39 +95,23 @@ class SelfPlayTrainer():
         total_value_loss  = 0.0
         n_batches         = 0
 
-        for state_tensors, move_features_batch, probs, zs, mask in loader:
-            state_tensors       = state_tensors.to(self.device)
+        # ── Unpack 7-tuple from GNN collate_fn ───────────────────────────
+        for node_feats, edge_index, batch_vec, move_features_batch, probs, zs, mask in loader:
+            node_feats          = node_feats.to(self.device)
+            edge_index          = edge_index.to(self.device)
+            batch_vec           = batch_vec.to(self.device)
             move_features_batch = move_features_batch.to(self.device)
             probs               = probs.to(self.device)
             zs                  = zs.to(self.device)
             mask                = mask.to(self.device)
 
-            log_p, v = self.net(state_tensors, move_features_batch, mask)
-            
-            # if torch.isnan(probs).any():
-            #     print(f"NAN in probs! shape={probs.shape}")
-            #     print(probs[torch.isnan(probs).any(dim=-1)])
-            # if torch.isnan(zs).any():
-            #     print(f"NAN in zs! {zs}")
-            # prob_sums = probs.sum(dim=-1)
-            # if not torch.allclose(prob_sums, torch.ones_like(prob_sums), atol=1e-3):
-            #     print(f"probs don't sum to 1: {prob_sums}")
+            # ── Forward: pass batch vector so GNN can pool per-graph ─────
+            log_p, v = self.net(node_feats, edge_index, move_features_batch, batch=batch_vec, mask=mask)
 
-            # print(f"log_p nan: {torch.isnan(log_p).any()}, inf: {torch.isinf(log_p).any()}")
-            # print(f"probs nan: {torch.isnan(probs).any()}, sum: {probs.sum(dim=-1).min():.4f}")
-            # print(f"probs*log_p sample: {(probs * log_p)[0][:5]}")
-
-            # policy_loss = -(probs * log_p).sum(dim=-1).mean()
-            # print(f"policy_loss: {policy_loss}")
-
-            # value_loss = F.mse_loss(v, zs)
-            # print(f"value_loss: {value_loss}")
-
-            # policy_loss = -(probs * log_p).sum(dim=-1).mean()
             policy_loss = -(torch.where(probs > 0, probs * log_p, torch.zeros_like(log_p))).sum(dim=-1).mean()
             value_loss  = F.mse_loss(v, zs)
             loss        = policy_loss + 0.5 * value_loss
-
+ 
             self.optimizer.zero_grad()
             loss.backward()
             grad_norm = torch.nn.utils.clip_grad_norm_(self.net.parameters(), 0.5)
@@ -143,7 +124,6 @@ class SelfPlayTrainer():
             last_probs, last_v = probs.detach(), v.detach()
 
         return total_policy_loss / max(1, n_batches), total_value_loss / max(1, n_batches), last_probs, last_v, last_grad_norm
-
 
     def run(self):
         poll_interval = 300
@@ -160,10 +140,7 @@ class SelfPlayTrainer():
 
         while True:
             time.sleep(poll_interval)
-            
-            
 
-            # read buffer once per iteration
             ports_active = active_ports()
             examples = []
             for p in ports_active:
@@ -178,7 +155,6 @@ class SelfPlayTrainer():
                     os.remove(buffer_path)
                 examples.extend(ex)
 
-            
             if len(examples) == 0:
                 print(f"  [Iter {iteration}] No new data, waiting...")
                 continue
@@ -193,8 +169,6 @@ class SelfPlayTrainer():
                 n_samples = self.batch_size * 8
                 self.epochs_per_iter = 3
 
-            # train epochs_per_iter times on same sampled batch
-            # n_samples = min(self.batch_size * 4, len(self.buffer))
             samples = self.buffer.sample(n_samples)
             loader  = DataLoader(
                 SelfPlayDataset(samples),
@@ -209,7 +183,7 @@ class SelfPlayTrainer():
                 pl, vl, last_probs, last_v, grad_norm = self._train_on_loader(loader)
                 self.scheduler.step()
             print(f"  [Iter {iteration}] policy_loss={pl:.4f}  value_loss={vl:.4f}  buffer={len(self.buffer)}")
-            
+
             mask = last_probs > 0
             entropy_vals = []
             for i in range(last_probs.shape[0]):
@@ -239,23 +213,20 @@ class SelfPlayTrainer():
                 self.save_checkpoint(iteration, tag="")
             iteration += 1
 
-            
 
-
-
-from nn_models.cnn.policy_value_net import PolicyValueNet
+# ── Instantiation ─────────────────────────────────────────────────────────────
+from nn_models.gnn.policy_value_net import GNNPolicyValueNet
 from nn_models.data.self_play_data import SelfPlayBuffer
 
-SAVE_DIR    = "self_play_model/checkpoints/cnn"
-DEVICE      = "cuda"
-GRID_SHAPE  = (9, 9)
+SAVE_DIR   = "self_play_model/checkpoints/gnn"
+DEVICE     = "cuda"
 
 if __name__ == "__main__":
-    net = PolicyValueNet(
-        in_channels   = 12,
-        grid_shape    = GRID_SHAPE,
-        num_filters   = 64,
-        num_res_blocks= 5,
+    net = GNNPolicyValueNet(
+        node_feat_dim = 13,
+        edge_feat_dim = 0,
+        hidden_dim    = 64,
+        num_layers    = 5,
         move_feat_dim = 7,
     ).to(DEVICE)
 
@@ -272,4 +243,4 @@ if __name__ == "__main__":
         num_iterations  = 1000,
     )
 
-    trainer.run()  # blocks forever, polling for examples
+    trainer.run()

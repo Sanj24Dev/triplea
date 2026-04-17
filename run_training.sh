@@ -29,10 +29,10 @@ rm -f $MODEL_NAME/profiling/*
 rm -f $MODEL_NAME/combat_moves/*
 # rm forfeit_*
 rm -f $MODEL_NAME/trees/*
-rm ../logs/player_5000/Capture\ The\ Flag.log
-rm ../logs/player_5001/Capture\ The\ Flag.log
-rm ../logs/player_5002/Capture\ The\ Flag.log
-rm ../logs/player_5003/Capture\ The\ Flag.log
+rm ../logs/player_5010/Capture\ The\ Flag.log
+rm ../logs/player_5011/Capture\ The\ Flag.log
+rm ../logs/player_5012/Capture\ The\ Flag.log
+rm ../logs/player_5013/Capture\ The\ Flag.log
 
 # run the self play training
 python -u self_play_training.py > training_log.txt 

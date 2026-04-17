@@ -11,7 +11,7 @@ main_folder = args.folder
 FOLDER = f"{main_folder}/metrics"
 
 # ---- Load checkpoint ----
-ckpt = torch.load("self_play_model/checkpoints/cnn/latest.pt", map_location="cpu")
+ckpt = torch.load("self_play_model/checkpoints/gnn/model_iter0290.pt", map_location="cpu")
 
 history = ckpt["history"]
 
@@ -26,7 +26,7 @@ df = pd.DataFrame(history)
 print("Loaded iterations:", len(df))
 
 # Optional smoothing
-df_smooth = df.rolling(20).mean()
+df_smooth = df.rolling(5).mean()
 # df_smooth = df
 
 # ---- Plot ----
@@ -57,6 +57,6 @@ for ax in axes.flat:
     ax.grid(True)
 
 plt.tight_layout()
-plt.savefig(f"{FOLDER}/training.png", dpi=150, bbox_inches="tight")
-print(f"Saved {FOLDER}/training.png")
+plt.savefig(f"{FOLDER}/training_0290.png", dpi=150, bbox_inches="tight")
+print(f"Saved {FOLDER}/training_0290.png")
 plt.close()

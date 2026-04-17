@@ -1,0 +1,7 @@
+digraph MCTS {
+  rankdir=TB;
+  node [shape=box, fontsize=10];
+  n0 [label="#0\nvis=1000\navg=-0.047\np=1.000"];
+  n1 [label="#1\nvis=999\navg=-0.047\np=1.000"];
+  n0 -> n1 [label="RussianStartRight | "];
+}
