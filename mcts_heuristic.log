@@ -1,0 +1,11 @@
+Games started at 2026-04-25 18:52:52
+Data successfully extracted and saved to gameInfo/Capture The Flag.json
+
+Starting Game 1
+Game 1 finished.
+Process 3627911 did not exit in 5s. Terminating...
+Process 3627911 terminated gracefully.
+lsof -i:5003 => 
+Profile records saved
+
+Time taken: 1265 seconds
