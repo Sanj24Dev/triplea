@@ -23,3 +23,6 @@ out/
 game-app/smoke-testing/src/test/resources/save-games/
 
 game-headed/triplea.log
+
+
+mcts_heuristic_v2/metrics/*.csv
