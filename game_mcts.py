@@ -18,6 +18,7 @@ parser.add_argument("--efficiency_file", type=str, required=True)
 parser.add_argument("--outcome_file", type=str, required=True)
 parser.add_argument("--quality_file", type=str, required=True)
 parser.add_argument("--rollout_file", type=str, required=True)
+parser.add_argument("--playerInfo_file", type=str, required=True)
 parser.add_argument("--model_name", type=str, required=True)
 args = parser.parse_args()
 
@@ -26,12 +27,13 @@ efficiency_file = args.efficiency_file
 outcome_file = args.outcome_file
 quality_file = args.quality_file
 rollout_file = args.rollout_file
+playerInfo_file = args.playerInfo_file
 model_name = args.model_name
 
 
 def agent_loop(host="127.0.0.1", port=5000):
     turn_order = ["Russians", "Italians", "Germans", "Chinese"]
-    agent = MCTS(model_name, reduction_file, efficiency_file, quality_file, rollout_file, ctf.production_rules, ctf.territory_production, ctf.victory_cities, ctf.G, turn_order)
+    agent = MCTS(model_name, efficiency_file, quality_file, rollout_file, ctf.production_rules, ctf.territory_production, ctf.victory_cities, ctf.G, turn_order, ctf.territories)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind((host, port))
     sock.listen(1)
@@ -42,6 +44,7 @@ def agent_loop(host="127.0.0.1", port=5000):
     my_player = ""
     prevCombat_empty = False
     FORFEIT_FLAG = f"forfeit.flag"
+    start_time = time.time()
 
     try:
         # print("Waiting for accept()")
@@ -84,12 +87,24 @@ def agent_loop(host="127.0.0.1", port=5000):
 
                             # response = []
                         elif msg.startswith("[INFO]") and "stopped" in msg: 
+                            time_taken = time.time() - start_time
+                            bracket_str = msg[msg.index("[", msg.index("]") + 1): msg.rindex("]") + 1]
+                            players = [p.strip() for p in bracket_str.strip("[]").split(",") if p.strip()]
+                            # print(bracket_str, "players:", players)
+                            rank = 5 
+                            for p in players:
+                                rank -= 1
+                                if p == my_player:
+                                    break
+                            if rank == 5:
+                                rank = 0
+                                
                             if "lost" in msg:
-                                ctf.game_outcome_metric.log(ctf.game_num, ctf.round, "lost")
+                                ctf.game_outcome_metric.log(ctf.game_num, ctf.round, "lost", int(time_taken), rank, bracket_str)
                             elif parts[3] == my_player:
-                                ctf.game_outcome_metric.log(ctf.game_num, ctf.round, "won")
+                                ctf.game_outcome_metric.log(ctf.game_num, ctf.round, "won", int(time_taken), rank, bracket_str)
                             else:
-                                ctf.game_outcome_metric.log(ctf.game_num, ctf.round, "lost")
+                                ctf.game_outcome_metric.log(ctf.game_num, ctf.round, "lost", int(time_taken), rank, bracket_str)
                             ctf.reset()
                             agent.latest_legal_moves = []   # reset agent memory
                             r = "0"
@@ -104,7 +119,7 @@ def agent_loop(host="127.0.0.1", port=5000):
                             if ctf.round != 0:
                                 agent.pu_after_combat = ctf.players[ctf.whoAmI].PU
                                 agent.terr_after_combat = sum(1 for t in ctf.territories.values() if t.owner == ctf.whoAmI)
-                                agent.combat_quality.log(ctf.game_num, ctf.round, agent.pu_after_combat, agent.terr_before_combat, agent.terr_after_combat)
+                                agent.combat_quality.log(ctf.game_num, ctf.round, agent.pu_after_combat, agent.terr_after_combat)
                             ctf.round = int(r)
                         elif msg.startswith("[INFO]") and "Role:" in msg:
                             ctf.apply_change_line(msg, 0)
@@ -137,20 +152,21 @@ def agent_loop(host="127.0.0.1", port=5000):
 with open("config.json", 'r') as f:
     data = json.load(f)
 
-xml_file = data["DEFAULT_GAME_URI_PREF"] # Path to your TripleA XML file
-xml_file = xml_file.split("//")[1]
+# xml_file = data["DEFAULT_GAME_URI_PREF"] # Path to your TripleA XML file
+# xml_file = xml_file.split("//")[1]
 output_file = "gameInfo/" + data["DEFAULT_GAME_NAME_PREF"]+".json"  # Output JSON file
 
-parse_triplea_map(xml_file, output_file)
+# parse_triplea_map(xml_file, output_file)
 
 with open(output_file, "r") as f:
     game_data = json.load(f)
 
 ctf = CaptureTheFlag("gameInfo/Capture The Flag.json", outcome_file)
 ctf.game_num = START_GAME_NUM
+print(f"Starting from game number: {ctf.game_num}")
 
 player_info = MetricLogger(
-            "multi_front_attack/metrics/player_info.csv",
+            playerInfo_file,
             header=["game", "player"]
         )
 

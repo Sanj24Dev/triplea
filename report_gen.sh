@@ -3,17 +3,17 @@ module load python
 module load gcc
 module load cmake
 
-REPORT_FOLDER="multi_front_attack"
+REPORT_FOLDER="mcts_heuristic_v2"
 
 # use the following for profiling and analysis
 python3 plot_efficiency.py --folder "$REPORT_FOLDER"
 # python3 plot_reduction.py --folder "$REPORT_FOLDER"
 python3 plot_game_outcome.py --folder "$REPORT_FOLDER"
 python3 plot_combat_quality.py --folder "$REPORT_FOLDER"
-# python3 plot_profile.py --folder "$REPORT_FOLDER"
+python3 plot_profile.py --folder "$REPORT_FOLDER"
 python3 rollout_eff_plot.py --folder "$REPORT_FOLDER"
 
-REPORT_PDF="multi_front_model3.pdf"
+# REPORT_PDF="multi_front_model3.pdf"
 # GAME_SUMMARY=$(cat << 'EOF'
 # <b>Smart-Root–Dumb-Tree Model</b><br/>
 # <b>Search scope :</b> Combat move selection only - attacks only 1 territory in a round <br />
@@ -34,12 +34,12 @@ REPORT_PDF="multi_front_model3.pdf"
 # EOF
 # )
 
-GAME_SUMMARY="multi-front-attack with sequence of non combat move in a turn"
+# GAME_SUMMARY="multi-front-attack with sequence of non combat move in a turn"
 
 # rm "$REPORT_PDF"
 # python3 summary_script.py --file_name="$REPORT_PDF" --report_folder="$REPORT_FOLDER" --game_summary="$GAME_SUMMARY"
 # rm multi_front_attack_rusVSchi.zip
-zip -r multi_front_attack_chi100.zip $REPORT_FOLDER combat_mcts_agent.py 
+# zip -r multi_front_attack_chi100.zip $REPORT_FOLDER combat_mcts_agent.py 
 
 
 # <b>Legal Combat Move Generation</b><br/>

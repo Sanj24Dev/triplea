@@ -6,7 +6,7 @@ import os
 import socket  
 
 # --- CONFIG ---
-PLAY_ROUNDS = 100   # max rounds per game
+PLAY_ROUNDS = 200   # max rounds per game
 PLAY_GAMES = int(os.environ["GAMES_TO_PLAY"])     # number of games to play
 CHECK_INTERVAL = 2  # seconds between log checks
 FORFEIT_CHECK = 20
@@ -14,7 +14,7 @@ FORFEIT_CHECK = 20
 def notify_agent_game_end(host="127.0.0.1", port=5000):
     # send a line that game_mcts.py can interpret as a stop
     # keep it simple: include "stopped" and "lost" so it goes down the existing branch
-    msg = f"[INFO] game stopped lost\n"
+    msg = f"[INFO] Game stopped lost []\n"
     try:
         with socket.create_connection((host, port), timeout=2) as s:
             s.sendall(msg.encode("utf-8"))

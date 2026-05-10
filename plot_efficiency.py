@@ -79,8 +79,9 @@ ax.fill_between(
     alpha=0.3,
     label="25–75 percentile"
 )
-ax.set_title("Iterations per Round (Across Games)")
-ax.set_ylabel("Iterations")
+ax.set_title("Iterations per Round (Across Games)", fontsize=13)
+ax.set_ylabel("Iterations", fontsize=13)
+ax.set_xlabel("Round", fontsize=13)
 ax.legend()
 
 # --- 2. Best node visits (mean ± std, median) ---
@@ -155,6 +156,7 @@ for game_id, gdf in df.groupby("game"):
     summary_lines.append(
         f"Iterations per round:\n"
         f"  Mean: {gdf['num_iterations'].mean():.2f}\n"
+        f"  Median: {gdf['num_iterations'].median()}\n"
         f"  Min : {gdf['num_iterations'].min()}\n"
         f"  Max : {gdf['num_iterations'].max()}\n"
     )
@@ -173,28 +175,30 @@ for game_id, gdf in df.groupby("game"):
 #         f"  Max : {gdf['avg_depth'].max():.4f}\n"
 #     )
 
-#     per_game_stats.append({
-#         "game": game_id,
-#         "avg_iterations": gdf["num_iterations"].mean(),
-#         "avg_exploration_coverage": gdf["exploration_coverage"].mean(),
-#         "avg_depth": gdf["avg_depth"].mean()
-#     })
+    per_game_stats.append({
+        "game": game_id,
+        "iterations": gdf["num_iterations"]
+        # "avg_exploration_coverage": gdf["exploration_coverage"].mean(),
+        # "avg_depth": gdf["avg_depth"].mean()
+    })
 
-# overall_df = pd.DataFrame(per_game_stats)
+
+overall_df = pd.DataFrame(per_game_stats)
+all_iters = pd.concat(overall_df['iterations'].tolist())
 
 # overall_avg_iter = overall_df["avg_iterations"].mean()
 # overall_avg_exp = overall_df["avg_exploration_coverage"].mean()
 # overall_avg_depth = overall_df["avg_depth"].mean()
 
-# summary_lines.append("\nOVERALL AVERAGES (Across Games)\n")
-# summary_lines.append("=" * 30 + "\n")
+summary_lines.append("\nOVERALL AVERAGES (Across Games)\n")
+summary_lines.append("=" * 30 + "\n")
 
-# summary_lines.append(
-#     f"Iterations per round (game-averaged):\n"
-#     f"  Mean: {overall_avg_iter:.2f}\n"
-#     f"  Min: {df["num_iterations"].min()}\n"
-#     f"  Max: {df["num_iterations"].max()}\n"
-# )
+summary_lines.append(
+    f"Iterations per round (game-averaged):\n"
+    f"  Median: {all_iters.median():.2f}\n"
+    f"  Min: {df['num_iterations'].min()}\n"
+    f"  Max: {df['num_iterations'].max()}\n"
+)
 
 # df["exploration_coverage"] = (df["explored"] / df["total_actions"])
 # summary_lines.append(

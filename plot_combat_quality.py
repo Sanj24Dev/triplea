@@ -18,7 +18,7 @@ df_outcome = pd.read_csv(OUTCOME_CSV)
 
 df_combat["pu_gain"] = df_combat.groupby("game")["pu_after"].diff()
 df_combat["pu_gain"] = df_combat["pu_gain"].fillna(0) 
-df_combat["terr_gain"] = df_combat["territories_after"] - df_combat["territories_before"]
+df_combat["terr_gain"] = df_combat.groupby("game")["territories_after"].diff()
 
 # Merge with outcomes
 df = df_combat.merge(df_outcome, on="game", how="left")
@@ -112,10 +112,11 @@ for game, gdf in df.groupby("game"):
     avg_terr_gain = terr_gains.mean()
     avg_pu_gain = pu_gains.mean()
 
-    tgc = terr_gains.std() / (abs(avg_terr_gain) + EPS)
+    # tgc = terr_gains.std() / (abs(avg_terr_gain) + EPS)
+    tgc = (terr_gains > 0).mean()
 
     total_positive_gain = terr_gains.clip(lower=0).sum()
-    net_gain = gdf["territories_after"].iloc[-1] - gdf["territories_before"].iloc[0]
+    net_gain = gdf["territories_after"].iloc[-1] - gdf["territories_after"].iloc[0]
     srr = net_gain / total_positive_gain if total_positive_gain > 0 else 0.0
 
     metrics.append({

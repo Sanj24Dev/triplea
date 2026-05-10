@@ -11,47 +11,23 @@ start_time=$(date +%s)
 # g++ -O3 -Wall -shared -std=c++11 -fPIC $(python3 -m pybind11 --includes) check_reachability.cpp -o check_reachability_cpp$(python3 -m pybind11 --extension-suffix)
 
 # compile cython file
-# python setup.py build_ext --inplace
+python3 setup.py build_ext --inplace
 
 # pip install --user pandas
 
 export PROJECT_ROOT="/home/sanjana/tripleMind"
 
-MODEL_NAME="multi_front_attack"
+MODEL_NAME="mcts_heuristic_v2"
 
-# rm -f multi_front_attack/metrics/*
-# rm -f multi_front_attack/profiling/*
-# rm -f multi_front_attack/combat_moves/*
-# rm -f multi_front_attack/trees/*
-# rm -f multi_front_attack/profiles/*
+rm -f $MODEL_NAME/metrics/*
+rm -f $MODEL_NAME/profiling/*
+rm -f $MODEL_NAME/combat_moves/*
+rm -f $MODEL_NAME/trees/*
+rm -f $MODEL_NAME/profiles/*
 rm "../logs/RL_BOT_3/Capture The Flag.log"
 
-# 1. Start the first program in the background and get its PID
-REDUCTION_REC="multi_front_attack/metrics/reduction.csv"
-EFFICIENCY_REC="multi_front_attack/metrics/mcts_efficiency.csv"
-OUTCOME_REC="multi_front_attack/metrics/game_outcome.csv"
-QUALITY_REC="multi_front_attack/metrics/combat_quality.csv"
-ROLLOUT_REC="multi_front_attack/metrics/rollout_efficiency.csv"
 
-export GAMES_TO_PLAY=5
-NUM_RUNS=20
-
-export PLAYER_ID=3
-for ((i=11; i<=NUM_RUNS; i++)); do
-    export START_GAME_NUM=$(( (i - 1) * GAMES_TO_PLAY + 1 ))
-    python3 -u game_mcts.py --model_name "$MODEL_NAME" --reduction_file "$REDUCTION_REC" --efficiency_file "$EFFICIENCY_REC" --outcome_file "$OUTCOME_REC" --quality_file "$QUALITY_REC" --rollout_file "$ROLLOUT_REC"> output.log &
-    MCTS_PID=$!
-    echo "Started MCTS with PID $MCTS_PID"
-    sleep 5
-    python3 play_game.py > output_play.log 
-    echo "Game finished. Killing MCTS process $MCTS_PID"
-    kill $MCTS_PID
-    # Optional: Wait for clean exit
-    wait $MCTS_PID 2>/dev/null
+for i in {3..3}; do
+    export PLAYER_ID="$i"
+    python3 -u mcts_heuristic.py > mcts_heuristic_${PLAYER_ID}.log
 done
-
-
-
-end_time=$(date +%s)
-elapsed=$((end_time - start_time))
-echo "Time taken: ${elapsed} seconds"

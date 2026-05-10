@@ -86,6 +86,9 @@ public class helper {
             } catch (IOException e) {
                 System.err.println(("Failed to write log: " + e.getMessage()));
             }
+            if (type.equals("INFO") && msg.startsWith("Game stopped")) {
+                System.out.println(msg);
+            }
         } catch (Exception e) {
             System.err.println(("Failed to write log: " + e.getMessage()));
         }

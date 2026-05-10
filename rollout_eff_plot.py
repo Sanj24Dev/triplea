@@ -9,102 +9,78 @@ args = parser.parse_args()
 
 main_folder = args.folder
 FOLDER = f"{main_folder}/metrics"
-CSV_PATH = f"{FOLDER}/rollout_efficiency.csv" 
+CSV_PATH = f"{FOLDER}/rollout_efficiency.csv"
+PLAYER_INFO_PATH = f"{FOLDER}/player_info.csv"
 OUT_DIR = FOLDER
 os.makedirs(OUT_DIR, exist_ok=True)
 
 COL_ATTACKS = "terr_attacked_in_round (actions taken)"
 
+# ── Load data ────────────────────────────────────────────────────────────────
 df = pd.read_csv(CSV_PATH)
+player_info = pd.read_csv(PLAYER_INFO_PATH)  # columns: game, player
 
-# --- basic hygiene ---
-# ensure numeric
 df["depth"] = pd.to_numeric(df["depth"], errors="coerce")
 df[COL_ATTACKS] = pd.to_numeric(df[COL_ATTACKS], errors="coerce")
 df = df.dropna(subset=["depth", "current_player", COL_ATTACKS])
 
-# ----------------------------
-# Plot 1: Avg attacks vs depth
-# ----------------------------
-agg = (
-    df.groupby(["depth", "current_player"])[COL_ATTACKS]
-      .mean()
-      .reset_index()
-      .sort_values(["current_player", "depth"])
-)
+# ── Merge so each row knows which nation the agent played that game ──────────
+df = df.merge(player_info.rename(columns={"player": "agent_nation"}),
+              on="game", how="left")
 
-fig, ax = plt.subplots(figsize=(10, 6))
-for player in agg["current_player"].unique():
-    d = agg[agg["current_player"] == player]
-    ax.plot(d["depth"], d[COL_ATTACKS], marker="o", label=str(player))
+# ── All nations that ever appear ─────────────────────────────────────────────
+all_nations = sorted(df["current_player"].unique())
 
-ax.set_title("Average combat actions per turn vs rollout depth")
-ax.set_xlabel("Rollout depth")
-ax.set_ylabel("Avg # combat actions (apply_combat_move calls)")
-ax.legend()
-plt.tight_layout()
-out1 = f"{OUT_DIR}/avg_attacks_vs_depth.png"
-plt.savefig(out1, dpi=200)
-plt.close()
+# ── One subplot per nation the agent can be ──────────────────────────────────
+fig, axes = plt.subplots(2, 2, figsize=(16, 11), sharey=False)
+axes = axes.flatten()
 
-print("Saved:", out1)
+agent_roles = sorted(df["agent_nation"].dropna().unique())  # nations agent actually played
 
-# -------------------------------------------------------
-# Plot 2 (optional): Russia advantage vs others by depth
-# -------------------------------------------------------
-RUS_NAME = "Russians"  # adjust if your label differs
+for ax_idx, role in enumerate(agent_roles):
+    ax = axes[ax_idx]
 
-# mean attacks of others at each depth
-mean_by_depth = df.groupby("depth")[COL_ATTACKS].mean().rename("mean_all")
-rus_by_depth = (
-    df[df["current_player"] == RUS_NAME]
-      .groupby("depth")[COL_ATTACKS]
-      .mean()
-      .rename("mean_rus")
-)
+    # Only games where agent played this role
+    games_as_role = df[df["agent_nation"] == role]["game"].unique()
+    subset = df[df["game"].isin(games_as_role)]
 
-delta = pd.concat([mean_by_depth, rus_by_depth], axis=1).dropna()
-delta["mean_others"] = (delta["mean_all"] * 4 - delta["mean_rus"]) / 3  # assumes 4 players
-delta["rus_minus_others"] = delta["mean_rus"] - delta["mean_others"]
-delta = delta.reset_index()
+    agg = (
+        subset
+        .groupby(["depth", "current_player"])[COL_ATTACKS]
+        .mean()
+        .reset_index()
+        .sort_values(["current_player", "depth"])
+    )
 
-fig, ax = plt.subplots(figsize=(10, 5))
-ax.plot(delta["depth"], delta["rus_minus_others"], marker="o")
-ax.axhline(0, linewidth=1)
-ax.set_title("Russians: avg attacks minus avg of other players (by rollout depth)")
-ax.set_xlabel("Rollout depth")
-ax.set_ylabel("Δ attacks (Russians - others)")
-plt.tight_layout()
-out2 = f"{OUT_DIR}/rus_minus_others_vs_depth.png"
-plt.savefig(out2, dpi=200)
-plt.close()
-
-print("Saved:", out2)
-
-# -------------------------------------------------------
-# Plot 3 (optional): per-game comparison (Game 1 vs Game 2)
-# -------------------------------------------------------
-if "game" in df.columns:
-    for g in sorted(df["game"].unique()):
-        gdf = df[df["game"] == g]
-        gagg = (
-            gdf.groupby(["depth", "current_player"])[COL_ATTACKS]
-               .mean()
-               .reset_index()
-               .sort_values(["current_player", "depth"])
+    for nation in sorted(agg["current_player"].unique()):
+        d = agg[agg["current_player"] == nation]
+        is_agent = (nation == role)
+        ax.plot(
+            d["depth"], d[COL_ATTACKS],
+            marker="o",
+            linewidth=2.5 if is_agent else 1.2,
+            linestyle="-" if is_agent else "--",
+            label=f"{nation} ← AGENT" if is_agent else nation,
+            zorder=3 if is_agent else 2,
         )
 
-        fig, ax = plt.subplots(figsize=(10, 6))
-        for player in gagg["current_player"].unique():
-            d = gagg[gagg["current_player"] == player]
-            ax.plot(d["depth"], d[COL_ATTACKS], marker="o", label=str(player))
+    n_games = len(games_as_role)
+    ax.set_title(f"Agent playing as: {role}  ({n_games} game{'s' if n_games != 1 else ''})",
+                 fontweight="bold")
+    ax.set_xlabel("Rollout depth")
+    ax.set_ylabel("Avg combat actions")
+    ax.legend(fontsize=8)
+    ax.grid(True, alpha=0.3)
 
-        ax.set_title(f"Avg combat actions vs rollout depth (game={g})")
-        ax.set_xlabel("Rollout depth")
-        ax.set_ylabel("Avg # combat actions")
-        ax.legend()
-        plt.tight_layout()
-        outg = f"{OUT_DIR}/avg_attacks_vs_depth_game{g}.png"
-        plt.savefig(outg, dpi=200)
-        plt.close()
-        print("Saved:", outg)
+# Hide any unused subplots (if agent played fewer than 4 roles)
+for i in range(len(agent_roles), len(axes)):
+    axes[i].set_visible(False)
+
+fig.suptitle("Avg combat actions vs rollout depth — agent role comparison",
+             fontsize=14, fontweight="bold", y=1.01)
+plt.tight_layout()
+
+out = f"{OUT_DIR}/avg_attacks_by_agent_role.png"
+plt.savefig(out, dpi=200, bbox_inches="tight")
+plt.close()
+print("Saved:", out)

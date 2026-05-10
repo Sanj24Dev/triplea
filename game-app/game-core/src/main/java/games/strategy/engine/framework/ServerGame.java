@@ -65,6 +65,10 @@ import org.jetbrains.annotations.NonNls;
 import org.triplea.java.Interruptibles;
 import org.triplea.java.ThreadRunner;
 import org.triplea.util.ExitStatus;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.stream.Collectors;
 
 /** Implementation of {@link IGame} for a network server node. */
 @Slf4j
@@ -100,6 +104,7 @@ public class ServerGame extends AbstractGame {
   @Setter private boolean stopGameOnDelegateExecutionStop = false;
 
   private boolean sentStoppedMsg = false;
+  List<String> eliminationOrder = new ArrayList<>();
 
   public ServerGame(
       final GameData data,
@@ -613,16 +618,38 @@ public class ServerGame extends AbstractGame {
         Collection<GamePlayer> winner = endDelegate.getWinners();
         // check if i am still in the game, if not then send end game
         if (winner != null) {
+            String winnerName = winner.iterator().next().getName();
             if(!sentStoppedMsg) {
-                logAI("INFO", "Game stopped " + winner.iterator().next().getName());
+                List<GamePlayer> remaining = gameData.getPlayerList().getPlayers().stream()
+                    .filter(p -> !eliminationOrder.contains(p.getName()) 
+                              && !p.getName().equals(winnerName))
+                    .sorted(Comparator.comparingInt(p -> (int) gameData.getMap().getTerritories().stream()
+                              .filter(t -> p.getName().equals(t.getOwner().getName()))
+                              .count()))  // ascending — fewest terr first
+                    .collect(Collectors.toList());
+                remaining.forEach(p -> eliminationOrder.add(p.getName()));
+                eliminationOrder.add(winnerName);
+                logAI("INFO", "Game stopped " + winnerName + " " + eliminationOrder);
                 sentStoppedMsg = true;
             }
         }
+        for (GamePlayer player : gameData.getPlayerList().getPlayers()) {
+            boolean ownsTerritory = gameData.getMap().getTerritories().stream()
+                .anyMatch(t -> player.getName().equals(t.getOwner().getName()));
+            
+            // only add once — check if not already in eliminationOrder and not the winner
+            if (!ownsTerritory && !eliminationOrder.contains(player.getName()) 
+                    && (winner == null || !winner.iterator().next().getName().equals(player.getName()))) {
+                eliminationOrder.add(player.getName());
+                logAI("INFO", "Player eliminated " + player.getName() + " order=" + eliminationOrder.size());
+            }
+        }
+
         String me = getWhoAmI();
         boolean ownsTerritory = gameData.getMap().getTerritories().stream().anyMatch(t -> me.equals(t.getOwner().getName()));
         if (!ownsTerritory) {
             if(!sentStoppedMsg) {
-                logAI("INFO", "Game stopped lost");
+                logAI("INFO", "Game stopped lost " + eliminationOrder);
                 sentStoppedMsg = true;
             }
         }
