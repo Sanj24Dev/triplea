@@ -26,10 +26,11 @@ OUTCOME_REC = f"{MODEL_NAME}/metrics/game_outcome"
 QUALITY_REC = f"{MODEL_NAME}/metrics/combat_quality"
 ROLLOUT_REC = f"{MODEL_NAME}/metrics/rollout_efficiency"
 
-NUM_GAMES = 20
+NUM_GAMES = 1
 
 
 def start_agent(player_name, port):
+    log = open(f"{MODEL_NAME}/player_logs/debug_{port}.log", "w")
     return subprocess.Popen(
         [
             "python3", "-u", "game_mcts.py",
@@ -41,7 +42,9 @@ def start_agent(player_name, port):
             "--quality_file", QUALITY_REC,
             "--rollout_file", ROLLOUT_REC,
         ],
-        env=os.environ.copy()
+        env=os.environ.copy(),
+        stdout=log,
+        stderr=log,
     )
 
 
