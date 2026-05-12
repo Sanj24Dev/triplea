@@ -27,7 +27,7 @@ efficiency_file = args.efficiency_file + f"_port{port}.csv"
 outcome_file = args.outcome_file + f".csv"
 quality_file = args.quality_file + f"_port{port}.csv"
 rollout_file = args.rollout_file + f"_port{port}.csv"
-model_name = args.model_name + f"_port{port}.csv"
+model_name = args.model_name 
 
 def log_message(port, message):
     filename = f"{args.model_name}/player_logs/port{port}.log"
@@ -36,7 +36,7 @@ def log_message(port, message):
 
 def agent_loop(host="127.0.0.1", port=5000):
     turn_order = ["Russians", "Italians", "Germans", "Chinese"]
-    agent = MCTS(model_name, efficiency_file, quality_file, rollout_file, ctf.production_rules, ctf.territory_production, ctf.victory_cities, ctf.G, turn_order)
+    agent = MCTS(model_name, efficiency_file, quality_file, rollout_file, ctf.production_rules, ctf.territory_production, ctf.victory_cities, ctf.G, turn_order, ctf.territories)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind((host, port))
     sock.listen(1)

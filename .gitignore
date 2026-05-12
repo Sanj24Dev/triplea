@@ -23,3 +23,17 @@ out/
 game-app/smoke-testing/src/test/resources/save-games/
 
 game-headed/triplea.log
+
+# virtualenvs
+/python_env/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# large files
+*.log
+self_play_model/player_logs/
+self_play_model/metrics/rollout*.csv
+self_play_model/profiling/profile_data.csv
+# moves/ctf_dict_combat_move.json

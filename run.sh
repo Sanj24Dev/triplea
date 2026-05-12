@@ -11,11 +11,11 @@
 # g++ -O3 -Wall -shared -std=c++11 -fPIC $(python3 -m pybind11 --includes) check_reachability.cpp -o check_reachability_cpp$(python3 -m pybind11 --extension-suffix)
 
 # compile cython file
-# python setup.py build_ext --inplace
+python setup.py build_ext --inplace
 
 # pip install --user pandas
 
-export PROJECT_ROOT="/home/sanjana/tripleMind"
+export PROJECT_ROOT="/home/sanjana/tripleMindheadless"
 # export PROJECT_ROOT="/storage/home/hcoda1/6/snayak89/tripleMind"
 
 MODEL_NAME="self_play_model"

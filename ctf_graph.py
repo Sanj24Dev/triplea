@@ -23,30 +23,41 @@ class MetricLogger:
     def __init__(self, filename, header=None):
         self.filename = filename
         self.header = header
-
-        # Ensure directory exists
+        self._buffer = []
+        
         folder = os.path.dirname(filename)
         if folder and not os.path.exists(folder):
             os.makedirs(folder, exist_ok=True)
-
-        # Create file and write header
         if header and not os.path.exists(filename):
             with open(filename, "w", newline="") as f:
                 writer = csv.writer(f)
                 writer.writerow(header)
 
-
     def log(self, *values):
-        """Append one row of metrics."""
+        """Append one row immediately to CSV."""
         with open(self.filename, "a", newline="") as f:
             csv.writer(f).writerow(values)
 
+    def buffer(self, *values):
+        """Stage a row in memory without touching disk."""
+        self._buffer.append(values)
+
+    def flush(self):
+        """Write all buffered rows to CSV in one shot, then clear buffer."""
+        if not self._buffer:
+            return
+        with open(self.filename, "a", newline="") as f:
+            csv.writer(f).writerows(self._buffer)
+        self._buffer.clear()
+
+        
 class Unit:
     def __init__(self, unit_type, owner, quantity=1, properties=None):
         self.unit_type = unit_type
         self.owner = owner
         self.quantity = quantity
         self.range = game_rules.get(unit_type, {}).get("move", 1)
+        self.cost = game_rules.get(unit_type, {}).get("cost", 0)
         self.moved = False  # Track if unit has moved this turn
         self.properties = properties if properties is not None else {}
     
@@ -118,11 +129,10 @@ class CaptureTheFlag:
         self.round = 0
         self.game_num = 0
         self.whoAmI = None
-        self.port = None
 
         self.game_outcome_metric = MetricLogger(
             outcome_file,
-            header=["game", "rounds_played", "winner"]
+            header=["game", "rounds_played", "outcome", "time_taken_seconds", "rank", "elimination_order"]
         )
 
         # build graph
@@ -168,6 +178,12 @@ class CaptureTheFlag:
         for conn in self.data["connections"]:
             self.G.add_edge(conn["from"], conn["to"])
 
+        # neighbors[name] = set(self.G.neighbors(name))
+        self.neighbors = {}
+        for name in self.territories:
+            self.neighbors[name] = set(self.G.neighbors(name))
+
+    
         # Create Player instances
         for owner, pu in self.data.get("initial_resources", {}).items():
             if owner == "Russians":
@@ -259,7 +275,7 @@ class CaptureTheFlag:
         self.node_collection.set_edgecolor(border_colors)
         self.node_collection.set_linewidth(2.0)
 
-        self.fig.set_size_inches(10, 10)
+        self.fig.set_size_inches(16, 16)
 
         # Remove previous labels
         if hasattr(self, "label_texts"):
@@ -290,13 +306,12 @@ class CaptureTheFlag:
             bbox=dict(boxstyle="round,pad=0.5", facecolor="lightyellow", edgecolor="black")
         )
 
-        self.fig.canvas.manager.set_window_title(f"Player - {self.port}")
         self.fig.canvas.draw_idle()
         self.fig.canvas.flush_events()
 
     def update_my_role(self, role):
         self.whoAmI = role
-        # print(f"WHOAMI updated: {role}")
+        print(f"WHOAMI updated: {role}")
         # print(self.get_my_territories())
 
     def update_ownership(self, territory_name, new_owner):
