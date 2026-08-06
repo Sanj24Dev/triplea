@@ -1,18 +1,6 @@
-Games started at 2026-05-01 10:18:30
+Games started at 2026-08-06 14:35:21
 Data successfully extracted and saved to gameInfo/Capture The Flag.json
 
+Playing 300 games as player: Russians
+
 Starting Game 1
-Game 1 finished.
-Process 2533479 did not exit in 5s. Terminating...
-Process 2533479 terminated gracefully.
-lsof -i:5000 => 
-Profile records saved
-
-Starting Game 2
-Game 2 finished.
-Process 2537935 did not exit in 5s. Terminating...
-Process 2537935 terminated gracefully.
-lsof -i:5000 => 
-Profile records saved
-
-Time taken: 656 seconds

@@ -22,12 +22,87 @@ MODEL_NAME="mcts_heuristic_v2"
 rm -f $MODEL_NAME/metrics/*
 rm -f $MODEL_NAME/profiling/*
 rm -f $MODEL_NAME/combat_moves/*
+rm -f $MODEL_NAME/move_sim/*
+rm -f $MODEL_NAME/snapshots/*
 rm -f $MODEL_NAME/trees/*
 rm -f $MODEL_NAME/profiles/*
 rm "../logs/RL_BOT_3/Capture The Flag.log"
 
-
-for i in {3..3}; do
+# export DISABLED="(2 3)"
+export START_GAME_NUM="1"
+for i in {0..3}; do
     export PLAYER_ID="$i"
     python3 -u mcts_heuristic.py > mcts_heuristic_${PLAYER_ID}.log
 done
+
+# export DISABLED="(1 3)"
+# for i in {0..0}; do
+#     export PLAYER_ID="$i"
+#     python3 -u mcts_heuristic.py > mcts_heuristic_${PLAYER_ID}.log
+# done
+
+# export DISABLED="(1 2)"
+# for i in {0..0}; do
+#     export PLAYER_ID="$i"
+#     python3 -u mcts_heuristic.py > mcts_heuristic_${PLAYER_ID}.log
+# done
+
+
+# export DISABLED="(2 3)"
+# for i in {1..1}; do
+#     export PLAYER_ID="$i"
+#     python3 -u mcts_heuristic.py > mcts_heuristic_${PLAYER_ID}.log
+# done
+
+# export DISABLED="(0 3)"
+# for i in {1..1}; do
+#     export PLAYER_ID="$i"
+#     python3 -u mcts_heuristic.py > mcts_heuristic_${PLAYER_ID}.log
+# done
+
+# export DISABLED="(0 2)"
+# for i in {1..1}; do
+#     export PLAYER_ID="$i"
+#     python3 -u mcts_heuristic.py > mcts_heuristic_${PLAYER_ID}.log
+# done
+
+
+# export DISABLED="(1 3)"
+# for i in {2..2}; do
+#     export PLAYER_ID="$i"
+#     python3 -u mcts_heuristic.py > mcts_heuristic_${PLAYER_ID}.log
+# done
+
+# export DISABLED="(0 3)"
+# for i in {2..2}; do
+#     export PLAYER_ID="$i"
+#     python3 -u mcts_heuristic.py > mcts_heuristic_${PLAYER_ID}.log
+# done
+
+# export DISABLED="(0 1)"
+# for i in {2..2}; do
+#     export PLAYER_ID="$i"
+#     python3 -u mcts_heuristic.py > mcts_heuristic_${PLAYER_ID}.log
+# done
+
+
+# export DISABLED="(1 2)"
+# for i in {3..3}; do
+#     export PLAYER_ID="$i"
+#     python3 -u mcts_heuristic.py > mcts_heuristic_${PLAYER_ID}.log
+# done
+
+# export DISABLED="(0 2)"
+# for i in {3..3}; do
+#     export PLAYER_ID="$i"
+#     python3 -u mcts_heuristic.py > mcts_heuristic_${PLAYER_ID}.log
+# done
+
+# export DISABLED="(0 1)"
+# for i in {3..3}; do
+#     export PLAYER_ID="$i"
+#     python3 -u mcts_heuristic.py > mcts_heuristic_${PLAYER_ID}.log
+# done
+
+
+

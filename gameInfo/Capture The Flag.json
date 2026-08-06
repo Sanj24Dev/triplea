@@ -400,9 +400,9 @@
   ],
   "initial_resources": {
     "Russians": 12,
-    "Italians": 15,
-    "Germans": 18,
-    "Chinese": 21
+    "Italians": 12,
+    "Germans": 12,
+    "Chinese": 12
   },
   "victory_cities": [
     "RussianBase",

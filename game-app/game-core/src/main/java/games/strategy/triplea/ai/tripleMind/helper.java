@@ -5,6 +5,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 
@@ -23,9 +27,31 @@ public class helper {
     static String log_folder = root_folder + "/logs/";       // update with your log file name
     static String me;
     public static int getAIRoleId(int n) {
-        Random rand = new Random();
+        // Random rand = new Random();
         // return rand.nextInt(n);
        return Integer.parseInt(System.getenv().getOrDefault("PLAYER_ID", "0"));
+    }
+
+    public static List<Integer> getDisableRoleId() {
+       String raw = System.getenv().getOrDefault("DISABLED", "");
+       if (raw == null || raw.trim().isEmpty()) {
+            return new ArrayList<>();
+       }
+       String disabled = raw.trim();
+       if (disabled.startsWith("[") && disabled.endsWith("]")) {
+            disabled = disabled.substring(1, disabled.length() - 1).trim();
+       }
+       System.out.println("Disabled: " + disabled);
+       if (disabled.isEmpty()) {
+            return new ArrayList<>();
+       }
+       String[] elements = disabled.split(",");
+        
+       return Arrays.stream(elements)
+                 .map(String::trim)
+                 .map(Integer::parseInt)
+                 .collect(Collectors.toList());
+
     }
 
     public static void saveWhoAmI(String player) {
@@ -71,29 +97,32 @@ public class helper {
         // System.out.println("Logging");
         String filename = getLogFileName();
         File logFile = new File(filename);
-        try {
-            File parentDir = logFile.getParentFile();
-            if (parentDir != null && !parentDir.exists()) {
-                parentDir.mkdirs();
-            }
-            if (!logFile.exists()) {
-                logFile.createNewFile();
-            }
+        if (!type.equals("CHANGE")) {
             try {
-                PrintWriter writer = new PrintWriter(new FileWriter(logFile, true));
-                writer.println("[" + type + "] " + java.time.LocalDateTime.now() + " - " + msg);
-                writer.close();
-            } catch (IOException e) {
+                File parentDir = logFile.getParentFile();
+                if (parentDir != null && !parentDir.exists()) {
+                    parentDir.mkdirs();
+                }
+                if (!logFile.exists()) {
+                    logFile.createNewFile();
+                }
+                try {
+                    PrintWriter writer = new PrintWriter(new FileWriter(logFile, true));
+                    writer.println("[" + type + "] " + java.time.LocalDateTime.now() + " - " + msg);
+                    writer.close();
+                } catch (IOException e) {
+                    System.err.println(("Failed to write log: " + e.getMessage()));
+                }
+                if (type.equals("INFO") && msg.startsWith("Game stopped")) {
+                    System.out.println(msg);
+                }
+            } catch (Exception e) {
                 System.err.println(("Failed to write log: " + e.getMessage()));
             }
-            if (type.equals("INFO") && msg.startsWith("Game stopped")) {
-                System.out.println(msg);
-            }
-        } catch (Exception e) {
-            System.err.println(("Failed to write log: " + e.getMessage()));
         }
 
 //        TripleASocket.sendState("[" + type + "] " + msg);
+
         String response = TripleASocket.sendAndRead("[" + type + "] " + msg);
     }
 

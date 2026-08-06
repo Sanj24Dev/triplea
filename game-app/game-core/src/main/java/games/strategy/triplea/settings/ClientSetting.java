@@ -55,9 +55,9 @@ import org.triplea.java.ThreadRunner;
 @Slf4j
 public abstract class ClientSetting<T> implements GameSetting<T> {
   public static final ClientSetting<Integer> aiMovePauseDuration =
-      new IntegerClientSetting("AI_PAUSE_DURATION", 300);
+      new IntegerClientSetting("AI_PAUSE_DURATION", 0);
   public static final ClientSetting<Integer> aiCombatStepPauseDuration =
-      new IntegerClientSetting("AI_COMBAT_STEP_PAUSE_DURATION", 1000);
+      new IntegerClientSetting("AI_COMBAT_STEP_PAUSE_DURATION", 0);
   public static final ClientSetting<Integer> arrowKeyScrollSpeed =
       new IntegerClientSetting("ARROW_KEY_SCROLL_SPEED", 70);
   public static final ClientSetting<Integer> battleCalcSimulationCountDice =

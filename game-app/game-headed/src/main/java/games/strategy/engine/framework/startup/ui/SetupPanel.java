@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 import javax.annotation.Nullable;
 import javax.swing.*;
+import java.util.ArrayList;
 
 import games.strategy.triplea.ai.tripleMind.helper;
 import org.triplea.game.chat.ChatModel;
@@ -23,6 +24,7 @@ import org.triplea.swing.SwingComponents;
 
 import static games.strategy.triplea.ai.tripleMind.helper.getAIRoleId;
 import static games.strategy.triplea.ai.tripleMind.helper.logAI;
+import static games.strategy.triplea.ai.tripleMind.helper.getDisableRoleId;
 import static games.strategy.triplea.ai.tripleMind.helper.saveWhoAmI;
 
 /**
@@ -277,9 +279,20 @@ public abstract class SetupPanel extends JPanel implements SetupModel {
                   setAllTypes.setSelectedItem(I18nEngineFramework.get().getText("startup.PlayerTypes.PLAYER_TYPE_AI_EASY_LABEL"));
                   final PlayerSelectorRow row = playerRows.get(getAIRoleId(playerRows.size()));
                   row.setPlayerType(I18nEngineFramework.get().getText("startup.PlayerTypes.PLAYER_TYPE_AI_TRIPLE_MIND_LABEL"));
+                  // disable players
+                  List<Integer> disablePlayers = getDisableRoleId();
+                  for (int p:disablePlayers)
+                  {
+                    // System.out.println(p);
+                    final PlayerSelectorRow dis = playerRows.get(p);
+                    dis.setPlayerType("Does Nothing (AI)");
+                  }
+                  
                   playButton.doClick();
                   saveWhoAmI(row.getPlayerName());
                   logAI("INFO", "Role: " + row.getPlayerName());
+
+                  
 //                  canClickStart = 1;
 
               }

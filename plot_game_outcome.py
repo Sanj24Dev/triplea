@@ -18,7 +18,7 @@ df_demo = pd.read_csv(DEMOGRAPHICS_CSV)
 
 outcome_counts = df['outcome'].value_counts()
 plt.figure(figsize=(6,4))
-plt.bar(outcome_counts.index, outcome_counts.values, color=['red','green'])
+plt.bar(outcome_counts.index, outcome_counts.values, color=['green','red'])
 plt.ylabel("Number of games")
 plt.title("Game Outcomes")
 plt.savefig(f"{FOLDER}/win_vs_lost.png")

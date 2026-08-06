@@ -5,6 +5,7 @@
 import time
 from collections import deque
 import copy
+import math
 
 # =========================
 # Global configuration
@@ -824,9 +825,11 @@ def heuristic_non_combat_legal_moves(object game_state, dict FACTORY_MAP, float 
     cdef set my_frontier_territories = set()
     for terr in my_territories:
         for n in _adjacency.get(terr.name, []):
-            if territories[n].owner != player and n not in FACTORY_MAP.values():
+            # if territories[n].owner != player and n not in FACTORY_MAP.values():
+            if territories[n].owner != player:
                 my_frontier_territories.add(terr.name)
                 break
+
 
     home_factory = FACTORY_MAP[player]
 
@@ -1051,11 +1054,11 @@ def evaluate_state(dict territories, dict players, str whoAmI, list victory_citi
     for owner, count in vc_owner_count.items():
         if count == len(vc_set):
             if owner == me:
-                return 0.6 + 0.4 * (depth_budget - depth) / depth_budget
+                return 0.5 + 0.5 * (depth_budget - depth) / depth_budget, True
             else:
-                return -0.6 - 0.4 * (depth_budget - depth) / depth_budget
+                return -0.5 - 0.5 * (depth_budget - depth) / depth_budget, True
 
-    flag_ownership_term = 0
+    flag_ownership_term = -1
     for name, terr in territories.items():
         if terr.owner == me:
             my_count += 1
@@ -1083,18 +1086,19 @@ def evaluate_state(dict territories, dict players, str whoAmI, list victory_citi
         tuv_denom = 1e-9
     # my_income_share = sum(territory_production[t.name] for t in my_terrs) / max(1, total_income)
     # tuv_term = (my_tuv / max(1, my_tuv + enemy_tuv)) - my_income_share
-    tuv_term = (my_tuv - enemy_tuv) / tuv_denom
+    tuv_term = my_tuv / tuv_denom
 
     terr_denom = my_count + enemy_count
     if terr_denom < 1:
         terr_denom = 1
-    terr_term = (my_count - enemy_count) / <double>terr_denom
+    terr_term = my_count/ <double>terr_denom
 
-    vc_denom = my_vc + enemy_vc + 1
-    vc_term = (my_vc - enemy_vc) / <double>vc_denom
+    vc_denom = my_vc + enemy_vc 
+    vc_term = my_vc/ <double>vc_denom
 
     income = players[me].PU
-    income_denom = max(players[p].PU for p in players)
+    income_denom = sum(players[p].PU for p in players)
+    enemy_income = sum(players[p].PU for p in players if p != me)
     income_term = income / income_denom if income_denom > 0 else 0
 
     # replace the proximity block with:
@@ -1116,12 +1120,9 @@ def evaluate_state(dict territories, dict players, str whoAmI, list victory_citi
     enemy_prox = 1.0 / (1.0 + shortest_enemy_dist) if shortest_enemy_dist < float('inf') else 0.0
     proximity_score = my_prox - enemy_prox   # now in [-1, 1]
 
-    score = 0.30 * flag_ownership_term + 0.15 * proximity_score + 0.30 * vc_term + 0.20 * income_term + 0.05 * tuv_term
+    score = 0.20 * flag_ownership_term + 0.30 * vc_term + 0.20 * income_term + 0.30 * tuv_term
+    scaled_score = 0.5 * score
 
-    if score > 0.5:
-        return 0.5
-    if score < -0.5:
-        return -0.5
-    return score
+    return scaled_score, False
 
 

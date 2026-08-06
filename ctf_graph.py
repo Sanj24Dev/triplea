@@ -18,6 +18,15 @@ FACTORY_MAP = {
 # pre compute distance between all pairs of territories for quick lookup during reachability checks in MCTS
 distance_cache = {}
 
+# Shared owner -> color mapping used both by the live interactive graph
+# and by the lightweight state snapshots saved during MCTS simulation.
+OWNER_COLORS = {
+    "Russians": "brown",
+    "Italians": "green",
+    "Germans": "blue",
+    "Chinese": "purple"
+}
+
 
 class MetricLogger:
     def __init__(self, filename, header=None):
@@ -111,10 +120,13 @@ class Player:
         self.unplaced.clear()
     
 class CaptureTheFlag:
-    def __init__(self, json_path, outcome_file):
-        with open(json_path, "r") as f:
-            self.data = json.load(f)
+    # Holds a reference to the first fully-built CaptureTheFlag instance
+    # (the real game graph). MCTS simulation states reuse its topology
+    # (G, pos) so we don't have to reload JSON / recompute a spring
+    # layout on every simulated round just to save a debug snapshot.
+    template = None
 
+    def __init__(self, json_path, outcome_file):
         self.G = nx.Graph()
         self.territories = {}
         self.players = {}
@@ -130,30 +142,38 @@ class CaptureTheFlag:
         self.game_num = 0
         self.whoAmI = None
 
-        self.game_outcome_metric = MetricLogger(
-            outcome_file,
-            header=["game", "rounds_played", "outcome", "time_taken_seconds", "rank", "elimination_order"]
-        )
+        if json_path != "":
+            with open(json_path, "r") as f:
+                self.data = json.load(f)
 
-        # build graph
-        self._load_metadata()
-        global game_rules
-        game_rules = self.production_rules
-        self._build_graph()
+            # build graph
+            self._load_metadata()
+            global game_rules
+            game_rules = self.production_rules
+            self._build_graph()
+
+            self.game_outcome_metric = MetricLogger(
+                outcome_file,
+                header=["game", "rounds_played", "outcome", "time_taken_seconds", "rank", "elimination_order"]
+            )
         
 
-        # Display setup
-        self.pos = nx.spring_layout(self.G, seed=42)
-        self.fig, self.ax = plt.subplots(figsize=(10, 8))
-        self.node_collection = nx.draw_networkx_nodes(
-            self.G, self.pos, ax=self.ax,
-            node_color=self._get_colors(), node_size=800
-        )
-        self.edge_collection = nx.draw_networkx_edges(self.G, self.pos, ax=self.ax)
-        self.label_collection = nx.draw_networkx_labels(self.G, self.pos, ax=self.ax, font_size=8)
+            # # Display setup
+            # self.pos = nx.spring_layout(self.G, seed=42)
+            # self.fig, self.ax = plt.subplots(figsize=(10, 8))
+            # self.node_collection = nx.draw_networkx_nodes(
+            #     self.G, self.pos, ax=self.ax,
+            #     node_color=self._get_colors(), node_size=800
+            # )
+            # self.edge_collection = nx.draw_networkx_edges(self.G, self.pos, ax=self.ax)
+            # self.label_collection = nx.draw_networkx_labels(self.G, self.pos, ax=self.ax, font_size=8)
 
-        plt.ion()
-        plt.show()
+            # plt.ion()
+            # plt.show()
+
+            if CaptureTheFlag.template is None:
+                CaptureTheFlag.template = self
+
 
     def _build_graph(self):
         # Add territories as nodes with attributes
@@ -196,6 +216,54 @@ class CaptureTheFlag:
                 factory = self.territories["ChineseBase"]
             self.players[owner] = Player(owner, int(pu), factory)
 
+    @staticmethod
+    def state_to_ctf_save(state, img_file):
+        template = CaptureTheFlag.template
+        if template is None:
+            print("state_to_ctf_save: no template CaptureTheFlag graph "
+                  "available yet (none has been constructed from JSON).")
+            return
+
+        folder = os.path.dirname(img_file)
+        if folder and not os.path.exists(folder):
+            os.makedirs(folder, exist_ok=True)
+
+        fig, ax = plt.subplots(figsize=(10, 8))
+        try:
+            colors = [
+                OWNER_COLORS.get(state.territories[node].owner, "lightgray")
+                for node in template.G.nodes
+            ]
+            nx.draw_networkx_nodes(
+                template.G, template.pos, ax=ax,
+                node_color=colors, node_size=800
+            )
+            nx.draw_networkx_edges(template.G, template.pos, ax=ax)
+            nx.draw_networkx_labels(template.G, template.pos, ax=ax, font_size=8)
+
+            for node in template.G.nodes:
+                territory = state.territories[node]
+                if not territory.units:
+                    continue
+                unit_lines = "\n".join(
+                    f"{u.quantity} {u.unit_type} ({u.owner})" for u in territory.units
+                )
+                x, y = template.pos[node]
+                ax.text(x, y + 0.08, unit_lines, fontsize=8, ha="left", va="center")
+
+            title_bits = []
+            if hasattr(state, "round"):
+                title_bits.append(f"round {state.round}")
+            if hasattr(state, "current_player"):
+                title_bits.append(f"player {state.current_player}")
+            if title_bits:
+                ax.set_title(", ".join(title_bits), fontsize=10)
+
+            fig.savefig(img_file, dpi=300, bbox_inches="tight")
+        finally:
+            plt.close(fig)  # release the figure even if drawing/saving fails
+        
+
 
     def _load_metadata(self):
         # Load Production Rules with Unit Stats 
@@ -230,15 +298,9 @@ class CaptureTheFlag:
 
     def _get_colors(self):
         colors = []
-        color_map = {
-            "Russians": "brown",
-            "Italians": "green",
-            "Germans": "blue",
-            "Chinese": "purple"
-        }
         for node in self.G.nodes:
             territory = self.territories[node]
-            colors.append(color_map.get(territory.owner, "lightgray"))
+            colors.append(OWNER_COLORS.get(territory.owner, "lightgray"))
         return colors
     
     def draw(self):
