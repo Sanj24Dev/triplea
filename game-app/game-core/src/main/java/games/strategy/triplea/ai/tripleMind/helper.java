@@ -26,9 +26,12 @@ public class helper {
     static final String root_folder = System.getenv().getOrDefault("PROJECT_ROOT", "/storage/home/hcoda1/6/snayak89/tripleMind");
     static String log_folder = root_folder + "/logs/";       // update with your log file name
     static String me;
+    static int cnt = 0;
+    static boolean game_over = false;
     public static int getAIRoleId(int n) {
         // Random rand = new Random();
         // return rand.nextInt(n);
+       game_over = false;
        return Integer.parseInt(System.getenv().getOrDefault("PLAYER_ID", "0"));
     }
 
@@ -122,8 +125,14 @@ public class helper {
         }
 
 //        TripleASocket.sendState("[" + type + "] " + msg);
-
-        String response = TripleASocket.sendAndRead("[" + type + "] " + msg);
+        // cnt = cnt + 1;
+        // System.out.println("Msg" + cnt);
+        String response = "";
+        if (!game_over)
+            response = TripleASocket.sendAndRead("[" + type + "] " + msg);
+        if (type.equals("INFO") && msg.startsWith("Game stopped")) {
+            game_over = true;
+        }
     }
 
     public static String requestMove(String move) {

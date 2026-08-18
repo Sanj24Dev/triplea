@@ -26,6 +26,7 @@ rm -f $MODEL_NAME/move_sim/*
 rm -f $MODEL_NAME/snapshots/*
 rm -f $MODEL_NAME/trees/*
 rm -f $MODEL_NAME/profiles/*
+rm -f $MODEL_NAME/player_logs/*
 rm "../logs/RL_BOT_3/Capture The Flag.log"
 
 # export DISABLED="(2 3)"

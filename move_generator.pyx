@@ -487,8 +487,8 @@ def heuristic_combat_legal_moves(
             for info in sorted_reachable:
                 for _ in range(info.quantity):
                     all_units.append(UnitInfo(info.from_territory, info.unit, 1))
-                    if calculate_attack_strength(all_units) >= (maxThreshold * def_strength) + 4:
-                        break
+                    # if calculate_attack_strength(all_units) >= (maxThreshold * def_strength) + 4:
+                    #     break
                 else:
                     continue
                 break
@@ -506,10 +506,10 @@ def heuristic_combat_legal_moves(
                     strengthThreshold += 0.1
 
             # always include full force if it beats defender
-            if unitsUpToStrength:
-                currentStrength = calculate_attack_strength(unitsUpToStrength)
+            if all_units:
+                currentStrength = calculate_attack_strength(all_units)
                 if currentStrength > def_strength:
-                    attacks = form_attacks(unitsUpToStrength)
+                    attacks = form_attacks(all_units)
                     if sets:
                         l = len(sets)
                         if sets[l-1][1] != currentStrength:
@@ -1027,7 +1027,7 @@ def heuristic_non_combat_legal_moves(object game_state, dict FACTORY_MAP, float 
 # State evaluation
 # =========================
 
-def evaluate_state(dict territories, dict players, str whoAmI, list victory_cities_list, int depth, int depth_budget):
+def evaluate_state(dict territories, dict players, str whoAmI, list victory_cities_list, int depth, int depth_budget, int r):
     """
     Cython port of MCTS.evaluate_state().
     Call from Python as:
@@ -1120,8 +1120,9 @@ def evaluate_state(dict territories, dict players, str whoAmI, list victory_citi
     enemy_prox = 1.0 / (1.0 + shortest_enemy_dist) if shortest_enemy_dist < float('inf') else 0.0
     proximity_score = my_prox - enemy_prox   # now in [-1, 1]
 
-    score = 0.20 * flag_ownership_term + 0.30 * vc_term + 0.20 * income_term + 0.30 * tuv_term
+    score = 0.20 * flag_ownership_term + 0.30 * vc_term + 0.50 * income_term
     scaled_score = 0.5 * score
+    # print("R",r, " score=",score, "(", scaled_score, ") ", flag_ownership_term, vc_term, income_term, tuv_term)
 
     return scaled_score, False
 

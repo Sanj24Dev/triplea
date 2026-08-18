@@ -40,8 +40,10 @@ public class TripleASocket {
             out.println(stateJson);
 //            System.out.println("State sent: " + stateJson);
 
-            // ✅ read exactly one line (one JSON message)
+            // read exactly one line (one JSON message)
+            // if (stateJson.contains("stopped") == false)
             response = in.readLine();
+
 //            if (response != null) {
 //                System.out.println("Received: " + response);
 //            }

@@ -944,7 +944,7 @@ class MCTS:
         self.time_budget = 1.0  # seconds per move
         self.iter_budget = 1000
         self.depth_budget = 2  # Maximum playout depth
-        self.exploration_constant = 0.25  # UCB1 exploration parameter for non exploring mcts
+        self.exploration_constant = 0  # UCB1 exploration parameter for non exploring mcts
 
         self.model_name = model_name
         # file paths to store metrics
@@ -1235,7 +1235,7 @@ class MCTS:
         # Evaluate final state
         reward, is_terminal = move_generator_cpp.evaluate_state(
             current_state.territories, current_state.players, self.whoAmI,
-            list(victory_cities), depth, self.depth_budget
+            list(victory_cities), depth, self.depth_budget, state.round
         )
         if debug:
             snap_path = f"{self.model_name}/snapshots/g{state.game_num}_r{state.round}_iter{self.iteration}.pkl"
@@ -1306,7 +1306,7 @@ class MCTS:
         # if game_num == 1 or game_num % 10 == 0:
         # tree_prefix = f"{self.model_name}/trees/tree_g{game_num}_r{game_round}"
         # os.makedirs(os.path.dirname(tree_prefix), exist_ok=True)
-        # dot_file, png_file = save_mcts_tree_png(root, self.tree_info, tree_prefix, max_nodes=500, render_img=False)
+        # dot_file, png_file = save_mcts_tree_png(root, self.tree_info, tree_prefix, max_nodes=500, render_img=True)
         # print("Saved tree:", dot_file, png_file)
 
         # print(f"MCTS completed {self.iteration} iterations in {round(end_time - start_time, 2)} seconds. Max depth reached: {self.max_depth}")

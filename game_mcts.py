@@ -23,6 +23,7 @@ parser.add_argument("--tree_info", type=str, required=True)
 parser.add_argument("--model_name", type=str, required=True)
 parser.add_argument("--game_num", type=str, required=True)
 parser.add_argument("--opponent", type=str, required=False)
+parser.add_argument("--player_name", type=str, required=True)
 args = parser.parse_args()
 
 reduction_file = args.reduction_file
@@ -35,11 +36,13 @@ tree_info = args.tree_info
 model_name = args.model_name
 g_num = int(args.game_num)
 opponent = args.opponent
-
+my_agent_name = args.player_name
 
 
 def agent_loop(host="127.0.0.1", port=5000):
     turn_order = ["Russians", "Italians", "Germans", "Chinese"]
+    turn_order = [t for t in turn_order if t in (my_agent_name, opponent)]
+    print(turn_order)
     agent = MCTS(model_name, efficiency_file, quality_file, rollout_file, tree_info, ctf.production_rules, ctf.territory_production, ctf.victory_cities, ctf.G, turn_order, ctf.territories)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind((host, port))
@@ -74,7 +77,7 @@ def agent_loop(host="127.0.0.1", port=5000):
                         msg = msg.strip()
                         if not msg:
                             continue
-
+                        # print(f"Received: {msg}")
                         response = "ACK"
                         parts = msg.strip().split(' ')
                         # if msg.startswith("[INFO]"):
@@ -142,7 +145,7 @@ def agent_loop(host="127.0.0.1", port=5000):
                             response = "ACK"
                         
                         if response != "ACK":
-                            print("Sending:", response)
+                            print("R", ctf.round," Sending:", response)
                         conn.sendall((json.dumps(response) + "\n").encode("utf-8"))
 
                         # ctf.draw()
@@ -169,8 +172,8 @@ output_file = "gameInfo/" + data["DEFAULT_GAME_NAME_PREF"]+".json"  # Output JSO
 
 # parse_triplea_map(xml_file, output_file)
 
-with open(output_file, "r") as f:
-    game_data = json.load(f)
+# with open(output_file, "r") as f:
+#     game_data = json.load(f)
 
 ctf = CaptureTheFlag("gameInfo/Capture The Flag.json", outcome_file)
 ctf.game_num = g_num

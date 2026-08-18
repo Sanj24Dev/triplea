@@ -1,0 +1,4810 @@
+MCTS Efficiency Summary (Game-wise)
+========================================
+
+Game 928
+--------------------
+Total rounds: 31
+Iterations per round:
+  Mean: 486.16
+  Median: 446.0
+  Min : 347
+  Max : 1174
+Game 929
+--------------------
+Total rounds: 25
+Iterations per round:
+  Mean: 457.88
+  Median: 443.0
+  Min : 301
+  Max : 803
+Game 930
+--------------------
+Total rounds: 28
+Iterations per round:
+  Mean: 495.86
+  Median: 466.0
+  Min : 309
+  Max : 1152
+Game 931
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 462.81
+  Median: 435.0
+  Min : 300
+  Max : 789
+Game 932
+--------------------
+Total rounds: 26
+Iterations per round:
+  Mean: 517.73
+  Median: 481.0
+  Min : 285
+  Max : 1202
+Game 933
+--------------------
+Total rounds: 34
+Iterations per round:
+  Mean: 404.53
+  Median: 376.5
+  Min : 212
+  Max : 784
+Game 934
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 469.83
+  Median: 433.5
+  Min : 315
+  Max : 779
+Game 935
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 442.09
+  Median: 409.0
+  Min : 320
+  Max : 776
+Game 936
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 509.33
+  Median: 519.0
+  Min : 354
+  Max : 801
+Game 937
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 510.50
+  Median: 466.0
+  Min : 350
+  Max : 1122
+Game 938
+--------------------
+Total rounds: 27
+Iterations per round:
+  Mean: 482.44
+  Median: 475.0
+  Min : 340
+  Max : 801
+Game 939
+--------------------
+Total rounds: 35
+Iterations per round:
+  Mean: 460.91
+  Median: 380.0
+  Min : 205
+  Max : 1178
+Game 940
+--------------------
+Total rounds: 30
+Iterations per round:
+  Mean: 519.03
+  Median: 489.5
+  Min : 336
+  Max : 1121
+Game 941
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 462.58
+  Median: 435.5
+  Min : 354
+  Max : 789
+Game 942
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 493.25
+  Median: 456.0
+  Min : 337
+  Max : 849
+Game 943
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 489.53
+  Median: 500.0
+  Min : 253
+  Max : 772
+Game 944
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 532.13
+  Median: 495.0
+  Min : 373
+  Max : 1195
+Game 945
+--------------------
+Total rounds: 38
+Iterations per round:
+  Mean: 401.21
+  Median: 353.5
+  Min : 293
+  Max : 791
+Game 946
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 539.29
+  Median: 543.5
+  Min : 391
+  Max : 803
+Game 947
+--------------------
+Total rounds: 33
+Iterations per round:
+  Mean: 423.91
+  Median: 374.0
+  Min : 291
+  Max : 780
+Game 948
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 495.35
+  Median: 507.0
+  Min : 332
+  Max : 791
+Game 949
+--------------------
+Total rounds: 27
+Iterations per round:
+  Mean: 485.81
+  Median: 469.0
+  Min : 252
+  Max : 975
+Game 950
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 566.63
+  Median: 492.0
+  Min : 410
+  Max : 1078
+Game 951
+--------------------
+Total rounds: 62
+Iterations per round:
+  Mean: 400.44
+  Median: 375.0
+  Min : 134
+  Max : 1003
+Game 952
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 432.00
+  Median: 385.0
+  Min : 306
+  Max : 770
+Game 953
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 510.32
+  Median: 489.0
+  Min : 353
+  Max : 1239
+Game 954
+--------------------
+Total rounds: 35
+Iterations per round:
+  Mean: 445.57
+  Median: 429.0
+  Min : 330
+  Max : 786
+Game 955
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 497.50
+  Median: 497.5
+  Min : 390
+  Max : 787
+Game 956
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 491.61
+  Median: 475.0
+  Min : 370
+  Max : 806
+Game 957
+--------------------
+Total rounds: 26
+Iterations per round:
+  Mean: 477.50
+  Median: 438.0
+  Min : 288
+  Max : 981
+Game 958
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 539.20
+  Median: 543.0
+  Min : 403
+  Max : 794
+Game 959
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 483.14
+  Median: 444.0
+  Min : 341
+  Max : 778
+Game 960
+--------------------
+Total rounds: 34
+Iterations per round:
+  Mean: 441.97
+  Median: 405.5
+  Min : 257
+  Max : 1143
+Game 961
+--------------------
+Total rounds: 35
+Iterations per round:
+  Mean: 446.94
+  Median: 391.0
+  Min : 306
+  Max : 1149
+Game 962
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 501.32
+  Median: 490.0
+  Min : 371
+  Max : 783
+Game 963
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 475.00
+  Median: 469.5
+  Min : 337
+  Max : 779
+Game 964
+--------------------
+Total rounds: 33
+Iterations per round:
+  Mean: 430.94
+  Median: 406.0
+  Min : 323
+  Max : 793
+Game 965
+--------------------
+Total rounds: 41
+Iterations per round:
+  Mean: 443.12
+  Median: 425.0
+  Min : 310
+  Max : 788
+Game 966
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 569.78
+  Median: 498.5
+  Min : 403
+  Max : 1071
+Game 967
+--------------------
+Total rounds: 28
+Iterations per round:
+  Mean: 490.29
+  Median: 474.0
+  Min : 330
+  Max : 1078
+Game 968
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 467.50
+  Median: 462.0
+  Min : 345
+  Max : 787
+Game 969
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 569.10
+  Median: 478.0
+  Min : 332
+  Max : 1183
+Game 970
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 528.24
+  Median: 513.0
+  Min : 430
+  Max : 774
+Game 971
+--------------------
+Total rounds: 29
+Iterations per round:
+  Mean: 460.52
+  Median: 455.0
+  Min : 357
+  Max : 796
+Game 972
+--------------------
+Total rounds: 51
+Iterations per round:
+  Mean: 410.57
+  Median: 389.0
+  Min : 299
+  Max : 794
+Game 973
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 473.38
+  Median: 441.0
+  Min : 298
+  Max : 1025
+Game 974
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 500.67
+  Median: 473.0
+  Min : 341
+  Max : 1004
+Game 975
+--------------------
+Total rounds: 25
+Iterations per round:
+  Mean: 510.40
+  Median: 474.0
+  Min : 338
+  Max : 1226
+Game 976
+--------------------
+Total rounds: 40
+Iterations per round:
+  Mean: 449.23
+  Median: 406.0
+  Min : 296
+  Max : 1021
+Game 977
+--------------------
+Total rounds: 31
+Iterations per round:
+  Mean: 465.32
+  Median: 450.0
+  Min : 186
+  Max : 1018
+Game 978
+--------------------
+Total rounds: 25
+Iterations per round:
+  Mean: 411.36
+  Median: 379.0
+  Min : 252
+  Max : 770
+Game 979
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 481.29
+  Median: 401.0
+  Min : 348
+  Max : 1279
+Game 980
+--------------------
+Total rounds: 33
+Iterations per round:
+  Mean: 382.97
+  Median: 358.0
+  Min : 243
+  Max : 779
+Game 981
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 444.35
+  Median: 392.0
+  Min : 328
+  Max : 779
+Game 982
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 430.14
+  Median: 373.0
+  Min : 322
+  Max : 786
+Game 983
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 448.47
+  Median: 421.0
+  Min : 337
+  Max : 783
+Game 984
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 436.12
+  Median: 383.0
+  Min : 244
+  Max : 786
+Game 985
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 441.83
+  Median: 386.5
+  Min : 332
+  Max : 777
+Game 986
+--------------------
+Total rounds: 49
+Iterations per round:
+  Mean: 399.06
+  Median: 353.0
+  Min : 222
+  Max : 1231
+Game 987
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 422.58
+  Median: 371.0
+  Min : 307
+  Max : 784
+Game 988
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 444.37
+  Median: 387.0
+  Min : 348
+  Max : 786
+Game 989
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 447.67
+  Median: 399.0
+  Min : 311
+  Max : 762
+Game 990
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 418.45
+  Median: 382.5
+  Min : 316
+  Max : 787
+Game 991
+--------------------
+Total rounds: 25
+Iterations per round:
+  Mean: 435.64
+  Median: 403.0
+  Min : 359
+  Max : 786
+Game 992
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 444.13
+  Median: 401.0
+  Min : 319
+  Max : 790
+Game 993
+--------------------
+Total rounds: 30
+Iterations per round:
+  Mean: 415.97
+  Median: 379.0
+  Min : 297
+  Max : 782
+Game 994
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 458.88
+  Median: 417.5
+  Min : 335
+  Max : 775
+Game 995
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 405.87
+  Median: 382.0
+  Min : 281
+  Max : 774
+Game 996
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 463.53
+  Median: 417.0
+  Min : 332
+  Max : 786
+Game 997
+--------------------
+Total rounds: 27
+Iterations per round:
+  Mean: 419.00
+  Median: 373.0
+  Min : 310
+  Max : 785
+Game 998
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 425.86
+  Median: 386.0
+  Min : 228
+  Max : 777
+Game 999
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 479.20
+  Median: 422.0
+  Min : 348
+  Max : 793
+Game 1000
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 432.67
+  Median: 385.0
+  Min : 278
+  Max : 799
+Game 1001
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 417.52
+  Median: 374.0
+  Min : 308
+  Max : 787
+Game 1002
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 433.95
+  Median: 391.0
+  Min : 322
+  Max : 786
+Game 1003
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 412.73
+  Median: 384.0
+  Min : 282
+  Max : 800
+Game 1004
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 434.00
+  Median: 390.0
+  Min : 325
+  Max : 778
+Game 1005
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 448.83
+  Median: 395.5
+  Min : 317
+  Max : 773
+Game 1006
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 430.70
+  Median: 382.5
+  Min : 279
+  Max : 769
+Game 1007
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 424.91
+  Median: 378.0
+  Min : 310
+  Max : 775
+Game 1008
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 488.82
+  Median: 421.0
+  Min : 310
+  Max : 1120
+Game 1009
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 436.95
+  Median: 400.0
+  Min : 333
+  Max : 772
+Game 1010
+--------------------
+Total rounds: 48
+Iterations per round:
+  Mean: 370.90
+  Median: 357.0
+  Min : 242
+  Max : 786
+Game 1011
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 437.33
+  Median: 394.5
+  Min : 334
+  Max : 779
+Game 1012
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 414.47
+  Median: 368.0
+  Min : 298
+  Max : 771
+Game 1013
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 406.61
+  Median: 356.0
+  Min : 289
+  Max : 767
+Game 1014
+--------------------
+Total rounds: 36
+Iterations per round:
+  Mean: 449.89
+  Median: 392.0
+  Min : 294
+  Max : 1332
+Game 1015
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 422.75
+  Median: 366.5
+  Min : 320
+  Max : 783
+Game 1016
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 456.71
+  Median: 392.0
+  Min : 333
+  Max : 782
+Game 1017
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 454.22
+  Median: 397.5
+  Min : 342
+  Max : 784
+Game 1018
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 434.22
+  Median: 408.0
+  Min : 255
+  Max : 795
+Game 1019
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 435.96
+  Median: 392.0
+  Min : 322
+  Max : 813
+Game 1020
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 406.17
+  Median: 363.5
+  Min : 235
+  Max : 780
+Game 1021
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 432.72
+  Median: 398.5
+  Min : 303
+  Max : 769
+Game 1022
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 450.75
+  Median: 412.5
+  Min : 324
+  Max : 789
+Game 1023
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 444.53
+  Median: 402.0
+  Min : 296
+  Max : 781
+Game 1024
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 437.15
+  Median: 380.0
+  Min : 330
+  Max : 793
+Game 1025
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 421.22
+  Median: 392.5
+  Min : 272
+  Max : 788
+Game 1026
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 552.00
+  Median: 422.5
+  Min : 317
+  Max : 1228
+Game 1027
+--------------------
+Total rounds: 25
+Iterations per round:
+  Mean: 408.04
+  Median: 380.0
+  Min : 303
+  Max : 780
+Game 1028
+--------------------
+Total rounds: 32
+Iterations per round:
+  Mean: 399.69
+  Median: 407.5
+  Min : 187
+  Max : 779
+Game 1029
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 487.44
+  Median: 484.0
+  Min : 340
+  Max : 780
+Game 1030
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 486.38
+  Median: 495.0
+  Min : 321
+  Max : 786
+Game 1031
+--------------------
+Total rounds: 29
+Iterations per round:
+  Mean: 450.52
+  Median: 448.0
+  Min : 265
+  Max : 851
+Game 1032
+--------------------
+Total rounds: 26
+Iterations per round:
+  Mean: 462.38
+  Median: 438.5
+  Min : 132
+  Max : 1018
+Game 1033
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 481.95
+  Median: 455.0
+  Min : 335
+  Max : 776
+Game 1034
+--------------------
+Total rounds: 35
+Iterations per round:
+  Mean: 423.66
+  Median: 381.0
+  Min : 278
+  Max : 789
+Game 1035
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 501.17
+  Median: 478.0
+  Min : 377
+  Max : 782
+Game 1036
+--------------------
+Total rounds: 37
+Iterations per round:
+  Mean: 446.35
+  Median: 418.0
+  Min : 249
+  Max : 775
+Game 1037
+--------------------
+Total rounds: 46
+Iterations per round:
+  Mean: 452.74
+  Median: 375.5
+  Min : 260
+  Max : 1157
+Game 1038
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 490.38
+  Median: 440.5
+  Min : 358
+  Max : 1028
+Game 1039
+--------------------
+Total rounds: 27
+Iterations per round:
+  Mean: 494.56
+  Median: 472.0
+  Min : 268
+  Max : 1251
+Game 1040
+--------------------
+Total rounds: 50
+Iterations per round:
+  Mean: 408.28
+  Median: 376.5
+  Min : 141
+  Max : 802
+Game 1041
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 507.53
+  Median: 506.0
+  Min : 368
+  Max : 774
+Game 1042
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 448.83
+  Median: 413.5
+  Min : 304
+  Max : 792
+Game 1043
+--------------------
+Total rounds: 25
+Iterations per round:
+  Mean: 477.36
+  Median: 453.0
+  Min : 274
+  Max : 1049
+Game 1044
+--------------------
+Total rounds: 26
+Iterations per round:
+  Mean: 501.54
+  Median: 445.5
+  Min : 307
+  Max : 1145
+Game 1045
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 470.26
+  Median: 481.0
+  Min : 316
+  Max : 774
+Game 1046
+--------------------
+Total rounds: 31
+Iterations per round:
+  Mean: 447.48
+  Median: 413.0
+  Min : 301
+  Max : 780
+Game 1047
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 532.00
+  Median: 480.0
+  Min : 386
+  Max : 1228
+Game 1048
+--------------------
+Total rounds: 43
+Iterations per round:
+  Mean: 397.44
+  Median: 370.0
+  Min : 254
+  Max : 790
+Game 1049
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 508.82
+  Median: 488.0
+  Min : 364
+  Max : 790
+Game 1050
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 483.96
+  Median: 460.0
+  Min : 373
+  Max : 786
+Game 1051
+--------------------
+Total rounds: 32
+Iterations per round:
+  Mean: 451.31
+  Median: 428.5
+  Min : 252
+  Max : 1153
+Game 1052
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 443.21
+  Median: 420.0
+  Min : 313
+  Max : 776
+Game 1053
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 495.06
+  Median: 496.5
+  Min : 323
+  Max : 804
+Game 1054
+--------------------
+Total rounds: 33
+Iterations per round:
+  Mean: 428.12
+  Median: 394.0
+  Min : 330
+  Max : 777
+Game 1055
+--------------------
+Total rounds: 40
+Iterations per round:
+  Mean: 456.32
+  Median: 381.5
+  Min : 175
+  Max : 1097
+Game 1056
+--------------------
+Total rounds: 25
+Iterations per round:
+  Mean: 440.44
+  Median: 430.0
+  Min : 306
+  Max : 776
+Game 1057
+--------------------
+Total rounds: 44
+Iterations per round:
+  Mean: 421.07
+  Median: 429.0
+  Min : 208
+  Max : 781
+Game 1058
+--------------------
+Total rounds: 25
+Iterations per round:
+  Mean: 502.08
+  Median: 435.0
+  Min : 304
+  Max : 1134
+Game 1059
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 501.56
+  Median: 502.5
+  Min : 327
+  Max : 779
+Game 1060
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 513.95
+  Median: 481.0
+  Min : 358
+  Max : 776
+Game 1061
+--------------------
+Total rounds: 35
+Iterations per round:
+  Mean: 424.34
+  Median: 423.0
+  Min : 224
+  Max : 770
+Game 1062
+--------------------
+Total rounds: 30
+Iterations per round:
+  Mean: 444.80
+  Median: 406.0
+  Min : 325
+  Max : 795
+Game 1063
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 523.36
+  Median: 486.0
+  Min : 456
+  Max : 787
+Game 1064
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 519.81
+  Median: 488.0
+  Min : 327
+  Max : 1284
+Game 1065
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 516.61
+  Median: 495.0
+  Min : 372
+  Max : 1206
+Game 1066
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 480.60
+  Median: 502.0
+  Min : 316
+  Max : 779
+Game 1067
+--------------------
+Total rounds: 30
+Iterations per round:
+  Mean: 439.70
+  Median: 403.0
+  Min : 287
+  Max : 779
+Game 1068
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 459.86
+  Median: 431.0
+  Min : 303
+  Max : 808
+Game 1069
+--------------------
+Total rounds: 25
+Iterations per round:
+  Mean: 516.32
+  Median: 494.0
+  Min : 394
+  Max : 1039
+Game 1070
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 522.50
+  Median: 505.5
+  Min : 358
+  Max : 1005
+Game 1071
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 500.75
+  Median: 473.5
+  Min : 385
+  Max : 798
+Game 1072
+--------------------
+Total rounds: 27
+Iterations per round:
+  Mean: 426.44
+  Median: 392.0
+  Min : 274
+  Max : 770
+Game 1073
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 439.90
+  Median: 410.0
+  Min : 258
+  Max : 792
+Game 1074
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 521.29
+  Median: 477.0
+  Min : 362
+  Max : 1222
+Game 1075
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 497.70
+  Median: 505.0
+  Min : 363
+  Max : 786
+Game 1076
+--------------------
+Total rounds: 40
+Iterations per round:
+  Mean: 451.75
+  Median: 409.5
+  Min : 292
+  Max : 1115
+Game 1077
+--------------------
+Total rounds: 34
+Iterations per round:
+  Mean: 422.97
+  Median: 391.0
+  Min : 224
+  Max : 782
+Game 1078
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 502.93
+  Median: 498.5
+  Min : 397
+  Max : 674
+Game 1079
+--------------------
+Total rounds: 36
+Iterations per round:
+  Mean: 492.03
+  Median: 517.0
+  Min : 158
+  Max : 1165
+Game 1080
+--------------------
+Total rounds: 44
+Iterations per round:
+  Mean: 401.05
+  Median: 380.5
+  Min : 190
+  Max : 1118
+Game 1081
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 476.84
+  Median: 432.0
+  Min : 384
+  Max : 706
+Game 1082
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 501.48
+  Median: 430.0
+  Min : 364
+  Max : 1191
+Game 1083
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 490.59
+  Median: 464.0
+  Min : 372
+  Max : 725
+Game 1084
+--------------------
+Total rounds: 33
+Iterations per round:
+  Mean: 421.48
+  Median: 402.0
+  Min : 280
+  Max : 688
+Game 1085
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 494.88
+  Median: 486.0
+  Min : 395
+  Max : 689
+Game 1086
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 503.07
+  Median: 514.0
+  Min : 355
+  Max : 692
+Game 1087
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 520.33
+  Median: 470.5
+  Min : 350
+  Max : 1299
+Game 1088
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 454.43
+  Median: 429.0
+  Min : 312
+  Max : 670
+Game 1089
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 490.44
+  Median: 451.5
+  Min : 304
+  Max : 681
+Game 1090
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 482.92
+  Median: 454.5
+  Min : 410
+  Max : 677
+Game 1091
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 478.19
+  Median: 477.0
+  Min : 341
+  Max : 679
+Game 1092
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 566.20
+  Median: 536.5
+  Min : 385
+  Max : 1362
+Game 1093
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 484.81
+  Median: 462.5
+  Min : 367
+  Max : 683
+Game 1094
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 482.28
+  Median: 457.5
+  Min : 358
+  Max : 683
+Game 1095
+--------------------
+Total rounds: 27
+Iterations per round:
+  Mean: 493.15
+  Median: 425.0
+  Min : 337
+  Max : 1413
+Game 1096
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 495.29
+  Median: 490.0
+  Min : 367
+  Max : 681
+Game 1097
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 494.21
+  Median: 494.5
+  Min : 336
+  Max : 685
+Game 1098
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 449.73
+  Median: 430.5
+  Min : 320
+  Max : 688
+Game 1099
+--------------------
+Total rounds: 26
+Iterations per round:
+  Mean: 496.65
+  Median: 482.0
+  Min : 248
+  Max : 1149
+Game 1100
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 442.68
+  Median: 408.0
+  Min : 270
+  Max : 682
+Game 1101
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 436.18
+  Median: 401.0
+  Min : 288
+  Max : 683
+Game 1102
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 472.17
+  Median: 446.5
+  Min : 377
+  Max : 688
+Game 1103
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 505.65
+  Median: 507.0
+  Min : 376
+  Max : 688
+Game 1104
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 516.61
+  Median: 445.0
+  Min : 348
+  Max : 1264
+Game 1105
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 530.47
+  Median: 515.0
+  Min : 433
+  Max : 685
+Game 1106
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 499.88
+  Median: 453.0
+  Min : 399
+  Max : 704
+Game 1107
+--------------------
+Total rounds: 30
+Iterations per round:
+  Mean: 436.77
+  Median: 430.0
+  Min : 290
+  Max : 674
+Game 1108
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 489.35
+  Median: 473.0
+  Min : 342
+  Max : 684
+Game 1109
+--------------------
+Total rounds: 41
+Iterations per round:
+  Mean: 512.05
+  Median: 476.0
+  Min : 364
+  Max : 1215
+Game 1110
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 468.59
+  Median: 466.0
+  Min : 354
+  Max : 676
+Game 1111
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 464.83
+  Median: 441.0
+  Min : 356
+  Max : 682
+Game 1112
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 444.38
+  Median: 425.5
+  Min : 296
+  Max : 683
+Game 1113
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 520.37
+  Median: 437.0
+  Min : 323
+  Max : 1301
+Game 1114
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 464.41
+  Median: 446.0
+  Min : 340
+  Max : 696
+Game 1115
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 469.06
+  Median: 456.5
+  Min : 322
+  Max : 691
+Game 1116
+--------------------
+Total rounds: 13
+Iterations per round:
+  Mean: 506.46
+  Median: 482.0
+  Min : 424
+  Max : 684
+Game 1117
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 473.61
+  Median: 443.5
+  Min : 364
+  Max : 679
+Game 1118
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 473.25
+  Median: 418.5
+  Min : 333
+  Max : 1064
+Game 1119
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 494.29
+  Median: 478.0
+  Min : 375
+  Max : 678
+Game 1120
+--------------------
+Total rounds: 13
+Iterations per round:
+  Mean: 514.00
+  Median: 540.0
+  Min : 391
+  Max : 689
+Game 1121
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 501.69
+  Median: 510.5
+  Min : 361
+  Max : 677
+Game 1122
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 502.06
+  Median: 494.0
+  Min : 407
+  Max : 682
+Game 1123
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 492.82
+  Median: 481.0
+  Min : 345
+  Max : 687
+Game 1124
+--------------------
+Total rounds: 12
+Iterations per round:
+  Mean: 532.83
+  Median: 532.5
+  Min : 433
+  Max : 704
+Game 1125
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 513.94
+  Median: 509.5
+  Min : 307
+  Max : 711
+Game 1126
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 462.12
+  Median: 429.0
+  Min : 342
+  Max : 671
+Game 1127
+--------------------
+Total rounds: 12
+Iterations per round:
+  Mean: 533.25
+  Median: 553.0
+  Min : 430
+  Max : 678
+Game 1128
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 502.00
+  Median: 492.5
+  Min : 423
+  Max : 750
+Game 1129
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 499.90
+  Median: 456.0
+  Min : 354
+  Max : 1115
+Game 1130
+--------------------
+Total rounds: 28
+Iterations per round:
+  Mean: 546.43
+  Median: 534.0
+  Min : 393
+  Max : 1114
+Game 1131
+--------------------
+Total rounds: 25
+Iterations per round:
+  Mean: 492.72
+  Median: 426.0
+  Min : 316
+  Max : 1052
+Game 1132
+--------------------
+Total rounds: 26
+Iterations per round:
+  Mean: 481.42
+  Median: 449.5
+  Min : 333
+  Max : 760
+Game 1133
+--------------------
+Total rounds: 27
+Iterations per round:
+  Mean: 477.11
+  Median: 402.0
+  Min : 335
+  Max : 1132
+Game 1134
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 572.00
+  Median: 494.0
+  Min : 413
+  Max : 1286
+Game 1135
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 493.24
+  Median: 473.0
+  Min : 394
+  Max : 752
+Game 1136
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 486.70
+  Median: 484.0
+  Min : 319
+  Max : 1001
+Game 1137
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 505.93
+  Median: 477.5
+  Min : 396
+  Max : 762
+Game 1138
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 500.50
+  Median: 497.0
+  Min : 366
+  Max : 760
+Game 1139
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 457.62
+  Median: 454.5
+  Min : 300
+  Max : 784
+Game 1140
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 533.70
+  Median: 484.5
+  Min : 343
+  Max : 1233
+Game 1141
+--------------------
+Total rounds: 33
+Iterations per round:
+  Mean: 474.94
+  Median: 446.0
+  Min : 341
+  Max : 1123
+Game 1142
+--------------------
+Total rounds: 27
+Iterations per round:
+  Mean: 502.96
+  Median: 483.0
+  Min : 159
+  Max : 1269
+Game 1143
+--------------------
+Total rounds: 26
+Iterations per round:
+  Mean: 444.77
+  Median: 414.5
+  Min : 296
+  Max : 760
+Game 1144
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 499.48
+  Median: 469.0
+  Min : 316
+  Max : 1152
+Game 1145
+--------------------
+Total rounds: 35
+Iterations per round:
+  Mean: 389.60
+  Median: 368.0
+  Min : 212
+  Max : 761
+Game 1146
+--------------------
+Total rounds: 30
+Iterations per round:
+  Mean: 432.47
+  Median: 404.0
+  Min : 305
+  Max : 786
+Game 1147
+--------------------
+Total rounds: 26
+Iterations per round:
+  Mean: 476.15
+  Median: 462.0
+  Min : 356
+  Max : 762
+Game 1148
+--------------------
+Total rounds: 25
+Iterations per round:
+  Mean: 443.64
+  Median: 415.0
+  Min : 306
+  Max : 759
+Game 1149
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 496.35
+  Median: 474.5
+  Min : 370
+  Max : 759
+Game 1150
+--------------------
+Total rounds: 26
+Iterations per round:
+  Mean: 462.27
+  Median: 447.0
+  Min : 346
+  Max : 763
+Game 1151
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 473.65
+  Median: 454.0
+  Min : 368
+  Max : 768
+Game 1152
+--------------------
+Total rounds: 34
+Iterations per round:
+  Mean: 430.53
+  Median: 423.0
+  Min : 280
+  Max : 776
+Game 1153
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 475.38
+  Median: 461.0
+  Min : 295
+  Max : 926
+Game 1154
+--------------------
+Total rounds: 28
+Iterations per round:
+  Mean: 516.29
+  Median: 480.5
+  Min : 380
+  Max : 1274
+Game 1155
+--------------------
+Total rounds: 28
+Iterations per round:
+  Mean: 461.14
+  Median: 442.0
+  Min : 356
+  Max : 776
+Game 1156
+--------------------
+Total rounds: 43
+Iterations per round:
+  Mean: 423.30
+  Median: 392.0
+  Min : 261
+  Max : 770
+Game 1157
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 519.83
+  Median: 479.5
+  Min : 379
+  Max : 1212
+Game 1158
+--------------------
+Total rounds: 30
+Iterations per round:
+  Mean: 474.43
+  Median: 468.0
+  Min : 311
+  Max : 1079
+Game 1159
+--------------------
+Total rounds: 39
+Iterations per round:
+  Mean: 446.95
+  Median: 464.0
+  Min : 270
+  Max : 764
+Game 1160
+--------------------
+Total rounds: 26
+Iterations per round:
+  Mean: 500.69
+  Median: 499.0
+  Min : 369
+  Max : 769
+Game 1161
+--------------------
+Total rounds: 27
+Iterations per round:
+  Mean: 474.67
+  Median: 428.0
+  Min : 296
+  Max : 1131
+Game 1162
+--------------------
+Total rounds: 32
+Iterations per round:
+  Mean: 482.25
+  Median: 436.0
+  Min : 297
+  Max : 1176
+Game 1163
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 420.05
+  Median: 399.0
+  Min : 249
+  Max : 757
+Game 1164
+--------------------
+Total rounds: 29
+Iterations per round:
+  Mean: 464.59
+  Median: 426.0
+  Min : 359
+  Max : 751
+Game 1165
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 496.18
+  Median: 438.5
+  Min : 356
+  Max : 1169
+Game 1166
+--------------------
+Total rounds: 49
+Iterations per round:
+  Mean: 501.53
+  Median: 488.0
+  Min : 373
+  Max : 1222
+Game 1167
+--------------------
+Total rounds: 34
+Iterations per round:
+  Mean: 420.24
+  Median: 355.5
+  Min : 165
+  Max : 1038
+Game 1168
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 473.39
+  Median: 497.0
+  Min : 333
+  Max : 774
+Game 1169
+--------------------
+Total rounds: 30
+Iterations per round:
+  Mean: 471.03
+  Median: 457.0
+  Min : 372
+  Max : 757
+Game 1170
+--------------------
+Total rounds: 26
+Iterations per round:
+  Mean: 510.12
+  Median: 465.0
+  Min : 309
+  Max : 1036
+Game 1171
+--------------------
+Total rounds: 28
+Iterations per round:
+  Mean: 519.50
+  Median: 490.5
+  Min : 397
+  Max : 1137
+Game 1172
+--------------------
+Total rounds: 31
+Iterations per round:
+  Mean: 461.29
+  Median: 388.0
+  Min : 282
+  Max : 1259
+Game 1173
+--------------------
+Total rounds: 33
+Iterations per round:
+  Mean: 437.09
+  Median: 451.0
+  Min : 265
+  Max : 756
+Game 1174
+--------------------
+Total rounds: 59
+Iterations per round:
+  Mean: 428.88
+  Median: 395.0
+  Min : 264
+  Max : 1166
+Game 1175
+--------------------
+Total rounds: 29
+Iterations per round:
+  Mean: 455.79
+  Median: 435.0
+  Min : 344
+  Max : 762
+Game 1176
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 560.00
+  Median: 502.0
+  Min : 456
+  Max : 1111
+Game 1177
+--------------------
+Total rounds: 32
+Iterations per round:
+  Mean: 468.59
+  Median: 411.0
+  Min : 340
+  Max : 1267
+Game 1178
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 464.69
+  Median: 412.5
+  Min : 355
+  Max : 766
+Game 1179
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 441.21
+  Median: 383.0
+  Min : 335
+  Max : 761
+Game 1180
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 434.95
+  Median: 409.0
+  Min : 225
+  Max : 800
+Game 1181
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 472.56
+  Median: 412.0
+  Min : 365
+  Max : 764
+Game 1182
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 422.48
+  Median: 389.0
+  Min : 283
+  Max : 768
+Game 1183
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 452.47
+  Median: 376.0
+  Min : 306
+  Max : 838
+Game 1184
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 433.81
+  Median: 381.0
+  Min : 341
+  Max : 773
+Game 1185
+--------------------
+Total rounds: 25
+Iterations per round:
+  Mean: 427.84
+  Median: 369.0
+  Min : 292
+  Max : 842
+Game 1186
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 439.20
+  Median: 413.5
+  Min : 320
+  Max : 770
+Game 1187
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 451.58
+  Median: 406.0
+  Min : 324
+  Max : 767
+Game 1188
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 433.18
+  Median: 390.0
+  Min : 319
+  Max : 753
+Game 1189
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 414.71
+  Median: 379.0
+  Min : 290
+  Max : 757
+Game 1190
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 495.86
+  Median: 403.0
+  Min : 333
+  Max : 1208
+Game 1191
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 424.52
+  Median: 380.0
+  Min : 284
+  Max : 757
+Game 1192
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 405.86
+  Median: 375.0
+  Min : 288
+  Max : 758
+Game 1193
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 453.50
+  Median: 407.0
+  Min : 327
+  Max : 767
+Game 1194
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 470.30
+  Median: 396.0
+  Min : 252
+  Max : 1019
+Game 1195
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 408.67
+  Median: 377.0
+  Min : 260
+  Max : 743
+Game 1196
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 413.00
+  Median: 385.5
+  Min : 260
+  Max : 759
+Game 1197
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 447.13
+  Median: 395.0
+  Min : 243
+  Max : 1193
+Game 1198
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 441.44
+  Median: 398.0
+  Min : 330
+  Max : 761
+Game 1199
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 427.00
+  Median: 387.0
+  Min : 300
+  Max : 766
+Game 1200
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 463.12
+  Median: 411.0
+  Min : 321
+  Max : 752
+Game 1201
+--------------------
+Total rounds: 33
+Iterations per round:
+  Mean: 412.79
+  Median: 394.0
+  Min : 302
+  Max : 748
+Game 1202
+--------------------
+Total rounds: 26
+Iterations per round:
+  Mean: 414.88
+  Median: 387.5
+  Min : 254
+  Max : 772
+Game 1203
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 422.54
+  Median: 381.0
+  Min : 301
+  Max : 759
+Game 1204
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 442.65
+  Median: 396.0
+  Min : 325
+  Max : 773
+Game 1205
+--------------------
+Total rounds: 25
+Iterations per round:
+  Mean: 406.16
+  Median: 373.0
+  Min : 277
+  Max : 769
+Game 1206
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 431.60
+  Median: 395.0
+  Min : 303
+  Max : 753
+Game 1207
+--------------------
+Total rounds: 36
+Iterations per round:
+  Mean: 391.08
+  Median: 369.0
+  Min : 267
+  Max : 757
+Game 1208
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 459.75
+  Median: 410.5
+  Min : 267
+  Max : 762
+Game 1209
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 499.67
+  Median: 415.5
+  Min : 312
+  Max : 1223
+Game 1210
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 434.50
+  Median: 390.0
+  Min : 246
+  Max : 753
+Game 1211
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 465.44
+  Median: 412.5
+  Min : 347
+  Max : 765
+Game 1212
+--------------------
+Total rounds: 27
+Iterations per round:
+  Mean: 419.15
+  Median: 363.0
+  Min : 231
+  Max : 1088
+Game 1213
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 475.67
+  Median: 406.0
+  Min : 357
+  Max : 752
+Game 1214
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 413.50
+  Median: 368.5
+  Min : 297
+  Max : 761
+Game 1215
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 405.25
+  Median: 364.0
+  Min : 273
+  Max : 765
+Game 1216
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 445.18
+  Median: 405.0
+  Min : 329
+  Max : 763
+Game 1217
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 423.44
+  Median: 368.0
+  Min : 320
+  Max : 771
+Game 1218
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 386.12
+  Median: 340.5
+  Min : 265
+  Max : 778
+Game 1219
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 449.43
+  Median: 376.0
+  Min : 278
+  Max : 1173
+Game 1220
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 417.16
+  Median: 367.0
+  Min : 286
+  Max : 761
+Game 1221
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 418.62
+  Median: 383.0
+  Min : 130
+  Max : 764
+Game 1222
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 434.38
+  Median: 383.0
+  Min : 280
+  Max : 762
+Game 1223
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 471.88
+  Median: 392.0
+  Min : 336
+  Max : 1014
+Game 1224
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 406.37
+  Median: 368.0
+  Min : 278
+  Max : 769
+Game 1225
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 439.85
+  Median: 363.0
+  Min : 261
+  Max : 926
+Game 1226
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 437.38
+  Median: 391.0
+  Min : 313
+  Max : 761
+Game 1227
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 441.72
+  Median: 393.0
+  Min : 330
+  Max : 759
+Game 1228
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 397.39
+  Median: 388.0
+  Min : 258
+  Max : 672
+Game 1229
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 425.33
+  Median: 378.0
+  Min : 319
+  Max : 674
+Game 1230
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 474.71
+  Median: 438.5
+  Min : 377
+  Max : 678
+Game 1231
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 445.69
+  Median: 402.5
+  Min : 328
+  Max : 669
+Game 1232
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 444.56
+  Median: 402.5
+  Min : 323
+  Max : 684
+Game 1233
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 448.56
+  Median: 384.0
+  Min : 332
+  Max : 673
+Game 1234
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 485.81
+  Median: 409.0
+  Min : 312
+  Max : 1255
+Game 1235
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 429.05
+  Median: 396.0
+  Min : 311
+  Max : 660
+Game 1236
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 438.35
+  Median: 417.0
+  Min : 316
+  Max : 672
+Game 1237
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 443.13
+  Median: 390.0
+  Min : 318
+  Max : 674
+Game 1238
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 436.00
+  Median: 407.0
+  Min : 289
+  Max : 674
+Game 1239
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 453.88
+  Median: 404.0
+  Min : 348
+  Max : 683
+Game 1240
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 457.81
+  Median: 406.5
+  Min : 369
+  Max : 675
+Game 1241
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 461.71
+  Median: 430.5
+  Min : 330
+  Max : 671
+Game 1242
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 436.13
+  Median: 390.0
+  Min : 337
+  Max : 678
+Game 1243
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 457.29
+  Median: 405.0
+  Min : 350
+  Max : 671
+Game 1244
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 474.00
+  Median: 394.0
+  Min : 245
+  Max : 1177
+Game 1245
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 449.00
+  Median: 410.0
+  Min : 361
+  Max : 689
+Game 1246
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 459.93
+  Median: 402.5
+  Min : 357
+  Max : 676
+Game 1247
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 447.29
+  Median: 406.0
+  Min : 329
+  Max : 662
+Game 1248
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 449.00
+  Median: 406.0
+  Min : 317
+  Max : 680
+Game 1249
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 473.50
+  Median: 384.5
+  Min : 329
+  Max : 1131
+Game 1250
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 446.44
+  Median: 390.5
+  Min : 345
+  Max : 676
+Game 1251
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 451.67
+  Median: 417.0
+  Min : 352
+  Max : 669
+Game 1252
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 445.87
+  Median: 412.0
+  Min : 355
+  Max : 675
+Game 1253
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 463.87
+  Median: 420.0
+  Min : 364
+  Max : 671
+Game 1254
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 435.76
+  Median: 379.0
+  Min : 331
+  Max : 689
+Game 1255
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 449.44
+  Median: 415.0
+  Min : 347
+  Max : 669
+Game 1256
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 424.79
+  Median: 391.5
+  Min : 334
+  Max : 668
+Game 1257
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 442.53
+  Median: 405.0
+  Min : 319
+  Max : 676
+Game 1258
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 430.33
+  Median: 410.5
+  Min : 270
+  Max : 667
+Game 1259
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 443.52
+  Median: 383.0
+  Min : 301
+  Max : 1036
+Game 1260
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 425.41
+  Median: 390.0
+  Min : 305
+  Max : 682
+Game 1261
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 458.71
+  Median: 421.0
+  Min : 347
+  Max : 666
+Game 1262
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 436.73
+  Median: 393.0
+  Min : 334
+  Max : 670
+Game 1263
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 448.07
+  Median: 409.0
+  Min : 332
+  Max : 670
+Game 1264
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 402.83
+  Median: 371.5
+  Min : 289
+  Max : 665
+Game 1265
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 476.33
+  Median: 387.0
+  Min : 319
+  Max : 1219
+Game 1266
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 443.79
+  Median: 405.0
+  Min : 349
+  Max : 686
+Game 1267
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 418.72
+  Median: 390.0
+  Min : 318
+  Max : 679
+Game 1268
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 453.87
+  Median: 408.0
+  Min : 343
+  Max : 671
+Game 1269
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 454.06
+  Median: 387.0
+  Min : 298
+  Max : 1099
+Game 1270
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 446.20
+  Median: 393.0
+  Min : 343
+  Max : 680
+Game 1271
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 430.28
+  Median: 389.0
+  Min : 314
+  Max : 675
+Game 1272
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 449.80
+  Median: 398.0
+  Min : 353
+  Max : 674
+Game 1273
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 407.10
+  Median: 381.5
+  Min : 300
+  Max : 669
+Game 1274
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 429.94
+  Median: 401.0
+  Min : 331
+  Max : 684
+Game 1275
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 441.93
+  Median: 388.0
+  Min : 333
+  Max : 668
+Game 1276
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 476.88
+  Median: 413.0
+  Min : 328
+  Max : 1057
+Game 1277
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 460.93
+  Median: 410.0
+  Min : 360
+  Max : 678
+Game 1278
+--------------------
+Total rounds: 58
+Iterations per round:
+  Mean: 392.74
+  Median: 357.0
+  Min : 189
+  Max : 1177
+Game 1279
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 500.81
+  Median: 496.5
+  Min : 365
+  Max : 678
+Game 1280
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 493.00
+  Median: 480.0
+  Min : 392
+  Max : 701
+Game 1281
+--------------------
+Total rounds: 13
+Iterations per round:
+  Mean: 512.46
+  Median: 505.0
+  Min : 412
+  Max : 667
+Game 1282
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 509.17
+  Median: 509.0
+  Min : 395
+  Max : 673
+Game 1283
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 522.29
+  Median: 486.0
+  Min : 367
+  Max : 1232
+Game 1284
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 478.26
+  Median: 486.0
+  Min : 337
+  Max : 678
+Game 1285
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 496.60
+  Median: 489.5
+  Min : 344
+  Max : 670
+Game 1286
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 493.00
+  Median: 461.0
+  Min : 259
+  Max : 1192
+Game 1287
+--------------------
+Total rounds: 32
+Iterations per round:
+  Mean: 535.41
+  Median: 514.5
+  Min : 419
+  Max : 1088
+Game 1288
+--------------------
+Total rounds: 31
+Iterations per round:
+  Mean: 445.00
+  Median: 427.0
+  Min : 299
+  Max : 669
+Game 1289
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 475.76
+  Median: 469.0
+  Min : 325
+  Max : 686
+Game 1290
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 528.73
+  Median: 499.0
+  Min : 449
+  Max : 687
+Game 1291
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 537.50
+  Median: 505.0
+  Min : 421
+  Max : 721
+Game 1292
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 485.45
+  Median: 470.5
+  Min : 381
+  Max : 700
+Game 1293
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 498.00
+  Median: 465.0
+  Min : 390
+  Max : 698
+Game 1294
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 501.56
+  Median: 498.0
+  Min : 370
+  Max : 680
+Game 1295
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 479.50
+  Median: 486.5
+  Min : 354
+  Max : 697
+Game 1296
+--------------------
+Total rounds: 13
+Iterations per round:
+  Mean: 519.92
+  Median: 541.0
+  Min : 437
+  Max : 662
+Game 1297
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 535.47
+  Median: 445.0
+  Min : 365
+  Max : 1203
+Game 1298
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 490.12
+  Median: 483.0
+  Min : 401
+  Max : 689
+Game 1299
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 525.29
+  Median: 477.0
+  Min : 346
+  Max : 1194
+Game 1300
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 465.69
+  Median: 458.5
+  Min : 309
+  Max : 659
+Game 1301
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 489.88
+  Median: 457.5
+  Min : 344
+  Max : 969
+Game 1302
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 497.29
+  Median: 504.0
+  Min : 369
+  Max : 680
+Game 1303
+--------------------
+Total rounds: 28
+Iterations per round:
+  Mean: 499.93
+  Median: 468.5
+  Min : 341
+  Max : 977
+Game 1304
+--------------------
+Total rounds: 13
+Iterations per round:
+  Mean: 526.85
+  Median: 503.0
+  Min : 426
+  Max : 710
+Game 1305
+--------------------
+Total rounds: 27
+Iterations per round:
+  Mean: 440.07
+  Median: 430.0
+  Min : 308
+  Max : 675
+Game 1306
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 531.56
+  Median: 545.0
+  Min : 387
+  Max : 671
+Game 1307
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 511.31
+  Median: 514.0
+  Min : 401
+  Max : 670
+Game 1308
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 471.24
+  Median: 450.0
+  Min : 355
+  Max : 673
+Game 1309
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 484.40
+  Median: 488.0
+  Min : 304
+  Max : 689
+Game 1310
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 480.50
+  Median: 459.0
+  Min : 357
+  Max : 719
+Game 1311
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 464.15
+  Median: 461.0
+  Min : 283
+  Max : 681
+Game 1312
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 509.94
+  Median: 503.0
+  Min : 424
+  Max : 665
+Game 1313
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 487.53
+  Median: 454.0
+  Min : 355
+  Max : 678
+Game 1314
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 520.09
+  Median: 507.0
+  Min : 359
+  Max : 1103
+Game 1315
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 490.16
+  Median: 458.0
+  Min : 335
+  Max : 673
+Game 1316
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 445.73
+  Median: 403.0
+  Min : 326
+  Max : 666
+Game 1317
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 462.84
+  Median: 467.0
+  Min : 290
+  Max : 661
+Game 1318
+--------------------
+Total rounds: 29
+Iterations per round:
+  Mean: 467.28
+  Median: 469.0
+  Min : 303
+  Max : 1224
+Game 1319
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 474.24
+  Median: 433.0
+  Min : 359
+  Max : 656
+Game 1320
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 472.29
+  Median: 438.0
+  Min : 336
+  Max : 701
+Game 1321
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 546.41
+  Median: 502.0
+  Min : 378
+  Max : 1184
+Game 1322
+--------------------
+Total rounds: 26
+Iterations per round:
+  Mean: 493.69
+  Median: 422.5
+  Min : 309
+  Max : 1100
+Game 1323
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 489.38
+  Median: 440.5
+  Min : 347
+  Max : 676
+Game 1324
+--------------------
+Total rounds: 27
+Iterations per round:
+  Mean: 447.56
+  Median: 416.0
+  Min : 238
+  Max : 1147
+Game 1325
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 492.35
+  Median: 462.0
+  Min : 404
+  Max : 659
+Game 1326
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 489.40
+  Median: 455.0
+  Min : 398
+  Max : 664
+Game 1327
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 499.61
+  Median: 433.5
+  Min : 355
+  Max : 1133
+Game 1328
+--------------------
+Total rounds: 29
+Iterations per round:
+  Mean: 446.83
+  Median: 437.0
+  Min : 306
+  Max : 745
+Game 1329
+--------------------
+Total rounds: 31
+Iterations per round:
+  Mean: 433.97
+  Median: 408.0
+  Min : 321
+  Max : 732
+Game 1330
+--------------------
+Total rounds: 30
+Iterations per round:
+  Mean: 495.30
+  Median: 462.5
+  Min : 326
+  Max : 1115
+Game 1331
+--------------------
+Total rounds: 28
+Iterations per round:
+  Mean: 478.36
+  Median: 456.5
+  Min : 303
+  Max : 1121
+Game 1332
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 471.62
+  Median: 467.0
+  Min : 316
+  Max : 751
+Game 1333
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 513.31
+  Median: 484.5
+  Min : 383
+  Max : 750
+Game 1334
+--------------------
+Total rounds: 28
+Iterations per round:
+  Mean: 488.07
+  Median: 442.5
+  Min : 322
+  Max : 1246
+Game 1335
+--------------------
+Total rounds: 36
+Iterations per round:
+  Mean: 394.78
+  Median: 407.5
+  Min : 167
+  Max : 767
+Game 1336
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 479.50
+  Median: 461.5
+  Min : 337
+  Max : 750
+Game 1337
+--------------------
+Total rounds: 29
+Iterations per round:
+  Mean: 400.76
+  Median: 354.0
+  Min : 266
+  Max : 749
+Game 1338
+--------------------
+Total rounds: 41
+Iterations per round:
+  Mean: 476.85
+  Median: 494.0
+  Min : 308
+  Max : 766
+Game 1339
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 472.70
+  Median: 462.0
+  Min : 282
+  Max : 739
+Game 1340
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 447.67
+  Median: 415.0
+  Min : 287
+  Max : 749
+Game 1341
+--------------------
+Total rounds: 28
+Iterations per round:
+  Mean: 435.50
+  Median: 437.0
+  Min : 312
+  Max : 745
+Game 1342
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 466.24
+  Median: 447.0
+  Min : 294
+  Max : 787
+Game 1343
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 498.82
+  Median: 465.0
+  Min : 331
+  Max : 1160
+Game 1344
+--------------------
+Total rounds: 56
+Iterations per round:
+  Mean: 418.34
+  Median: 374.5
+  Min : 288
+  Max : 1216
+Game 1345
+--------------------
+Total rounds: 27
+Iterations per round:
+  Mean: 467.85
+  Median: 431.0
+  Min : 326
+  Max : 1036
+Game 1346
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 462.22
+  Median: 428.0
+  Min : 330
+  Max : 736
+Game 1347
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 498.50
+  Median: 451.0
+  Min : 343
+  Max : 1090
+Game 1348
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 536.47
+  Median: 517.0
+  Min : 342
+  Max : 1128
+Game 1349
+--------------------
+Total rounds: 29
+Iterations per round:
+  Mean: 475.93
+  Median: 479.0
+  Min : 360
+  Max : 752
+Game 1350
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 529.10
+  Median: 466.5
+  Min : 390
+  Max : 1279
+Game 1351
+--------------------
+Total rounds: 36
+Iterations per round:
+  Mean: 442.81
+  Median: 403.0
+  Min : 257
+  Max : 1066
+Game 1352
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 501.21
+  Median: 488.0
+  Min : 361
+  Max : 741
+Game 1353
+--------------------
+Total rounds: 61
+Iterations per round:
+  Mean: 411.74
+  Median: 395.0
+  Min : 292
+  Max : 750
+Game 1354
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 523.81
+  Median: 507.0
+  Min : 439
+  Max : 743
+Game 1355
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 488.13
+  Median: 501.0
+  Min : 318
+  Max : 743
+Game 1356
+--------------------
+Total rounds: 28
+Iterations per round:
+  Mean: 481.82
+  Median: 467.5
+  Min : 321
+  Max : 1178
+Game 1357
+--------------------
+Total rounds: 34
+Iterations per round:
+  Mean: 465.91
+  Median: 414.5
+  Min : 189
+  Max : 1003
+Game 1358
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 534.00
+  Median: 495.0
+  Min : 304
+  Max : 1224
+Game 1359
+--------------------
+Total rounds: 56
+Iterations per round:
+  Mean: 345.59
+  Median: 303.5
+  Min : 158
+  Max : 1081
+Game 1360
+--------------------
+Total rounds: 35
+Iterations per round:
+  Mean: 491.11
+  Median: 439.0
+  Min : 304
+  Max : 1137
+Game 1361
+--------------------
+Total rounds: 32
+Iterations per round:
+  Mean: 510.91
+  Median: 467.0
+  Min : 361
+  Max : 1320
+Game 1362
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 484.29
+  Median: 468.0
+  Min : 372
+  Max : 754
+Game 1363
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 442.62
+  Median: 402.0
+  Min : 323
+  Max : 738
+Game 1364
+--------------------
+Total rounds: 35
+Iterations per round:
+  Mean: 492.46
+  Median: 455.0
+  Min : 312
+  Max : 1180
+Game 1365
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 496.72
+  Median: 490.0
+  Min : 326
+  Max : 772
+Game 1366
+--------------------
+Total rounds: 33
+Iterations per round:
+  Mean: 462.09
+  Median: 414.0
+  Min : 335
+  Max : 1145
+Game 1367
+--------------------
+Total rounds: 25
+Iterations per round:
+  Mean: 491.24
+  Median: 456.0
+  Min : 331
+  Max : 1069
+Game 1368
+--------------------
+Total rounds: 37
+Iterations per round:
+  Mean: 449.00
+  Median: 417.0
+  Min : 343
+  Max : 861
+Game 1369
+--------------------
+Total rounds: 25
+Iterations per round:
+  Mean: 466.76
+  Median: 474.0
+  Min : 269
+  Max : 762
+Game 1370
+--------------------
+Total rounds: 40
+Iterations per round:
+  Mean: 413.98
+  Median: 436.5
+  Min : 50
+  Max : 912
+Game 1371
+--------------------
+Total rounds: 32
+Iterations per round:
+  Mean: 460.53
+  Median: 460.0
+  Min : 243
+  Max : 1105
+Game 1372
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 517.68
+  Median: 507.5
+  Min : 238
+  Max : 1228
+Game 1373
+--------------------
+Total rounds: 26
+Iterations per round:
+  Mean: 466.42
+  Median: 472.0
+  Min : 318
+  Max : 746
+Game 1374
+--------------------
+Total rounds: 36
+Iterations per round:
+  Mean: 499.17
+  Median: 469.0
+  Min : 354
+  Max : 1297
+Game 1375
+--------------------
+Total rounds: 28
+Iterations per round:
+  Mean: 449.29
+  Median: 425.5
+  Min : 319
+  Max : 732
+Game 1376
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 466.76
+  Median: 448.0
+  Min : 346
+  Max : 741
+Game 1377
+--------------------
+Total rounds: 26
+Iterations per round:
+  Mean: 517.88
+  Median: 468.0
+  Min : 378
+  Max : 1103
+Game 1378
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 467.35
+  Median: 434.0
+  Min : 308
+  Max : 683
+Game 1379
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 497.36
+  Median: 500.5
+  Min : 380
+  Max : 664
+Game 1380
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 522.78
+  Median: 527.0
+  Min : 386
+  Max : 822
+Game 1381
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 476.89
+  Median: 489.0
+  Min : 304
+  Max : 665
+Game 1382
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 525.06
+  Median: 480.5
+  Min : 334
+  Max : 1130
+Game 1383
+--------------------
+Total rounds: 30
+Iterations per round:
+  Mean: 464.17
+  Median: 417.0
+  Min : 331
+  Max : 1158
+Game 1384
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 518.05
+  Median: 467.5
+  Min : 353
+  Max : 1252
+Game 1385
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 443.24
+  Median: 404.0
+  Min : 314
+  Max : 674
+Game 1386
+--------------------
+Total rounds: 10
+Iterations per round:
+  Mean: 547.80
+  Median: 528.5
+  Min : 499
+  Max : 674
+Game 1387
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 501.80
+  Median: 505.0
+  Min : 364
+  Max : 677
+Game 1388
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 478.36
+  Median: 454.0
+  Min : 364
+  Max : 667
+Game 1389
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 521.41
+  Median: 461.0
+  Min : 333
+  Max : 1236
+Game 1390
+--------------------
+Total rounds: 27
+Iterations per round:
+  Mean: 461.48
+  Median: 427.0
+  Min : 305
+  Max : 1249
+Game 1391
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 544.26
+  Median: 515.0
+  Min : 436
+  Max : 1232
+Game 1392
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 476.73
+  Median: 441.0
+  Min : 365
+  Max : 668
+Game 1393
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 532.05
+  Median: 494.5
+  Min : 378
+  Max : 1316
+Game 1394
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 530.81
+  Median: 489.5
+  Min : 348
+  Max : 1326
+Game 1395
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 487.87
+  Median: 459.0
+  Min : 383
+  Max : 680
+Game 1396
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 495.94
+  Median: 460.0
+  Min : 328
+  Max : 704
+Game 1397
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 473.47
+  Median: 474.0
+  Min : 311
+  Max : 692
+Game 1398
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 467.14
+  Median: 424.0
+  Min : 276
+  Max : 1155
+Game 1399
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 492.79
+  Median: 464.0
+  Min : 397
+  Max : 668
+Game 1400
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 506.87
+  Median: 494.0
+  Min : 399
+  Max : 668
+Game 1401
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 450.48
+  Median: 435.0
+  Min : 322
+  Max : 683
+Game 1402
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 479.44
+  Median: 465.0
+  Min : 327
+  Max : 709
+Game 1403
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 436.21
+  Median: 425.5
+  Min : 300
+  Max : 651
+Game 1404
+--------------------
+Total rounds: 12
+Iterations per round:
+  Mean: 535.42
+  Median: 537.0
+  Min : 403
+  Max : 662
+Game 1405
+--------------------
+Total rounds: 27
+Iterations per round:
+  Mean: 523.33
+  Median: 471.0
+  Min : 381
+  Max : 1099
+Game 1406
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 449.62
+  Median: 424.0
+  Min : 335
+  Max : 662
+Game 1407
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 542.25
+  Median: 481.5
+  Min : 387
+  Max : 1220
+Game 1408
+--------------------
+Total rounds: 41
+Iterations per round:
+  Mean: 416.93
+  Median: 365.0
+  Min : 280
+  Max : 940
+Game 1409
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 475.16
+  Median: 474.0
+  Min : 344
+  Max : 693
+Game 1410
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 532.71
+  Median: 531.0
+  Min : 441
+  Max : 693
+Game 1411
+--------------------
+Total rounds: 33
+Iterations per round:
+  Mean: 477.67
+  Median: 448.0
+  Min : 335
+  Max : 1290
+Game 1412
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 490.65
+  Median: 479.0
+  Min : 324
+  Max : 707
+Game 1413
+--------------------
+Total rounds: 43
+Iterations per round:
+  Mean: 423.84
+  Median: 463.0
+  Min : 205
+  Max : 680
+Game 1414
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 460.00
+  Median: 440.0
+  Min : 312
+  Max : 663
+Game 1415
+--------------------
+Total rounds: 30
+Iterations per round:
+  Mean: 438.83
+  Median: 412.5
+  Min : 296
+  Max : 673
+Game 1416
+--------------------
+Total rounds: 34
+Iterations per round:
+  Mean: 491.15
+  Median: 468.0
+  Min : 304
+  Max : 1239
+Game 1417
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 505.50
+  Median: 460.5
+  Min : 316
+  Max : 1225
+Game 1418
+--------------------
+Total rounds: 12
+Iterations per round:
+  Mean: 524.00
+  Median: 540.0
+  Min : 426
+  Max : 661
+Game 1419
+--------------------
+Total rounds: 28
+Iterations per round:
+  Mean: 506.75
+  Median: 470.5
+  Min : 339
+  Max : 1349
+Game 1420
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 434.13
+  Median: 443.0
+  Min : 274
+  Max : 703
+Game 1421
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 501.33
+  Median: 546.0
+  Min : 334
+  Max : 660
+Game 1422
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 475.67
+  Median: 450.0
+  Min : 354
+  Max : 677
+Game 1423
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 486.86
+  Median: 489.0
+  Min : 349
+  Max : 652
+Game 1424
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 549.40
+  Median: 515.0
+  Min : 394
+  Max : 1222
+Game 1425
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 518.38
+  Median: 467.0
+  Min : 342
+  Max : 1188
+Game 1426
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 447.77
+  Median: 429.0
+  Min : 327
+  Max : 687
+Game 1427
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 505.65
+  Median: 497.0
+  Min : 296
+  Max : 1202
+Game 1428
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 458.60
+  Median: 413.0
+  Min : 382
+  Max : 655
+Game 1429
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 452.86
+  Median: 409.0
+  Min : 348
+  Max : 655
+Game 1430
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 424.74
+  Median: 385.0
+  Min : 328
+  Max : 658
+Game 1431
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 433.59
+  Median: 403.0
+  Min : 332
+  Max : 657
+Game 1432
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 437.60
+  Median: 399.0
+  Min : 332
+  Max : 648
+Game 1433
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 462.44
+  Median: 383.0
+  Min : 319
+  Max : 1140
+Game 1434
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 437.00
+  Median: 379.0
+  Min : 338
+  Max : 658
+Game 1435
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 460.21
+  Median: 402.0
+  Min : 360
+  Max : 670
+Game 1436
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 428.12
+  Median: 383.0
+  Min : 328
+  Max : 661
+Game 1437
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 447.94
+  Median: 377.0
+  Min : 274
+  Max : 1087
+Game 1438
+--------------------
+Total rounds: 22
+Iterations per round:
+  Mean: 444.91
+  Median: 392.0
+  Min : 292
+  Max : 1281
+Game 1439
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 452.80
+  Median: 420.0
+  Min : 346
+  Max : 654
+Game 1440
+--------------------
+Total rounds: 13
+Iterations per round:
+  Mean: 472.62
+  Median: 431.0
+  Min : 361
+  Max : 686
+Game 1441
+--------------------
+Total rounds: 32
+Iterations per round:
+  Mean: 399.62
+  Median: 382.0
+  Min : 292
+  Max : 656
+Game 1442
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 443.94
+  Median: 406.0
+  Min : 340
+  Max : 656
+Game 1443
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 439.94
+  Median: 382.0
+  Min : 331
+  Max : 660
+Game 1444
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 421.11
+  Median: 375.0
+  Min : 303
+  Max : 650
+Game 1445
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 430.76
+  Median: 380.0
+  Min : 323
+  Max : 655
+Game 1446
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 447.93
+  Median: 395.0
+  Min : 351
+  Max : 661
+Game 1447
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 436.36
+  Median: 407.0
+  Min : 309
+  Max : 658
+Game 1448
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 404.59
+  Median: 368.0
+  Min : 312
+  Max : 663
+Game 1449
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 446.43
+  Median: 400.0
+  Min : 326
+  Max : 650
+Game 1450
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 418.80
+  Median: 390.0
+  Min : 294
+  Max : 641
+Game 1451
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 454.50
+  Median: 398.0
+  Min : 363
+  Max : 672
+Game 1452
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 431.40
+  Median: 376.0
+  Min : 327
+  Max : 661
+Game 1453
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 473.06
+  Median: 403.0
+  Min : 330
+  Max : 1112
+Game 1454
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 453.25
+  Median: 409.0
+  Min : 352
+  Max : 667
+Game 1455
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 499.73
+  Median: 391.0
+  Min : 341
+  Max : 1250
+Game 1456
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 440.67
+  Median: 388.0
+  Min : 351
+  Max : 664
+Game 1457
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 465.56
+  Median: 384.5
+  Min : 309
+  Max : 1192
+Game 1458
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 440.31
+  Median: 394.0
+  Min : 346
+  Max : 657
+Game 1459
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 414.00
+  Median: 384.5
+  Min : 304
+  Max : 659
+Game 1460
+--------------------
+Total rounds: 34
+Iterations per round:
+  Mean: 382.94
+  Median: 365.5
+  Min : 211
+  Max : 651
+Game 1461
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 427.14
+  Median: 388.5
+  Min : 299
+  Max : 658
+Game 1462
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 436.43
+  Median: 376.0
+  Min : 330
+  Max : 990
+Game 1463
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 429.35
+  Median: 396.0
+  Min : 316
+  Max : 644
+Game 1464
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 437.35
+  Median: 386.0
+  Min : 290
+  Max : 1114
+Game 1465
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 452.40
+  Median: 405.0
+  Min : 344
+  Max : 654
+Game 1466
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 415.19
+  Median: 377.5
+  Min : 333
+  Max : 655
+Game 1467
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 451.14
+  Median: 407.0
+  Min : 324
+  Max : 660
+Game 1468
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 445.13
+  Median: 394.0
+  Min : 341
+  Max : 650
+Game 1469
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 417.00
+  Median: 376.0
+  Min : 308
+  Max : 651
+Game 1470
+--------------------
+Total rounds: 29
+Iterations per round:
+  Mean: 396.69
+  Median: 380.0
+  Min : 284
+  Max : 651
+Game 1471
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 408.42
+  Median: 381.0
+  Min : 296
+  Max : 667
+Game 1472
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 453.00
+  Median: 404.0
+  Min : 353
+  Max : 681
+Game 1473
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 466.07
+  Median: 418.0
+  Min : 367
+  Max : 658
+Game 1474
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 470.79
+  Median: 433.0
+  Min : 359
+  Max : 677
+Game 1475
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 434.31
+  Median: 393.0
+  Min : 320
+  Max : 663
+Game 1476
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 449.07
+  Median: 416.0
+  Min : 350
+  Max : 655
+Game 1477
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 427.60
+  Median: 401.0
+  Min : 309
+  Max : 663
+Game 1478
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 437.78
+  Median: 432.5
+  Min : 302
+  Max : 657
+Game 1479
+--------------------
+Total rounds: 32
+Iterations per round:
+  Mean: 454.88
+  Median: 449.5
+  Min : 266
+  Max : 1069
+Game 1480
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 501.24
+  Median: 494.0
+  Min : 375
+  Max : 675
+Game 1481
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 519.35
+  Median: 439.0
+  Min : 376
+  Max : 1121
+Game 1482
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 494.88
+  Median: 492.5
+  Min : 347
+  Max : 652
+Game 1483
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 488.29
+  Median: 436.0
+  Min : 361
+  Max : 1141
+Game 1484
+--------------------
+Total rounds: 21
+Iterations per round:
+  Mean: 488.81
+  Median: 501.0
+  Min : 346
+  Max : 650
+Game 1485
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 474.10
+  Median: 479.5
+  Min : 339
+  Max : 674
+Game 1486
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 487.05
+  Median: 486.0
+  Min : 388
+  Max : 656
+Game 1487
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 498.31
+  Median: 497.0
+  Min : 397
+  Max : 659
+Game 1488
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 502.12
+  Median: 500.0
+  Min : 376
+  Max : 655
+Game 1489
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 459.25
+  Median: 424.5
+  Min : 319
+  Max : 661
+Game 1490
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 481.83
+  Median: 468.0
+  Min : 348
+  Max : 668
+Game 1491
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 477.22
+  Median: 469.0
+  Min : 348
+  Max : 671
+Game 1492
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 473.75
+  Median: 468.5
+  Min : 346
+  Max : 656
+Game 1493
+--------------------
+Total rounds: 33
+Iterations per round:
+  Mean: 486.06
+  Median: 456.0
+  Min : 287
+  Max : 1160
+Game 1494
+--------------------
+Total rounds: 36
+Iterations per round:
+  Mean: 435.58
+  Median: 375.5
+  Min : 300
+  Max : 1154
+Game 1495
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 464.25
+  Median: 434.5
+  Min : 368
+  Max : 676
+Game 1496
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 430.20
+  Median: 406.0
+  Min : 310
+  Max : 663
+Game 1497
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 476.56
+  Median: 458.0
+  Min : 344
+  Max : 701
+Game 1498
+--------------------
+Total rounds: 11
+Iterations per round:
+  Mean: 525.64
+  Median: 539.0
+  Min : 418
+  Max : 660
+Game 1499
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 518.67
+  Median: 536.0
+  Min : 427
+  Max : 656
+Game 1500
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 509.29
+  Median: 520.5
+  Min : 387
+  Max : 658
+Game 1501
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 471.39
+  Median: 450.5
+  Min : 366
+  Max : 651
+Game 1502
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 498.14
+  Median: 492.0
+  Min : 383
+  Max : 654
+Game 1503
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 458.41
+  Median: 430.0
+  Min : 347
+  Max : 673
+Game 1504
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 516.00
+  Median: 488.0
+  Min : 357
+  Max : 1063
+Game 1505
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 460.11
+  Median: 425.5
+  Min : 351
+  Max : 695
+Game 1506
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 462.85
+  Median: 427.0
+  Min : 365
+  Max : 679
+Game 1507
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 463.95
+  Median: 418.0
+  Min : 370
+  Max : 684
+Game 1508
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 492.11
+  Median: 495.0
+  Min : 359
+  Max : 652
+Game 1509
+--------------------
+Total rounds: 11
+Iterations per round:
+  Mean: 530.73
+  Median: 558.0
+  Min : 404
+  Max : 653
+Game 1510
+--------------------
+Total rounds: 18
+Iterations per round:
+  Mean: 506.28
+  Median: 500.0
+  Min : 369
+  Max : 653
+Game 1511
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 468.55
+  Median: 453.0
+  Min : 340
+  Max : 668
+Game 1512
+--------------------
+Total rounds: 23
+Iterations per round:
+  Mean: 457.04
+  Median: 441.0
+  Min : 339
+  Max : 652
+Game 1513
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 494.00
+  Median: 469.0
+  Min : 390
+  Max : 651
+Game 1514
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 470.65
+  Median: 464.0
+  Min : 343
+  Max : 652
+Game 1515
+--------------------
+Total rounds: 30
+Iterations per round:
+  Mean: 489.97
+  Median: 429.5
+  Min : 311
+  Max : 1038
+Game 1516
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 481.27
+  Median: 450.0
+  Min : 372
+  Max : 656
+Game 1517
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 481.35
+  Median: 467.0
+  Min : 340
+  Max : 669
+Game 1518
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 528.79
+  Median: 545.5
+  Min : 399
+  Max : 665
+Game 1519
+--------------------
+Total rounds: 24
+Iterations per round:
+  Mean: 474.62
+  Median: 418.5
+  Min : 357
+  Max : 1212
+Game 1520
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 501.13
+  Median: 520.0
+  Min : 373
+  Max : 654
+Game 1521
+--------------------
+Total rounds: 17
+Iterations per round:
+  Mean: 491.35
+  Median: 466.0
+  Min : 397
+  Max : 658
+Game 1522
+--------------------
+Total rounds: 38
+Iterations per round:
+  Mean: 456.89
+  Median: 425.0
+  Min : 315
+  Max : 1210
+Game 1523
+--------------------
+Total rounds: 16
+Iterations per round:
+  Mean: 456.12
+  Median: 446.0
+  Min : 294
+  Max : 671
+Game 1524
+--------------------
+Total rounds: 14
+Iterations per round:
+  Mean: 501.64
+  Median: 493.0
+  Min : 405
+  Max : 665
+Game 1525
+--------------------
+Total rounds: 19
+Iterations per round:
+  Mean: 533.37
+  Median: 477.0
+  Min : 378
+  Max : 1240
+Game 1526
+--------------------
+Total rounds: 15
+Iterations per round:
+  Mean: 491.53
+  Median: 444.0
+  Min : 356
+  Max : 683
+Game 1527
+--------------------
+Total rounds: 20
+Iterations per round:
+  Mean: 452.35
+  Median: 437.5
+  Min : 328
+  Max : 680
+
+OVERALL AVERAGES (Across Games)
+==============================
+Iterations per round (game-averaged):
+  Median: 434.00
+  Min: 50
+  Max: 1413

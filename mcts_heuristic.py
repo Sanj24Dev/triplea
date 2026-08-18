@@ -20,7 +20,7 @@ ROLLOUT_REC = f"{MODEL_NAME}/metrics/rollout_efficiency.csv"
 PLAYERINFO_REC = f"{MODEL_NAME}/metrics/player_info.csv"
 TREE_INFO_REC = f"{MODEL_NAME}/metrics/tree_info.csv"
 
-NUM_GAMES = 300
+NUM_GAMES = 50
 
 
 def start_agent(player_name, port, g_num, opponent):
@@ -30,7 +30,7 @@ def start_agent(player_name, port, g_num, opponent):
             "python3", "-u", "game_mcts.py",
             "--model_name", MODEL_NAME,
             "--game_num", str(g_num),
-            # "--player_name", player_name,
+            "--player_name", player_name,
             # "--port", str(port),
             "--reduction_file", REDUCTION_REC,
             "--efficiency_file", EFFICIENCY_REC,
@@ -183,56 +183,56 @@ player_ids = [0, 1, 2, 3]
 
 p_id = int(os.environ.get("PLAYER_ID", "0"))
 g_num = int(data["START_GAME_NUM"])
-# for p2 in player_ids:
-#     if p_id != p2:
-#         disabled = [p for p in player_ids if p not in (p_id, p2)]
-#         os.environ["DISABLED"] = str(disabled)
-#         print(f"\nPlaying {NUM_GAMES} games as player: {players[p_id]} vs {players[p2]} with disabled: {disabled}")
-#         for i in range(1, NUM_GAMES + 1):
-#             # the index of player in players * number of games per player gives the first game ID for that player
-#             # first_game_id_for_player = NUM_GAMES * (p_id + c_id)
-#             # g_num = first_game_id_for_player + i
-#             print(f"\nStarting Game {g_num}")
-#             p = start_agent(players[p_id], 5000, g_num, players[p2])
+for p2 in player_ids:
+    if p_id != p2:
+        disabled = [p for p in player_ids if p not in (p_id, p2)]
+        os.environ["DISABLED"] = str(disabled)
+        print(f"\nPlaying {NUM_GAMES} games as player: {players[p_id]} vs {players[p2]} with disabled: {disabled}")
+        for i in range(1, NUM_GAMES + 1):
+            # the index of player in players * number of games per player gives the first game ID for that player
+            # first_game_id_for_player = NUM_GAMES * (p_id + c_id)
+            # g_num = first_game_id_for_player + i
+            print(f"\nStarting Game {g_num}")
+            p = start_agent(players[p_id], 5000, g_num, players[p2])
 
             
-#             time.sleep(5)
+            time.sleep(5)
 
-#             log = open(f"{MODEL_NAME}/player_logs/game.log", "w")
-#             subprocess.run(["python3", "play_game.py"], stdout=log, stderr=log)
+            log = open(f"{MODEL_NAME}/player_logs/game.log", "w")
+            subprocess.run(["python3", "play_game.py"], stdout=log, stderr=log)
 
-#             print(f"Game {g_num} finished.")
-#             time.sleep(2)
+            print(f"Game {g_num} finished.")
+            time.sleep(2)
 
-#             stop_process(p, 5000)
-#             # time.sleep(5)
-#             save_profile()
-#             g_num = g_num + 1
+            stop_process(p, 5000)
+            # time.sleep(5)
+            save_profile()
+            g_num = g_num + 1
 
 
-disabled = []
-os.environ["DISABLED"] = str(disabled)
-print(f"\nPlaying {NUM_GAMES} games as player: {players[p_id]}")
-for i in range(1, NUM_GAMES + 1):
-    # the index of player in players * number of games per player gives the first game ID for that player
-    # first_game_id_for_player = NUM_GAMES * (p_id + c_id)
-    # g_num = first_game_id_for_player + i
-    print(f"\nStarting Game {g_num}")
-    p = start_agent(players[p_id], 5000, g_num, "rest")
+# disabled = []
+# os.environ["DISABLED"] = str(disabled)
+# print(f"\nPlaying {NUM_GAMES} games as player: {players[p_id]}")
+# for i in range(1, NUM_GAMES + 1):
+#     # the index of player in players * number of games per player gives the first game ID for that player
+#     # first_game_id_for_player = NUM_GAMES * (p_id + c_id)
+#     # g_num = first_game_id_for_player + i
+#     print(f"\nStarting Game {g_num}")
+#     p = start_agent(players[p_id], 5000, g_num, "rest")
 
     
-    time.sleep(5)
+#     time.sleep(5)
 
-    log = open(f"{MODEL_NAME}/player_logs/game.log", "w")
-    subprocess.run(["python3", "play_game.py"], stdout=log, stderr=log)
+#     log = open(f"{MODEL_NAME}/player_logs/game.log", "w")
+#     subprocess.run(["python3", "play_game.py"], stdout=log, stderr=log)
 
-    print(f"Game {g_num} finished.")
-    time.sleep(2)
+#     print(f"Game {g_num} finished.")
+#     time.sleep(2)
 
-    stop_process(p, 5000)
-    # time.sleep(5)
-    save_profile()
-    g_num = g_num + 1
+#     stop_process(p, 5000)
+#     # time.sleep(5)
+#     save_profile()
+#     g_num = g_num + 1
         
 data["START_GAME_NUM"] = str(g_num)
 with open("config.json", 'w') as f:

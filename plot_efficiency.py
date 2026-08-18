@@ -224,3 +224,27 @@ with open(summary_path, "w") as f:
     f.writelines(summary_lines)
 
 print(f"Summary written to {summary_path}")
+
+
+fig, ax = plt.subplots(figsize=(10, 6))
+mean_value = agg["value"].mean()
+p25_value = agg["value"].quantile(0.25)
+p75_value = agg["value"].quantile(0.75)
+ax.plot(mean_value.index, mean_value.values, label="Mean", marker='o')
+ax.fill_between(
+    mean_value.index,
+    p25_value.values,
+    p75_value.values,
+    alpha=0.3,
+    label="25–75 percentile"
+)
+ax.set_title("Root node value per Round (Across Games)", fontsize=13)
+ax.set_ylabel("Value", fontsize=13)
+ax.set_xlabel("Round", fontsize=13)
+ax.legend()
+
+plt.tight_layout()
+plt.savefig(f"{FOLDER}/agg_root_node_value.png")
+plt.close()
+
+

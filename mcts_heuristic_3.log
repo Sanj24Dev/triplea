@@ -1,6 +1,910 @@
-Games started at 2026-08-06 14:32:47
+Games started at 2026-08-18 04:33:25
 Data successfully extracted and saved to gameInfo/Capture The Flag.json
 
-Playing 1 games as player: Chinese
+Playing 50 games as player: Chinese vs Russians with disabled: [1, 2]
 
-Starting Game 1201
+Starting Game 1378
+Game 1378 finished.
+Process 251843 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1379
+Game 1379 finished.
+Process 256121 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1380
+Game 1380 finished.
+Process 259447 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1381
+Game 1381 finished.
+Process 265220 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1382
+Game 1382 finished.
+Process 269649 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1383
+Game 1383 finished.
+Process 274086 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1384
+Game 1384 finished.
+Process 282588 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1385
+Game 1385 finished.
+Process 287846 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1386
+Game 1386 finished.
+Process 293248 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1387
+Game 1387 finished.
+Process 296082 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1388
+Game 1388 finished.
+Process 299629 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1389
+Game 1389 finished.
+Process 303116 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1390
+Game 1390 finished.
+Process 307500 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1391
+Game 1391 finished.
+Process 315636 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1392
+Game 1392 finished.
+Process 321008 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1393
+Game 1393 finished.
+Process 326487 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1394
+Game 1394 finished.
+Process 331668 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1395
+Game 1395 finished.
+Process 335786 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1396
+Game 1396 finished.
+Process 339414 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1397
+Game 1397 finished.
+Process 343781 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1398
+Game 1398 finished.
+Process 348345 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1399
+Game 1399 finished.
+Process 354356 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1400
+Game 1400 finished.
+Process 358006 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1401
+Game 1401 finished.
+Process 361617 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1402
+Game 1402 finished.
+Process 366886 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1403
+Game 1403 finished.
+Process 371148 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1404
+Game 1404 finished.
+Process 378074 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1405
+Game 1405 finished.
+Process 380950 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1406
+Game 1406 finished.
+Process 387412 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1407
+Game 1407 finished.
+Process 393265 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1408
+Game 1408 finished.
+Process 397605 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1409
+Game 1409 finished.
+Process 409820 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1410
+Game 1410 finished.
+Process 414908 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1411
+Game 1411 finished.
+Process 418046 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1412
+Game 1412 finished.
+Process 426446 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1413
+Game 1413 finished.
+Process 431057 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1414
+Game 1414 finished.
+Process 438383 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1415
+Game 1415 finished.
+Process 443294 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1416
+Game 1416 finished.
+Process 452124 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1417
+Game 1417 finished.
+Process 459864 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1418
+Game 1418 finished.
+Process 464001 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1419
+Game 1419 finished.
+Process 467057 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1420
+Game 1420 finished.
+Process 473631 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1421
+Game 1421 finished.
+Process 480332 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1422
+Game 1422 finished.
+Process 484441 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1423
+Game 1423 finished.
+Process 489400 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1424
+Game 1424 finished.
+Process 494284 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1425
+Game 1425 finished.
+Process 498043 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1426
+Game 1426 finished.
+Process 503722 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1427
+Game 1427 finished.
+Process 510808 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Playing 50 games as player: Chinese vs Italians with disabled: [0, 2]
+
+Starting Game 1428
+Game 1428 finished.
+Process 515366 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1429
+Game 1429 finished.
+Process 519838 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1430
+Game 1430 finished.
+Process 523958 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1431
+Game 1431 finished.
+Process 529251 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1432
+Game 1432 finished.
+Process 534146 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1433
+Game 1433 finished.
+Process 538874 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1434
+Game 1434 finished.
+Process 543676 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1435
+Game 1435 finished.
+Process 548693 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1436
+Game 1436 finished.
+Process 552679 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1437
+Game 1437 finished.
+Process 557416 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1438
+Game 1438 finished.
+Process 562537 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1439
+Game 1439 finished.
+Process 569559 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1440
+Game 1440 finished.
+Process 574196 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1441
+Game 1441 finished.
+Process 578029 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1442
+Game 1442 finished.
+Process 588978 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1443
+Game 1443 finished.
+Process 593963 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1444
+Game 1444 finished.
+Process 598654 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1445
+Game 1445 finished.
+Process 604240 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1446
+Game 1446 finished.
+Process 609502 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1447
+Game 1447 finished.
+Process 613997 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1448
+Game 1448 finished.
+Process 618373 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1449
+Game 1449 finished.
+Process 623833 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1450
+Game 1450 finished.
+Process 627887 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1451
+Game 1451 finished.
+Process 632429 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1452
+Game 1452 finished.
+Process 637098 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1453
+Game 1453 finished.
+Process 641668 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1454
+Game 1454 finished.
+Process 647081 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1455
+Game 1455 finished.
+Process 651898 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1456
+Game 1456 finished.
+Process 656411 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1457
+Game 1457 finished.
+Process 660932 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1458
+Game 1458 finished.
+Process 665382 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1459
+Game 1459 finished.
+Process 670102 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1460
+Game 1460 finished.
+Process 675154 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1461
+Game 1461 finished.
+Process 686284 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1462
+Game 1462 finished.
+Process 690479 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1463
+Game 1463 finished.
+Process 697105 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1464
+Game 1464 finished.
+Process 702036 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1465
+Game 1465 finished.
+Process 708506 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1466
+Game 1466 finished.
+Process 712380 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1467
+Game 1467 finished.
+Process 717087 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1468
+Game 1468 finished.
+Process 721062 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1469
+Game 1469 finished.
+Process 725373 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1470
+Game 1470 finished.
+Process 729724 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1471
+Game 1471 finished.
+Process 738641 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1472
+Game 1472 finished.
+Process 746466 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1473
+Game 1473 finished.
+Process 751365 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1474
+Game 1474 finished.
+Process 755479 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1475
+Game 1475 finished.
+Process 759582 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1476
+Game 1476 finished.
+Process 764276 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1477
+Game 1477 finished.
+Process 768790 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Playing 50 games as player: Chinese vs Germans with disabled: [0, 1]
+
+Starting Game 1478
+Game 1478 finished.
+Process 773610 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1479
+Game 1479 finished.
+Process 779295 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1480
+Game 1480 finished.
+Process 787867 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1481
+Game 1481 finished.
+Process 791404 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1482
+Game 1482 finished.
+Process 795930 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1483
+Game 1483 finished.
+Process 800012 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1484
+Game 1484 finished.
+Process 806422 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1485
+Game 1485 finished.
+Process 811492 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1486
+Game 1486 finished.
+Process 816555 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1487
+Game 1487 finished.
+Process 821427 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1488
+Game 1488 finished.
+Process 824536 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1489
+Game 1489 finished.
+Process 828014 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1490
+Game 1490 finished.
+Process 833941 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1491
+Game 1491 finished.
+Process 838998 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1492
+Game 1492 finished.
+Process 843555 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1493
+Game 1493 finished.
+Process 847351 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1494
+Game 1494 finished.
+Process 855928 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1495
+Game 1495 finished.
+Process 866143 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1496
+Game 1496 finished.
+Process 870139 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1497
+Game 1497 finished.
+Process 875661 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1498
+Game 1498 finished.
+Process 880092 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1499
+Game 1499 finished.
+Process 882703 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1500
+Game 1500 finished.
+Process 885965 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1501
+Game 1501 finished.
+Process 888932 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1502
+Game 1502 finished.
+Process 892988 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1503
+Game 1503 finished.
+Process 896055 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1504
+Game 1504 finished.
+Process 900233 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1505
+Game 1505 finished.
+Process 904429 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1506
+Game 1506 finished.
+Process 909304 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1507
+Game 1507 finished.
+Process 914204 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1508
+Game 1508 finished.
+Process 919340 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1509
+Game 1509 finished.
+Process 923760 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1510
+Game 1510 finished.
+Process 926299 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1511
+Game 1511 finished.
+Process 930536 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1512
+Game 1512 finished.
+Process 935448 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1513
+Game 1513 finished.
+Process 941855 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1514
+Game 1514 finished.
+Process 945267 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1515
+Game 1515 finished.
+Process 949386 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1516
+Game 1516 finished.
+Process 958089 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1517
+Game 1517 finished.
+Process 962603 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1518
+Game 1518 finished.
+Process 967051 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1519
+Game 1519 finished.
+Process 969992 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1520
+Game 1520 finished.
+Process 976987 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1521
+Game 1521 finished.
+Process 980504 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1522
+Game 1522 finished.
+Process 983761 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1523
+Game 1523 finished.
+Process 994131 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1524
+Game 1524 finished.
+Process 998437 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1525
+Game 1525 finished.
+Process 1001467 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1526
+Game 1526 finished.
+Process 1006015 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Starting Game 1527
+Game 1527 finished.
+Process 1009650 exited cleanly.
+lsof -i:5000 => 
+Profile records saved
+
+Time taken: 6841 seconds
